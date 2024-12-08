@@ -34,7 +34,7 @@ namespace File
     bool ReadFile(const char *name, void *buf, SceSSize size)
     {
         SceUID fd = sceIoOpen(name, SCE_O_RDONLY, SCE_STM_RU);
-        if (fd <= 0)
+        if (fd < 0)
         {
             return false;
         }
@@ -103,8 +103,8 @@ namespace File
 
     bool WriteFile(const char *name, void *buf, SceSSize size)
     {
-        SceUID fd = sceIoOpen(name, SCE_O_CREAT | SCE_O_WRONLY, SCE_STM_RWU);
-        if (fd <= 0)
+        SceUID fd = sceIoOpen(name, SCE_O_CREAT | SCE_O_WRONLY | SCE_O_TRUNC, 0777);
+        if (fd < 0)
         {
             return false;
         }
@@ -118,8 +118,9 @@ namespace File
         bool result = false;
         char *buf = nullptr;
         SceUID src_fd = sceIoOpen(src_path, SCE_O_RDONLY, SCE_STM_RU);
-        SceUID dst_fd = sceIoOpen(dst_path, SCE_O_CREAT | SCE_O_WRONLY, SCE_STM_RWU);
-        if (src_fd <= 0 || dst_fd <= 0)
+        SceUID dst_fd = sceIoOpen(dst_path, SCE_O_CREAT | SCE_O_WRONLY | SCE_O_TRUNC, 0777);
+
+        if (src_fd < 0 || dst_fd < 0)
             goto END;
 
         buf = new char[FILE_BUF_SIZE];
@@ -137,10 +138,10 @@ namespace File
         } while (result && size == FILE_BUF_SIZE);
 
     END:
-        if (src_fd > 0)
+        if (src_fd >= 0)
             sceIoClose(src_fd);
 
-        if (dst_fd > 0)
+        if (dst_fd >= 0)
             sceIoClose(dst_fd);
 
         if (buf)
@@ -151,7 +152,7 @@ namespace File
 
     bool MoveFile(const char *src_path, const char *dst_path)
     {
-        return CopyFile(src_path, dst_path) && Remove(src_path);
+        return sceIoRename(src_path, dst_path) == SCE_OK;
     }
 
     bool GetCreateTime(const char *name, SceDateTime *time)

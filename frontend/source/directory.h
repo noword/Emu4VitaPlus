@@ -31,6 +31,7 @@ public:
     bool BeFound(size_t index);
     const std::string &GetSearchString() const { return _search_str; };
     const std::set<size_t> &GetSearchResults() const { return _search_results; };
+    int GetIndex(const char *name);
 
 private:
     std::vector<DirItem> _items;

@@ -73,6 +73,7 @@ void TabBrowser::SetInputHooks(Input *input)
     input->SetKeyUpCallback(SCE_CTRL_SQUARE, std::bind(&TabBrowser::_OnKeySquare, this, input));
     input->SetKeyUpCallback(SCE_CTRL_START, std::bind(&TabBrowser::_OnKeyStart, this, input));
     input->SetKeyUpCallback(SCE_CTRL_SELECT, std::bind(&TabBrowser::_OnKeySelect, this, input));
+    _input = input;
 }
 
 void TabBrowser::UnsetInputHooks(Input *input)
@@ -89,10 +90,21 @@ void TabBrowser::Show(bool selected)
 {
     if (_text_dialog != nullptr && _text_dialog->GetStatus())
     {
-        const char *s = _text_dialog->GetInput();
-        if (*s)
+        if (_cmd == CMD_RENAME)
         {
-            _Search(s);
+            std::string src_path = _GetCurrentFullPath();
+            const char *dst_path = _text_dialog->GetInput();
+            File::MoveFile(src_path.c_str(), dst_path);
+            _directory->Refresh();
+            _cmd = 0xff;
+        }
+        else
+        {
+            const char *s = _text_dialog->GetInput();
+            if (*s)
+            {
+                _Search(s);
+            }
         }
 
         delete _text_dialog;
@@ -327,6 +339,7 @@ void TabBrowser::_OnKeySelect(Input *input)
     if (_dialog)
     {
         delete _dialog;
+        _dialog = nullptr;
     }
 
     std::vector<LanguageString> options;
@@ -391,7 +404,30 @@ void TabBrowser::_OnDialog(Input *input, int index)
 
     case CMD_RENAME:
         LogDebug("Rename");
+        if (_index >= _directory->GetSize())
+        {
+            break;
+        }
+
+        if (_text_dialog != nullptr)
+        {
+            delete _text_dialog;
+        }
+
+        _text_dialog = new InputTextDialog(TEXT(LANG_SEARCH), _directory->GetItemName(_index).c_str());
+        if (_text_dialog->Init())
+        {
+            _input = input;
+            UnsetInputHooks(input);
+        }
+        else
+        {
+            delete _text_dialog;
+            _text_dialog = nullptr;
+        }
+
         break;
+
     default:
         break;
     }
@@ -405,6 +441,7 @@ void TabBrowser::_OnConfirmDialog(Input *input, int index)
         return;
     }
 
+    LogDebug("_cmd %d", _cmd);
     switch (_cmd)
     {
     case CMD_PASTE:
@@ -414,8 +451,20 @@ void TabBrowser::_OnConfirmDialog(Input *input, int index)
 
     case CMD_DELETE:
         LogDebug("Delete");
-        File::Remove(_GetCurrentFullPath().c_str());
-        _directory->Refresh();
+        {
+            const std::string path = _GetCurrentFullPath();
+            if (File::Remove(path.c_str()))
+            {
+                _clipboard.Reset();
+                _directory->Refresh();
+                _Update();
+                gUi->SetHint((std::string(TEXT(LANG_DELETED)) + "\n" + path).c_str());
+            }
+            else
+            {
+                gUi->SetHint((std::string(TEXT(LANG_DELETION_FAILED)) + "\n" + path).c_str());
+            }
+        }
         break;
 
     default:
@@ -425,6 +474,8 @@ void TabBrowser::_OnConfirmDialog(Input *input, int index)
 
 void TabBrowser::_PasteFile(bool overwrite)
 {
+    LogFunctionName;
+
     if (_clipboard.path.empty())
     {
         return;
@@ -432,6 +483,14 @@ void TabBrowser::_PasteFile(bool overwrite)
 
     std::string name = File::GetName(_clipboard.path.c_str());
     std::string dst_path = _directory->GetCurrentPath() + "/" + name;
+
+    if (_clipboard.path == dst_path)
+    {
+        LogWarn("Cannot paste in the same directory");
+        gUi->SetHint(TEXT(LANG_SAME_DIR_WARN));
+        return;
+    }
+
     if (File::Exist(dst_path.c_str()) && !overwrite)
     {
         _confirm_dialog->SetText(std::string(TEXT(LANG_OVERWRITE_FILE_CONFIRM)) + "\n" + dst_path);
@@ -439,12 +498,23 @@ void TabBrowser::_PasteFile(bool overwrite)
         return;
     }
 
-    File::CopyFile(_clipboard.path.c_str(), dst_path.c_str());
-    if (_cmd == CMD_CUT)
+    if (_clipboard.cut)
     {
-        File::Remove(_clipboard.path.c_str());
+        LogDebug("cut");
+        if (File::Exist(dst_path.c_str()))
+            File::Remove(dst_path.c_str());
+        File::MoveFile(_clipboard.path.c_str(), dst_path.c_str());
     }
+    else
+    {
+        LogDebug("copy");
+        File::CopyFile(_clipboard.path.c_str(), dst_path.c_str());
+    }
+
+    _clipboard.Reset();
     _directory->Refresh();
+    _index = _directory->GetIndex(name.c_str());
+    _Update();
 }
 
 void TabBrowser::_UpdateTexture()
@@ -621,7 +691,6 @@ void TabBrowser::_OnKeyTriangle(Input *input)
     _text_dialog = new InputTextDialog(TEXT(LANG_SEARCH));
     if (_text_dialog->Init())
     {
-        _input = input;
         UnsetInputHooks(input);
     }
     else

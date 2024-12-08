@@ -213,3 +213,18 @@ bool Directory::BeFound(size_t index)
 {
     return _search_results.find(index) != _search_results.end();
 }
+
+int Directory::GetIndex(const char *name)
+{
+    int count = 0;
+    for (const auto &item : _items)
+    {
+        if (item.name == name)
+        {
+            return count;
+        }
+        count++;
+    }
+
+    return -1;
+}

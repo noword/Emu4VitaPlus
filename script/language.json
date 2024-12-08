@@ -782,5 +782,26 @@
         "English": "A file with the same name exists. Overwrite it?",
         "Chinese": "存在同名文件，覆盖吗？",
         "Comments": ""
+    },
+    {
+        "No.": "113",
+        "Tag": "LANG_SAME_DIR_WARN",
+        "English": "Cannot paste in the same directory",
+        "Chinese": "不能粘贴在同一目录下",
+        "Comments": ""
+    },
+    {
+        "No.": "114",
+        "Tag": "LANG_DELETED",
+        "English": "File deleted",
+        "Chinese": "文件已删除",
+        "Comments": ""
+    },
+    {
+        "No.": "115",
+        "Tag": "LANG_DELETION_FAILED",
+        "English": "File deletion failed",
+        "Chinese": "文件删除失败",
+        "Comments": ""
     }
 ]

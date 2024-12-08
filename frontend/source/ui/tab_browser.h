@@ -12,7 +12,7 @@ enum
     CMD_COPY = 0,
     CMD_CUT,
     CMD_DELETE,
-    CMD_RENAME
+    CMD_RENAME,
 };
 
 struct Clipboard
@@ -20,6 +20,7 @@ struct Clipboard
     std::string path;
     bool cut;
     bool Empty() { return path.empty(); };
+    void Reset() { path.clear(); };
 };
 
 class TabBrowser : public TabSeletable
