@@ -33,9 +33,14 @@ set(RETRO_SRC
     "libretro-common/file/config_file.c"
     "libretro-common/file/config_file_userdata.c"
     "libretro-common/rthreads/rthreads.c"
-    "libretro-common/utils/md5.c")
+    "libretro-common/utils/md5.c"
+    "libretro-common/audio/resampler/audio_resampler.c"
+    "libretro-common/audio/resampler/drivers/sinc_resampler.c"
+    "libretro-common/audio/resampler/drivers/nearest_resampler.c"
+    "libretro-common/audio/conversion/s16_to_float.c"
+    "libretro-common/audio/conversion/float_to_s16.c")
 
-include_directories("libretro-common/include")
+include_directories(" libretro-common/include ")
 
 add_compile_definitions(VITA HAVE_NEON HAVE_THREADS HAVE_COMPRESSION HAVE_ZLIB HAVE_7ZIP __ARM_NEON__)
 add_library(retro_comm STATIC ${RETRO_SRC})
