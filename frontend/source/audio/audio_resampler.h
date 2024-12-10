@@ -40,7 +40,7 @@ private:
     static int _ResampleThread(SceSize args, void *argp);
 
     uint32_t _in_rate, _out_rate;
-    CircleBuf<int16_t> _in_buf{0x10000};
+    CircleBuf<int16_t> _in_buf{AUDIO_OUTPUT_BUF_SIZE};
     AudioOutput *_output;
     AudioBuf *_out_buf;
 

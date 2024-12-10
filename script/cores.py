@@ -11,6 +11,7 @@ CORES = {
     'WSC': ('mednafen_wswan',),
     'ATARI': ('stella2014', 'prosystem', 'atari800'),
     'DOS': ('dosbox_pure', 'dosbox_svn'),
+    'VECTREX': ('vecx',),
 }
 
 NAMES = {
@@ -42,4 +43,5 @@ NAMES = {
     'snes9x2010': 'Snes9x 2010',
     'stella2014': 'Stella 2014',
     'vba_next': 'VBA Next',
+    'vecx': "vecx",
 }

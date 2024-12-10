@@ -47,7 +47,8 @@ set(CORES
     dosbox_pure
     mame2003_plus
     mame2000
-    mame2003)
+    mame2003
+    vecx)
 
 set(BUILD_LIST "All" "Arch" ${CORES})
 string(REPLACE "|" " " BUILD_LIST_STR ${BUILD_LIST})
