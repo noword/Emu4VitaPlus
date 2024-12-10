@@ -199,14 +199,17 @@ void Emulator::_SetPixelFormat(retro_pixel_format format)
     switch (format)
     {
     case RETRO_PIXEL_FORMAT_0RGB1555:
-        _video_pixel_format = SCE_GXM_TEXTURE_FORMAT_X1U5U5U5_1RGB;
+        _video_pixel_format = SCE_GXM_TEXTURE_FORMAT_A1R5G5B5;
         break;
+
     case RETRO_PIXEL_FORMAT_XRGB8888:
         _video_pixel_format = SCE_GXM_TEXTURE_FORMAT_X8U8U8U8_1RGB;
         break;
+
     case RETRO_PIXEL_FORMAT_RGB565:
         _video_pixel_format = SCE_GXM_TEXTURE_FORMAT_U5U6U5_RGB;
         break;
+
     default:
         LogWarn("  unknown pixel format: %d", format);
         break;
