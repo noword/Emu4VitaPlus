@@ -58,8 +58,9 @@ App::App() : _index_x(0), _index_y(0)
         new CoreButton("ATARI", {{"Stella 2014 (Atari 2600)", "Stella2014"},
                                  {"Atari800 (Atari 5200)", "Atari800"},
                                  {"ProSystem (Atari 7800)", "ProSystem"}}),
-        new CoreButton("NES", {{"FCEUmm", "FCEUmm"},
-                               {"Nestopia", "Nestopia"}}),
+        new CoreButton("VECTREX", {{"vecx", "vecx"}}),
+        new CoreButton("AMIGA", {{"uae4arm", "uae4arm"}}),
+        new CoreButton("NES", {{"FCEUmm", "FCEUmm"}, {"Nestopia", "Nestopia"}}),
         new CoreButton("SNES", {{"Snes9x 2002", "Snes9x2002"},
                                 {"Snes9x 2005", "Snes9x2005"},
                                 {"Snes9x 2010", "Snes9x2010"}}),
@@ -81,7 +82,8 @@ App::App() : _index_x(0), _index_y(0)
                                {"MAME 2000", "MAME2000"},
                                {"MAME 2003", "MAME2003"},
                                {"MAME 2003 Plus", "MAME2003Plus"}}),
-        new CoreButton("DOS", {{"DOS Box SVN", "DOSBoxSVN"}, {"DOS BOX Pure", "DOSBoxPure"}})};
+        new CoreButton("DOS", {{"DOS Box SVN", "DOSBoxSVN"},
+                               {"DOS BOX Pure", "DOSBoxPure"}})};
 
     SetInputHooks(&_input);
 
@@ -144,7 +146,6 @@ void App::_Show()
     My_Imgui_ShowTimePower();
     ImVec2 pos = ImGui::GetWindowPos();
     ImGui::SetCursorPos({pos.x, (ImGui::GetContentRegionMax().y - BUTTON_SIZE * 2) / 2 + 10});
-    ImGui::Columns(_buttons.size() / ROW_COUNT, NULL, false);
     size_t count = 0;
     size_t index = _GetIndex();
     for (auto button : _buttons)
@@ -156,8 +157,12 @@ void App::_Show()
             ImGui::SetScrollHereX(float(count) / float(_buttons.size()));
         }
 
-        ImGui::NextColumn();
         count++;
+
+        if (count != _buttons.size() / 2)
+        {
+            ImGui::SameLine();
+        }
     }
 
     ImGui::End();

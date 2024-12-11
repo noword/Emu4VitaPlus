@@ -1,0 +1,150 @@
+
+EMU      = $(CORE_DIR)/src
+LIBUTILS = $(CORE_DIR)/utils
+LIBRETRO = $(CORE_DIR)/libretro
+DEPS_DIR = $(CORE_DIR)/deps
+
+INCFLAGS := -I$(EMU) -I$(LIBRETRO)/osdep -I$(EMU)/include -I$(LIBRETRO) \
+	-I$(LIBRETRO)/libco -I$(LIBRETRO)/core -I$(LIBUTILS) -I$(DEPS_DIR)/zlib
+
+INCFLAGS += -I$(CORE_DIR)/libretro/libco \
+	-I$(CORE_DIR)/libretro/core \
+	-I$(CORE_DIR)/libretro/include \
+	-I$(CORE_DIR)/libretro \
+	-I$(CORE_DIR) 
+
+OBJS =	\
+	$(EMU)/audio.o \
+	$(EMU)/aros.rom.o \
+	$(EMU)/autoconf.o \
+	$(EMU)/blitfunc.o \
+	$(EMU)/blittable.o \
+	$(EMU)/blitter.o \
+	$(EMU)/cfgfile.o \
+	$(EMU)/cia.o \
+	$(EMU)/crc32.o \
+	$(EMU)/custom.o \
+	$(EMU)/disk.o \
+	$(EMU)/drawing.o \
+	$(EMU)/ersatz.o \
+	$(EMU)/expansion.o \
+	$(EMU)/filesys.o \
+	$(EMU)/fpp.o \
+	$(EMU)/fsdb.o \
+	$(EMU)/fsdb_unix.o \
+	$(EMU)/fsusage.o \
+	$(EMU)/gfxutil.o \
+	$(EMU)/hardfile.o \
+	$(EMU)/inputdevice.o \
+	$(EMU)/keybuf.o \
+	$(EMU)/main.o \
+	$(EMU)/memory.o \
+	$(EMU)/missing.o \
+	$(EMU)/native2amiga.o \
+	$(EMU)/savestate.o \
+	$(EMU)/traps.o \
+	$(EMU)/uaelib.o \
+	$(EMU)/uaeresource.o \
+	$(EMU)/zfile.o \
+	$(EMU)/zfile_archive.o \
+	$(EMU)/archivers/7z/7zAlloc.o \
+	$(EMU)/archivers/7z/7zBuffer.o \
+	$(EMU)/archivers/7z/7zCrc.o \
+	$(EMU)/archivers/7z/7zDecode.o \
+	$(EMU)/archivers/7z/7zExtract.o \
+	$(EMU)/archivers/7z/7zIn.o \
+	$(EMU)/archivers/7z/7zItem.o \
+	$(EMU)/archivers/7z/7zMethodID.o \
+	$(EMU)/archivers/7z/LzmaDecode.o \
+	$(EMU)/archivers/dms/crc_csum.o \
+	$(EMU)/archivers/dms/getbits.o \
+	$(EMU)/archivers/dms/maketbl.o \
+	$(EMU)/archivers/dms/pfile.o \
+	$(EMU)/archivers/dms/tables.o \
+	$(EMU)/archivers/dms/u_deep.o \
+	$(EMU)/archivers/dms/u_heavy.o \
+	$(EMU)/archivers/dms/u_init.o \
+	$(EMU)/archivers/dms/u_medium.o \
+	$(EMU)/archivers/dms/u_quick.o \
+	$(EMU)/archivers/dms/u_rle.o \
+	$(EMU)/archivers/lha/crcio.o \
+	$(EMU)/archivers/lha/dhuf.o \
+	$(EMU)/archivers/lha/header.o \
+	$(EMU)/archivers/lha/huf.o \
+	$(EMU)/archivers/lha/larc.o \
+	$(EMU)/archivers/lha/lhamaketbl.o \
+	$(EMU)/archivers/lha/lharc.o \
+	$(EMU)/archivers/lha/shuf.o \
+	$(EMU)/archivers/lha/slide.o \
+	$(EMU)/archivers/lha/uae_lha.o \
+	$(EMU)/archivers/lha/util.o \
+	$(EMU)/archivers/lzx/unlzx.o \
+	$(EMU)/archivers/wrp/warp.o \
+	$(EMU)/archivers/zip/unzip.o \
+	$(LIBRETRO)/osdep/support.o 
+
+USE_PICASSO96 := 1
+
+ifeq ($(USE_PICASSO96), 1)
+	OBJS += $(LIBRETRO)/osdep/picasso96.o
+endif
+ifeq ($(HAVE_NEON), 1)
+	OBJS +=  $(LIBRETRO)/osdep/neon_helper.o
+endif
+
+ifdef USE_XFD
+OBJS += $(EMU)/cpu_small.o \
+	$(EMU)/cpuemu_small.o \
+	$(EMU)/cpustbl_small.o \
+	$(EMU)/archivers/xfd/xfd.o
+endif
+
+OBJS += $(EMU)/newcpu.o
+OBJS += $(EMU)/readcpu.o
+OBJS += $(EMU)/cpudefs.o
+OBJS += $(EMU)/cpustbl.o
+OBJS += $(EMU)/cpuemu_0.o
+OBJS += $(EMU)/cpuemu_4.o
+OBJS += $(EMU)/cpuemu_11.o
+OBJS += $(EMU)/jit/compemu.o
+OBJS += $(EMU)/jit/compemu_fpp.o
+OBJS += $(EMU)/jit/compstbl.o
+
+OBJS += $(EMU)/jit/compemu_support.o \
+	$(LIBRETRO)/osdep/fsdb_host.o \
+	$(LIBRETRO)/osdep/joystick.o \
+	$(LIBRETRO)/osdep/keyboard.o \
+	$(LIBRETRO)/osdep/inputmode.o \
+	$(LIBRETRO)/osdep/writelog.o \
+	$(LIBRETRO)/osdep/pandora.o \
+	$(LIBRETRO)/osdep/pandora_filesys.o \
+	$(LIBRETRO)/osdep/retro_gfx.o \
+	$(LIBRETRO)/osdep/pandora_mem.o \
+	$(LIBRETRO)/osdep/sigsegv_handler.o \
+	$(LIBRETRO)/osdep/menu/menu_config.o \
+	$(LIBRETRO)/osdep/thread.o \
+	$(LIBRETRO)/osdep/sound_retro_new.o 
+
+OBJS += \
+	$(CORE_DIR)/libretro/core/libretro-core.o \
+	$(CORE_DIR)/libretro/core/core-mapper.o \
+	$(CORE_DIR)/libretro/core/graph.o \
+	$(CORE_DIR)/libretro/core/vkbd.o 
+
+SOURCES_C += 	 $(LIBRETRO)/libco/libco.c 
+
+SOURCES_C += $(DEPS_DIR)/zlib/adler32.o \
+	$(DEPS_DIR)/zlib/compress.o \
+	$(DEPS_DIR)/zlib/crc32.o \
+	$(DEPS_DIR)/zlib/deflate.o \
+	$(DEPS_DIR)/zlib/gzclose.o \
+	$(DEPS_DIR)/zlib/gzlib.o \
+	$(DEPS_DIR)/zlib/gzread.o \
+	$(DEPS_DIR)/zlib/gzwrite.o \
+	$(DEPS_DIR)/zlib/inffast.o \
+	$(DEPS_DIR)/zlib/inflate.o \
+	$(DEPS_DIR)/zlib/inftrees.o \
+	$(DEPS_DIR)/zlib/trees.o \
+	$(DEPS_DIR)/zlib/uncompr.o \
+	$(DEPS_DIR)/zlib/zutil.o
+

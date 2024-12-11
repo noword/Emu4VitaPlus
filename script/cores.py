@@ -12,6 +12,7 @@ CORES = {
     'ATARI': ('stella2014', 'prosystem', 'atari800'),
     'DOS': ('dosbox_pure', 'dosbox_svn'),
     'VECTREX': ('vecx',),
+    'AMIGA': ('uae4arm',),
 }
 
 NAMES = {
@@ -43,5 +44,6 @@ NAMES = {
     'snes9x2010': 'Snes9x 2010',
     'stella2014': 'Stella 2014',
     'vba_next': 'VBA Next',
-    'vecx': "vecx",
+    'vecx': 'vecx',
+    'uae4arm': 'uae4arm',
 }

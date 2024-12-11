@@ -24,7 +24,7 @@ const char APP_VER_STR[] = _APP_VER_STR;
 const char CONSOLE[] = _CONSOLE;
 const char CONSOLE_DIR[] = "app0:data/" _CONSOLE;
 
-#if defined(ARC_BUILD) || defined(DOS_BUILD)
+#if defined(ARC_BUILD) || defined(DOS_BUILD) || defined(AMIGA_BUILD)
 const bool DEFAULT_ENABLE_REWIND = false;
 const size_t DEFAULT_REWIND_BUF_SIZE = 50;
 #else
@@ -52,7 +52,7 @@ const bool DEFAULT_MOUSE = CONFIG_MOUSE_REAR;
 const bool DEFAULT_MOUSE = CONFIG_MOUSE_DISABLE;
 #endif
 
-#if defined(DOS_BUILD)
+#if defined(DOS_BUILD) || defined(AMIGA_BUILD)
 const bool DEFAULT_AUTO_SAVE = false;
 #else
 const bool DEFAULT_AUTO_SAVE = true;
@@ -125,6 +125,13 @@ const uint8_t RETRO_KEYS[] = {
     RETRO_DEVICE_ID_JOYPAD_B,
     RETRO_DEVICE_ID_JOYPAD_X,
     RETRO_DEVICE_ID_JOYPAD_Y,
+#elif defined(AMIGA_BUILD)
+    RETRO_DEVICE_ID_JOYPAD_A,
+    RETRO_DEVICE_ID_JOYPAD_B,
+    RETRO_DEVICE_ID_JOYPAD_L,
+    RETRO_DEVICE_ID_JOYPAD_R,
+    RETRO_DEVICE_ID_JOYPAD_L2,
+    RETRO_DEVICE_ID_JOYPAD_R2,
 #else
 #error "unknown build"
 #endif
@@ -254,6 +261,19 @@ const std::vector<ControlMapConfig> CONTROL_MAPS = {
     {SCE_CTRL_R1},
     {SCE_CTRL_L2},
     {SCE_CTRL_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
+#elif defined(AMIGA_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2, RETRO_DEVICE_ID_JOYPAD_L2},
+    {SCE_CTRL_R2, RETRO_DEVICE_ID_JOYPAD_R2},
     {SCE_CTRL_L3},
     {SCE_CTRL_R3},
 #else
