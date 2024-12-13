@@ -131,3 +131,7 @@
 	path = cores/uae4arm-libretro
 	url = https://github.com/noword/uae4arm-libretro.git
 	branch = master
+[submodule "deps/zlib-ng"]
+	path = deps/zlib-ng
+	url = https://github.com/zlib-ng/zlib-ng.git
+	branch = stable

@@ -100,6 +100,7 @@ void TabAbout::_InitTexts()
               "",
               TEXT(LANG_EXTERNAL_COMPONENTS),
               "7-Zip (GPL v2.1) https://github.com/mcmilk/7-Zip.git",
+              "zlib-ng (zlib) https://github.com/zlib-ng/zlib-ng",
               "minizip-ng (zlib) https://github.com/zlib-ng/minizip-ng",
               "simpleini (MIT) https://github.com/brofield/simpleini",
               "libretro-common (?) https://github.com/libretro/libretro-common",
