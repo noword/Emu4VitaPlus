@@ -232,18 +232,10 @@ static const ImWchar *get_glyph_ranges(uint32_t language)
     }
 }
 
-static uint32_t get_glyph_ranges_crc32(uint32_t language)
+static uint32_t get_language_crc32(uint32_t language)
 {
-    const ImWchar *glyph_ranges = get_glyph_ranges(language);
-    const ImWchar *p = glyph_ranges;
-    size_t size = 0;
-    while (*p)
-    {
-        p++;
-        size += sizeof(ImWchar);
-    }
-
-    return crc32(0, (uint8_t *)glyph_ranges, size);
+    const char *name = gLanguageNames[language];
+    return crc32(0, (uint8_t *)name, strlen(name));
 }
 
 void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
@@ -255,7 +247,7 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
 
     if (cache_path)
     {
-        snprintf(name, 255, "%s/font_%08x.bin", cache_path, get_glyph_ranges_crc32(language));
+        snprintf(name, 255, "%s/font_%08x.bin", cache_path, get_language_crc32(language));
         if (load_font_cache(name))
         {
             return;

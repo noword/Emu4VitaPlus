@@ -24,7 +24,7 @@ int main(int argc, char *const argv[])
 
     if (*gCorePath)
     {
-        char *const _argv[] = {"arch", NULL};
+        char *const _argv[] = {"--arch", NULL};
         SceInt32 result = sceAppMgrLoadExec(gCorePath, _argv, NULL);
         if (result != SCE_OK)
         {

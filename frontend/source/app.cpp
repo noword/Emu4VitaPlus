@@ -190,7 +190,7 @@ void App::_ParseParams(int argc, char *const argv[])
 {
     for (int i = 0; i < argc; i++)
     {
-        if (strcmp(argv[i], "arch") == 0)
+        if (strcmp(argv[i], "--arch") == 0)
         {
             gConfig->boot_from_arch = true;
         }
