@@ -152,7 +152,8 @@ bool EnvironmentCallback(unsigned cmd, void *data)
 
     case RETRO_ENVIRONMENT_GET_VARIABLE_UPDATE:
         // LogDebug("  cmd: RETRO_ENVIRONMENT_GET_VARIABLE_UPDATE");
-        *(bool *)data = false;
+        *(bool *)data = gEmulator->_core_options_updated;
+        gEmulator->_core_options_updated = false;
         break;
 
     case RETRO_ENVIRONMENT_SET_SUPPORT_NO_GAME:
@@ -256,8 +257,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_GET_FASTFORWARDING:
-        *(bool *)data = gEmulator->_core_options_updated;
-        gEmulator->_core_options_updated = false;
+        *(bool *)data = false;
         break;
 
     case RETRO_ENVIRONMENT_GET_TARGET_REFRESH_RATE:
