@@ -62,6 +62,12 @@ DOS(In testing)
   - [DOS SVN](https://github.com/libretro/dosbox-svn)
   - [DOS Pure](https://github.com/libretro/dosbox-pure)
 
+Vectrex
+  - [vecx](https://github.com/libretro/libretro-vecx)
+  
+Amiga
+ - [uae4arm](https://github.com/libretro/uae4arm-libretro)
+
 # Pre-Compilation Preparation
 ## Windows
 * Install [msys2](https://www.msys2.org/) or [devkitPro](https://github.com/devkitPro/installer/releases)
@@ -126,11 +132,8 @@ The program will automatically search for a `jpg` or `png` image with the same n
 ## Cheats
 The program will find the .cht file of the same name as rom in the rom directory, the `.cheats` directory under the rom directory, and `ux0:/data/EMU4VITAPLUS/[core]/cheats` directory, whichever is found first.
 
-## Instant State
-ux0:/data/EMU4VITAPLUS/[core]/savestates/[rom]
-
 ## Save
-ux0:/data/EMU4VITAPLUS/[core]/savefiles
+ux0:/data/EMU4VITAPLUS/[core]/savefiles/[rom]
 
 ## BIOS
 ux0:/data/EMU4VITAPLUS/system

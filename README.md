@@ -72,6 +72,12 @@ DOS(测试中)
   - [DOS SVN](https://github.com/libretro/dosbox-svn)
   - [DOS Pure](https://github.com/libretro/dosbox-pure)
 
+Vectrex
+  - [vecx](https://github.com/libretro/libretro-vecx)
+  
+Amiga
+ - [uae4arm](https://github.com/libretro/uae4arm-libretro)
+
 # 编译前准备
 ## Windows
 * 安装 [msys2](https://www.msys2.org/) 或 [devkitPro](https://github.com/devkitPro/installer/releases)
@@ -139,11 +145,8 @@ B --> C[./to_json.py]
 ## 遮罩
 程序会读取 ux0:/data/EMU4VITAPLUS/[内核]/overlays 下的 overlays.ini
 
-## 即时存档
-ux0:/data/EMU4VITAPLUS/[内核]/savestates/[rom]
-
 ## 存档
-ux0:/data/EMU4VITAPLUS/[内核]/savefiles
+ux0:/data/EMU4VITAPLUS/[内核]/savefiles/[rom]
 
 ## BIOS
 ux0:/data/EMU4VITAPLUS/system
