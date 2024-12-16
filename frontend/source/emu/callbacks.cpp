@@ -377,8 +377,12 @@ bool EnvironmentCallback(unsigned cmd, void *data)
     }
 
     case RETRO_ENVIRONMENT_GET_SAVESTATE_CONTEXT:
-        LogWarn("  unsupported cmd: RETRO_ENVIRONMENT_GET_SAVESTATE_CONTEXT");
-        return false;
+        // LogDebug("  cmd: RETRO_ENVIRONMENT_GET_SAVESTATE_CONTEXT");
+        if (data)
+        {
+            *(retro_savestate_context *)data = RETRO_SAVESTATE_CONTEXT_NORMAL;
+        }
+        break;
 
     default:
         if (cmd > RETRO_ENVIRONMENT_EXPERIMENTAL)

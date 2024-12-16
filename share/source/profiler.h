@@ -33,6 +33,18 @@ extern Profiler *gProfiler;
 #define BeginProfile(NAME) gProfiler->BeginBlock(NAME);
 #define EndProfile(NAME) gProfiler->EndBlock(NAME);
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+    void StartProfile(const char *name);
+    void StopProfile(const char *name);
+
+#ifdef __cplusplus
+}
+#endif
+
 #else
 
 #define BeginProfile(NAME)
