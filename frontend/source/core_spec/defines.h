@@ -24,6 +24,7 @@ extern const char CORE_FULL_NAME[];
 extern const char APP_VER_STR[];
 extern const char CONSOLE[];
 extern const char CONSOLE_DIR[];
+extern const char CORE_SHORT_NAME[];
 
 extern const uint8_t RETRO_KEYS[];
 extern const size_t RETRO_KEYS_SIZE;
@@ -37,5 +38,6 @@ extern const bool DEFAULT_MOUSE;
 extern const bool DEFAULT_LIGHTGUN;
 extern const bool DEFAULT_AUTO_SAVE;
 extern const bool DEFAULT_INDEPENDENT_CORE_CONFIG;
+extern const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN;
 
 extern const bool IS_ARCADE;

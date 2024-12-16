@@ -37,6 +37,7 @@ namespace Emu4Vita
 
         std::string version;
         bool boot_from_arch;
+        bool reboot_when_loading_again;
         std::string last_rom;
         uint32_t language;
         uint32_t rewind;

@@ -23,6 +23,7 @@ const char CORE_FULL_NAME[] = _CORE_FULL_NAME;
 const char APP_VER_STR[] = _APP_VER_STR;
 const char CONSOLE[] = _CONSOLE;
 const char CONSOLE_DIR[] = "app0:data/" _CONSOLE;
+const char CORE_SHORT_NAME[] = _CORE_SHORT_NAME;
 
 #if defined(ARC_BUILD) || defined(DOS_BUILD) || defined(AMIGA_BUILD)
 const bool DEFAULT_ENABLE_REWIND = false;
@@ -54,8 +55,10 @@ const bool DEFAULT_MOUSE = CONFIG_MOUSE_DISABLE;
 
 #if defined(DOS_BUILD) || defined(AMIGA_BUILD)
 const bool DEFAULT_AUTO_SAVE = false;
+const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = true;
 #else
 const bool DEFAULT_AUTO_SAVE = true;
+const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = false;
 #endif
 
 const uint8_t RETRO_KEYS[] = {

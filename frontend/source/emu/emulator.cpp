@@ -34,7 +34,8 @@ Emulator::Emulator()
       _arcade_manager(nullptr),
       _video_rotation(VIDEO_ROTATION_0),
       _core_options_updated(false),
-      _show_video(true)
+      _show_video(true),
+      _loaded(false)
 {
     retro_get_system_info(&_info);
     sceKernelCreateLwMutex(&_run_mutex, "run_mutex", 0, 0, NULL);
@@ -82,6 +83,13 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
     if (!File::Exist(path))
     {
         return false;
+    }
+
+    if (gConfig->reboot_when_loading_again && _loaded)
+    {
+        _current_name = path;
+        gStatus.Set(APP_STATUS_REBOOT_WITH_LOADING);
+        return true;
     }
 
     gStatus.Set(APP_STATUS_BOOT);
@@ -158,6 +166,14 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
         {
             _rewind_manager.Init();
         }
+
+        if (_LoadCheats(path))
+        {
+            gUi->UpdateCheatOptions();
+            _cheats.Start();
+        }
+
+        _loaded = true;
     }
 
 LOAD_END:
@@ -167,15 +183,7 @@ LOAD_END:
         delete[] buf;
     }
 
-    if (result)
-    {
-        if (_LoadCheats(path))
-        {
-            gUi->UpdateCheatOptions();
-            _cheats.Start();
-        }
-    }
-    else
+    if (!result)
     {
         gUi->SetHint(TEXT(LANG_LOAD_ROM_FAILED));
         gStatus.Set(APP_STATUS_SHOW_UI);

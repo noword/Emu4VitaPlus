@@ -151,6 +151,7 @@ namespace Emu4Vita
         swap_enter = false;
         sim_button = false;
         independent_core_config = DEFAULT_INDEPENDENT_CORE_CONFIG;
+        reboot_when_loading_again = DEFAULT_REBOOT_WHEN_LOADING_AGAIN;
 
         int sys_lang;
         sceAppUtilSystemParamGetInt(SCE_SYSTEM_PARAM_ID_LANG, &sys_lang);

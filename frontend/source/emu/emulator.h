@@ -103,6 +103,7 @@ private:
     void _InitArcadeManager();
 
     std::string _current_name;
+    bool _loaded;
     retro_system_info _info;
     retro_system_av_info _av_info;
 

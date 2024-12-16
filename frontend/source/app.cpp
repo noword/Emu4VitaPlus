@@ -138,8 +138,18 @@ void App::Run()
 {
     LogFunctionName;
     bool running = true;
-    APP_STATUS last_status = APP_STATUS_SHOW_UI;
-    gStatus.Set(APP_STATUS_SHOW_UI);
+    APP_STATUS last_status;
+
+    if (_rom_path.empty())
+    {
+        last_status = APP_STATUS_SHOW_UI;
+        gStatus.Set(last_status);
+    }
+    else
+    {
+        last_status = APP_STATUS_BOOT;
+        gEmulator->LoadRom(_rom_path.c_str(), NULL, 0);
+    }
 
     while (running)
     {
@@ -170,6 +180,23 @@ void App::Run()
         }
         break;
 
+        case APP_STATUS_REBOOT_WITH_LOADING:
+        {
+            char boot[SCE_FIOS_PATH_MAX];
+            if (gConfig->boot_from_arch)
+            {
+                snprintf(boot, SCE_FIOS_PATH_MAX, "app0:eboot_%s.bin", CORE_SHORT_NAME);
+            }
+            else
+            {
+                strcpy(boot, "app0:eboot.bin");
+            }
+            const char *const argv[] = {"--rom", gEmulator->GetCurrentName(), NULL};
+            sceAppMgrLoadExec(boot, (char *const *)argv, NULL);
+            gStatus.Set(APP_STATUS_EXIT);
+        }
+        break;
+
         case APP_STATUS_EXIT:
             running = false;
             break;
@@ -190,9 +217,15 @@ void App::_ParseParams(int argc, char *const argv[])
 {
     for (int i = 0; i < argc; i++)
     {
+        LogDebug("argv[%d]: %s", i, argv[i]);
         if (strcmp(argv[i], "--arch") == 0)
         {
             gConfig->boot_from_arch = true;
+        }
+        else if (strcmp(argv[i], "--rom") == 0)
+        {
+            i++;
+            _rom_path = argv[i];
         }
     }
 }

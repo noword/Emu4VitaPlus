@@ -10,7 +10,8 @@ enum APP_STATUS
     APP_STATUS_SHOW_UI_IN_GAME = 1 << 4,
     APP_STATUS_REWIND_GAME = 1 << 5,
     APP_STATUS_RETURN_ARCH = 1 << 6,
-    APP_STATUS_EXIT = 1 << 7,
+    APP_STATUS_REBOOT_WITH_LOADING = 1 << 7,
+    APP_STATUS_EXIT = 1 << 8,
 };
 
 class AppStatus
@@ -48,4 +49,6 @@ public:
 private:
     bool _IsSaveMode();
     void _ParseParams(int argc, char *const argv[]);
+
+    std::string _rom_path;
 };

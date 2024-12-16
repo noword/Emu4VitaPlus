@@ -34,6 +34,7 @@ add_compile_definitions(
     _APP_DIR_NAME="${CORE_NAME}"
     _APP_TITLE_NAME="${SFO_TITLE_NAME}"
     _CORE_FULL_NAME="${CORE_FULL_NAME}"
+    _CORE_SHORT_NAME="${CORE_SHORT_NAME}"
     _CONSOLE="${CONSOLE}"
 
     # SCE_LIBC_SIZE=0x400000
