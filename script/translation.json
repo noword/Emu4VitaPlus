@@ -1672,5 +1672,479 @@
         "English": "【GBM】2X",
         "Chinese": "【GBM】2倍大小",
         "Comments": ""
+    },
+    {
+        "No.": "276",
+        "English": "CD add-on (MD mode) (Requires Restart)",
+        "Chinese": "CD附加组件（MD模式，需重启）",
+        "Comments": ""
+    },
+    {
+        "No.": "277",
+        "English": "68K Address Error",
+        "Chinese": "68K 地址错误",
+        "Comments": ""
+    },
+    {
+        "No.": "278",
+        "English": "The Mega Drive/Genesis main CPU (Motorola 68000) generates an Address Error exception (crash) when attempting to perform unaligned memory access. Enabling this will simulate this behavior. It should only be disabled when playing ROM hacks, since these are typically developed using less accurate emulators and may rely on invalid RAM access for correct operation.",
+        "Chinese": "Mega Drive/Genesis主CPU（Motorola 68000）在尝试进行未对齐的内存访问时，会触发地址错误异常（导致崩溃）。启用此功能可以模拟这一行为。仅在运行ROM改版时才建议禁用此功能，因为此类改版通常基于精度较低的模拟器开发，可能依赖无效内存访问以确保正常运行。",
+        "Comments": ""
+    },
+    {
+        "No.": "279",
+        "English": "EQ High",
+        "Chinese": "高频",
+        "Comments": ""
+    },
+    {
+        "No.": "280",
+        "English": "Adjust the high range band of the internal audio equalizer.",
+        "Chinese": "调节内部音频均衡器的高频段。",
+        "Comments": ""
+    },
+    {
+        "No.": "281",
+        "English": "EQ Mid",
+        "Chinese": "中频",
+        "Comments": ""
+    },
+    {
+        "No.": "282",
+        "English": "Adjust the middle range band of the internal audio equalizer.",
+        "Chinese": "调节内部音频均衡器的中频段。",
+        "Comments": ""
+    },
+    {
+        "No.": "283",
+        "English": "EQ Low",
+        "Chinese": "低频",
+        "Comments": ""
+    },
+    {
+        "No.": "284",
+        "English": "Adjust the low range band of the internal audio equalizer.",
+        "Chinese": "调节内部音频均衡器的低频段。",
+        "Comments": ""
+    },
+    {
+        "No.": "285",
+        "English": "Enable a low pass audio filter to better simulate the characteristic sound of a Model 1 Mega Drive/Genesis.",
+        "Chinese": "启用低通音频滤波器，更准确地还原第一代Mega Drive/Genesis的经典音效。",
+        "Comments": ""
+    },
+    {
+        "No.": "286",
+        "English": "Blargg NTSC Filter",
+        "Chinese": "Blargg NTSC 滤镜",
+        "Comments": ""
+    },
+    {
+        "No.": "287",
+        "English": "Apply a video filter to mimic various NTSC TV signals.",
+        "Chinese": "启用视频滤镜，模拟不同类型的NTSC电视信号。",
+        "Comments": ""
+    },
+    {
+        "No.": "288",
+        "English": "Monochrome",
+        "Chinese": "黑白",
+        "Comments": ""
+    },
+    {
+        "No.": "289",
+        "English": "Composite",
+        "Chinese": "AV端子",
+        "Comments": ""
+    },
+    {
+        "No.": "290",
+        "English": "S-Video",
+        "Chinese": "S端子",
+        "Comments": ""
+    },
+    {
+        "No.": "291",
+        "English": "Core-Provided Aspect Ratio",
+        "Chinese": "核心提供的显示比例",
+        "Comments": ""
+    },
+    {
+        "No.": "292",
+        "English": "Choose the preferred content aspect ratio. This will only apply when RetroArch's aspect ratio is set to 'Core provided' in the Video settings.",
+        "Chinese": "选择显示比例。仅当RetroArch的视频设置中将比例选项设为“核心提供”时，此设置才会生效。",
+        "Comments": ""
+    },
+    {
+        "No.": "293",
+        "English": "System Boot ROM",
+        "Chinese": "系统启动ROM",
+        "Comments": ""
+    },
+    {
+        "No.": "294",
+        "English": "Use official BIOS/bootloader for emulated hardware, if present in RetroArch's system directory. Displays console-specific start-up sequence/animation, then runs loaded content.",
+        "Chinese": "如果RetroArch的系统目录中存在官方BIOS或引导程序，则使用它来模拟硬件。将显示主机特定的启动序列或动画，然后运行加载的内容。",
+        "Comments": ""
+    },
+    {
+        "No.": "295",
+        "English": "CD Backup Cart BRAM (Requires Restart)",
+        "Chinese": "CD备份卡BRAM（需要重启）",
+        "Comments": ""
+    },
+    {
+        "No.": "296",
+        "English": "When running Sega CD/Mega-CD content, specifies whether to share a single backup ram cart for all games (Per-Cart) or to create a separate backup ram cart for each game (Per-Game).",
+        "Chinese": "在运行Sega CD/Mega-CD内容时，选择是为所有游戏共享一个备份RAM卡（每卡共享），还是为每个游戏创建一个独立的备份RAM卡（每个游戏独立）。",
+        "Comments": ""
+    },
+    {
+        "No.": "297",
+        "English": "CD Backup Cart BRAM Size (Requires Restart)",
+        "Chinese": "CD备份卡BRAM大小（需要重启）",
+        "Comments": ""
+    },
+    {
+        "No.": "298",
+        "English": "Sets the backup ram cart size when running Sega CD/Mega-CD content. Useful when setting the backup ram cart to Per-Game to avoid multiple larger cart sizes.",
+        "Chinese": "设置运行Sega CD/Mega-CD内容时的备份RAM卡大小。此选项在将备份RAM卡设置为每个游戏独立时特别有用，可以避免生成多个较大的卡带。",
+        "Comments": ""
+    },
+    {
+        "No.": "299",
+        "English": "CD Access Time",
+        "Chinese": "CD访问时间",
+        "Comments": ""
+    },
+    {
+        "No.": "300",
+        "English": "Simulate original CD hardware latency when initiating a read or seeking to a specific location on loaded disc. This is required by a few CD games that crash if CD data is available too soon and also fixes CD audio desync issues in some games. Disabling this can be useful with MSU-MD games as it makes CD audio tracks loops more seamless.",
+        "Chinese": "在启动读取或跳转到加载光盘上特定位置时，模拟原始CD硬件的延迟。某些CD游戏需要此功能，因为如果CD数据提前加载，它们会崩溃，同时它还可以修复一些游戏中的CD音频不同步问题。禁用此功能对于MSU-MD游戏非常有用，因为它可以使CD音频轨道的循环更加顺畅。",
+        "Comments": ""
+    },
+    {
+        "No.": "301",
+        "English": "CD Image Cache",
+        "Chinese": "CD镜像缓存",
+        "Comments": ""
+    },
+    {
+        "No.": "302",
+        "English": "Load CD image to memory on startup. CHD supported only. Restart Required.",
+        "Chinese": "在启动时将CD镜像加载到内存中，仅支持CHD格式。需要重启。",
+        "Comments": ""
+    },
+    {
+        "No.": "303",
+        "English": "Show Advanced Audio Volume Settings (Reopen menu)",
+        "Chinese": "显示高级音频音量设置（重新打开菜单）",
+        "Comments": ""
+    },
+    {
+        "No.": "304",
+        "English": "Enable configuration of low-level audio channel parameters. NOTE: Quick Menu must be toggled for this setting to take effect.",
+        "Chinese": "启用低级音频通道参数配置。注意：需要切换快速菜单才能使此设置生效。",
+        "Comments": ""
+    },
+    {
+        "No.": "305",
+        "English": "PSG Tone Channel 0 Volume %",
+        "Chinese": "PSG音调通道0音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "306",
+        "English": "Reduce the volume of the PSG Tone Channel 0.",
+        "Chinese": "降低PSG音调通道0的音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "307",
+        "English": "PSG Tone Channel 1 Volume %",
+        "Chinese": "PSG音调通道1音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "308",
+        "English": "Reduce the volume of the PSG Tone Channel 1.",
+        "Chinese": "降低PSG音调通道1的音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "309",
+        "English": "PSG Tone Channel 2 Volume %",
+        "Chinese": "PSG音调通道2音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "310",
+        "English": "Reduce the volume of the PSG Tone Channel 2.",
+        "Chinese": "降低PSG音调通道2的音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "311",
+        "English": "PSG Noise Channel 3 Volume %",
+        "Chinese": "PSG音调通道3音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "312",
+        "English": "Reduce the volume of the PSG Noise Channel 3.",
+        "Chinese": "降低PSG音调通道3的音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "313",
+        "English": "Mega Drive/Genesis FM Channel 0 Volume %",
+        "Chinese": "Mega Drive/Genesis FM通道0音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "314",
+        "English": "Reduce the volume of the Mega Drive/Genesis FM Channel 0. Only works with MAME FM emulators.",
+        "Chinese": "调低Mega Drive/Genesis FM通道0的音量，仅适用于MAME FM模拟器。",
+        "Comments": ""
+    },
+    {
+        "No.": "315",
+        "English": "Mega Drive/Genesis FM Channel 1 Volume %",
+        "Chinese": "Mega Drive/Genesis FM通道1音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "316",
+        "English": "Reduce the volume of the Mega Drive/Genesis FM Channel 1. Only works with MAME FM emulators.",
+        "Chinese": "调低Mega Drive/Genesis FM通道1的音量，仅适用于MAME FM模拟器。",
+        "Comments": ""
+    },
+    {
+        "No.": "317",
+        "English": "Mega Drive/Genesis FM Channel 2 Volume %",
+        "Chinese": "Mega Drive/Genesis FM通道2音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "318",
+        "English": "Reduce the volume of the Mega Drive/Genesis FM Channel 2. Only works with MAME FM emulators.",
+        "Chinese": "调低Mega Drive/Genesis FM通道2的音量，仅适用于MAME FM模拟器。",
+        "Comments": ""
+    },
+    {
+        "No.": "319",
+        "English": "Mega Drive/Genesis FM Channel 3 Volume %",
+        "Chinese": "Mega Drive/Genesis FM通道3音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "320",
+        "English": "Reduce the volume of the Mega Drive/Genesis FM Channel 3. Only works with MAME FM emulators.",
+        "Chinese": "调低Mega Drive/Genesis FM通道3的音量，仅适用于MAME FM模拟器。",
+        "Comments": ""
+    },
+    {
+        "No.": "321",
+        "English": "Mega Drive/Genesis FM Channel 4 Volume %",
+        "Chinese": "Mega Drive/Genesis FM通道4音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "322",
+        "English": "Reduce the volume of the Mega Drive/Genesis FM Channel 4. Only works with MAME FM emulators.",
+        "Chinese": "调低Mega Drive/Genesis FM通道4的音量，仅适用于MAME FM模拟器。",
+        "Comments": ""
+    },
+    {
+        "No.": "323",
+        "English": "Mega Drive/Genesis FM Channel 5 Volume %",
+        "Chinese": "Mega Drive/Genesis FM通道5音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "324",
+        "English": "Reduce the volume of the Mega Drive/Genesis FM Channel 5. Only works with MAME FM emulators.",
+        "Chinese": "调低Mega Drive/Genesis FM通道5的音量，仅适用于MAME FM模拟器。",
+        "Comments": ""
+    },
+    {
+        "No.": "325",
+        "English": "Master System FM (YM2413) Channel 0 Volume %",
+        "Chinese": "Master System FM（YM2413）通道0音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "326",
+        "English": "Reduce the volume of the Master System FM Channel 0.",
+        "Chinese": "调低Master System FM通道0的音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "327",
+        "English": "Master System FM (YM2413) Channel 1 Volume %",
+        "Chinese": "Master System FM（YM2413）通道1音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "328",
+        "English": "Reduce the volume of the Master System FM Channel 1.",
+        "Chinese": "调低Master System FM通道1的音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "329",
+        "English": "Master System FM (YM2413) Channel 2 Volume %",
+        "Chinese": "Master System FM（YM2413）通道2音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "330",
+        "English": "Reduce the volume of the Master System FM Channel 2.",
+        "Chinese": "调低Master System FM通道2的音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "331",
+        "English": "Master System FM (YM2413) Channel 3 Volume %",
+        "Chinese": "Master System FM（YM2413）通道3音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "332",
+        "English": "Reduce the volume of the Master System FM Channel 3.",
+        "Chinese": "调低Master System FM通道3的音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "333",
+        "English": "Master System FM (YM2413) Channel 4 Volume %",
+        "Chinese": "Master System FM（YM2413）通道4音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "334",
+        "English": "Reduce the volume of the Master System FM Channel 4.",
+        "Chinese": "调低Master System FM通道4的音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "335",
+        "English": "Master System FM (YM2413) Channel 5 Volume %",
+        "Chinese": "Master System FM（YM2413）通道5音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "336",
+        "English": "Reduce the volume of the Master System FM Channel 5.",
+        "Chinese": "调低Master System FM通道5的音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "337",
+        "English": "Master System FM (YM2413) Channel 6 Volume %",
+        "Chinese": "Master System FM（YM2413）通道6音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "338",
+        "English": "Reduce the volume of the Master System FM Channel 6.",
+        "Chinese": "调低Master System FM通道6的音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "339",
+        "English": "Master System FM (YM2413) Channel 7 Volume %",
+        "Chinese": "Master System FM（YM2413）通道7音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "340",
+        "English": "Reduce the volume of the Master System FM Channel 7.",
+        "Chinese": "调低Master System FM通道7的音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "341",
+        "English": "Master System FM (YM2413) Channel 8 Volume %",
+        "Chinese": "Master System FM（YM2413）通道8音量百分比",
+        "Comments": ""
+    },
+    {
+        "No.": "342",
+        "English": "Reduce the volume of the Master System FM Channel 8.",
+        "Chinese": "调低Master System FM通道8的音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "343",
+        "English": "CD-DA Volume",
+        "Chinese": "CD-DA音量",
+        "Comments": ""
+    },
+    {
+        "No.": "344",
+        "English": "Adjust the mixing volume of the emulated CD audio playback output.",
+        "Chinese": "调整模拟CD音频播放输出的混音音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "345",
+        "English": "PCM Volume",
+        "Chinese": "PCM音量",
+        "Comments": ""
+    },
+    {
+        "No.": "346",
+        "English": "Adjust the mixing volume of the emulated Sega CD/Mega-CD RF5C164 PCM sound generator output.",
+        "Chinese": "调整模拟Sega CD/Mega-CD RF5C164 PCM声音生成器的混音音量。",
+        "Comments": ""
+    },
+    {
+        "No.": "347",
+        "English": "Enhanced per-tile vertical scroll",
+        "Chinese": "Enhanced per-tile vertical scroll",
+        "Comments": ""
+    },
+    {
+        "No.": "348",
+        "English": "Allows each individual cell to be scrolled vertically, instead of 16px 2-cell, by averaging out with the vscroll value of the neighbouring cell. This hack only applies to few games that use 2-cell vertical scroll mode.",
+        "Chinese": "Allows each individual cell to be scrolled vertically, instead of 16px 2-cell, by averaging out with the vscroll value of the neighbouring cell. This hack only applies to few games that use 2-cell vertical scroll mode.",
+        "Comments": ""
+    },
+    {
+        "No.": "349",
+        "English": "Enhanced per-tile vertical scroll limit",
+        "Chinese": "Enhanced per-tile vertical scroll limit",
+        "Comments": ""
+    },
+    {
+        "No.": "350",
+        "English": "Only when Enhanced per-tile vertical scroll is enabled. Adjusts the limit of the vertical scroll enhancement. When the vscroll difference between neighbouring tiles is bigger than this limit, the enhancement is disabled.",
+        "Chinese": "Only when Enhanced per-tile vertical scroll is enabled. Adjusts the limit of the vertical scroll enhancement. When the vscroll difference between neighbouring tiles is bigger than this limit, the enhancement is disabled.",
+        "Comments": ""
+    },
+    {
+        "No.": "351",
+        "English": "CPU Speed",
+        "Chinese": "CPU Speed",
+        "Comments": ""
+    },
+    {
+        "No.": "352",
+        "English": "Overclock the emulated CPU. Can reduce slowdown, but may cause glitches.",
+        "Chinese": "Overclock the emulated CPU. Can reduce slowdown, but may cause glitches.",
+        "Comments": ""
+    },
+    {
+        "No.": "353",
+        "English": "System Lock-Ups",
+        "Chinese": "System Lock-Ups",
+        "Comments": ""
+    },
+    {
+        "No.": "354",
+        "English": "Emulate system lock-ups that occur on real hardware when performing illegal address access. This should only be disabled when playing certain demos and homebrew that rely on illegal behavior for correct operation.",
+        "Chinese": "Emulate system lock-ups that occur on real hardware when performing illegal address access. This should only be disabled when playing certain demos and homebrew that rely on illegal behavior for correct operation.",
+        "Comments": ""
     }
 ]

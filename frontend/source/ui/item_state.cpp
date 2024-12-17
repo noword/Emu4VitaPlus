@@ -23,12 +23,12 @@ ItemState::ItemState(State *state)
     _menu_count = sizeof(MENU_TEXT) / sizeof(TEXT_ENUM);
   }
 
-  _dialog = new Dialog("", {LANG_OK, LANG_CANCEL}, std::bind(&ItemState::_OnRun, this, std::placeholders::_1, std::placeholders::_2));
+  _confirm_dialog = new Dialog("", {LANG_OK, LANG_CANCEL}, std::bind(&ItemState::_OnRun, this, std::placeholders::_1, std::placeholders::_2));
 }
 
 ItemState::~ItemState()
 {
-  delete _dialog;
+  delete _confirm_dialog;
 }
 
 void ItemState::Show(bool selected)
@@ -97,7 +97,7 @@ void ItemState::_ShowPopup()
       ImGui::SameLine();
     }
 
-    _dialog->Show();
+    _confirm_dialog->Show();
     ImGui::EndPopup();
   }
 }
@@ -162,15 +162,15 @@ void ItemState::_OnClick(Input *input)
   switch (index)
   {
   case POPUP_SAVE:
-    _dialog->SetText(LANG_SAVE_CONFIRM);
+    _confirm_dialog->SetText(LANG_SAVE_CONFIRM);
     break;
 
   case POPUP_LOAD:
-    _dialog->SetText(LANG_LOAD_CONFIRM);
+    _confirm_dialog->SetText(LANG_LOAD_CONFIRM);
     break;
 
   case POPUP_DELETE:
-    _dialog->SetText(LANG_DELETE_CONFIRM);
+    _confirm_dialog->SetText(LANG_DELETE_CONFIRM);
     break;
 
   default:
@@ -179,7 +179,7 @@ void ItemState::_OnClick(Input *input)
     return;
   }
 
-  _dialog->OnActive(input);
+  _confirm_dialog->OnActive(input);
 }
 
 void ItemState::_OnCancel(Input *input)

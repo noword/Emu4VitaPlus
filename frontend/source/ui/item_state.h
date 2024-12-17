@@ -34,7 +34,7 @@ private:
     virtual void _OnRun(Input *input, int index);
 
     State *_state;
-    Dialog *_dialog;
+    Dialog *_confirm_dialog;
     const TEXT_ENUM *_menu_texts;
     size_t _menu_count;
 };
