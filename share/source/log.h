@@ -79,6 +79,23 @@ const char LogLevelChars[] = "TDIWEFO";
             LogInfo(fmt " (%d)", ##__VA_ARGS__, LOG_COUNT--); \
         }                                                     \
     }
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+    void CLogTrace(const char *fmt, ...);
+    void CLogDebug(const char *fmt, ...);
+    void CLogInfo(const char *fmt, ...);
+    void CLogWarn(const char *fmt, ...);
+    void CLogError(const char *fmt, ...);
+    void CLogFatal(const char *fmt, ...);
+
+#ifdef __cplusplus
+}
+#endif
+
 #else
 #define LogFunctionName
 #define LogFunctionNameLimited

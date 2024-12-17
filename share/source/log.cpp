@@ -50,3 +50,50 @@ void Log::log(int log_level, const char *format, ...)
 	}
 	sceKernelUnlockLwMutex(&_mutex, 1);
 }
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+#define CLOG_INTERFACE(FORMAT, LEVEL)   \
+	{                                   \
+		va_list args;                   \
+		va_start(args, FORMAT);         \
+		gLog->log(LEVEL, FORMAT, args); \
+		va_end(args);                   \
+	}
+
+	void CLogTrace(const char *fmt, ...)
+	{
+		CLOG_INTERFACE(fmt, LOG_LEVEL_TRACE);
+	}
+
+	void CLogDebug(const char *fmt, ...)
+	{
+		CLOG_INTERFACE(fmt, LOG_LEVEL_DEBUG);
+	}
+
+	void CLogInfo(const char *fmt, ...)
+	{
+		CLOG_INTERFACE(fmt, LOG_LEVEL_INFO);
+	}
+
+	void CLogWarn(const char *fmt, ...)
+	{
+		CLOG_INTERFACE(fmt, LOG_LEVEL_WARN);
+	}
+
+	void CLogError(const char *fmt, ...)
+	{
+		CLOG_INTERFACE(fmt, LOG_LEVEL_ERROR);
+	}
+
+	void CLogFatal(const char *fmt, ...)
+	{
+		CLOG_INTERFACE(fmt, LOG_LEVEL_FATAL);
+	}
+
+#ifdef __cplusplus
+}
+#endif

@@ -10,6 +10,7 @@
 #include "defines.h"
 #include "utils.h"
 #include "config.h"
+#include "icons.h"
 
 bool gRunning = true;
 char gCorePath[SCE_FIOS_PATH_MAX] = {0};
@@ -60,14 +61,14 @@ App::App() : _index_x(0), _index_y(0)
                                  {"ProSystem (Atari 7800)", "ProSystem"}}),
         new CoreButton("VECTREX", {{"vecx", "vecx"}}),
         new CoreButton("AMIGA", {{"uae4arm", "uae4arm"}}),
-        new CoreButton("NES", {{"FCEUmm", "FCEUmm"}, {"Nestopia", "Nestopia"}}),
+        new CoreButton("NES", {{"FCEUmm " ICON_STAR, "FCEUmm"}, {"Nestopia", "Nestopia"}}),
         new CoreButton("SNES", {{"Snes9x 2002", "Snes9x2002"},
-                                {"Snes9x 2005", "Snes9x2005"},
+                                {"Snes9x 2005 " ICON_STAR, "Snes9x2005"},
                                 {"Snes9x 2010", "Snes9x2010"}}),
-        new CoreButton("MD", {{"Genesis Plus GX", "GenesisPlusGX"},
+        new CoreButton("MD", {{"Genesis Plus GX " ICON_STAR, "GenesisPlusGX"},
                               {"Genesis Plus GX Wide", "GenesisPlusGXWide"},
                               {"PicoDrive", "PicoDrive"}}),
-        new CoreButton("GBA", {{"gpSP", "gpSP"},
+        new CoreButton("GBA", {{"gpSP " ICON_STAR, "gpSP"},
                                {"VBA Next", "VBANext"},
                                {"mGBA", "mGBA"}}),
         new CoreButton("GBC", {{"Gambatte", "Gambatte"}}),
