@@ -103,7 +103,7 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
     char *buf = nullptr;
     bool result = false;
     const char *_path;
-    if (*entry_name)
+    if (entry_name && *entry_name && crc32)
     {
         _path = _archive_manager.GetCachedPath(crc32, path, entry_name);
     }
