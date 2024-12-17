@@ -9,6 +9,8 @@ const char *DEFAULT_CORE_SETTINGS[][2] =
      {"fbneo-fm-interpolation", "disabled"},
      {"fbneo-sample-interpolation", "disabled"},
      {"fbneo-frameskip-type", "Auto"}};
+#elif defined(DOSBOX_PURE_BUILD)
+    {{"dosbox_pure_cycles", "max"}};
 #else
     {{}};
 #endif
