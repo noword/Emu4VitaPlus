@@ -4,7 +4,7 @@ from PIL import Image, ImageDraw, ImageFont
 from colorthief import ColorThief
 import shutil
 from cores import *
-
+import os
 
 # svg from https://gitlab.com/recalbox/recalbox-themes
 
@@ -116,9 +116,11 @@ def gen_bg(console_name, cores):
     bg.paste(white_bg, (EDGE_WIDTH, EDGE_WIDTH))
     bg.paste(im, mask=im)
     name = f'{console_name}.png'
-    bg.convert('RGB').quantize().save(name, optimize=True)
-    for core in cores:
-        shutil.copy(name, f'../apps/{core}/pkg/sce_sys/livearea/contents/bg.png')
+    bg.convert('RGB').save(name)
+
+    # bg.convert('RGB').quantize().save(name, optimize=True)
+    # for core in cores:
+    #     shutil.copy(name, f'../apps/{core}/pkg/sce_sys/livearea/contents/bg.png')
 
     return dark_color
 
@@ -150,3 +152,16 @@ def gen_startup(console, cores, color):
 for console, cores in CORES.items():
     color = gen_bg(console, cores)
     gen_startup(console, cores, color)
+
+os.environ['PATH'] += os.pathsep + 'C:/Program Files/GIMP 2/bin'
+
+os.system(
+    '''gimp-2.10.exe -idf --batch-interpreter python-fu-eval  -b "import sys;sys.path+=['.'];import apply_filters;apply_filters.apply_filters()"  -b "pdb.gimp_quit(1)"'''
+)
+
+for console, cores in CORES.items():
+    name = f'{console}.png'
+    bg = Image.open(name)
+    bg.quantize().save(name, optimize=True)
+    for core in cores:
+        shutil.copy(name, f'../apps/{core}/pkg/sce_sys/livearea/contents/bg.png')
