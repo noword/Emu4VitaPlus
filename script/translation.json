@@ -2170,5 +2170,263 @@
         "English": "Manual",
         "Chinese": "手动",
         "Comments": ""
+    },
+    {
+        "No.": "359",
+        "English": "FM Preamp Level",
+        "Chinese": "FM前置放大器电平",
+        "Comments": ""
+    },
+    {
+        "No.": "360",
+        "English": "Set the audio preamplifier level of the emulated Mega Drive/Genesis FM sound synthesizer or Sega Mark III/Master System FM Sound Unit.",
+        "Chinese": "调整模拟的Mega Drive/Genesis FM音频合成器或Sega Mark III/Master System FM音频单元的前置放大器电平。",
+        "Comments": ""
+    },
+    {
+        "No.": "361",
+        "English": "Game Gear Extended Screen",
+        "Chinese": "Game Gear扩展屏幕",
+        "Comments": ""
+    },
+    {
+        "No.": "362",
+        "English": "Forces Game Gear titles to run in SMS mode, with an increased resolution of 256x192. May show additional content, but typically displays a border of corrupt/unwanted image data.",
+        "Chinese": "强制Game Gear游戏以SMS模式运行，分辨率提升至256x192。可能会显示额外内容，但边框区域通常会出现损坏或多余的图像数据。",
+        "Comments": ""
+    },
+    {
+        "No.": "363",
+        "English": "Show Light Gun Crosshair",
+        "Chinese": "显示光枪准星",
+        "Comments": ""
+    },
+    {
+        "No.": "364",
+        "English": "Display light gun crosshairs when using the MD Menacer, MD Justifiers and MS Light Phaser input device types.",
+        "Chinese": "在使用MD Menacer、MD Justifiers或MS Light Phaser输入设备时，显示光枪准星。",
+        "Comments": ""
+    },
+    {
+        "No.": "365",
+        "English": "Light Gun Input",
+        "Chinese": "光枪输入",
+        "Comments": ""
+    },
+    {
+        "No.": "366",
+        "English": "Use a mouse-controlled 'Light Gun' or 'Touchscreen' input.",
+        "Chinese": "使用鼠标或触摸屏控制光枪。",
+        "Comments": ""
+    },
+    {
+        "No.": "367",
+        "English": "Invert Mouse Y-Axis",
+        "Chinese": "反转鼠标Y轴",
+        "Comments": ""
+    },
+    {
+        "No.": "368",
+        "English": "Inverts the Y-axis of the MD Mouse input device type.",
+        "Chinese": "反转MD鼠标输入设备的Y轴。",
+        "Comments": ""
+    },
+    {
+        "No.": "369",
+        "English": "LCD Ghosting Filter",
+        "Chinese": "LCD残影滤镜",
+        "Comments": ""
+    },
+    {
+        "No.": "370",
+        "English": "Apply an image 'ghosting' filter to mimic the display characteristics of the Game Gear and Genesis Nomad LCD panels.",
+        "Chinese": "应用“残影”滤镜，模拟Game Gear和Genesis Nomad LCD屏幕的显示效果。",
+        "Comments": ""
+    },
+    {
+        "No.": "371",
+        "English": "Hide Master System Side Borders",
+        "Chinese": "隐藏Master System侧边框",
+        "Comments": ""
+    },
+    {
+        "No.": "372",
+        "English": "Cuts off 8 pixels from either the left side of the screen, or both left and right sides when running Master System games.",
+        "Chinese": "运行Master System游戏时，可裁剪屏幕左侧或左右两侧各8个像素。",
+        "Comments": ""
+    },
+    {
+        "No.": "373",
+        "English": "Cartridge Lock-On",
+        "Chinese": "Cartridge Lock-On",
+        "Comments": ""
+    },
+    {
+        "No.": "374",
+        "English": "Lock-On Technology is a Mega Drive/Genesis feature that allowed an older game to connect to the pass-through port of a special cartridge for extended or altered gameplay. This option specifies which type of special 'lock-on' cartridge to emulate. A corresponding bios file must be present in RetroArch's system directory.",
+        "Chinese": "Lock-On Technology is a Mega Drive/Genesis feature that allowed an older game to connect to the pass-through port of a special cartridge for extended or altered gameplay. This option specifies which type of special 'lock-on' cartridge to emulate. A corresponding bios file must be present in RetroArch's system directory.",
+        "Comments": ""
+    },
+    {
+        "No.": "375",
+        "English": "Low-Pass Filter %",
+        "Chinese": "Low-Pass Filter %",
+        "Comments": ""
+    },
+    {
+        "No.": "376",
+        "English": "Specify the cut-off frequency of the audio low pass filter. A higher value increases the perceived 'strength' of the filter, since a wider range of the high frequency spectrum is attenuated.",
+        "Chinese": "Specify the cut-off frequency of the audio low pass filter. A higher value increases the perceived 'strength' of the filter, since a wider range of the high frequency spectrum is attenuated.",
+        "Comments": ""
+    },
+    {
+        "No.": "377",
+        "English": "Remove Per-Line Sprite Limit",
+        "Chinese": "Remove Per-Line Sprite Limit",
+        "Comments": ""
+    },
+    {
+        "No.": "378",
+        "English": "Removes the original sprite-per-scanline hardware limit. This reduces flickering but can cause visual glitches, as some games exploit the hardware limit to generate special effects.",
+        "Chinese": "Removes the original sprite-per-scanline hardware limit. This reduces flickering but can cause visual glitches, as some games exploit the hardware limit to generate special effects.",
+        "Comments": ""
+    },
+    {
+        "No.": "379",
+        "English": "Borders",
+        "Chinese": "Borders",
+        "Comments": ""
+    },
+    {
+        "No.": "380",
+        "English": "Enable this to display the overscan regions at the top/bottom and/or left/right of the screen. These would normally be hidden by the bezel around the edge of a standard-definition television.",
+        "Chinese": "Enable this to display the overscan regions at the top/bottom and/or left/right of the screen. These would normally be hidden by the bezel around the edge of a standard-definition television.",
+        "Comments": ""
+    },
+    {
+        "No.": "381",
+        "English": "PSG Preamp Level",
+        "Chinese": "PSG Preamp Level",
+        "Comments": ""
+    },
+    {
+        "No.": "382",
+        "English": "Set the audio preamplifier level of the emulated SN76496 4-channel Programmable Sound Generator found in the SG-1000, Sega Mark III, Master System, Game Gear and Mega Drive/Genesis.",
+        "Chinese": "Set the audio preamplifier level of the emulated SN76496 4-channel Programmable Sound Generator found in the SG-1000, Sega Mark III, Master System, Game Gear and Mega Drive/Genesis.",
+        "Comments": ""
+    },
+    {
+        "No.": "383",
+        "English": "System Region",
+        "Chinese": "System Region",
+        "Comments": ""
+    },
+    {
+        "No.": "384",
+        "English": "Specify which region the system is from. For consoles other than the Game Gear, 'PAL' is 50 Hz, while 'NTSC' is 60 Hz. Games may run faster or slower than normal if the incorrect region is selected.",
+        "Chinese": "Specify which region the system is from. For consoles other than the Game Gear, 'PAL' is 50 Hz, while 'NTSC' is 60 Hz. Games may run faster or slower than normal if the incorrect region is selected.",
+        "Comments": ""
+    },
+    {
+        "No.": "385",
+        "English": "Interlaced Mode 2 Output",
+        "Chinese": "Interlaced Mode 2 Output",
+        "Comments": ""
+    },
+    {
+        "No.": "386",
+        "English": "Interlaced Mode 2 allows the Mega Drive/Genesis to output a double height (high resolution) 320x448 image by drawing alternate scan lines each frame (this is used by Sonic the Hedgehog 2 and Combat Cars multiplayer modes). 'Double Field' mimics original hardware, producing a sharp image with flickering/interlacing artifacts. 'Single Field' applies a deinterlacing filter, which stabilizes the image but causes mild blurring.",
+        "Chinese": "Interlaced Mode 2 allows the Mega Drive/Genesis to output a double height (high resolution) 320x448 image by drawing alternate scan lines each frame (this is used by Sonic the Hedgehog 2 and Combat Cars multiplayer modes). 'Double Field' mimics original hardware, producing a sharp image with flickering/interlacing artifacts. 'Single Field' applies a deinterlacing filter, which stabilizes the image but causes mild blurring.",
+        "Comments": ""
+    },
+    {
+        "No.": "387",
+        "English": "Sound Output",
+        "Chinese": "Sound Output",
+        "Comments": ""
+    },
+    {
+        "No.": "388",
+        "English": "Select stereo or mono sound playback.",
+        "Chinese": "Select stereo or mono sound playback.",
+        "Comments": ""
+    },
+    {
+        "No.": "389",
+        "English": "CD System BRAM (Requires Restart)",
+        "Chinese": "CD System BRAM (Requires Restart)",
+        "Comments": ""
+    },
+    {
+        "No.": "390",
+        "English": "When running Sega CD/Mega-CD content, specifies whether to share a single save file between all games from a specific region (Per-BIOS) or to create a separate save file for each game (Per-Game). Note that the Sega CD/Mega-CD has limited internal storage, sufficient only for a handful of titles. To avoid running out of space, the 'Per-Game' setting is recommended.",
+        "Chinese": "When running Sega CD/Mega-CD content, specifies whether to share a single save file between all games from a specific region (Per-BIOS) or to create a separate save file for each game (Per-Game). Note that the Sega CD/Mega-CD has limited internal storage, sufficient only for a handful of titles. To avoid running out of space, the 'Per-Game' setting is recommended.",
+        "Comments": ""
+    },
+    {
+        "No.": "391",
+        "English": "System Hardware",
+        "Chinese": "System Hardware",
+        "Comments": ""
+    },
+    {
+        "No.": "392",
+        "English": "Runs loaded content with a specific emulated console. 'Auto' will select the most appropriate system for the current game.",
+        "Chinese": "Runs loaded content with a specific emulated console. 'Auto' will select the most appropriate system for the current game.",
+        "Comments": ""
+    },
+    {
+        "No.": "393",
+        "English": "Force VDP Mode",
+        "Chinese": "Force VDP Mode",
+        "Comments": ""
+    },
+    {
+        "No.": "394",
+        "English": "Overrides the VDP mode to force it to run at either NTSC 60Hz or PAL 50Hz, regardless of system region.",
+        "Chinese": "Overrides the VDP mode to force it to run at either NTSC 60Hz or PAL 50Hz, regardless of system region.",
+        "Comments": ""
+    },
+    {
+        "No.": "395",
+        "English": "Master System FM (YM2413)",
+        "Chinese": "Master System FM (YM2413)",
+        "Comments": ""
+    },
+    {
+        "No.": "396",
+        "English": "Enable emulation of the FM Sound Unit used by certain Sega Mark III/Master System games for enhanced audio output.",
+        "Chinese": "Enable emulation of the FM Sound Unit used by certain Sega Mark III/Master System games for enhanced audio output.",
+        "Comments": ""
+    },
+    {
+        "No.": "397",
+        "English": "Master System FM (YM2413) Core",
+        "Chinese": "Master System FM (YM2413) Core",
+        "Comments": ""
+    },
+    {
+        "No.": "398",
+        "English": "Select method used to emulate the FM Sound Unit of the Sega Mark III/Master System. 'MAME' option is fast, and runs full speed on most systems. 'Nuked' option is cycle accurate, very high quality, and has substantial CPU requirements.",
+        "Chinese": "Select method used to emulate the FM Sound Unit of the Sega Mark III/Master System. 'MAME' option is fast, and runs full speed on most systems. 'Nuked' option is cycle accurate, very high quality, and has substantial CPU requirements.",
+        "Comments": ""
+    },
+    {
+        "No.": "399",
+        "English": "Mega Drive/Genesis FM",
+        "Chinese": "Mega Drive/Genesis FM",
+        "Comments": ""
+    },
+    {
+        "No.": "400",
+        "English": "Select method used to emulate the FM synthesizer (main sound generator) of the Mega Drive/Genesis. 'MAME' options are fast, and run full speed on most systems. 'Nuked' options are cycle accurate, very high quality, and have substantial CPU requirements. The YM2612 chip is used by the original Model 1 Mega Drive/Genesis. The YM3438 is used in later Mega Drive/Genesis revisions.",
+        "Chinese": "Select method used to emulate the FM synthesizer (main sound generator) of the Mega Drive/Genesis. 'MAME' options are fast, and run full speed on most systems. 'Nuked' options are cycle accurate, very high quality, and have substantial CPU requirements. The YM2612 chip is used by the original Model 1 Mega Drive/Genesis. The YM3438 is used in later Mega Drive/Genesis revisions.",
+        "Comments": ""
+    },
+    {
+        "No.": "401",
+        "English": "Select method used to emulate the FM synthesizer (main sound generator) of the Mega Drive/Genesis. The YM2612 chip is used by the original Model 1 Mega Drive/Genesis. The YM3438 is used in later Mega Drive/Genesis revisions.",
+        "Chinese": "Select method used to emulate the FM synthesizer (main sound generator) of the Mega Drive/Genesis. The YM2612 chip is used by the original Model 1 Mega Drive/Genesis. The YM3438 is used in later Mega Drive/Genesis revisions.",
+        "Comments": ""
     }
 ]
