@@ -1796,7 +1796,7 @@
     {
         "No.": "296",
         "English": "When running Sega CD/Mega-CD content, specifies whether to share a single backup ram cart for all games (Per-Cart) or to create a separate backup ram cart for each game (Per-Game).",
-        "Chinese": "在运行Sega CD/Mega-CD内容时，选择是为所有游戏共享一个备份RAM卡（每卡共享），还是为每个游戏创建一个独立的备份RAM卡（每个游戏独立）。",
+        "Chinese": "在运行Sega CD/Mega-CD内容时，选择是为所有游戏共享一个备份RAM卡（共享），还是为每个游戏创建一个独立的备份RAM卡（每个游戏独立）。",
         "Comments": ""
     },
     {
@@ -2145,6 +2145,30 @@
         "No.": "354",
         "English": "Emulate system lock-ups that occur on real hardware when performing illegal address access. This should only be disabled when playing certain demos and homebrew that rely on illegal behavior for correct operation.",
         "Chinese": "模拟真实硬件在非法地址访问时发生的系统死机现象。建议仅在运行某些依赖非法操作才能正常工作的演示程序或自制软件时，才禁用此功能。",
+        "Comments": ""
+    },
+    {
+        "No.": "355",
+        "English": "Per-Cart",
+        "Chinese": "共享",
+        "Comments": ""
+    },
+    {
+        "No.": "356",
+        "English": "Per-Game",
+        "Chinese": "每个游戏独立",
+        "Comments": ""
+    },
+    {
+        "No.": "357",
+        "English": "Disabled",
+        "Chinese": "禁用",
+        "Comments": ""
+    },
+    {
+        "No.": "358",
+        "English": "Manual",
+        "Chinese": "手动",
         "Comments": ""
     }
 ]
