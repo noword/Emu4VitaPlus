@@ -3,12 +3,14 @@
 #include "item_selectable.h"
 #include "core_options.h"
 #include "log.h"
+#include "file.h"
 
 void ItemCoreOnClick()
 {
     gConfig->Save();
     if (gConfig->independent_core_config && gStatus.Get() == APP_STATUS_SHOW_UI_IN_GAME && *gEmulator->GetCurrentName())
     {
+        File::MakeDirs((std::string(CORE_SAVEFILES_DIR) + "/" + gEmulator->GetCurrentName()).c_str());
         gConfig->core_options.Save((std::string(CORE_SAVEFILES_DIR) + "/" + gEmulator->GetCurrentName() + "/core.ini").c_str());
     }
     gEmulator->CoreOptionUpdate();
