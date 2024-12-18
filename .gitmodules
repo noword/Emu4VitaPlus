@@ -135,3 +135,11 @@
 	path = deps/zlib-ng
 	url = https://github.com/zlib-ng/zlib-ng.git
 	branch = stable
+[submodule "cores/fuse-libretro"]
+	path = cores/fuse-libretro
+	url = https://github.com/libretro/fuse-libretro.git
+	branch = master
+[submodule "cores/neocd_libretro"]
+	path = cores/neocd_libretro
+	url = https://github.com/libretro/neocd_libretro.git
+	branch = master
