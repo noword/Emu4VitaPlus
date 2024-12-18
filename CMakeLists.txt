@@ -91,8 +91,8 @@ add_subdirectory(deps)
 add_subdirectory(share)
 add_subdirectory(frontend)
 
-set(APP_VER "0.09")
-set(SFO_APP_VER "00.09")
+set(APP_VER "0.10")
+set(SFO_APP_VER "00.10")
 
 foreach(core ${CORES})
     if(BUILD STREQUAL "All" OR BUILD STREQUAL "Arch" OR BUILD STREQUAL ${core})

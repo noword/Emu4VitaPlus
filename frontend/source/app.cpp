@@ -185,7 +185,7 @@ void App::Run()
             char boot[SCE_FIOS_PATH_MAX];
             if (gConfig->boot_from_arch)
             {
-                snprintf(boot, SCE_FIOS_PATH_MAX, "app0:eboot_%s.bin", CORE_SHORT_NAME);
+                snprintf(boot, SCE_FIOS_PATH_MAX, "app0:eboot_%s.self", CORE_SHORT_NAME);
             }
             else
             {
