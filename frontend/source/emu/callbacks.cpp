@@ -124,7 +124,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_SET_KEYBOARD_CALLBACK:
-        LogWarn("  unsupported cmd: RETRO_ENVIRONMENT_SET_KEYBOARD_CALLBACK");
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_KEYBOARD_CALLBACK");
         return false;
 
     case RETRO_ENVIRONMENT_SET_DISK_CONTROL_INTERFACE:
@@ -157,11 +157,11 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_SET_SUPPORT_NO_GAME:
-        LogWarn("  unsupported cmd: RETRO_ENVIRONMENT_SET_SUPPORT_NO_GAME");
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_SUPPORT_NO_GAME");
         return false;
 
     case RETRO_ENVIRONMENT_SET_FRAME_TIME_CALLBACK:
-        LogWarn("  unsupported cmd: RETRO_ENVIRONMENT_SET_FRAME_TIME_CALLBACK");
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_FRAME_TIME_CALLBACK");
         return false;
 
     case RETRO_ENVIRONMENT_GET_LOG_INTERFACE:
@@ -210,7 +210,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_SET_SUBSYSTEM_INFO:
-        LogWarn("  unsupported cmd: RETRO_ENVIRONMENT_SET_SUBSYSTEM_INFO");
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_SUBSYSTEM_INFO");
         return false;
 
     case RETRO_ENVIRONMENT_SET_CONTROLLER_INFO:
@@ -219,7 +219,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_SET_MEMORY_MAPS:
-        LogWarn("  unsupported cmd: RETRO_ENVIRONMENT_SET_MEMORY_MAPS");
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_MEMORY_MAPS");
         return false;
 
     case RETRO_ENVIRONMENT_SET_GEOMETRY:
@@ -237,15 +237,15 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS:
-        LogWarn("  unsupported cmd: RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS");
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS");
         return false;
 
     case RETRO_ENVIRONMENT_SET_SERIALIZATION_QUIRKS:
-        LogWarn("  unsupported cmd: RETRO_ENVIRONMENT_SET_SERIALIZATION_QUIRKS");
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_SERIALIZATION_QUIRKS");
         return false;
 
     case RETRO_ENVIRONMENT_GET_VFS_INTERFACE:
-        LogWarn("  unsupported cmd: RETRO_ENVIRONMENT_GET_VFS_INTERFACE");
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_VFS_INTERFACE");
         return false;
 
     case RETRO_ENVIRONMENT_GET_LED_INTERFACE:
@@ -261,7 +261,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_GET_TARGET_REFRESH_RATE:
-        LogWarn("  unsupported cmd: RETRO_ENVIRONMENT_GET_TARGET_REFRESH_RATE");
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_TARGET_REFRESH_RATE");
         return false;
 
     case RETRO_ENVIRONMENT_GET_CORE_OPTIONS_VERSION:
@@ -317,8 +317,8 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_SET_MINIMUM_AUDIO_LATENCY:
-        LogWarn("  unsupported cmd: RETRO_ENVIRONMENT_SET_MINIMUM_AUDIO_LATENCY");
-        LogWarn("  data: %d", *(const unsigned *)data);
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_MINIMUM_AUDIO_LATENCY");
+        LogDebug("  data: %d", *(const unsigned *)data);
         return false;
 
     case RETRO_ENVIRONMENT_SET_CORE_OPTIONS_V2:
