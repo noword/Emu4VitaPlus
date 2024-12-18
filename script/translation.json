@@ -572,211 +572,211 @@
     {
         "No.": "96",
         "English": "Crop Vertical Top Overscan",
-        "Chinese": "Crop Vertical Top Overscan",
+        "Chinese": "裁剪垂直顶部过扫描",
         "Comments": ""
     },
     {
         "No.": "97",
         "English": "Removes pixels from the top of the screen to simulate overscan seen on standard CRT televisions.",
-        "Chinese": "Removes pixels from the top of the screen to simulate overscan seen on standard CRT televisions.",
+        "Chinese": "移除屏幕顶部的像素，以模拟标准CRT电视的过扫描效果。",
         "Comments": ""
     },
     {
         "No.": "98",
         "English": "Crop Vertical Bottom Overscan",
-        "Chinese": "Crop Vertical Bottom Overscan",
+        "Chinese": "裁剪垂直底部过扫描",
         "Comments": ""
     },
     {
         "No.": "99",
         "English": "Removes pixels from the bottom of the screen to simulate overscan seen on standard CRT televisions.",
-        "Chinese": "Removes pixels from the bottom of the screen to simulate overscan seen on standard CRT televisions.",
+        "Chinese": "移除屏幕底部的像素，以模拟标准CRT电视的过扫描效果。",
         "Comments": ""
     },
     {
         "No.": "100",
         "English": "Color Palette",
-        "Chinese": "Color Palette",
+        "Chinese": "调色板",
         "Comments": ""
     },
     {
         "No.": "101",
         "English": "Choose from pre-generated palettes, a custom 64x3 palette from file or raw format (needs to use a nes-decoder shader).",
-        "Chinese": "Choose from pre-generated palettes, a custom 64x3 palette from file or raw format (needs to use a nes-decoder shader).",
+        "Chinese": "可选择预生成的调色板、自定义的64x3调色板文件或原始格式（需使用nes-decoder着色器）。",
         "Comments": ""
     },
     {
         "No.": "102",
         "English": "NTSC Filter",
-        "Chinese": "NTSC Filter",
+        "Chinese": "NTSC滤镜",
         "Comments": ""
     },
     {
         "No.": "103",
         "English": "Blargg's NTSC filters are used to replicate RF, Composite, S-Video, and RGB cable signals.",
-        "Chinese": "Blargg's NTSC filters are used to replicate RF, Composite, S-Video, and RGB cable signals.",
+        "Chinese": "Blargg的NTSC滤镜用于模拟RF、AV端子、S端子和RGB信号。",
         "Comments": ""
     },
     {
         "No.": "104",
         "English": "Sound Quality",
-        "Chinese": "Sound Quality",
+        "Chinese": "音频质量",
         "Comments": ""
     },
     {
         "No.": "105",
         "English": "Enable higher quality sound. Increases performance requirements.",
-        "Chinese": "Enable higher quality sound. Increases performance requirements.",
+        "Chinese": "启用更高质量的音频，会增加性能需求。",
         "Comments": ""
     },
     {
         "No.": "106",
         "English": "Audio RF Filter",
-        "Chinese": "Audio RF Filter",
+        "Chinese": "音频RF滤波器",
         "Comments": ""
     },
     {
         "No.": "107",
         "English": "Apply a low pass audio filter to simulate the 'muted' sound of the NES when connected to a television via the RF modulator.",
-        "Chinese": "Apply a low pass audio filter to simulate the 'muted' sound of the NES when connected to a television via the RF modulator.",
+        "Chinese": "应用低通音频滤波器，模拟NES通过RF调制解调器连接电视时的“沉闷”音效。",
         "Comments": ""
     },
     {
         "No.": "108",
         "English": "Stereo Sound Effect",
-        "Chinese": "Stereo Sound Effect",
+        "Chinese": "立体声效果",
         "Comments": ""
     },
     {
         "No.": "109",
         "English": "Enable a fake stereo sound effect by delaying the right audio channel when upmixing the mono signal output from the NES.",
-        "Chinese": "Enable a fake stereo sound effect by delaying the right audio channel when upmixing the mono signal output from the NES.",
+        "Chinese": "在将NES输出的单声道信号进行上混音时，通过延迟右声道来实现假立体声效果。",
         "Comments": ""
     },
     {
         "No.": "110",
         "English": "Swap Audio Duty Cycles",
-        "Chinese": "Swap Audio Duty Cycles",
+        "Chinese": "交换音频占空比",
         "Comments": ""
     },
     {
         "No.": "111",
         "English": "Swap Duty Cycles",
-        "Chinese": "Swap Duty Cycles",
+        "Chinese": "交换占空比",
         "Comments": ""
     },
     {
         "No.": "112",
         "English": "Simulates the sound from famiclones that have the pulse wave channels duty cycle bits reversed.",
-        "Chinese": "Simulates the sound from famiclones that have the pulse wave channels duty cycle bits reversed.",
+        "Chinese": "模拟那些脉冲波通道占空比位被反转的仿制NES游戏机的声音。",
         "Comments": ""
     },
     {
         "No.": "113",
         "English": "Master Volume",
-        "Chinese": "Master Volume",
+        "Chinese": "主音量",
         "Comments": ""
     },
     {
         "No.": "114",
         "English": "Change master volume level.",
-        "Chinese": "Change master volume level.",
+        "Chinese": "更改主音量等级。",
         "Comments": ""
     },
     {
         "No.": "115",
         "English": "Audio Channel 1 (Square 1)",
-        "Chinese": "Audio Channel 1 (Square 1)",
+        "Chinese": "音频通道 1（方波 1）",
         "Comments": ""
     },
     {
         "No.": "116",
         "English": "Enables or disables pulse wave generator audio output 1.",
-        "Chinese": "Enables or disables pulse wave generator audio output 1.",
+        "Chinese": "启用或禁用脉冲波生成器音频通道 1。",
         "Comments": ""
     },
     {
         "No.": "117",
         "English": "Audio Channel 2 (Square 2)",
-        "Chinese": "Audio Channel 2 (Square 2)",
+        "Chinese": "音频通道 2（方波 2）",
         "Comments": ""
     },
     {
         "No.": "118",
         "English": "Enables or disables pulse wave generator audio output 2.",
-        "Chinese": "Enables or disables pulse wave generator audio output 2.",
+        "Chinese": "启用或禁用脉冲波生成器音频通道 2。",
         "Comments": ""
     },
     {
         "No.": "119",
         "English": "Audio Channel 3 (Triangle)",
-        "Chinese": "Audio Channel 3 (Triangle)",
+        "Chinese": "音频通道 3（三角波 1）",
         "Comments": ""
     },
     {
         "No.": "120",
         "English": "Enables or disables triangle wave generator audio output.",
-        "Chinese": "Enables or disables triangle wave generator audio output.",
+        "Chinese": "启用或禁用三角波生成器音频输出。",
         "Comments": ""
     },
     {
         "No.": "121",
         "English": "Audio Channel 4 (Noise)",
-        "Chinese": "Audio Channel 4 (Noise)",
+        "Chinese": "音频通道 4（噪音）",
         "Comments": ""
     },
     {
         "No.": "122",
         "English": "Enables or disables noise generator audio output.",
-        "Chinese": "Enables or disables noise generator audio output.",
+        "Chinese": "启用或禁用噪音发生器音频输出。",
         "Comments": ""
     },
     {
         "No.": "123",
         "English": "Audio Channel 5 (PCM)",
-        "Chinese": "Audio Channel 5 (PCM)",
+        "Chinese": "音频通道 5（PCM）",
         "Comments": ""
     },
     {
         "No.": "124",
         "English": "Enables or disables delta modulation channel audio output.",
-        "Chinese": "Enables or disables delta modulation channel audio output.",
+        "Chinese": "启用或禁用增量调制音频输出通道。",
         "Comments": ""
     },
     {
         "No.": "125",
         "English": "Turbo Enable",
-        "Chinese": "Turbo Enable",
+        "Chinese": "启用连发",
         "Comments": ""
     },
     {
         "No.": "126",
         "English": "Enables or disables turbo buttons.",
-        "Chinese": "Enables or disables turbo buttons.",
+        "Chinese": "启用或禁用连发按钮。",
         "Comments": ""
     },
     {
         "No.": "127",
         "English": "Turbo Delay (in frames)",
-        "Chinese": "Turbo Delay (in frames)",
+        "Chinese": "连发延迟（以帧为单位",
         "Comments": ""
     },
     {
         "No.": "128",
         "English": "Repeat rate of turbo buttons in frames.",
-        "Chinese": "Repeat rate of turbo buttons in frames.",
+        "Chinese": "按钮的连发率（以帧为单位）。",
         "Comments": ""
     },
     {
         "No.": "129",
         "English": "Zapper Mode",
-        "Chinese": "Zapper Mode",
+        "Chinese": "光枪模式",
         "Comments": ""
     },
     {
         "No.": "130",
         "English": "Selects device to use for Zapper games.",
-        "Chinese": "Selects device to use for Zapper games.",
+        "Chinese": "选择用于光枪游戏的设备。",
         "Comments": ""
     },
     {
@@ -2102,49 +2102,49 @@
     {
         "No.": "347",
         "English": "Enhanced per-tile vertical scroll",
-        "Chinese": "Enhanced per-tile vertical scroll",
+        "Chinese": "增强的逐单元垂直滚动功能",
         "Comments": ""
     },
     {
         "No.": "348",
         "English": "Allows each individual cell to be scrolled vertically, instead of 16px 2-cell, by averaging out with the vscroll value of the neighbouring cell. This hack only applies to few games that use 2-cell vertical scroll mode.",
-        "Chinese": "Allows each individual cell to be scrolled vertically, instead of 16px 2-cell, by averaging out with the vscroll value of the neighbouring cell. This hack only applies to few games that use 2-cell vertical scroll mode.",
+        "Chinese": "允许每个单元格独立垂直滚动，而非以16px为单位的2单元模式，通过与相邻单元格的vscroll值取平均实现。此修改仅适用于少数使用2单元垂直滚动模式的游戏",
         "Comments": ""
     },
     {
         "No.": "349",
         "English": "Enhanced per-tile vertical scroll limit",
-        "Chinese": "Enhanced per-tile vertical scroll limit",
+        "Chinese": "逐单元垂直滚动增强限制",
         "Comments": ""
     },
     {
         "No.": "350",
         "English": "Only when Enhanced per-tile vertical scroll is enabled. Adjusts the limit of the vertical scroll enhancement. When the vscroll difference between neighbouring tiles is bigger than this limit, the enhancement is disabled.",
-        "Chinese": "Only when Enhanced per-tile vertical scroll is enabled. Adjusts the limit of the vertical scroll enhancement. When the vscroll difference between neighbouring tiles is bigger than this limit, the enhancement is disabled.",
+        "Chinese": "仅当启用增强的逐单元垂直滚动功能时生效。用于调整垂直滚动增强的限制值。当相邻单元格之间的vscroll差值超过此限制时，增强功能将自动禁用。",
         "Comments": ""
     },
     {
         "No.": "351",
         "English": "CPU Speed",
-        "Chinese": "CPU Speed",
+        "Chinese": "CPU速度",
         "Comments": ""
     },
     {
         "No.": "352",
         "English": "Overclock the emulated CPU. Can reduce slowdown, but may cause glitches.",
-        "Chinese": "Overclock the emulated CPU. Can reduce slowdown, but may cause glitches.",
+        "Chinese": "对模拟的CPU进行超频，可减轻卡顿现象，但可能会导致一些故障。",
         "Comments": ""
     },
     {
         "No.": "353",
         "English": "System Lock-Ups",
-        "Chinese": "System Lock-Ups",
+        "Chinese": "系统死机",
         "Comments": ""
     },
     {
         "No.": "354",
         "English": "Emulate system lock-ups that occur on real hardware when performing illegal address access. This should only be disabled when playing certain demos and homebrew that rely on illegal behavior for correct operation.",
-        "Chinese": "Emulate system lock-ups that occur on real hardware when performing illegal address access. This should only be disabled when playing certain demos and homebrew that rely on illegal behavior for correct operation.",
+        "Chinese": "模拟真实硬件在非法地址访问时发生的系统死机现象。建议仅在运行某些依赖非法操作才能正常工作的演示程序或自制软件时，才禁用此功能。",
         "Comments": ""
     }
 ]

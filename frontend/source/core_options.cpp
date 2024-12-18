@@ -2,6 +2,7 @@
 #include "core_options.h"
 #include "log.h"
 #include "file.h"
+#include "utils.h"
 
 #define CORE_SECTION "CORE"
 
@@ -185,6 +186,8 @@ void CoreOptions::_Load(const T *define)
         option->default_value = define->default_value;
         option->values.clear();
     }
+
+    Utils::TrimString(&option->info);
 
     const retro_core_option_value *v = define->values;
     bool checked = false;

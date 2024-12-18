@@ -67,8 +67,8 @@ void TabSeletable::Show(bool selected)
         float avail_width = ImGui::GetContentRegionAvailWidth();
         if (_status_text.size() > 0)
         {
-            ImVec2 s = ImGui::CalcTextSize(_status_text.c_str());
-            size.y = -s.y * (s.x / avail_width + 1);
+            ImVec2 s = ImGui::CalcTextSize(_status_text.c_str(), NULL, false, avail_width);
+            size.y = -s.y;
         }
 
         if (ImGui::BeginChild(TEXT(_title_id), size))
