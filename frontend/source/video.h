@@ -2,14 +2,17 @@
 #include <psp2/kernel/threadmgr.h>
 #include "thread_base.h"
 
-class Video : public ThreadBase
+namespace Emu4VitaPlus
 {
-public:
-    Video();
-    virtual ~Video();
+    class Video : public ThreadBase
+    {
+    public:
+        Video();
+        virtual ~Video();
 
-private:
-    static int _DrawThread(SceSize args, void *argp);
-};
+    private:
+        static int _DrawThread(SceSize args, void *argp);
+    };
+}
 
-extern Video *gVideo;
+extern Emu4VitaPlus::Video *gVideo;

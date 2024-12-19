@@ -49,7 +49,9 @@ set(CORES
     mame2000
     mame2003
     vecx
-    uae4arm)
+    uae4arm
+    fuse
+    neocd)
 
 set(BUILD_LIST "All" "Arch" ${CORES})
 string(REPLACE "|" " " BUILD_LIST_STR ${BUILD_LIST})

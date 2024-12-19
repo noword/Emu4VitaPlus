@@ -13,6 +13,8 @@
 #include "arcade_manager.h"
 #include "rect.h"
 
+using namespace Emu4VitaPlus;
+
 enum VIDEO_ROTATION
 {
     VIDEO_ROTATION_0 = 0,

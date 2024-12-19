@@ -60,9 +60,12 @@ extern uint32_t EnterButton;
 
 extern void SwapEnterButton(bool swap);
 
-class Input;
+namespace Emu4VitaPlus
+{
+    class Input;
+}
 
-using InputFunc = std::function<void(Input *)>;
+using InputFunc = std::function<void(Emu4VitaPlus::Input *)>;
 
 struct KeyBinding
 {
@@ -82,68 +85,71 @@ struct TurboKeyState
     uint64_t next_change_state_time;
 };
 
-class Input
+namespace Emu4VitaPlus
 {
-public:
-    Input();
-    virtual ~Input();
+    class Input
+    {
+    public:
+        Input();
+        virtual ~Input();
 
-    void SetKeyUpCallback(uint32_t key, InputFunc func);
-    void SetKeyDownCallback(uint32_t key, InputFunc func, bool turbo = false);
+        void SetKeyUpCallback(uint32_t key, InputFunc func);
+        void SetKeyDownCallback(uint32_t key, InputFunc func, bool turbo = false);
 
-    void UnsetKeyUpCallback(uint32_t key);
-    void UnsetKeyDownCallback(uint32_t key);
+        void UnsetKeyUpCallback(uint32_t key);
+        void UnsetKeyDownCallback(uint32_t key);
 
-    void SetTurbo(uint32_t key);
-    void UnsetTurbo(uint32_t key);
+        void SetTurbo(uint32_t key);
+        void UnsetTurbo(uint32_t key);
 
-    void SetTurboInterval(uint64_t turbo_start, uint64_t turbo_interval);
+        void SetTurboInterval(uint64_t turbo_start, uint64_t turbo_interval);
 
-    void Poll(bool waiting = false);
+        void Poll(bool waiting = false);
 
-    void Reset();
+        void Reset();
 
-    const uint32_t &GetKeyStates() const { return _last_key; };
+        const uint32_t &GetKeyStates() const { return _last_key; };
 
-    const AnalogAxis &GetLeftAnalogAxis() const { return _left_analog; };
-    const AnalogAxis &GetRightAnalogAxis() const { return _right_analog; };
+        const AnalogAxis &GetLeftAnalogAxis() const { return _left_analog; };
+        const AnalogAxis &GetRightAnalogAxis() const { return _right_analog; };
 
-    const int16_t GetMapedLeftAnalogX() const { return _analog_map_table[_left_analog.x]; };
-    const int16_t GetMapedLeftAnalogY() const { return _analog_map_table[_left_analog.y]; };
-    const int16_t GetReverseMapedLeftAnalogY() const { return _analog_map_table[0xff - _left_analog.y]; };
+        const int16_t GetMapedLeftAnalogX() const { return _analog_map_table[_left_analog.x]; };
+        const int16_t GetMapedLeftAnalogY() const { return _analog_map_table[_left_analog.y]; };
+        const int16_t GetReverseMapedLeftAnalogY() const { return _analog_map_table[0xff - _left_analog.y]; };
 
-    const int16_t GetMapedRightAnalogX() const { return _analog_map_table[_right_analog.x]; };
-    const int16_t GetMapedRightAnalogY() const { return _analog_map_table[_right_analog.y]; };
-    const int16_t GetReverseMapedRightAnalogY() const { return _analog_map_table[0xff - _right_analog.y]; };
+        const int16_t GetMapedRightAnalogX() const { return _analog_map_table[_right_analog.x]; };
+        const int16_t GetMapedRightAnalogY() const { return _analog_map_table[_right_analog.y]; };
+        const int16_t GetReverseMapedRightAnalogY() const { return _analog_map_table[0xff - _right_analog.y]; };
 
-    void PushCallbacks();
-    void PopCallbacks();
+        void PushCallbacks();
+        void PopCallbacks();
 
-    Touch *GetFrontTouch() { return &_front_touch; };
-    Touch *GetRearTouch() { return &_rear_touch; };
+        Touch *GetFrontTouch() { return &_front_touch; };
+        Touch *GetRearTouch() { return &_rear_touch; };
 
-private:
-    std::vector<KeyBinding> _key_up_callbacks;
-    std::vector<KeyBinding> _key_down_callbacks;
+    private:
+        std::vector<KeyBinding> _key_up_callbacks;
+        std::vector<KeyBinding> _key_down_callbacks;
 
-    TurboKeyState _turbo_key_states[32];
-    uint32_t _last_key;
-    uint32_t _turbo_key;
-    uint64_t _turbo_start_ms;
-    uint64_t _turbo_interval_ms;
+        TurboKeyState _turbo_key_states[32];
+        uint32_t _last_key;
+        uint32_t _turbo_key;
+        uint64_t _turbo_start_ms;
+        uint64_t _turbo_interval_ms;
 
-    bool _enable_key_up;
-    AnalogAxis _left_analog;
-    AnalogAxis _right_analog;
-    // map to retro's analog
-    // -0x7fff to 0x7fff
-    static int16_t _analog_map_table[0x100];
+        bool _enable_key_up;
+        AnalogAxis _left_analog;
+        AnalogAxis _right_analog;
+        // map to retro's analog
+        // -0x7fff to 0x7fff
+        static int16_t _analog_map_table[0x100];
 
-    Touch _front_touch{SCE_TOUCH_PORT_FRONT};
-    Touch _rear_touch{SCE_TOUCH_PORT_BACK};
+        Touch _front_touch{SCE_TOUCH_PORT_FRONT};
+        Touch _rear_touch{SCE_TOUCH_PORT_BACK};
 
-    std::stack<std::vector<KeyBinding>> _callback_stack;
+        std::stack<std::vector<KeyBinding>> _callback_stack;
 
-    uint32_t _ProcTurbo(uint32_t key);
-    void _ProcCallbacks(uint32_t key);
-};
+        uint32_t _ProcTurbo(uint32_t key);
+        void _ProcCallbacks(uint32_t key);
+    };
+}

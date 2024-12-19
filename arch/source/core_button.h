@@ -5,6 +5,8 @@
 #include <vector>
 #include "input.h"
 
+using namespace Emu4VitaPlus;
+
 struct CoreName
 {
     std::string name;

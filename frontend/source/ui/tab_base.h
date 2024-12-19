@@ -6,6 +6,8 @@
 #include "input.h"
 #include "log.h"
 
+using namespace Emu4VitaPlus;
+
 enum
 {
     TAB_INDEX_SYSTEM = 0,

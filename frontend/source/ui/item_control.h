@@ -6,6 +6,8 @@
 #include "emulator.h"
 #include "input_descriptor.h"
 
+using namespace Emu4VitaPlus;
+
 class ItemControl : public ItemSelectable
 {
 public:

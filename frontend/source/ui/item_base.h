@@ -3,6 +3,8 @@
 #include "input.h"
 #include "language_string.h"
 
+using namespace Emu4VitaPlus;
+
 typedef std::function<void()> CallbackFunc;
 
 class ItemBase

@@ -46,7 +46,9 @@ set(CORE_SHORTS
     MAME2000
     MAME2003
     vecx
-    uae4arm)
+    uae4arm
+    fuse
+    neocd)
 
 set(CORES
     gpsp
@@ -78,7 +80,9 @@ set(CORES
     mame2000
     mame2003
     vecx
-    uae4arm)
+    uae4arm
+    fuse
+    neocd)
 
 set(CORE_EBOOTS "")
 set(CORE_FILES "")

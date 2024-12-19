@@ -13,6 +13,8 @@ CORES = {
     'DOS': ('dosbox_pure', 'dosbox_svn'),
     'VECTREX': ('vecx',),
     'AMIGA': ('uae4arm',),
+    'ZXS': ('fuse',),
+    'NEOCD': ('neocd',),
 }
 
 NAMES = {
@@ -46,4 +48,6 @@ NAMES = {
     'vba_next': 'VBA Next',
     'vecx': 'vecx',
     'uae4arm': 'uae4arm',
+    'fuse': 'fuse',
+    'neocd': 'neocd',
 }

@@ -4,6 +4,8 @@
 #include "language_string.h"
 #include "input.h"
 
+using namespace Emu4VitaPlus;
+
 typedef std::function<void(Input *, int)> DialogCallbackFunc;
 
 class Dialog

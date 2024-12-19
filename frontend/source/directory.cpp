@@ -42,6 +42,7 @@ Directory::~Directory()
 void Directory::SetExtensionFilter(const char *exts, char split)
 {
     LogFunctionName;
+    LogDebug(exts);
 
     char *exts_string = new char[strlen(exts) + 1];
     strcpy(exts_string, exts);
@@ -80,6 +81,11 @@ bool Directory::_LeagleTest(const char *name, DirItem *item)
     }
 
     if (!item)
+    {
+        return false;
+    }
+
+    if (File::GetSize(name) > 50000000)
     {
         return false;
     }

@@ -25,121 +25,124 @@ size_t AudioSampleBatchCallback(const int16_t *data, size_t frames)
     return frames;
 }
 
-Audio::Audio()
-    : _in_sample_rate(0),
-      _resampler(nullptr),
-      _output(nullptr),
-      _buf_status_callback(nullptr)
+namespace Emu4VitaPlus
 {
-    LogFunctionName;
-
-    // SetSampleRate(sample_rate);
-    // LogDebug("_in_sample_rate: %d _out_sample_rate:%d _resampler:%08x", _in_sample_rate, _out_sample_rate, _resampler);
-}
-
-Audio::~Audio()
-{
-    Deinit();
-}
-
-void Audio::Init(uint32_t sample_rate)
-{
-    LogFunctionName;
-    LogDebug("  sample_rate: %d", sample_rate);
-    if (_in_sample_rate == sample_rate || sample_rate == 0)
+    Audio::Audio()
+        : _in_sample_rate(0),
+          _resampler(nullptr),
+          _output(nullptr),
+          _buf_status_callback(nullptr)
     {
-        return;
+        LogFunctionName;
+
+        // SetSampleRate(sample_rate);
+        // LogDebug("_in_sample_rate: %d _out_sample_rate:%d _resampler:%08x", _in_sample_rate, _out_sample_rate, _resampler);
     }
 
-    _in_sample_rate = sample_rate;
-
-    bool need_resample = !_GetSuitableSampleRate(sample_rate, &_out_sample_rate);
-    LogDebug("  need_resample: %d _out_sample_rate: %d", need_resample, _out_sample_rate);
-
-    if (_output == nullptr)
+    Audio::~Audio()
     {
-        _output = new AudioOutput(AUDIO_OUTPUT_COUNT, _out_sample_rate, &_out_buf);
-        _output->Start();
-    }
-    else
-    {
-        _output->SetRate(AUDIO_OUTPUT_COUNT, _out_sample_rate);
+        Deinit();
     }
 
-    if (need_resample)
+    void Audio::Init(uint32_t sample_rate)
     {
-        if (_resampler == nullptr)
+        LogFunctionName;
+        LogDebug("  sample_rate: %d", sample_rate);
+        if (_in_sample_rate == sample_rate || sample_rate == 0)
         {
-            _resampler = new AudioResampler(sample_rate, _out_sample_rate, _output, &_out_buf);
-            _resampler->Start();
+            return;
+        }
+
+        _in_sample_rate = sample_rate;
+
+        bool need_resample = !_GetSuitableSampleRate(sample_rate, &_out_sample_rate);
+        LogDebug("  need_resample: %d _out_sample_rate: %d", need_resample, _out_sample_rate);
+
+        if (_output == nullptr)
+        {
+            _output = new AudioOutput(AUDIO_OUTPUT_COUNT, _out_sample_rate, &_out_buf);
+            _output->Start();
         }
         else
         {
-            _resampler->SetRate(sample_rate, _out_sample_rate);
+            _output->SetRate(AUDIO_OUTPUT_COUNT, _out_sample_rate);
         }
-    }
-}
 
-void Audio::Deinit()
-{
-    LogFunctionName;
-    if (_resampler != nullptr)
-    {
-        delete _resampler;
-    }
-
-    if (_output != nullptr)
-    {
-        delete _output;
-    }
-}
-
-bool Audio::_GetSuitableSampleRate(uint32_t sample_rate, uint32_t *out_sample_rate)
-{
-    LogFunctionName;
-
-    for (size_t i = 0; i < sizeof(SAMPLE_RATES) / sizeof(uint32_t); i++)
-    {
-        if ((sample_rate >= SAMPLE_RATES[i] - SAMPLE_RATE_NEGLECT) && (sample_rate <= SAMPLE_RATES[i] + SAMPLE_RATE_NEGLECT))
+        if (need_resample)
         {
-            *out_sample_rate = SAMPLE_RATES[i];
-            return true;
+            if (_resampler == nullptr)
+            {
+                _resampler = new AudioResampler(sample_rate, _out_sample_rate, _output, &_out_buf);
+                _resampler->Start();
+            }
+            else
+            {
+                _resampler->SetRate(sample_rate, _out_sample_rate);
+            }
         }
-        else if (SAMPLE_RATES[i] < sample_rate)
+    }
+
+    void Audio::Deinit()
+    {
+        LogFunctionName;
+        if (_resampler != nullptr)
         {
-            *out_sample_rate = SAMPLE_RATES[i];
+            delete _resampler;
+        }
+
+        if (_output != nullptr)
+        {
+            delete _output;
         }
     }
 
-    return false;
-}
-
-size_t Audio::SendAudioSample(const int16_t *data, size_t frames)
-{
-    if (_resampler != nullptr)
+    bool Audio::_GetSuitableSampleRate(uint32_t sample_rate, uint32_t *out_sample_rate)
     {
-        _resampler->Process(data, frames);
+        LogFunctionName;
+
+        for (size_t i = 0; i < sizeof(SAMPLE_RATES) / sizeof(uint32_t); i++)
+        {
+            if ((sample_rate >= SAMPLE_RATES[i] - SAMPLE_RATE_NEGLECT) && (sample_rate <= SAMPLE_RATES[i] + SAMPLE_RATE_NEGLECT))
+            {
+                *out_sample_rate = SAMPLE_RATES[i];
+                return true;
+            }
+            else if (SAMPLE_RATES[i] < sample_rate)
+            {
+                *out_sample_rate = SAMPLE_RATES[i];
+            }
+        }
+
+        return false;
     }
-    else
+
+    size_t Audio::SendAudioSample(const int16_t *data, size_t frames)
     {
-        _out_buf.Write(data, frames * 2);
-        _output->Signal();
+        if (_resampler != nullptr)
+        {
+            _resampler->Process(data, frames);
+        }
+        else
+        {
+            _out_buf.Write(data, frames * 2);
+            _output->Signal();
+        }
+
+        // LogDebug("%d %d", frames * 2, _out_buf.OccupancySize());
+
+        return frames;
     }
 
-    // LogDebug("%d %d", frames * 2, _out_buf.OccupancySize());
-
-    return frames;
-}
-
-void Audio::NotifyBufStatus()
-{
-    if (_buf_status_callback)
+    void Audio::NotifyBufStatus()
     {
-        size_t occupancy = (_resampler == nullptr ? _out_buf.OccupancySize() : _resampler->GetInBufOccupancy());
-        _buf_status_callback(gConfig->mute, occupancy, occupancy < AUDIO_SKIP_THRESHOLD);
-        // if (occupancy < AUDIO_SKIP_THRESHOLD)
-        // {
-        //     LogDebug("skip audio: %d", occupancy);
-        // }
+        if (_buf_status_callback)
+        {
+            size_t occupancy = (_resampler == nullptr ? _out_buf.OccupancySize() : _resampler->GetInBufOccupancy());
+            _buf_status_callback(gConfig->mute, occupancy, occupancy < AUDIO_SKIP_THRESHOLD);
+            // if (occupancy < AUDIO_SKIP_THRESHOLD)
+            // {
+            //     LogDebug("skip audio: %d", occupancy);
+            // }
+        }
     }
 }
