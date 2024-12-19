@@ -44,7 +44,9 @@ set(CORE_SHORTS
     DOSBoxPure
     MAME2003Plus
     MAME2000
-    MAME2003)
+    MAME2003
+    vecx
+    uae4arm)
 
 set(CORES
     gpsp
@@ -74,7 +76,9 @@ set(CORES
     dosbox_pure
     mame2003_plus
     mame2000
-    mame2003)
+    mame2003
+    vecx
+    uae4arm)
 
 set(CORE_EBOOTS "")
 set(CORE_FILES "")
