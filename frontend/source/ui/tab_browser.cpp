@@ -17,6 +17,8 @@
 #include "misc.h"
 #include "utils.h"
 
+#define HISTROY_SIZE 10
+
 TabBrowser::TabBrowser() : TabSeletable(LANG_BROWSER),
                            _texture(nullptr),
                            _texture_max_width(BROWSER_TEXTURE_MAX_WIDTH),
@@ -245,6 +247,30 @@ void TabBrowser::Show(bool selected)
     }
 }
 
+void TabBrowser::_SaveIndexHistory()
+{
+    _dir_history[_directory->GetCurrentPath()] = _index;
+    if (_dir_history.size() > HISTROY_SIZE)
+    {
+        _dir_history.erase(_dir_history.begin());
+    }
+    LogDebug("  save history: %s %d", _directory->GetCurrentPath().c_str(), _index);
+}
+
+void TabBrowser::_SetIndexFromHistory()
+{
+    const auto iter = _dir_history.find(_directory->GetCurrentPath());
+    if (iter == _dir_history.end())
+    {
+        _index = 0;
+    }
+    else
+    {
+        _index = iter->second;
+        LogDebug("  get hitory: %s %d", _directory->GetCurrentPath().c_str(), _index);
+    }
+}
+
 void TabBrowser::_OnActive(Input *input)
 {
     LogFunctionName;
@@ -255,9 +281,12 @@ void TabBrowser::_OnActive(Input *input)
 
     auto item = _directory->GetItem(_index);
 
+    _SaveIndexHistory();
+
     if (item.is_dir)
     {
         _in_refreshing = true;
+
         LogDebug("%d %s", _directory->GetCurrentPath().size(), item.name.c_str());
         if (_directory->GetCurrentPath().size() == 0)
         {
@@ -269,7 +298,7 @@ void TabBrowser::_OnActive(Input *input)
         }
         _in_refreshing = false;
 
-        _index = 0;
+        _SetIndexFromHistory();
         _Update();
     }
     else
@@ -286,6 +315,7 @@ void TabBrowser::_OnKeyCross(Input *input)
     LogFunctionName;
     auto path = _directory->GetCurrentPath();
 
+    _SaveIndexHistory();
     _in_refreshing = true;
     if (path.size() <= 5)
     {
@@ -304,6 +334,7 @@ void TabBrowser::_OnKeyCross(Input *input)
 
     _index = 0;
 
+    _SetIndexFromHistory();
     _Update();
 }
 

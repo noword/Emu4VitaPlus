@@ -58,6 +58,8 @@ private:
 
     void _Search(const char *s);
     const std::string _GetCurrentFullPath(bool *is_dir = nullptr);
+    void _SaveIndexHistory();
+    void _SetIndexFromHistory();
 
     Directory *_directory;
     vita2d_texture *_texture;
@@ -76,4 +78,6 @@ private:
     Dialog *_dialog;
     Dialog *_confirm_dialog;
     int _cmd;
+
+    std::map<std::string, size_t> _dir_history;
 };
