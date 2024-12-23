@@ -83,10 +83,10 @@ App::App() : _index_x(0), _index_y(0)
                                {"FBA 2012", "FBA2012"},
                                {"FinalBurn Neo", "FBNeo"},
                                {"MAME 2000", "MAME2000"},
-                               {"MAME 2003", "MAME2003"},
+                               {"MAME 2003" ICON_STAR, "MAME2003"},
                                {"MAME 2003 Plus", "MAME2003Plus"}}),
         new CoreButton("DOS", {{"DOS Box SVN", "DOSBoxSVN"},
-                               {"DOS BOX Pure", "DOSBoxPure"}})};
+                               {"DOS BOX Pure" ICON_STAR, "DOSBoxPure"}})};
 
     SetInputHooks(&_input);
 
