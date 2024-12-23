@@ -17,7 +17,7 @@ int16_t InputStateCallback(unsigned port, unsigned device, unsigned index, unsig
 
     // LogDebug("port:%d device:%d index:%d id:%d", port, device, index, id);
 
-    if (device == RETRO_DEVICE_JOYPAD && port != 0)
+    if ((device == RETRO_DEVICE_JOYPAD || device == RETRO_DEVICE_ANALOG) && port != 0)
         return 0;
 
     switch (device)
