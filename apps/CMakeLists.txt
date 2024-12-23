@@ -75,6 +75,8 @@ target_link_libraries(
     7zip
     lz4
     pthread
+    FLAC
+    ogg
     ScePvf_stub
     ScePgf_stub
     SceDisplay_stub

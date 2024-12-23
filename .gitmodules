@@ -143,3 +143,19 @@
 	path = cores/neocd_libretro
 	url = https://github.com/libretro/neocd_libretro.git
 	branch = master
+[submodule "cores/hatari"]
+	path = cores/hatari
+	url = https://github.com/libretro/hatari.git
+	branch = master
+[submodule "cores/mame2003-xtreme"]
+	path = cores/mame2003-xtreme
+	url = https://github.com/KMFDManic/mame2003-xtreme.git
+	branch = master
+[submodule "cores/FBNeo-Xtreme-Amped"]
+	path = cores/FBNeo-Xtreme-Amped
+	url = https://github.com/KMFDManic/FBNeo-Xtreme-Amped.git
+	branch = master
+[submodule "cores/supafaust"]
+	path = cores/supafaust
+	url = https://github.com/libretro/supafaust.git
+	branch = master

@@ -12,7 +12,7 @@ endif()
 project(${CORE_NAME})
 
 set(APP_NAME "${CORE_SHORT_NAME}4VitaPlus")
-set(CORE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../cores/libretro-fbneo/src/burner/libretro)
+set(CORE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/../../cores/FBNeo-Xtreme-Amped/src/burner/libretro)
 set(CORE_MAKEFILE_DIR ${CORE_DIR})
 set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/Makefile)
 set(SFO_TITLE_NAME "Emu4Vita++ (${CORE_FULL_NAME})")
