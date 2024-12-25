@@ -121,10 +121,10 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
         goto LOAD_END;
     }
 
+    game_info.path = _path;
     if (_info.need_fullpath)
     {
         LogDebug("  load rom from path %s", _path);
-        game_info.path = _path;
     }
     else
     {
