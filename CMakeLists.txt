@@ -51,7 +51,8 @@ set(CORES
     vecx
     uae4arm
     fuse
-    neocd)
+    neocd
+    supafaust)
 
 set(BUILD_LIST "All" "Arch" ${CORES})
 string(REPLACE "|" " " BUILD_LIST_STR ${BUILD_LIST})
