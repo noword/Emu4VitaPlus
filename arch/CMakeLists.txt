@@ -48,7 +48,9 @@ set(CORE_SHORTS
     vecx
     uae4arm
     fuse
-    neocd)
+    neocd
+	Supafaust
+	Hatari)
 
 set(CORES
     gpsp
@@ -82,7 +84,9 @@ set(CORES
     vecx
     uae4arm
     fuse
-    neocd)
+    neocd
+	supafaust
+	hatari)
 
 set(CORE_EBOOTS "")
 set(CORE_FILES "")

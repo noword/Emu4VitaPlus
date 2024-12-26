@@ -9,7 +9,10 @@ CORES = {
     'PS1': ('pcsx_rearmed',),
     'SNES': ('snes9x2002', 'snes9x2005', 'snes9x2010', 'supafaust'),
     'WSC': ('mednafen_wswan',),
-    'ATARI': ('stella2014', 'prosystem', 'atari800'),
+    'ATARI2600': ('stella2014',),
+    'ATARI5200': ('atari800',),
+    'ATARI7800': ('prosystem',),
+    'ATARIST': ('hatari',),
     'DOS': ('dosbox_pure', 'dosbox_svn'),
     'VECTREX': ('vecx',),
     'AMIGA': ('uae4arm',),
@@ -51,4 +54,5 @@ NAMES = {
     'uae4arm': 'uae4arm',
     'fuse': 'fuse',
     'neocd': 'neocd',
+    'hatari': 'Hatari',
 }

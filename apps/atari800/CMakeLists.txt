@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 set(CORE_NAME "atari800")
 set(CORE_SHORT_NAME "Atari800")
 set(CORE_FULL_NAME "Atari 800")
-set(CONSOLE "ATARI")
+set(CONSOLE "ATARI5200")
 
 if(TARGET ${CORE_NAME}_build)
   return()
@@ -30,6 +30,6 @@ foreach(file ${PKG_FILES})
   list(APPEND PRIVATE_PKG_FILES FILE ${file} ${rel})
 endforeach()
 
-add_compile_definitions(STELLA2014_BUILD ATARI_BUILD)
+add_compile_definitions(STELLA2014_BUILD ATARI5200_BUILD)
 
 add_subdirectory(.. ${CMAKE_CURRENT_BINARY_DIR}/app)

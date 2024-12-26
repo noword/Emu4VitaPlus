@@ -187,6 +187,12 @@ bool EnvironmentCallback(unsigned cmd, void *data)
 
         break;
 
+    case RETRO_ENVIRONMENT_GET_CORE_ASSETS_DIRECTORY:
+        LogDebug("  cmd: RETRO_ENVIRONMENT_GET_CORE_ASSETS_DIRECTORY");
+        if (data)
+            *(const char **)data = CORE_SAVEFILES_DIR;
+        break;
+
     case RETRO_ENVIRONMENT_GET_SAVE_DIRECTORY:
         LogDebug("  cmd: RETRO_ENVIRONMENT_GET_SAVE_DIRECTORY");
         if (data)

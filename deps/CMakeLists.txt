@@ -133,6 +133,7 @@ add_subdirectory(simpleini)
 # ----------------------
 option(ZLIB_COMPAT "" ON)
 option(ZLIB_ENABLE_TESTS "" OFF)
+option(ZLIBNG_ENABLE_TESTS "" OFF)
 option(WITH_GZFILEOP "" OFF)
 option(WITH_GTEST "" OFF)
 option(ZLIBNG_ENABLE_TESTS "" OFF)

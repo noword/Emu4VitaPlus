@@ -25,6 +25,7 @@ enum VIDEO_ROTATION
 
 extern bool EnvironmentCallback(unsigned cmd, void *data);
 extern void VideoRefreshCallback(const void *data, unsigned width, unsigned height, size_t pitch);
+extern void AudioSampleCallback(int16_t left, int16_t right);
 extern size_t AudioSampleBatchCallback(const int16_t *data, size_t frames);
 extern void InputPollCallback();
 extern int16_t InputStateCallback(unsigned port, unsigned device, unsigned index, unsigned id);
@@ -69,6 +70,7 @@ public:
 
     friend bool EnvironmentCallback(unsigned cmd, void *data);
     friend void VideoRefreshCallback(const void *data, unsigned width, unsigned height, size_t pitch);
+    friend void AudioSampleCallback(int16_t left, int16_t right);
     friend size_t AudioSampleBatchCallback(const int16_t *data, size_t frames);
     friend void InputPollCallback();
     friend int16_t InputStateCallback(unsigned port, unsigned device, unsigned index, unsigned id);

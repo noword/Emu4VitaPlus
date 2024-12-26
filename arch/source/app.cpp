@@ -56,9 +56,10 @@ App::App() : _index_x(0), _index_y(0)
     style->Colors[ImGuiCol_TitleBg] = style->Colors[ImGuiCol_TitleBgActive];
 
     _buttons = {
-        new CoreButton("ATARI", {{"Stella 2014 (Atari 2600)", "Stella2014"},
-                                 {"Atari800 (Atari 5200)", "Atari800"},
-                                 {"ProSystem (Atari 7800)", "ProSystem"}}),
+        new CoreButton("ATARI2600", {{"Stella 2014", "Stella2014"}}),
+        new CoreButton("ATARI5200", {{"Atari800", "Atari800"}}),
+        new CoreButton("ATARI7800", {{"ProSystem", "ProSystem"}}),
+        new CoreButton("ATARIST", {{"Hatari", "hatari"}}),
         new CoreButton("VECTREX", {{"vecx", "vecx"}}),
         new CoreButton("AMIGA", {{"uae4arm", "uae4arm"}}),
         new CoreButton("ZXS", {{"fuse", "fuse"}}),
@@ -210,12 +211,12 @@ void App::UnsetInputHooks(Input *input)
 
 void App::_OnKeyLeft(Input *input)
 {
-    LOOP_MINUS_ONE(_index_x, _buttons.size() / ROW_COUNT);
+    LOOP_MINUS_ONE(_index_x, (_buttons.size() + _index_y) / ROW_COUNT);
 }
 
 void App::_OnKeyRight(Input *input)
 {
-    LOOP_PLUS_ONE(_index_x, _buttons.size() / ROW_COUNT);
+    LOOP_PLUS_ONE(_index_x, (_buttons.size() + _index_y) / ROW_COUNT);
 }
 
 void App::_OnKeyUp(Input *input)

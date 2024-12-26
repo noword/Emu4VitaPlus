@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 set(CORE_NAME "stella2014")
 set(CORE_SHORT_NAME "Stella2014")
 set(CORE_FULL_NAME "Stella 2014")
-set(CONSOLE "ATARI")
+set(CONSOLE "ATARI2600")
 
 if(TARGET ${CORE_NAME}_build)
   return()
@@ -30,6 +30,6 @@ foreach(file ${PKG_FILES})
   list(APPEND PRIVATE_PKG_FILES FILE ${file} ${rel})
 endforeach()
 
-add_compile_definitions(STELLA2014_BUILD ATARI_BUILD)
+add_compile_definitions(STELLA2014_BUILD ATARI2600_BUILD)
 
 add_subdirectory(.. ${CMAKE_CURRENT_BINARY_DIR}/app)

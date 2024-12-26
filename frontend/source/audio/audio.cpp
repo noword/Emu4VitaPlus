@@ -11,6 +11,13 @@
 
 const uint32_t SAMPLE_RATES[] = {8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000};
 
+void AudioSampleCallback(int16_t left, int16_t right)
+{
+    LogFunctionNameLimited;
+    int16_t data[2] = {left, right};
+    gEmulator->_audio.SendAudioSample(data, 1);
+}
+
 size_t AudioSampleBatchCallback(const int16_t *data, size_t frames)
 {
     LogFunctionNameLimited;

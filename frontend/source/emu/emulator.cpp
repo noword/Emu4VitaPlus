@@ -67,6 +67,7 @@ void Emulator::Init()
 
     retro_set_environment(EnvironmentCallback);
     retro_set_video_refresh(VideoRefreshCallback);
+    retro_set_audio_sample(AudioSampleCallback);
     retro_set_audio_sample_batch(AudioSampleBatchCallback);
     retro_set_input_poll(InputPollCallback);
     retro_set_input_state(InputStateCallback);

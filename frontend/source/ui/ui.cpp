@@ -369,7 +369,7 @@ void Ui::OnStatusChanged(APP_STATUS status)
 void Ui::SetHint(const char *s, int frame_count)
 {
     LogFunctionName;
-    LogInfo("  hint: %d %s", frame_count, s);
+    LogDebug("  hint: %d %s", frame_count, s);
     _hint = LanguageString(s);
     _hint_count = frame_count;
 }

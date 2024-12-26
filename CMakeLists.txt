@@ -52,7 +52,8 @@ set(CORES
     uae4arm
     fuse
     neocd
-    supafaust)
+    supafaust
+    hatari)
 
 set(BUILD_LIST "All" "Arch" ${CORES})
 string(REPLACE "|" " " BUILD_LIST_STR ${BUILD_LIST})

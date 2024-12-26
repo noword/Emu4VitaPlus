@@ -11,6 +11,14 @@ struct DirItem
     std::string entry_name = "";
 };
 
+struct InsensitiveCompare
+{
+    bool operator()(const std::string &a, const std::string &b) const
+    {
+        return strcasecmp(a.c_str(), b.c_str()) < 0;
+    }
+};
+
 class Directory
 {
 public:
@@ -35,7 +43,7 @@ public:
 
 private:
     std::vector<DirItem> _items;
-    std::set<std::string> _ext_filters;
+    std::set<std::string, InsensitiveCompare> _ext_filters;
     std::set<size_t> _search_results;
     std::string _current_path;
     std::string _search_str;
