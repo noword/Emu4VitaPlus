@@ -17,13 +17,6 @@ endforeach()
 project("Arch")
 
 set(CORE_SHORTS
-    gpSP
-    mGBA
-    VBANext
-    Gambatte
-    FBALite
-    FBNeo
-    FBA2012
     Snes9x2002
     Snes9x2005
     Snes9x2010
@@ -39,25 +32,11 @@ set(CORE_SHORTS
     PCSXReARMed
     Stella2014
     ProSystem
-    Atari800
-    DOSBoxSVN
-    DOSBoxPure
-    MAME2003Plus
-    MAME2000
-    MAME2003
     vecx
     uae4arm
     fuse
     neocd)
-
 set(CORES
-    gpsp
-    mgba
-    vba_next
-    gambatte
-    fba_lite
-    fbneo
-    fbalpha2012
     snes9x2002
     snes9x2005
     snes9x2010
@@ -73,12 +52,6 @@ set(CORES
     pcsx_rearmed
     stella2014
     prosystem
-    atari800
-    dosbox_svn
-    dosbox_pure
-    mame2003_plus
-    mame2000
-    mame2003
     vecx
     uae4arm
     fuse
