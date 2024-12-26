@@ -1,5 +1,5 @@
 CORES = {
-    'ARC': ('fba_lite', 'fbalpha2012', 'fbneo', 'mame2000', 'mame2003', 'mame2003_plus'),
+    'ARC': ('fba_lite', 'fbalpha2012', 'fbneo', 'mame2000', 'mame2003', 'mame2003_plus', 'fbneo_xtreme', 'mame2003_xtreme'),
     'GBA': ('gpsp', 'mgba', 'vba_next'),
     'GBC': ('gambatte',),
     'MD': ('genesis_plus_gx', 'genesis_plus_gx_wide', 'picodrive'),
@@ -55,4 +55,6 @@ NAMES = {
     'fuse': 'fuse',
     'neocd': 'neocd',
     'hatari': 'Hatari',
+    'fbneo_xtreme':'FinalBurn Neo Xtreme', 
+    'mame2003_xtreme':'MAME 2003 Xtreme',
 }

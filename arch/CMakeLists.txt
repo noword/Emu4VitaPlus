@@ -49,8 +49,10 @@ set(CORE_SHORTS
     uae4arm
     fuse
     neocd
-	Supafaust
-	Hatari)
+    Supafaust
+    Hatari
+    FBNeoXtreme
+    MAME2003Xtreme)
 
 set(CORES
     gpsp
@@ -85,8 +87,10 @@ set(CORES
     uae4arm
     fuse
     neocd
-	supafaust
-	hatari)
+    supafaust
+    hatari
+    km_fbneo_xtreme_amped
+    km_mame2003_xtreme_amped)
 
 set(CORE_EBOOTS "")
 set(CORE_FILES "")

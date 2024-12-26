@@ -53,7 +53,10 @@ set(CORES
     fuse
     neocd
     supafaust
-    hatari)
+    hatari
+    fbneo_xtreme
+    mame2003_xtreme
+)
 
 set(BUILD_LIST "All" "Arch" ${CORES})
 string(REPLACE "|" " " BUILD_LIST_STR ${BUILD_LIST})

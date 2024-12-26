@@ -84,9 +84,11 @@ App::App() : _index_x(0), _index_y(0)
         new CoreButton("ARC", {{"FBA Lite", "FBALite"},
                                {"FBA 2012", "FBA2012"},
                                {"FinalBurn Neo", "FBNeo"},
+                               {"FinalBurn Neo Xtreme", "FBNeoXtreme"},
                                {"MAME 2000", "MAME2000"},
                                {"MAME 2003" ICON_STAR, "MAME2003"},
-                               {"MAME 2003 Plus", "MAME2003Plus"}}),
+                               {"MAME 2003 Plus", "MAME2003Plus"},
+                               {"MAME 2003 Xtreme", "MAME2003XTREME"}}),
         new CoreButton("DOS", {{"DOS Box SVN", "DOSBoxSVN"},
                                {"DOS BOX Pure" ICON_STAR, "DOSBoxPure"}})};
 

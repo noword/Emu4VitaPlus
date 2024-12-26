@@ -164,4 +164,6 @@ for console, cores in CORES.items():
     bg = Image.open(name)
     bg.quantize().save(name, optimize=True)
     for core in cores:
-        shutil.copy(name, f'../apps/{core}/pkg/sce_sys/livearea/contents/bg.png')
+        dst = f'../apps/{core}/pkg/sce_sys/livearea/contents/bg.png'
+        if not os.path.exists(dst):
+            shutil.copy(name, dst)
