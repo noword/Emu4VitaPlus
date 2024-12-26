@@ -89,8 +89,8 @@ set(CORES
     neocd
     supafaust
     hatari
-    km_fbneo_xtreme_amped
-    km_mame2003_xtreme_amped)
+    fbneo_xtreme
+    mame2003_xtreme)
 
 set(CORE_EBOOTS "")
 set(CORE_FILES "")
