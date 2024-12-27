@@ -59,7 +59,7 @@ App::App() : _index_x(0), _index_y(0)
         new CoreButton("ATARI2600", {{"Stella 2014", "Stella2014"}}),
         new CoreButton("ATARI5200", {{"Atari800", "Atari800"}}),
         new CoreButton("ATARI7800", {{"ProSystem", "ProSystem"}}),
-        new CoreButton("ATARIST", {{"Hatari", "hatari"}}),
+        // new CoreButton("ATARIST", {{"Hatari", "hatari"}}),
         new CoreButton("VECTREX", {{"vecx", "vecx"}}),
         new CoreButton("AMIGA", {{"uae4arm", "uae4arm"}}),
         new CoreButton("ZXS", {{"fuse", "fuse"}}),
@@ -161,7 +161,9 @@ void App::_Show()
         button->Show(selected);
         if (selected)
         {
-            ImGui::SetScrollHereX(float(count) / float(_buttons.size()));
+            size_t half = (_buttons.size() + 1) / 2;
+
+            ImGui::SetScrollHereX(float(count % half) / float(half));
         }
 
         count++;
