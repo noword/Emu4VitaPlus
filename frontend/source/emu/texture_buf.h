@@ -4,7 +4,7 @@
 #include "defines.h"
 #include "utils.h"
 
-#define DEFAULT_TEXTURE_BUF_COUNT 4
+#define DEFAULT_TEXTURE_BUF_COUNT 10
 
 template <size_t SIZE>
 class TextureBuf
