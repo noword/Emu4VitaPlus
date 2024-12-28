@@ -53,7 +53,8 @@ set(CORES
     fuse
     neocd
     supafaust
-    hatari
+
+    # hatari
     fbneo_xtreme
     mame2003_xtreme
 )

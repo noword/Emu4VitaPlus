@@ -50,7 +50,8 @@ set(CORE_SHORTS
     fuse
     neocd
     Supafaust
-    Hatari
+
+    # Hatari
     FBNeoXtreme
     MAME2003Xtreme)
 
@@ -88,7 +89,8 @@ set(CORES
     fuse
     neocd
     supafaust
-    hatari
+
+    # hatari
     fbneo_xtreme
     mame2003_xtreme)
 
