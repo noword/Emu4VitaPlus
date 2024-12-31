@@ -233,7 +233,7 @@ void Emulator::_CreateTextureBuf(SceGxmTextureFormat format, size_t width, size_
         delete _texture_buf;
     }
 
-    _texture_buf = new TextureBuf<DEFAULT_TEXTURE_BUF_COUNT>(format, width, height);
+    _texture_buf = new TextureBuf(format, width, height);
     _texture_buf->SetFilter(gConfig->graphics[GRAPHICS_SMOOTH] ? SCE_GXM_TEXTURE_FILTER_LINEAR : SCE_GXM_TEXTURE_FILTER_POINT);
     _last_texture = nullptr;
 }

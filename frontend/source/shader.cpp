@@ -40,16 +40,19 @@ void Shader::_Clean()
     if (_shader)
     {
         vita2d_free_shader(_shader);
+        _shader = nullptr;
     }
 
     if (_vertex_buf)
     {
         delete[] _vertex_buf;
+        _vertex_buf = nullptr;
     }
 
     if (_fragment_buf)
     {
         delete[] _fragment_buf;
+        _fragment_buf = nullptr;
     }
 }
 
@@ -114,6 +117,16 @@ void Shader::SetUniformData(const float *texture_size, const float *output_size)
         sceGxmSetUniformDataF(fragment_wvp_buffer, _fragment_parms.video_size, 0, 2, texture_size);
     if (_fragment_parms.output_size)
         sceGxmSetUniformDataF(fragment_wvp_buffer, _fragment_parms.output_size, 0, 2, output_size);
+}
+
+uint32_t Shader::GetVertexDefaultUniformBufferSize()
+{
+    return sceGxmProgramGetDefaultUniformBufferSize((const SceGxmProgram *)_vertex_buf);
+}
+
+uint32_t Shader::GetFragmentDefaultUniformBufferSize()
+{
+    return sceGxmProgramGetDefaultUniformBufferSize((const SceGxmProgram *)_fragment_buf);
 }
 
 Shaders::Shaders()

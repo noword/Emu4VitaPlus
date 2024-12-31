@@ -113,7 +113,7 @@ private:
 
     SceGxmTextureFormat _video_pixel_format;
     retro_pixel_format _retro_pixel_format;
-    TextureBuf<DEFAULT_TEXTURE_BUF_COUNT> *_texture_buf;
+    TextureBuf *_texture_buf;
     Rect<int> _video_rect;
     bool _graphics_config_changed;
     VIDEO_ROTATION _video_rotation;

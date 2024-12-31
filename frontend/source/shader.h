@@ -24,6 +24,8 @@ public:
     bool Valid() { return _shader != nullptr; };
     const char *GetName() const;
     void SetUniformData(const float *texture_size, const float *output_size);
+    uint32_t GetVertexDefaultUniformBufferSize();
+    uint32_t GetFragmentDefaultUniformBufferSize();
 
 private:
     void _Load();

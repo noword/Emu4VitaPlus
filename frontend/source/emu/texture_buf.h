@@ -1,13 +1,13 @@
 #pragma once
 #include <vita2d.h>
+#include <array>
 #include "log.h"
 #include "defines.h"
 #include "utils.h"
 
 #define DEFAULT_TEXTURE_BUF_COUNT 10
 
-template <size_t SIZE>
-class TextureBuf
+class TextureBuf : public std::array<vita2d_texture *, DEFAULT_TEXTURE_BUF_COUNT>
 {
 public:
     TextureBuf(SceGxmTextureFormat format, size_t width, size_t height)
@@ -17,9 +17,9 @@ public:
 
         LogDebug("  %d x %d (%d)", width, height, format);
 
-        for (size_t i = 0; i < SIZE; i++)
+        for (auto &texture : *this)
         {
-            _buf[i] = vita2d_create_empty_texture_format(width, height, format);
+            texture = vita2d_create_empty_texture_format(width, height, format);
         }
     };
 
@@ -28,9 +28,9 @@ public:
         LogFunctionName;
 
         vita2d_wait_rendering_done();
-        for (size_t i = 0; i < SIZE; i++)
+        for (auto &texture : *this)
         {
-            vita2d_free_texture(_buf[i]);
+            vita2d_free_texture(texture);
         }
     }
 
@@ -39,37 +39,36 @@ public:
 
     vita2d_texture *Next()
     {
-        LOOP_PLUS_ONE(_index, SIZE);
-        return _buf[_index];
+        LOOP_PLUS_ONE(_index, size());
+        return (*this)[_index];
     };
 
     vita2d_texture *NextBegin()
     {
         size_t index = _index;
-        LOOP_PLUS_ONE(index, SIZE);
-        return _buf[index];
+        LOOP_PLUS_ONE(index, size());
+        return (*this)[index];
     };
 
     void NextEnd()
     {
-        LOOP_PLUS_ONE(_index, SIZE);
+        LOOP_PLUS_ONE(_index, size());
     };
 
     vita2d_texture *Current()
     {
-        return _buf[_index];
+        return (*this)[_index];
     };
 
     void SetFilter(SceGxmTextureFilter filter)
     {
-        for (auto &buf : _buf)
+        for (auto &texture : *this)
         {
-            vita2d_texture_set_filters(buf, filter, filter);
+            vita2d_texture_set_filters(texture, filter, filter);
         }
     }
 
 private:
     size_t _width, _height;
     size_t _index;
-    vita2d_texture *_buf[SIZE];
 };
