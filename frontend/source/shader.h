@@ -20,12 +20,15 @@ public:
     Shader(const char *name);
     virtual ~Shader();
 
-    vita2d_shader *Get() { return _shader; };
+    vita2d_shader *Get();
     bool Valid() { return _shader != nullptr; };
     const char *GetName() const;
     void SetUniformData(const float *texture_size, const float *output_size);
+    void SetUniformData(void *vertext_buf, void *fragment_buf, const float *texture_size, const float *output_size);
     uint32_t GetVertexDefaultUniformBufferSize();
     uint32_t GetFragmentDefaultUniformBufferSize();
+    // uint8_t *GetVertexBuf() { return _vertex_buf; };
+    // uint8_t *GetFragmentBuf() { return _fragment_buf; };
 
 private:
     void _Load();

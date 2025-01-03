@@ -1,5 +1,3 @@
-#include <vita2d.h>
-#include <vita2d_ext.h>
 #include "video.h"
 #include "app.h"
 #include "ui.h"
@@ -7,6 +5,8 @@
 #include "profiler.h"
 
 Emu4VitaPlus::Video *gVideo = nullptr;
+SceGxmNotification *gVertexNotification = nullptr;
+SceGxmNotification *gFragmentNotification = nullptr;
 
 namespace Emu4VitaPlus
 {
@@ -80,7 +80,7 @@ namespace Emu4VitaPlus
                 break;
             }
 
-            vita2d_end_drawing();
+            vita2d_end_drawing(gVertexNotification, gFragmentNotification);
             vita2d_common_dialog_update();
             vita2d_swap_buffers();
             video->Unlock();

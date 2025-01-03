@@ -921,9 +921,11 @@ void vita2d_start_drawing_advanced(vita2d_texture *target, unsigned int flags)
 	}
 }
 
-void vita2d_end_drawing()
+void vita2d_end_drawing(const SceGxmNotification *vertexNotification, const SceGxmNotification *fragmentNotification)
 {
-	sceGxmEndScene(_vita2d_context, NULL, NULL);
+	sceGxmEndScene(_vita2d_context, vertexNotification, fragmentNotification);
+	sceGxmPadHeartbeat(&displaySurface[backBufferIndex], displayBufferSync[backBufferIndex]);
+
 	if (system_app_mode && vblank_wait)
 		sceDisplayWaitVblankStart();
 	drawing = 0;

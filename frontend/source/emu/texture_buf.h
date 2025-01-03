@@ -4,8 +4,9 @@
 #include "log.h"
 #include "defines.h"
 #include "utils.h"
+#include "precomp.h"
 
-#define DEFAULT_TEXTURE_BUF_COUNT 10
+#define DEFAULT_TEXTURE_BUF_COUNT 5
 
 class TextureBuf : public std::array<vita2d_texture *, DEFAULT_TEXTURE_BUF_COUNT>
 {
@@ -31,6 +32,12 @@ public:
         for (auto &texture : *this)
         {
             vita2d_free_texture(texture);
+        }
+
+        for (auto &precomp : _precomps)
+        {
+            if (precomp)
+                delete precomp;
         }
     }
 
@@ -68,7 +75,28 @@ public:
         }
     }
 
+    void SetShader(Shader *shader, const void *index_data, uint32_t index_count)
+    {
+        size_t count = 0;
+        for (auto &precomp : _precomps)
+        {
+            if (precomp)
+                delete precomp;
+            precomp = new Precomp(shader, &((*this)[count]->gxm_tex), index_data, index_count);
+            precomp->notification.value = 0;
+            precomp->notification.address = sceGxmGetNotificationRegion() + count;
+            *precomp->notification.address = 0;
+            count++;
+        }
+    }
+
+    Precomp *GetPrecomp()
+    {
+        return _precomps[_index];
+    }
+
 private:
     size_t _width, _height;
     size_t _index;
+    std::array<Precomp *, DEFAULT_TEXTURE_BUF_COUNT> _precomps{nullptr};
 };

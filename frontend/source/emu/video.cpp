@@ -5,6 +5,7 @@
 #include "app.h"
 #include "overlay.h"
 #include "shader.h"
+#include "precomp.h"
 #include "profiler.h"
 
 extern float _vita2d_ortho_matrix[4 * 4];
@@ -73,6 +74,31 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
     }
 
     gEmulator->_texture_buf->NextEnd();
+
+    uint32_t index = gConfig->graphics[GRAPHICS_SHADER];
+    Shader *shader = (index > 0 && index <= gShaders->size()) ? &(*gShaders)[index - 1] : nullptr;
+    vita2d_shader *_shader = shader ? shader->Get() : nullptr;
+
+    gEmulator->_last_texture = gEmulator->_texture_buf->Current();
+    Precomp *precomp = gEmulator->_texture_buf->GetPrecomp();
+
+    if (shader)
+    {
+        sceGxmNotificationWait(&precomp->notification);
+
+        float *texture_size = (float *)vita2d_pool_memalign(4 * sizeof(float), sizeof(float));
+        float *output_size = texture_size + 2;
+        texture_size[0] = gEmulator->_texture_buf->GetWidth();
+        texture_size[1] = gEmulator->_texture_buf->GetHeight();
+        output_size[0] = gEmulator->_video_rect.width;
+        output_size[1] = gEmulator->_video_rect.height;
+
+        void *vertex_buf = sceGxmPrecomputedVertexStateGetDefaultUniformBuffer(&precomp->vertex_state->state);
+        void *fragment_buf = sceGxmPrecomputedFragmentStateGetDefaultUniformBuffer(&precomp->fragment_state->state);
+        shader->SetUniformData(vertex_buf, fragment_buf, texture_size, output_size);
+        sceGxmSetUniformDataF(vertex_buf, _shader->wvpParam, 0, 16, _vita2d_ortho_matrix);
+    }
+
     gEmulator->_frame_count++;
     gVideo->Signal();
 
@@ -113,42 +139,46 @@ void Emulator::Show()
 
     uint32_t index = gConfig->graphics[GRAPHICS_SHADER];
     Shader *shader = (index > 0 && index <= gShaders->size()) ? &(*gShaders)[index - 1] : nullptr;
+    vita2d_shader *_shader = shader ? shader->Get() : nullptr;
 
     _last_texture = _texture_buf->Current();
+    Precomp *precomp = _texture_buf->GetPrecomp();
+
     const SceGxmProgramParameter *wvp_param;
 
-    if (shader && shader->Valid())
+    if (_shader)
     {
-        vita2d_shader *_shader = shader->Get();
         vita2d_set_shader(_shader);
-        float *texture_size = (float *)vita2d_pool_memalign(4 * sizeof(float), sizeof(float));
-        float *output_size = texture_size + 2;
-        texture_size[0] = _texture_buf->GetWidth();
-        texture_size[1] = _texture_buf->GetHeight();
-        output_size[0] = _video_rect.width;
-        output_size[1] = _video_rect.height;
-        shader->SetUniformData(texture_size, output_size);
-        wvp_param = _shader->wvpParam;
+        sceGxmSetPrecomputedVertexState(vita2d_get_context(), &precomp->vertex_state->state);
+        sceGxmSetPrecomputedFragmentState(vita2d_get_context(), &precomp->fragment_state->state);
+        sceGxmDrawPrecomputed(vita2d_get_context(), &precomp->draw_data->draw);
+        precomp->notification.value++;
+        gFragmentNotification = &precomp->notification;
+
+        sceGxmSetPrecomputedVertexState(vita2d_get_context(), NULL);
+        sceGxmSetPrecomputedFragmentState(vita2d_get_context(), NULL);
+        // return;
+        // wvp_param = _shader->wvpParam;
     }
     else
     {
         sceGxmSetVertexProgram(vita2d_get_context(), _vita2d_textureVertexProgram);
         sceGxmSetFragmentProgram(vita2d_get_context(), _vita2d_textureFragmentProgram);
-
         wvp_param = _vita2d_textureWvpParam;
+
+        void *vertex_wvp_buffer;
+        sceGxmReserveVertexDefaultUniformBuffer(vita2d_get_context(), &vertex_wvp_buffer);
+        sceGxmSetUniformDataF(vertex_wvp_buffer, wvp_param, 0, 16, _vita2d_ortho_matrix);
+
+        vita2d_texture_vertex *vertices = (vita2d_texture_vertex *)vita2d_pool_memalign(4 * sizeof(vita2d_texture_vertex), // 4 vertices
+                                                                                        sizeof(vita2d_texture_vertex));
+        memcpy(vertices, _vertices, 4 * sizeof(vita2d_texture_vertex));
+
+        sceGxmSetFragmentTexture(vita2d_get_context(), 0, &_last_texture->gxm_tex);
+        sceGxmSetVertexStream(vita2d_get_context(), 0, vertices);
+        sceGxmDraw(vita2d_get_context(), SCE_GXM_PRIMITIVE_TRIANGLE_STRIP, SCE_GXM_INDEX_FORMAT_U16, vita2d_get_linear_indices(), 4);
+        gFragmentNotification = NULL;
     }
-
-    void *vertex_wvp_buffer;
-    sceGxmReserveVertexDefaultUniformBuffer(vita2d_get_context(), &vertex_wvp_buffer);
-    sceGxmSetUniformDataF(vertex_wvp_buffer, wvp_param, 0, 16, _vita2d_ortho_matrix);
-
-    vita2d_texture_vertex *vertices = (vita2d_texture_vertex *)vita2d_pool_memalign(4 * sizeof(vita2d_texture_vertex), // 4 vertices
-                                                                                    sizeof(vita2d_texture_vertex));
-    memcpy(vertices, _vertices, 4 * sizeof(vita2d_texture_vertex));
-
-    sceGxmSetFragmentTexture(vita2d_get_context(), 0, &_last_texture->gxm_tex);
-    sceGxmSetVertexStream(vita2d_get_context(), 0, vertices);
-    sceGxmDraw(vita2d_get_context(), SCE_GXM_PRIMITIVE_TRIANGLE_STRIP, SCE_GXM_INDEX_FORMAT_U16, vita2d_get_linear_indices(), 4);
 
     // LogDebug("%f %f %f %f", _video_rect.x, _video_rect.y, _video_rect.width, _video_rect.height);
     // LogDebug("%f %f", _video_rect.width / _texture_buf->GetWidth(), _video_rect.height / _texture_buf->GetHeight());
@@ -385,23 +415,41 @@ void Emulator::_SetVertices(float x, float y, float tex_x, float tex_y, float te
     }
 }
 
+extern "C" void *gpu_alloc(SceKernelMemBlockType type, unsigned int size, unsigned int alignment, unsigned int attribs, SceUID *uid);
+
 void Emulator::_SetupVideoOutput(unsigned width, unsigned height)
 {
     LogFunctionName;
 
     gVideo->Lock();
 
-    gEmulator->_CreateTextureBuf(gEmulator->_video_pixel_format, width, height);
-    gEmulator->_SetVideoSize(width, height);
-    gEmulator->_SetVertices(gEmulator->_video_rect.displacement_x, gEmulator->_video_rect.displacement_y,
-                            0, 0,
-                            width, height,
-                            (float)gEmulator->_video_rect.width / width,
-                            (float)gEmulator->_video_rect.height / height,
-                            gEmulator->_video_rotation == VIDEO_ROTATION_90 || gEmulator->_video_rotation == VIDEO_ROTATION_180 ? M_PI : 0);
+    _CreateTextureBuf(_video_pixel_format, width, height);
+    _SetVideoSize(width, height);
+    _SetVertices(_video_rect.displacement_x, _video_rect.displacement_y,
+                 0, 0,
+                 width, height,
+                 (float)_video_rect.width / width,
+                 (float)_video_rect.height / height,
+                 _video_rotation == VIDEO_ROTATION_90 || _video_rotation == VIDEO_ROTATION_180 ? M_PI : 0);
 
-    gEmulator->_graphics_config_changed = false;
-    gEmulator->_last_texture = nullptr;
+    uint32_t index = gConfig->graphics[GRAPHICS_SHADER];
+    Shader *shader = (index > 0 && index <= gShaders->size()) ? &(*gShaders)[index - 1] : nullptr;
+    if (shader)
+    {
+        // vita2d_texture_vertex *vertices = (vita2d_texture_vertex *)vita2d_pool_memalign(4 * sizeof(vita2d_texture_vertex), // 4 vertices
+        //                                                                                 sizeof(vita2d_texture_vertex));
+        SceUID uid;
+        vita2d_texture_vertex *vertices = (vita2d_texture_vertex *)gpu_alloc(SCE_KERNEL_MEMBLOCK_TYPE_USER_RW_UNCACHE,
+                                                                             4 * sizeof(vita2d_texture_vertex),
+                                                                             sizeof(vita2d_texture_vertex),
+                                                                             SCE_GXM_MEMORY_ATTRIB_READ,
+                                                                             &uid);
+        memcpy(vertices, _vertices, 4 * sizeof(vita2d_texture_vertex));
+        _texture_buf->SetShader(shader, vertices, 4);
+    }
+
+    _graphics_config_changed = false;
+    _last_texture = nullptr;
 
     gVideo->Unlock();
 
