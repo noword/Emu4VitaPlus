@@ -391,17 +391,17 @@ void Emulator::_SetupVideoOutput(unsigned width, unsigned height)
 
     gVideo->Lock();
 
-    gEmulator->_CreateTextureBuf(gEmulator->_video_pixel_format, width, height);
-    gEmulator->_SetVideoSize(width, height);
-    gEmulator->_SetVertices(gEmulator->_video_rect.displacement_x, gEmulator->_video_rect.displacement_y,
-                            0, 0,
-                            width, height,
-                            (float)gEmulator->_video_rect.width / width,
-                            (float)gEmulator->_video_rect.height / height,
-                            gEmulator->_video_rotation == VIDEO_ROTATION_90 || gEmulator->_video_rotation == VIDEO_ROTATION_180 ? M_PI : 0);
+    _CreateTextureBuf(_video_pixel_format, width, height);
+    _SetVideoSize(width, height);
+    _SetVertices(_video_rect.displacement_x, _video_rect.displacement_y,
+                 0, 0,
+                 width, height,
+                 (float)_video_rect.width / width,
+                 (float)_video_rect.height / height,
+                 _video_rotation == VIDEO_ROTATION_90 || _video_rotation == VIDEO_ROTATION_180 ? M_PI : 0);
 
-    gEmulator->_graphics_config_changed = false;
-    gEmulator->_last_texture = nullptr;
+    _graphics_config_changed = false;
+    _last_texture = nullptr;
 
     gVideo->Unlock();
 

@@ -23,9 +23,36 @@ public:
     vita2d_shader *Get() { return _shader; };
     bool Valid() { return _shader != nullptr; };
     const char *GetName() const;
-    void SetUniformData(const float *texture_size, const float *output_size);
     uint32_t GetVertexDefaultUniformBufferSize();
     uint32_t GetFragmentDefaultUniformBufferSize();
+    inline void SetUniformData(const float *texture_size, const float *output_size)
+    {
+        void *vertex_wvp_buffer;
+        void *fragment_wvp_buffer;
+
+        sceGxmReserveVertexDefaultUniformBuffer(vita2d_get_context(), &vertex_wvp_buffer);
+        sceGxmReserveFragmentDefaultUniformBuffer(vita2d_get_context(), &fragment_wvp_buffer);
+
+        if (vertex_wvp_buffer)
+        {
+            if (_vertex_parms.texture_size)
+                sceGxmSetUniformDataF(vertex_wvp_buffer, _vertex_parms.texture_size, 0, 2, texture_size);
+            if (_vertex_parms.video_size)
+                sceGxmSetUniformDataF(vertex_wvp_buffer, _vertex_parms.video_size, 0, 2, texture_size);
+            if (_vertex_parms.output_size)
+                sceGxmSetUniformDataF(vertex_wvp_buffer, _vertex_parms.output_size, 0, 2, output_size);
+        }
+
+        if (fragment_wvp_buffer)
+        {
+            if (_fragment_parms.texture_size)
+                sceGxmSetUniformDataF(fragment_wvp_buffer, _fragment_parms.texture_size, 0, 2, texture_size);
+            if (_fragment_parms.video_size)
+                sceGxmSetUniformDataF(fragment_wvp_buffer, _fragment_parms.video_size, 0, 2, texture_size);
+            if (_fragment_parms.output_size)
+                sceGxmSetUniformDataF(fragment_wvp_buffer, _fragment_parms.output_size, 0, 2, output_size);
+        }
+    };
 
 private:
     void _Load();

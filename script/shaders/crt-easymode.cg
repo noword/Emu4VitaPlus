@@ -51,7 +51,7 @@
 #define mod(x,y) (x - y * trunc(x/y))
 
 // Set to 0 to use linear filter and gain speed
-#define ENABLE_LANCZOS 1
+// #define ENABLE_LANCZOS 1
 
 struct out_vertex
 {

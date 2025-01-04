@@ -8,13 +8,13 @@
 #define SHADER_SECTION "SHADERS"
 
 Shaders *gShaders;
-extern SceGxmContext *_vita2d_ext_context;
 
 bool Params::Init(const SceGxmProgram *program)
 {
     texture_size = sceGxmProgramFindParameterByName(program, "IN.texture_size");
     video_size = sceGxmProgramFindParameterByName(program, "IN.video_size");
     output_size = sceGxmProgramFindParameterByName(program, "IN.output_size");
+    LogDebug("  %08x %08x %08x", texture_size, video_size, output_size);
     return texture_size != NULL && video_size != NULL && output_size != NULL;
 };
 
@@ -94,29 +94,6 @@ FAILED:
 const char *Shader::GetName() const
 {
     return _name.c_str();
-}
-
-void Shader::SetUniformData(const float *texture_size, const float *output_size)
-{
-    void *vertex_wvp_buffer;
-    void *fragment_wvp_buffer;
-
-    sceGxmReserveVertexDefaultUniformBuffer(_vita2d_ext_context, &vertex_wvp_buffer);
-    sceGxmReserveFragmentDefaultUniformBuffer(_vita2d_ext_context, &fragment_wvp_buffer);
-
-    if (_vertex_parms.texture_size)
-        sceGxmSetUniformDataF(vertex_wvp_buffer, _vertex_parms.texture_size, 0, 2, texture_size);
-    if (_vertex_parms.video_size)
-        sceGxmSetUniformDataF(vertex_wvp_buffer, _vertex_parms.video_size, 0, 2, texture_size);
-    if (_vertex_parms.output_size)
-        sceGxmSetUniformDataF(vertex_wvp_buffer, _vertex_parms.output_size, 0, 2, output_size);
-
-    if (_fragment_parms.texture_size)
-        sceGxmSetUniformDataF(fragment_wvp_buffer, _fragment_parms.texture_size, 0, 2, texture_size);
-    if (_fragment_parms.video_size)
-        sceGxmSetUniformDataF(fragment_wvp_buffer, _fragment_parms.video_size, 0, 2, texture_size);
-    if (_fragment_parms.output_size)
-        sceGxmSetUniformDataF(fragment_wvp_buffer, _fragment_parms.output_size, 0, 2, output_size);
 }
 
 uint32_t Shader::GetVertexDefaultUniformBufferSize()

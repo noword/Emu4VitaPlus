@@ -160,3 +160,6 @@
 	path = cores/supafaust
 	url = https://github.com/Rinnegatamante/supafaust.git
 	branch = master
+[submodule "cores/chimerasnes"]
+	path = cores/chimerasnes
+	url = https://github.com/jamsilva/chimerasnes.git
