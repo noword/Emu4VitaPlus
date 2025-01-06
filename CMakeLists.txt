@@ -57,6 +57,7 @@ set(CORES
     # hatari
     fbneo_xtreme
     mame2003_xtreme
+    chimerasnes
 )
 
 set(BUILD_LIST "All" "Arch" ${CORES})
