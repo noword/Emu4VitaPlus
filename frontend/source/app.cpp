@@ -19,6 +19,7 @@
 #include "archive_reader_factory.h"
 #include "input_descriptor.h"
 #include "core_spec.h"
+#include "ra_lpl.h"
 
 extern "C" int getVMBlock();
 
@@ -92,6 +93,10 @@ App::App(int argc, char *const argv[])
 
     gUi->AppendLog("Load Favorites");
     gFavorites = new Favorites;
+
+    gUi->AppendLog("Load RetroArch Playlists");
+    gPlaylists = new RetroArchPlaylists();
+    gPlaylists->LoadAll();
 
     gUi->AppendLog("Create tables of UI");
     gUi->CreateTables();
