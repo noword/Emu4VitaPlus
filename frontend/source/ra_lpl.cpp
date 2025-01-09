@@ -3,6 +3,7 @@
 #include <string.h>
 #include <jsoncpp/json/json.h>
 #include <vita2d.h>
+#include <SimpleIni.h>
 #include "ra_lpl.h"
 #include "file.h"
 #include "log.h"
@@ -10,6 +11,7 @@
 #include "defines.h"
 
 #define RETRO_ARCH_PATH "ux0:data/retroarch"
+#define RETRO_ARCH_CONFIG RETRO_ARCH_PATH "/retroarch.cfg"
 #define RETRO_ARCH_PLAYLISTS_PATH RETRO_ARCH_PATH "/playlists"
 #define RETRO_ARCH_THUMBNAILS_PATH RETRO_ARCH_PATH "/thumbnails"
 #define RETRO_ARCH_BOXARTS "Named_Boxarts"
@@ -33,42 +35,57 @@ void RetroArchPlaylists::LoadAll()
 {
     LogFunctionName;
 
-    for (auto const &root : {PLAYLISTS_DIR, RETRO_ARCH_PLAYLISTS_PATH})
+    Load(PLAYLISTS_DIR);
+
+    CSimpleIniA ini;
+    if (ini.LoadFile(RETRO_ARCH_CONFIG) == SI_OK)
     {
-        SceUID dfd = sceIoDopen(root);
-        if (dfd < 0)
+        std::string pl_dir = ini.GetValue("", "playlist_directory", "NULL");
+        Utils::StripQuotes(&pl_dir);
+        LogDebug(pl_dir.c_str());
+        Load(pl_dir.c_str());
+    }
+    else
+    {
+        Load(RETRO_ARCH_PLAYLISTS_PATH);
+    }
+}
+
+void RetroArchPlaylists::Load(const char *dir_path)
+{
+    SceUID dfd = sceIoDopen(dir_path);
+    if (dfd < 0)
+    {
+        return;
+    }
+
+    SceIoDirent dir;
+    while (sceIoDread(dfd, &dir) > 0)
+    {
+        if (*dir.d_name == '.')
         {
             continue;
         }
-
-        SceIoDirent dir;
-        while (sceIoDread(dfd, &dir) > 0)
+        else if (SCE_S_ISREG(dir.d_stat.st_mode) && File::GetExt(dir.d_name) == LPL_EXT)
         {
-            if (*dir.d_name == '.')
+            std::string path = std::string(dir_path) + "/" + dir.d_name;
+
+            uint32_t crc = _GetLplCrc32(path.c_str());
+            ItemMap items;
+            if ((!_LoadCache(crc, items)) && _LoadLpl(path.c_str(), items))
             {
-                continue;
+                _SaveCache(crc, items);
             }
-            else if (SCE_S_ISREG(dir.d_stat.st_mode) && File::GetExt(dir.d_name) == LPL_EXT)
+
+            if (items.size() > 0)
             {
-                std::string path = std::string(RETRO_ARCH_PLAYLISTS_PATH) + "/" + dir.d_name;
-
-                uint32_t crc = _GetLplCrc32(path.c_str());
-                ItemMap items;
-                if ((!_LoadCache(crc, items)) && _LoadLpl(path.c_str(), items))
-                {
-                    _SaveCache(crc, items);
-                }
-
-                if (items.size() > 0)
-                {
-                    LogDebug("%d items loaded", items.size());
-                    _items.insert(items.begin(), items.end());
-                }
+                LogDebug("%d items loaded", items.size());
+                _items.insert(items.begin(), items.end());
             }
         }
-
-        sceIoDclose(dfd);
     }
+
+    sceIoDclose(dfd);
 }
 
 const char *RetroArchPlaylists::GetLabel(const char *path)

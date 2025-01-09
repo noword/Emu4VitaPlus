@@ -19,6 +19,7 @@ public:
     RetroArchPlaylists();
     virtual ~RetroArchPlaylists();
     void LoadAll();
+    void Load(const char *dir_path);
     const char *GetLabel(const char *path);
     vita2d_texture *GetPreviewImage(const char *path);
     bool IsValid() { return _items.size() > 0; };
