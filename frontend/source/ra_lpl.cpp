@@ -61,7 +61,7 @@ void RetroArchPlaylists::LoadAll()
 
                 if (items.size() > 0)
                 {
-                    LogDebug("%d", items.size());
+                    LogDebug("%d items loaded", items.size());
                     _items.insert(items.begin(), items.end());
                 }
             }
@@ -170,13 +170,81 @@ END:
     return result;
 }
 
+static inline void WriteStr(FILE *fp, const std::string &s)
+{
+    size_t size = s.size();
+    fwrite(&size, sizeof(uint16_t), 1, fp);
+    fwrite(s.c_str(), size, 1, fp);
+}
+
+static inline std::string ReadStr(FILE *fp)
+{
+    uint16_t size;
+    char s[SCE_FIOS_PATH_MAX];
+    fread(&size, sizeof(uint16_t), 1, fp);
+    fread(s, size, 1, fp);
+    s[size] = '\x00';
+    return s;
+}
+
 bool RetroArchPlaylists::_LoadCache(uint32_t crc32, ItemMap &items)
 {
-    return false;
+    char name[SCE_FIOS_PATH_MAX];
+    snprintf(name, SCE_FIOS_PATH_MAX, PLAYLISTS_CACHE_DIR "/%08x.bin", crc32);
+    FILE *fp = fopen(name, "rb");
+    if (!fp)
+    {
+        LogError("failed to open %s for writing", name);
+        return false;
+    }
+
+    uint8_t db_index = _GetDbIndex(ReadStr(fp).c_str());
+    size_t size;
+    fread(&size, sizeof(size_t), 1, fp);
+    for (size_t i = 0; i < size; i++)
+    {
+        uint32_t crc;
+        fread(&crc, sizeof(uint32_t), 1, fp);
+        items[crc] = {db_index, ReadStr(fp)};
+    }
+
+    fclose(fp);
+
+    return true;
 }
 
 bool RetroArchPlaylists::_SaveCache(uint32_t crc32, const ItemMap &items)
 {
+    if (items.size() == 0)
+    {
+        return false;
+    }
+
+    if (!File::Exist(PLAYLISTS_CACHE_DIR))
+    {
+        File::MakeDirs(PLAYLISTS_CACHE_DIR);
+    }
+
+    char name[SCE_FIOS_PATH_MAX];
+    snprintf(name, SCE_FIOS_PATH_MAX, PLAYLISTS_CACHE_DIR "/%08x.bin", crc32);
+    FILE *fp = fopen(name, "wb");
+    if (!fp)
+    {
+        LogError("failed to open %s for writing", name);
+        return false;
+    }
+
+    WriteStr(fp, _dbs[items.begin()->second.db_name_index]);
+    size_t size = items.size();
+    fwrite(&size, sizeof(size_t), 1, fp);
+
+    for (const auto &item : items)
+    {
+        fwrite(&item.first, sizeof(uint32_t), 1, fp);
+        WriteStr(fp, item.second.label);
+    }
+
+    fclose(fp);
     return true;
 }
 
