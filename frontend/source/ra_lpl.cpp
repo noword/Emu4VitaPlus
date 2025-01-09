@@ -2,19 +2,23 @@
 #include <zlib.h>
 #include <string.h>
 #include <jsoncpp/json/json.h>
+#include <vita2d.h>
 #include "ra_lpl.h"
 #include "file.h"
 #include "log.h"
+#include "utils.h"
 
 #define RETRO_ARCH_PATH "ux0:data/retroarch"
 #define RETRO_ARCH_PLAYLISTS_PATH RETRO_ARCH_PATH "/playlists"
 #define RETRO_ARCH_THUMBNAILS_PATH RETRO_ARCH_PATH "/thumbnails"
-#define RETRO_ARCH_BOXARTS_PATH RETRO_ARCH_THUMBNAILS_PATH "/Named_Boxarts"
-#define RETRO_ARCH_SNAPS_PATH RETRO_ARCH_THUMBNAILS_PATH "/Named_Snaps"
-#define RETRO_ARCH_TITLES_PATH "/Named_Titles"
+#define RETRO_ARCH_BOXARTS "Named_Boxarts"
+#define RETRO_ARCH_SNAPS "Named_Snaps"
+#define RETRO_ARCH_TITLES "Named_Titles"
 #define LPL_EXT "lpl"
 
 RetroArchPlaylists *gPlaylists;
+
+static const std::string THUMBNAILS_PATHS[] = {RETRO_ARCH_BOXARTS, RETRO_ARCH_SNAPS, RETRO_ARCH_TITLES};
 
 RetroArchPlaylists::RetroArchPlaylists()
 {
@@ -53,6 +57,7 @@ void RetroArchPlaylists::LoadAll()
 
             if (items.size() > 0)
             {
+                LogDebug("%d", items.size());
                 _items.insert(items.begin(), items.end());
             }
         }
@@ -77,6 +82,24 @@ const char *RetroArchPlaylists::GetLabel(const char *path)
 
 vita2d_texture *RetroArchPlaylists::GetPreviewImage(const char *path)
 {
+    uint32_t crc = crc32(0, (uint8_t *)path, strlen(path));
+    auto iter = _items.find(crc);
+    if (iter != _items.end())
+    {
+        std::string *label = &(iter->second.label);
+        vita2d_texture *texture;
+        const std::string root = std::string(RETRO_ARCH_THUMBNAILS_PATH) + "/" + _dbs[iter->second.db_name_index] + "/";
+        for (const auto &path : THUMBNAILS_PATHS)
+        {
+            std::string im_path = root + path + "/" + *label;
+            texture = vita2d_load_PNG_file((im_path + ".png").c_str());
+            if (texture)
+                return texture;
+            texture = vita2d_load_JPEG_file((im_path + ".jpg").c_str());
+            if (texture)
+                return texture;
+        }
+    }
     return nullptr;
 }
 

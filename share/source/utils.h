@@ -12,6 +12,7 @@ namespace Utils
     void Lower(std::string *s);
     void StripQuotes(std::string *s);
     void TrimString(std::string *s);
+    uint32_t LowerCaseCrc32(const std::string s);
 
     int Utf16ToUtf8(const uint16_t *utf16, char *utf8, size_t size);
     int Utf8ToUtf16(const char *utf8, uint16_t *utf16, size_t size);

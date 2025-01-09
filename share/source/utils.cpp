@@ -2,6 +2,7 @@
 #include <psp2/power.h>
 #include <algorithm>
 #include <stdio.h>
+#include <zlib.h>
 #include "my_imgui.h"
 #include "utils.h"
 #include "log.h"
@@ -36,6 +37,13 @@ namespace Utils
                               { return !std::isspace(ch); })
                      .base(),
                  s->end());
+    }
+
+    uint32_t LowerCaseCrc32(const std::string s)
+    {
+        std::string _s{s};
+        Lower(&_s);
+        return crc32(0, (uint8_t *)_s.c_str(), _s.size());
     }
 
     int Utf16leToUtf8(uint16_t utf16_char, char *utf8_char)

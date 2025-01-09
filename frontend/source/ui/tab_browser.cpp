@@ -16,6 +16,7 @@
 #include "state_manager.h"
 #include "misc.h"
 #include "utils.h"
+#include "ra_lpl.h"
 
 #define HISTROY_SIZE 10
 
@@ -572,7 +573,15 @@ void TabBrowser::_UpdateTexture()
         return;
     }
 
-    _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item.name.c_str());
+    if (gPlaylists->IsValid())
+    {
+        const std::string full_path = _GetCurrentFullPath();
+        _texture = gPlaylists->GetPreviewImage(full_path.c_str());
+        if (_texture == nullptr)
+        {
+            _texture = GetRomPreviewImage(full_path.c_str(), item.name.c_str());
+        }
+    }
 
     if (_texture)
     {
@@ -641,11 +650,6 @@ void TabBrowser::_UpdateStatus()
 void TabBrowser::_UpdateName()
 {
     // LogFunctionName;
-    if (!_name_map.Valid())
-    {
-        return;
-    }
-
     if (_name)
     {
         gVideo->Lock();
@@ -661,6 +665,24 @@ void TabBrowser::_UpdateName()
 
     const DirItem &item = _directory->GetItem(_index);
     if (item.is_dir)
+    {
+        return;
+    }
+
+    if (gPlaylists->IsValid())
+    {
+        const std::string full_path = _GetCurrentFullPath();
+        const char *label = gPlaylists->GetLabel(full_path.c_str());
+        if (label)
+        {
+            gVideo->Lock();
+            _name = label;
+            gVideo->Unlock();
+            return;
+        }
+    }
+
+    if (!_name_map.Valid())
     {
         return;
     }
@@ -808,7 +830,7 @@ int32_t GetNameThread(uint32_t args, void *argp)
     CLASS_POINTER(TabBrowser, browser, argp);
     bool is_dir;
     const std::string full_path = browser->_GetCurrentFullPath(&is_dir);
-    if (is_dir || full_path.size() == 0)
+    if (is_dir || full_path.size() == 0 || File::GetSize(full_path.c_str()) > 5000000)
     {
         sceKernelExitDeleteThread(0);
         return 0;

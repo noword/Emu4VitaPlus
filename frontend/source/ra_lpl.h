@@ -21,6 +21,7 @@ public:
     void LoadAll();
     const char *GetLabel(const char *path);
     vita2d_texture *GetPreviewImage(const char *path);
+    bool IsValid() { return _items.size() > 0; };
 
 private:
     uint32_t _GetLplCrc32(const char *path);
