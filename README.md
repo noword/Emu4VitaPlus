@@ -27,11 +27,13 @@ QQ群：550802386
 # 支持的内核
 街机
   - [FinalBurn Lite](https://gitee.com/yizhigai/libretro-fba-lite)
-  - [FinalBurn Alpha 2012](https://github.com/libretro/fbalpha2012.git)
-  - [FinalBurn Neo](https://github.com/libretro/FBNeo.git)
+  - [FinalBurn Alpha 2012](https://github.com/libretro/fbalpha2012)
+  - [FinalBurn Neo](https://github.com/libretro/FBNeo)
+  - [FinalBurn Neo Xtreme](https://github.com/KMFDManic/FBNeo-Xtreme-Amped)
   - [mame2000](https://github.com/libretro/mame2000-libretro)
   - [mame2003](https://github.com/libretro/mame2003-libretro)
   - [mame2003_plus](https://github.com/libretro/mame2003-plus-libretro)
+  - [mame2003 Xtreme](https://github.com/KMFDManic/mame2003-xtreme)
 
 NES
   - [FCEUmm](https://github.com/libretro/libretro-fceumm)
@@ -41,10 +43,12 @@ SNES
   - [Snes9x 2002](https://github.com/libretro/snes9x2002)
   - [Snes9x 2005](https://github.com/libretro/snes9x2005)
   - [Snes9x 2010](https://github.com/libretro/snes9x2010)
+  - [Supafaust](https://github.com/Rinnegatamante/supafaust)
+  - [ChimeraSNES](https://github.com/jamsilva/chimerasnes)
 
 MD
   - [Genesis Plus GX](https://github.com/libretro/Genesis-Plus-GX)
-  - [Genesis Plus GX Wide](https://github.com/libretro/Genesis-Plus-GX-Wide.git)
+  - [Genesis Plus GX Wide](https://github.com/libretro/Genesis-Plus-GX-Wide)
   - [PicoDrive](https://github.com/libretro/picodrive)
   
 GBC
@@ -62,6 +66,9 @@ PCE
 PS1
   - [PCSX ReARMed](https://github.com/libretro/pcsx_rearmed)
 
+NEOCD
+  - [NeoCD](https://github.com/libretro/neocd_libretro)
+
 WSC
   - [Mednafen Wonderswan](https://github.com/libretro/beetle-wswan-libretro)
 
@@ -72,11 +79,23 @@ DOS(测试中)
   - [DOS SVN](https://github.com/libretro/dosbox-svn)
   - [DOS Pure](https://github.com/libretro/dosbox-pure)
 
+Atari 2600
+  - [Stella 2014](https://github.com/libretro/stella2014-libretro)
+
+Atari 5200
+  - [Atari800](https://github.com/libretro/libretro-atari800)
+
+Atari 7800
+  - [ProSystem](https://github.com/libretro/prosystem-libretro)
+
 Vectrex
   - [vecx](https://github.com/libretro/libretro-vecx)
   
 Amiga
  - [uae4arm](https://github.com/libretro/uae4arm-libretro)
+
+ZX Spectrum
+ - [fuse](https://github.com/libretro/fuse-libretro)
 
 # 编译前准备
 ## Windows

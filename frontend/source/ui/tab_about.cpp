@@ -134,7 +134,16 @@ void TabAbout::_InitTexts()
               "https://github.com/libretro/vba-next",
               "https://github.com/libretro/mgba.git",
               "https://github.com/libretro/dosbox-svn",
-              "https://github.com/libretro/dosbox-pure"};
+              "https://github.com/libretro/dosbox-pure",
+              "https://github.com/KMFDManic/FBNeo-Xtreme-Amped",
+              "https://github.com/KMFDManic/mame2003-xtreme",
+              "https://github.com/Rinnegatamante/supafaust",
+              "https://github.com/jamsilva/chimerasnes",
+              "https://github.com/libretro/neocd_libretro",
+              "https://github.com/libretro/stella2014-libretro",
+              "https://github.com/libretro/libretro-atari800",
+              "https://github.com/libretro/prosystem-libretro",
+              "https://github.com/libretro/fuse-libretro"};
 }
 
 void TabAbout::_OnKeyUp(Input *input)

@@ -7,6 +7,7 @@
 #include "file.h"
 #include "log.h"
 #include "utils.h"
+#include "defines.h"
 
 #define RETRO_ARCH_PATH "ux0:data/retroarch"
 #define RETRO_ARCH_PLAYLISTS_PATH RETRO_ARCH_PATH "/playlists"
@@ -31,39 +32,43 @@ RetroArchPlaylists::~RetroArchPlaylists()
 void RetroArchPlaylists::LoadAll()
 {
     LogFunctionName;
-    SceUID dfd = sceIoDopen(RETRO_ARCH_PLAYLISTS_PATH);
-    if (dfd < 0)
-    {
-        return;
-    }
 
-    SceIoDirent dir;
-    while (sceIoDread(dfd, &dir) > 0)
+    for (auto const &root : {PLAYLISTS_DIR, RETRO_ARCH_PLAYLISTS_PATH})
     {
-        if (*dir.d_name == '.')
+        SceUID dfd = sceIoDopen(root);
+        if (dfd < 0)
         {
             continue;
         }
-        else if (SCE_S_ISREG(dir.d_stat.st_mode) && File::GetExt(dir.d_name) == LPL_EXT)
+
+        SceIoDirent dir;
+        while (sceIoDread(dfd, &dir) > 0)
         {
-            std::string path = std::string(RETRO_ARCH_PLAYLISTS_PATH) + "/" + dir.d_name;
-
-            uint32_t crc = _GetLplCrc32(path.c_str());
-            ItemMap items;
-            if ((!_LoadCache(crc, items)) && _LoadLpl(path.c_str(), items))
+            if (*dir.d_name == '.')
             {
-                _SaveCache(crc, items);
+                continue;
             }
-
-            if (items.size() > 0)
+            else if (SCE_S_ISREG(dir.d_stat.st_mode) && File::GetExt(dir.d_name) == LPL_EXT)
             {
-                LogDebug("%d", items.size());
-                _items.insert(items.begin(), items.end());
+                std::string path = std::string(RETRO_ARCH_PLAYLISTS_PATH) + "/" + dir.d_name;
+
+                uint32_t crc = _GetLplCrc32(path.c_str());
+                ItemMap items;
+                if ((!_LoadCache(crc, items)) && _LoadLpl(path.c_str(), items))
+                {
+                    _SaveCache(crc, items);
+                }
+
+                if (items.size() > 0)
+                {
+                    LogDebug("%d", items.size());
+                    _items.insert(items.begin(), items.end());
+                }
             }
         }
-    }
 
-    sceIoDclose(dfd);
+        sceIoDclose(dfd);
+    }
 }
 
 const char *RetroArchPlaylists::GetLabel(const char *path)
@@ -88,16 +93,20 @@ vita2d_texture *RetroArchPlaylists::GetPreviewImage(const char *path)
     {
         std::string *label = &(iter->second.label);
         vita2d_texture *texture;
-        const std::string root = std::string(RETRO_ARCH_THUMBNAILS_PATH) + "/" + _dbs[iter->second.db_name_index] + "/";
-        for (const auto &path : THUMBNAILS_PATHS)
+
+        for (const auto &root : {THUMBNAILS_DIR, RETRO_ARCH_THUMBNAILS_PATH})
         {
-            std::string im_path = root + path + "/" + *label;
-            texture = vita2d_load_PNG_file((im_path + ".png").c_str());
-            if (texture)
-                return texture;
-            texture = vita2d_load_JPEG_file((im_path + ".jpg").c_str());
-            if (texture)
-                return texture;
+            const std::string root_path = std::string(root) + "/" + _dbs[iter->second.db_name_index] + "/";
+            for (const auto &path : THUMBNAILS_PATHS)
+            {
+                std::string im_path = root_path + path + "/" + *label;
+                texture = vita2d_load_PNG_file((im_path + ".png").c_str());
+                if (texture)
+                    return texture;
+                texture = vita2d_load_JPEG_file((im_path + ".jpg").c_str());
+                if (texture)
+                    return texture;
+            }
         }
     }
     return nullptr;
