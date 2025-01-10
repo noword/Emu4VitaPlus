@@ -2258,115 +2258,115 @@
     {
         "No.": "373",
         "English": "Cartridge Lock-On",
-        "Chinese": "Cartridge Lock-On",
+        "Chinese": "卡带锁定",
         "Comments": ""
     },
     {
         "No.": "374",
         "English": "Lock-On Technology is a Mega Drive/Genesis feature that allowed an older game to connect to the pass-through port of a special cartridge for extended or altered gameplay. This option specifies which type of special 'lock-on' cartridge to emulate. A corresponding bios file must be present in RetroArch's system directory.",
-        "Chinese": "Lock-On Technology is a Mega Drive/Genesis feature that allowed an older game to connect to the pass-through port of a special cartridge for extended or altered gameplay. This option specifies which type of special 'lock-on' cartridge to emulate. A corresponding bios file must be present in RetroArch's system directory.",
+        "Chinese": "锁定技术是Mega Drive/Genesis的一项功能，允许旧游戏通过特殊卡带的直通端口连接，以实现扩展或修改的游戏玩法。此选项用于指定模拟的特殊“锁定”卡带类型，并要求系统目录中存在相应的BIOS文件。",
         "Comments": ""
     },
     {
         "No.": "375",
         "English": "Low-Pass Filter %",
-        "Chinese": "Low-Pass Filter %",
+        "Chinese": "低通滤波器 %",
         "Comments": ""
     },
     {
         "No.": "376",
         "English": "Specify the cut-off frequency of the audio low pass filter. A higher value increases the perceived 'strength' of the filter, since a wider range of the high frequency spectrum is attenuated.",
-        "Chinese": "Specify the cut-off frequency of the audio low pass filter. A higher value increases the perceived 'strength' of the filter, since a wider range of the high frequency spectrum is attenuated.",
+        "Chinese": "设定音频低通滤波器的截止频率。较高的数值会增强滤波器的“强度”效果，因为更广泛的高频频谱会被衰减。",
         "Comments": ""
     },
     {
         "No.": "377",
         "English": "Remove Per-Line Sprite Limit",
-        "Chinese": "Remove Per-Line Sprite Limit",
+        "Chinese": "移除扫描线精灵数量限制",
         "Comments": ""
     },
     {
         "No.": "378",
         "English": "Removes the original sprite-per-scanline hardware limit. This reduces flickering but can cause visual glitches, as some games exploit the hardware limit to generate special effects.",
-        "Chinese": "Removes the original sprite-per-scanline hardware limit. This reduces flickering but can cause visual glitches, as some games exploit the hardware limit to generate special effects.",
+        "Chinese": "移除原有的扫描线精灵数量限制。此功能可以减少屏幕闪烁，但可能引发视觉异常，因为部分游戏依赖该硬件限制来实现特殊效果。",
         "Comments": ""
     },
     {
         "No.": "379",
         "English": "Borders",
-        "Chinese": "Borders",
+        "Chinese": "边框",
         "Comments": ""
     },
     {
         "No.": "380",
         "English": "Enable this to display the overscan regions at the top/bottom and/or left/right of the screen. These would normally be hidden by the bezel around the edge of a standard-definition television.",
-        "Chinese": "Enable this to display the overscan regions at the top/bottom and/or left/right of the screen. These would normally be hidden by the bezel around the edge of a standard-definition television.",
+        "Chinese": "启用此选项以显示屏幕上下和左右的过扫描区域。这些区域通常会被标准清晰度电视边框所隐藏。",
         "Comments": ""
     },
     {
         "No.": "381",
         "English": "PSG Preamp Level",
-        "Chinese": "PSG Preamp Level",
+        "Chinese": "音频前置放大器音量级别",
         "Comments": ""
     },
     {
         "No.": "382",
         "English": "Set the audio preamplifier level of the emulated SN76496 4-channel Programmable Sound Generator found in the SG-1000, Sega Mark III, Master System, Game Gear and Mega Drive/Genesis.",
-        "Chinese": "Set the audio preamplifier level of the emulated SN76496 4-channel Programmable Sound Generator found in the SG-1000, Sega Mark III, Master System, Game Gear and Mega Drive/Genesis.",
+        "Chinese": "设置用于SG-1000、Sega Mark III、Master System、Game Gear和Mega Drive/Genesis的模拟SN76496四声道可编程声发生器的音频前置放大器音量级别。",
         "Comments": ""
     },
     {
         "No.": "383",
         "English": "System Region",
-        "Chinese": "System Region",
+        "Chinese": "系统区域",
         "Comments": ""
     },
     {
         "No.": "384",
         "English": "Specify which region the system is from. For consoles other than the Game Gear, 'PAL' is 50 Hz, while 'NTSC' is 60 Hz. Games may run faster or slower than normal if the incorrect region is selected.",
-        "Chinese": "Specify which region the system is from. For consoles other than the Game Gear, 'PAL' is 50 Hz, while 'NTSC' is 60 Hz. Games may run faster or slower than normal if the incorrect region is selected.",
+        "Chinese": "指定系统所属的区域。对于除Game Gear外的主机，\"PAL\"为50 Hz，而\"NTSC\"为60 Hz。如果选择错误的区域，游戏可能会以快于或慢于正常的速度运行。",
         "Comments": ""
     },
     {
         "No.": "385",
         "English": "Interlaced Mode 2 Output",
-        "Chinese": "Interlaced Mode 2 Output",
+        "Chinese": "交错模式 2 输出",
         "Comments": ""
     },
     {
         "No.": "386",
         "English": "Interlaced Mode 2 allows the Mega Drive/Genesis to output a double height (high resolution) 320x448 image by drawing alternate scan lines each frame (this is used by Sonic the Hedgehog 2 and Combat Cars multiplayer modes). 'Double Field' mimics original hardware, producing a sharp image with flickering/interlacing artifacts. 'Single Field' applies a deinterlacing filter, which stabilizes the image but causes mild blurring.",
-        "Chinese": "Interlaced Mode 2 allows the Mega Drive/Genesis to output a double height (high resolution) 320x448 image by drawing alternate scan lines each frame (this is used by Sonic the Hedgehog 2 and Combat Cars multiplayer modes). 'Double Field' mimics original hardware, producing a sharp image with flickering/interlacing artifacts. 'Single Field' applies a deinterlacing filter, which stabilizes the image but causes mild blurring.",
+        "Chinese": "交错模式2允许Mega Drive/Genesis通过每帧绘制交替扫描线输出双倍高度（高分辨率）的320x448图像（此功能常用于《刺猬索尼克2》和《战车大作战》的多人模式）。“双场”模式忠实模拟原始硬件，呈现清晰图像，但伴随闪烁和交错伪影；“单场”模式则通过去交错滤镜稳定画面，但会导致轻微的模糊效果。",
         "Comments": ""
     },
     {
         "No.": "387",
         "English": "Sound Output",
-        "Chinese": "Sound Output",
+        "Chinese": "音频输出",
         "Comments": ""
     },
     {
         "No.": "388",
         "English": "Select stereo or mono sound playback.",
-        "Chinese": "Select stereo or mono sound playback.",
+        "Chinese": "选择立体声或单声道播放音频。",
         "Comments": ""
     },
     {
         "No.": "389",
         "English": "CD System BRAM (Requires Restart)",
-        "Chinese": "CD System BRAM (Requires Restart)",
+        "Chinese": "CD System BRAM (需要重启)",
         "Comments": ""
     },
     {
         "No.": "390",
         "English": "When running Sega CD/Mega-CD content, specifies whether to share a single save file between all games from a specific region (Per-BIOS) or to create a separate save file for each game (Per-Game). Note that the Sega CD/Mega-CD has limited internal storage, sufficient only for a handful of titles. To avoid running out of space, the 'Per-Game' setting is recommended.",
-        "Chinese": "When running Sega CD/Mega-CD content, specifies whether to share a single save file between all games from a specific region (Per-BIOS) or to create a separate save file for each game (Per-Game). Note that the Sega CD/Mega-CD has limited internal storage, sufficient only for a handful of titles. To avoid running out of space, the 'Per-Game' setting is recommended.",
+        "Chinese": "运行Sega CD/Mega-CD内容时，可以选择共享一个特定区域内所有游戏的存档文件（按BIOS共享），或为每个游戏单独创建存档文件（按游戏存档）。需要注意的是，Sega CD/Mega-CD的内部存储空间非常有限，仅能存储少量游戏。为避免存储空间不足，推荐使用“按游戏存档”设置。",
         "Comments": ""
     },
     {
         "No.": "391",
         "English": "System Hardware",
-        "Chinese": "System Hardware",
+        "Chinese": "系统硬件",
         "Comments": ""
     },
     {
@@ -2378,7 +2378,7 @@
     {
         "No.": "393",
         "English": "Force VDP Mode",
-        "Chinese": "Force VDP Mode",
+        "Chinese": "强制 VDP 模式",
         "Comments": ""
     },
     {
