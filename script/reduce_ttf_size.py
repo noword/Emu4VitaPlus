@@ -7683,7 +7683,8 @@ SHIFT_JIS = [
 ]
 
 TEXTS = ''
-for code in GB_2312 + SHIFT_JIS:
+# for code in GB_2312 + SHIFT_JIS:
+for code in GB_2312:
     TEXTS += ''.join(chr(x) for x in range(code[0], code[1] + 1))
 
 TEXTS = list(set(TEXTS))

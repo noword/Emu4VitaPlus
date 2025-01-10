@@ -218,8 +218,6 @@ static bool load_font_cache(const char *path)
 
 static const ImWchar *get_glyph_ranges(uint32_t language)
 {
-    // return GB_2312;
-
     switch (language)
     {
     case LANGUAGE_CHINESE:
