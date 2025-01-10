@@ -2324,7 +2324,7 @@
     {
         "No.": "384",
         "English": "Specify which region the system is from. For consoles other than the Game Gear, 'PAL' is 50 Hz, while 'NTSC' is 60 Hz. Games may run faster or slower than normal if the incorrect region is selected.",
-        "Chinese": "指定系统所属的区域。对于除Game Gear外的主机，\"PAL\"为50 Hz，而\"NTSC\"为60 Hz。如果选择错误的区域，游戏可能会以快于或慢于正常的速度运行。",
+        "Chinese": "指定系统所属的区域。对于除Game Gear外的主机，'PAL'为50 Hz，而'NTSC'为60 Hz。如果选择错误的区域，游戏可能会以快于或慢于正常的速度运行。",
         "Comments": ""
     },
     {
