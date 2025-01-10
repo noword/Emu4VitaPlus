@@ -172,13 +172,15 @@ ux0:/data/EMU4VITAPLUS/system
 
 请自行将对应的 BIOS 文件复制到此目录中【重要】
 
-# 部分核心建议设置
-## FBNeo
- 启用 旋风
+# 兼容 [RetroArch romset](https://docs.libretro.com/guides/roms-playlists-thumbnails/)
 
- 禁用 FM 插帧
- 
- 禁用 采样插帧
+Emu4Vita++ 会尝试读取以下目录中的 .lpl 文件:
+* ux0:data/EMU4VITAPLUS/playlists
+* ux0:data/retroarch/retroarch.cfg 中的 playlist_directory 项
+* ux0:data/retroarch/playlists
+  
+利用 lpl 中的 label 和 path 信息，显示 rom 名称和缩略图。
+
 
 # 特别感谢
 [一直改](https://gitee.com/yizhigai/Emu4Vita)

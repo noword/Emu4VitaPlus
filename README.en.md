@@ -159,6 +159,15 @@ ux0:/data/EMU4VITAPLUS/system
 
 copy the corresponding BIOS file to this directory【IMPORTANT】
 
+# Compatible with [RetroArch romset](https://docs.libretro.com/guides/roms-playlists-thumbnails/)
+
+Emu4Vita++ will try to read .lpl files in the following directories:
+* ux0:data/EMU4VITAPLUS/playlists
+* 'playlist_directory' item in ux0:data/retroarch/retroarch.cfg 
+* ux0:data/retroarch/playlists
+  
+Use the label and path information in lpl to display the rom name and thumbnail.
+
 # Special thanks
 [yizhigai](https://gitee.com/yizhigai/Emu4Vita)
 
