@@ -2372,7 +2372,7 @@
     {
         "No.": "392",
         "English": "Runs loaded content with a specific emulated console. 'Auto' will select the most appropriate system for the current game.",
-        "Chinese": "Runs loaded content with a specific emulated console. 'Auto' will select the most appropriate system for the current game.",
+        "Chinese": "通过指定的模拟主机运行已加载的内容。“自动”模式将为当前游戏选择最适合的系统。",
         "Comments": ""
     },
     {
@@ -2384,7 +2384,7 @@
     {
         "No.": "394",
         "English": "Overrides the VDP mode to force it to run at either NTSC 60Hz or PAL 50Hz, regardless of system region.",
-        "Chinese": "Overrides the VDP mode to force it to run at either NTSC 60Hz or PAL 50Hz, regardless of system region.",
+        "Chinese": "强制覆盖VDP模式，无论系统区域如何，都让其以NTSC 60Hz或PAL 50Hz运行。",
         "Comments": ""
     },
     {
@@ -2396,19 +2396,19 @@
     {
         "No.": "396",
         "English": "Enable emulation of the FM Sound Unit used by certain Sega Mark III/Master System games for enhanced audio output.",
-        "Chinese": "Enable emulation of the FM Sound Unit used by certain Sega Mark III/Master System games for enhanced audio output.",
+        "Chinese": "启用对Sega Mark III/Master System部分游戏所使用的FM音频单元的模拟功能，提供更高质量的音频输出。",
         "Comments": ""
     },
     {
         "No.": "397",
         "English": "Master System FM (YM2413) Core",
-        "Chinese": "Master System FM (YM2413) Core",
+        "Chinese": "Master System FM (YM2413) 核心",
         "Comments": ""
     },
     {
         "No.": "398",
         "English": "Select method used to emulate the FM Sound Unit of the Sega Mark III/Master System. 'MAME' option is fast, and runs full speed on most systems. 'Nuked' option is cycle accurate, very high quality, and has substantial CPU requirements.",
-        "Chinese": "Select method used to emulate the FM Sound Unit of the Sega Mark III/Master System. 'MAME' option is fast, and runs full speed on most systems. 'Nuked' option is cycle accurate, very high quality, and has substantial CPU requirements.",
+        "Chinese": "选择模拟Sega Mark III/Master System FM音频单元的方式。“MAME”选项速度快，适合在大多数系统上全速运行；“Nuked”选项则具备周期精确的高质量音频模拟，但对CPU性能要求较高。",
         "Comments": ""
     },
     {
@@ -2420,13 +2420,13 @@
     {
         "No.": "400",
         "English": "Select method used to emulate the FM synthesizer (main sound generator) of the Mega Drive/Genesis. 'MAME' options are fast, and run full speed on most systems. 'Nuked' options are cycle accurate, very high quality, and have substantial CPU requirements. The YM2612 chip is used by the original Model 1 Mega Drive/Genesis. The YM3438 is used in later Mega Drive/Genesis revisions.",
-        "Chinese": "Select method used to emulate the FM synthesizer (main sound generator) of the Mega Drive/Genesis. 'MAME' options are fast, and run full speed on most systems. 'Nuked' options are cycle accurate, very high quality, and have substantial CPU requirements. The YM2612 chip is used by the original Model 1 Mega Drive/Genesis. The YM3438 is used in later Mega Drive/Genesis revisions.",
+        "Chinese": "选择模拟Mega Drive/Genesis FM合成器（主要音频生成器）的方式。“MAME”选项速度快，适合在大多数系统上全速运行；“Nuked”选项具备周期精确的高质量音频模拟，但对CPU性能要求较高。原始的第一代Mega Drive/Genesis使用YM2612芯片，而后期改进版本则采用YM3438芯片。",
         "Comments": ""
     },
     {
         "No.": "401",
         "English": "Select method used to emulate the FM synthesizer (main sound generator) of the Mega Drive/Genesis. The YM2612 chip is used by the original Model 1 Mega Drive/Genesis. The YM3438 is used in later Mega Drive/Genesis revisions.",
-        "Chinese": "Select method used to emulate the FM synthesizer (main sound generator) of the Mega Drive/Genesis. The YM2612 chip is used by the original Model 1 Mega Drive/Genesis. The YM3438 is used in later Mega Drive/Genesis revisions.",
+        "Chinese": "选择模拟Mega Drive/Genesis FM合成器（主要音频生成器）的方式。第一代Mega Drive/Genesis使用YM2612芯片，而后续改进版本则采用YM3438芯片。",
         "Comments": ""
     }
 ]
