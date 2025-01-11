@@ -1,0 +1,84 @@
+#pragma warning (default:7203)
+
+struct out_vertex 
+{
+    float4 position : POSITION;
+    float2 texCoord : TEXCOORD0;
+};
+
+struct input
+{
+    float2 video_size;
+    float2 texture_size;
+    float2 output_size;
+};
+
+#if defined(VERTEX)
+void main(float2 aTexcoord : TEXCOORD0,
+  float4 aPosition : POSITION,
+  uniform float4x4 wvp,
+  uniform input IN,
+  out_vertex out OUT)
+{
+	OUT.position = mul(aPosition, wvp);
+	OUT.texCoord = aTexcoord;
+}
+
+#elif defined(FRAGMENT)
+
+#define mix(x, y, a) ((x)*(1.0-(a)) + (y)*(a))
+
+float2 curve(float2 uv)
+{
+	uv = (uv - 0.5) * 2.0;
+	uv *= 1.1;	
+	uv.x *= 1.0 + pow((abs(uv.y) / 5.0), 2.0);
+	uv.y *= 1.0 + pow((abs(uv.x) / 4.0), 2.0);
+	uv  = (uv / 2.0) + 0.5;
+	uv =  uv *0.92 + 0.04;
+	return uv;
+}
+
+static float iTime = 0.0;
+
+float4 main(in out_vertex VOUT,
+    uniform sampler2D decal : TEXUNIT0,
+    uniform input IN) : COLOR
+{
+    float2 q = VOUT.texCoord.xy;
+    float2 uv = q;
+    //uv = mix( uv, curve( uv ), 0.5);
+	uv = curve(uv);
+
+	float3 col = tex2D(decal, VOUT.texCoord).xyz;
+
+	float x =  sin(0.3*iTime+uv.y*21.0)*sin(0.7*iTime+uv.y*29.0)*sin(0.3+0.33*iTime+uv.y*31.0)*0.0017;
+    
+	iTime++;
+	
+	col = clamp(col*0.6+0.4*col*col*1.0, 0.0, 1.0);
+
+	float vig = (0.0 + 1.0*16.0*uv.x*uv.y*(1.0-uv.x)*(1.0-uv.y));
+	col *= pow(vig, 0.3);
+
+	col *= float3(0.95, 1.05, 0.95);
+	col *= 2.8;
+	
+    float scans = clamp(0.35+0.15*sin(3.5*(iTime * 1.0)+uv.y*IN.output_size.y*1.5), 0.0, 1.0);
+	float s = pow(scans, 1.7);
+	col = col*(0.4 + 0.7*s);
+
+	col *= 1.0+ 0.01 * sin(110.0*iTime);
+
+    if (uv.x < 0.0 || uv.x > 1.0)
+		col *= 0.0;
+	if (uv.y < 0.0 || uv.y > 1.0)
+		col *= 0.0;
+	
+
+	//col *= 1.0 - 0.65*clamp((VOUT.texCoord.x % 2.0 - 1.0)*2.0, 0.0, 1.0);
+    
+	return float4(col, 1.0);
+}
+
+#endif
