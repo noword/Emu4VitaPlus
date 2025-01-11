@@ -44,9 +44,10 @@ public:
     void Show();
     void Save();
     void Load();
-    void Lock();
+    int32_t Lock(uint32_t *timeout = NULL);
     void Unlock();
     void SetSpeed(double speed);
+    void Wait();
     const char *GetCurrentName() { return _current_name.c_str(); };
     bool SaveScreenShot(const char *name);
     bool GetCurrentSoftwareFramebuffer(retro_framebuffer *fb);

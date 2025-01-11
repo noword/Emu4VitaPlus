@@ -247,17 +247,15 @@ void Emulator::Run()
 
     EndProfile("retro_run");
 
-    bool in_time = _delay.Wait();
-
-    if (_show_video)
-        _show_video = in_time;
-    else
-        _show_video = true;
+    if (!CONTROL_SPEED_BY_VIDEO)
+    {
+        Wait();
+    }
 }
 
-void Emulator::Lock()
+int32_t Emulator::Lock(uint32_t *timeout)
 {
-    sceKernelLockLwMutex(&_run_mutex, 1, NULL);
+    return sceKernelLockLwMutex(&_run_mutex, 1, timeout);
 }
 
 void Emulator::Unlock()
@@ -284,6 +282,16 @@ void Emulator::SetSpeed(double speed)
     uint64_t interval = 1000000ull / (uint64_t)(_av_info.timing.fps * speed);
     _delay.SetInterval(interval);
     _video_delay.SetInterval(interval);
+}
+
+void Emulator::Wait()
+{
+    bool in_time = _delay.Wait();
+
+    if (_show_video)
+        _show_video = in_time;
+    else
+        _show_video = true;
 }
 
 static void ConvertTextureToRGB888(vita2d_texture *texture, uint8_t *dst, size_t width = 0, size_t height = 0)

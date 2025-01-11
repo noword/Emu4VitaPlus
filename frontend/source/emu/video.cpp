@@ -76,6 +76,11 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
     gEmulator->_frame_count++;
     gVideo->Signal();
 
+    if (CONTROL_SPEED_BY_VIDEO)
+    {
+        gEmulator->Wait();
+    }
+
     EndProfile("VideoRefreshCallback");
 }
 
