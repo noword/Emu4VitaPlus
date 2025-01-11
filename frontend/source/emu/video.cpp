@@ -76,10 +76,7 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
     gEmulator->_frame_count++;
     gVideo->Signal();
 
-    if (CONTROL_SPEED_BY_VIDEO)
-    {
-        gEmulator->Wait();
-    }
+    gEmulator->Wait();
 
     EndProfile("VideoRefreshCallback");
 }
@@ -195,6 +192,7 @@ bool Emulator::GetCurrentSoftwareFramebuffer(retro_framebuffer *fb)
     fb->access_flags = RETRO_MEMORY_ACCESS_WRITE | RETRO_MEMORY_ACCESS_READ;
     fb->memory_flags = RETRO_MEMORY_TYPE_CACHED;
 
+    Wait();
     return true;
 }
 

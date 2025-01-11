@@ -61,12 +61,6 @@ const bool DEFAULT_AUTO_SAVE = true;
 const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = false;
 #endif
 
-#if defined(VBA_NEXT_BUILD)
-const bool CONTROL_SPEED_BY_VIDEO = true;
-#else
-const bool CONTROL_SPEED_BY_VIDEO = false;
-#endif
-
 const uint8_t RETRO_KEYS[] = {
     RETRO_DEVICE_ID_NONE,
     RETRO_DEVICE_ID_JOYPAD_UP,

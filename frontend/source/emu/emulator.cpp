@@ -247,10 +247,10 @@ void Emulator::Run()
 
     EndProfile("retro_run");
 
-    if (!CONTROL_SPEED_BY_VIDEO)
-    {
-        Wait();
-    }
+    // if (!CONTROL_SPEED_BY_VIDEO)
+    // {
+    //     Wait();
+    // }
 }
 
 int32_t Emulator::Lock(uint32_t *timeout)
