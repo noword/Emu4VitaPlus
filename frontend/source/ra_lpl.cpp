@@ -104,6 +104,7 @@ const char *RetroArchPlaylists::GetLabel(const char *path)
 
 vita2d_texture *RetroArchPlaylists::GetPreviewImage(const char *path)
 {
+    LogFunctionName;
     uint32_t crc = crc32(0, (uint8_t *)path, strlen(path));
     auto iter = _items.find(crc);
     if (iter != _items.end())
@@ -172,9 +173,20 @@ bool RetroArchPlaylists::_LoadLpl(const char *lpl_path, ItemMap &items)
         {
             const char *path = array[i]["path"].asCString();
             const char *label = array[i]["label"].asCString();
-            if (path && label)
+            size_t size = strlen(path);
+            if (path && label && size > 5)
             {
-                items[crc32(0, (uint8_t *)path, strlen(path))] = {db_index, label};
+                uint32_t crc;
+                if (path[4] == '/')
+                {
+                    crc = crc32(0, (uint8_t *)path, size);
+                }
+                else
+                {
+                    std::string s = std::string(path, 4) + "/" + (path + 4);
+                    crc = crc32(0, (uint8_t *)s.c_str(), s.size());
+                }
+                items[crc] = {db_index, label};
             }
         }
 
