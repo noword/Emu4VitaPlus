@@ -551,8 +551,6 @@ void TabBrowser::_PasteFile(bool overwrite)
 
 void TabBrowser::_UpdateTexture()
 {
-    // LogFunctionName;
-
     if (_texture != nullptr)
     {
         gVideo->Lock();
@@ -573,14 +571,15 @@ void TabBrowser::_UpdateTexture()
         return;
     }
 
+    const std::string full_path = _GetCurrentFullPath();
     if (gPlaylists->IsValid())
     {
-        const std::string full_path = _GetCurrentFullPath();
         _texture = gPlaylists->GetPreviewImage(full_path.c_str());
-        if (_texture == nullptr)
-        {
-            _texture = GetRomPreviewImage(full_path.c_str(), item.name.c_str());
-        }
+    }
+
+    if (_texture == nullptr)
+    {
+        _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item.name.c_str());
     }
 
     if (_texture)

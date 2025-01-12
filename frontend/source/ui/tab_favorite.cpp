@@ -5,6 +5,7 @@
 #include "emulator.h"
 #include "video.h"
 #include "misc.h"
+#include "ra_lpl.h"
 
 TabFavorite::TabFavorite()
     : TabSeletable(LANG_FAVORITE),
@@ -199,7 +200,15 @@ void TabFavorite::_UpdateTexture()
     std::advance(iter, _index);
     const Favorite &fav = iter->second;
 
-    _texture = GetRomPreviewImage(fav.path.c_str(), fav.item.name.c_str());
+    if (gPlaylists->IsValid())
+    {
+        _texture = gPlaylists->GetPreviewImage((fav.path + "/" + fav.item.name).c_str());
+    }
+
+    if (_texture == nullptr)
+    {
+        _texture = GetRomPreviewImage(fav.path.c_str(), fav.item.name.c_str());
+    }
 
     if (_texture)
     {
