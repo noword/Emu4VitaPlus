@@ -168,6 +168,13 @@ Emu4Vita++ will try to read .lpl files in the following directories:
   
 Use the label and path information in lpl to display the rom name and thumbnail.
 
+# About Problem Reporting
+If you wish to report a problem, please indicate the version and core used and the operation before the problem occurred; 
+
+If the problem occurs during the game, please upload the ROM; 
+
+If the program crashes, please find the psp2dmp file under ux0:/data/ and upload it.
+
 # Special thanks
 [yizhigai](https://gitee.com/yizhigai/Emu4Vita)
 

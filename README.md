@@ -181,6 +181,13 @@ Emu4Vita++ 会尝试读取以下目录中的 .lpl 文件:
   
 利用 lpl 中的 label 和 path 信息，显示 rom 名称和缩略图。
 
+# 关于问题报告
+如果希望回报问题，请注明版本和使用的内核，问题出现前的操作；
+
+如果在游戏过程中出现问题，请上传rom；
+
+如果程序奔溃，请找到ux0:/data/下面的psp2dmp文件，并上传。
+
 
 # 特别感谢
 [一直改](https://gitee.com/yizhigai/Emu4Vita)
