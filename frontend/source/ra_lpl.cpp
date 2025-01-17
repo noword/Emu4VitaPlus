@@ -10,10 +10,16 @@
 #include "utils.h"
 #include "defines.h"
 
-#define RETRO_ARCH_PATH "ux0:data/retroarch"
-#define RETRO_ARCH_CONFIG RETRO_ARCH_PATH "/retroarch.cfg"
-#define RETRO_ARCH_PLAYLISTS_PATH RETRO_ARCH_PATH "/playlists"
-#define RETRO_ARCH_THUMBNAILS_PATH RETRO_ARCH_PATH "/thumbnails"
+#define RETRO_ARCH_UX0_PATH "ux0:data/retroarch"
+#define RETRO_ARCH_UX0_CONFIG RETRO_ARCH_UX0_PATH "/retroarch.cfg"
+#define RETRO_ARCH_UX0_PLAYLISTS_PATH RETRO_ARCH_UX0_PATH "/playlists"
+#define RETRO_ARCH_UX0_THUMBNAILS_PATH RETRO_ARCH_UX0_PATH "/thumbnails"
+
+#define RETRO_ARCH_UMA0_PATH "uma0:data/retroarch"
+#define RETRO_ARCH_UMA0_CONFIG RETRO_ARCH_UMA0_PATH "/retroarch.cfg"
+#define RETRO_ARCH_UMA0_PLAYLISTS_PATH RETRO_ARCH_UMA0_PATH "/playlists"
+#define RETRO_ARCH_UMA0_THUMBNAILS_PATH RETRO_ARCH_UMA0_PATH "/thumbnails"
+
 #define RETRO_ARCH_BOXARTS "Named_Boxarts"
 #define RETRO_ARCH_SNAPS "Named_Snaps"
 #define RETRO_ARCH_TITLES "Named_Titles"
@@ -38,7 +44,7 @@ void RetroArchPlaylists::LoadAll()
     Load(PLAYLISTS_DIR);
 
     CSimpleIniA ini;
-    if (ini.LoadFile(RETRO_ARCH_CONFIG) == SI_OK)
+    if (ini.LoadFile(RETRO_ARCH_UX0_CONFIG) == SI_OK)
     {
         std::string pl_dir = ini.GetValue("", "playlist_directory", "NULL");
         Utils::StripQuotes(&pl_dir);
@@ -47,7 +53,19 @@ void RetroArchPlaylists::LoadAll()
     }
     else
     {
-        Load(RETRO_ARCH_PLAYLISTS_PATH);
+        Load(RETRO_ARCH_UX0_PLAYLISTS_PATH);
+    }
+
+    if (ini.LoadFile(RETRO_ARCH_UMA0_CONFIG) == SI_OK)
+    {
+        std::string pl_dir = ini.GetValue("", "playlist_directory", "NULL");
+        Utils::StripQuotes(&pl_dir);
+        LogDebug(pl_dir.c_str());
+        Load(pl_dir.c_str());
+    }
+    else
+    {
+        Load(RETRO_ARCH_UMA0_PLAYLISTS_PATH);
     }
 }
 
@@ -112,7 +130,7 @@ vita2d_texture *RetroArchPlaylists::GetPreviewImage(const char *path)
         std::string *label = &(iter->second.label);
         vita2d_texture *texture;
 
-        for (const auto &root : {THUMBNAILS_DIR, RETRO_ARCH_THUMBNAILS_PATH})
+        for (const auto &root : {THUMBNAILS_DIR, RETRO_ARCH_UX0_THUMBNAILS_PATH, RETRO_ARCH_UMA0_THUMBNAILS_PATH})
         {
             const std::string root_path = std::string(root) + "/" + _dbs[iter->second.db_name_index] + "/";
             for (const auto &path : THUMBNAILS_PATHS)
