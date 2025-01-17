@@ -15,6 +15,7 @@
 #include "file.h"
 #include "profiler.h"
 #include "core_spec.h"
+#include "rzip.h"
 
 extern "C"
 {
@@ -515,22 +516,27 @@ void Emulator::Load()
         }
         if (data == NULL)
         {
-            LogDebug("failed to load: %d", id);
+            LogDebug("no need to load: %d", id);
             continue;
         }
 
-        FILE *fp = fopen(_SaveNamePath(id).c_str(), "rb");
-        if (fp)
+        std::string path = _SaveNamePath(id);
+        if (File::Exist(path.c_str()))
         {
-            fseek(fp, 0, SEEK_END);
-
-            if (size == ftell(fp))
+            Rzip rzip(path.c_str());
+            if (rzip.IsValid() && size == rzip.GetSize())
             {
-                fseek(fp, 0, SEEK_SET);
-                fread(data, size, 1, fp);
-                LogDebug("%s loaded", _SaveNamePath(id).c_str());
+                memcpy(data, rzip.GetBuf(), size);
+                LogDebug("rzip %s loaded", path.c_str());
             }
-            fclose(fp);
+            else if (File::ReadFile(path.c_str(), data, size))
+            {
+                LogDebug("%s loaded", path.c_str());
+            }
+            else
+            {
+                LogDebug("failed to load %s", path.c_str());
+            }
         }
     }
 }

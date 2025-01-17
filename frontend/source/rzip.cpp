@@ -1,18 +1,23 @@
 #include <stdint.h>
-#include <mz_strm_zlib.h>
+#include <string.h>
+#include <zlib.h>
 #include "log.h"
 #include "rzip.h"
 #include "file.h"
 
+#define RZIP_MAGIC "#RZIPv"
+
+#pragma pack(push, 1)
 struct RZIP_HEADER
 {
-    char header[6]; // #RZIPv
+    char sign[6]; // #RZIPv
     uint8_t version;
     char pound; // #
     uint32_t chunk_size;
     uint64_t size;
     uint32_t zsize;
 };
+#pragma pack(pop)
 
 Rzip::Rzip(const char *path) : _buf(nullptr)
 {
@@ -40,15 +45,52 @@ bool Rzip::Load(const char *path)
         return false;
     }
 
-    if (!File::ReadFile(path, (void **)&_buf))
+    uint8_t *rzip;
+    if (!File::ReadFile(path, (void **)&rzip))
     {
         return false;
     }
 
-    RZIP_HEADER *header = (RZIP_HEADER *)_buf;
+    bool result = false;
+    z_stream infstream{0};
+    RZIP_HEADER *header = (RZIP_HEADER *)rzip;
+    if (memcmp(header->sign, RZIP_MAGIC, sizeof(header->sign)) != 0)
+    {
+        goto END;
+    }
+
     _size = header->size;
+    _buf = new uint8_t[_size];
+    infstream.avail_in = header->zsize;
+    infstream.avail_out = _size;
+    infstream.next_in = rzip + sizeof(RZIP_HEADER);
+    infstream.next_out = _buf;
 
-    // TODO
+    if (inflateInit(&infstream) != Z_OK)
+        goto END;
 
-    return true;
+    result = inflate(&infstream, Z_NO_FLUSH) >= 0;
+
+    inflateEnd(&infstream);
+
+    // const char *zbuf = _buf + sizeof(RZIP_HEADER);
+
+    result = true;
+
+END:
+    if (rzip)
+    {
+        delete[] rzip;
+    }
+
+    if (!result)
+    {
+        _size = 0;
+        if (_buf)
+        {
+            delete[] _buf;
+            _buf = nullptr;
+        }
+    }
+    return result;
 }
