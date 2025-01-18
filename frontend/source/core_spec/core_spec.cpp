@@ -4,12 +4,12 @@
 #include "log.h"
 
 const char *DEFAULT_CORE_SETTINGS[][2] =
-#if defined(FBNEO_BUILD)
-    {{"fbneo-cyclone", "enabled"},
-     {"fbneo-fm-interpolation", "disabled"},
-     {"fbneo-sample-interpolation", "disabled"},
-     {"fbneo-frameskip-type", "Auto"}};
-#elif defined(DOSBOX_PURE_BUILD)
+// #if defined(FBNEO_BUILD)
+//     {{"fbneo-cyclone", "enabled"},
+//      {"fbneo-fm-interpolation", "disabled"},
+//      {"fbneo-sample-interpolation", "disabled"},
+//      {"fbneo-frameskip-type", "Auto"}};
+#if defined(DOSBOX_PURE_BUILD)
     {{"dosbox_pure_cycles", "max"}};
 #else
     {{}};

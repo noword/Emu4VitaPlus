@@ -231,9 +231,9 @@ else ifneq (,$(filter $(platform), ps3 psl1ght))
 # Vita
 else ifeq ($(platform), vita)
 	TARGET := $(TARGET_NAME)_libretro_$(platform).a
-	CC = arm-vita-eabi-gcc$(EXE_EXT)
+	CC = ccache arm-vita-eabi-gcc$(EXE_EXT)
 	CC_AS = arm-vita-eabi-gcc$(EXE_EXT)
-	CXX = arm-vita-eabi-g++$(EXE_EXT)
+	CXX = ccache arm-vita-eabi-g++$(EXE_EXT)
 	AR = arm-vita-eabi-ar$(EXE_EXT)
 	PLATFORM_DEFINES += -DVITA -DHAVE_ARM_NEON_ASM_OPTIMIZATIONS -D__ARM_NEON__
 	ENDIANNESS_DEFINES := -DLSB_FIRST
