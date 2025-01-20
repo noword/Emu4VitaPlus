@@ -1,0 +1,124 @@
+struct  matrix_data {
+    fixed2 dot_size	 : TEXCOORD7;
+    fixed2 one_texel : TEXCOORD8;
+};
+
+struct blur_coords {
+    fixed2 tex_coord_1 : TEXCOORD1;
+    fixed2 tex_coord_2 : TEXCOORD2;
+    fixed2 tex_coord_3 : TEXCOORD3;
+    fixed2 tex_coord_4 : TEXCOORD4;
+    fixed2 lower_bound : TEXCOORD5;
+    fixed2 upper_bound : TEXCOORD6;
+};
+
+struct VectexOutput {
+    float2 oTexCoord : TEXCOORD0;
+    float4 oPosition : POSITION;
+    matrix_data oMatrixData;
+    blur_coords oBlurCoords;
+};
+
+struct Input {
+    float2 video_size;
+    float2 texture_size;
+    float2 output_size;
+};
+
+#define video_scale 		floor(IN.output_size.y / IN.video_size.y)		//largest integer scale of input video that will fit in the current output (y axis would typically be limiting on widescreens)
+#define scaled_video_out	(IN.video_size * video_scale)				//size of the scaled video
+#define half_pixel		(0.5 / IN.output_size)					//it's... half a pixel
+
+#if defined(VERTEX)
+void main (
+    float2 aTexcoord,
+    float4 aPosition,
+    uniform Input IN,
+    uniform float4x4 wvp,
+    VectexOutput out OUT) {
+    OUT.oPosition = mul(aPosition, wvp) / float4(float2(IN.output_size / scaled_video_out), 1.0, 1.0);
+    // OUT.oPosition = mul(aPosition, wvp) ;
+    
+    OUT.oTexCoord = aTexcoord + half_pixel;
+    
+    OUT.oMatrixData = matrix_data(
+        1.0 / IN.texture_size,				//should always be square, but why the hell not
+        1.0 / (IN.texture_size * video_scale));		//one texel on the hypothetical scaled input texture
+    
+    float2 texel = 1.0 / IN.texture_size;
+    OUT.oBlurCoords = (aTexcoord + float2(0.0, texel.y),	//down
+        aTexcoord + float2(0.0, -texel.y),	//up
+        aTexcoord + float2(texel.x, 0.0),	//right
+        aTexcoord + float2(-texel.x, 0.0),	//left
+        float2(0.0),				//lower texture bounds
+        texel * (IN.output_size - 2.0));		//upper texture bounds
+}
+
+#elif defined(FRAGMENT)
+#define curr_rgb  abs(1 - tex2D(decal, texCoord).rgb)
+
+#define foreground_color float3(29.0/255.0, 106.0/255.0, 107.0/255.0,)
+#define bg_color float3(160.0/255.0, 170.0/255.0, 5.0/255.0)
+
+#define baseline_alpha 0.10
+#define rgb_to_alpha(rgb) (((rgb.r + rgb.g + rgb.b) / 3.0) + (is_on_dot * baseline_alpha))		//averages rgb values (allows it to work with color games), modified for contrast and base alpha
+
+#define blending_mode 0
+#define adjacent_texel_alpha_blending 0.1755
+#define contrast 0.95   	//useful to fine-tune the colors. higher values make the "black" color closer to black - [0, 1] [DEFAULT: 0.95]
+#define screen_light 1.00   //controls the ambient light of the screen. lower values darken the screen - [0, 2] [DEFAULT: 1.00]
+#define pixel_opacity 1.00	//controls the opacity of the dot-matrix pixels. lower values make pixels more transparent - [0, 1] [DEFAULT: 1.00]
+#define bg_smoothing 0.75	//higher values suppress changes in background color directly beneath the foreground to improve image clarity - [0, 1] [DEFAULT: 0.75]
+#define shadow_opacity 0.55	//how strongly shadows affect the background, higher values darken the shadows - [0, 1] [DEFAULT: 0.55]
+#define shadow_offset_x 1.0	//how far the shadow should be shifted to the right in pixels - [-infinity, infinity] [DEFAULT: 1.0]
+#define shadow_offset_y 1.0	//how far the shadow should be shifted to down in pixels - [-infinity, infinity] [DEFAULT: 1.5]
+#define screen_offset_x 0	//screen offset - [-infinity, infinity] [DEFAULT: 0]
+#define screen_offset_y 0	//screen offset - [-infinity, infinity] [DEFAULT: 0]
+
+#define blending_modifier(color) saturate(float(color.a == 0) + blending_mode)
+
+#define shadow_alpha (contrast * shadow_opacity)					//blending factor used when overlaying shadows on the background
+#define shadow_offset float2(shadow_offset_x * texel.x, shadow_offset_y * texel.y)	//offset for the shadow
+#define screen_offset float2(screen_offset_x * texel.x, screen_offset_y * texel.y)	//offset for the entire screen
+
+float simple_blur(Input IN, float alpha, sampler2D decal, float4 COLOR, blur_coords BLUR_COORDS) {
+    //clamp the blur coords to the input texture size so it doesn't attempt to sample off the texture (it'll retrieve float4(0.0) and darken the edges otherwise)
+    
+    BLUR_COORDS.tex_coord_1 = clamp(BLUR_COORDS.tex_coord_1, BLUR_COORDS.lower_bound, BLUR_COORDS.upper_bound);
+    BLUR_COORDS.tex_coord_2 = clamp(BLUR_COORDS.tex_coord_2, BLUR_COORDS.lower_bound, BLUR_COORDS.upper_bound);
+    BLUR_COORDS.tex_coord_3 = clamp(BLUR_COORDS.tex_coord_3, BLUR_COORDS.lower_bound, BLUR_COORDS.upper_bound);
+    BLUR_COORDS.tex_coord_4 = clamp(BLUR_COORDS.tex_coord_4, BLUR_COORDS.lower_bound, BLUR_COORDS.upper_bound);
+    
+    //sample adjacent texels based on the coordinates above
+    
+    float4 adjacent_texel_1 = tex2D(decal, BLUR_COORDS.tex_coord_1);
+    float4 adjacent_texel_2 = tex2D(decal, BLUR_COORDS.tex_coord_2);
+    float4 adjacent_texel_3 = tex2D(decal, BLUR_COORDS.tex_coord_3);
+    float4 adjacent_texel_4 = tex2D(decal, BLUR_COORDS.tex_coord_4);
+    
+    //sum the alpha differences between neighboring texels, apply modifiers, then subtract the result from the current fragment alpha value
+    
+    alpha -= ((alpha - adjacent_texel_1.a) + 
+        (alpha - adjacent_texel_2.a) + 
+        (alpha- adjacent_texel_3.a) + 
+        (alpha - adjacent_texel_4.a)) * adjacent_texel_alpha_blending * blending_modifier(COLOR);
+    
+    //return new alpha value
+    return alpha;
+}
+
+float4 main(float2 texCoord : TEXCOORD,
+    in VectexOutput OUT,
+    uniform Input IN,
+    uniform sampler2D decal :TEXUNIT0) {
+    float is_on_dot = all(int2(fmod(texCoord.x, OUT.oMatrixData.dot_size.x) > OUT.oMatrixData.one_texel.x, 		//returns 1 if fragment lies on a dot, 0 otherwise
+            fmod(texCoord.y, OUT.oMatrixData.dot_size.y) > OUT.oMatrixData.one_texel.y));
+    
+    float3 input_rgb = curr_rgb;
+    float alpha = rgb_to_alpha(input_rgb)*is_on_dot;
+    
+    alpha = simple_blur(IN, alpha, decal, tex2D(decal, texCoord), OUT.oBlurCoords);
+    
+    return float4(foreground_color, alpha);
+}
+#endif
