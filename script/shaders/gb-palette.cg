@@ -1,0 +1,57 @@
+struct out_vertex {
+    float4 position : POSITION;
+    float2 texCoord : TEXCOORD0;
+    float2 omega : TEXCOORD1;
+};
+
+struct input {
+    float2 video_size;
+    float2 texture_size;
+    float2 output_size;
+};
+
+#if defined(VERTEX)
+void main (
+    float2 aTexcoord,
+    float4 aPosition,
+    uniform input IN,
+    uniform float4x4 wvp,
+    out_vertex out OUT) {
+    OUT.texCoord = aTexcoord;
+    OUT.position = mul(aPosition, wvp);
+    OUT.omega = 3.141592654 * 2 * IN.texture_size;
+}
+
+#elif defined(FRAGMENT)
+static const float3 COLOR_PALETTE[4] = {
+    float3(139.0/255.0, 152.0/255.0, 2.0/255.0),
+    float3(85.0/255.0, 112.0/255.0, 2.0/255.0),
+    float3(42.0/255.0, 83.0/255.0, 2.0/255.0),
+    float3(22.0/255.0, 72.0/255.0, 2.0/255.0)
+};
+
+static const int brighten_scanlines = 16;
+static const int brighten_lcd = 4;
+
+static const float3 offsets = 3.141592654 * float3(
+    1.0 / 2,
+    1.0 / 2 - 2.0 / 3,
+    1.0 / 2 - 4.0 / 3);
+
+float4 gb_palette(float2 texCoord, sampler2D decal) {
+    float4 out_color = tex2D(decal, texCoord);
+    int index =  int(abs(1.0 - out_color.r) / 0.25);
+    return float4(COLOR_PALETTE[index], ceil(abs(1.0 - out_color.r)));
+}
+
+float4 main(in out_vertex OUT,
+    uniform sampler2D decal : TEXUNIT0,
+    uniform input IN) : COLOR {
+    float4 color = gb_palette(OUT.texCoord, decal);
+    float2 angle = OUT.texCoord * OUT.omega;
+    float yFactor = (brighten_scanlines + sin(angle.y)) / (brighten_scanlines + 1);
+    float3 xFactor = (brighten_lcd + sin(angle.x + offsets)) / (brighten_lcd + 1);
+    
+    return float4(yFactor * xFactor * color.xyz, color.a);
+}
+#endif
