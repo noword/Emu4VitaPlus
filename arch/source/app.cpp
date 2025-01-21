@@ -65,10 +65,10 @@ App::App() : _index_x(0), _index_y(0)
         new CoreButton("ZXS", {{"fuse", "fuse"}}),
         new CoreButton("NES", {{"FCEUmm " ICON_STAR, "FCEUmm"}, {"Nestopia", "Nestopia"}}),
         new CoreButton("SNES", {{"Snes9x 2002", "Snes9x2002"},
-                                {"Snes9x 2005 " ICON_STAR, "Snes9x2005"},
+                                {"Snes9x 2005 ", "Snes9x2005"},
                                 {"Snes9x 2010", "Snes9x2010"},
                                 {"Mednafen Supafaust", "Supafaust"},
-                                {"Chimera SNES", "ChimeraSNES"}}),
+                                {"Chimera SNES" ICON_STAR, "ChimeraSNES"}}),
         new CoreButton("MD", {{"Genesis Plus GX " ICON_STAR, "GenesisPlusGX"},
                               {"Genesis Plus GX Wide", "GenesisPlusGXWide"},
                               {"PicoDrive", "PicoDrive"}}),
@@ -89,7 +89,7 @@ App::App() : _index_x(0), _index_y(0)
                                {"MAME 2000", "MAME2000"},
                                {"MAME 2003" ICON_STAR, "MAME2003"},
                                {"MAME 2003 Plus", "MAME2003Plus"},
-                               {"MAME 2003 Xtreme", "MAME2003XTREME"}}),
+                               {"MAME 2003 Xtreme" ICON_STAR, "MAME2003XTREME"}}),
         new CoreButton("DOS", {{"DOS Box SVN", "DOSBoxSVN"},
                                {"DOS BOX Pure" ICON_STAR, "DOSBoxPure"}})};
 
