@@ -122,9 +122,17 @@ namespace Emu4VitaPlus
 
         return false;
     }
-
+    // #define SAVE_AUDIO
     size_t Audio::SendAudioSample(const int16_t *data, size_t frames)
     {
+#ifdef SAVE_AUDIO
+        static FILE *fp = nullptr;
+        if (fp == nullptr)
+        {
+            fp = fopen(ROOT_DIR "/audio.bin", "wb");
+        }
+        fwrite(data, frames * 2, 1, fp);
+#endif
         if (_resampler != nullptr)
         {
             _resampler->Process(data, frames);

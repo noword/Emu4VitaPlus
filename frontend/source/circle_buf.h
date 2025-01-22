@@ -47,7 +47,7 @@ public:
         }
 
         const size_t write_pos = _write_pos.load(std::memory_order_relaxed);
-        _continue_write = write_pos + size < _total_size;
+        _continue_write = (write_pos + size) < _total_size;
         return _continue_write ? _buf + write_pos : _GetTmpBuf(size);
     };
 
@@ -73,7 +73,7 @@ public:
         }
 
         size_t write_pos = _write_pos.load(std::memory_order_relaxed);
-        if (write_pos + size < _total_size)
+        if ((write_pos + size) < _total_size)
         {
             memcpy(_buf + write_pos, data, size * sizeof(T));
             write_pos += size;

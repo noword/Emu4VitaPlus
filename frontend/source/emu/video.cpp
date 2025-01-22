@@ -1,3 +1,4 @@
+#include <math.h>
 #include <imgui_vita2d/imgui_impl_vita2d.h>
 #include <shared.h>
 #include "emulator.h"

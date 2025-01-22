@@ -1,11 +1,10 @@
 #include <stdint.h>
+#include "defines.h"
 #include "audio_resampler.h"
 #include "profiler.h"
 
 AudioResampler::AudioResampler(uint32_t in_rate, uint32_t out_rate, AudioOutput *output, AudioBuf *out_buf)
     : ThreadBase(_ResampleThread),
-      _in_rate(in_rate),
-      _out_rate(out_rate),
       _output(output),
       _out_buf(out_buf),
 #if RESAMPLER == SWR
@@ -77,6 +76,10 @@ void AudioResampler::Process(const int16_t *in, uint32_t in_size)
         _in_buf.WriteEnd(size);
         Signal();
     }
+    // else
+    // {
+    //     LogError("_in_buf.WriteBegin return nullptr");
+    // }
 }
 
 int AudioResampler::_ResampleThread(SceSize args, void *argp)
@@ -116,6 +119,16 @@ int AudioResampler::_ResampleThread(SceSize args, void *argp)
         resampler->_in_buf.ReadEnd(in_size);
         resampler->_out_buf->WriteEnd(out_size);
         resampler->_output->Signal();
+
+// #define SAVE_RESAMPLE
+#ifdef SAVE_RESAMPLE
+        static FILE *fp = nullptr;
+        if (fp == nullptr)
+        {
+            fp = fopen(ROOT_DIR "/resampler_audio.bin", "wb");
+        }
+        fwrite(out, out_size, 1, fp);
+#endif
 
         EndProfile("AudioResampler");
     }
