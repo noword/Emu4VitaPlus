@@ -39,9 +39,11 @@ static const float3 offsets = 3.141592654 * float3(
     1.0 / 2 - 4.0 / 3);
 
 float4 gb_palette(float2 texCoord, sampler2D decal) {
-    float4 out_color = tex2D(decal, texCoord);
-    int index =  int(abs(1.0 - out_color.r) / 0.25);
-    return float4(COLOR_PALETTE[index], ceil(abs(1.0 - out_color.r)));
+    float4 color = tex2D(decal, texCoord);
+    float mono = (0.2125 * color.r) + (0.7154 * color.g) + (0.0721 * color.b);
+    mono = abs(1 - mono);
+    int index = floor(min(mono / 0.25, 3));
+    return float4(COLOR_PALETTE[index], 1.0);
 }
 
 float4 main(in out_vertex OUT,
