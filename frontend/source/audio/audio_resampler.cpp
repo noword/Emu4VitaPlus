@@ -116,7 +116,7 @@ int AudioResampler::_ResampleThread(SceSize args, void *argp)
         int16_t *out = resampler->_out_buf->WriteBegin(out_size);
         speex_resampler_process_int(resampler->_speex, 0, in, &in_size, out, &out_size);
 #endif
-        resampler->_in_buf.ReadEnd(in_size);
+        resampler->_in_buf.ReadEnd(in_size & 0xfffffffe);
         resampler->_out_buf->WriteEnd(out_size);
         resampler->_output->Signal();
 
