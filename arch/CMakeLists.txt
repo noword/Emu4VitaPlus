@@ -54,7 +54,8 @@ set(CORE_SHORTS
     # Hatari
     FBNeoXtreme
     MAME2003Xtreme
-    ChimeraSNES)
+    ChimeraSNES
+    TGBDual)
 
 set(CORES
     gpsp
@@ -94,7 +95,8 @@ set(CORES
     # hatari
     fbneo_xtreme
     mame2003_xtreme
-    chimerasnes)
+    chimerasnes
+    tgbdual)
 
 set(CORE_EBOOTS "")
 set(CORE_FILES "")

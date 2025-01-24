@@ -10,7 +10,7 @@ CORES = {
         'mame2003_xtreme',
     ),
     'GBA': ('gpsp', 'mgba', 'vba_next'),
-    'GBC': ('gambatte',),
+    'GBC': ('gambatte', 'tgbdual'),
     'MD': ('genesis_plus_gx', 'genesis_plus_gx_wide', 'picodrive'),
     'NES': ('fceumm', 'nestopia'),
     'NGP': ('mednafen_ngp',),
@@ -67,4 +67,5 @@ NAMES = {
     'fbneo_xtreme': 'FinalBurn Neo Xtreme',
     'mame2003_xtreme': 'MAME 2003 Xtreme',
     'chimerasnes': 'Chimera SNES',
+    'tgbdual': 'TGB Dual',
 }

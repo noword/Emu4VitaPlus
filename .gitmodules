@@ -163,3 +163,8 @@
 [submodule "cores/chimerasnes"]
 	path = cores/chimerasnes
 	url = https://github.com/jamsilva/chimerasnes.git
+	branch = master
+[submodule "cores/tgbdual-libretro"]
+	path = cores/tgbdual-libretro
+	url = https://github.com/libretro/tgbdual-libretro.git
+	branch = master

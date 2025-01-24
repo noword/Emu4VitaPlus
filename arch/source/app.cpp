@@ -76,6 +76,7 @@ App::App() : _index_x(0), _index_y(0)
                                {"VBA Next", "VBANext"},
                                {"mGBA", "mGBA"}}),
         new CoreButton("GBC", {{"Gambatte", "Gambatte"},
+                               {"TGB Dual", "TGBDual"},
                                {"mGBA", "mGBA"}}),
         new CoreButton("PCE", {{"Mednafen PCE Fast", "MednafenPCEFast"},
                                {"Mednafen SuperGrafx", "MednafenPCESuperGrafx"}}),

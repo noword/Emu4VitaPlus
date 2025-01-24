@@ -58,6 +58,7 @@ set(CORES
     fbneo_xtreme
     mame2003_xtreme
     chimerasnes
+    tgbdual
 )
 
 set(BUILD_LIST "All" "Arch" ${CORES})
