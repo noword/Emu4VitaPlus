@@ -280,7 +280,7 @@ void Emulator::SetSpeed(double speed)
     LogFunctionName;
     LogDebug("  fps: %f", _av_info.timing.fps);
     _speed = speed;
-    uint64_t interval = 1000000ull / (uint64_t)(_av_info.timing.fps * speed);
+    uint64_t interval = (uint64_t)(1000000.0 / (_av_info.timing.fps * speed));
     _delay.SetInterval(interval);
     _video_delay.SetInterval(interval);
 }
