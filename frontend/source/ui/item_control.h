@@ -12,7 +12,7 @@ class ItemControl : public ItemSelectable
 {
 public:
     ItemControl(ControlMapConfig *control_map)
-        : ItemSelectable(Emu4Vita::Config::ControlTextMap.at(control_map->psv), "", std::bind(&Emulator::SetupKeysWithSaveConfig, gEmulator)),
+        : ItemSelectable(Emu4Vita::Config::ControlTextMap.at(control_map->psv), std::string(BUTTON_TRIANGLE) + TEXT(LANG_TURBO), std::bind(&Emulator::SetupKeysWithSaveConfig, gEmulator)),
           _control_map(control_map) {};
     virtual ~ItemControl() {};
 
