@@ -188,15 +188,16 @@ void App::Run()
         case APP_STATUS_REBOOT_WITH_LOADING:
         {
             char boot[SCE_FIOS_PATH_MAX];
+            const char *argv[] = {"", "--rom", gEmulator->GetCurrentName(), NULL};
             if (gConfig->boot_from_arch)
             {
                 snprintf(boot, SCE_FIOS_PATH_MAX, "app0:eboot_%s.self", CORE_SHORT_NAME);
+                argv[0] = "--arch";
             }
             else
             {
                 strcpy(boot, "app0:eboot.bin");
             }
-            const char *const argv[] = {"--rom", gEmulator->GetCurrentName(), NULL};
             sceAppMgrLoadExec(boot, (char *const *)argv, NULL);
             gStatus.Set(APP_STATUS_EXIT);
         }
