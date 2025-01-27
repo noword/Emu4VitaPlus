@@ -803,5 +803,12 @@
         "English": "File deletion failed",
         "Chinese": "文件删除失败",
         "Comments": ""
+    },
+    {
+        "No.": "116",
+        "Tag": "LANG_SPEED",
+        "English": "Game speed",
+        "Chinese": "游戏速度",
+        "Comments": ""
     }
 ]

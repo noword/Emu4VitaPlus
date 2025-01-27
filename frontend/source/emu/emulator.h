@@ -106,6 +106,7 @@ private:
 
     bool _LoadCheats(const char *path);
     void _InitArcadeManager();
+    void _ShowSpeedHint();
 
     std::string _current_name;
     bool _loaded;

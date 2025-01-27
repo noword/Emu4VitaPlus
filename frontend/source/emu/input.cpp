@@ -345,6 +345,7 @@ void Emulator::_OnHotkeySpeedUp(Input *input)
     if (_speed < 2.0f)
     {
         SetSpeed(_speed + 0.1);
+        _ShowSpeedHint();
     }
 }
 
@@ -354,6 +355,7 @@ void Emulator::_OnHotkeySpeedDown(Input *input)
     if (_speed > 0.3)
     {
         SetSpeed(_speed - 0.1);
+        _ShowSpeedHint();
     }
 }
 

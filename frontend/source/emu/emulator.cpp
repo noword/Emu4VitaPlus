@@ -285,6 +285,13 @@ void Emulator::SetSpeed(double speed)
     _video_delay.SetInterval(interval);
 }
 
+void Emulator::_ShowSpeedHint()
+{
+    char tmp[64];
+    snprintf(tmp, 64, "%s %.1fX", TEXT(LANG_SPEED), _speed);
+    gUi->SetHint(tmp);
+}
+
 void Emulator::Wait()
 {
     bool in_time = _delay.Wait();
