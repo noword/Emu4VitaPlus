@@ -22,6 +22,8 @@ public:
     size_t GetCurrentSize();
 
 private:
+    static bool _init_crc_table;
+
     CSzArEx _db;
     CFileInStream _archive_stream;
     CLookToRead2 _look_stream;

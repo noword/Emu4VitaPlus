@@ -6,10 +6,16 @@
 #define LOOK_STREAM_BUF_SIZE (1 << 18)
 
 const ISzAlloc ArchiveReader7z::_alloc_imp{SzAlloc, SzFree};
+bool ArchiveReader7z::_init_crc_table = false;
 
 ArchiveReader7z::ArchiveReader7z()
 {
     _buf = new uint8_t[LOOK_STREAM_BUF_SIZE];
+    if (!_init_crc_table)
+    {
+        _init_crc_table = true;
+        CrcGenerateTable();
+    }
 };
 
 ArchiveReader7z::~ArchiveReader7z()
@@ -19,6 +25,7 @@ ArchiveReader7z::~ArchiveReader7z()
 
 bool ArchiveReader7z::Open(const char *path)
 {
+    LogDebug("ArchiveReader7z::Open %s", path);
     if (InFile_Open(&_archive_stream.file, path) != 0)
     {
         LogError("failed to open %s", path);
