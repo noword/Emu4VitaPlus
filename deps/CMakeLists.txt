@@ -129,16 +129,6 @@ target_include_directories(7zip PRIVATE ${SEVENZIP_PATH})
 # ----------------------
 add_subdirectory(simpleini)
 
-# zlib-ng
-# ----------------------
-option(ZLIB_COMPAT "" ON)
-option(ZLIB_ENABLE_TESTS "" OFF)
-option(ZLIBNG_ENABLE_TESTS "" OFF)
-option(WITH_GZFILEOP "" OFF)
-option(WITH_GTEST "" OFF)
-option(ZLIBNG_ENABLE_TESTS "" OFF)
-add_subdirectory(zlib-ng)
-
 # minizip-ng
 # ----------------------
 option(MZ_ZLIB "" ON)
@@ -150,6 +140,16 @@ option(MZ_WZAES "" OFF)
 option(MZ_DECOMPRESS_ONLY "" ON)
 set(MZ_ZLIB ON CACHE BOOL "" FORCE)
 add_subdirectory(minizip-ng)
+
+# zlib-ng
+# ----------------------
+option(ZLIB_COMPAT "" ON)
+option(ZLIB_ENABLE_TESTS "" OFF)
+option(ZLIBNG_ENABLE_TESTS "" OFF)
+option(WITH_GZFILEOP "" OFF)
+option(WITH_GTEST "" OFF)
+option(ZLIBNG_ENABLE_TESTS "" OFF)
+add_subdirectory(zlib-ng)
 
 # lz4
 # ----------------------

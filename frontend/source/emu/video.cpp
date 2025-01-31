@@ -196,7 +196,6 @@ bool Emulator::GetCurrentSoftwareFramebuffer(retro_framebuffer *fb)
     fb->access_flags = RETRO_MEMORY_ACCESS_WRITE | RETRO_MEMORY_ACCESS_READ;
     fb->memory_flags = RETRO_MEMORY_TYPE_CACHED;
 
-    Wait();
     return true;
 }
 
