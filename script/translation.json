@@ -55,8 +55,8 @@
     },
     {
         "No.": "10",
-        "English": "Skip frames to avoid audio buffer under-run (crackling). Improves performance at the expense of visual smoothness. 'Auto' skips frames when advised by the frontend. 'Manual' utilises the 'Frameskip Threshold (%)' setting.",
-        "Chinese": "跳过帧以避免音频缓冲区不足(爆裂)。以牺牲视觉平滑度为代价提高性能。当前端建议时，‘自动’跳过帧。‘自动(阈值)’使用‘跳帧阈值(%)’设置。‘固定间隔’利用‘跳帧间隔’设置。",
+        "English": "Skip frames to avoid audio buffer under-run (crackling). Improves performance at the expense of visual smoothness. 'Auto' skips frames when advised by the frontend. 'Auto (Threshold)' utilises the 'Frameskip Threshold (%)' setting. 'Fixed Interval' utilises the 'Frameskip Interval' setting.",
+        "Chinese": "跳帧以避免音频缓冲区欠载（爆音）。此选项可以提升性能，但会影响画面流畅度。自动：在前端建议时自动跳帧。自动（阈值）：基于“跳帧阈值（%）”设置触发跳帧。固定间隔：根据“跳帧间隔”设置定期跳帧。",
         "Comments": ""
     },
     {
@@ -2427,6 +2427,60 @@
         "No.": "401",
         "English": "Select method used to emulate the FM synthesizer (main sound generator) of the Mega Drive/Genesis. The YM2612 chip is used by the original Model 1 Mega Drive/Genesis. The YM3438 is used in later Mega Drive/Genesis revisions.",
         "Chinese": "选择模拟Mega Drive/Genesis FM合成器（主要音频生成器）的方式。第一代Mega Drive/Genesis使用YM2612芯片，而后续改进版本则采用YM3438芯片。",
+        "Comments": ""
+    },
+    {
+        "No.": "402",
+        "English": "RTC support",
+        "Chinese": "RTC 支持",
+        "Comments": ""
+    },
+    {
+        "No.": "403",
+        "English": "Sets the RTC support for the emulated cartridge. Autodetect uses a ROM database that works with most commercial titles. You might need to force RTC when using homebrew or ROM hacks.",
+        "Chinese": "设置模拟卡带的 RTC（实时时钟）支持。自动检测：使用 ROM 数据库来确定是否启用 RTC，适用于大多数商业游戏。强制启用 RTC：在使用自制软件或 ROM Hack 时，可能需要手动启用 RTC 以确保正常运行。",
+        "Comments": ""
+    },
+    {
+        "No.": "404",
+        "English": "Rumble support",
+        "Chinese": "震动支持",
+        "Comments": ""
+    },
+    {
+        "No.": "405",
+        "English": "Sets the Rumble support for the emulated cartridge. Autodetect uses a ROM database that works with most commercial titles. You might want to force Rumble when using homebrew or ROM hacks that support it. You can also force-disable it if you don't like it.",
+        "Chinese": "设置模拟卡带的震动支持。自动检测：使用 ROM 数据库判断是否启用震动，适用于大多数商业游戏。强制启用：在支持震动的自制软件或 ROM Hack 中手动开启震动反馈。强制禁用：完全关闭震动功能，适用于不喜欢震动效果的用户。",
+        "Comments": ""
+    },
+    {
+        "No.": "406",
+        "English": "auto",
+        "Chinese": "自动",
+        "Comments": ""
+    },
+    {
+        "No.": "407",
+        "English": "Link Cable Connectivity",
+        "Chinese": "联机线缆连接",
+        "Comments": ""
+    },
+    {
+        "No.": "408",
+        "English": "Configures the serial (Link Cable) connection. Automatic will pick up a reasonable support for most known games.",
+        "Chinese": "配置串行（联机线缆）连接方式。“自动”：根据已知游戏的需求自动选择合适的联机支持方式，适用于大多数情况。",
+        "Comments": ""
+    },
+    {
+        "No.": "409",
+        "English": "No Sprite Limit",
+        "Chinese": "无精灵数量限制",
+        "Comments": ""
+    },
+    {
+        "No.": "410",
+        "English": "Removes the original sprite-per-scanline hardware limit. Some games might rely on the hardware limit for proper rendering (ie. hiding some sprites).",
+        "Chinese": "此选项取消了硬件对每条扫描线上可显示精灵数量的限制，从而减少画面闪烁并改善视觉表现。然而，某些游戏可能依赖该限制来正确渲染画面（例如，用于隐藏某些精灵）。",
         "Comments": ""
     }
 ]
