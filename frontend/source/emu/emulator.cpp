@@ -152,7 +152,7 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
 
         SetSpeed(1.0);
         gUi->ClearLogs();
-        _audio.Init(_av_info.timing.sample_rate);
+        // _audio.Init(_av_info.timing.sample_rate);
         gConfig->last_rom = path;
         gConfig->Save();
 
@@ -283,6 +283,7 @@ void Emulator::SetSpeed(double speed)
     uint64_t interval = (uint64_t)(1000000.0 / (_av_info.timing.fps * speed));
     _delay.SetInterval(interval);
     _video_delay.SetInterval(interval);
+    _audio.Init(_av_info.timing.sample_rate * speed);
 }
 
 void Emulator::_ShowSpeedHint()
