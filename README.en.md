@@ -43,6 +43,7 @@ MD
   
 GBC
   - [Gambatte](https://github.com/libretro/gambatte-libretro)
+  - [TGB Dual](https://github.com/libretro/tgbdual-libretro.git)
 
 GBA
   - [gpSP](https://github.com/libretro/gpsp)

@@ -143,7 +143,13 @@ void TabAbout::_InitTexts()
               "https://github.com/libretro/stella2014-libretro",
               "https://github.com/libretro/libretro-atari800",
               "https://github.com/libretro/prosystem-libretro",
-              "https://github.com/libretro/fuse-libretro"};
+              "https://github.com/libretro/fuse-libretro",
+              "https://github.com/libretro/neocd_libretro.git",
+              "https://github.com/KMFDManic/mame2003-xtreme.git",
+              "https://github.com/KMFDManic/FBNeo-Xtreme-Amped.git",
+              "https://github.com/Rinnegatamante/supafaust.git",
+              "https://github.com/jamsilva/chimerasnes.git",
+              "https://github.com/libretro/tgbdual-libretro.git"};
 }
 
 void TabAbout::_OnKeyUp(Input *input)
