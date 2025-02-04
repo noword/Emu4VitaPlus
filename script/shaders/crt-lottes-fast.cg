@@ -611,7 +611,6 @@ float3 CrtsFetch(float2 uv, float2 TextureSize, float2 InputSize){
  
 float4 crt_lottes_fast(float2 TextureSize, float2 InputSize, float2 OutputSize, float2 texCoord, sampler2D decal)
 {
-	float4 final;
 	float2 warp_factor;
 	// warp_factor.x = CURVATURE;
 	// warp_factor.y = (3.0 / 4.0) * warp_factor.x; // assume 4:3 aspect
@@ -620,7 +619,7 @@ float4 crt_lottes_fast(float2 TextureSize, float2 InputSize, float2 OutputSize, 
   warp_factor.x = CURVATURE * (1.0 - TRINITRON_CURVE);
   warp_factor.y = CURVATURE *  3.0 / 4.0;
 
-	final.rgb = CrtsFilter(texCoord.xy * OutputSize.xy*(TextureSize.xy / InputSize.xy),
+	float3 final = CrtsFilter(texCoord.xy * OutputSize.xy*(TextureSize.xy / InputSize.xy),
 	InputSize.xy / OutputSize.xy,
 	InputSize.xy * float2(0.5,0.5),
 	1.0/InputSize.xy,
@@ -636,7 +635,7 @@ float4 crt_lottes_fast(float2 TextureSize, float2 InputSize, float2 OutputSize, 
 	InputSize);
 	
 	// Shadertoy outputs non-linear color   
-	return float4(ToSrgb(final.rgb), 1.0);
+	return float4(ToSrgb(final), 1.0);
 }
 
 float4 main(in out_vertex VOUT,
