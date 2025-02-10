@@ -2482,5 +2482,275 @@
         "English": "Removes the original sprite-per-scanline hardware limit. Some games might rely on the hardware limit for proper rendering (ie. hiding some sprites).",
         "Chinese": "此选项取消了硬件对每条扫描线上可显示精灵数量的限制，从而减少画面闪烁并改善视觉表现。然而，某些游戏可能依赖该限制来正确渲染画面（例如，用于隐藏某些精灵）。",
         "Comments": ""
+    },
+    {
+        "No.": "411",
+        "English": "Automatic",
+        "Chinese": "自动",
+        "Comments": ""
+    },
+    {
+        "No.": "412",
+        "English": "GBA Wireless Adapter",
+        "Chinese": "GBA 无线网卡",
+        "Comments": ""
+    },
+    {
+        "No.": "413",
+        "English": "Difficulty",
+        "Chinese": "难度",
+        "Comments": ""
+    },
+    {
+        "No.": "414",
+        "English": "Normal",
+        "Chinese": "普通",
+        "Comments": ""
+    },
+    {
+        "No.": "415",
+        "English": "Medium",
+        "Chinese": "中等",
+        "Comments": ""
+    },
+    {
+        "No.": "416",
+        "English": "Hard",
+        "Chinese": "困难",
+        "Comments": ""
+    },
+    {
+        "No.": "417",
+        "English": "Easy",
+        "Chinese": "简单",
+        "Comments": ""
+    },
+    {
+        "No.": "418",
+        "English": "Bonus Life",
+        "Chinese": "奖励生命",
+        "Comments": ""
+    },
+    {
+        "No.": "419",
+        "English": "Coinage",
+        "Chinese": "投币规则",
+        "Comments": ""
+    },
+    {
+        "No.": "420",
+        "English": "Miss per game",
+        "Chinese": "每局失败上限",
+        "Comments": ""
+    },
+    {
+        "No.": "421",
+        "English": "1 Coin 1 Credit",
+        "Chinese": "1币1命",
+        "Comments": ""
+    },
+    {
+        "No.": "422",
+        "English": "1 Coin 2 Credits",
+        "Chinese": "1币2命",
+        "Comments": ""
+    },
+    {
+        "No.": "423",
+        "English": "1 Coin 3 Credits",
+        "Chinese": "1币3命",
+        "Comments": ""
+    },
+    {
+        "No.": "424",
+        "English": "1 Coin 4 Credits",
+        "Chinese": "1币4命",
+        "Comments": ""
+    },
+    {
+        "No.": "425",
+        "English": "2 Coins 1 Credit",
+        "Chinese": "2币1命",
+        "Comments": ""
+    },
+    {
+        "No.": "426",
+        "English": "3 Coins 1 Credit",
+        "Chinese": "3币1命",
+        "Comments": ""
+    },
+    {
+        "No.": "427",
+        "English": "4 Coins 1 Credit",
+        "Chinese": "4币1命",
+        "Comments": ""
+    },
+    {
+        "No.": "428",
+        "English": "5 Coins 1 Credit",
+        "Chinese": "5币1命",
+        "Comments": ""
+    },
+    {
+        "No.": "429",
+        "English": "Free Play",
+        "Chinese": "畅玩",
+        "Comments": ""
+    },
+    {
+        "No.": "430",
+        "English": "Mouse Sensitivity",
+        "Chinese": "鼠标灵敏度",
+        "Comments": ""
+    },
+    {
+        "No.": "431",
+        "English": "Mouse sensitivity in percent.",
+        "Chinese": "鼠标灵敏度（百分比）。",
+        "Comments": ""
+    },
+    {
+        "No.": "432",
+        "English": "Arkanoid Mode",
+        "Chinese": "Arkanoid 模式",
+        "Comments": ""
+    },
+    {
+        "No.": "433",
+        "English": "Selects device to use for Arkanoid games.",
+        "Chinese": "选择用于 Arkanoid 游戏的设备。",
+        "Comments": ""
+    },
+    {
+        "No.": "434",
+        "English": "Touchscreen",
+        "Chinese": "触摸屏",
+        "Comments": ""
+    },
+    {
+        "No.": "435",
+        "English": "Overclock",
+        "Chinese": "超频",
+        "Comments": ""
+    },
+    {
+        "No.": "436",
+        "English": "Enables or disables overclocking, which can reduce slowdowns in some games. Postrender method is more compatible with every game, Vblank is more effective for games like Contra Force.",
+        "Chinese": "启用或禁用超频，以减少某些游戏的运行卡顿。“后渲染”模式适用于所有游戏，而“垂直消隐”模式在《魂斗罗》等游戏中效果更佳。",
+        "Comments": ""
+    },
+    {
+        "No.": "437",
+        "English": "RAM Power-On Fill (Restart Required)",
+        "Chinese": "RAM 初始值（需要重启）",
+        "Comments": ""
+    },
+    {
+        "No.": "438",
+        "English": "RAM values on power up. Some games rely on initial RAM values for random number generation as an example.",
+        "Chinese": "开机时的 RAM 初始值。例如，某些游戏利用 RAM 初始值进行随机数生成。",
+        "Comments": ""
+    },
+    {
+        "No.": "439",
+        "English": "Show Zapper Crosshair",
+        "Chinese": "显示光枪准星",
+        "Comments": ""
+    },
+    {
+        "No.": "440",
+        "English": "Shows or hides on-screen crosshairs when using a Zapper.",
+        "Chinese": "使用光枪时，可选择显示或隐藏准星。",
+        "Comments": ""
+    },
+    {
+        "No.": "441",
+        "English": "Invert Zapper Trigger Signal",
+        "Chinese": "反转光枪触发信号",
+        "Comments": ""
+    },
+    {
+        "No.": "442",
+        "English": "Inverts trigger logic when using a Zapper. Disabling it resembles original hardware behavior.",
+        "Chinese": "Inverts trigger logic when using a Zapper. Disabling it resembles original hardware behavior.",
+        "Comments": ""
+    },
+    {
+        "No.": "443",
+        "English": "Invert Zapper Sensor Signal",
+        "Chinese": "反转光枪传感器信号",
+        "Comments": ""
+    },
+    {
+        "No.": "444",
+        "English": "Inverts sensor logic when using a Zapper (Sequential Targets Light gun mode only). Disabling it resembles original NES/FC hardware behavior.",
+        "Chinese": "Inverts sensor logic when using a Zapper (Sequential Targets Light gun mode only). Disabling it resembles original NES/FC hardware behavior.",
+        "Comments": ""
+    },
+    {
+        "No.": "445",
+        "English": "Zapper Tolerance",
+        "Chinese": "Zapper Tolerance",
+        "Comments": ""
+    },
+    {
+        "No.": "446",
+        "English": "Sets how many pixels from target area is on target.",
+        "Chinese": "Sets how many pixels from target area is on target.",
+        "Comments": ""
+    },
+    {
+        "No.": "447",
+        "English": "Default",
+        "Chinese": "默认",
+        "Comments": ""
+    },
+    {
+        "No.": "448",
+        "English": "Random",
+        "Chinese": "随机",
+        "Comments": ""
+    },
+    {
+        "No.": "449",
+        "English": "Low",
+        "Chinese": "低",
+        "Comments": ""
+    },
+    {
+        "No.": "450",
+        "English": "High",
+        "Chinese": "高",
+        "Comments": ""
+    },
+    {
+        "No.": "451",
+        "English": "Very High",
+        "Chinese": "非常高",
+        "Comments": ""
+    },
+    {
+        "No.": "452",
+        "English": "None",
+        "Chinese": "无",
+        "Comments": ""
+    },
+    {
+        "No.": "453",
+        "English": "Player 1",
+        "Chinese": "玩家1",
+        "Comments": ""
+    },
+    {
+        "No.": "454",
+        "English": "Player 2",
+        "Chinese": "玩家2",
+        "Comments": ""
+    },
+    {
+        "No.": "455",
+        "English": "Both",
+        "Chinese": "两者都",
+        "Comments": ""
     }
 ]
