@@ -2672,7 +2672,7 @@
     {
         "No.": "442",
         "English": "Inverts trigger logic when using a Zapper. Disabling it resembles original hardware behavior.",
-        "Chinese": "Inverts trigger logic when using a Zapper. Disabling it resembles original hardware behavior.",
+        "Chinese": "反转光枪触发逻辑。禁用此选项时，触发逻辑将与原始硬件的行为一致。",
         "Comments": ""
     },
     {
@@ -2684,19 +2684,19 @@
     {
         "No.": "444",
         "English": "Inverts sensor logic when using a Zapper (Sequential Targets Light gun mode only). Disabling it resembles original NES/FC hardware behavior.",
-        "Chinese": "Inverts sensor logic when using a Zapper (Sequential Targets Light gun mode only). Disabling it resembles original NES/FC hardware behavior.",
+        "Chinese": "反转 Zapper 的传感器逻辑（仅适用于“顺序目标光枪模式”）。禁用此选项时，传感器逻辑将与原始 NES/FC 硬件的行为一致。",
         "Comments": ""
     },
     {
         "No.": "445",
         "English": "Zapper Tolerance",
-        "Chinese": "Zapper Tolerance",
+        "Chinese": "光枪容差范围",
         "Comments": ""
     },
     {
         "No.": "446",
         "English": "Sets how many pixels from target area is on target.",
-        "Chinese": "Sets how many pixels from target area is on target.",
+        "Chinese": "设置目标区域周围的像素容差范围。",
         "Comments": ""
     },
     {
