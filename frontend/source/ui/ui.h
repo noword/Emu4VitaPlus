@@ -8,6 +8,7 @@
 #include "tab_base.h"
 #include "dialog.h"
 #include "app.h"
+#include "boot.h"
 
 class Ui
 {
@@ -23,6 +24,7 @@ public:
     void SetInputHooks();
     void AppendLog(const char *log);
     void ClearLogs();
+    void NotificationBootFailed();
     void ChangeLanguage();
     void UpdateCoreOptions();
     void UpdateCheatOptions();
@@ -41,7 +43,6 @@ private:
     void _OnDialog(Input *input, int index);
     void _OnCleanCache(Input *input);
 
-    void _ShowBoot();
     void _ShowNormal();
     void _ShowHint();
 
@@ -53,9 +54,9 @@ private:
     size_t _tab_index;
 
     TabBase *_tabs[TAB_INDEX_COUNT];
-    std::vector<std::string> _logs;
     Dialog *_dialog;
     int _current_dialog;
+    Boot *_boot_ui;
 
     LanguageString _hint;
     int _hint_count;

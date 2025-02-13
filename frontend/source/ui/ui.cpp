@@ -109,6 +109,7 @@ Ui::Ui() : _tab_index(TAB_INDEX_BROWSER),
            _hint_count(0)
 {
     LogFunctionName;
+    _boot_ui = new Boot();
     _title = std::string("Emu4Vita++ v") + APP_VER_STR + " (" + gEmulator->GetCoreName() + " " + gEmulator->GetCoreVersion() + ")";
     _InitImgui();
     _dialog = new Dialog("", {LANG_OK, LANG_CANCEL},
@@ -118,6 +119,7 @@ Ui::Ui() : _tab_index(TAB_INDEX_BROWSER),
 Ui::~Ui()
 {
     LogFunctionName;
+    delete _boot_ui;
     delete _dialog;
     _DeinitImgui();
     _ClearTabs();
@@ -374,32 +376,6 @@ void Ui::SetHint(const char *s, int frame_count)
     _hint_count = frame_count;
 }
 
-void Ui::_ShowBoot()
-{
-    static My_Imgui_SpinText spin_text;
-
-    for (const auto &log : _logs)
-    {
-        if (&log == &_logs.back())
-        {
-            ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32_GREEN);
-        }
-        ImGui::Text(log.c_str());
-    }
-
-    if (_logs.size() > 0)
-    {
-        ImGui::PopStyleColor();
-    }
-
-    spin_text.Show();
-
-    if (ImGui::GetScrollMaxY() > 0.f)
-    {
-        ImGui::SetScrollHereY(1.f);
-    }
-}
-
 void Ui::_ShowNormal()
 {
     _tabs[TAB_INDEX_FAVORITE]->SetVisable(gFavorites->size() > 0);
@@ -469,7 +445,7 @@ void Ui::Show()
         if (ImGui::Begin(_title.c_str(), NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
         {
             My_Imgui_ShowTimePower();
-            (status == APP_STATUS_BOOT) ? _ShowBoot() : _ShowNormal();
+            (status == APP_STATUS_BOOT) ? _boot_ui->Show() : _ShowNormal();
         }
 
         ImGui::End();
@@ -495,18 +471,20 @@ void Ui::Show()
 void Ui::AppendLog(const char *log)
 {
     LogInfo("boot log: %s", log);
-
-    gVideo->Lock();
-    _logs.emplace_back(log);
-    gVideo->Unlock();
+    _boot_ui->AppendLog(log);
 }
 
 void Ui::ClearLogs()
 {
     LogFunctionName;
-    gVideo->Lock();
-    _logs.clear();
-    gVideo->Unlock();
+    _boot_ui->ClearLogs();
+}
+
+void Ui::NotificationBootFailed()
+{
+    LogFunctionName;
+    SetHint(TEXT(LANG_LOAD_ROM_FAILED));
+    _boot_ui->SetInputHooks(&_input);
 }
 
 void Ui::UpdateCoreOptions()

@@ -167,6 +167,7 @@ void App::Run()
 
         switch (gStatus.Get())
         {
+        case APP_STATUS_BOOT:
         case APP_STATUS_SHOW_UI:
         case APP_STATUS_SHOW_UI_IN_GAME:
             gUi->Run();
@@ -207,7 +208,6 @@ void App::Run()
             running = false;
             break;
 
-        case APP_STATUS_BOOT:
         default:
             break;
         }

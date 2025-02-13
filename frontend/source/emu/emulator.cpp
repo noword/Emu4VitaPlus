@@ -187,8 +187,7 @@ LOAD_END:
 
     if (!result)
     {
-        gUi->SetHint(TEXT(LANG_LOAD_ROM_FAILED));
-        gStatus.Set(APP_STATUS_SHOW_UI);
+        gUi->NotificationBootFailed();
         _current_name.clear();
     }
 

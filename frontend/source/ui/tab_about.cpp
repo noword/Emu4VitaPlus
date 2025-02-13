@@ -49,7 +49,6 @@ void TabAbout::Show(bool selected)
     std::string title = std::string(TAB_ICONS[_title_id]) + TEXT(_title_id);
     if (ImGui::BeginTabItem(title.c_str(), NULL, selected ? ImGuiTabItemFlags_SetSelected : 0))
     {
-        ImGuiWindowFlags window_flags = ImGuiWindowFlags_HorizontalScrollbar;
         if (_title_texture != nullptr)
         {
             ImGui::Image(_title_texture,
@@ -58,7 +57,7 @@ void TabAbout::Show(bool selected)
                          {1, (_title_index + 1) / TITLE_COUNT});
         }
 
-        if (ImGui::BeginChild("ChildAbout", {0, 0}, false, window_flags))
+        if (ImGui::BeginChild("ChildAbout", {0, 0}, false, ImGuiWindowFlags_HorizontalScrollbar))
         {
             for (size_t i = 0; i < _texts.size(); i++)
             {

@@ -695,8 +695,8 @@
     {
         "No.": "100",
         "Tag": "LANG_LOAD_ROM_FAILED",
-        "English": "Failed to load rom",
-        "Chinese": "载入 rom 失败",
+        "English": "Failed to load rom，press any key to continue",
+        "Chinese": "载入 rom 失败，按任意键继续",
         "Comments": ""
     },
     {
