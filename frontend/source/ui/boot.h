@@ -15,6 +15,7 @@ public:
     void Show();
     void AppendLog(const char *log);
     void ClearLogs();
+    size_t GetLogSize() { return _logs.size(); };
     void SetInputHooks(Input *input);
     void UnsetInputHooks(Input *input);
 

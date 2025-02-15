@@ -484,7 +484,14 @@ void Ui::NotificationBootFailed()
 {
     LogFunctionName;
     SetHint(TEXT(LANG_LOAD_ROM_FAILED));
-    _boot_ui->SetInputHooks(&_input);
+    if (_boot_ui->GetLogSize() > 0)
+    {
+        _boot_ui->SetInputHooks(&_input);
+    }
+    else
+    {
+        gStatus.Set(APP_STATUS_SHOW_UI);
+    }
 }
 
 void Ui::UpdateCoreOptions()
