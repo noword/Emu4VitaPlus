@@ -140,8 +140,8 @@ namespace Emu4VitaPlus
         SceCtrlData ctrl_data{0};
         if ((waiting ? sceCtrlReadBufferPositiveExt2(0, &ctrl_data, 1) : sceCtrlPeekBufferPositiveExt2(0, &ctrl_data, 1)) > 0)
         {
-
             uint32_t key = ctrl_data.buttons;
+            key &= ~SCE_CTRL_HEADPHONE;
             if (ctrl_data.lx < (ANALOG_CENTER - ANALOG_THRESHOLD))
                 key |= SCE_CTRL_LSTICK_LEFT;
             else if (ctrl_data.lx > (ANALOG_CENTER + ANALOG_THRESHOLD))
