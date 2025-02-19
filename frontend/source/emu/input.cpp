@@ -146,6 +146,11 @@ int16_t Emulator::_GetMouseState(unsigned index, unsigned id)
 int16_t Emulator::_GetLightGunState(unsigned index, unsigned id)
 {
     // LogDebug("index:%d id:%d", index, id);
+    if (gConfig->lightgun == 0)
+    {
+        return 0;
+    }
+
     Touch *front = _input.GetFrontTouch();
     if (!front->IsEnabled())
     {

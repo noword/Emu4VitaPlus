@@ -26,7 +26,12 @@ void Boot::Show()
 
             if (count == _index && ImGui::GetScrollMaxY() > 0.f)
             {
-                ImGui::SetScrollHereY((float)_index / (float)_logs.size());
+                size_t total = _logs.size();
+                if (_show_spin)
+                {
+                    total++;
+                }
+                ImGui::SetScrollHereY((float)_index / (float)total);
             }
 
             count++;
