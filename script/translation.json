@@ -56,7 +56,7 @@
     {
         "No.": "10",
         "English": "Skip frames to avoid audio buffer under-run (crackling). Improves performance at the expense of visual smoothness. 'Auto' skips frames when advised by the frontend. 'Auto (Threshold)' utilises the 'Frameskip Threshold (%)' setting. 'Fixed Interval' utilises the 'Frameskip Interval' setting.",
-        "Chinese": "跳帧以避免音频缓冲区欠载（爆音）。此选项可以提升性能，但会影响画面流畅度。自动：在前端建议时自动跳帧。自动（阈值）：基于“跳帧阈值（%）”设置触发跳帧。固定间隔：根据“跳帧间隔”设置定期跳帧。",
+        "Chinese": "跳帧以避免音频缓冲区欠载（爆音）。此选项可以提升性能，但会影响画面流畅度。自动：根据前端的建议自动跳帧。自动（阈值）：基于“跳帧阈值（%）”设置触发跳帧。固定间隔：根据“跳帧间隔”设置定期跳帧。",
         "Comments": ""
     },
     {
@@ -2751,6 +2751,264 @@
         "No.": "455",
         "English": "Both",
         "Chinese": "两者都",
+        "Comments": ""
+    },
+    {
+        "No.": "456",
+        "English": "Load the BSX BIOS",
+        "Chinese": "载入 BSX BIOS",
+        "Comments": ""
+    },
+    {
+        "No.": "457",
+        "English": "Many BSX games can run without the BSX BIOS. By disabling it the emulator will boot directly into the game.",
+        "Chinese": "许多 BSX 游戏可以在没有 BSX BIOS 的情况下运行。禁用 BIOS 后，模拟器将直接启动游戏。",
+        "Comments": ""
+    },
+    {
+        "No.": "458",
+        "English": "Skip",
+        "Chinese": "跳过",
+        "Comments": ""
+    },
+    {
+        "No.": "459",
+        "English": "Load (if available)",
+        "Chinese": "载入（如果有效的话）",
+        "Comments": ""
+    },
+    {
+        "No.": "460",
+        "English": "Skip frames to avoid audio buffer under-run (crackling). Improves performance at the expense of visual smoothness. 'Auto' skips frames when advised by the frontend. 'Manual' utilises the 'Frameskip Threshold (%)' setting.",
+        "Chinese": "跳帧以避免音频缓冲区欠载（爆音）。此选项可提高性能，但可能会影响画面的流畅度。“自动”：根据前端的建议自动跳帧。“手动”：使用“跳帧阈值（%）”设置来控制跳帧频率。",
+        "Comments": ""
+    },
+    {
+        "No.": "461",
+        "English": "Reduce Slowdown (Unsafe, Restart)",
+        "Chinese": "提升性能（不安全，需重启）",
+        "Comments": ""
+    },
+    {
+        "No.": "462",
+        "English": "Overclock SNES CPU. May cause games to crash! Use 'AutoFastROM' for shorter loading times, 'Low' for most games exhibiting slowdown and 'High' only if absolutely required.",
+        "Chinese": "对 SNES CPU 进行超频。可能会导致游戏崩溃！“自动”：缩短加载时间。“低”：适用于大多数存在性能下降的游戏。“高”：仅在绝对必要时使用。",
+        "Comments": ""
+    },
+    {
+        "No.": "463",
+        "English": "AutoFastROM",
+        "Chinese": "自动",
+        "Comments": ""
+    },
+    {
+        "No.": "464",
+        "English": "Low",
+        "Chinese": "低",
+        "Comments": ""
+    },
+    {
+        "No.": "465",
+        "English": "High",
+        "Chinese": "高",
+        "Comments": ""
+    },
+    {
+        "No.": "466",
+        "English": "SuperFX Overclock",
+        "Chinese": "",
+        "Comments": ""
+    },
+    {
+        "No.": "467",
+        "English": "Overclock or underclock the SuperFX chip. This may improve the framerate and playability of games that use SuperFX.",
+        "Chinese": "对 SuperFX 芯片 进行超频或降频调整。可能提升使用 SuperFX 的游戏的帧率和流畅度。",
+        "Comments": ""
+    },
+    {
+        "No.": "468",
+        "English": "5 MHz (Underclock)",
+        "Chinese": "5 MHz (降频)",
+        "Comments": ""
+    },
+    {
+        "No.": "469",
+        "English": "6 MHz (Underclock)",
+        "Chinese": "6 MHz (降频)",
+        "Comments": ""
+    },
+    {
+        "No.": "470",
+        "English": "7 MHz (Underclock)",
+        "Chinese": "7 MHz (降频)",
+        "Comments": ""
+    },
+    {
+        "No.": "471",
+        "English": "8 MHz (Underclock)",
+        "Chinese": "8 MHz (降频)",
+        "Comments": ""
+    },
+    {
+        "No.": "472",
+        "English": "9 MHz (Underclock)",
+        "Chinese": "9 MHz (降频)",
+        "Comments": ""
+    },
+    {
+        "No.": "473",
+        "English": "10 MHz (SNES clock, Default)",
+        "Chinese": "10 MHz (SNES 时钟频率, 默认)",
+        "Comments": ""
+    },
+    {
+        "No.": "474",
+        "English": "11 MHz (Overclock)",
+        "Chinese": "11 MHz (超频)",
+        "Comments": ""
+    },
+    {
+        "No.": "475",
+        "English": "12 MHz (Overclock)",
+        "Chinese": "12 MHz (超频)",
+        "Comments": ""
+    },
+    {
+        "No.": "476",
+        "English": "13 MHz (Overclock)",
+        "Chinese": "13 MHz (超频)",
+        "Comments": ""
+    },
+    {
+        "No.": "477",
+        "English": "14 MHz (Overclock)",
+        "Chinese": "14 MHz (超频)",
+        "Comments": ""
+    },
+    {
+        "No.": "478",
+        "English": "15 MHz (Overclock)",
+        "Chinese": "15 MHz (超频)",
+        "Comments": ""
+    },
+    {
+        "No.": "479",
+        "English": "20 MHz (Overclock)",
+        "Chinese": "20 MHz (超频)",
+        "Comments": ""
+    },
+    {
+        "No.": "480",
+        "English": "30 MHz (Overclock)",
+        "Chinese": "30 MHz (超频)",
+        "Comments": ""
+    },
+    {
+        "No.": "481",
+        "English": "40 MHz (Overclock)",
+        "Chinese": "40 MHz (超频)",
+        "Comments": ""
+    },
+    {
+        "No.": "482",
+        "English": "Reduce Flickering (Unsafe)",
+        "Chinese": "减少闪烁（不安全）",
+        "Comments": ""
+    },
+    {
+        "No.": "483",
+        "English": "Increases number of sprites that can be drawn simultaneously on screen. Reduces flickering in games.",
+        "Chinese": "增加屏幕上可同时绘制的精灵数量，从而减少游戏中的闪烁现象。",
+        "Comments": ""
+    },
+    {
+        "No.": "484",
+        "English": "Specify which algorithm to use when resampling generated audio (the Game Boy audio rate is limited only by its CPU write speed, such that 'native' frequencies are impractical on modern sound devices and must be downsampled). 'Sinc' produces the highest quality. 'Cosine' improves performance on low-end hardware.",
+        "Chinese": "指定在对生成的音频进行重采样时使用的算法（Game Boy 的音频速率仅受其 CPU 写入速度限制，因此“原生”频率在现代音频设备上不实用，必须进行降采样）。Sinc：提供最高质量的音频重采样。Cosine：降低性能消耗，适用于低端设备。",
+        "Comments": ""
+    },
+    {
+        "No.": "485",
+        "English": "Enable luminosity-based brightness reduction. May be used to avoid glare/eye strain when playing games with white backgrounds, which are intended for display on a non-backlit Game Boy Color and can therefore appear uncomfortably bright when viewed on a modern backlit screen.",
+        "Chinese": "启用基于亮度的亮度降低功能。可用于减少游戏中白色背景的眩光和眼睛疲劳。这些背景在非背光 Game Boy Color 设备上观看时较为正常，但在现代背光屏幕上可能会显得过于明亮。",
+        "Comments": ""
+    },
+    {
+        "No.": "486",
+        "English": "Enable support for official Game Boy and Game Boy Color bootloaders, with corresponding start-up logo animations.",
+        "Chinese": "启用对官方 Game Boy 和 Game Boy Color 启动加载器的支持，并显示相应的启动 Logo 动画。",
+        "Comments": ""
+    },
+    {
+        "No.": "487",
+        "English": "Enables colorization of Game Boy games. 'Auto' selects the 'best' (most colorful/appropriate) palette. 'GBC' selects game-specific Game Boy Color palette if defined, otherwise 'GBC - Dark Green'. 'SGB' selects game-specific Super Game Boy palette if defined, otherwise 'SGB - 1A'. 'Internal' uses 'Internal Palette' core option. 'Custom' loads user-created palette from system directory.",
+        "Chinese": "启用 Game Boy 游戏的彩色化功能。Auto：自动选择最合适的调色板（通常是最丰富或最符合游戏风格的）。GBC：如果游戏有专门的 Game Boy Color 调色板，则使用它，否则使用 \"GBC - Dark Green\"（深绿色）。SGB：如果游戏有专门的 Super Game Boy 调色板，则使用它，否则使用 \"SGB - 1A\"。内置：使用核心选项中的内置调色板。自定义：从系统目录加载用户自定义的调色板。",
+        "Comments": ""
+    },
+    {
+        "No.": "488",
+        "English": "Specify which type of hardware to emulate. 'Auto' is recommended. Selecting 'GBA' unlocks extra features in certain 'GBA Enhanced' Game Boy Color games (Shantae, Wendy - Every Witch Way, Legend of Zelda: Oracle of Seasons/Ages...).",
+        "Chinese": "Specify which type of hardware to emulate. 'Auto' is recommended. Selecting 'GBA' unlocks extra features in certain 'GBA Enhanced' Game Boy Color games (Shantae, Wendy - Every Witch Way, Legend of Zelda: Oracle of Seasons/Ages...).",
+        "Comments": ""
+    },
+    {
+        "No.": "489",
+        "English": "Selects internal colorization palette when 'Internal Palette' is set to 'TWB64 - Pack 1'.",
+        "Chinese": "Selects internal colorization palette when 'Internal Palette' is set to 'TWB64 - Pack 1'.",
+        "Comments": ""
+    },
+    {
+        "No.": "490",
+        "English": "Selects internal colorization palette when 'Internal Palette' is set to 'TWB64 - Pack 2'.",
+        "Chinese": "Selects internal colorization palette when 'Internal Palette' is set to 'TWB64 - Pack 2'.",
+        "Comments": ""
+    },
+    {
+        "No.": "491",
+        "English": "Adjusts output colors to match the display of real Game Boy Color hardware. 'GBC Only' ensures that correction will only be applied when playing Game Boy Color games, or when using a Game Boy Color palette to colorize a Game Boy game. 'Always' applies color correction to all content, and will produce unexpected/suboptimal results when using 'GB' or 'SGB' internal color palettes.",
+        "Chinese": "Adjusts output colors to match the display of real Game Boy Color hardware. 'GBC Only' ensures that correction will only be applied when playing Game Boy Color games, or when using a Game Boy Color palette to colorize a Game Boy game. 'Always' applies color correction to all content, and will produce unexpected/suboptimal results when using 'GB' or 'SGB' internal color palettes.",
+        "Comments": ""
+    },
+    {
+        "No.": "492",
+        "English": "Specifies method used when performing color correction. 'Accurate' produces output almost indistinguishable from a real Game Boy Color LCD panel. 'Fast' merely darkens colors and reduces saturation, and may be used on low-end hardware if the 'Accurate' method is too slow.",
+        "Chinese": "Specifies method used when performing color correction. 'Accurate' produces output almost indistinguishable from a real Game Boy Color LCD panel. 'Fast' merely darkens colors and reduces saturation, and may be used on low-end hardware if the 'Accurate' method is too slow.",
+        "Comments": ""
+    },
+    {
+        "No.": "493",
+        "English": "Simulates the physical response of the Game Boy Color LCD panel when illuminated from different angles. 'Central' represents standard color reproduction. 'Above Screen' increases brightness. 'Below Screen' reduces brightness. This setting only applies when 'Color Correction Mode' is set to 'Accurate'.",
+        "Chinese": "Simulates the physical response of the Game Boy Color LCD panel when illuminated from different angles. 'Central' represents standard color reproduction. 'Above Screen' increases brightness. 'Below Screen' reduces brightness. This setting only applies when 'Color Correction Mode' is set to 'Accurate'.",
+        "Comments": ""
+    },
+    {
+        "No.": "494",
+        "English": "Simulates LCD ghosting effects. 'Simple' performs a 50:50 mix of the current and previous frames. 'LCD Ghosting' mimics natural LCD response times by combining multiple buffered frames. 'Simple' blending is required when playing games that rely on LCD ghosting for transparency effects (Wave Race, Ballistic, Chikyuu Kaihou Gun ZAS...).",
+        "Chinese": "Simulates LCD ghosting effects. 'Simple' performs a 50:50 mix of the current and previous frames. 'LCD Ghosting' mimics natural LCD response times by combining multiple buffered frames. 'Simple' blending is required when playing games that rely on LCD ghosting for transparency effects (Wave Race, Ballistic, Chikyuu Kaihou Gun ZAS...).",
+        "Comments": ""
+    },
+    {
+        "No.": "495",
+        "English": "Enables haptic feedback effects for supported games (Pokemon Pinball, Perfect Dark...).",
+        "Chinese": "Enables haptic feedback effects for supported games (Pokemon Pinball, Perfect Dark...).",
+        "Comments": ""
+    },
+    {
+        "No.": "496",
+        "English": "Enabling this will allow pressing/quickly alternating/holding both left and right (or up and down) directions at the same time. This may cause movement-based glitches.",
+        "Chinese": "Enabling this will allow pressing/quickly alternating/holding both left and right (or up and down) directions at the same time. This may cause movement-based glitches.",
+        "Comments": ""
+    },
+    {
+        "No.": "497",
+        "English": "Internal",
+        "Chinese": "内置",
+        "Comments": ""
+    },
+    {
+        "No.": "498",
+        "English": "Custom",
+        "Chinese": "自定义",
         "Comments": ""
     }
 ]
