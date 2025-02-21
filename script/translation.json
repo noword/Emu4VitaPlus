@@ -278,7 +278,7 @@
     {
         "No.": "47",
         "English": "Internal Palette",
-        "Chinese": "内部色板",
+        "Chinese": "内部调色板",
         "Comments": ""
     },
     {
@@ -2942,61 +2942,61 @@
     {
         "No.": "487",
         "English": "Enables colorization of Game Boy games. 'Auto' selects the 'best' (most colorful/appropriate) palette. 'GBC' selects game-specific Game Boy Color palette if defined, otherwise 'GBC - Dark Green'. 'SGB' selects game-specific Super Game Boy palette if defined, otherwise 'SGB - 1A'. 'Internal' uses 'Internal Palette' core option. 'Custom' loads user-created palette from system directory.",
-        "Chinese": "启用 Game Boy 游戏的彩色化功能。Auto：自动选择最合适的调色板（通常是最丰富或最符合游戏风格的）。GBC：如果游戏有专门的 Game Boy Color 调色板，则使用它，否则使用 \"GBC - Dark Green\"（深绿色）。SGB：如果游戏有专门的 Super Game Boy 调色板，则使用它，否则使用 \"SGB - 1A\"。内置：使用核心选项中的内置调色板。自定义：从系统目录加载用户自定义的调色板。",
+        "Chinese": "启用 Game Boy 游戏的彩色化功能。Auto：自动选择最合适的调色板（通常是最丰富或最符合游戏风格的）。GBC：如果游戏有专门的 Game Boy Color 调色板，则使用它，否则使用 “GBC - Dark Green”（深绿色）。SGB：如果游戏有专门的 Super Game Boy 调色板，则使用它，否则使用 “SGB - 1A”。内置：使用核心选项中的内置调色板。自定义：从系统目录加载用户自定义的调色板。",
         "Comments": ""
     },
     {
         "No.": "488",
         "English": "Specify which type of hardware to emulate. 'Auto' is recommended. Selecting 'GBA' unlocks extra features in certain 'GBA Enhanced' Game Boy Color games (Shantae, Wendy - Every Witch Way, Legend of Zelda: Oracle of Seasons/Ages...).",
-        "Chinese": "Specify which type of hardware to emulate. 'Auto' is recommended. Selecting 'GBA' unlocks extra features in certain 'GBA Enhanced' Game Boy Color games (Shantae, Wendy - Every Witch Way, Legend of Zelda: Oracle of Seasons/Ages...).",
+        "Chinese": "指定要模拟的硬件类型。Auto（推荐）：自动选择最适合当前游戏的硬件。GBA：模拟 Game Boy Advance 硬件，解锁某些 “GBA 增强” 的 Game Boy Color 游戏的额外功能（例如《香缇》、《温迪：魔女之路》、《塞尔达传说：时空之章/大地之章》等）。",
         "Comments": ""
     },
     {
         "No.": "489",
         "English": "Selects internal colorization palette when 'Internal Palette' is set to 'TWB64 - Pack 1'.",
-        "Chinese": "Selects internal colorization palette when 'Internal Palette' is set to 'TWB64 - Pack 1'.",
+        "Chinese": "当“内部调色板”设置为“TWB64 - Pack 1”时，选择内部彩色化调色板。",
         "Comments": ""
     },
     {
         "No.": "490",
         "English": "Selects internal colorization palette when 'Internal Palette' is set to 'TWB64 - Pack 2'.",
-        "Chinese": "Selects internal colorization palette when 'Internal Palette' is set to 'TWB64 - Pack 2'.",
+        "Chinese": "当“内部调色板”设置为“TWB64 - Pack 2”时，选择内部彩色化调色板。",
         "Comments": ""
     },
     {
         "No.": "491",
         "English": "Adjusts output colors to match the display of real Game Boy Color hardware. 'GBC Only' ensures that correction will only be applied when playing Game Boy Color games, or when using a Game Boy Color palette to colorize a Game Boy game. 'Always' applies color correction to all content, and will produce unexpected/suboptimal results when using 'GB' or 'SGB' internal color palettes.",
-        "Chinese": "Adjusts output colors to match the display of real Game Boy Color hardware. 'GBC Only' ensures that correction will only be applied when playing Game Boy Color games, or when using a Game Boy Color palette to colorize a Game Boy game. 'Always' applies color correction to all content, and will produce unexpected/suboptimal results when using 'GB' or 'SGB' internal color palettes.",
+        "Chinese": "调整输出颜色以匹配真实 Game Boy Color 硬件的显示效果。“仅限 GBC”确保仅在游玩 Game Boy Color 游戏时，或在使用 Game Boy Color 调色板为 Game Boy 游戏上色时应用校正。“始终”会对所有内容应用颜色校正，但在使用“GB”或“SGB”内部调色板时可能会产生意外或次优的效果。",
         "Comments": ""
     },
     {
         "No.": "492",
         "English": "Specifies method used when performing color correction. 'Accurate' produces output almost indistinguishable from a real Game Boy Color LCD panel. 'Fast' merely darkens colors and reduces saturation, and may be used on low-end hardware if the 'Accurate' method is too slow.",
-        "Chinese": "Specifies method used when performing color correction. 'Accurate' produces output almost indistinguishable from a real Game Boy Color LCD panel. 'Fast' merely darkens colors and reduces saturation, and may be used on low-end hardware if the 'Accurate' method is too slow.",
+        "Chinese": "指定执行颜色校正的方法。“精确”可生成几乎与真实 Game Boy Color LCD 屏幕无差别的输出。“快速”仅降低颜色亮度和饱和度，适用于低端硬件，如果“精确”方法运行过慢，可选择此模式。",
         "Comments": ""
     },
     {
         "No.": "493",
         "English": "Simulates the physical response of the Game Boy Color LCD panel when illuminated from different angles. 'Central' represents standard color reproduction. 'Above Screen' increases brightness. 'Below Screen' reduces brightness. This setting only applies when 'Color Correction Mode' is set to 'Accurate'.",
-        "Chinese": "Simulates the physical response of the Game Boy Color LCD panel when illuminated from different angles. 'Central' represents standard color reproduction. 'Above Screen' increases brightness. 'Below Screen' reduces brightness. This setting only applies when 'Color Correction Mode' is set to 'Accurate'.",
+        "Chinese": "模拟 Game Boy Color LCD 屏幕在不同照明角度下的物理响应。“中央”代表标准颜色再现。“屏幕上方”增加亮度。“屏幕下方”降低亮度。此设置仅在“颜色校正模式”设为“精确”时生效。",
         "Comments": ""
     },
     {
         "No.": "494",
         "English": "Simulates LCD ghosting effects. 'Simple' performs a 50:50 mix of the current and previous frames. 'LCD Ghosting' mimics natural LCD response times by combining multiple buffered frames. 'Simple' blending is required when playing games that rely on LCD ghosting for transparency effects (Wave Race, Ballistic, Chikyuu Kaihou Gun ZAS...).",
-        "Chinese": "Simulates LCD ghosting effects. 'Simple' performs a 50:50 mix of the current and previous frames. 'LCD Ghosting' mimics natural LCD response times by combining multiple buffered frames. 'Simple' blending is required when playing games that rely on LCD ghosting for transparency effects (Wave Race, Ballistic, Chikyuu Kaihou Gun ZAS...).",
+        "Chinese": "模拟 LCD 残影效果。“简单”模式对当前帧和上一帧进行 50:50 混合。“LCD 残影”通过组合多个缓冲帧来模拟 LCD 的自然响应时间。部分游戏（如《Wave Race》《Ballistic》《Chikyuu Kaihou Gun ZAS》）依赖 LCD 残影实现透明效果，因此需要使用“简单”混合模式。",
         "Comments": ""
     },
     {
         "No.": "495",
         "English": "Enables haptic feedback effects for supported games (Pokemon Pinball, Perfect Dark...).",
-        "Chinese": "Enables haptic feedback effects for supported games (Pokemon Pinball, Perfect Dark...).",
+        "Chinese": "启用触觉反馈效果，适用于支持此功能的游戏（如《Pokemon Pinball》《Perfect Dark》…）。",
         "Comments": ""
     },
     {
         "No.": "496",
         "English": "Enabling this will allow pressing/quickly alternating/holding both left and right (or up and down) directions at the same time. This may cause movement-based glitches.",
-        "Chinese": "Enabling this will allow pressing/quickly alternating/holding both left and right (or up and down) directions at the same time. This may cause movement-based glitches.",
+        "Chinese": "启用此选项后，可以同时按下/快速交替/长按左右（或上下）方向键。这可能会导致与移动相关的游戏故障。",
         "Comments": ""
     },
     {
