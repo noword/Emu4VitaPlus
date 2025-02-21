@@ -10,7 +10,8 @@ const char *DEFAULT_CORE_SETTINGS[][2] =
 //      {"fbneo-sample-interpolation", "disabled"},
 //      {"fbneo-frameskip-type", "Auto"}};
 #if defined(DOSBOX_PURE_BUILD)
-    {{"dosbox_pure_cycles", "max"}};
+    {{"dosbox_pure_cycles", "max"},
+     {"dosbox_pure_force60fps", "true"}};
 #else
     {{}};
 #endif
