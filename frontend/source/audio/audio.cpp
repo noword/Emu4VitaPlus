@@ -72,7 +72,9 @@ namespace Emu4VitaPlus
         }
         else
         {
+            _output->Stop();
             _output->SetRate(AUDIO_OUTPUT_COUNT, _out_sample_rate);
+            _output->Start();
         }
 
         if (need_resample)
@@ -84,7 +86,9 @@ namespace Emu4VitaPlus
             }
             else
             {
+                _resampler->Stop();
                 _resampler->SetRate(sample_rate, _out_sample_rate);
+                _resampler->Start();
             }
         }
     }
