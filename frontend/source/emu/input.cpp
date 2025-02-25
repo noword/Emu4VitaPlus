@@ -347,7 +347,7 @@ void Emulator::_OnHotkeyLoad(Input *input)
 void Emulator::_OnHotkeySpeedUp(Input *input)
 {
     LogFunctionName;
-    if (_speed < 2.0f)
+    if (_speed < 3.0f)
     {
         SetSpeed(_speed + 0.1);
         _ShowSpeedHint();
