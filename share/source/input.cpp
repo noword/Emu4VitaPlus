@@ -36,6 +36,7 @@ void SwapEnterButton(bool swap)
 namespace Emu4VitaPlus
 {
     Input::Input() : _last_key(0ull),
+                     _current_hotkey(0ull),
                      _turbo_key(0ull),
                      _turbo_start_ms(DEFAULT_TURBO_START_TIME),
                      _turbo_interval_ms(DEFAULT_TURBO_INTERVAL),
@@ -241,6 +242,7 @@ namespace Emu4VitaPlus
                 {
                     // LogDebug("  call down: %08x %08x", iter.first, iter.second);
                     iter.func(this);
+                    _current_hotkey |= iter.key;
                     break;
                 }
             }
@@ -250,7 +252,7 @@ namespace Emu4VitaPlus
                 for (const auto &iter : _key_up_callbacks)
                 {
                     // LogDebug("_key_up_callbacks %08x %08x", iter.first, _last_key);
-                    if (TEST_KEY(iter.key, _last_key) && !TEST_KEY(iter.key, key))
+                    if (TEST_KEY(iter.key, _last_key) && !TEST_KEY(iter.key, key) && !TEST_KEY(iter.key, _current_hotkey))
                     {
                         // LogDebug("  call up: %08x %08x", iter.first, iter.second);
                         iter.func(this);
@@ -262,9 +264,14 @@ namespace Emu4VitaPlus
                     }
                 }
             }
-            else if (!key)
+            else if (key == 0)
             {
                 _enable_key_up = true;
+            }
+
+            if (key == 0)
+            {
+                _current_hotkey = 0ull;
             }
         }
     }

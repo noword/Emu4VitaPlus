@@ -133,6 +133,7 @@ namespace Emu4VitaPlus
 
         TurboKeyState _turbo_key_states[32];
         uint32_t _last_key;
+        uint32_t _current_hotkey;
         uint32_t _turbo_key;
         uint64_t _turbo_start_ms;
         uint64_t _turbo_interval_ms;
