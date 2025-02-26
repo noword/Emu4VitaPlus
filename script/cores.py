@@ -27,6 +27,7 @@ CORES = {
     'AMIGA': ('uae4arm',),
     'ZXS': ('fuse',),
     'NEOCD': ('neocd',),
+    'PC98': ('nekop2',),
 }
 
 NAMES = {
@@ -68,4 +69,5 @@ NAMES = {
     'mame2003_xtreme': 'MAME 2003 Xtreme',
     'chimerasnes': 'Chimera SNES',
     'tgbdual': 'TGB Dual',
+    'nekop2': 'Neko Project II',
 }

@@ -168,3 +168,7 @@
 	path = cores/tgbdual-libretro
 	url = https://github.com/libretro/tgbdual-libretro.git
 	branch = master
+[submodule "cores/libretro-meowPC98"]
+	path = cores/libretro-meowPC98
+	url = https://github.com/libretro/libretro-meowPC98.git
+	branch = master

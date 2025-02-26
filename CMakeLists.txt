@@ -59,6 +59,7 @@ set(CORES
     mame2003_xtreme
     chimerasnes
     tgbdual
+    nekop2
 )
 
 set(BUILD_LIST "All" "Arch" ${CORES})
