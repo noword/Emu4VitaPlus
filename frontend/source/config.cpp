@@ -56,13 +56,13 @@ namespace Emu4Vita
     const std::unordered_map<uint32_t, const char *> Config::HotkeyStr = {
         KEY_PAIR(SAVE_STATE),
         KEY_PAIR(LOAD_STATE),
+        KEY_PAIR(EXIT_GAME),
         KEY_PAIR(GAME_SPEED_UP),
         KEY_PAIR(GAME_SPEED_DOWN),
         KEY_PAIR(GAME_REWIND),
-        KEY_PAIR(CONTROLLER_PORT_UP),
-        KEY_PAIR(CONTROLLER_PORT_DOWN),
+        // KEY_PAIR(CONTROLLER_PORT_UP),
+        // KEY_PAIR(CONTROLLER_PORT_DOWN),
         KEY_PAIR(MENU_TOGGLE),
-        KEY_PAIR(EXIT_GAME),
     };
 
     const std::unordered_map<uint32_t, const char *> Config::GraphicsStr = {
@@ -191,13 +191,13 @@ namespace Emu4Vita
         LogFunctionName;
         hotkeys[SAVE_STATE] = SCE_CTRL_PSBUTTON | SCE_CTRL_SQUARE;
         hotkeys[LOAD_STATE] = SCE_CTRL_PSBUTTON | SCE_CTRL_TRIANGLE;
+        hotkeys[EXIT_GAME] = SCE_CTRL_PSBUTTON | SCE_CTRL_CROSS;
         hotkeys[GAME_SPEED_UP] = SCE_CTRL_PSBUTTON | SCE_CTRL_R1;
         hotkeys[GAME_SPEED_DOWN] = SCE_CTRL_PSBUTTON | SCE_CTRL_L1;
         hotkeys[GAME_REWIND] = SCE_CTRL_PSBUTTON | SCE_CTRL_RSTICK_LEFT;
-        hotkeys[CONTROLLER_PORT_UP] = SCE_CTRL_PSBUTTON | SCE_CTRL_RSTICK_UP;
-        hotkeys[CONTROLLER_PORT_DOWN] = SCE_CTRL_PSBUTTON | SCE_CTRL_RSTICK_DOWN;
+        // hotkeys[CONTROLLER_PORT_UP] = SCE_CTRL_PSBUTTON | SCE_CTRL_RSTICK_UP;
+        // hotkeys[CONTROLLER_PORT_DOWN] = SCE_CTRL_PSBUTTON | SCE_CTRL_RSTICK_DOWN;
         hotkeys[MENU_TOGGLE] = SCE_CTRL_PSBUTTON;
-        hotkeys[EXIT_GAME] = SCE_CTRL_PSBUTTON | SCE_CTRL_CROSS;
     }
 
     void Config::DefaultGraphics()

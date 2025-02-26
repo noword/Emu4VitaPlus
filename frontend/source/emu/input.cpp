@@ -293,12 +293,12 @@ void Emulator::SetupKeys()
 
     BIND_HOTKEY(SAVE_STATE, _OnHotkeySave);
     BIND_HOTKEY(LOAD_STATE, _OnHotkeyLoad);
+    BIND_HOTKEY(EXIT_GAME, _OnHotkeyExitGame);
     BIND_HOTKEY(GAME_SPEED_UP, _OnHotkeySpeedUp);
     BIND_HOTKEY(GAME_SPEED_DOWN, _OnHotkeySpeedDown);
     BIND_HOTKEY(GAME_REWIND, _OnHotkeyRewind);
-    BIND_HOTKEY(CONTROLLER_PORT_UP, _OnHotkeyCtrlPortUp);
-    BIND_HOTKEY(CONTROLLER_PORT_DOWN, _OnHotkeyCtrlPortDown);
-    BIND_HOTKEY(EXIT_GAME, _OnHotkeyExitGame);
+    // BIND_HOTKEY(CONTROLLER_PORT_UP, _OnHotkeyCtrlPortUp);
+    // BIND_HOTKEY(CONTROLLER_PORT_DOWN, _OnHotkeyCtrlPortDown);
 
     BIND_HOTKEY_UP(GAME_REWIND, _OnHotkeyRewindUp);
     BIND_HOTKEY_UP(MENU_TOGGLE, _OnPsButton);
@@ -380,15 +380,15 @@ void Emulator::_OnHotkeyRewindUp(Input *input)
     }
 }
 
-void Emulator::_OnHotkeyCtrlPortUp(Input *input)
-{
-    LogFunctionName;
-}
+// void Emulator::_OnHotkeyCtrlPortUp(Input *input)
+// {
+//     LogFunctionName;
+// }
 
-void Emulator::_OnHotkeyCtrlPortDown(Input *input)
-{
-    LogFunctionName;
-}
+// void Emulator::_OnHotkeyCtrlPortDown(Input *input)
+// {
+//     LogFunctionName;
+// }
 
 void Emulator::_OnHotkeyExitGame(Input *input)
 {
