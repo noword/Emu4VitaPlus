@@ -172,3 +172,11 @@
 	path = cores/libretro-meowPC98
 	url = https://github.com/libretro/libretro-meowPC98.git
 	branch = master
+[submodule "cores/blueMSX-libretro"]
+	path = cores/blueMSX-libretro
+	url = https://github.com/libretro/blueMSX-libretro.git
+	branch = master
+[submodule "cores/fmsx-libretro"]
+	path = cores/fmsx-libretro
+	url = https://github.com/libretro/fmsx-libretro.git
+	branch = master
