@@ -56,34 +56,38 @@ App::App() : _index_x(0), _index_y(0)
     style->Colors[ImGuiCol_TitleBg] = style->Colors[ImGuiCol_TitleBgActive];
 
     _buttons = {
-        new CoreButton("ATARI2600", {{"Stella 2014", "Stella2014"}}),
-        new CoreButton("ATARI5200", {{"Atari800", "Atari800"}}),
-        new CoreButton("ATARI7800", {{"ProSystem", "ProSystem"}}),
-        // new CoreButton("ATARIST", {{"Hatari", "hatari"}}),
-        new CoreButton("VECTREX", {{"vecx", "vecx"}}),
-        new CoreButton("AMIGA", {{"uae4arm", "uae4arm"}}),
-        new CoreButton("ZXS", {{"fuse", "fuse"}}),
-        new CoreButton("NES", {{"FCEUmm " ICON_STAR, "FCEUmm"}, {"Nestopia", "Nestopia"}}),
-        new CoreButton("SNES", {{"Snes9x 2002", "Snes9x2002"},
+        new CoreButton("ATARI2600", {{"Stella 2014", "Stella2014"}}),      // 1977
+        new CoreButton("ATARI5200", {{"Atari800", "Atari800"}}),           // 1982
+        new CoreButton("ATARI7800", {{"ProSystem", "ProSystem"}}),         // 1986
+        new CoreButton("VECTREX", {{"vecx", "vecx"}}),                     // 1982.4
+        new CoreButton("ZXS", {{"fuse", "fuse"}}),                         // 1982.11
+        new CoreButton("DOS", {{"DOS BOX Pure" ICON_STAR, "DOSBoxPure"}}), // 1981
+        new CoreButton("PC98", {{"Neko Project II", "nekop2"}}),           // 1982
+        new CoreButton("MSX", {{"blueMSX", "blueMSX"},                     // 1983
+                               {"Marat Fayzullin's fMSX", "fMSX"}}),
+        new CoreButton("NES", {{"FCEUmm " ICON_STAR, "FCEUmm"}, // 1983
+                               {"Nestopia", "Nestopia"}}),
+        new CoreButton("AMIGA", {{"uae4arm", "uae4arm"}}),               // 1985
+        new CoreButton("PCE", {{"Mednafen PCE Fast", "MednafenPCEFast"}, // 1987
+                               {"Mednafen SuperGrafx", "MednafenPCESuperGrafx"}}),
+        new CoreButton("MD", {{"Genesis Plus GX " ICON_STAR, "GenesisPlusGX"}, // 1988
+                              {"Genesis Plus GX Wide", "GenesisPlusGXWide"},
+                              {"PicoDrive", "PicoDrive"}}),
+        new CoreButton("GBC", {{"Gambatte", "Gambatte"}, // 1989,1998
+                               {"TGB Dual", "TGBDual"},
+                               {"mGBA", "mGBA"}}),
+        new CoreButton("SNES", {{"Snes9x 2002", "Snes9x2002"}, // 1990
                                 {"Snes9x 2005 ", "Snes9x2005"},
                                 {"Snes9x 2010", "Snes9x2010"},
                                 {"Mednafen Supafaust", "Supafaust"},
                                 {"Chimera SNES" ICON_STAR, "ChimeraSNES"}}),
-        new CoreButton("MD", {{"Genesis Plus GX " ICON_STAR, "GenesisPlusGX"},
-                              {"Genesis Plus GX Wide", "GenesisPlusGXWide"},
-                              {"PicoDrive", "PicoDrive"}}),
-        new CoreButton("GBA", {{"gpSP " ICON_STAR, "gpSP"},
+        new CoreButton("NEOCD", {{"neocd", "neocd"}}),                // 1994
+        new CoreButton("PS1", {{"PCSX ReARMed", "PCSXReARMed"}}),     // 1994.12
+        new CoreButton("NGP", {{"Mednafen NeoPop", "MednafenNgp"}}),  // 1998
+        new CoreButton("WSC", {{"Mednafen Wswan", "MednafenWswan"}}), // 1999
+        new CoreButton("GBA", {{"gpSP " ICON_STAR, "gpSP"},           // 2001
                                {"VBA Next", "VBANext"},
                                {"mGBA", "mGBA"}}),
-        new CoreButton("GBC", {{"Gambatte", "Gambatte"},
-                               {"TGB Dual", "TGBDual"},
-                               {"mGBA", "mGBA"}}),
-        new CoreButton("PCE", {{"Mednafen PCE Fast", "MednafenPCEFast"},
-                               {"Mednafen SuperGrafx", "MednafenPCESuperGrafx"}}),
-        new CoreButton("PS1", {{"PCSX ReARMed", "PCSXReARMed"}}),
-        new CoreButton("WSC", {{"Mednafen Wswan", "MednafenWswan"}}),
-        new CoreButton("NGP", {{"Mednafen NeoPop", "MednafenNgp"}}),
-        new CoreButton("NEOCD", {{"neocd", "neocd"}}),
         new CoreButton("ARC", {{"FBA Lite", "FBALite"},
                                {"FBA 2012", "FBA2012"},
                                {"FinalBurn Neo", "FBNeo"},
@@ -92,8 +96,9 @@ App::App() : _index_x(0), _index_y(0)
                                {"MAME 2003" ICON_STAR, "MAME2003"},
                                {"MAME 2003 Plus", "MAME2003Plus"},
                                {"MAME 2003 Xtreme" ICON_STAR, "MAME2003XTREME"}}),
-        new CoreButton("DOS", {{"DOS Box SVN", "DOSBoxSVN"},
-                               {"DOS BOX Pure" ICON_STAR, "DOSBoxPure"}})};
+
+        // new CoreButton("ATARIST", {{"Hatari", "hatari"}}),
+    };
 
     SetInputHooks(&_input);
 
@@ -155,7 +160,7 @@ void App::_Show()
     ImGui::Begin("Emu4Vita++ v" APP_VER_STR, NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoInputs);
     My_Imgui_ShowTimePower();
     ImVec2 pos = ImGui::GetWindowPos();
-    ImGui::SetCursorPos({pos.x, (ImGui::GetContentRegionMax().y - BUTTON_SIZE * 2) / 2 + 10});
+    ImGui::SetCursorPos({pos.x, (ImGui::GetContentRegionMax().y - BUTTON_SIZE * 2) / 2 + 20});
     size_t count = 0;
     size_t index = _GetIndex();
     for (auto button : _buttons)

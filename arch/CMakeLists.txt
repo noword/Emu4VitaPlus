@@ -40,7 +40,8 @@ set(CORE_SHORTS
     Stella2014
     ProSystem
     Atari800
-    DOSBoxSVN
+
+    # DOSBoxSVN
     DOSBoxPure
     MAME2003Plus
     MAME2000
@@ -55,7 +56,10 @@ set(CORE_SHORTS
     FBNeoXtreme
     MAME2003Xtreme
     ChimeraSNES
-    TGBDual)
+    TGBDual
+    nekop2
+    fMSX
+    blueMSX)
 
 set(CORES
     gpsp
@@ -81,7 +85,8 @@ set(CORES
     stella2014
     prosystem
     atari800
-    dosbox_svn
+
+    # dosbox_svn
     dosbox_pure
     mame2003_plus
     mame2000
@@ -96,7 +101,10 @@ set(CORES
     fbneo_xtreme
     mame2003_xtreme
     chimerasnes
-    tgbdual)
+    tgbdual
+    nekop2
+    fmsx
+    bluemsx)
 
 set(CORE_EBOOTS "")
 set(CORE_FILES "")

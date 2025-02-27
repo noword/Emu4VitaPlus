@@ -43,7 +43,8 @@ set(CORES
     stella2014
     prosystem
     atari800
-    dosbox_svn
+
+    # dosbox_svn
     dosbox_pure
     mame2003_plus
     mame2000
@@ -60,6 +61,8 @@ set(CORES
     chimerasnes
     tgbdual
     nekop2
+    fmsx
+    bluemsx
 )
 
 set(BUILD_LIST "All" "Arch" ${CORES})

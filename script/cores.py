@@ -28,6 +28,7 @@ CORES = {
     'ZXS': ('fuse',),
     'NEOCD': ('neocd',),
     'PC98': ('nekop2',),
+    'MSX': ('fmsx', 'bluemsx'),
 }
 
 NAMES = {
@@ -70,4 +71,5 @@ NAMES = {
     'chimerasnes': 'Chimera SNES',
     'tgbdual': 'TGB Dual',
     'nekop2': 'Neko Project II',
+    'fmsx': "Marat Fayzullin's fMSX",
 }

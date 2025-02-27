@@ -110,7 +110,7 @@ const uint8_t RETRO_KEYS[] = {
     RETRO_DEVICE_ID_JOYPAD_Y,
     RETRO_DEVICE_ID_JOYPAD_L,
     RETRO_DEVICE_ID_JOYPAD_R,
-#elif defined(PS_BUILD) || defined(DOS_BUILD) || defined(NEOCD_BUILD) || defined(PC98_BUILD)
+#elif defined(PS_BUILD) || defined(DOS_BUILD) || defined(NEOCD_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD)
     RETRO_DEVICE_ID_JOYPAD_A,
     RETRO_DEVICE_ID_JOYPAD_B,
     RETRO_DEVICE_ID_JOYPAD_X,
@@ -263,7 +263,7 @@ const std::vector<ControlMapConfig> CONTROL_MAPS = {
     {SCE_CTRL_R2},
     {SCE_CTRL_L3},
     {SCE_CTRL_R3},
-#elif defined(PS_BUILD) || defined(DOS_BUILD) || defined(NEOCD_BUILD) || defined(PC98_BUILD)
+#elif defined(PS_BUILD) || defined(DOS_BUILD) || defined(NEOCD_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD)
     {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_B},
     {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_X},
     {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
