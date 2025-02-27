@@ -28,7 +28,7 @@ vita2d_texture *Overlay::Get()
 {
     if (_texture == nullptr && image_name.size() > 0)
     {
-        for (auto const &path : {"app0:assets", CONSOLE_DIR, APP_DATA_DIR})
+        for (auto const &path : {"app0:assets", CONSOLE_DIR, APP_DATA_DIR, ROOT_DIR})
         {
             const std::string name = std::string(path) + "/" OVERLAYS_DIR_NAME "/" + image_name;
 
@@ -48,6 +48,7 @@ Overlays::Overlays()
     Load("app0:assets/" OVERLAYS_DIR_NAME);
     Load((std::string(CONSOLE_DIR) + "/" + OVERLAYS_DIR_NAME).c_str());
     Load((std::string(APP_DATA_DIR) + "/" OVERLAYS_DIR_NAME).c_str());
+    Load((std::string(ROOT_DIR) + "/" + OVERLAYS_DIR_NAME).c_str());
 }
 
 Overlays::~Overlays()
