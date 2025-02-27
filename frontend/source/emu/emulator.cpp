@@ -202,8 +202,8 @@ void Emulator::UnloadGame()
 
     if (status & (APP_STATUS_RUN_GAME | APP_STATUS_SHOW_UI_IN_GAME))
     {
-        _rewind_manager.Deinit();
         Lock();
+        _rewind_manager.Deinit();
         _cheats.Stop(true);
         if (gConfig->auto_save)
         {
@@ -214,6 +214,8 @@ void Emulator::UnloadGame()
         Unlock();
 
         _last_texture = nullptr;
+
+        LogDebug("game unloaded");
     }
 }
 
