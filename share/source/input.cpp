@@ -252,7 +252,8 @@ namespace Emu4VitaPlus
                 for (const auto &iter : _key_up_callbacks)
                 {
                     // LogDebug("_key_up_callbacks %08x %08x", iter.first, _last_key);
-                    if (TEST_KEY(iter.key, _last_key) && !TEST_KEY(iter.key, key) && !TEST_KEY(iter.key, _current_hotkey))
+                    if (TEST_KEY(iter.key, _last_key) && !TEST_KEY(iter.key, key) &&
+                        (iter.key == _current_hotkey || !TEST_KEY(iter.key, _current_hotkey)))
                     {
                         // LogDebug("  call up: %08x %08x", iter.first, iter.second);
                         iter.func(this);

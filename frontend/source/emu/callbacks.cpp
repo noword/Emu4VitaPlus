@@ -351,7 +351,9 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         // LogDebug("  cmd: RETRO_ENVIRONMENT_GET_AUDIO_VIDEO_ENABLE");
         if (data)
         {
-            *(int *)data = (gConfig->mute ? 0 : RETRO_AV_ENABLE_AUDIO) | (gEmulator->_show_video ? RETRO_AV_ENABLE_VIDEO : 0);
+            *(int *)data = gEmulator->_show_video ? RETRO_AV_ENABLE_VIDEO : 0;
+            if ((!gConfig->mute) && gStatus.Get() == APP_STATUS_RUN_GAME)
+                *(int *)data |= RETRO_AV_ENABLE_AUDIO;
         }
         break;
 

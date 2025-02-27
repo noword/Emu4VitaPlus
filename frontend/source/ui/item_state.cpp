@@ -194,6 +194,7 @@ void ItemState::_OnRun(Input *input, int index)
 {
   LogFunctionName;
 
+  bool loaded = false;
   if (index == 0) // press OK
   {
     index = _index;
@@ -208,7 +209,7 @@ void ItemState::_OnRun(Input *input, int index)
       _state->Save();
       break;
     case POPUP_LOAD:
-      _state->Load();
+      loaded = _state->Load();
       gStatus.Set(APP_STATUS_RUN_GAME);
       break;
     case POPUP_DELETE:
@@ -220,4 +221,9 @@ void ItemState::_OnRun(Input *input, int index)
   }
 
   _OnCancel(input);
+
+  if (loaded)
+  {
+    UnsetInputHooks(input);
+  }
 }
