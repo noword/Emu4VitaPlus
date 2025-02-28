@@ -157,6 +157,9 @@ namespace Emu4Vita
         sceAppUtilSystemParamGetInt(SCE_SYSTEM_PARAM_ID_LANG, &sys_lang);
         switch (sys_lang)
         {
+        case SCE_SYSTEM_PARAM_LANG_JAPANESE:
+            language = LANGUAGE_JAPANESE;
+            break;
         case SCE_SYSTEM_PARAM_LANG_CHINESE_S:
         case SCE_SYSTEM_PARAM_LANG_CHINESE_T:
             language = LANGUAGE_CHINESE;
@@ -338,6 +341,8 @@ namespace Emu4Vita
         {
         case LANGUAGE_CHINESE:
             return RETRO_LANGUAGE_CHINESE_SIMPLIFIED;
+        case LANGUAGE_JAPANESE:
+            return RETRO_LANGUAGE_JAPANESE;
         case LANGUAGE_ENGLISH:
         default:
             return RETRO_LANGUAGE_ENGLISH;

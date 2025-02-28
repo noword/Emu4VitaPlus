@@ -4,6 +4,7 @@
         "Tag": "LANG_SYSTEM",
         "English": "System",
         "Chinese": "系统",
+        "Japanese": "システム",
         "Comments": ""
     },
     {
@@ -11,6 +12,7 @@
         "Tag": "LANG_STATE",
         "English": "State",
         "Chinese": "即时存档",
+        "Japanese": "ステート",
         "Comments": ""
     },
     {
@@ -18,6 +20,7 @@
         "Tag": "LANG_CHEAT",
         "English": "Cheat",
         "Chinese": "金手指",
+        "Japanese": "チート",
         "Comments": ""
     },
     {
@@ -25,6 +28,7 @@
         "Tag": "LANG_BROWSER",
         "English": "Browser",
         "Chinese": "浏览",
+        "Japanese": "ブラウザ",
         "Comments": ""
     },
     {
@@ -32,6 +36,7 @@
         "Tag": "LANG_FAVORITE",
         "English": "Favorite",
         "Chinese": "收藏夹",
+        "Japanese": "お気に入り",
         "Comments": ""
     },
     {
@@ -39,6 +44,7 @@
         "Tag": "LANG_GRAPHICS",
         "English": "Graphics",
         "Chinese": "图像",
+        "Japanese": "グラフィック",
         "Comments": ""
     },
     {
@@ -46,6 +52,7 @@
         "Tag": "LANG_CONTROL",
         "English": "Control",
         "Chinese": "控制",
+        "Japanese": "コントロール",
         "Comments": ""
     },
     {
@@ -53,6 +60,7 @@
         "Tag": "LANG_HOTKEY",
         "English": "Hotkey",
         "Chinese": "快捷键",
+        "Japanese": "ホットキー",
         "Comments": ""
     },
     {
@@ -60,6 +68,7 @@
         "Tag": "LANG_CORE",
         "English": "Core",
         "Chinese": "核心",
+        "Japanese": "コア",
         "Comments": ""
     },
     {
@@ -67,6 +76,7 @@
         "Tag": "LANG_OPTIONS",
         "English": "Options",
         "Chinese": "选项",
+        "Japanese": "オプション",
         "Comments": ""
     },
     {
@@ -74,6 +84,7 @@
         "Tag": "LANG_ABOUT",
         "English": "About",
         "Chinese": "关于",
+        "Japanese": "About",
         "Comments": ""
     },
     {
@@ -81,6 +92,7 @@
         "Tag": "LANG_RESUME_GAME",
         "English": "Resume game",
         "Chinese": "继续游戏",
+        "Japanese": "続ける",
         "Comments": ""
     },
     {
@@ -88,6 +100,7 @@
         "Tag": "LANG_RESET_GAME",
         "English": "Reset game",
         "Chinese": "重置游戏",
+        "Japanese": "リセット",
         "Comments": ""
     },
     {
@@ -95,6 +108,7 @@
         "Tag": "LANG_EXIT_GAME",
         "English": "Exit game",
         "Chinese": "退出游戏",
+        "Japanese": "ゲーム終了",
         "Comments": ""
     },
     {
@@ -102,6 +116,7 @@
         "Tag": "LANG_BACK_TO_ARCH",
         "English": "Back to Arch",
         "Chinese": "返回前端",
+        "Japanese": "ホームに戻る",
         "Comments": ""
     },
     {
@@ -109,6 +124,7 @@
         "Tag": "LANG_CLEAN_CACHE",
         "English": "Clean Cache",
         "Chinese": "清理缓存",
+        "Japanese": "キャッシュ削除",
         "Comments": ""
     },
     {
@@ -116,6 +132,7 @@
         "Tag": "LANG_EXIT",
         "English": "Exit App",
         "Chinese": "退出程序",
+        "Japanese": "終了",
         "Comments": ""
     },
     {
@@ -123,6 +140,7 @@
         "Tag": "LANG_LANGUAGE",
         "English": "Language",
         "Chinese": "语言",
+        "Japanese": "言語",
         "Comments": ""
     },
     {
@@ -130,6 +148,7 @@
         "Tag": "LANG_REWIND",
         "English": "Enable Rewind",
         "Chinese": "启用回溯",
+        "Japanese": "巻き戻し機能",
         "Comments": ""
     },
     {
@@ -137,6 +156,7 @@
         "Tag": "LANG_REWIND_BUF_SIZE",
         "English": "Rewind Buffer Size (M)",
         "Chinese": "回溯缓冲区大小 (M)",
+        "Japanese": "巻き戻しバッファサイズ",
         "Comments": ""
     },
     {
@@ -144,6 +164,7 @@
         "Tag": "LANG_MUTE",
         "English": "Mute",
         "Chinese": "静音",
+        "Japanese": "ミュート",
         "Comments": ""
     },
     {
@@ -151,6 +172,7 @@
         "Tag": "LANG_MOUSE",
         "English": "Simulated Mouse",
         "Chinese": "模拟鼠标",
+        "Japanese": "マウス",
         "Comments": ""
     },
     {
@@ -158,6 +180,7 @@
         "Tag": "LANG_LIGHTGUN",
         "English": "Simulated Light Gun",
         "Chinese": "模拟光枪",
+        "Japanese": "光線銃",
         "Comments": ""
     },
     {
@@ -165,6 +188,7 @@
         "Tag": "LANG_SWAP_ENTER",
         "English": "Swap ⇢ ⇣ (Restart Required)",
         "Chinese": "⇢ ⇣ 互换 (需要重启)",
+        "Japanese": "⇢ ⇣　入れ替え",
         "Comments": ""
     },
     {
@@ -172,6 +196,7 @@
         "Tag": "LANG_SIM_BUTTON",
         "English": "Simulate ↲↳⇋⇌ with rear touch panel",
         "Chinese": "后触控板模拟 ↲↳⇋⇌",
+        "Japanese": "背面タッチパネルに ↲↳⇋⇌ を割り当て",
         "Comments": ""
     },
     {
@@ -179,6 +204,7 @@
         "Tag": "LANG_DISPLAY_SIZE",
         "English": "Display size",
         "Chinese": "画面尺寸",
+        "Japanese": "画面サイズ",
         "Comments": ""
     },
     {
@@ -186,6 +212,7 @@
         "Tag": "LANG_ASPECT_RATIO",
         "English": "Aspect ratio",
         "Chinese": "画面比例",
+        "Japanese": "アスペクト比",
         "Comments": ""
     },
     {
@@ -193,6 +220,7 @@
         "Tag": "LANG_DISPLAY_ROTATE",
         "English": "Display rotate",
         "Chinese": "画面旋转",
+        "Japanese": "画面回転",
         "Comments": ""
     },
     {
@@ -200,6 +228,7 @@
         "Tag": "LANG_GRAPHICS_SHADER",
         "English": "Graphics shader",
         "Chinese": "图形着色器",
+        "Japanese": "シェーダー",
         "Comments": ""
     },
     {
@@ -207,6 +236,7 @@
         "Tag": "LANG_GRAPHICS_SMOOTH",
         "English": "Graphics smooth",
         "Chinese": "平滑图像",
+        "Japanese": "アンチエイリアス",
         "Comments": ""
     },
     {
@@ -214,6 +244,7 @@
         "Tag": "LANG_OVERLAY_SELECT",
         "English": "Overlay select",
         "Chinese": "遮罩图选择",
+        "Japanese": "オーバーレイ選択",
         "Comments": ""
     },
     {
@@ -221,6 +252,7 @@
         "Tag": "LANG_OVERLAY_MODE",
         "English": "Overlay mode",
         "Chinese": "遮罩图显示模式",
+        "Japanese": "オーバーレイモード",
         "Comments": ""
     },
     {
@@ -228,6 +260,7 @@
         "Tag": "LANG_SHOW_FPS",
         "English": "Show FPS",
         "Chinese": "显示帧数",
+        "Japanese": "FPS表示",
         "Comments": ""
     },
     {
@@ -235,6 +268,7 @@
         "Tag": "LANG_1X",
         "English": "1X",
         "Chinese": "1倍大小",
+        "Japanese": "1倍",
         "Comments": ""
     },
     {
@@ -242,6 +276,7 @@
         "Tag": "LANG_2X",
         "English": "2X",
         "Chinese": "2倍大小",
+        "Japanese": "2倍",
         "Comments": ""
     },
     {
@@ -249,6 +284,7 @@
         "Tag": "LANG_3X",
         "English": "3X",
         "Chinese": "3倍大小",
+        "Japanese": "3倍",
         "Comments": ""
     },
     {
@@ -256,6 +292,7 @@
         "Tag": "LANG_FULL",
         "English": "Full",
         "Chinese": "铺满屏幕",
+        "Japanese": "全画面",
         "Comments": ""
     },
     {
@@ -263,6 +300,7 @@
         "Tag": "LANG_BY_GAME_RESOLUTION",
         "English": "By game resolution",
         "Chinese": "由游戏分辨率",
+        "Japanese": "ゲーム解像度",
         "Comments": ""
     },
     {
@@ -270,6 +308,7 @@
         "Tag": "LANG_BY_DEV_SCREEN",
         "English": "By device screen",
         "Chinese": "由设备屏幕",
+        "Japanese": "画面に合わせる",
         "Comments": ""
     },
     {
@@ -277,6 +316,7 @@
         "Tag": "LANG_8_7",
         "English": "8:7",
         "Chinese": "8:7",
+        "Japanese": "8:7",
         "Comments": ""
     },
     {
@@ -284,6 +324,7 @@
         "Tag": "LANG_4_3",
         "English": "4:3",
         "Chinese": "4:3",
+        "Japanese": "4:3",
         "Comments": ""
     },
     {
@@ -291,6 +332,7 @@
         "Tag": "LANG_3_2",
         "English": "3:2",
         "Chinese": "3:2",
+        "Japanese": "3:2",
         "Comments": ""
     },
     {
@@ -298,6 +340,7 @@
         "Tag": "LANG_16_9",
         "English": "16:9",
         "Chinese": "16:9",
+        "Japanese": "16:9",
         "Comments": ""
     },
     {
@@ -305,6 +348,7 @@
         "Tag": "LANG_DISABLE",
         "English": "Disable",
         "Chinese": "禁用",
+        "Japanese": "無効",
         "Comments": ""
     },
     {
@@ -312,6 +356,7 @@
         "Tag": "LANG_CW_90",
         "English": "Rotate 90°CW",
         "Chinese": "旋转90度(顺时针)",
+        "Japanese": "90°回転",
         "Comments": ""
     },
     {
@@ -319,6 +364,7 @@
         "Tag": "LANG_CW_180",
         "English": "Rotate 180°CW",
         "Chinese": "旋转180度(顺时针)",
+        "Japanese": "180°回転",
         "Comments": ""
     },
     {
@@ -326,6 +372,7 @@
         "Tag": "LANG_CW_270",
         "English": "Rotate 270°CW",
         "Chinese": "旋转270度(顺时针)",
+        "Japanese": "270°回転",
         "Comments": ""
     },
     {
@@ -333,6 +380,7 @@
         "Tag": "LANG_DEFAULT",
         "English": "Default",
         "Chinese": "默认",
+        "Japanese": "Default",
         "Comments": ""
     },
     {
@@ -340,6 +388,7 @@
         "Tag": "LANG_LCD3X",
         "English": "LCD3x",
         "Chinese": "LCD3x",
+        "Japanese": "LCD3x",
         "Comments": ""
     },
     {
@@ -347,6 +396,7 @@
         "Tag": "LANG_SHARP_BILINEAR_SIMPLE",
         "English": "Sharp bilinear simple",
         "Chinese": "锐利双线性",
+        "Japanese": "バイリニア",
         "Comments": ""
     },
     {
@@ -354,6 +404,7 @@
         "Tag": "LANG_SHARP_BILINEAR",
         "English": "Sharp bilinear",
         "Chinese": "锐利双线性+扫描线",
+        "Japanese": "バイリニア＋スキャンライン",
         "Comments": ""
     },
     {
@@ -361,6 +412,7 @@
         "Tag": "LANG_ADVANCED_AA",
         "English": "Advanced AA",
         "Chinese": "高级AA",
+        "Japanese": "Advanced AA",
         "Comments": ""
     },
     {
@@ -368,6 +420,7 @@
         "Tag": "LANG_MODE_OVERLAY",
         "English": "Overlay",
         "Chinese": "覆层模式",
+        "Japanese": "Overlay",
         "Comments": ""
     },
     {
@@ -375,6 +428,7 @@
         "Tag": "LANG_MODE_BACKGROUND",
         "English": "Background",
         "Chinese": "背景模式",
+        "Japanese": "Background",
         "Comments": ""
     },
     {
@@ -382,6 +436,7 @@
         "Tag": "LANG_NO",
         "English": "No",
         "Chinese": "否",
+        "Japanese": "いいえ",
         "Comments": ""
     },
     {
@@ -389,6 +444,7 @@
         "Tag": "LANG_YES",
         "English": "Yes",
         "Chinese": "是",
+        "Japanese": "はい",
         "Comments": ""
     },
     {
@@ -396,6 +452,7 @@
         "Tag": "LANG_TURBO",
         "English": "Turbo",
         "Chinese": "连发",
+        "Japanese": "Turbo",
         "Comments": ""
     },
     {
@@ -403,6 +460,7 @@
         "Tag": "LANG_NONE",
         "English": "None",
         "Chinese": "无",
+        "Japanese": "None",
         "Comments": ""
     },
     {
@@ -410,6 +468,7 @@
         "Tag": "LANG_SAVE_STATE",
         "English": "Save state",
         "Chinese": "保存存档",
+        "Japanese": "Save state",
         "Comments": ""
     },
     {
@@ -417,6 +476,7 @@
         "Tag": "LANG_LOAD_STATE",
         "English": "Load state",
         "Chinese": "读取存档",
+        "Japanese": "Load state",
         "Comments": ""
     },
     {
@@ -424,6 +484,7 @@
         "Tag": "LANG_GAME_SPEED_UP",
         "English": "Game speed up",
         "Chinese": "加速游戏",
+        "Japanese": "Game speed up",
         "Comments": ""
     },
     {
@@ -431,6 +492,7 @@
         "Tag": "LANG_GAME_SPEED_DOWN",
         "English": "Game speed down",
         "Chinese": "减速游戏",
+        "Japanese": "Game speed down",
         "Comments": ""
     },
     {
@@ -438,6 +500,7 @@
         "Tag": "LANG_GAME_REWIND",
         "English": "Game rewind",
         "Chinese": "回溯游戏",
+        "Japanese": "巻き戻す",
         "Comments": ""
     },
     {
@@ -445,6 +508,7 @@
         "Tag": "LANG_CONTROLLER_PORT_UP",
         "English": "Controller port +",
         "Chinese": "控制器端口+",
+        "Japanese": "コントローラーポート＋",
         "Comments": ""
     },
     {
@@ -452,6 +516,7 @@
         "Tag": "LANG_CONTROLLER_PORT_DOWN",
         "English": "Controller port -",
         "Chinese": "控制器端口-",
+        "Japanese": "コントローラーポートー",
         "Comments": ""
     },
     {
@@ -459,6 +524,7 @@
         "Tag": "LANG_MENU_TOGGLE",
         "English": "Menu Toggle",
         "Chinese": "切换菜单",
+        "Japanese": "メニュートグル",
         "Comments": ""
     },
     {
@@ -466,6 +532,7 @@
         "Tag": "LANG_RESET_CONFIGS",
         "English": "Reset configs",
         "Chinese": "恢复默认设置",
+        "Japanese": "configリセット",
         "Comments": ""
     },
     {
@@ -473,6 +540,7 @@
         "Tag": "LANG_COMPILED_ON",
         "English": "Compiled on",
         "Chinese": "编译于",
+        "Japanese": "Compiled on",
         "Comments": ""
     },
     {
@@ -480,6 +548,7 @@
         "Tag": "LANG_AUTHOR",
         "English": "Author",
         "Chinese": "作者",
+        "Japanese": "Author",
         "Comments": ""
     },
     {
@@ -487,6 +556,7 @@
         "Tag": "LANG_SPECIAL_THANKS",
         "English": "Special Thanks",
         "Chinese": "特别感谢",
+        "Japanese": "Special Thanks",
         "Comments": ""
     },
     {
@@ -494,6 +564,7 @@
         "Tag": "LANG_SITE",
         "English": "Site",
         "Chinese": "网址",
+        "Japanese": "Site",
         "Comments": ""
     },
     {
@@ -501,6 +572,7 @@
         "Tag": "LANG_AUTO_SAVE",
         "English": "Auto Save",
         "Chinese": "自动存档",
+        "Japanese": "オートセーブ",
         "Comments": ""
     },
     {
@@ -508,6 +580,7 @@
         "Tag": "LANG_EMPTY",
         "English": "Empty",
         "Chinese": "空",
+        "Japanese": "空",
         "Comments": ""
     },
     {
@@ -515,6 +588,7 @@
         "Tag": "LANG_SAVE",
         "English": "Save",
         "Chinese": "保存",
+        "Japanese": "セーブ",
         "Comments": ""
     },
     {
@@ -522,6 +596,7 @@
         "Tag": "LANG_LOAD",
         "English": "Load",
         "Chinese": "读取",
+        "Japanese": "ロード",
         "Comments": ""
     },
     {
@@ -529,6 +604,7 @@
         "Tag": "LANG_DELETE",
         "English": "Delete",
         "Chinese": "删除",
+        "Japanese": "削除",
         "Comments": ""
     },
     {
@@ -536,6 +612,7 @@
         "Tag": "LANG_CANCEL",
         "English": "Cancel",
         "Chinese": "取消",
+        "Japanese": "キャンセル",
         "Comments": ""
     },
     {
@@ -543,6 +620,7 @@
         "Tag": "LANG_OK",
         "English": "OK",
         "Chinese": "确认",
+        "Japanese": "OK",
         "Comments": ""
     },
     {
@@ -550,6 +628,7 @@
         "Tag": "LANG_SAVE_CONFIRM",
         "English": "Are you sure you want to overwrite this save state?",
         "Chinese": "你确定要覆盖这个存档吗？",
+        "Japanese": "save stateを上書きしますか？",
         "Comments": ""
     },
     {
@@ -557,6 +636,7 @@
         "Tag": "LANG_LOAD_CONFIRM",
         "English": "Are you sure you want to load this save state?",
         "Chinese": "你确定要载入这个存档吗？",
+        "Japanese": "save stateを読み込みますか？",
         "Comments": ""
     },
     {
@@ -564,6 +644,7 @@
         "Tag": "LANG_DELETE_CONFIRM",
         "English": "Are you sure you want to delete this save state?",
         "Chinese": "你确定要删除这个存档吗？",
+        "Japanese": "save stateを削除しますか？",
         "Comments": ""
     },
     {
@@ -571,6 +652,7 @@
         "Tag": "LANG_REMOVE_FAVORITE_CONFIRM",
         "English": "Are you sure you want to remove this game from your favorites?",
         "Chinese": "你确定要从收藏夹中移除此游戏吗？",
+        "Japanese": "このゲームをお気に入りから削除しますか？",
         "Comments": ""
     },
     {
@@ -578,6 +660,7 @@
         "Tag": "LANG_CLEAN_CACHE_CONFIRM",
         "English": "Are you sure you want to clean the cached files?",
         "Chinese": "你确定要清理缓存文件吗？",
+        "Japanese": "キャッシュを初期化しますか？",
         "Comments": ""
     },
     {
@@ -585,6 +668,7 @@
         "Tag": "LANG_EXTERNAL_COMPONENTS",
         "English": "External components used by Emu4Vita++",
         "Chinese": "使用的外部组件",
+        "Japanese": "External components used by Emu4Vita++",
         "Comments": ""
     },
     {
@@ -592,6 +676,7 @@
         "Tag": "LANG_ENTER_DIR",
         "English": "Enter dir ",
         "Chinese": "进入目录",
+        "Japanese": "開く",
         "Comments": ""
     },
     {
@@ -599,6 +684,7 @@
         "Tag": "LANG_BACK_DIR",
         "English": "Back dir",
         "Chinese": "返回上级目录",
+        "Japanese": "戻る",
         "Comments": ""
     },
     {
@@ -606,6 +692,7 @@
         "Tag": "LANG_START_GAME",
         "English": "Start game",
         "Chinese": "开始游戏",
+        "Japanese": "ゲーム起動",
         "Comments": ""
     },
     {
@@ -613,6 +700,7 @@
         "Tag": "LANG_ADD_FAVORITE",
         "English": "Add to favorites",
         "Chinese": "添加到收藏夹",
+        "Japanese": "お気に入りに追加",
         "Comments": ""
     },
     {
@@ -620,6 +708,7 @@
         "Tag": "LANG_REMOVE_FAVORITE",
         "English": "Remove from favorites",
         "Chinese": "移出收藏夹",
+        "Japanese": "お気に入りから削除",
         "Comments": ""
     },
     {
@@ -627,6 +716,7 @@
         "Tag": "LANG_SEARCH",
         "English": "Search",
         "Chinese": "搜索",
+        "Japanese": "検索",
         "Comments": ""
     },
     {
@@ -634,6 +724,7 @@
         "Tag": "LANG_NEXT",
         "English": "Next",
         "Chinese": "下一个",
+        "Japanese": "次",
         "Comments": ""
     },
     {
@@ -641,6 +732,7 @@
         "Tag": "LANG_FILE_MANAGE",
         "English": "File Manage",
         "Chinese": "文件管理",
+        "Japanese": "ファイル管理",
         "Comments": ""
     },
     {
@@ -648,6 +740,7 @@
         "Tag": "LANG_COPY",
         "English": "Copy",
         "Chinese": "复制",
+        "Japanese": "コピー",
         "Comments": ""
     },
     {
@@ -655,6 +748,7 @@
         "Tag": "LANG_CUT",
         "English": "Cut",
         "Chinese": "剪切",
+        "Japanese": "カット",
         "Comments": ""
     },
     {
@@ -662,6 +756,7 @@
         "Tag": "LANG_PASTE",
         "English": "Paste",
         "Chinese": "粘贴",
+        "Japanese": "ペースト",
         "Comments": ""
     },
     {
@@ -669,6 +764,7 @@
         "Tag": "LANG_RENAME",
         "English": "Rename",
         "Chinese": "重命名",
+        "Japanese": "リネーム",
         "Comments": ""
     },
     {
@@ -676,6 +772,7 @@
         "Tag": "LANG_CORE_NOTICE",
         "English": "After changing the settings, reset the game to take effect",
         "Chinese": "更改设置后，重置游戏以生效",
+        "Japanese": "ゲームをリセットするまで設定は適用されません。",
         "Comments": ""
     },
     {
@@ -683,6 +780,7 @@
         "Tag": "LANG_ENABLED",
         "English": "enabled",
         "Chinese": "启用",
+        "Japanese": "有効",
         "Comments": ""
     },
     {
@@ -690,6 +788,7 @@
         "Tag": "LANG_DISABLED",
         "English": "disabled",
         "Chinese": "禁用",
+        "Japanese": "無効",
         "Comments": ""
     },
     {
@@ -697,6 +796,7 @@
         "Tag": "LANG_LOAD_ROM_FAILED",
         "English": "Failed to load rom，press any key to continue",
         "Chinese": "载入 rom 失败，按任意键继续",
+        "Japanese": "ROMの読み込みに失敗。キーを押してください。",
         "Comments": ""
     },
     {
@@ -704,6 +804,7 @@
         "Tag": "LANG_MOUSE_FRONT_TOUCH_PANEL",
         "English": "Front touch panel + ↜ ↝",
         "Chinese": "触控屏 + ↜ ↝",
+        "Japanese": "前面タッチパネル ＋ ↜ ↝",
         "Comments": ""
     },
     {
@@ -711,6 +812,7 @@
         "Tag": "LANG_MOUSE_REAR_TOUCH_PANEL",
         "English": "Rear touch panel + ↜ ↝",
         "Chinese": "后触控板 + ↜ ↝",
+        "Japanese": "背面タッチパネル ＋ ↜ ↝",
         "Comments": ""
     },
     {
@@ -718,6 +820,7 @@
         "Tag": "LANG_UNSET",
         "English": "Unset",
         "Chinese": "未设置",
+        "Japanese": "未設定",
         "Comments": ""
     },
     {
@@ -725,6 +828,7 @@
         "Tag": "LANG_DEVICE_PORT",
         "English": "Device port ",
         "Chinese": "设备端口 ",
+        "Japanese": "デバイスポート",
         "Comments": ""
     },
     {
@@ -732,6 +836,7 @@
         "Tag": "LANG_FOUND",
         "English": "Found",
         "Chinese": "找到",
+        "Japanese": "Found",
         "Comments": ""
     },
     {
@@ -739,6 +844,7 @@
         "Tag": "LANG_NOT_FOUND",
         "English": "Not found",
         "Chinese": "未找到",
+        "Japanese": "Not found",
         "Comments": ""
     },
     {
@@ -746,6 +852,7 @@
         "Tag": "LANG_FILE",
         "English": "file",
         "Chinese": "文件",
+        "Japanese": "file",
         "Comments": ""
     },
     {
@@ -753,6 +860,7 @@
         "Tag": "LANG_FILES",
         "English": "files",
         "Chinese": "文件",
+        "Japanese": "files",
         "Comments": ""
     },
     {
@@ -760,6 +868,7 @@
         "Tag": "CODE",
         "English": "en",
         "Chinese": "cn",
+        "Japanese": "jp",
         "Comments": ""
     },
     {
@@ -767,6 +876,7 @@
         "Tag": "LANG_INDEPENDENT_CORE_CONFIG",
         "English": "Independent core config",
         "Chinese": "独立的核心设置",
+        "Japanese": "独立したコア設定",
         "Comments": ""
     },
     {
@@ -774,6 +884,7 @@
         "Tag": "LANG_DELETE_FILE_CONFIRM",
         "English": "Are you sure you want to delete this file?",
         "Chinese": "你确定要删除这个文件吗？",
+        "Japanese": "このファイルを削除してもよろしいですか？",
         "Comments": ""
     },
     {
@@ -781,6 +892,7 @@
         "Tag": "LANG_OVERWRITE_FILE_CONFIRM",
         "English": "A file with the same name exists. Overwrite it?",
         "Chinese": "存在同名文件，覆盖吗？",
+        "Japanese": "同じ名前のファイルが存在します。上書きしますか？",
         "Comments": ""
     },
     {
@@ -788,6 +900,7 @@
         "Tag": "LANG_SAME_DIR_WARN",
         "English": "Cannot paste in the same directory",
         "Chinese": "不能粘贴在同一目录下",
+        "Japanese": "同じディレクトリに貼り付けることはできません。",
         "Comments": ""
     },
     {
@@ -795,6 +908,7 @@
         "Tag": "LANG_DELETED",
         "English": "File deleted",
         "Chinese": "文件已删除",
+        "Japanese": "ファイルを削除しました。",
         "Comments": ""
     },
     {
@@ -802,6 +916,7 @@
         "Tag": "LANG_DELETION_FAILED",
         "English": "File deletion failed",
         "Chinese": "文件删除失败",
+        "Japanese": "ファイルの削除に失敗しました。",
         "Comments": ""
     },
     {
@@ -809,6 +924,7 @@
         "Tag": "LANG_SPEED",
         "English": "Game speed",
         "Chinese": "游戏速度",
+        "Japanese": "ゲームスピード",
         "Comments": ""
     }
 ]
