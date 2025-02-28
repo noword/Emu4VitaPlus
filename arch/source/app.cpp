@@ -56,14 +56,14 @@ App::App() : _index_x(0), _index_y(0)
     style->Colors[ImGuiCol_TitleBg] = style->Colors[ImGuiCol_TitleBgActive];
 
     _buttons = {
-        new CoreButton("ATARI2600", {{"Stella 2014", "Stella2014"}}),      // 1977
-        new CoreButton("ATARI5200", {{"Atari800", "Atari800"}}),           // 1982
-        new CoreButton("ATARI7800", {{"ProSystem", "ProSystem"}}),         // 1986
-        new CoreButton("VECTREX", {{"vecx", "vecx"}}),                     // 1982.4
-        new CoreButton("ZXS", {{"fuse", "fuse"}}),                         // 1982.11
-        new CoreButton("DOS", {{"DOS BOX Pure" ICON_STAR, "DOSBoxPure"}}), // 1981
-        new CoreButton("PC98", {{"Neko Project II", "nekop2"}}),           // 1982
-        new CoreButton("MSX", {{"blueMSX", "blueMSX"},                     // 1983
+        new CoreButton("ATARI2600", {{"Stella 2014", "Stella2014"}}), // 1977
+        new CoreButton("ATARI5200", {{"Atari800", "Atari800"}}),      // 1982
+        new CoreButton("ATARI7800", {{"ProSystem", "ProSystem"}}),    // 1986
+        new CoreButton("VECTREX", {{"vecx", "vecx"}}),                // 1982.4
+        new CoreButton("ZXS", {{"fuse", "fuse"}}),                    // 1982.11
+        new CoreButton("DOS", {{"DOS BOX Pure", "DOSBoxPure"}}),      // 1981
+        new CoreButton("PC98", {{"Neko Project II", "nekop2"}}),      // 1982
+        new CoreButton("MSX", {{"blueMSX", "blueMSX"},                // 1983
                                {"Marat Fayzullin's fMSX", "fMSX"}}),
         new CoreButton("NES", {{"FCEUmm " ICON_STAR, "FCEUmm"}, // 1983
                                {"Nestopia", "Nestopia"}}),
@@ -77,7 +77,7 @@ App::App() : _index_x(0), _index_y(0)
                                {"TGB Dual", "TGBDual"},
                                {"mGBA", "mGBA"}}),
         new CoreButton("SNES", {{"Snes9x 2002", "Snes9x2002"}, // 1990
-                                {"Snes9x 2005 ", "Snes9x2005"},
+                                {"Snes9x 2005" ICON_STAR, "Snes9x2005"},
                                 {"Snes9x 2010", "Snes9x2010"},
                                 {"Mednafen Supafaust", "Supafaust"},
                                 {"Chimera SNES" ICON_STAR, "ChimeraSNES"}}),
