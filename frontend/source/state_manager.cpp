@@ -1,5 +1,5 @@
 #include <libretro.h>
-#include <stdio.h>
+#include "file.h"
 #include "state_manager.h"
 #include "defines.h"
 #include "log.h"
@@ -109,20 +109,14 @@ END:
 bool State::Load()
 {
     LogFunctionName;
-    FILE *fp = fopen(_state_path.c_str(), "rb");
-    if (!fp)
+
+    char *buf;
+    size_t size = File::ReadFile(_state_path.c_str(), (void **)&buf);
+    if (size == 0)
     {
-        LogError("failed to open file %s for reading", _state_path.c_str());
+        LogError("failed to read file %s", _state_path.c_str());
         return false;
     }
-
-    fseek(fp, 0, SEEK_END);
-    size_t size = ftell(fp);
-    fseek(fp, 0, SEEK_SET);
-
-    char *buf = new char[size];
-    fread(buf, size, 1, fp);
-    fclose(fp);
 
     bool result = retro_unserialize(buf, size);
     if (result)
