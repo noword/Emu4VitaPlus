@@ -76,8 +76,7 @@ WSC
 NGP
   - [Mednafen NeoPop](https://github.com/libretro/beetle-ngp-libretro)
 
-DOS(测试中)
-  - [DOS SVN](https://github.com/libretro/dosbox-svn)
+DOS
   - [DOS Pure](https://github.com/libretro/dosbox-pure)
 
 Atari 2600
@@ -97,6 +96,13 @@ Amiga
 
 ZX Spectrum
  - [fuse](https://github.com/libretro/fuse-libretro)
+
+PC98
+ - [Neko Project II](https://github.com/libretro/libretro-meowPC98)
+  
+MSX
+ - [Marat Fayzullin's fMSX](https://github.com/libretro/fmsx-libretro)
+ - [blueMSX](https://github.com/libretro/blueMSX-libretro)
 
 # 编译前准备
 ## Windows

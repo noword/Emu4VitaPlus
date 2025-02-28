@@ -94,8 +94,9 @@ void TabAbout::_InitTexts()
 {
     _last_lang = gConfig->language;
     _texts = {std::string(TEXT(LANG_COMPILED_ON)) + " " + __DATE__ + " " + __TIME__,
-              std::string(TEXT(LANG_AUTHOR)) + ": noword   " + TEXT(LANG_SPECIAL_THANKS) + ": yizhigai, KyleBing, TearCrow",
-              std::string(TEXT(LANG_SITE)) + ": https://github.com/noword/Emu4VitaPlus",
+              std::string(TEXT(LANG_AUTHOR)) + ": noword   " + TEXT(LANG_SPECIAL_THANKS) + ": yizhigai, KyleBing, TearCrow, yyoossk(Japanese translation)",
+              std::string(TEXT(LANG_SITE)) +
+                  ": https://github.com/noword/Emu4VitaPlus",
               "",
               TEXT(LANG_EXTERNAL_COMPONENTS),
               "7-Zip (GPL v2.1) https://github.com/mcmilk/7-Zip.git",
@@ -132,7 +133,6 @@ void TabAbout::_InitTexts()
               "https://github.com/libretro/snes9x2010",
               "https://github.com/libretro/vba-next",
               "https://github.com/libretro/mgba.git",
-              "https://github.com/libretro/dosbox-svn",
               "https://github.com/libretro/dosbox-pure",
               "https://github.com/KMFDManic/FBNeo-Xtreme-Amped",
               "https://github.com/KMFDManic/mame2003-xtreme",
@@ -143,12 +143,15 @@ void TabAbout::_InitTexts()
               "https://github.com/libretro/libretro-atari800",
               "https://github.com/libretro/prosystem-libretro",
               "https://github.com/libretro/fuse-libretro",
-              "https://github.com/libretro/neocd_libretro.git",
-              "https://github.com/KMFDManic/mame2003-xtreme.git",
-              "https://github.com/KMFDManic/FBNeo-Xtreme-Amped.git",
-              "https://github.com/Rinnegatamante/supafaust.git",
-              "https://github.com/jamsilva/chimerasnes.git",
-              "https://github.com/libretro/tgbdual-libretro.git"};
+              "https://github.com/libretro/neocd_libretro",
+              "https://github.com/KMFDManic/mame2003-xtreme",
+              "https://github.com/KMFDManic/FBNeo-Xtreme-Amped",
+              "https://github.com/Rinnegatamante/supafaust",
+              "https://github.com/jamsilva/chimerasnes",
+              "https://github.com/libretro/tgbdual-libretro",
+              "https://github.com/libretro/libretro-meowPC98",
+              "https://github.com/libretro/blueMSX-libretro",
+              "https://github.com/libretro/fmsx-libretro"};
 }
 
 void TabAbout::_OnKeyUp(Input *input)
