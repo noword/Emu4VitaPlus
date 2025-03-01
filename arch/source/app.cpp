@@ -160,7 +160,8 @@ void App::_Show()
     ImGui::Begin("Emu4Vita++ v" APP_VER_STR, NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoInputs);
     My_Imgui_ShowTimePower();
     ImVec2 pos = ImGui::GetWindowPos();
-    ImGui::SetCursorPos({pos.x, (ImGui::GetContentRegionMax().y - BUTTON_SIZE * 2) / 2 + 20});
+    pos.y = (ImGui::GetContentRegionMax().y - BUTTON_SIZE * 2) / 2 + 20;
+    ImGui::SetCursorPos(pos);
     size_t count = 0;
     size_t index = _GetIndex();
     for (auto button : _buttons)
@@ -170,7 +171,6 @@ void App::_Show()
         if (selected)
         {
             size_t half = (_buttons.size() + 1) / 2;
-
             ImGui::SetScrollHereX(float(count % half) / float(half));
         }
 
@@ -179,6 +179,11 @@ void App::_Show()
         if (count != _buttons.size() / 2)
         {
             ImGui::SameLine();
+        }
+        else
+        {
+            pos.y += BUTTON_SIZE + 8;
+            ImGui::SetCursorPos(pos);
         }
     }
 
