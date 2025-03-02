@@ -42,7 +42,7 @@ endif()
 
 include_directories(
     ../deps/libretro-common/include
-    ../deps/7-zip/C
+    ../deps/7-Zip/C
     ../deps/lz4/lib)
 
 add_library(share STATIC ${SRC})
