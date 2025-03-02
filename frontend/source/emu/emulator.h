@@ -11,6 +11,7 @@
 #include "rewind.h"
 #include "cheat.h"
 #include "arcade_manager.h"
+#include "disk_contorl.h"
 #include "rect.h"
 
 using namespace Emu4VitaPlus;
@@ -69,6 +70,9 @@ public:
     bool NeedRender();
     const ArcadeManager *GetArcadeManager() const { return _arcade_manager; };
 
+    void SetDiskControlExtCallback(const retro_disk_control_ext_callback *callback);
+    void SetDiskControlCallback(const retro_disk_control_callback *callback);
+
     friend bool EnvironmentCallback(unsigned cmd, void *data);
     friend void VideoRefreshCallback(const void *data, unsigned width, unsigned height, size_t pitch);
     friend void AudioSampleCallback(int16_t left, int16_t right);
@@ -108,6 +112,9 @@ private:
     void _InitArcadeManager();
     void _ShowSpeedHint();
 
+    template <typename T>
+    void _SetDiskControlCallback(const T *callback);
+
     std::string _current_name;
     bool _loaded;
     retro_system_info _info;
@@ -143,6 +150,8 @@ private:
     bool _core_options_updated;
 
     ArcadeManager *_arcade_manager;
+
+    DiskControl *_disk_contorl;
 };
 
 extern Emulator *gEmulator;

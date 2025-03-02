@@ -36,7 +36,8 @@ Emulator::Emulator()
       _video_rotation(VIDEO_ROTATION_0),
       _core_options_updated(false),
       _show_video(true),
-      _loaded(false)
+      _loaded(false),
+      _disk_contorl(nullptr)
 {
     retro_get_system_info(&_info);
     sceKernelCreateLwMutex(&_run_mutex, "run_mutex", 0, 0, NULL);
@@ -629,4 +630,51 @@ void Emulator::ChangeCheatConfig()
 {
     LogFunctionName;
     _cheats.Signal();
+}
+
+void Emulator::SetDiskControlExtCallback(const retro_disk_control_ext_callback *callback)
+{
+    LogFunctionName;
+    _SetDiskControlCallback(callback);
+    // if (_disk_contorl)
+    // {
+    //     delete _disk_contorl;
+    //     _disk_contorl = nullptr;
+    // }
+
+    // if (callback)
+    // {
+    //     _disk_contorl = new DiskControl(callback);
+    // }
+}
+
+void Emulator::SetDiskControlCallback(const retro_disk_control_callback *callback)
+{
+    LogFunctionName;
+    _SetDiskControlCallback(callback);
+    // if (_disk_contorl)
+    // {
+    //     delete _disk_contorl;
+    //     _disk_contorl = nullptr;
+    // }
+
+    // if (callback)
+    // {
+    //     _disk_contorl = new DiskControl(callback);
+    // }
+}
+
+template <typename T>
+void Emulator::_SetDiskControlCallback(const T *callback)
+{
+    if (_disk_contorl)
+    {
+        delete _disk_contorl;
+        _disk_contorl = nullptr;
+    }
+
+    if (callback)
+    {
+        _disk_contorl = new DiskControl(callback);
+    }
 }
