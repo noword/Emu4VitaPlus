@@ -25,7 +25,7 @@ const char CONSOLE[] = _CONSOLE;
 const char CONSOLE_DIR[] = "app0:data/" _CONSOLE;
 const char CORE_SHORT_NAME[] = _CORE_SHORT_NAME;
 
-#if defined(ARC_BUILD) || defined(DOS_BUILD) || defined(AMIGA_BUILD) || defined(ATARIST_BUILD) || defined(ZXS_BUILD) || defined(PC98_BUILD)
+#if defined(ARC_BUILD) || defined(DOS_BUILD) || defined(AMIGA_BUILD) || defined(ATARIST_BUILD) || defined(ZXS_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD)
 const bool DEFAULT_ENABLE_REWIND = false;
 const size_t DEFAULT_REWIND_BUF_SIZE = 50;
 #else
@@ -53,7 +53,7 @@ const bool DEFAULT_MOUSE = CONFIG_MOUSE_REAR;
 const bool DEFAULT_MOUSE = CONFIG_MOUSE_DISABLE;
 #endif
 
-#if defined(DOS_BUILD) || defined(AMIGA_BUILD) || defined(ARC_BUILD) || defined(ZXS_BUILD) || defined(PC98_BUILD)
+#if defined(DOS_BUILD) || defined(AMIGA_BUILD) || defined(ARC_BUILD) || defined(ZXS_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD)
 const bool DEFAULT_AUTO_SAVE = false;
 const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = true;
 #else
