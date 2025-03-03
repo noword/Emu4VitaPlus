@@ -37,7 +37,8 @@ Emulator::Emulator()
       _core_options_updated(false),
       _show_video(true),
       _loaded(false),
-      _disk_contorl(nullptr)
+      _disk_contorl(nullptr),
+      _speed(1.0)
 {
     retro_get_system_info(&_info);
     sceKernelCreateLwMutex(&_run_mutex, "run_mutex", 0, 0, NULL);

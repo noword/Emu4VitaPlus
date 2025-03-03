@@ -212,7 +212,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
     case RETRO_ENVIRONMENT_SET_SYSTEM_AV_INFO:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_SYSTEM_AV_INFO");
         memcpy(&gEmulator->_av_info, data, sizeof(retro_system_av_info));
-        gEmulator->_audio.Init(gEmulator->_av_info.timing.sample_rate);
+        // gEmulator->_audio.Init(gEmulator->_av_info.timing.sample_rate);
         gEmulator->SetSpeed(gEmulator->_speed);
         break;
 
