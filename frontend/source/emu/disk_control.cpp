@@ -20,3 +20,15 @@ DiskControl::DiskControl(const retro_disk_control_callback *callback)
 DiskControl::~DiskControl()
 {
 }
+
+bool DiskControl::ReplaceImageIndex(unsigned index)
+{
+    if (index >= GetNumImages())
+    {
+        return false;
+    }
+
+    _callbacks.set_eject_state(true);
+    _callbacks.set_image_index(index);
+    return _callbacks->set_eject_state(false);
+}

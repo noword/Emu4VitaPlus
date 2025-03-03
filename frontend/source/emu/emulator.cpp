@@ -633,49 +633,7 @@ void Emulator::ChangeCheatConfig()
     _cheats.Signal();
 }
 
-void Emulator::SetDiskControlExtCallback(const retro_disk_control_ext_callback *callback)
+bool Emulator::IsMultiDisc()
 {
-    LogFunctionName;
-    _SetDiskControlCallback(callback);
-    // if (_disk_contorl)
-    // {
-    //     delete _disk_contorl;
-    //     _disk_contorl = nullptr;
-    // }
-
-    // if (callback)
-    // {
-    //     _disk_contorl = new DiskControl(callback);
-    // }
-}
-
-void Emulator::SetDiskControlCallback(const retro_disk_control_callback *callback)
-{
-    LogFunctionName;
-    _SetDiskControlCallback(callback);
-    // if (_disk_contorl)
-    // {
-    //     delete _disk_contorl;
-    //     _disk_contorl = nullptr;
-    // }
-
-    // if (callback)
-    // {
-    //     _disk_contorl = new DiskControl(callback);
-    // }
-}
-
-template <typename T>
-void Emulator::_SetDiskControlCallback(const T *callback)
-{
-    if (_disk_contorl)
-    {
-        delete _disk_contorl;
-        _disk_contorl = nullptr;
-    }
-
-    if (callback)
-    {
-        _disk_contorl = new DiskControl(callback);
-    }
+    return _disk_contorl && _disk_contorl->GetNumImages() > 1;
 }

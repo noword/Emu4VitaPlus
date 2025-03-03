@@ -30,6 +30,7 @@
 #define ICON_JOYSTICK "\xef\x95\xb9"
 #define ICON_TOUCH "\xe2\x87\xa7"
 #define ICON_SERACH "\xee\xa0\x8d"
+#define ICON_CD "\xee\xa0\x8e"
 
 #define ICON_STAR_SPACE ICON_STAR " "
 #define ICON_EMPTY_STAR_SPACE ICON_EMPTY_STAR " "
@@ -59,3 +60,4 @@
 #define ICON_JOYSTICK_SPACE ICON_JOYSTICK " "
 #define ICON_TOUCH_SPACE ICON_TOUCH " "
 #define ICON_SERACH_SPACE ICON_SEARCH " "
+#define ICON_CD_SPACE ICON_CD " "

@@ -42,7 +42,7 @@ const static ImWchar GamePadCharset[] = {0x219c, 0x21a1,
                                          0xf579, 0xf579,
                                          0x0000};
 
-const static ImWchar IconCharset[] = {0xe800, 0xe80d,
+const static ImWchar IconCharset[] = {0xe800, 0xe80e,
                                       0xf08e, 0xf08e,
                                       0xf0c9, 0xf0c9,
                                       0xf11b, 0xf11b,

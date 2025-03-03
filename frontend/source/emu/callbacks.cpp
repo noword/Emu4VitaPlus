@@ -302,7 +302,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
 
     case RETRO_ENVIRONMENT_SET_DISK_CONTROL_EXT_INTERFACE:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_DISK_CONTROL_EXT_INTERFACE");
-        gEmulator->SetDiskControlExtCallback((const retro_disk_control_ext_callback *)data);
+        gEmulator->SetDiskControlCallback((const retro_disk_control_ext_callback *)data);
         break;
 
     case RETRO_ENVIRONMENT_GET_MESSAGE_INTERFACE_VERSION:

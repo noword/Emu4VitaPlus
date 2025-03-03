@@ -70,8 +70,22 @@ public:
     bool NeedRender();
     const ArcadeManager *GetArcadeManager() const { return _arcade_manager; };
 
-    void SetDiskControlExtCallback(const retro_disk_control_ext_callback *callback);
-    void SetDiskControlCallback(const retro_disk_control_callback *callback);
+    template <typename T>
+    void SetDiskControlCallback(const T *callback)
+    {
+        if (_disk_contorl)
+        {
+            delete _disk_contorl;
+            _disk_contorl = nullptr;
+        }
+
+        if (callback)
+        {
+            _disk_contorl = new DiskControl(callback);
+        }
+    }
+
+    bool IsMultiDisc();
 
     friend bool EnvironmentCallback(unsigned cmd, void *data);
     friend void VideoRefreshCallback(const void *data, unsigned width, unsigned height, size_t pitch);
@@ -111,9 +125,6 @@ private:
     bool _LoadCheats(const char *path);
     void _InitArcadeManager();
     void _ShowSpeedHint();
-
-    template <typename T>
-    void _SetDiskControlCallback(const T *callback);
 
     std::string _current_name;
     bool _loaded;
