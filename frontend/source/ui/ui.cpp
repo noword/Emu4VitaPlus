@@ -15,6 +15,7 @@
 #include "tab_browser.h"
 #include "tab_favorite.h"
 #include "tab_about.h"
+#include "tab_disk.h"
 #include "utils.h"
 #include "overlay.h"
 #include "shader.h"
@@ -286,17 +287,17 @@ void Ui::CreateTables()
 
 void Ui::SetInputHooks()
 {
-    _input.SetKeyUpCallback(SCE_CTRL_L1, std::bind(&Ui::_OnKeyL2, this, &_input));
-    _input.SetKeyUpCallback(SCE_CTRL_R1, std::bind(&Ui::_OnKeyR2, this, &_input));
+    _input.SetKeyUpCallback(SCE_CTRL_L1, std::bind(&Ui::_OnKeyL1, this, &_input));
+    _input.SetKeyUpCallback(SCE_CTRL_R1, std::bind(&Ui::_OnKeyR1, this, &_input));
 
-    while (!_tabs[_tab_index]->Visable())
+    while (_tabs[_tab_index] == nullptr || !_tabs[_tab_index]->Visable())
     {
-        _OnKeyL2(&_input);
+        _OnKeyL1(&_input);
     }
     _tabs[_tab_index]->SetInputHooks(&_input);
 }
 
-void Ui::_OnKeyL2(Input *input)
+void Ui::_OnKeyL1(Input *input)
 {
     // LogFunctionName;
     _tabs[_tab_index]->UnsetInputHooks(&_input);
@@ -304,12 +305,12 @@ void Ui::_OnKeyL2(Input *input)
     do
     {
         LOOP_MINUS_ONE(_tab_index, TAB_INDEX_COUNT);
-    } while (!_tabs[_tab_index]->Visable());
+    } while (_tabs[_tab_index] == nullptr || !_tabs[_tab_index]->Visable());
 
     _tabs[_tab_index]->SetInputHooks(&_input);
 }
 
-void Ui::_OnKeyR2(Input *input)
+void Ui::_OnKeyR1(Input *input)
 {
     // LogFunctionName;
     _tabs[_tab_index]->UnsetInputHooks(&_input);
@@ -317,7 +318,7 @@ void Ui::_OnKeyR2(Input *input)
     do
     {
         LOOP_PLUS_ONE(_tab_index, TAB_INDEX_COUNT);
-    } while (!_tabs[_tab_index]->Visable());
+    } while (_tabs[_tab_index] == nullptr || !_tabs[_tab_index]->Visable());
 
     _tabs[_tab_index]->SetInputHooks(&_input);
 }
@@ -361,6 +362,7 @@ void Ui::OnStatusChanged(APP_STATUS status)
             _tab_index = TAB_INDEX_BROWSER;
             _input.UnsetKeyUpCallback(gConfig->hotkeys[MENU_TOGGLE]);
         }
+
         gVideo->Unlock();
 
         SetInputHooks();
@@ -382,7 +384,7 @@ void Ui::_ShowNormal()
     _tabs[TAB_INDEX_FAVORITE]->SetVisable(gFavorites->size() > 0);
     if (!_tabs[TAB_INDEX_FAVORITE]->Visable() && _tab_index == TAB_INDEX_FAVORITE)
     {
-        _OnKeyL2(&_input);
+        _OnKeyL1(&_input);
     }
 
     if (ImGui::BeginTabBar("MyTabBar", ImGuiTabBarFlags_FittingPolicyScroll))
@@ -594,6 +596,26 @@ void Ui::UpdateControllerOptions()
         delete _tabs[TAB_INDEX_CONTROL];
     }
     _tabs[TAB_INDEX_CONTROL] = new TabSeletable(LANG_CONTROL, controls);
+    gVideo->Unlock();
+}
+
+void Ui::UpdateDiskOptions()
+{
+    LogFunctionName;
+    DiskControl *disk_control = gEmulator->GetDiskControl();
+
+    gVideo->Lock();
+    if (_tabs[TAB_INDEX_DISK] != nullptr)
+    {
+        delete _tabs[TAB_INDEX_DISK];
+        _tabs[TAB_INDEX_DISK] = nullptr;
+    }
+
+    if (disk_control)
+    {
+        _tabs[TAB_INDEX_DISK] = new TabDisk(disk_control);
+    }
+
     gVideo->Unlock();
 }
 

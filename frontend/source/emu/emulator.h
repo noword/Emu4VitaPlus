@@ -86,6 +86,7 @@ public:
     }
 
     bool IsMultiDisc();
+    DiskControl *GetDiskControl() { return _disk_contorl; };
 
     friend bool EnvironmentCallback(unsigned cmd, void *data);
     friend void VideoRefreshCallback(const void *data, unsigned width, unsigned height, size_t pitch);

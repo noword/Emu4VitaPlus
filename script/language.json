@@ -9,6 +9,14 @@
     },
     {
         "No.": "2",
+        "Tag": "LANG_DISK",
+        "English": "Disk",
+        "Chinese": "游戏盘",
+        "Japanese": "ディスク",
+        "Comments": ""
+    },
+    {
+        "No.": "3",
         "Tag": "LANG_STATE",
         "English": "State",
         "Chinese": "即时存档",
@@ -16,7 +24,7 @@
         "Comments": ""
     },
     {
-        "No.": "3",
+        "No.": "4",
         "Tag": "LANG_CHEAT",
         "English": "Cheat",
         "Chinese": "金手指",
@@ -24,7 +32,7 @@
         "Comments": ""
     },
     {
-        "No.": "4",
+        "No.": "5",
         "Tag": "LANG_BROWSER",
         "English": "Browser",
         "Chinese": "浏览",
@@ -32,7 +40,7 @@
         "Comments": ""
     },
     {
-        "No.": "5",
+        "No.": "6",
         "Tag": "LANG_FAVORITE",
         "English": "Favorite",
         "Chinese": "收藏夹",
@@ -40,7 +48,7 @@
         "Comments": ""
     },
     {
-        "No.": "6",
+        "No.": "7",
         "Tag": "LANG_GRAPHICS",
         "English": "Graphics",
         "Chinese": "图像",
@@ -48,7 +56,7 @@
         "Comments": ""
     },
     {
-        "No.": "7",
+        "No.": "8",
         "Tag": "LANG_CONTROL",
         "English": "Control",
         "Chinese": "控制",
@@ -56,7 +64,7 @@
         "Comments": ""
     },
     {
-        "No.": "8",
+        "No.": "9",
         "Tag": "LANG_HOTKEY",
         "English": "Hotkey",
         "Chinese": "快捷键",
@@ -64,7 +72,7 @@
         "Comments": ""
     },
     {
-        "No.": "9",
+        "No.": "10",
         "Tag": "LANG_CORE",
         "English": "Core",
         "Chinese": "核心",
@@ -72,7 +80,7 @@
         "Comments": ""
     },
     {
-        "No.": "10",
+        "No.": "11",
         "Tag": "LANG_OPTIONS",
         "English": "Options",
         "Chinese": "选项",
@@ -80,7 +88,7 @@
         "Comments": ""
     },
     {
-        "No.": "11",
+        "No.": "12",
         "Tag": "LANG_ABOUT",
         "English": "About",
         "Chinese": "关于",
@@ -88,7 +96,7 @@
         "Comments": ""
     },
     {
-        "No.": "12",
+        "No.": "13",
         "Tag": "LANG_RESUME_GAME",
         "English": "Resume game",
         "Chinese": "继续游戏",
@@ -96,7 +104,7 @@
         "Comments": ""
     },
     {
-        "No.": "13",
+        "No.": "14",
         "Tag": "LANG_RESET_GAME",
         "English": "Reset game",
         "Chinese": "重置游戏",
@@ -104,7 +112,7 @@
         "Comments": ""
     },
     {
-        "No.": "14",
+        "No.": "15",
         "Tag": "LANG_EXIT_GAME",
         "English": "Exit game",
         "Chinese": "退出游戏",
@@ -112,7 +120,7 @@
         "Comments": ""
     },
     {
-        "No.": "15",
+        "No.": "16",
         "Tag": "LANG_BACK_TO_ARCH",
         "English": "Back to Arch",
         "Chinese": "返回前端",
@@ -120,7 +128,7 @@
         "Comments": ""
     },
     {
-        "No.": "16",
+        "No.": "17",
         "Tag": "LANG_CLEAN_CACHE",
         "English": "Clean Cache",
         "Chinese": "清理缓存",
@@ -128,7 +136,7 @@
         "Comments": ""
     },
     {
-        "No.": "17",
+        "No.": "18",
         "Tag": "LANG_EXIT",
         "English": "Exit App",
         "Chinese": "退出程序",
@@ -136,7 +144,7 @@
         "Comments": ""
     },
     {
-        "No.": "18",
+        "No.": "19",
         "Tag": "LANG_LANGUAGE",
         "English": "Language",
         "Chinese": "语言",
@@ -144,7 +152,7 @@
         "Comments": ""
     },
     {
-        "No.": "19",
+        "No.": "20",
         "Tag": "LANG_REWIND",
         "English": "Enable Rewind",
         "Chinese": "启用回溯",
@@ -152,7 +160,7 @@
         "Comments": ""
     },
     {
-        "No.": "20",
+        "No.": "21",
         "Tag": "LANG_REWIND_BUF_SIZE",
         "English": "Rewind Buffer Size (M)",
         "Chinese": "回溯缓冲区大小 (M)",
@@ -160,7 +168,7 @@
         "Comments": ""
     },
     {
-        "No.": "21",
+        "No.": "22",
         "Tag": "LANG_MUTE",
         "English": "Mute",
         "Chinese": "静音",
@@ -168,7 +176,7 @@
         "Comments": ""
     },
     {
-        "No.": "22",
+        "No.": "23",
         "Tag": "LANG_MOUSE",
         "English": "Simulated Mouse",
         "Chinese": "模拟鼠标",
@@ -176,7 +184,7 @@
         "Comments": ""
     },
     {
-        "No.": "23",
+        "No.": "24",
         "Tag": "LANG_LIGHTGUN",
         "English": "Simulated Light Gun",
         "Chinese": "模拟光枪",
@@ -184,7 +192,7 @@
         "Comments": ""
     },
     {
-        "No.": "24",
+        "No.": "25",
         "Tag": "LANG_SWAP_ENTER",
         "English": "Swap ⇢ ⇣ (Restart Required)",
         "Chinese": "⇢ ⇣ 互换 (需要重启)",
@@ -192,7 +200,7 @@
         "Comments": ""
     },
     {
-        "No.": "25",
+        "No.": "26",
         "Tag": "LANG_SIM_BUTTON",
         "English": "Simulate ↲↳⇋⇌ with rear touch panel",
         "Chinese": "后触控板模拟 ↲↳⇋⇌",
@@ -200,7 +208,7 @@
         "Comments": ""
     },
     {
-        "No.": "26",
+        "No.": "27",
         "Tag": "LANG_DISPLAY_SIZE",
         "English": "Display size",
         "Chinese": "画面尺寸",
@@ -208,7 +216,7 @@
         "Comments": ""
     },
     {
-        "No.": "27",
+        "No.": "28",
         "Tag": "LANG_ASPECT_RATIO",
         "English": "Aspect ratio",
         "Chinese": "画面比例",
@@ -216,7 +224,7 @@
         "Comments": ""
     },
     {
-        "No.": "28",
+        "No.": "29",
         "Tag": "LANG_DISPLAY_ROTATE",
         "English": "Display rotate",
         "Chinese": "画面旋转",
@@ -224,7 +232,7 @@
         "Comments": ""
     },
     {
-        "No.": "29",
+        "No.": "30",
         "Tag": "LANG_GRAPHICS_SHADER",
         "English": "Graphics shader",
         "Chinese": "图形着色器",
@@ -232,7 +240,7 @@
         "Comments": ""
     },
     {
-        "No.": "30",
+        "No.": "31",
         "Tag": "LANG_GRAPHICS_SMOOTH",
         "English": "Graphics smooth",
         "Chinese": "平滑图像",
@@ -240,7 +248,7 @@
         "Comments": ""
     },
     {
-        "No.": "31",
+        "No.": "32",
         "Tag": "LANG_OVERLAY_SELECT",
         "English": "Overlay select",
         "Chinese": "遮罩图选择",
@@ -248,7 +256,7 @@
         "Comments": ""
     },
     {
-        "No.": "32",
+        "No.": "33",
         "Tag": "LANG_OVERLAY_MODE",
         "English": "Overlay mode",
         "Chinese": "遮罩图显示模式",
@@ -256,7 +264,7 @@
         "Comments": ""
     },
     {
-        "No.": "33",
+        "No.": "34",
         "Tag": "LANG_SHOW_FPS",
         "English": "Show FPS",
         "Chinese": "显示帧数",
@@ -264,7 +272,7 @@
         "Comments": ""
     },
     {
-        "No.": "34",
+        "No.": "35",
         "Tag": "LANG_1X",
         "English": "1X",
         "Chinese": "1倍大小",
@@ -272,7 +280,7 @@
         "Comments": ""
     },
     {
-        "No.": "35",
+        "No.": "36",
         "Tag": "LANG_2X",
         "English": "2X",
         "Chinese": "2倍大小",
@@ -280,7 +288,7 @@
         "Comments": ""
     },
     {
-        "No.": "36",
+        "No.": "37",
         "Tag": "LANG_3X",
         "English": "3X",
         "Chinese": "3倍大小",
@@ -288,7 +296,7 @@
         "Comments": ""
     },
     {
-        "No.": "37",
+        "No.": "38",
         "Tag": "LANG_FULL",
         "English": "Full",
         "Chinese": "铺满屏幕",
@@ -296,7 +304,7 @@
         "Comments": ""
     },
     {
-        "No.": "38",
+        "No.": "39",
         "Tag": "LANG_BY_GAME_RESOLUTION",
         "English": "By game resolution",
         "Chinese": "由游戏分辨率",
@@ -304,7 +312,7 @@
         "Comments": ""
     },
     {
-        "No.": "39",
+        "No.": "40",
         "Tag": "LANG_BY_DEV_SCREEN",
         "English": "By device screen",
         "Chinese": "由设备屏幕",
@@ -312,7 +320,7 @@
         "Comments": ""
     },
     {
-        "No.": "40",
+        "No.": "41",
         "Tag": "LANG_8_7",
         "English": "8:7",
         "Chinese": "8:7",
@@ -320,7 +328,7 @@
         "Comments": ""
     },
     {
-        "No.": "41",
+        "No.": "42",
         "Tag": "LANG_4_3",
         "English": "4:3",
         "Chinese": "4:3",
@@ -328,7 +336,7 @@
         "Comments": ""
     },
     {
-        "No.": "42",
+        "No.": "43",
         "Tag": "LANG_3_2",
         "English": "3:2",
         "Chinese": "3:2",
@@ -336,7 +344,7 @@
         "Comments": ""
     },
     {
-        "No.": "43",
+        "No.": "44",
         "Tag": "LANG_16_9",
         "English": "16:9",
         "Chinese": "16:9",
@@ -344,7 +352,7 @@
         "Comments": ""
     },
     {
-        "No.": "44",
+        "No.": "45",
         "Tag": "LANG_DISABLE",
         "English": "Disable",
         "Chinese": "禁用",
@@ -352,7 +360,7 @@
         "Comments": ""
     },
     {
-        "No.": "45",
+        "No.": "46",
         "Tag": "LANG_CW_90",
         "English": "Rotate 90°CW",
         "Chinese": "旋转90度(顺时针)",
@@ -360,7 +368,7 @@
         "Comments": ""
     },
     {
-        "No.": "46",
+        "No.": "47",
         "Tag": "LANG_CW_180",
         "English": "Rotate 180°CW",
         "Chinese": "旋转180度(顺时针)",
@@ -368,7 +376,7 @@
         "Comments": ""
     },
     {
-        "No.": "47",
+        "No.": "48",
         "Tag": "LANG_CW_270",
         "English": "Rotate 270°CW",
         "Chinese": "旋转270度(顺时针)",
@@ -376,7 +384,7 @@
         "Comments": ""
     },
     {
-        "No.": "48",
+        "No.": "49",
         "Tag": "LANG_DEFAULT",
         "English": "Default",
         "Chinese": "默认",
@@ -384,7 +392,7 @@
         "Comments": ""
     },
     {
-        "No.": "49",
+        "No.": "50",
         "Tag": "LANG_LCD3X",
         "English": "LCD3x",
         "Chinese": "LCD3x",
@@ -392,7 +400,7 @@
         "Comments": ""
     },
     {
-        "No.": "50",
+        "No.": "51",
         "Tag": "LANG_SHARP_BILINEAR_SIMPLE",
         "English": "Sharp bilinear simple",
         "Chinese": "锐利双线性",
@@ -400,7 +408,7 @@
         "Comments": ""
     },
     {
-        "No.": "51",
+        "No.": "52",
         "Tag": "LANG_SHARP_BILINEAR",
         "English": "Sharp bilinear",
         "Chinese": "锐利双线性+扫描线",
@@ -408,7 +416,7 @@
         "Comments": ""
     },
     {
-        "No.": "52",
+        "No.": "53",
         "Tag": "LANG_ADVANCED_AA",
         "English": "Advanced AA",
         "Chinese": "高级AA",
@@ -416,7 +424,7 @@
         "Comments": ""
     },
     {
-        "No.": "53",
+        "No.": "54",
         "Tag": "LANG_MODE_OVERLAY",
         "English": "Overlay",
         "Chinese": "覆层模式",
@@ -424,7 +432,7 @@
         "Comments": ""
     },
     {
-        "No.": "54",
+        "No.": "55",
         "Tag": "LANG_MODE_BACKGROUND",
         "English": "Background",
         "Chinese": "背景模式",
@@ -432,7 +440,7 @@
         "Comments": ""
     },
     {
-        "No.": "55",
+        "No.": "56",
         "Tag": "LANG_NO",
         "English": "No",
         "Chinese": "否",
@@ -440,7 +448,7 @@
         "Comments": ""
     },
     {
-        "No.": "56",
+        "No.": "57",
         "Tag": "LANG_YES",
         "English": "Yes",
         "Chinese": "是",
@@ -448,7 +456,7 @@
         "Comments": ""
     },
     {
-        "No.": "57",
+        "No.": "58",
         "Tag": "LANG_TURBO",
         "English": "Turbo",
         "Chinese": "连发",
@@ -456,7 +464,7 @@
         "Comments": ""
     },
     {
-        "No.": "58",
+        "No.": "59",
         "Tag": "LANG_NONE",
         "English": "None",
         "Chinese": "无",
@@ -464,7 +472,7 @@
         "Comments": ""
     },
     {
-        "No.": "59",
+        "No.": "60",
         "Tag": "LANG_SAVE_STATE",
         "English": "Save state",
         "Chinese": "保存存档",
@@ -472,7 +480,7 @@
         "Comments": ""
     },
     {
-        "No.": "60",
+        "No.": "61",
         "Tag": "LANG_LOAD_STATE",
         "English": "Load state",
         "Chinese": "读取存档",
@@ -480,7 +488,7 @@
         "Comments": ""
     },
     {
-        "No.": "61",
+        "No.": "62",
         "Tag": "LANG_GAME_SPEED_UP",
         "English": "Game speed up",
         "Chinese": "加速游戏",
@@ -488,7 +496,7 @@
         "Comments": ""
     },
     {
-        "No.": "62",
+        "No.": "63",
         "Tag": "LANG_GAME_SPEED_DOWN",
         "English": "Game speed down",
         "Chinese": "减速游戏",
@@ -496,7 +504,7 @@
         "Comments": ""
     },
     {
-        "No.": "63",
+        "No.": "64",
         "Tag": "LANG_GAME_REWIND",
         "English": "Game rewind",
         "Chinese": "回溯游戏",
@@ -504,7 +512,7 @@
         "Comments": ""
     },
     {
-        "No.": "64",
+        "No.": "65",
         "Tag": "LANG_CONTROLLER_PORT_UP",
         "English": "Controller port +",
         "Chinese": "控制器端口+",
@@ -512,7 +520,7 @@
         "Comments": ""
     },
     {
-        "No.": "65",
+        "No.": "66",
         "Tag": "LANG_CONTROLLER_PORT_DOWN",
         "English": "Controller port -",
         "Chinese": "控制器端口-",
@@ -520,7 +528,7 @@
         "Comments": ""
     },
     {
-        "No.": "66",
+        "No.": "67",
         "Tag": "LANG_MENU_TOGGLE",
         "English": "Menu Toggle",
         "Chinese": "切换菜单",
@@ -528,7 +536,7 @@
         "Comments": ""
     },
     {
-        "No.": "67",
+        "No.": "68",
         "Tag": "LANG_RESET_CONFIGS",
         "English": "Reset configs",
         "Chinese": "恢复默认设置",
@@ -536,7 +544,7 @@
         "Comments": ""
     },
     {
-        "No.": "68",
+        "No.": "69",
         "Tag": "LANG_COMPILED_ON",
         "English": "Compiled on",
         "Chinese": "编译于",
@@ -544,7 +552,7 @@
         "Comments": ""
     },
     {
-        "No.": "69",
+        "No.": "70",
         "Tag": "LANG_AUTHOR",
         "English": "Author",
         "Chinese": "作者",
@@ -552,7 +560,7 @@
         "Comments": ""
     },
     {
-        "No.": "70",
+        "No.": "71",
         "Tag": "LANG_SPECIAL_THANKS",
         "English": "Special Thanks",
         "Chinese": "特别感谢",
@@ -560,7 +568,7 @@
         "Comments": ""
     },
     {
-        "No.": "71",
+        "No.": "72",
         "Tag": "LANG_SITE",
         "English": "Site",
         "Chinese": "网址",
@@ -568,7 +576,7 @@
         "Comments": ""
     },
     {
-        "No.": "72",
+        "No.": "73",
         "Tag": "LANG_AUTO_SAVE",
         "English": "Auto Save",
         "Chinese": "自动存档",
@@ -576,7 +584,7 @@
         "Comments": ""
     },
     {
-        "No.": "73",
+        "No.": "74",
         "Tag": "LANG_EMPTY",
         "English": "Empty",
         "Chinese": "空",
@@ -584,7 +592,7 @@
         "Comments": ""
     },
     {
-        "No.": "74",
+        "No.": "75",
         "Tag": "LANG_SAVE",
         "English": "Save",
         "Chinese": "保存",
@@ -592,7 +600,7 @@
         "Comments": ""
     },
     {
-        "No.": "75",
+        "No.": "76",
         "Tag": "LANG_LOAD",
         "English": "Load",
         "Chinese": "读取",
@@ -600,7 +608,7 @@
         "Comments": ""
     },
     {
-        "No.": "76",
+        "No.": "77",
         "Tag": "LANG_DELETE",
         "English": "Delete",
         "Chinese": "删除",
@@ -608,7 +616,7 @@
         "Comments": ""
     },
     {
-        "No.": "77",
+        "No.": "78",
         "Tag": "LANG_CANCEL",
         "English": "Cancel",
         "Chinese": "取消",
@@ -616,7 +624,7 @@
         "Comments": ""
     },
     {
-        "No.": "78",
+        "No.": "79",
         "Tag": "LANG_OK",
         "English": "OK",
         "Chinese": "确认",
@@ -624,7 +632,7 @@
         "Comments": ""
     },
     {
-        "No.": "79",
+        "No.": "80",
         "Tag": "LANG_SAVE_CONFIRM",
         "English": "Are you sure you want to overwrite this save state?",
         "Chinese": "你确定要覆盖这个存档吗？",
@@ -632,7 +640,7 @@
         "Comments": ""
     },
     {
-        "No.": "80",
+        "No.": "81",
         "Tag": "LANG_LOAD_CONFIRM",
         "English": "Are you sure you want to load this save state?",
         "Chinese": "你确定要载入这个存档吗？",
@@ -640,7 +648,7 @@
         "Comments": ""
     },
     {
-        "No.": "81",
+        "No.": "82",
         "Tag": "LANG_DELETE_CONFIRM",
         "English": "Are you sure you want to delete this save state?",
         "Chinese": "你确定要删除这个存档吗？",
@@ -648,7 +656,7 @@
         "Comments": ""
     },
     {
-        "No.": "82",
+        "No.": "83",
         "Tag": "LANG_REMOVE_FAVORITE_CONFIRM",
         "English": "Are you sure you want to remove this game from your favorites?",
         "Chinese": "你确定要从收藏夹中移除此游戏吗？",
@@ -656,7 +664,7 @@
         "Comments": ""
     },
     {
-        "No.": "83",
+        "No.": "84",
         "Tag": "LANG_CLEAN_CACHE_CONFIRM",
         "English": "Are you sure you want to clean the cached files?",
         "Chinese": "你确定要清理缓存文件吗？",
@@ -664,7 +672,7 @@
         "Comments": ""
     },
     {
-        "No.": "84",
+        "No.": "85",
         "Tag": "LANG_EXTERNAL_COMPONENTS",
         "English": "External components used by Emu4Vita++",
         "Chinese": "使用的外部组件",
@@ -672,7 +680,7 @@
         "Comments": ""
     },
     {
-        "No.": "85",
+        "No.": "86",
         "Tag": "LANG_ENTER_DIR",
         "English": "Enter dir ",
         "Chinese": "进入目录",
@@ -680,7 +688,7 @@
         "Comments": ""
     },
     {
-        "No.": "86",
+        "No.": "87",
         "Tag": "LANG_BACK_DIR",
         "English": "Back dir",
         "Chinese": "返回上级目录",
@@ -688,7 +696,7 @@
         "Comments": ""
     },
     {
-        "No.": "87",
+        "No.": "88",
         "Tag": "LANG_START_GAME",
         "English": "Start game",
         "Chinese": "开始游戏",
@@ -696,7 +704,7 @@
         "Comments": ""
     },
     {
-        "No.": "88",
+        "No.": "89",
         "Tag": "LANG_ADD_FAVORITE",
         "English": "Add to favorites",
         "Chinese": "添加到收藏夹",
@@ -704,7 +712,7 @@
         "Comments": ""
     },
     {
-        "No.": "89",
+        "No.": "90",
         "Tag": "LANG_REMOVE_FAVORITE",
         "English": "Remove from favorites",
         "Chinese": "移出收藏夹",
@@ -712,7 +720,7 @@
         "Comments": ""
     },
     {
-        "No.": "90",
+        "No.": "91",
         "Tag": "LANG_SEARCH",
         "English": "Search",
         "Chinese": "搜索",
@@ -720,7 +728,7 @@
         "Comments": ""
     },
     {
-        "No.": "91",
+        "No.": "92",
         "Tag": "LANG_NEXT",
         "English": "Next",
         "Chinese": "下一个",
@@ -728,7 +736,7 @@
         "Comments": ""
     },
     {
-        "No.": "92",
+        "No.": "93",
         "Tag": "LANG_FILE_MANAGE",
         "English": "File Manage",
         "Chinese": "文件管理",
@@ -736,7 +744,7 @@
         "Comments": ""
     },
     {
-        "No.": "93",
+        "No.": "94",
         "Tag": "LANG_COPY",
         "English": "Copy",
         "Chinese": "复制",
@@ -744,7 +752,7 @@
         "Comments": ""
     },
     {
-        "No.": "94",
+        "No.": "95",
         "Tag": "LANG_CUT",
         "English": "Cut",
         "Chinese": "剪切",
@@ -752,7 +760,7 @@
         "Comments": ""
     },
     {
-        "No.": "95",
+        "No.": "96",
         "Tag": "LANG_PASTE",
         "English": "Paste",
         "Chinese": "粘贴",
@@ -760,7 +768,7 @@
         "Comments": ""
     },
     {
-        "No.": "96",
+        "No.": "97",
         "Tag": "LANG_RENAME",
         "English": "Rename",
         "Chinese": "重命名",
@@ -768,7 +776,7 @@
         "Comments": ""
     },
     {
-        "No.": "97",
+        "No.": "98",
         "Tag": "LANG_CORE_NOTICE",
         "English": "After changing the settings, reset the game to take effect",
         "Chinese": "更改设置后，重置游戏以生效",
@@ -776,7 +784,7 @@
         "Comments": ""
     },
     {
-        "No.": "98",
+        "No.": "99",
         "Tag": "LANG_ENABLED",
         "English": "enabled",
         "Chinese": "启用",
@@ -784,7 +792,7 @@
         "Comments": ""
     },
     {
-        "No.": "99",
+        "No.": "100",
         "Tag": "LANG_DISABLED",
         "English": "disabled",
         "Chinese": "禁用",
@@ -792,7 +800,7 @@
         "Comments": ""
     },
     {
-        "No.": "100",
+        "No.": "101",
         "Tag": "LANG_LOAD_ROM_FAILED",
         "English": "Failed to load rom，press any key to continue",
         "Chinese": "载入 rom 失败，按任意键继续",
@@ -800,7 +808,7 @@
         "Comments": ""
     },
     {
-        "No.": "101",
+        "No.": "102",
         "Tag": "LANG_MOUSE_FRONT_TOUCH_PANEL",
         "English": "Front touch panel + ↜ ↝",
         "Chinese": "触控屏 + ↜ ↝",
@@ -808,7 +816,7 @@
         "Comments": ""
     },
     {
-        "No.": "102",
+        "No.": "103",
         "Tag": "LANG_MOUSE_REAR_TOUCH_PANEL",
         "English": "Rear touch panel + ↜ ↝",
         "Chinese": "后触控板 + ↜ ↝",
@@ -816,7 +824,7 @@
         "Comments": ""
     },
     {
-        "No.": "103",
+        "No.": "104",
         "Tag": "LANG_UNSET",
         "English": "Unset",
         "Chinese": "未设置",
@@ -824,7 +832,7 @@
         "Comments": ""
     },
     {
-        "No.": "104",
+        "No.": "105",
         "Tag": "LANG_DEVICE_PORT",
         "English": "Device port ",
         "Chinese": "设备端口 ",
@@ -832,7 +840,7 @@
         "Comments": ""
     },
     {
-        "No.": "105",
+        "No.": "106",
         "Tag": "LANG_FOUND",
         "English": "Found",
         "Chinese": "找到",
@@ -840,7 +848,7 @@
         "Comments": ""
     },
     {
-        "No.": "106",
+        "No.": "107",
         "Tag": "LANG_NOT_FOUND",
         "English": "Not found",
         "Chinese": "未找到",
@@ -848,7 +856,7 @@
         "Comments": ""
     },
     {
-        "No.": "107",
+        "No.": "108",
         "Tag": "LANG_FILE",
         "English": "file",
         "Chinese": "文件",
@@ -856,7 +864,7 @@
         "Comments": ""
     },
     {
-        "No.": "108",
+        "No.": "109",
         "Tag": "LANG_FILES",
         "English": "files",
         "Chinese": "文件",
@@ -864,7 +872,7 @@
         "Comments": ""
     },
     {
-        "No.": "109",
+        "No.": "110",
         "Tag": "CODE",
         "English": "en",
         "Chinese": "cn",
@@ -872,7 +880,7 @@
         "Comments": ""
     },
     {
-        "No.": "110",
+        "No.": "111",
         "Tag": "LANG_INDEPENDENT_CORE_CONFIG",
         "English": "Independent core config",
         "Chinese": "独立的核心设置",
@@ -880,7 +888,7 @@
         "Comments": ""
     },
     {
-        "No.": "111",
+        "No.": "112",
         "Tag": "LANG_DELETE_FILE_CONFIRM",
         "English": "Are you sure you want to delete this file?",
         "Chinese": "你确定要删除这个文件吗？",
@@ -888,7 +896,7 @@
         "Comments": ""
     },
     {
-        "No.": "112",
+        "No.": "113",
         "Tag": "LANG_OVERWRITE_FILE_CONFIRM",
         "English": "A file with the same name exists. Overwrite it?",
         "Chinese": "存在同名文件，覆盖吗？",
@@ -896,7 +904,7 @@
         "Comments": ""
     },
     {
-        "No.": "113",
+        "No.": "114",
         "Tag": "LANG_SAME_DIR_WARN",
         "English": "Cannot paste in the same directory",
         "Chinese": "不能粘贴在同一目录下",
@@ -904,7 +912,7 @@
         "Comments": ""
     },
     {
-        "No.": "114",
+        "No.": "115",
         "Tag": "LANG_DELETED",
         "English": "File deleted",
         "Chinese": "文件已删除",
@@ -912,7 +920,7 @@
         "Comments": ""
     },
     {
-        "No.": "115",
+        "No.": "116",
         "Tag": "LANG_DELETION_FAILED",
         "English": "File deletion failed",
         "Chinese": "文件删除失败",
@@ -920,7 +928,7 @@
         "Comments": ""
     },
     {
-        "No.": "116",
+        "No.": "117",
         "Tag": "LANG_SPEED",
         "English": "Game speed",
         "Chinese": "游戏速度",

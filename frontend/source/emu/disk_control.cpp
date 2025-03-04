@@ -30,5 +30,5 @@ bool DiskControl::ReplaceImageIndex(unsigned index)
 
     _callbacks.set_eject_state(true);
     _callbacks.set_image_index(index);
-    return _callbacks->set_eject_state(false);
+    return _callbacks.set_eject_state(false);
 }

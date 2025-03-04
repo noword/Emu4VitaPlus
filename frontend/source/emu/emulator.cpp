@@ -216,6 +216,11 @@ void Emulator::UnloadGame()
         Unlock();
 
         _last_texture = nullptr;
+        if (_disk_contorl)
+        {
+            delete _disk_contorl;
+            _disk_contorl = nullptr;
+        }
 
         LogDebug("game unloaded");
     }

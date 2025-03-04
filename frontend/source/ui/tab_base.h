@@ -11,6 +11,7 @@ using namespace Emu4VitaPlus;
 enum
 {
     TAB_INDEX_SYSTEM = 0,
+    TAB_INDEX_DISK,
     TAB_INDEX_STATE,
     TAB_INDEX_CHEAT,
     TAB_INDEX_BROWSER,

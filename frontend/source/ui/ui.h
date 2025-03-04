@@ -29,6 +29,7 @@ public:
     void UpdateCoreOptions();
     void UpdateCheatOptions();
     void UpdateControllerOptions();
+    void UpdateDiskOptions();
     void OnStatusChanged(APP_STATUS status);
     void SetHint(const char *s, int frame_count = 120);
 
@@ -37,8 +38,8 @@ private:
     _InitImgui();
     void _DeinitImgui();
 
-    void _OnKeyL2(Input *input);
-    void _OnKeyR2(Input *input);
+    void _OnKeyL1(Input *input);
+    void _OnKeyR1(Input *input);
     void _OnPsButton(Input *input);
     void _OnDialog(Input *input, int index);
     void _OnCleanCache(Input *input);
