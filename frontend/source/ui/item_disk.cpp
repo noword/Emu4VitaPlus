@@ -13,6 +13,7 @@ ItemDisk::ItemDisk(DiskControl *disk_control, size_t index, InsertCallbackFunc c
       _insert_callback(callback)
 {
     _inserted = disk_control->GetImageIndex() == index;
+    _info = disk_control->GetImagePath(index);
 }
 
 ItemDisk::~ItemDisk()

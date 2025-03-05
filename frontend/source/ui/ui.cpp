@@ -341,12 +341,23 @@ void Ui::OnStatusChanged(APP_STATUS status)
     {
         LogDebug("  status changed: to %d", status);
         LogDebug("  _tab_index: %d", _tab_index);
+        LogDebug("  IsMultiDisc: %d", gEmulator->IsMultiDisc());
         gVideo->Lock();
 
-        if (_tabs[TAB_INDEX_DISK] && !gEmulator->IsMultiDisc())
+        if (gEmulator->IsMultiDisc())
         {
-            delete _tabs[TAB_INDEX_DISK];
-            _tabs[TAB_INDEX_DISK] = nullptr;
+            if (_tabs[TAB_INDEX_DISK] == nullptr)
+            {
+                UpdateDiskOptions();
+            }
+        }
+        else
+        {
+            if (_tabs[TAB_INDEX_DISK] != nullptr)
+            {
+                delete _tabs[TAB_INDEX_DISK];
+                _tabs[TAB_INDEX_DISK] = nullptr;
+            }
         }
 
         _tabs[TAB_INDEX_STATE]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME);
@@ -618,7 +629,7 @@ void Ui::UpdateDiskOptions()
         _tabs[TAB_INDEX_DISK] = nullptr;
     }
 
-    if (disk_control)
+    if (disk_control && disk_control->GetNumImages() > 1)
     {
         _tabs[TAB_INDEX_DISK] = new TabDisk(disk_control);
     }

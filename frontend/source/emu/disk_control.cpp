@@ -32,3 +32,16 @@ bool DiskControl::ReplaceImageIndex(unsigned index)
     _callbacks.set_image_index(index);
     return _callbacks.set_eject_state(false);
 }
+
+std::string DiskControl::GetImagePath(size_t index)
+{
+    char path[256];
+    if (_callbacks.get_image_path && _callbacks.get_image_path(index, path, 256))
+    {
+        return path;
+    }
+    else
+    {
+        return "";
+    }
+}
