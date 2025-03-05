@@ -1,5 +1,5 @@
 #include <string.h>
-#include "disk_contorl.h"
+#include "disk_control.h"
 
 DiskControl::DiskControl(const retro_disk_control_ext_callback *callback)
 {

@@ -11,7 +11,7 @@
 #include "rewind.h"
 #include "cheat.h"
 #include "arcade_manager.h"
-#include "disk_contorl.h"
+#include "disk_control.h"
 #include "rect.h"
 
 using namespace Emu4VitaPlus;

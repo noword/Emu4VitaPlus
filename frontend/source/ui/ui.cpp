@@ -342,6 +342,13 @@ void Ui::OnStatusChanged(APP_STATUS status)
         LogDebug("  status changed: to %d", status);
         LogDebug("  _tab_index: %d", _tab_index);
         gVideo->Lock();
+
+        if (_tabs[TAB_INDEX_DISK] && !gEmulator->IsMultiDisc())
+        {
+            delete _tabs[TAB_INDEX_DISK];
+            _tabs[TAB_INDEX_DISK] = nullptr;
+        }
+
         _tabs[TAB_INDEX_STATE]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME);
         _tabs[TAB_INDEX_CHEAT]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME && (gEmulator->GetCheats()->size() > 0));
         _tabs[TAB_INDEX_BROWSER]->SetVisable(status == APP_STATUS_SHOW_UI);
