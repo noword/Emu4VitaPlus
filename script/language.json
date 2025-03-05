@@ -934,5 +934,13 @@
         "Chinese": "游戏速度",
         "Japanese": "ゲームスピード",
         "Comments": ""
+    },
+    {
+        "No.": "118",
+        "Tag": "LANG_INSERT_DISK",
+        "English": "Insert this disk?",
+        "Chinese": "插入这张盘吗？",
+        "Japanese": "このディスクを挿入しますか?",
+        "Comments": ""
     }
 ]
