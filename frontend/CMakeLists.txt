@@ -21,7 +21,7 @@ file(GLOB SRC
     source/emu/*.cpp
     source/audio/*.cpp)
 
-add_compile_definitions(-DSCE_LIBC_SIZE=0xA00000)
+add_compile_definitions(SCE_LIBC_SIZE=0xA00000)
 add_library(frontend OBJECT ${SRC})
 
 add_custom_target(FILE_TOUCHER
