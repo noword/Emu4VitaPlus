@@ -1,8 +1,9 @@
 cmake_minimum_required(VERSION 3.10)
 
 macro(gen_arc_dat OUTPUT_PATH)
-	set(ARC_DAT_NAME arcade_dat.zbin)
+    set(ARC_DAT_NAME arcade_dat.zbin)
     set(ARC_DAT_PATH ${OUTPUT_PATH}/assets/${ARC_DAT_NAME})
+    file(MAKE_DIRECTORY ${OUTPUT_PATH}/assets)
     file(RELATIVE_PATH rel ${OUTPUT_PATH} ${ARC_DAT_PATH})
     list(APPEND PRIVATE_PKG_FILES FILE ${ARC_DAT_PATH} ${rel})
 

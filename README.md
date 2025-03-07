@@ -115,10 +115,11 @@ MSX
   pacman -S cmake python python-pip ccache
   ```
 
-* 安装 [openpyxl](https://pypi.org/project/openpyxl/), [pillow](https://pypi.org/project/pillow/)
+* 安装 [openpyxl](https://pypi.org/project/openpyxl/), [pillow](https://pypi.org/project/pillow/), [lz4](https://pypi.org/project/lz4/)
+  
 
   ```bash
-  pip3 install openpyxl pillow
+  pip3 install openpyxl pillow pz4
   ```
 
 ## Linux
