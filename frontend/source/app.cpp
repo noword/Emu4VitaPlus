@@ -20,6 +20,12 @@
 #include "input_descriptor.h"
 #include "core_spec.h"
 #include "ra_lpl.h"
+#include "bios_checker.h"
+#include "language_string.h"
+
+#ifdef TEXT
+#undef TEXT
+#endif
 
 extern "C" int getVMBlock();
 
@@ -108,6 +114,22 @@ App::App(int argc, char *const argv[])
         My_Imgui_Destroy_Font();
         My_Imgui_Create_Font(gConfig->language, CACHE_DIR);
         gVideo->Unlock();
+    }
+
+    std::vector<const char *> bios;
+    if (!CheckBios(bios))
+    {
+        std::string bios_hint = TEXT(LANG_MISSING_BIOS);
+        char tmp[SCE_FIOS_PATH_MAX];
+        for (const auto &name : bios)
+        {
+            snprintf(tmp, SCE_FIOS_PATH_MAX, "missing BIOS file: %s", name);
+            gUi->AppendLog(tmp);
+            bios_hint += "\n";
+            bios_hint += tmp;
+        }
+
+        gUi->SetHint(bios_hint.c_str(), 5 * 60);
     }
 
     gUi->ClearLogs();

@@ -942,5 +942,13 @@
         "Chinese": "插入这张盘吗？",
         "Japanese": "このディスクを挿入しますか?",
         "Comments": ""
+    },
+    {
+        "No.": "119",
+        "Tag": "LANG_MISSING_BIOS",
+        "English": "Missing BIOS files:",
+        "Chinese": "缺少 BIOS 文件：",
+        "Japanese": "BIOSファイルが見つかりません:",
+        "Comments": ""
     }
 ]

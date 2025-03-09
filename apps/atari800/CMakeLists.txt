@@ -30,6 +30,6 @@ foreach(file ${PKG_FILES})
   list(APPEND PRIVATE_PKG_FILES FILE ${file} ${rel})
 endforeach()
 
-add_compile_definitions(STELLA2014_BUILD ATARI5200_BUILD)
+add_compile_definitions(ATARI800_BUILD ATARI5200_BUILD)
 
 add_subdirectory(.. ${CMAKE_CURRENT_BINARY_DIR}/app)
