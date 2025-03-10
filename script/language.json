@@ -950,5 +950,21 @@
         "Chinese": "缺少 BIOS 文件：",
         "Japanese": "BIOSファイルが見つかりません:",
         "Comments": ""
+    },
+    {
+        "No.": "120",
+        "Tag": "LANG_MAX",
+        "English": "Max",
+        "Chinese": "最大",
+        "Japanese": "最大",
+        "Comments": ""
+    },
+    {
+        "No.": "121",
+        "Tag": "LANG_SPEED_STEP",
+        "English": "Speed Step",
+        "Chinese": "速度步长",
+        "Japanese": "速度ステップ",
+        "Comments": ""
     }
 ]

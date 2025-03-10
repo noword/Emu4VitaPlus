@@ -15,6 +15,8 @@
 #include "rect.h"
 
 using namespace Emu4VitaPlus;
+#define MAX_SPEED 3.0
+#define MIN_SPEED 0.3
 
 enum VIDEO_ROTATION
 {

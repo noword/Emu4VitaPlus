@@ -18,6 +18,8 @@
 
 namespace Emu4Vita
 {
+    extern std::vector<LanguageString> SPEED_STEP_OPTIONS;
+
     class Config
     {
     public:
@@ -34,6 +36,7 @@ namespace Emu4Vita
         retro_language GetRetroLanguage();
         bool FrontEnabled();
         bool RearEnabled();
+        float GetSpeedStep();
 
         std::string version;
         bool boot_from_arch;
@@ -55,6 +58,7 @@ namespace Emu4Vita
         uint32_t swap_enter;
         uint32_t sim_button;
         uint32_t independent_core_config;
+        uint32_t speed_step;
 
         static const std::unordered_map<uint32_t, const char *> PsvKeyStr;
         static const std::unordered_map<uint32_t, const char *> HotkeyStr;

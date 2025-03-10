@@ -347,9 +347,18 @@ void Emulator::_OnHotkeyLoad(Input *input)
 void Emulator::_OnHotkeySpeedUp(Input *input)
 {
     LogFunctionName;
-    if (_speed < 3.0f)
+    if (_speed < MAX_SPEED)
     {
-        SetSpeed(_speed + 0.1);
+        float step = gConfig->GetSpeedStep();
+        if (step > 0.)
+        {
+            SetSpeed(_speed + step);
+        }
+        else
+        {
+            SetSpeed(_speed >= 1.0 ? MAX_SPEED : 1.0);
+        }
+
         _ShowSpeedHint();
     }
 }
@@ -357,9 +366,18 @@ void Emulator::_OnHotkeySpeedUp(Input *input)
 void Emulator::_OnHotkeySpeedDown(Input *input)
 {
     LogFunctionName;
-    if (_speed > 0.3)
+    if (_speed > MIN_SPEED)
     {
-        SetSpeed(_speed - 0.1);
+        float step = gConfig->GetSpeedStep();
+        if (step > 0.)
+        {
+            SetSpeed(_speed - step);
+        }
+        else
+        {
+            SetSpeed(_speed <= 1.0 ? MIN_SPEED : 1.0);
+        }
+
         _ShowSpeedHint();
     }
 }

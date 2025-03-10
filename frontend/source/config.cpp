@@ -21,10 +21,9 @@ Emu4Vita::Config *gConfig = nullptr;
 
 namespace Emu4Vita
 {
+    std::vector<LanguageString> SPEED_STEP_OPTIONS{"0.1", "0.2", "0.5", "1.0", LANG_MAX};
 
-#define KEY_PAIR(K) \
-    {               \
-        K, #K}
+#define KEY_PAIR(K) {K, #K}
 
     const std::unordered_map<uint32_t, const char *> Config::PsvKeyStr = {
         KEY_PAIR(SCE_CTRL_CROSS),
@@ -152,6 +151,7 @@ namespace Emu4Vita
         sim_button = false;
         independent_core_config = DEFAULT_INDEPENDENT_CORE_CONFIG;
         reboot_when_loading_again = DEFAULT_REBOOT_WHEN_LOADING_AGAIN;
+        speed_step = 0;
 
         int sys_lang;
         sceAppUtilSystemParamGetInt(SCE_SYSTEM_PARAM_ID_LANG, &sys_lang);
@@ -358,5 +358,18 @@ namespace Emu4Vita
     bool Config::RearEnabled()
     {
         return mouse == CONFIG_MOUSE_REAR || sim_button;
+    }
+
+    float Config::GetSpeedStep()
+    {
+        const float SPEED_STEP[] = {0.1, 0.2, 0.5, 1.0, -1};
+        if (speed_step >= 0 && speed_step <= 4)
+        {
+            return SPEED_STEP[speed_step];
+        }
+        else
+        {
+            return 0.1;
+        }
     }
 }
