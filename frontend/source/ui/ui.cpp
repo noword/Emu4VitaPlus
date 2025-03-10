@@ -438,7 +438,7 @@ void Ui::_ShowHint()
 
     ImGui::SetNextWindowPos({x - MAIN_WINDOW_PADDING, y - MAIN_WINDOW_PADDING});
     ImGui::SetNextWindowSize({size.x + MAIN_WINDOW_PADDING * 2, size.y + MAIN_WINDOW_PADDING * 2});
-    ImGui::SetNextWindowBgAlpha(0.2);
+    ImGui::SetNextWindowBgAlpha(0.8);
 
     if (ImGui::Begin("hint", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
     {
