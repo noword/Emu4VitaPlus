@@ -44,7 +44,6 @@ set(CORE_SHORTS
     # DOSBoxSVN
     DOSBoxPure
     MAME2003Plus
-    MAME2000
     MAME2003
     vecx
     uae4arm
@@ -89,7 +88,6 @@ set(CORES
     # dosbox_svn
     dosbox_pure
     mame2003_plus
-    mame2000
     mame2003
     vecx
     uae4arm

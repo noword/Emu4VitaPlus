@@ -20,7 +20,6 @@ Arcade
   - [FinalBurn Alpha 2012](https://github.com/libretro/fbalpha2012)
   - [FinalBurn Neo](https://github.com/libretro/FBNeo)
   - [FinalBurn Neo Xtreme](https://github.com/KMFDManic/FBNeo-Xtreme-Amped)
-  - [mame2000](https://github.com/libretro/mame2000-libretro)
   - [mame2003](https://github.com/libretro/mame2003-libretro)
   - [mame2003_plus](https://github.com/libretro/mame2003-plus-libretro)
   - [mame2003 Xtreme](https://github.com/KMFDManic/mame2003-xtreme)
