@@ -46,6 +46,7 @@ BIOS RequiredBIOS[] = {
 #elif defined(MD_BUILD)
 #elif defined(NGP_BUILD)
 #elif defined(PCE_BUILD)
+#elif defined(TGBDUAL_BUILD)
 #elif defined(GAMEBATTE_BUILD)
     {"gb_bios.bin", 0},
     {"gbc_bios.bin", 0},
