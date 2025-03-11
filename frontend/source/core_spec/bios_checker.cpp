@@ -59,16 +59,16 @@ BIOS RequiredBIOS[] = {
     {"sgb_bios.bin", 0},
 #endif
 #elif defined(NEOCD_BUILD)
-    {"neocd_f.rom", 0},
-    {"neocd_sf.rom", 0},
-    {"neocd_t.rom", 0},
-    {"neocd_st.rom", 0},
-    {"neocd_z.rom", 0},
-    {"neocd_sz.rom", 0},
-    {"front-sp1.bin", 0},
-    {"top-sp1.bin", 0},
-    {"neocd.bin", 0},
-    {"uni-bioscd.rom", 0},
+    {"neocd/neocd_f.rom", 0},
+    {"neocd/neocd_sf.rom", 0},
+    {"neocd/neocd_t.rom", 0},
+    {"neocd/neocd_st.rom", 0},
+    {"neocd/neocd_z.rom", 0},
+    {"neocd/neocd_sz.rom", 0},
+    {"neocd/front-sp1.bin", 0},
+    {"neocd/top-sp1.bin", 0},
+    {"neocd/neocd.bin", 0},
+    {"neocd/uni-bioscd.rom", 0},
 #elif defined(MAME2000_BUILD) || defined(MAME2003_BUILD) || defined(MAME2003PLUS_BUILD) || defined(MAME2000XTREME_BUILD)
 #elif defined(ARC_BUILD)
 #elif defined(DOS_BUILD)
