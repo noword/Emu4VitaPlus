@@ -3,7 +3,7 @@ cmake_minimum_required(VERSION 3.10)
 set(CORE_NAME "mednafen_wswan")
 set(CORE_SHORT_NAME "MednafenWswan")
 set(CORE_FULL_NAME "Mednafen Wswan")
-set(CONSOLE "NGP")
+set(CONSOLE "WSC")
 
 if(TARGET ${CORE_NAME}_build)
   return()
@@ -30,6 +30,6 @@ foreach(file ${PKG_FILES})
   list(APPEND PRIVATE_PKG_FILES FILE ${file} ${rel})
 endforeach()
 
-add_compile_definitions(MEDNAFEN_NGP_BUILD NGP_BUILD)
+add_compile_definitions(MEDNAFEN_WSW_BUILD WSC_BUILD)
 
 add_subdirectory(.. ${CMAKE_CURRENT_BINARY_DIR}/app)
