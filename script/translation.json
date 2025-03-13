@@ -2,7 +2,7 @@
     {
         "No.": "1",
         "English": "Choose the BIOS image to use. The official BIOS must be provided by the user. Using a non-official (or builtin) BIOS might result in incompatibility problems with some games. Best results are to be achieved with the official Nintendo BIOS.",
-        "Chinese": "选择要使用的BIOS映像。官方BIOS必须由用户提供。使用非官方(或内置)BIOS可能会导致某些游戏出现不兼容问题。最好的结果是通过官方的任天堂BIOS来实现。",
+        "Chinese": "选择要使用的 BIOS 映像。官方 BIOS 需要用户自行提供。使用非官方（或内置） BIOS 可能会导致某些游戏的不兼容问题。最佳体验建议使用官方 Nintendo BIOS。",
         "Japanese": "使用する BIOS イメージを選択してください。公式 BIOS はユーザーが用意する必要があります。非公式 (または組み込み) BIOS を使用すると、一部のゲームで互換性の問題が発生する可能性があります。公式の Nintendo BIOS を使用すると、最良の結果が得られます。",
         "Comments": ""
     },
@@ -37,7 +37,7 @@
     {
         "No.": "6",
         "English": "Choose whether to boot the BIOS before the game or not. There's not much difference in either modes.",
-        "Chinese": "选择是否在游戏前启动BIOS。两种模式都没有太大区别。",
+        "Chinese": "选择是否在游戏启动前先运行 BIOS。两种模式之间没有太大区别。",
         "Japanese": "ゲームの前に BIOS を起動するかどうかを選択します。どちらのモードでも大きな違いはありません。",
         "Comments": ""
     },
@@ -65,7 +65,7 @@
     {
         "No.": "10",
         "English": "Skip frames to avoid audio buffer under-run (crackling). Improves performance at the expense of visual smoothness. 'Auto' skips frames when advised by the frontend. 'Auto (Threshold)' utilises the 'Frameskip Threshold (%)' setting. 'Fixed Interval' utilises the 'Frameskip Interval' setting.",
-        "Chinese": "跳帧以避免音频缓冲区欠载（爆音）。此选项可以提升性能，但会影响画面流畅度。自动：根据前端的建议自动跳帧。自动（阈值）：基于“跳帧阈值（%）”设置触发跳帧。固定间隔：根据“跳帧间隔”设置定期跳帧。",
+        "Chinese": "跳帧以避免音频缓冲区溢出（爆音）。此功能可提高性能，但会影响视觉流畅度。 自动：当前端建议跳帧时自动跳帧。  自动（阈值）：使用“跳帧阈值（%）”设置来决定跳帧频率。  固定间隔：使用“跳帧间隔”设置来固定跳帧频率。",
         "Japanese": "オーディオ バッファの不足 (パチパチ音) を回避するためにフレームをスキップします。視覚的な滑らかさを犠牲にしてパフォーマンスが向上します。「自動」は、フロントエンドから指示があった場合にフレームをスキップします。「自動 (しきい値)」は、「フレームスキップしきい値 (%)」設定を利用します。「固定間隔」は、「フレームスキップ間隔」設定を利用します。",
         "Comments": ""
     },
@@ -107,7 +107,7 @@
     {
         "No.": "16",
         "English": "When 'Frameskip' is set to 'Manual', specifies the audio buffer occupancy threshold (percentage) below which frames will be skipped. Higher values reduce the risk of crackling by causing frames to be dropped more frequently.",
-        "Chinese": "当“帧跳过”设置为“手动”时，指定音频缓冲区占用阈值（百分比），低于该阈值将跳过帧。较高的值会导致框架更频繁地掉落，从而降低破裂的风险。",
+        "Chinese": "当“跳帧”设置为“手动”时，此选项指定音频缓冲区占用率的阈值（以百分比表示），低于该值时将跳过帧。较高的数值会更频繁地丢帧，以减少爆音的风险。",
         "Japanese": "「フレームスキップ」が「手動」に設定されている場合、オーディオ バッファ占有率のしきい値 (パーセンテージ) を指定します。このしきい値を下回ると、フレームがスキップされます。値が大きいほど、フレームがより頻繁にドロップされるため、パチパチ音が発生するリスクが軽減されます。",
         "Comments": ""
     },
@@ -121,7 +121,7 @@
     {
         "No.": "18",
         "English": "When 'Frameskip' is set to 'Fixed Interval', the value set here is the number of frames omitted after a frame is rendered - i.e. '0' = 60fps, '1' = 30fps, '2' = 15fps, etc.",
-        "Chinese": "当‘跳帧’设置为‘固定间隔’时，此处设置的值是渲染帧后忽略的帧数，即‘0’=60fps，‘1’=30fps，’2’=15fps等。",
+        "Chinese": "当“跳帧”设置为“固定间隔”时，此选项指定在渲染一帧后要跳过的帧数。例如，“0”表示 60FPS，“1”表示 30FPS，“2”表示 15FPS，依此类推。",
         "Japanese": "「フレームスキップ」が「固定間隔」に設定されている場合、ここで設定される値は、フレームがレンダリングされた後に省略されるフレームの数です。「0」= 60fps、「1」= 30fps、「2」= 15fps",
         "Comments": ""
     },
