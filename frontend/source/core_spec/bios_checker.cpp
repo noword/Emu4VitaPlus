@@ -46,6 +46,7 @@ BIOS RequiredBIOS[] = {
 #elif defined(MD_BUILD)
 #elif defined(NGP_BUILD)
 #elif defined(PCE_BUILD)
+    {"syscard3.pce", 0},
 #elif defined(TGBDUAL_BUILD)
 #elif defined(GAMEBATTE_BUILD)
     {"gb_bios.bin", 0},
@@ -81,13 +82,19 @@ BIOS RequiredBIOS[] = {
     {"scph5501.bin", 0},
     {"scph1001.bin", 0},
 #elif defined(PC98_BUILD)
-    {"np2/bios.rom", 0},
+    {"np2/font.bmp", 0},
     {"np2/FONT.ROM", 0},
-    {"np2/KANJI1.ROM", 0},
-    {"np2/KANJI2.ROM", 0},
-    {"np2/sound86.ROM", 0},
-    {"np2/sound.ROM", 0},
-    {"np2/bios9821.ROM", 0},
+    {"np2/bios.rom", 0},
+    {"np2/itf.rom", 0},
+    {"np2/sound.rom", 0},
+    {"np2/bios9821.rom", 0},
+    {"np2/d8000.rom", 0},
+    {"np2/2608_BD.WAV", 0},
+    {"np2/2608_SD.WAV", 0},
+    {"np2/2608_TOP.WAV", 0},
+    {"np2/2608_HH.WAV", 0},
+    {"np2/2608_TOM.WAV", 0},
+    {"np2/2608_RIM.WAV", 0},
 #else
 #error "unknown build"
 #endif
