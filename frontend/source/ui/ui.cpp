@@ -243,9 +243,12 @@ void Ui::CreateTables()
                                                 {new ItemConfig(LANG_LANGUAGE,
                                                                 "",
                                                                 (uint32_t *)&gConfig->language,
-                                                                {LanguageString(gLanguageNames[LANGUAGE_ENGLISH]),
-                                                                 LanguageString(gLanguageNames[LANGUAGE_CHINESE]),
-                                                                 LanguageString(gLanguageNames[LANGUAGE_JAPANESE])},
+                                                                {
+                                                                    LanguageString(gLanguageNames[LANGUAGE_ENGLISH]),
+                                                                    LanguageString(gLanguageNames[LANGUAGE_CHINESE]),
+                                                                    LanguageString(gLanguageNames[LANGUAGE_JAPANESE]),
+                                                                    LanguageString(gLanguageNames[LANGUAGE_ITALIAN]),
+                                                                },
                                                                 std::bind(&Ui::ChangeLanguage, gUi)),
                                                  new ItemConfig(LANG_INDEPENDENT_CORE_CONFIG,
                                                                 "",
@@ -649,7 +652,8 @@ void Ui::ChangeLanguage()
     My_Imgui_Create_Font(gConfig->language, CACHE_DIR);
     for (auto tab : _tabs)
     {
-        tab->ChangeLanguage(gConfig->language);
+        if (tab)
+            tab->ChangeLanguage(gConfig->language);
     }
     gConfig->input_descriptors.Update();
     gVideo->Unlock();

@@ -1087,5 +1087,23 @@
         "Japanese": "速度ステップ",
         "Italian": "Passo di velocità",
         "Comments": ""
+    },
+    {
+        "No.": "122",
+        "Tag": "LANG_JAPANESE_TRANS",
+        "English": "Japanese translation",
+        "Chinese": "日语翻译",
+        "Japanese": "日本語翻訳",
+        "Italian": "traduzione giapponese",
+        "Comments": ""
+    },
+    {
+        "No.": "123",
+        "Tag": "LANG_ITALIAN_TRANS",
+        "English": "Italian translation",
+        "Chinese": "意大利语翻译",
+        "Japanese": "イタリア語翻訳",
+        "Italian": "traduzione italiana",
+        "Comments": ""
     }
 ]

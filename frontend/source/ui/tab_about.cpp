@@ -94,7 +94,10 @@ void TabAbout::_InitTexts()
 {
     _last_lang = gConfig->language;
     _texts = {std::string(TEXT(LANG_COMPILED_ON)) + " " + __DATE__ + " " + __TIME__,
-              std::string(TEXT(LANG_AUTHOR)) + ": noword   " + TEXT(LANG_SPECIAL_THANKS) + ": yizhigai, KyleBing, TearCrow, yyoossk(Japanese translation)",
+              std::string(TEXT(LANG_AUTHOR)) + ": noword",
+              std::string(TEXT(LANG_SPECIAL_THANKS)) + ": yizhigai, KyleBing, TearCrow",
+              std::string(TEXT(LANG_JAPANESE_TRANS)) + ": yyoossk",
+              std::string(TEXT(LANG_ITALIAN_TRANS)) + ": theheroGAC",
               std::string(TEXT(LANG_SITE)) +
                   ": https://github.com/noword/Emu4VitaPlus",
               "",

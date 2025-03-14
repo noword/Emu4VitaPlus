@@ -6,7 +6,7 @@ from openpyxl.styles.borders import Border, Side
 from openpyxl import worksheet
 from openpyxl.styles import GradientFill, Font
 from dataclasses import dataclass
-from collections import OrderedDict
+from collections import OrderedDict, Counter
 import json
 
 # https://stackoverflow.com/questions/30011379/how-can-i-parse-a-c-format-string-in-python
@@ -240,6 +240,10 @@ class Translation(list):
         trans = dict([(d[index], d) for d in self])
         if len(trans) != len(self):
             print('warning: There are some duplicate items')
+            items = [d[index] for d in self]
+            for item, count in Counter(items).items():
+                if count > 1:
+                    print(count, item)
         return trans
 
     def check_size(self, org: str, trans: str, encoding='utf-8'):

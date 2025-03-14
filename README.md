@@ -203,4 +203,8 @@ Emu4Vita++ 会尝试读取以下目录中的 .lpl 文件:
 
 TearCrow
 
+[yyoossk](https://github.com/yyoossk) (日语翻译)
+
+[theheroGAC](https://github.com/theheroGAC) (意大利语翻译)
+
 以及在本项目中用到的所有开源项目的开发者们

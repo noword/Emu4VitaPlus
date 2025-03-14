@@ -189,4 +189,8 @@ If the program crashes, please find the psp2dmp file under ux0:/data/ and upload
 
 TearCrow
 
+[yyoossk](https://github.com/yyoossk) (Japanese translation)
+
+[theheroGAC](https://github.com/theheroGAC) (Italian translation)
+
 The developers of all open source software used in this project

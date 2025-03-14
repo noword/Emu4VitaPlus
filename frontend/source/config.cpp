@@ -164,6 +164,9 @@ namespace Emu4Vita
         case SCE_SYSTEM_PARAM_LANG_CHINESE_T:
             language = LANGUAGE_CHINESE;
             break;
+        case SCE_SYSTEM_PARAM_LANG_ITALIAN:
+            language = LANGUAGE_ITALIAN;
+            break;
         case SCE_SYSTEM_PARAM_LANG_ENGLISH_US:
         case SCE_SYSTEM_PARAM_LANG_ENGLISH_GB:
         default:

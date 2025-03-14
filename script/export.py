@@ -47,7 +47,11 @@ for k, v in trans_trans.items():
     for language in languages[1:]:
         t.append(f'"{v[language]}"')
     t = ',\n'.join(t)
-    TRANS.append(f'    {{"{k}", {{{t}}},}}')
+    TRANS.append(
+        f'''    {{"{k}", 
+                 {{{t}}},
+                 }}'''
+    )
 
 TEXT_ENUM = '\n'.join(TEXT_ENUM)
 LANGUAGE_ENUM = '\n'.join(LANGUAGE_ENUM)
