@@ -27,7 +27,7 @@ CORES = {
     'AMIGA': ('uae4arm',),
     'ZXS': ('fuse',),
     'NEOCD': ('neocd',),
-    'PC98': ('nekop2',),
+    'PC98': ('nekop2', 'nekop2kai'),
     'MSX': ('fmsx', 'bluemsx'),
 }
 
@@ -71,5 +71,7 @@ NAMES = {
     'chimerasnes': 'Chimera SNES',
     'tgbdual': 'TGB Dual',
     'nekop2': 'Neko Project II',
+    'nekop2kai': 'Neko Project II kai',
     'fmsx': "Marat Fayzullin's fMSX",
+    'bluemsx': "blueMSX"
 }

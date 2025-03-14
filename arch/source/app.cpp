@@ -62,8 +62,9 @@ App::App() : _index_x(0), _index_y(0)
         new CoreButton("VECTREX", {{"vecx", "vecx"}}),                // 1982.4
         new CoreButton("ZXS", {{"fuse", "fuse"}}),                    // 1982.11
         new CoreButton("DOS", {{"DOS BOX Pure", "DOSBoxPure"}}),      // 1981
-        new CoreButton("PC98", {{"Neko Project II", "nekop2"}}),      // 1982
-        new CoreButton("MSX", {{"blueMSX", "blueMSX"},                // 1983
+        new CoreButton("PC98", {{"Neko Project II", "nekop2"},        // 1982
+                                {"Neko Project II kai", "np2kai"}}),
+        new CoreButton("MSX", {{"blueMSX", "blueMSX"}, // 1983
                                {"Marat Fayzullin's fMSX", "fMSX"}}),
         new CoreButton("NES", {{"FCEUmm " ICON_STAR, "FCEUmm"}, // 1983
                                {"Nestopia", "Nestopia"}}),
@@ -88,13 +89,7 @@ App::App() : _index_x(0), _index_y(0)
         new CoreButton("GBA", {{"gpSP " ICON_STAR, "gpSP"},           // 2001
                                {"VBA Next", "VBANext"},
                                {"mGBA", "mGBA"}}),
-        new CoreButton("ARC", {{"FBA Lite", "FBALite"},
-                               {"FBA 2012", "FBA2012"},
-                               {"FinalBurn Neo", "FBNeo"},
-                               {"FinalBurn Neo Xtreme", "FBNeoXtreme"},
-                               {"MAME 2003" ICON_STAR, "MAME2003"},
-                               {"MAME 2003 Plus", "MAME2003Plus"},
-                               {"MAME 2003 Xtreme" ICON_STAR, "MAME2003XTREME"}}),
+        new CoreButton("ARC", {{"FBA Lite", "FBALite"}, {"FBA 2012", "FBA2012"}, {"FinalBurn Neo", "FBNeo"}, {"FinalBurn Neo Xtreme", "FBNeoXtreme"}, {"MAME 2003" ICON_STAR, "MAME2003"}, {"MAME 2003 Plus", "MAME2003Plus"}, {"MAME 2003 Xtreme" ICON_STAR, "MAME2003XTREME"}}),
 
         // new CoreButton("ATARIST", {{"Hatari", "hatari"}}),
     };

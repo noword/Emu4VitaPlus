@@ -58,7 +58,8 @@ set(CORE_SHORTS
     TGBDual
     nekop2
     fMSX
-    blueMSX)
+    blueMSX
+    np2kai)
 
 set(CORES
     gpsp
@@ -102,7 +103,8 @@ set(CORES
     tgbdual
     nekop2
     fmsx
-    bluemsx)
+    bluemsx
+    nekop2kai)
 
 set(CORE_EBOOTS "")
 set(CORE_FILES "")

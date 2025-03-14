@@ -180,3 +180,7 @@
 	path = cores/fmsx-libretro
 	url = https://github.com/libretro/fmsx-libretro.git
 	branch = master
+[submodule "cores/NP2kai"]
+	path = cores/NP2kai
+	url = https://github.com/libretro/NP2kai.git
+	branch = master
