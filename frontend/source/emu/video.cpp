@@ -64,9 +64,10 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
         }
         else
         {
+            unsigned p = std::min(pitch, out_pitch);
             for (unsigned i = 0; i < height; i++)
             {
-                memcpy(out, in, pitch);
+                memcpy(out, in, p);
                 in += pitch;
                 out += out_pitch;
             }
