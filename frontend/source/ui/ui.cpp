@@ -498,7 +498,6 @@ void Ui::Show()
 
 void Ui::AppendLog(const char *log)
 {
-    LogInfo("boot log: %s", log);
     _boot_ui->AppendLog(log);
 }
 

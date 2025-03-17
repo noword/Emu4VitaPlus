@@ -184,3 +184,11 @@
 	path = cores/NP2kai
 	url = https://github.com/libretro/NP2kai.git
 	branch = master
+[submodule "cores/vice-libretro"]
+	path = cores/vice-libretro
+	url = https://github.com/libretro/vice-libretro.git
+	branch = master
+[submodule "cores/px68k-libretro"]
+	path = cores/px68k-libretro
+	url = https://github.com/libretro/px68k-libretro.git
+	branch = master

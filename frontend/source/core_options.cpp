@@ -169,21 +169,24 @@ void CoreOptions::_Load(const T *define)
     LogDebug("  default_value: %s", define->default_value);
     LogDebug("");
 
+    // for stupid vice option: vice_cartridge
+    const char *default_value = define->default_value ? define->default_value : "";
+
     const auto &iter = this->find(define->key);
     CoreOption *option;
     if (iter == this->end())
     {
-        option = &((*this)[define->key] = CoreOption{define->default_value,
+        option = &((*this)[define->key] = CoreOption{default_value,
                                                      define->desc ? define->desc : "",
                                                      define->info ? define->info : "",
-                                                     define->default_value});
+                                                     default_value});
     }
     else
     {
         option = &(iter->second);
         option->desc = define->desc ? define->desc : "";
         option->info = define->info ? define->info : "";
-        option->default_value = define->default_value;
+        option->default_value = default_value;
         option->values.clear();
     }
 

@@ -59,7 +59,9 @@ set(CORE_SHORTS
     nekop2
     fMSX
     blueMSX
-    np2kai)
+    np2kai
+    vice
+    px68k)
 
 set(CORES
     gpsp
@@ -104,7 +106,9 @@ set(CORES
     nekop2
     fmsx
     bluemsx
-    nekop2kai)
+    nekop2kai
+    vice
+    px68k)
 
 set(CORE_EBOOTS "")
 set(CORE_FILES "")

@@ -63,6 +63,8 @@ set(CORES
     fmsx
     bluemsx
     nekop2kai
+    vice
+    px68k
 )
 
 set(BUILD_LIST "All" "Arch" ${CORES})

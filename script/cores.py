@@ -29,6 +29,8 @@ CORES = {
     'NEOCD': ('neocd',),
     'PC98': ('nekop2', 'nekop2kai'),
     'MSX': ('fmsx', 'bluemsx'),
+    'C64': ('vice',),
+    'X68000': ('px68k',),
 }
 
 NAMES = {
@@ -73,5 +75,7 @@ NAMES = {
     'nekop2': 'Neko Project II',
     'nekop2kai': 'Neko Project II kai',
     'fmsx': "Marat Fayzullin's fMSX",
-    'bluemsx': "blueMSX"
+    'bluemsx': 'blueMSX',
+    'vice': 'VICE',
+    'px68k': 'Portable (x)keropi PRO-68K',
 }

@@ -56,19 +56,21 @@ App::App() : _index_x(0), _index_y(0)
     style->Colors[ImGuiCol_TitleBg] = style->Colors[ImGuiCol_TitleBgActive];
 
     _buttons = {
-        new CoreButton("ATARI2600", {{"Stella 2014", "Stella2014"}}), // 1977
-        new CoreButton("ATARI5200", {{"Atari800", "Atari800"}}),      // 1982
-        new CoreButton("ATARI7800", {{"ProSystem", "ProSystem"}}),    // 1986
-        new CoreButton("VECTREX", {{"vecx", "vecx"}}),                // 1982.4
-        new CoreButton("ZXS", {{"fuse", "fuse"}}),                    // 1982.11
-        new CoreButton("DOS", {{"DOS BOX Pure", "DOSBoxPure"}}),      // 1981
-        new CoreButton("PC98", {{"Neko Project II", "nekop2"},        // 1982
+        new CoreButton("ATARI2600", {{"Stella 2014", "Stella2014"}}),          // 1977
+        new CoreButton("ATARI5200", {{"Atari800", "Atari800"}}),               // 1982
+        new CoreButton("ATARI7800", {{"ProSystem", "ProSystem"}}),             // 1986
+        new CoreButton("C64", {{"the Versatile Commodore Emulator", "vice"}}), // 1982.1
+        new CoreButton("VECTREX", {{"vecx", "vecx"}}),                         // 1982.4
+        new CoreButton("ZXS", {{"fuse", "fuse"}}),                             // 1982.11
+        new CoreButton("DOS", {{"DOS BOX Pure", "DOSBoxPure"}}),               // 1981
+        new CoreButton("PC98", {{"Neko Project II", "nekop2"},                 // 1982
                                 {"Neko Project II kai", "np2kai"}}),
         new CoreButton("MSX", {{"blueMSX", "blueMSX"}, // 1983
                                {"Marat Fayzullin's fMSX", "fMSX"}}),
         new CoreButton("NES", {{"FCEUmm " ICON_STAR, "FCEUmm"}, // 1983
                                {"Nestopia", "Nestopia"}}),
-        new CoreButton("AMIGA", {{"uae4arm", "uae4arm"}}),               // 1985
+        new CoreButton("AMIGA", {{"uae4arm", "uae4arm"}}), // 1985
+        new CoreButton("X68000", {{"Portable (x)keropi PRO-68K", "px68k"}}),
         new CoreButton("PCE", {{"Mednafen PCE Fast", "MednafenPCEFast"}, // 1987
                                {"Mednafen SuperGrafx", "MednafenPCESuperGrafx"}}),
         new CoreButton("MD", {{"Genesis Plus GX " ICON_STAR, "GenesisPlusGX"}, // 1988

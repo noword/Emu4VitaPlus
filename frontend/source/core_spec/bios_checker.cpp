@@ -101,6 +101,17 @@ BIOS RequiredBIOS[] = {
     {NP2_PATH "2608_HH.WAV", 0},
     {NP2_PATH "2608_TOM.WAV", 0},
     {NP2_PATH "2608_RIM.WAV", 0},
+#elif defined(C64_BUILD)
+    {"vice/JiffyDOS_C64.bin", 0},
+    {"vice/JiffyDOS_1541-II.bin", 0},
+    {"vice/JiffyDOS_1571_repl310654.bin", 0},
+    {"vice/JiffyDOS_1581.bin", 0},
+    {"vice/scpu-dos-1.4.bin", 0},
+    {"vice/scpu-dos-2.04.bin", 0},
+    {"vice/SCPU64/JiffyDOS_C128.bin", 0},
+#elif defined(X68000_BUILD)
+    {"keropi/iplrom.dat", 0},
+    {"keropi/cgrom.dat", 0},
 #else
 #error "unknown build"
 #endif

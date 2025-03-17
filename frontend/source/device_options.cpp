@@ -95,7 +95,7 @@ void DeviceOptions::Load(retro_controller_info *info)
         types->clear();
 
         bool found = false;
-        for (unsigned i = 0; i < info->num_types; i++)
+        for (unsigned i = 0; i < info->num_types && info->types[i].desc; i++)
         {
             LogDebug(" %d %08x %s", count, info->types[i].id, info->types[i].desc);
             types->push_back(ControllerType{info->types[i].desc, info->types[i].id});
