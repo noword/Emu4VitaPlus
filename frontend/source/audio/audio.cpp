@@ -99,11 +99,13 @@ namespace Emu4VitaPlus
         if (_resampler != nullptr)
         {
             delete _resampler;
+            _resampler = nullptr;
         }
 
         if (_output != nullptr)
         {
             delete _output;
+            _output = nullptr;
         }
     }
 
