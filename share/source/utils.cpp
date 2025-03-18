@@ -204,4 +204,28 @@ namespace Utils
         utf16[count] = 0;
         return count;
     }
+
+    LANGUAGE GetDefaultLanguage()
+    {
+        int sys_lang;
+        sceAppUtilSystemParamGetInt(SCE_SYSTEM_PARAM_ID_LANG, &sys_lang);
+        switch (sys_lang)
+        {
+        case SCE_SYSTEM_PARAM_LANG_JAPANESE:
+            return LANGUAGE_JAPANESE;
+            break;
+        case SCE_SYSTEM_PARAM_LANG_CHINESE_S:
+        case SCE_SYSTEM_PARAM_LANG_CHINESE_T:
+            return LANGUAGE_CHINESE;
+            break;
+        case SCE_SYSTEM_PARAM_LANG_ITALIAN:
+            return LANGUAGE_ITALIAN;
+            break;
+        case SCE_SYSTEM_PARAM_LANG_ENGLISH_US:
+        case SCE_SYSTEM_PARAM_LANG_ENGLISH_GB:
+        default:
+            return LANGUAGE_ENGLISH;
+            break;
+        }
+    }
 };

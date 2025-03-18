@@ -12,6 +12,7 @@ public:
     bool Save(const char *path = APP_CONFIG_PATH);
 
     std::string last_core;
+    uint32_t language;
 
 private:
 };

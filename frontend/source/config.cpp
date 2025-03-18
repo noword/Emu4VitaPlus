@@ -12,6 +12,7 @@
 #include "log.h"
 #include "defines.h"
 #include "core_spec.h"
+#include "utils.h"
 
 #define MAIN_SECTION "MAIN"
 #define HOTKEY_SECTION "HOTKEY"
@@ -152,27 +153,7 @@ namespace Emu4Vita
         independent_core_config = DEFAULT_INDEPENDENT_CORE_CONFIG;
         reboot_when_loading_again = DEFAULT_REBOOT_WHEN_LOADING_AGAIN;
         speed_step = 0;
-
-        int sys_lang;
-        sceAppUtilSystemParamGetInt(SCE_SYSTEM_PARAM_ID_LANG, &sys_lang);
-        switch (sys_lang)
-        {
-        case SCE_SYSTEM_PARAM_LANG_JAPANESE:
-            language = LANGUAGE_JAPANESE;
-            break;
-        case SCE_SYSTEM_PARAM_LANG_CHINESE_S:
-        case SCE_SYSTEM_PARAM_LANG_CHINESE_T:
-            language = LANGUAGE_CHINESE;
-            break;
-        case SCE_SYSTEM_PARAM_LANG_ITALIAN:
-            language = LANGUAGE_ITALIAN;
-            break;
-        case SCE_SYSTEM_PARAM_LANG_ENGLISH_US:
-        case SCE_SYSTEM_PARAM_LANG_ENGLISH_GB:
-        default:
-            language = LANGUAGE_ENGLISH;
-            break;
-        }
+        language = Utils::GetDefaultLanguage();
 
         DefaultControlMap();
         DefaultHotKey();
@@ -346,6 +327,8 @@ namespace Emu4Vita
             return RETRO_LANGUAGE_CHINESE_SIMPLIFIED;
         case LANGUAGE_JAPANESE:
             return RETRO_LANGUAGE_JAPANESE;
+        case LANGUAGE_ITALIAN:
+            return RETRO_LANGUAGE_ITALIAN;
         case LANGUAGE_ENGLISH:
         default:
             return RETRO_LANGUAGE_ENGLISH;

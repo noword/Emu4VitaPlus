@@ -21,6 +21,10 @@ file(GLOB SRC
     source/emu/*.cpp
     source/audio/*.cpp)
 
+if(NOT ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.cpp IN_LIST SRC)
+    list(APPEND SRC ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.cpp)
+endif()
+
 add_compile_definitions(SCE_LIBC_SIZE=0xA00000)
 add_library(frontend OBJECT ${SRC})
 

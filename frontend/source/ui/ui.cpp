@@ -657,6 +657,16 @@ void Ui::ChangeLanguage()
     gConfig->input_descriptors.Update();
     gVideo->Unlock();
     gConfig->Save();
+
+    const char ARCH_CONFIG_PATH[] = ROOT_DIR "/Arch/config.ini";
+
+    CSimpleIniA ini;
+    if (ini.LoadFile(ARCH_CONFIG_PATH) != SI_OK)
+    {
+        ini.SetValue("MAIN", "language", gLanguageNames[gConfig->language]);
+        File::Remove(ARCH_CONFIG_PATH);
+        ini.SaveFile(ARCH_CONFIG_PATH, false);
+    }
 }
 
 void Ui::_OnCleanCache(Input *input)

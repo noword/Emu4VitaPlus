@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include "language_define.h"
+#include "language_frontend.h"
 
 #define INVALID_TEXT_ENUM TEXT_ENUM(-1)
 

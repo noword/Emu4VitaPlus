@@ -46,11 +46,11 @@ for k, v in trans_trans.items():
     t = []
     for language in languages[1:]:
         t.append(f'"{v[language]}"')
-    t = ',\n'.join(t)
+    t = ',\n     '.join(t)
     TRANS.append(
         f'''    {{"{k}", 
-                 {{{t}}},
-                 }}'''
+    {{{t}}},
+    }}'''
     )
 
 TEXT_ENUM = '\n'.join(TEXT_ENUM)
@@ -59,47 +59,56 @@ TEXTS = '\n'.join(TEXTS)
 TRANS = ',\n'.join(TRANS)
 
 # Generate language_define.h
-with open('language_define.h', 'w', encoding='utf-8') as fp:
-    fp.write(
-        f'''#ifndef LANGUAGE_DEFINE
-#define LANGUAGE_DEFINE
-
-#include <unordered_map>
-#include <array>
-#include <string>
-
-enum TEXT_ENUM{{
-{TEXT_ENUM}
-}};
+open('language_define.h', 'w', encoding='utf-8').write(
+    f'''#pragma once
 
 enum LANGUAGE{{
 {LANGUAGE_ENUM}
 }};
 
-#endif
-
-extern const char *gTexts[][TEXT_ENUM::TEXT_COUNT];
 extern const char *gLanguageNames[];
-typedef std::array<const char *, LANGUAGE::LANGUAGE_COUNT - 1> TRANS;
-extern std::unordered_map<std::string, TRANS> gTrans;
+
 '''
-    )
+)
 
 # Generate language_define.cpp
-with open('language_define.cpp', 'w', encoding='utf-8') as fp:
-    fp.write(
-        f'''#include "language_define.h"
-
-const char *gTexts[][TEXT_ENUM::TEXT_COUNT] = {{
-{TEXTS}
-}};
+open('language_define.cpp', 'w', encoding='utf-8').write(
+    f'''#include "language_define.h"
 
 const char *gLanguageNames[] = {{
 {NAMES}
+}};
+'''
+)
+
+# Generate language_frontend.h
+open('language_frontend.h', 'w', encoding='utf-8').write(
+    f'''#pragma once
+#include <unordered_map>
+#include <array>
+#include <string>
+#include "language_define.h"
+
+enum TEXT_ENUM{{
+{TEXT_ENUM}
+}};
+
+extern const char *gTexts[][TEXT_ENUM::TEXT_COUNT];
+typedef std::array<const char *, LANGUAGE::LANGUAGE_COUNT - 1> TRANS;
+extern std::unordered_map<std::string, TRANS> gTrans;
+'''
+)
+
+# Generate language_frontend.cpp
+open('language_frontend.cpp', 'w', encoding='utf-8').write(
+    f'''#include "language_frontend.h"
+
+const char *gTexts[][TEXT_ENUM::TEXT_COUNT] = {{
+{TEXTS}
 }};
 
 std::unordered_map<std::string, TRANS> gTrans = {{
 {TRANS}
 }};
 '''
-    )
+)
