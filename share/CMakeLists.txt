@@ -16,14 +16,10 @@ add_custom_command(
     OUTPUT
     ${CMAKE_CURRENT_SOURCE_DIR}/source/language_define.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/source/language_define.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.cpp
 
     COMMAND python export.py
     COMMAND mv language_define.h ${CMAKE_CURRENT_SOURCE_DIR}/source
     COMMAND mv language_define.cpp ${CMAKE_CURRENT_SOURCE_DIR}/source
-    COMMAND mv language_frontend.h ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.h
-    COMMAND mv language_frontend.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.cpp
 
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../script
 
@@ -32,13 +28,12 @@ add_custom_command(
     ${CMAKE_CURRENT_SOURCE_DIR}/../script/translation.json
     ${CMAKE_CURRENT_SOURCE_DIR}/../script/export.py
 )
+
 add_custom_target(
     lang_cpp
     DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/source/language_define.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/source/language_define.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.cpp)
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/language_define.h)
 
 file(GLOB SRC source/*.cpp)
 

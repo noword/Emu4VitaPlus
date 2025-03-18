@@ -139,6 +139,20 @@ include_directories(
 
 file(GLOB SRC source/*.cpp)
 
+add_custom_command(OUTPUT
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/language_arch.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/language_arch.cpp
+
+    COMMAND mv language_arch.h ${CMAKE_CURRENT_SOURCE_DIR}/../arch/source/language_arch.h
+    COMMAND mv language_arch.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../arch/source/language_arch.cpp
+
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../script
+)
+
+if(NOT ${CMAKE_CURRENT_SOURCE_DIR}/source/language_arch.cpp IN_LIST SRC)
+    list(APPEND SRC ${CMAKE_CURRENT_SOURCE_DIR}/source/language_arch.cpp)
+endif()
+
 add_compile_definitions(
     APP_NAME_STR="${APP_NAME}"
     APP_NAME_EXT_STR=${APP_NAME_EXT}

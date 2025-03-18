@@ -1,0 +1,200 @@
+[
+    {
+        "No.": "1",
+        "Tag": "INTRO_ATARI2600",
+        "English": "The Atari 2600 is a home video game console developed and produced by Atari, Inc. Released in September 1977 as the Atari Video Computer System (Atari VCS), it popularized microprocessor-based hardware and games stored on swappable ROM cartridges, a format first used with the Fairchild Channel F in 1976. ",
+        "Chinese": "雅达利2600（英语：Atari 2600）是雅达利公司于1977年所推出的一款家用电子游戏机，属第二世代游戏机，发布时初名“Atari Video Computer System”，简称“Atari VCS”，随着后续型号雅达利5200的发布而于1982年更名为雅达利2600。",
+        "Japanese": "Atari 2600は、米国アタリ社が開発し1977年にリリースした家庭用ゲーム機である。マイクロプロセッサを用いたゲーム機であり、それまで一般的だったプログラムが固定されたゲーム機と異なり、前年1976年発売のフェアチャイルド・チャンネルF同様に、ロムカートリッジによりゲームソフトを交換できる方式のゲーム機として1977年に「Video Computer System」の名で発売された。当初は「Atari VCS」の通称で親しまれ、後に「Atari 2600」に改称された。",
+        "Italian": "L'Atari 2600 (pubblicizzata nei primi anni di commercializzazione come Atari VCS, sigla di Video Computer System) è una console per videogiochi prodotta da Atari e venduta a partire da agosto 1977 fino al 1992.",
+        "Comments": ""
+    },
+    {
+        "No.": "2",
+        "Tag": "INTRO_ATARI5200",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "3",
+        "Tag": "INTRO_ATARI7800",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "4",
+        "Tag": "INTRO_C64",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "5",
+        "Tag": "INTRO_VECTREX",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "6",
+        "Tag": "INTRO_ZXS",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "7",
+        "Tag": "INTRO_DOS",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "8",
+        "Tag": "INTRO_PC98",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "9",
+        "Tag": "INTRO_MSX",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "10",
+        "Tag": "INTRO_NES",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "11",
+        "Tag": "INTRO_AMIGA",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "12",
+        "Tag": "INTRO_X68000",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "13",
+        "Tag": "INTRO_PCE",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "14",
+        "Tag": "INTRO_MD",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "15",
+        "Tag": "INTRO_GBC",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "16",
+        "Tag": "INTRO_SNES",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "17",
+        "Tag": "INTRO_NEOCD",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "18",
+        "Tag": "INTRO_PS1",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "19",
+        "Tag": "INTRO_NGP",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "20",
+        "Tag": "INTRO_WSC",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "21",
+        "Tag": "INTRO_GBA",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "22",
+        "Tag": "INTRO_ARC",
+        "English": "",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "Comments": ""
+    }
+]

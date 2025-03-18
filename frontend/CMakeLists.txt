@@ -21,6 +21,16 @@ file(GLOB SRC
     source/emu/*.cpp
     source/audio/*.cpp)
 
+add_custom_command(OUTPUT
+    ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.cpp
+
+    COMMAND mv language_frontend.h ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.h
+    COMMAND mv language_frontend.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.cpp
+
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../script
+)
+
 if(NOT ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.cpp IN_LIST SRC)
     list(APPEND SRC ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.cpp)
 endif()

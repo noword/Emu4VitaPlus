@@ -3,14 +3,17 @@ from trans import Translation
 
 lang_trans = Translation('language.json').get_trans(index='Tag')
 trans_trans = Translation('translation.json').get_trans(index='English')
-
+arch_trans = Translation('arch.json').get_trans(index='Tag')
 
 languages = None
 
 TEXT_ENUM = []
 LANGUAGE_ENUM = []
+ARCH_ENUM = []
 NAMES = []
+TEXTS = []
 TRANS = []
+ARCHS = []
 
 for k, v in lang_trans.items():
     attr = f'{k},'
@@ -23,7 +26,9 @@ for i, language in enumerate(languages):
     LANGUAGE_ENUM.append(f'    LANGUAGE_{language.upper()},')
 LANGUAGE_ENUM.append('    LANGUAGE_COUNT,')
 
-TEXTS = []
+ARCH_ENUM = list(arch_trans.keys())
+ARCH_ENUM.append('ARCH_COUNT,')
+
 for language in languages:
     T = []
     for k, v in lang_trans.items():
@@ -53,10 +58,28 @@ for k, v in trans_trans.items():
     }}'''
     )
 
+for language in languages:
+    T = []
+    for k, v in arch_trans.items():
+        lang = v[language].replace('"', '\\"')
+        s = f'"{lang}",'
+        T.append(f'    // {k}')
+        T.append(f'    {s}')
+    T = '\n'.join(T)
+    ARCHS.append(
+        f'''// {language}
+{{
+{T}
+}},
+'''
+    )
+
 TEXT_ENUM = '\n'.join(TEXT_ENUM)
 LANGUAGE_ENUM = '\n'.join(LANGUAGE_ENUM)
+ARCH_ENUM = ',\n'.join(ARCH_ENUM)
 TEXTS = '\n'.join(TEXTS)
 TRANS = ',\n'.join(TRANS)
+ARCHS = '\n'.join(ARCHS)
 
 # Generate language_define.h
 open('language_define.h', 'w', encoding='utf-8').write(
@@ -109,6 +132,29 @@ const char *gTexts[][TEXT_ENUM::TEXT_COUNT] = {{
 
 std::unordered_map<std::string, TRANS> gTrans = {{
 {TRANS}
+}};
+'''
+)
+
+# Generate language_arch.h
+open('language_arch.h', 'w', encoding='utf-8').write(
+    f'''#pragma once
+#include "language_define.h"
+
+enum ARCH_ENUM{{
+{ARCH_ENUM}
+}};
+
+extern const char *gArchs[][ARCH_ENUM::TEXT_COUNT];
+'''
+)
+
+# Generate language_arch.cpp
+open('language_arch.cpp', 'w', encoding='utf-8').write(
+    f'''#include "language_arch.h"
+
+const char *gTexts[][ARCH_ENUM::ARCH_COUNT] = {{
+{ARCHS}
 }};
 '''
 )
