@@ -11,9 +11,31 @@
 #include "utils.h"
 #include "config.h"
 #include "icons.h"
+#include "language_arch.h"
 
 bool gRunning = true;
 char gCorePath[SCE_FIOS_PATH_MAX] = {0};
+
+bool IntroMovingStatus::Update(const char *text)
+{
+    float text_width = ImGui::CalcTextSize(text).x;
+    float item_width = ImGui::GetContentRegionAvailWidth();
+    if (text_width <= item_width)
+    {
+        return false;
+    }
+
+    if (delay.TimeUp())
+    {
+        pos += delta;
+        if (-pos == text_width)
+        {
+            pos = 0;
+        }
+    }
+
+    return true;
+}
 
 App::App() : _index_x(0), _index_y(0)
 {
@@ -114,6 +136,8 @@ App::App() : _index_x(0), _index_y(0)
             }
         }
     }
+
+    _UpdateIntro();
 }
 
 App::~App()
@@ -183,6 +207,16 @@ void App::_Show()
         }
     }
 
+    if (*_intro)
+    {
+        ImVec2 size = ImGui::CalcTextSize(_intro);
+        float y = VITA_HEIGHT - size.y * 2 - MAIN_WINDOW_PADDING;
+        LogDebug("%f %f", (float)_moving_status.pos, y);
+        ImGui::SetCursorPos({(float)_moving_status.pos, y});
+        _moving_status.Update(_intro);
+        ImGui::Text(_intro);
+    }
+
     ImGui::End();
     ImGui::Render();
     My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
@@ -225,21 +259,25 @@ void App::UnsetInputHooks(Input *input)
 void App::_OnKeyLeft(Input *input)
 {
     LOOP_MINUS_ONE(_index_x, (_buttons.size() + _index_y) / ROW_COUNT);
+    _UpdateIntro();
 }
 
 void App::_OnKeyRight(Input *input)
 {
     LOOP_PLUS_ONE(_index_x, (_buttons.size() + _index_y) / ROW_COUNT);
+    _UpdateIntro();
 }
 
 void App::_OnKeyUp(Input *input)
 {
     LOOP_MINUS_ONE(_index_y, ROW_COUNT);
+    _UpdateIntro();
 }
 
 void App::_OnKeyDown(Input *input)
 {
     LOOP_PLUS_ONE(_index_y, ROW_COUNT);
+    _UpdateIntro();
 }
 
 void App::_OnClick(Input *input)
@@ -251,4 +289,13 @@ void App::_OnClick(Input *input)
 size_t App::_GetIndex()
 {
     return _index_y * _buttons.size() / ROW_COUNT + _index_x;
+}
+
+void App::_UpdateIntro()
+{
+    LogFunctionName;
+    LogDebug("%d %d", gConfig->language, _GetIndex());
+    _moving_status.Reset();
+    _intro = gArchs[gConfig->language][_GetIndex()];
+    LogDebug(_intro);
 }

@@ -48,7 +48,7 @@ extern const char *gArchs[][ARCH_ENUM::INTRO_COUNT];
 open('language_arch.cpp', 'w', encoding='utf-8').write(
     f'''#include "language_arch.h"
 
-const char *gTexts[][ARCH_ENUM::INTRO_COUNT] = {{
+const char *gArchs[][ARCH_ENUM::INTRO_COUNT] = {{
 {ARCHS}
 }};
 '''

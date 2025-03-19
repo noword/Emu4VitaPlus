@@ -623,13 +623,11 @@ bool TextMovingStatus::Update(const char *text)
     {
         delta = -1;
         pos = 0;
-        delay.SetDelay(DEFAULT_TEXT_MOVING_START);
     }
     else if (pos + text_width < item_width)
     {
         delta = 1;
         pos++;
-        delay.SetDelay(DEFAULT_TEXT_MOVING_START);
     }
 
     if (delay.TimeUp())
