@@ -102,7 +102,7 @@ namespace Emu4VitaPlus
         void SetTurbo(uint32_t key);
         void UnsetTurbo(uint32_t key);
 
-        void SetTurboInterval(uint64_t turbo_start, uint64_t turbo_interval);
+        void SetTurboInterval(uint64_t turbo_start = DEFAULT_TURBO_START_TIME, uint64_t turbo_interval = DEFAULT_TURBO_INTERVAL);
 
         void Poll(bool waiting = false);
 

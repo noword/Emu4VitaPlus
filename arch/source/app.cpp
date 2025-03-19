@@ -16,6 +16,11 @@
 bool gRunning = true;
 char gCorePath[SCE_FIOS_PATH_MAX] = {0};
 
+void IntroMovingStatus::Reset()
+{
+    pos = VITA_WIDTH * 2 / 3;
+}
+
 bool IntroMovingStatus::Update(const char *text)
 {
     float text_width = ImGui::CalcTextSize(text).x;
@@ -26,7 +31,7 @@ bool IntroMovingStatus::Update(const char *text)
         pos += delta;
         if (-pos == text_width)
         {
-            pos = 0;
+            pos = VITA_WIDTH * 2 / 3;
         }
     }
 
@@ -114,6 +119,7 @@ App::App() : _index_x(0), _index_y(0)
         // new CoreButton("ATARIST", {{"Hatari", "hatari"}}),
     };
 
+    _input.SetTurboInterval(DEFAULT_TURBO_START_TIME * 5);
     SetInputHooks(&_input);
 
     bool found = false;
@@ -173,7 +179,7 @@ void App::_Show()
     ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, MAIN_WINDOW_PADDING});
     ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2});
 
-    ImGui::Begin("Emu4Vita++ v" APP_VER_STR, NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoInputs);
+    ImGui::Begin("Emu4Vita++ v" APP_VER_STR, NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoInputs);
     My_Imgui_ShowTimePower();
     ImVec2 pos = ImGui::GetWindowPos();
     pos.y = (ImGui::GetContentRegionMax().y - BUTTON_SIZE * 2) / 2 + 20;
@@ -206,8 +212,7 @@ void App::_Show()
     if (*_intro)
     {
         ImVec2 size = ImGui::CalcTextSize(_intro);
-        float y = VITA_HEIGHT - size.y * 2 - MAIN_WINDOW_PADDING;
-        LogDebug("%f %f", (float)_moving_status.pos, y);
+        float y = VITA_HEIGHT - size.y - MAIN_WINDOW_PADDING * 2;
         ImGui::SetCursorPos({(float)_moving_status.pos, y});
         _moving_status.Update(_intro);
         ImGui::Text(_intro);

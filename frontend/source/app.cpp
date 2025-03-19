@@ -35,7 +35,7 @@ App::App(int argc, char *const argv[])
 {
     LogFunctionName;
 
-    scePowerSetArmClockFrequency(444);
+    scePowerSetArmClockFrequency(500);
     scePowerSetBusClockFrequency(222);
     scePowerSetGpuClockFrequency(222);
     scePowerSetGpuXbarClockFrequency(166);

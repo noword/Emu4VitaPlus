@@ -10,6 +10,7 @@ extern char gCorePath[SCE_FIOS_PATH_MAX];
 
 struct IntroMovingStatus : public TextMovingStatus
 {
+    void Reset();
     bool Update(const char *text);
 };
 
