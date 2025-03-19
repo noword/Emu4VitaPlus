@@ -22,14 +22,26 @@ file(GLOB SRC
     source/audio/*.cpp)
 
 add_custom_command(OUTPUT
-    ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.h
-    ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.cpp
 
-    COMMAND mv language_frontend.h ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.h
-    COMMAND mv language_frontend.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../frontend/source/language_frontend.cpp
+    COMMAND python export_frontend.py
+    COMMAND mv language_frontend.h ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.h
+    COMMAND mv language_frontend.cpp ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.cpp
 
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../script
+
+    DEPENDS
+    ${CMAKE_CURRENT_SOURCE_DIR}/../script/language.json
+    ${CMAKE_CURRENT_SOURCE_DIR}/../script/translation.json
+    ${CMAKE_CURRENT_SOURCE_DIR}/../script/export_frontend.py
 )
+
+add_custom_target(
+    LANG_FRONTEND
+    DEPENDS
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.cpp)
 
 if(NOT ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.cpp IN_LIST SRC)
     list(APPEND SRC ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.cpp)
@@ -40,4 +52,4 @@ add_library(frontend OBJECT ${SRC})
 
 add_custom_target(FILE_TOUCHER
     COMMAND ${CMAKE_COMMAND} -E touch_nocreate ${CMAKE_CURRENT_SOURCE_DIR}/source/ui/tab_about.cpp)
-add_dependencies(frontend FILE_TOUCHER)
+add_dependencies(frontend FILE_TOUCHER LANG_FRONTEND)

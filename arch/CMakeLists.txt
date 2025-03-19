@@ -143,11 +143,22 @@ add_custom_command(OUTPUT
     ${CMAKE_CURRENT_SOURCE_DIR}/source/language_arch.h
     ${CMAKE_CURRENT_SOURCE_DIR}/source/language_arch.cpp
 
-    COMMAND mv language_arch.h ${CMAKE_CURRENT_SOURCE_DIR}/../arch/source/language_arch.h
-    COMMAND mv language_arch.cpp ${CMAKE_CURRENT_SOURCE_DIR}/../arch/source/language_arch.cpp
+    COMMAND python export_arch.py
+    COMMAND mv language_arch.h ${CMAKE_CURRENT_SOURCE_DIR}/source/language_arch.h
+    COMMAND mv language_arch.cpp ${CMAKE_CURRENT_SOURCE_DIR}/source/language_arch.cpp
 
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../script
+
+    DEPENDS
+    ${CMAKE_CURRENT_SOURCE_DIR}/../script/arch.json
+    ${CMAKE_CURRENT_SOURCE_DIR}/../script/export_arch.py
 )
+
+add_custom_target(
+    LANG_ARCH
+    DEPENDS
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/language_arch.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/language_arch.cpp)
 
 if(NOT ${CMAKE_CURRENT_SOURCE_DIR}/source/language_arch.cpp IN_LIST SRC)
     list(APPEND SRC ${CMAKE_CURRENT_SOURCE_DIR}/source/language_arch.cpp)
@@ -163,6 +174,7 @@ add_compile_definitions(
     CORE_SOFTWARE=${CORE_SOFTWARE})
 
 add_executable(${APP_NAME}.elf ${SRC})
+add_dependencies(${APP_NAME}.elf LANG_ARCH)
 
 target_link_libraries(
     ${APP_NAME}.elf
