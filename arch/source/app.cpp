@@ -20,10 +20,6 @@ bool IntroMovingStatus::Update(const char *text)
 {
     float text_width = ImGui::CalcTextSize(text).x;
     float item_width = ImGui::GetContentRegionAvailWidth();
-    if (text_width <= item_width)
-    {
-        return false;
-    }
 
     if (delay.TimeUp())
     {
@@ -68,7 +64,7 @@ App::App() : _index_x(0), _index_y(0)
     vita2d_set_vblank_wait(1);
 
     ImGui::CreateContext();
-    My_ImGui_ImplVita2D_Init(0);
+    My_ImGui_ImplVita2D_Init(gConfig->language);
     ImGui_ImplVita2D_TouchUsage(false);
     ImGui_ImplVita2D_UseIndirectFrontTouch(false);
     ImGui_ImplVita2D_UseRearTouch(false);
@@ -293,9 +289,6 @@ size_t App::_GetIndex()
 
 void App::_UpdateIntro()
 {
-    LogFunctionName;
-    LogDebug("%d %d", gConfig->language, _GetIndex());
     _moving_status.Reset();
     _intro = gArchs[gConfig->language][_GetIndex()];
-    LogDebug(_intro);
 }
