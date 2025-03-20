@@ -18,20 +18,17 @@ char gCorePath[SCE_FIOS_PATH_MAX] = {0};
 
 void IntroMovingStatus::Reset()
 {
-    pos = VITA_WIDTH * 2 / 3;
+    pos = VITA_WIDTH;
 }
 
 bool IntroMovingStatus::Update(const char *text)
 {
-    float text_width = ImGui::CalcTextSize(text).x;
-    float item_width = ImGui::GetContentRegionAvailWidth();
-
     if (delay.TimeUp())
     {
         pos += delta;
-        if (-pos == text_width)
+        if (-pos >= ImGui::CalcTextSize(text).x)
         {
-            pos = VITA_WIDTH * 2 / 3;
+            pos = VITA_WIDTH;
         }
     }
 
@@ -139,6 +136,7 @@ App::App() : _index_x(0), _index_y(0)
         }
     }
 
+    _moving_status.delay.SetInterval(DEFAULT_TEXT_MOVING_INTERVAL / 2);
     _UpdateIntro();
 }
 
@@ -179,7 +177,7 @@ void App::_Show()
     ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, MAIN_WINDOW_PADDING});
     ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2});
 
-    ImGui::Begin("Emu4Vita++ v" APP_VER_STR, NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoInputs);
+    ImGui::Begin("Emu4Vita++ v" APP_VER_STR, NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoInputs);
     My_Imgui_ShowTimePower();
     ImVec2 pos = ImGui::GetWindowPos();
     pos.y = (ImGui::GetContentRegionMax().y - BUTTON_SIZE * 2) / 2 + 20;
@@ -212,10 +210,15 @@ void App::_Show()
     if (*_intro)
     {
         ImVec2 size = ImGui::CalcTextSize(_intro);
-        float y = VITA_HEIGHT - size.y - MAIN_WINDOW_PADDING * 2;
-        ImGui::SetCursorPos({(float)_moving_status.pos, y});
-        _moving_status.Update(_intro);
-        ImGui::Text(_intro);
+        ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2 - size.y});
+        ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, size.y});
+        if (ImGui::Begin("info", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
+        {
+            ImGui::SetCursorPos({(float)_moving_status.pos, 0});
+            ImGui::Text(_intro);
+            _moving_status.Update(_intro);
+        }
+        ImGui::End();
     }
 
     ImGui::End();
@@ -294,6 +297,7 @@ size_t App::_GetIndex()
 
 void App::_UpdateIntro()
 {
+
     _moving_status.Reset();
     _intro = gArchs[gConfig->language][_GetIndex()];
 }
