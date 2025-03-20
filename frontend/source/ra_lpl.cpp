@@ -9,6 +9,7 @@
 #include "log.h"
 #include "utils.h"
 #include "defines.h"
+#include "rzip.h"
 
 #define RETRO_ARCH_UX0_PATH "ux0:data/retroarch"
 #define RETRO_ARCH_UX0_CONFIG RETRO_ARCH_UX0_PATH "/retroarch.cfg"
@@ -172,6 +173,24 @@ bool RetroArchPlaylists::_LoadLpl(const char *lpl_path, ItemMap &items)
     if (size == 0)
     {
         return false;
+    }
+
+    if (memcmp(buf, RZIP_MAGIC, sizeof(RZIP_MAGIC)) == 0)
+    {
+        Rzip rzip;
+        rzip.Load((uint8_t *)buf);
+        delete[] buf;
+
+        if (rzip.IsValid())
+        {
+            size = rzip.GetSize();
+            buf = new char[size];
+            memcpy(buf, rzip.GetBuf(), size);
+        }
+        else
+        {
+            return false;
+        }
     }
 
     bool result = false;

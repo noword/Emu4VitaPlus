@@ -5,8 +5,6 @@
 #include "rzip.h"
 #include "file.h"
 
-#define RZIP_MAGIC "#RZIPv"
-
 #pragma pack(push, 1)
 struct RZIP_HEADER
 {
@@ -51,9 +49,17 @@ bool Rzip::Load(const char *path)
         return false;
     }
 
+    bool result = Load(rzip);
+    delete[] rzip;
+    return result;
+}
+
+bool Rzip::Load(uint8_t *rzip_buf)
+{
     bool result = false;
+
     z_stream infstream{0};
-    RZIP_HEADER *header = (RZIP_HEADER *)rzip;
+    RZIP_HEADER *header = (RZIP_HEADER *)rzip_buf;
     if (memcmp(header->sign, RZIP_MAGIC, sizeof(header->sign)) != 0)
     {
         goto END;
@@ -63,7 +69,7 @@ bool Rzip::Load(const char *path)
     _buf = new uint8_t[_size];
     infstream.avail_in = header->zsize;
     infstream.avail_out = _size;
-    infstream.next_in = rzip + sizeof(RZIP_HEADER);
+    infstream.next_in = rzip_buf + sizeof(RZIP_HEADER);
     infstream.next_out = _buf;
 
     if (inflateInit(&infstream) != Z_OK)
@@ -78,11 +84,6 @@ bool Rzip::Load(const char *path)
     result = true;
 
 END:
-    if (rzip)
-    {
-        delete[] rzip;
-    }
-
     if (!result)
     {
         _size = 0;
@@ -92,5 +93,6 @@ END:
             _buf = nullptr;
         }
     }
+
     return result;
 }
