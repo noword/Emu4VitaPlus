@@ -226,6 +226,7 @@ static const ImWchar *get_glyph_ranges(uint32_t language)
         return ImGui::GetIO().Fonts->GetGlyphRangesJapanese();
     case LANGUAGE_ENGLISH:
     case LANGUAGE_ITALIAN:
+    case LANGUAGE_FRENCH:
     default:
         return ImGui::GetIO().Fonts->GetGlyphRangesDefault();
     }

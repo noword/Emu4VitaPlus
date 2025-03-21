@@ -5,6 +5,7 @@
         "Chinese": "选择要使用的 BIOS 映像。官方 BIOS 需要用户自行提供。使用非官方（或内置） BIOS 可能会导致某些游戏的不兼容问题。最佳体验建议使用官方 Nintendo BIOS。",
         "Japanese": "使用する BIOS イメージを選択してください。公式 BIOS はユーザーが用意する必要があります。非公式 (または組み込み) BIOS を使用すると、一部のゲームで互換性の問題が発生する可能性があります。公式の Nintendo BIOS を使用すると、最良の結果が得られます。",
         "Italian": "Scegli l'immagine BIOS da utilizzare. Il BIOS ufficiale deve essere fornito dall'utente. L'uso di un BIOS non ufficiale (o integrato) potrebbe causare problemi di incompatibilità con alcuni giochi. I migliori risultati si ottengono con il BIOS ufficiale Nintendo.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -13,6 +14,7 @@
         "Chinese": "自动选择",
         "Japanese": "オートセレクト",
         "Italian": "Selezione automatica",
+        "French": "",
         "Comments": ""
     },
     {
@@ -21,6 +23,7 @@
         "Chinese": "内置BIOS",
         "Japanese": "内蔵BIOS",
         "Italian": "BIOS integrato",
+        "French": "",
         "Comments": ""
     },
     {
@@ -29,6 +32,7 @@
         "Chinese": "官方BIOS",
         "Japanese": "公式BIOS",
         "Italian": "BIOS originale",
+        "French": "",
         "Comments": ""
     },
     {
@@ -37,6 +41,7 @@
         "Chinese": "引导模式",
         "Japanese": "ブートモード",
         "Italian": "Modalità di avvio",
+        "French": "",
         "Comments": ""
     },
     {
@@ -45,6 +50,7 @@
         "Chinese": "选择是否在游戏启动前先运行 BIOS。两种模式之间没有太大区别。",
         "Japanese": "ゲームの前に BIOS を起動するかどうかを選択します。どちらのモードでも大きな違いはありません。",
         "Italian": "Scegli se avviare il BIOS prima del gioco o meno. Non c'è molta differenza tra le due modalità.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -53,6 +59,7 @@
         "Chinese": "引导到游戏",
         "Japanese": "ゲームを起動する",
         "Italian": "Avvia direttamente il gioco",
+        "French": "",
         "Comments": ""
     },
     {
@@ -61,6 +68,7 @@
         "Chinese": "引导到BIOS",
         "Japanese": "BIOSを起動する",
         "Italian": "Avvia il BIOS",
+        "French": "",
         "Comments": ""
     },
     {
@@ -69,6 +77,7 @@
         "Chinese": "跳帧",
         "Japanese": "フレームスキップ",
         "Italian": "Salto fotogrammi",
+        "French": "",
         "Comments": ""
     },
     {
@@ -77,6 +86,7 @@
         "Chinese": "跳帧以避免音频缓冲区溢出（爆音）。此功能可提高性能，但会影响视觉流畅度。 自动：当前端建议跳帧时自动跳帧。  自动（阈值）：使用“跳帧阈值（%）”设置来决定跳帧频率。  固定间隔：使用“跳帧间隔”设置来固定跳帧频率。",
         "Japanese": "オーディオ バッファの不足 (パチパチ音) を回避するためにフレームをスキップします。視覚的な滑らかさを犠牲にしてパフォーマンスが向上します。「自動」は、フロントエンドから指示があった場合にフレームをスキップします。「自動 (しきい値)」は、「フレームスキップしきい値 (%)」設定を利用します。「固定間隔」は、「フレームスキップ間隔」設定を利用します。",
         "Italian": "Salta fotogrammi per evitare under-run del buffer audio (crepitio). Migliora le prestazioni a scapito della fluidità visiva. 'Auto' salta i fotogrammi quando consigliato dal frontend. 'Auto (Soglia)' utilizza l'impostazione 'Soglia di salto fotogrammi (%)'. 'Intervallo fisso' utilizza l'impostazione 'Intervallo di salto fotogrammi'.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -85,6 +95,7 @@
         "Chinese": "禁用",
         "Japanese": "無効",
         "Italian": "disabilitato",
+        "French": "",
         "Comments": ""
     },
     {
@@ -93,6 +104,7 @@
         "Chinese": "自动",
         "Japanese": "自動",
         "Italian": "Automatico",
+        "French": "",
         "Comments": ""
     },
     {
@@ -101,6 +113,7 @@
         "Chinese": "自动(阈值)",
         "Japanese": "自動（しきい値）",
         "Italian": "Automatico (Soglia)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -109,6 +122,7 @@
         "Chinese": "固定间隔",
         "Japanese": "固定間隔",
         "Italian": "Intervallo fisso",
+        "French": "",
         "Comments": ""
     },
     {
@@ -117,6 +131,7 @@
         "Chinese": "跳帧阈值(%)",
         "Japanese": "フレームスキップしきい値 (%)",
         "Italian": "Soglia di salto fotogrammi (%)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -125,6 +140,7 @@
         "Chinese": "当“跳帧”设置为“手动”时，此选项指定音频缓冲区占用率的阈值（以百分比表示），低于该值时将跳过帧。较高的数值会更频繁地丢帧，以减少爆音的风险。",
         "Japanese": "「フレームスキップ」が「手動」に設定されている場合、オーディオ バッファ占有率のしきい値 (パーセンテージ) を指定します。このしきい値を下回ると、フレームがスキップされます。値が大きいほど、フレームがより頻繁にドロップされるため、パチパチ音が発生するリスクが軽減されます。",
         "Italian": "Quando 'Salto fotogrammi' è impostato su 'Manuale', specifica la soglia di occupazione del buffer audio (percentuale) al di sotto della quale i fotogrammi verranno saltati. Valori più alti riducono il rischio di crepitio facendo cadere i fotogrammi più frequentemente.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -133,6 +149,7 @@
         "Chinese": "跳帧间隔",
         "Japanese": "フレームスキップ間隔",
         "Italian": "Intervallo di salto fotogrammi",
+        "French": "",
         "Comments": ""
     },
     {
@@ -141,6 +158,7 @@
         "Chinese": "当“跳帧”设置为“固定间隔”时，此选项指定在渲染一帧后要跳过的帧数。例如，“0”表示 60FPS，“1”表示 30FPS，“2”表示 15FPS，依此类推。",
         "Japanese": "「フレームスキップ」が「固定間隔」に設定されている場合、ここで設定される値は、フレームがレンダリングされた後に省略されるフレームの数です。「0」= 60fps、「1」= 30fps、「2」= 15fps",
         "Italian": "Quando 'Salto fotogrammi' è impostato su 'Intervallo fisso', il valore impostato qui è il numero di fotogrammi omessi dopo il rendering di un fotogramma - ad esempio '0' = 60fps, '1' = 30fps, '2' = 15fps, ecc.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -149,6 +167,7 @@
         "Chinese": "颜色校正",
         "Japanese": "色補正",
         "Italian": "Correzione colore",
+        "French": "",
         "Comments": ""
     },
     {
@@ -157,6 +176,7 @@
         "Chinese": "调整输出颜色以匹配实际GBA硬件的显示。",
         "Japanese": "実際の G​​BA ハードウェアの表示に合わせて出力色を調整します。",
         "Italian": "Regola i colori in uscita per corrispondere alla visualizzazione dell'hardware GBA reale.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -165,6 +185,7 @@
         "Chinese": "启用",
         "Japanese": "有効",
         "Italian": "abilitato",
+        "French": "",
         "Comments": ""
     },
     {
@@ -173,6 +194,7 @@
         "Chinese": "帧间混合",
         "Japanese": "フレーム間ブレンディング",
         "Italian": "Fusione inter-fotogramma",
+        "French": "",
         "Comments": ""
     },
     {
@@ -181,6 +203,7 @@
         "Chinese": "通过对当前帧和前一帧进行50:50的混合来模拟LCD重影效果。在玩利用LCD重影获得透明效果的游戏(F-Zero、Boktai系列等)时，需要正确操作。",
         "Japanese": "現在のフレームと前のフレームを 50:50 でミックスして、LCD ゴースト効果をシミュレートします。透明効果のために LCD ゴーストを利用するゲーム (F-Zero、Boktai シリーズなど) をプレイするときに、正しく動作するために必要です。",
         "Italian": "Simula gli effetti di ghosting LCD eseguendo una miscela 50:50 dei fotogrammi corrente e precedente. Necessario per il corretto funzionamento quando si gioca a giochi che sfruttano il ghosting LCD per effetti di trasparenza (F-Zero, la serie Boktai, ecc.).",
+        "French": "",
         "Comments": ""
     },
     {
@@ -189,6 +212,7 @@
         "Chinese": "备份保存方法(需重启)",
         "Japanese": "バックアップ保存方法（再起動）",
         "Italian": "Metodo di salvataggio di backup (Riavvio)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -197,6 +221,7 @@
         "Chinese": "选择用于盒式磁带保存文件的数据格式。‘gpSP’可用于与独立版本的gpSP兼容。‘libretro’提供了与前端的更好集成。",
         "Japanese": "カートリッジ保存ファイルに使用するデータ形式を選択します。'gpSP' は、gpSP のスタンドアロン バージョンとの互換性のために使用できます。'libretro' は、フロントエンドとの統合を強化します。",
         "Italian": "Scegli il formato dei dati utilizzato per i file di salvataggio delle cartucce. 'gpSP' può essere utilizzato per la compatibilità con la versione autonoma di gpSP. 'libretro' offre una migliore integrazione con il frontend.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -205,6 +230,7 @@
         "Chinese": "动态重编译器",
         "Japanese": "動的再コンパイラ",
         "Italian": "Ricompilatore dinamico",
+        "French": "",
         "Comments": ""
     },
     {
@@ -213,6 +239,7 @@
         "Chinese": "动态地将CPU指令重新编译为本机指令。极大地提高了性能，但可能会降低准确性。",
         "Japanese": "CPU 命令をネイティブ命令に動的に再コンパイルします。パフォーマンスは大幅に向上しますが、精度は低下する可能性があります。",
         "Italian": "Ricompila dinamicamente le istruzioni della CPU in istruzioni native. Migliora notevolmente le prestazioni, ma può ridurre l'accuratezza.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -221,6 +248,7 @@
         "Chinese": "连发按键间隔",
         "Japanese": "連射ボタン間隔",
         "Italian": "Intervallo del pulsante turbo",
+        "French": "",
         "Comments": ""
     },
     {
@@ -229,6 +257,7 @@
         "Chinese": "指定按下连发A/B按钮时的重复间隔(以帧为单位)。",
         "Japanese": "Turbo A/B ボタンを押したときの繰り返し間隔 (フレーム単位) を指定します。",
         "Italian": "Specifica l'intervallo di ripetizione (in fotogrammi) quando si tengono premuti i pulsanti Turbo A/B.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -237,6 +266,7 @@
         "Chinese": "仿真Hacks",
         "Japanese": "エミュレーションハック",
         "Italian": "Hack di emulazione",
+        "French": "",
         "Comments": ""
     },
     {
@@ -245,6 +275,7 @@
         "Chinese": "配置影响低级别性能和兼容性的处理器超频和仿真精度参数。",
         "Japanese": "低レベルのパフォーマンスと互換性に影響するプロセッサのオーバークロックとエミュレーション精度のパラメータを構成します。",
         "Italian": "Configura i parametri di overclocking del processore e di accuratezza dell'emulazione che influiscono sulle prestazioni di basso livello e sulla compatibilità.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -253,6 +284,7 @@
         "Chinese": "系统区域（需要重启）",
         "Japanese": "コンソールリージョン（再起動）",
         "Italian": "Regione della console (Riavvio)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -261,6 +293,7 @@
         "Chinese": "指定系统来自哪个区域。'PAL制式为50赫兹，NTSC制式为60赫兹。如果选择了不正确的区域，游戏将比正常情况下运行得更快或更慢。",
         "Japanese": "システムの地域を指定します。「PAL」は 50hz、「NTSC」は 60hz です。間違った地域を選択すると、ゲームは通常よりも速くまたは遅く実行されます。",
         "Italian": "Specifica da quale regione proviene il sistema. 'PAL' è 50hz, 'NTSC' è 60hz. I giochi funzioneranno più velocemente o più lentamente del normale se viene selezionata la regione errata.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -269,6 +302,7 @@
         "Chinese": "音频滤波器",
         "Japanese": "オーディオフィルター",
         "Italian": "Filtro audio",
+        "French": "",
         "Comments": ""
     },
     {
@@ -277,6 +311,7 @@
         "Chinese": "启用低通音频滤波器以软化高音伪影，并模仿原始SNES硬件的“低音”声音。",
         "Japanese": "ローパス オーディオ フィルターを有効にして、高音のアーティファクトを和らげ、オリジナルの SNES ハードウェアの「低音」のサウンドを模倣します。",
         "Italian": "Abilita un filtro audio passa-basso per ammorbidire gli artefatti degli acuti e imitare il suono 'bassy' dell'hardware SNES originale.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -285,6 +320,7 @@
         "Chinese": "音频滤波器电平",
         "Japanese": "オーディオフィルターレベル",
         "Italian": "Livello del filtro audio",
+        "French": "",
         "Comments": ""
     },
     {
@@ -293,6 +329,7 @@
         "Chinese": "指定低通音频滤波器的截止频率。较高的值会增加滤波器的感知“强度”，因为高频频谱的较宽范围会衰减。",
         "Japanese": "ローパス オーディオ フィルターのカットオフ周波数を指定します。値が高いほど、高周波スペクトルのより広い範囲が減衰されるため、フィルターの「強度」が増すように感じられます。",
         "Italian": "Specifica la frequenza di taglio del filtro audio passa-basso. Un valore più alto aumenta la 'forza' percepita del filtro, poiché una gamma più ampia dello spettro ad alta frequenza viene attenuata.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -301,6 +338,7 @@
         "Chinese": "减少减速 (需要重启)",
         "Japanese": "処理落ちを軽減する（Hack、不安定、再起動）",
         "Italian": "Riduzione rallentamenti (Hack, Non sicuro, Riavvio)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -309,6 +347,7 @@
         "Chinese": "SNES的许多游戏由于主CPU不足而速度减慢。这个选项有助于以可能的错误为代价来缓解这种情况。兼容：减少速度减慢，但尽可能保持游戏兼容性。极限：尽可能减少减速，但会破坏更多的游戏。",
         "Japanese": "SNES の多くのゲームは、メイン CPU の弱さが原因で処理落ちに悩まされていました。このオプションは、バグの可能性を犠牲にして、処理落ちを軽減するのに役立ちます。COMPATIBLE: 処理落ちを軽減しますが、ゲームの互換性を可能な限り維持します。MAX: 処理落ちを可能な限り軽減しますが、より多くのゲームが壊れます。",
         "Italian": "Molti giochi per SNES soffrivano di rallentamenti a causa della debole CPU principale. Questa opzione aiuta a mitigare ciò al costo di possibili bug. COMPATIBILE: riduce i rallentamenti ma mantiene la compatibilità con i giochi il più possibile. MASSIMO: riduce i rallentamenti il più possibile ma romperà più giochi.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -317,6 +356,7 @@
         "Chinese": "减少闪烁",
         "Japanese": "ちらつき低減（Hack、不安定）",
         "Italian": "Riduzione sfarfallio (Hack, Non sicuro)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -325,6 +365,7 @@
         "Chinese": "游戏链接",
         "Japanese": "ゲームリンク",
         "Italian": "Collegamento di gioco",
+        "French": "",
         "Comments": ""
     },
     {
@@ -333,6 +374,7 @@
         "Chinese": "更改网络游戏链接 (多人)",
         "Japanese": "ネットワーク化されたゲームリンク（マルチプレイヤー）の設定を変更します。",
         "Italian": "Modifica le impostazioni del collegamento di gioco in rete (multiplayer).",
+        "French": "",
         "Comments": ""
     },
     {
@@ -341,6 +383,7 @@
         "Chinese": "内建",
         "Japanese": "内蔵",
         "Italian": "interno",
+        "French": "",
         "Comments": ""
     },
     {
@@ -349,6 +392,7 @@
         "Chinese": "自定义",
         "Japanese": "カスタム",
         "Italian": "personalizzato",
+        "French": "",
         "Comments": ""
     },
     {
@@ -357,6 +401,7 @@
         "Chinese": "GB 调色",
         "Japanese": "GBカラー化",
         "Italian": "Colorazione GB",
+        "French": "",
         "Comments": ""
     },
     {
@@ -365,6 +410,7 @@
         "Chinese": "内部调色板",
         "Japanese": "内蔵パレット",
         "Italian": "Tavolozza interna",
+        "French": "",
         "Comments": ""
     },
     {
@@ -373,6 +419,7 @@
         "Chinese": "选择 'GB 色彩化' 时用于彩色游戏的调色板。'GB 色彩化' 设置为 '内部'， 或者当“GB 色彩化”设置为“自动”且游戏没有预定义的 SGB/GBC 调色板。 'GB'的调色板模拟GameBoy硬件的显示。'GBC' 色板与GameBoy颜色的内置预设相同。 'SGB'调色板与SuperGameBoy的内置预设相同。",
         "Japanese": "「GB カラー化」が「内蔵」に設定されているとき、または「自動」に設定されていてゲームに事前定義された SGB/GBC パレットがない場合に、ゲームボーイ ゲームをカラー化するために使用するパレットを選択します。 「GB」パレットは、オリジナルのゲームボーイ ハードウェアの表示を模倣します。 「GBC」パレットは、ゲームボーイ カラーの、「SGB」パレットは、スーパー ゲームボーイの組み込みプリセットと同じです。",
         "Italian": "Seleziona la tavolozza utilizzata per colorare i giochi Game Boy quando 'Colorazione GB' è impostata su 'Interno', o quando 'Colorazione GB' è impostata su 'Automatico' e il gioco non ha una tavolozza SGB/GBC predefinita. Le tavolozze 'GB' imitano la visualizzazione dell'hardware Game Boy originale. Le tavolozze 'GBC' sono identiche ai preset integrati di Game Boy Color. Le tavolozze 'SGB' sono identiche ai preset integrati di Super Game Boy.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -381,6 +428,7 @@
         "Chinese": "TWB64-Pack 1调色板",
         "Japanese": "> TWB64 - Pack 1 パレット",
         "Italian": "> TWB64 - Pack 1 Tavolozza",
+        "French": "",
         "Comments": ""
     },
     {
@@ -389,6 +437,7 @@
         "Chinese": "TWB64-Pack 2调色板",
         "Japanese": "> TWB64 - Pack 2 パレット",
         "Italian": "> TWB64 - Pack 2 Tavolozza",
+        "French": "",
         "Comments": ""
     },
     {
@@ -397,6 +446,7 @@
         "Chinese": "PixelShift-Pack 1调色板",
         "Japanese": "> PixelShift - Pack 1 パレット",
         "Italian": "> PixelShift - Pack 1 Tavolozza",
+        "French": "",
         "Comments": ""
     },
     {
@@ -405,6 +455,7 @@
         "Chinese": "仅GBC",
         "Japanese": "GBCのみ",
         "Italian": "Solo GBC",
+        "French": "",
         "Comments": ""
     },
     {
@@ -413,6 +464,7 @@
         "Chinese": "总是",
         "Japanese": "いつも",
         "Italian": "Sempre",
+        "French": "",
         "Comments": ""
     },
     {
@@ -421,6 +473,7 @@
         "Chinese": "色彩校正模式",
         "Japanese": "色補正モード",
         "Italian": "Modalità correzione colore",
+        "French": "",
         "Comments": ""
     },
     {
@@ -429,6 +482,7 @@
         "Chinese": "精确",
         "Japanese": "正確",
         "Italian": "Preciso",
+        "French": "",
         "Comments": ""
     },
     {
@@ -437,6 +491,7 @@
         "Chinese": "快速",
         "Japanese": "速い",
         "Italian": "Veloce",
+        "French": "",
         "Comments": ""
     },
     {
@@ -445,6 +500,7 @@
         "Chinese": "颜色校正-前灯位置",
         "Japanese": "色補正 - フロントライトの位置",
         "Italian": "Correzione colore - Posizione luce frontale",
+        "French": "",
         "Comments": ""
     },
     {
@@ -453,6 +509,7 @@
         "Chinese": "中央",
         "Japanese": "中央",
         "Italian": "Centrale",
+        "French": "",
         "Comments": ""
     },
     {
@@ -461,6 +518,7 @@
         "Chinese": "屏幕上方",
         "Japanese": "画面上方",
         "Italian": "Sopra lo schermo",
+        "French": "",
         "Comments": ""
     },
     {
@@ -469,6 +527,7 @@
         "Chinese": "屏幕下方",
         "Japanese": "画面下方",
         "Italian": "Sotto lo schermo",
+        "French": "",
         "Comments": ""
     },
     {
@@ -477,6 +536,7 @@
         "Chinese": "深色滤光级别（%）",
         "Japanese": "ダークフィルターレベル（％）",
         "Italian": "Livello filtro scuro (%)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -485,6 +545,7 @@
         "Chinese": "简单",
         "Japanese": "シンプル",
         "Italian": "Semplice",
+        "French": "",
         "Comments": ""
     },
     {
@@ -493,6 +554,7 @@
         "Chinese": "LCD重影（精确）",
         "Japanese": "LCDゴースト（正確）",
         "Italian": "Ghosting LCD (Preciso)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -501,6 +563,7 @@
         "Chinese": "LCD重影（快速）",
         "Japanese": "LCDゴースト（速い）",
         "Italian": "Ghosting LCD (Veloce)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -509,6 +572,7 @@
         "Chinese": "音频重采样器",
         "Japanese": "オーディオリサンプラー",
         "Italian": "Ricampionatore audio",
+        "French": "",
         "Comments": ""
     },
     {
@@ -517,6 +581,7 @@
         "Chinese": "模拟硬件（需重启生效）",
         "Japanese": "エミュレートされたハードウェア（再起動）",
         "Italian": "Hardware emulato (Riavvio richiesto)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -525,6 +590,7 @@
         "Chinese": "使用官方引导程序（需重启生效）",
         "Japanese": "公式ブートローダーを使用する（再起動）",
         "Italian": "Usa bootloader ufficiale (Riavvio richiesto)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -533,6 +599,7 @@
         "Chinese": "允许相反的方向",
         "Japanese": "反対方向を許可する",
         "Italian": "Consenti direzioni opposte",
+        "French": "",
         "Comments": ""
     },
     {
@@ -541,6 +608,7 @@
         "Chinese": "控制器震动强度",
         "Japanese": "コントローラー振動強度",
         "Italian": "Forza vibrazione controller",
+        "French": "",
         "Comments": ""
     },
     {
@@ -549,6 +617,7 @@
         "Chinese": "显示游戏链接设置",
         "Japanese": "ゲームリンク設定を表示",
         "Italian": "Mostra impostazioni collegamento gioco",
+        "French": "",
         "Comments": ""
     },
     {
@@ -557,6 +626,7 @@
         "Chinese": "游戏链接模式",
         "Japanese": "ゲームリンクモード",
         "Italian": "Modalità collegamento gioco",
+        "French": "",
         "Comments": ""
     },
     {
@@ -565,6 +635,7 @@
         "Chinese": "未连接",
         "Japanese": "未接続",
         "Italian": "Non connesso",
+        "French": "",
         "Comments": ""
     },
     {
@@ -573,6 +644,7 @@
         "Chinese": "网络服务器",
         "Japanese": "ネットワークサーバー",
         "Italian": "Server di rete",
+        "French": "",
         "Comments": ""
     },
     {
@@ -581,6 +653,7 @@
         "Chinese": "网络客户端",
         "Japanese": "ネットワーククライアント",
         "Italian": "Client di rete",
+        "French": "",
         "Comments": ""
     },
     {
@@ -589,6 +662,7 @@
         "Chinese": "网络链接端口",
         "Japanese": "ネットワークリンクポート",
         "Italian": "Porta collegamento rete",
+        "French": "",
         "Comments": ""
     },
     {
@@ -597,6 +671,7 @@
         "Chinese": "端口",
         "Japanese": "ポート",
         "Italian": "Porta",
+        "French": "",
         "Comments": ""
     },
     {
@@ -605,6 +680,7 @@
         "Chinese": "区域",
         "Japanese": "リージョン",
         "Italian": "Regione",
+        "French": "",
         "Comments": ""
     },
     {
@@ -613,6 +689,7 @@
         "Chinese": "强制核心使用NTSC、PAL或Dendy区域的时序。",
         "Japanese": "コアに NTSC、PAL、または Dendy リージョン タイミングを使用するように強制します。",
         "Italian": "Forza il core a utilizzare i tempi delle regioni NTSC, PAL o Dendy.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -621,6 +698,7 @@
         "Chinese": "游戏精灵附加组件（需要重启）",
         "Japanese": "Game Genie アドオン (再起動)」",
         "Italian": "Add-on Game Genie (Riavvio richiesto)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -629,6 +707,7 @@
         "Chinese": "启用游戏精灵附加卡带的模拟功能，允许在启动游戏时输入作弊码。游戏精灵ROM文件“gamegenie.nes”必须位于前端的系统目录中。不适用于FDS或街机内容。",
         "Japanese": "Game Genie アドオン カートリッジのエミュレーションを有効にして、ゲームの起動時にチート コードを入力できるようにします。Game Genie ROM ファイル「gamegenie.nes」がフロントエンドのシステム ディレクトリに存在している必要があります。FDS またはアーケード コンテンツには適用されません。",
         "Italian": "Abilita l'emulazione di una cartuccia add-on Game Genie, consentendo l'inserimento di codici cheat all'avvio dei giochi. Il file ROM di Game Genie 'gamegenie.nes' deve essere presente nella directory di sistema del frontend. Non si applica ai contenuti FDS o arcade.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -637,6 +716,7 @@
         "Chinese": "显示高级系统选项",
         "Japanese": "詳細システムオプションを表示",
         "Italian": "Mostra opzioni di sistema avanzate",
+        "French": "",
         "Comments": ""
     },
     {
@@ -645,6 +725,7 @@
         "Chinese": "显示高级系统选项和调整。",
         "Japanese": "詳細なシステムオプションと調整を表示します。",
         "Italian": "Mostra opzioni e modifiche avanzate del sistema.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -653,6 +734,7 @@
         "Chinese": "显示高级音频选项",
         "Japanese": "詳細なサウンドオプションを表示",
         "Italian": "Mostra opzioni audio avanzate",
+        "French": "",
         "Comments": ""
     },
     {
@@ -661,6 +743,7 @@
         "Chinese": "显示高级音频选项和调整。",
         "Japanese": "詳細なサウンドオプションと調整を表示します。",
         "Italian": "Mostra opzioni e modifiche audio avanzate.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -669,6 +752,7 @@
         "Chinese": "长宽比",
         "Japanese": "アスペクト比",
         "Italian": "Proporzioni",
+        "French": "",
         "Comments": ""
     },
     {
@@ -677,6 +761,7 @@
         "Chinese": "选择喜欢的纵横比。",
         "Japanese": "好みのアスペクト比を選択してください。",
         "Italian": "Scegli le proporzioni preferite.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -685,6 +770,7 @@
         "Chinese": "完美像素",
         "Japanese": "ピクセルパーフェクト",
         "Italian": "Pixel perfetto",
+        "French": "",
         "Comments": ""
     },
     {
@@ -693,6 +779,7 @@
         "Chinese": "裁剪过扫描",
         "Japanese": "オーバースキャンを切り取り",
         "Italian": "Ritaglia l'overscan",
+        "French": "",
         "Comments": ""
     },
     {
@@ -701,6 +788,7 @@
         "Chinese": "从屏幕的四边移除8像素的过扫描。",
         "Japanese": "画面のすべての側面から 8 ピクセルのオーバースキャンを削除します。",
         "Italian": "Rimuove 8 pixel di overscan da tutti i lati dello schermo.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -709,6 +797,7 @@
         "Chinese": "裁剪水平左侧过扫描",
         "Japanese": "水平左オーバースキャンを切り取り",
         "Italian": "Ritaglia l'overscan orizzontale sinistro",
+        "French": "",
         "Comments": ""
     },
     {
@@ -717,6 +806,7 @@
         "Chinese": "从屏幕左侧移除像素，以模拟标准CRT电视上的过扫描效果。",
         "Japanese": "画面の左側からピクセルを削除して、標準の CRT テレビで見られるオーバースキャンをシミュレートします。",
         "Italian": "Rimuove i pixel dal lato sinistro dello schermo per simulare l'overscan visto sui televisori CRT standard.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -725,6 +815,7 @@
         "Chinese": "裁剪水平右侧过扫描",
         "Japanese": "水平右オーバースキャンを切り取り",
         "Italian": "Ritaglia l'overscan orizzontale destro",
+        "French": "",
         "Comments": ""
     },
     {
@@ -733,6 +824,7 @@
         "Chinese": "从屏幕右侧移除像素，以模拟标准CRT电视上的过扫描效果。",
         "Japanese": "画面の右側からピクセルを削除して、標準の CRT テレビで見られるオーバースキャンをシミュレートします。",
         "Italian": "Rimuove i pixel dal lato destro dello schermo per simulare l'overscan visto sui televisori CRT standard.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -741,6 +833,7 @@
         "Chinese": "裁剪垂直顶部过扫描",
         "Japanese": "垂直上オーバースキャンを切り取り",
         "Italian": "Ritaglia l'overscan verticale superiore",
+        "French": "",
         "Comments": ""
     },
     {
@@ -749,6 +842,7 @@
         "Chinese": "移除屏幕顶部的像素，以模拟标准CRT电视的过扫描效果。",
         "Japanese": "画面の上側からピクセルを削除して、標準の CRT テレビで見られるオーバースキャンをシミュレートします。",
         "Italian": "Rimuove i pixel dalla parte superiore dello schermo per simulare l'overscan visto sui televisori CRT standard.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -757,6 +851,7 @@
         "Chinese": "裁剪垂直底部过扫描",
         "Japanese": "垂直下オーバースキャンを切り取り",
         "Italian": "Ritaglia l'overscan verticale inferiore",
+        "French": "",
         "Comments": ""
     },
     {
@@ -765,6 +860,7 @@
         "Chinese": "移除屏幕底部的像素，以模拟标准CRT电视的过扫描效果。",
         "Japanese": "画面の下側からピクセルを削除して、標準の CRT テレビで見られるオーバースキャンをシミュレートします。",
         "Italian": "Rimuove i pixel dalla parte inferiore dello schermo per simulare l'overscan visto sui televisori CRT standard.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -773,6 +869,7 @@
         "Chinese": "调色板",
         "Japanese": "カラーパレット",
         "Italian": "Tavolozza colori",
+        "French": "",
         "Comments": ""
     },
     {
@@ -781,6 +878,7 @@
         "Chinese": "可选择预生成的调色板、自定义的64x3调色板文件或原始格式（需使用nes-decoder着色器）。",
         "Japanese": "事前に生成されたパレット、ファイルまたは RAW 形式からのカスタム 64x3 パレット (nes-decoder シェーダーを使用する必要があります) から選択します。",
         "Italian": "Scegli tra tavolozze pre-generate, una tavolozza personalizzata 64x3 da file o formato raw (deve utilizzare uno shader nes-decoder).",
+        "French": "",
         "Comments": ""
     },
     {
@@ -789,6 +887,7 @@
         "Chinese": "NTSC滤镜",
         "Japanese": "NTSCフィルター",
         "Italian": "Filtro NTSC",
+        "French": "",
         "Comments": ""
     },
     {
@@ -797,6 +896,7 @@
         "Chinese": "Blargg的NTSC滤镜用于模拟RF、AV端子、S端子和RGB信号。",
         "Japanese": "Blargg's NTSC フィルターは、R​​F、コンポジット、S ビデオ、RGB ケーブル信号を複製するために使用されます。",
         "Italian": "I filtri NTSC di Blargg sono utilizzati per replicare i segnali RF, composito, S-Video e RGB.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -805,6 +905,7 @@
         "Chinese": "音频质量",
         "Japanese": "音質",
         "Italian": "Qualità audio",
+        "French": "",
         "Comments": ""
     },
     {
@@ -813,6 +914,7 @@
         "Chinese": "启用更高质量的音频，会增加性能需求。",
         "Japanese": "より高品質なサウンドを有効にします。パフォーマンス要件が増加します。",
         "Italian": "Abilita un suono di qualità superiore. Aumenta i requisiti di prestazioni.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -821,6 +923,7 @@
         "Chinese": "音频RF滤波器",
         "Japanese": "オーディオRFフィルター",
         "Italian": "Filtro RF audio",
+        "French": "",
         "Comments": ""
     },
     {
@@ -829,6 +932,7 @@
         "Chinese": "应用低通音频滤波器，模拟NES通过RF调制解调器连接电视时的“沉闷”音效。",
         "Japanese": "ローパス オーディオ フィルターを適用して、RF モジュレーターを介してテレビに接続したときに NES のミュートされたようなサウンドをシミュレートします。",
         "Italian": "Applica un filtro audio passa-basso per simulare il suono 'smorzato' del NES quando è connesso a un televisore tramite il modulatore RF.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -837,6 +941,7 @@
         "Chinese": "立体声效果",
         "Japanese": "ステレオサウンド効果",
         "Italian": "Effetto stereo",
+        "French": "",
         "Comments": ""
     },
     {
@@ -845,6 +950,7 @@
         "Chinese": "在将NES输出的单声道信号进行上混音时，通过延迟右声道来实现假立体声效果。",
         "Japanese": "NES からのモノラル信号出力をアップミックスするときに、右のオーディオ チャネルを遅延させることにより、擬似ステレオ サウンド効果を有効にします。",
         "Italian": "Abilita un effetto stereo falso ritardando il canale audio destro durante l'upmix del segnale mono in uscita dal NES.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -853,6 +959,7 @@
         "Chinese": "交换音频占空比",
         "Japanese": "オーディオデューティサイクルの入れ替え",
         "Italian": "Scambia i cicli di lavoro audio",
+        "French": "",
         "Comments": ""
     },
     {
@@ -861,6 +968,7 @@
         "Chinese": "交换占空比",
         "Japanese": "デューティサイクルの入れ替え",
         "Italian": "Scambia i cicli di lavoro",
+        "French": "",
         "Comments": ""
     },
     {
@@ -869,6 +977,7 @@
         "Chinese": "模拟那些脉冲波通道占空比位被反转的仿制NES游戏机的声音。",
         "Japanese": "パルス波チャネルのデューティ サイクル ビットが反転されたファミクローンのサウンドをシミュレートします。",
         "Italian": "Simula il suono dei famicloni che hanno i bit del ciclo di lavoro dei canali dell'onda quadra invertiti.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -877,6 +986,7 @@
         "Chinese": "主音量",
         "Japanese": "マスター音量",
         "Italian": "Volume principale",
+        "French": "",
         "Comments": ""
     },
     {
@@ -885,6 +995,7 @@
         "Chinese": "更改主音量等级。",
         "Japanese": "マスター音量レベルを変更します。",
         "Italian": "Cambia il livello del volume principale.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -893,6 +1004,7 @@
         "Chinese": "音频通道 1（方波 1）",
         "Japanese": "オーディオチャンネル1（方形波1）",
         "Italian": "Canale audio 1 (Onda quadra 1)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -901,6 +1013,7 @@
         "Chinese": "启用或禁用脉冲波生成器音频通道 1。",
         "Japanese": "パルス波発生器のオーディオ出力 1 を有効または無効にします。",
         "Italian": "Abilita o disabilita l'uscita audio 1 del generatore di onde quadre.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -909,6 +1022,7 @@
         "Chinese": "音频通道 2（方波 2）",
         "Japanese": "オーディオチャンネル2（方形波2）",
         "Italian": "Canale audio 2 (Onda quadra 2)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -917,6 +1031,7 @@
         "Chinese": "启用或禁用脉冲波生成器音频通道 2。",
         "Japanese": "パルス波発生器のオーディオ出力 2 を有効または無効にします。",
         "Italian": "Abilita o disabilita l'uscita audio 2 del generatore di onde quadre.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -925,6 +1040,7 @@
         "Chinese": "音频通道 3（三角波 1）",
         "Japanese": "オーディオチャンネル3（三角波）",
         "Italian": "Canale audio 3 (Onda triangolare)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -933,6 +1049,7 @@
         "Chinese": "启用或禁用三角波生成器音频输出。",
         "Japanese": "三角波発生器のオーディオ出力を有効または無効にします。",
         "Italian": "Abilita o disabilita l'uscita audio del generatore di onde triangolari.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -941,6 +1058,7 @@
         "Chinese": "音频通道 4（噪音）",
         "Japanese": "オーディオチャンネル4（ノイズ）",
         "Italian": "Canale audio 4 (Rumore)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -949,6 +1067,7 @@
         "Chinese": "启用或禁用噪音发生器音频输出。",
         "Japanese": "ノイズ発生器のオーディオ出力を有効または無効にします。",
         "Italian": "Abilita o disabilita l'uscita audio del generatore di rumore.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -957,6 +1076,7 @@
         "Chinese": "音频通道 5（PCM）",
         "Japanese": "オーディオチャンネル5（PCM）",
         "Italian": "Canale audio 5 (PCM)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -965,6 +1085,7 @@
         "Chinese": "启用或禁用增量调制音频输出通道。",
         "Japanese": "デルタ変調チャンネルのオーディオ出力を有効または無効にします。",
         "Italian": "Abilita o disabilita l'uscita audio del canale di modulazione delta.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -973,6 +1094,7 @@
         "Chinese": "启用连发",
         "Japanese": "Turbo有効",
         "Italian": "Abilita turbo",
+        "French": "",
         "Comments": ""
     },
     {
@@ -981,6 +1103,7 @@
         "Chinese": "启用或禁用连发按钮。",
         "Japanese": "Turboボタンを有効または無効にします。",
         "Italian": "Abilita o disabilita i pulsanti turbo.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -989,6 +1112,7 @@
         "Chinese": "连发延迟（以帧为单位",
         "Japanese": "Turboディレイ（フレーム）",
         "Italian": "Ritardo turbo (in fotogrammi)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -997,6 +1121,7 @@
         "Chinese": "按钮的连发率（以帧为单位）。",
         "Japanese": "Turboボタンの繰り返し速度。（フレーム数）",
         "Italian": "Frequenza di ripetizione dei pulsanti turbo in fotogrammi.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1005,6 +1130,7 @@
         "Chinese": "光枪模式",
         "Japanese": "ザッパーモード",
         "Italian": "Modalità Zapper",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1013,6 +1139,7 @@
         "Chinese": "选择用于光枪游戏的设备。",
         "Japanese": "ザッパーゲームに使用するデバイスを選択。",
         "Italian": "Seleziona il dispositivo da utilizzare per i giochi Zapper.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1021,6 +1148,7 @@
         "Chinese": "A 连发",
         "Japanese": "Turbo A",
         "Italian": "Turbo A",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1029,6 +1157,7 @@
         "Chinese": "B 连发",
         "Japanese": "Turbo B",
         "Italian": "Turbo B",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1037,6 +1166,7 @@
         "Chinese": "选择",
         "Japanese": "Select",
         "Italian": "Seleziona",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1045,6 +1175,7 @@
         "Chinese": "开始",
         "Japanese": "Start",
         "Italian": "Start",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1053,6 +1184,7 @@
         "Chinese": "方向键 上",
         "Japanese": "D-Pad Up",
         "Italian": "D-Pad Su",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1061,6 +1193,7 @@
         "Chinese": "方向键 下",
         "Japanese": "D-Pad Down",
         "Italian": "D-Pad Giù",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1069,6 +1202,7 @@
         "Chinese": "方向键 左",
         "Japanese": "D-Pad Left",
         "Italian": "D-Pad Sinistra",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1077,6 +1211,7 @@
         "Chinese": "方向键 右",
         "Japanese": "D-Pad Right",
         "Italian": "D-Pad Destra",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1085,6 +1220,7 @@
         "Chinese": "左肩键",
         "Japanese": "L",
         "Italian": "L",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1093,6 +1229,7 @@
         "Chinese": "右肩键",
         "Japanese": "R",
         "Italian": "R",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1101,6 +1238,7 @@
         "Chinese": "投币",
         "Japanese": "Coin",
         "Italian": "Moneta",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1109,6 +1247,7 @@
         "Chinese": "上",
         "Japanese": "Up",
         "Italian": "Su",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1117,6 +1256,7 @@
         "Chinese": "下",
         "Japanese": "Down",
         "Italian": "Giù",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1125,6 +1265,7 @@
         "Chinese": "左",
         "Japanese": "Left",
         "Italian": "Sinistra",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1133,6 +1274,7 @@
         "Chinese": "右",
         "Japanese": "Right",
         "Italian": "Destra",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1141,6 +1283,7 @@
         "Chinese": "攻击",
         "Japanese": "Attack",
         "Italian": "Attacco",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1149,6 +1292,7 @@
         "Chinese": "跳跃",
         "Japanese": "Jump",
         "Italian": "Salto",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1157,6 +1301,7 @@
         "Chinese": "模式切换",
         "Japanese": "Mode Switch",
         "Italian": "Cambio modalità",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1165,6 +1310,7 @@
         "Chinese": "运行",
         "Japanese": "Run",
         "Italian": "Corsa",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1173,6 +1319,7 @@
         "Chinese": "选项",
         "Japanese": "Option",
         "Italian": "Opzione",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1181,6 +1328,7 @@
         "Chinese": "X光标 左",
         "Japanese": "X Cursor Left",
         "Italian": "Cursore X Sinistra",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1189,6 +1337,7 @@
         "Chinese": "X光标 上",
         "Japanese": "X Cursor Up",
         "Italian": "Cursore X Su",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1197,6 +1346,7 @@
         "Chinese": "X光标 下",
         "Japanese": "X Cursor Down",
         "Italian": "Cursore X Giù",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1205,6 +1355,7 @@
         "Chinese": "X光标 右",
         "Japanese": "X Cursor Right",
         "Italian": "Cursore X Destra",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1213,6 +1364,7 @@
         "Chinese": "Y光标 左",
         "Japanese": "Y Cursor Left",
         "Italian": "Cursore Y Sinistra",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1221,6 +1373,7 @@
         "Chinese": "Y光标 上",
         "Japanese": "Y Cursor Up",
         "Italian": "Cursore Y Su",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1229,6 +1382,7 @@
         "Chinese": "Y光标 下",
         "Japanese": "Y Cursor Down",
         "Italian": "Cursore Y Giù",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1237,6 +1391,7 @@
         "Chinese": "Y光标 右",
         "Japanese": "Y Cursor Right",
         "Italian": "Cursore Y Destra",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1245,6 +1400,7 @@
         "Chinese": "旋转屏幕 + 激活方向键",
         "Japanese": "画面を回転 + Dパッドをアクティブにする",
         "Italian": "Ruota schermo + D-Pad attivo",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1253,6 +1409,7 @@
         "Chinese": "仿真鼠标 X 轴",
         "Japanese": "マウスX軸",
         "Italian": "Asse X mouse emulato",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1261,6 +1418,7 @@
         "Chinese": "仿真鼠标 Y 轴",
         "Japanese": "マウスY軸",
         "Italian": "Asse Y mouse emulato",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1269,6 +1427,7 @@
         "Chinese": "仿真鼠标左键",
         "Japanese": "マウス左クリック",
         "Italian": "Clic sinistro mouse emulato",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1277,6 +1436,7 @@
         "Chinese": "仿真鼠标右键",
         "Japanese": "マウス右クリック",
         "Italian": "Clic destro mouse emulato",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1285,6 +1445,7 @@
         "Chinese": "仿真鼠标减速",
         "Japanese": "マウス減速",
         "Italian": "Rallenta mouse emulato",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1293,6 +1454,7 @@
         "Chinese": "仿真鼠标加速",
         "Japanese": "マウス加速",
         "Italian": "Accelera mouse emulato",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1301,6 +1463,7 @@
         "Chinese": "按键 1",
         "Japanese": "Button 1",
         "Italian": "Pulsante 1",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1309,6 +1472,7 @@
         "Chinese": "按键 2",
         "Japanese": "Button 2",
         "Italian": "Pulsante 2",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1317,6 +1481,7 @@
         "Chinese": "按键 3",
         "Japanese": "Button 3",
         "Italian": "Pulsante 3",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1325,6 +1490,7 @@
         "Chinese": "按键 4",
         "Japanese": "Button 4",
         "Italian": "Pulsante 4",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1333,6 +1499,7 @@
         "Chinese": "左摇杆 X",
         "Japanese": "Left Analog X",
         "Italian": "Analogico sinistro X",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1341,6 +1508,7 @@
         "Chinese": "左摇杆 Y",
         "Japanese": "Left Analog Y",
         "Italian": "Analogico sinistro Y",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1349,6 +1517,7 @@
         "Chinese": "快进",
         "Japanese": "早送り",
         "Italian": "Avanti veloce",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1357,6 +1526,7 @@
         "Chinese": "上一个内部调色板",
         "Japanese": "前の内部パレット",
         "Italian": "Tavolozza interna precedente",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1365,6 +1535,7 @@
         "Chinese": "下一个内部调色板",
         "Japanese": "次の内部パレット",
         "Italian": "Tavolozza interna successiva",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1373,6 +1544,7 @@
         "Chinese": "模式",
         "Japanese": "Mode",
         "Italian": "Modalità",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1381,6 +1553,7 @@
         "Chinese": "切换调色板 (+左/右）",
         "Japanese": "Switch Palette (+ Left/Right)",
         "Italian": "Cambia tavolozza (+ Sinistra/Destra)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1389,6 +1562,7 @@
         "Chinese": "(VSSystem) 投币",
         "Japanese": "(VSSystem) Insert Coin",
         "Italian": "(VSSystem) Inserisci moneta",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1397,6 +1571,7 @@
         "Chinese": "(FDS) 磁盘换面",
         "Japanese": "(FDS) Disk Side Change",
         "Italian": "(FDS) Cambio lato disco",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1405,6 +1580,7 @@
         "Chinese": "(FDS) 插入/弹出磁盘",
         "Japanese": "(FDS) Insert/Eject Disk",
         "Italian": "(FDS) Inserisci/Estrai disco",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1413,6 +1589,7 @@
         "Chinese": "右肩键 连发",
         "Japanese": "Turbo R",
         "Italian": "Turbo R",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1421,6 +1598,7 @@
         "Chinese": "左肩键 连发",
         "Japanese": "Turbo L",
         "Italian": "Turbo L",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1429,6 +1607,7 @@
         "Chinese": "增亮太阳能传感器",
         "Japanese": "Brighten Solar Sensor",
         "Italian": "Illumina sensore solare",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1437,6 +1616,7 @@
         "Chinese": "减暗太阳能传感器",
         "Japanese": "Darken Solar Sensor",
         "Italian": "Oscura sensore solare",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1445,6 +1625,7 @@
         "Chinese": "(VSSystem) 投币 1",
         "Japanese": "(VSSystem) Coin 1",
         "Italian": "(VSSystem) Moneta 1",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1453,6 +1634,7 @@
         "Chinese": "(VSSystem) 投币 2",
         "Japanese": "(VSSystem) Coin 2",
         "Italian": "(VSSystem) Moneta 2",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1461,6 +1643,7 @@
         "Chinese": "(Famicom) 麦克风",
         "Japanese": "(Famicom) Microphone",
         "Italian": "(Famicom) Microfono",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1469,6 +1652,7 @@
         "Chinese": "⇓",
         "Japanese": "⇓",
         "Italian": "Croce",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1477,6 +1661,7 @@
         "Chinese": "⇒",
         "Japanese": "⇒",
         "Italian": "Cerchio",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1485,6 +1670,7 @@
         "Chinese": "⇑",
         "Japanese": "⇑",
         "Italian": "Triangolo",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1493,6 +1679,7 @@
         "Chinese": "⇐",
         "Japanese": "⇐",
         "Italian": "Quadrato",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1501,6 +1688,7 @@
         "Chinese": "右摇杆 X",
         "Japanese": "Right Analog X",
         "Italian": "Analogico destro X",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1509,6 +1697,7 @@
         "Chinese": "右摇杆 Y",
         "Japanese": "Right Analog Y",
         "Italian": "Analogico destro Y",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1517,6 +1706,7 @@
         "Chinese": "枪械扳机",
         "Japanese": "Gun Trigger",
         "Italian": "Grilletto pistola",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1525,6 +1715,7 @@
         "Chinese": "枪械装填",
         "Japanese": "Gun Reload",
         "Italian": "Ricarica pistola",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1533,6 +1724,7 @@
         "Chinese": "枪械辅助 A",
         "Japanese": "Gun Aux A",
         "Italian": "Pistola ausiliaria A",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1541,6 +1733,7 @@
         "Chinese": "枪械辅助 B",
         "Japanese": "Gun Aux B",
         "Italian": "Pistola ausiliaria B",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1549,6 +1742,7 @@
         "Chinese": "枪械开始",
         "Japanese": "Gun Start",
         "Italian": "Inizio pistola",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1557,6 +1751,7 @@
         "Chinese": "方向键 左 （紫）",
         "Japanese": "D-Pad Left (violet)",
         "Italian": "D-Pad Sinistra (viola)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1565,6 +1760,7 @@
         "Chinese": "方向键 上 （白）",
         "Japanese": "D-Pad Up (white)",
         "Italian": "D-Pad Su (bianco)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1573,6 +1769,7 @@
         "Chinese": "方向键 下 （橙）",
         "Japanese": "D-Pad Down (orange)",
         "Italian": "D-Pad Giù (arancione)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1581,6 +1778,7 @@
         "Chinese": "方向键 右 （绿）",
         "Japanese": "D-Pad Right (green)",
         "Italian": "D-Pad Destra (verde)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1589,6 +1787,7 @@
         "Chinese": "红色按键",
         "Japanese": "Red Button",
         "Italian": "Pulsante rosso",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1597,6 +1796,7 @@
         "Chinese": "Pen Button",
         "Japanese": "Pen Button",
         "Italian": "Pulsante penna",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1605,6 +1805,7 @@
         "Chinese": "Pen State",
         "Japanese": "Pen State",
         "Italian": "Stato penna",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1613,6 +1814,7 @@
         "Chinese": "Pen on Storyware",
         "Japanese": "Pen on Storyware",
         "Italian": "Penna su Storyware",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1621,6 +1823,7 @@
         "Chinese": "Pen on Pad",
         "Japanese": "Pen on Pad",
         "Italian": "Penna su Pad",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1629,6 +1832,7 @@
         "Chinese": "上一页",
         "Japanese": "Previous Page",
         "Italian": "Pagina precedente",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1637,6 +1841,7 @@
         "Chinese": "下一页",
         "Japanese": "Next Page",
         "Italian": "Pagina successiva",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1645,6 +1850,7 @@
         "Chinese": "按键 1 开始",
         "Japanese": "Button 1 Start",
         "Italian": "Pulsante 1 Start",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1653,6 +1859,7 @@
         "Chinese": "暂停按键",
         "Japanese": "Button Pause",
         "Italian": "Pulsante pausa",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1661,6 +1868,7 @@
         "Chinese": "重置",
         "Japanese": "Console Reset",
         "Italian": "Reset console",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1669,6 +1877,7 @@
         "Chinese": "选择",
         "Japanese": "Console Select",
         "Italian": "Selezione console",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1677,6 +1886,7 @@
         "Chinese": "暂停按键",
         "Japanese": "Console Pause",
         "Italian": "Pausa console",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1685,6 +1895,7 @@
         "Chinese": "左难度",
         "Japanese": "Left Difficulty",
         "Italian": "Difficoltà sinistra",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1693,6 +1904,7 @@
         "Chinese": "右难度",
         "Japanese": "Right Difficulty",
         "Italian": "Difficoltà destra",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1701,6 +1913,7 @@
         "Chinese": "(Dual Stick) P2 X-Axis",
         "Japanese": "(Dual Stick) P2 X-Axis",
         "Italian": "(Dual Stick) Asse X P2",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1709,6 +1922,7 @@
         "Chinese": "(Dual Stick) P2 Y-Axis",
         "Japanese": "(Dual Stick) P2 Y-Axis",
         "Italian": "(Dual Stick) Asse Y P2",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1717,6 +1931,7 @@
         "Chinese": "黑/白",
         "Japanese": "Black/White",
         "Italian": "Nero/Bianco",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1725,6 +1940,7 @@
         "Chinese": "手柄",
         "Japanese": "Gamepad",
         "Italian": "Gamepad",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1733,6 +1949,7 @@
         "Chinese": "超任手柄",
         "Japanese": "SNES Joypad",
         "Italian": "Joypad SNES",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1741,6 +1958,7 @@
         "Chinese": "超任鼠标",
         "Japanese": "SNES Mouse",
         "Italian": "Mouse SNES",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1749,6 +1967,7 @@
         "Chinese": "PCE手柄",
         "Japanese": "PCE Joypad",
         "Italian": "Joypad PCE",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1757,6 +1976,7 @@
         "Chinese": "鼠标",
         "Japanese": "Mouse",
         "Italian": "Mouse",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1765,6 +1985,7 @@
         "Chinese": "古典",
         "Japanese": "Classic",
         "Italian": "Classico",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1773,6 +1994,7 @@
         "Chinese": "现代",
         "Japanese": "Modern",
         "Italian": "Moderno",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1781,6 +2003,7 @@
         "Chinese": "鼠标 (仅坐标)",
         "Japanese": "Mouse (ball only)",
         "Italian": "Mouse (solo palla)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1789,6 +2012,7 @@
         "Chinese": "鼠标 (完整)",
         "Japanese": "Mouse (full)",
         "Italian": "Mouse (completo)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1797,6 +2021,7 @@
         "Chinese": "触屏",
         "Japanese": "Pointer",
         "Italian": "Puntatore",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1805,6 +2030,7 @@
         "Chinese": "光枪",
         "Japanese": "Lightgun",
         "Italian": "Pistola ottica",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1813,6 +2039,7 @@
         "Chinese": "雅达利摇杆",
         "Japanese": "ATARI Joystick",
         "Italian": "Joystick ATARI",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1821,6 +2048,7 @@
         "Chinese": "雅达利 5200 摇杆",
         "Japanese": "ATARI 5200 Joystick",
         "Italian": "Joystick ATARI 5200",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1829,6 +2057,7 @@
         "Chinese": "雅达利键盘",
         "Japanese": "ATARI Keyboard",
         "Italian": "Tastiera ATARI",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1837,6 +2066,7 @@
         "Chinese": "传统手柄",
         "Japanese": "RetroPad",
         "Italian": "RetroPad",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1845,6 +2075,7 @@
         "Chinese": "街机摇杆",
         "Japanese": "Fightstick",
         "Italian": "Fightstick",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1853,6 +2084,7 @@
         "Chinese": "8键",
         "Japanese": "8-Button",
         "Italian": "8 pulsanti",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1861,6 +2093,7 @@
         "Chinese": "6键",
         "Japanese": "6-Button",
         "Italian": "6 pulsanti",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1869,6 +2102,7 @@
         "Chinese": "标准",
         "Japanese": "standard",
         "Italian": "standard",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1877,6 +2111,7 @@
         "Chinese": "模拟",
         "Japanese": "analog",
         "Italian": "analogico",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1885,6 +2120,7 @@
         "Chinese": "鼠标",
         "Japanese": "mouse",
         "Italian": "mouse",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1893,6 +2129,7 @@
         "Chinese": "【SFC】扫描线 + 2倍分辨率",
         "Japanese": "【SFC】Scanlines + 2x resolution",
         "Italian": "【SFC】Linee di scansione + risoluzione 2x",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1901,6 +2138,7 @@
         "Chinese": "【SFC】4:3 铺满屏幕",
         "Japanese": "【SFC】4:3 Full screen",
         "Italian": "【SFC】Schermo intero 4:3",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1909,6 +2147,7 @@
         "Chinese": "【通用】4:3 铺满屏幕",
         "Japanese": "【Universal】4:3 Full screen",
         "Italian": "【Universale】Schermo intero 4:3",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1917,6 +2156,7 @@
         "Chinese": "【通用】扫描线 + 2倍分辨率",
         "Japanese": "【Universal】Scanlines + 2x resolution",
         "Italian": "【Universale】Linee di scansione + risoluzione 2x",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1925,6 +2165,7 @@
         "Chinese": "【通用】扫描线 + RGB + 2倍分辨率",
         "Japanese": "【Universal】Scanlines + RGB + 2x resolution",
         "Italian": "【Universale】Linee di scansione + RGB + risoluzione 2x",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1933,6 +2174,7 @@
         "Chinese": "【通用】TV Flat",
         "Japanese": "【Universal】TV Flat",
         "Italian": "【Universale】TV Flat",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1941,6 +2183,7 @@
         "Chinese": "【通用】TV",
         "Japanese": "【Universal】TV",
         "Italian": "【Universale】TV",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1949,6 +2192,7 @@
         "Chinese": "【通用】TV integer",
         "Japanese": "【Universal】TV integer",
         "Italian": "【Universale】TV integer",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1957,6 +2201,7 @@
         "Chinese": "【通用】Sony PVM Office",
         "Japanese": "【Universal】Sony PVM Office",
         "Italian": "【Universale】Sony PVM Office",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1965,6 +2210,7 @@
         "Chinese": "【NeoGeo】扫描线",
         "Japanese": "【NeoGeo】Scanlines",
         "Italian": "【NeoGeo】Linee di scansione",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1973,6 +2219,7 @@
         "Chinese": "【NeoGeo】竖版、扫描线",
         "Japanese": "【NeoGeo】Vertical, Scanlines",
         "Italian": "【NeoGeo】Verticale, linee di scansione",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1981,6 +2228,7 @@
         "Chinese": "【Capcom】扫描线",
         "Japanese": "【Capcom】Scanlines",
         "Italian": "【Capcom】Linee di scansione",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1989,6 +2237,7 @@
         "Chinese": "【Capcom】竖版、扫描线",
         "Japanese": "【Capcom】Vertical, Scanlines",
         "Italian": "【Capcom】Verticale, linee di scansione",
+        "French": "",
         "Comments": ""
     },
     {
@@ -1997,6 +2246,7 @@
         "Chinese": "【PGM】扫描线",
         "Japanese": "【PGM】Scanlines",
         "Italian": "【PGM】Linee di scansione",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2005,6 +2255,7 @@
         "Chinese": "【PGM】竖版、扫描线",
         "Japanese": "【PGM】Vertical, Scalines",
         "Italian": "【PGM】Verticale, linee di scansione",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2013,6 +2264,7 @@
         "Chinese": "【GB】网格线",
         "Japanese": "【GB】Grid lines",
         "Italian": "【GB】Linee della griglia",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2021,6 +2273,7 @@
         "Chinese": "【GB】网格线 + 深色滤光级别20%",
         "Japanese": "【GB】Grid lines + 20% Dark filter",
         "Italian": "【GB】Linee della griglia + Filtro scuro 20%",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2029,6 +2282,7 @@
         "Chinese": "【GB】网格线 + 色彩校正",
         "Japanese": "【GB】Grid lines + Color Correction",
         "Italian": "【GB】Linee della griglia + Correzione colore",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2037,6 +2291,7 @@
         "Chinese": "【GBP】网格线",
         "Japanese": "【GBP】Grid lines",
         "Italian": "【GBP】Linee della griglia",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2045,6 +2300,7 @@
         "Chinese": "【GBP】网格线 + 色彩校正",
         "Japanese": "【GBP】Grid lines + Color Correction",
         "Italian": "【GBP】Linee della griglia + Correzione colore",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2053,6 +2309,7 @@
         "Chinese": "【GBL】网格线",
         "Japanese": "【GBL】Grid lines",
         "Italian": "【GBL】Linee della griglia",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2061,6 +2318,7 @@
         "Chinese": "【GBL】网格线 + 色彩校正",
         "Japanese": "【GBL】Grid lines + Color Correction",
         "Italian": "【GBL】Linee della griglia + Correzione colore",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2069,6 +2327,7 @@
         "Chinese": "【GBL法米通限定机】网格线 + 色彩校正",
         "Japanese": "【GBL Famitsu Edition】Grid lines + Color Correction",
         "Italian": "【GBL Edizione Famitsu】Linee della griglia + Correzione colore",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2077,6 +2336,7 @@
         "Chinese": "【GBC】网格线",
         "Japanese": "【GBC】Grid lines",
         "Italian": "【GBC】Linee della griglia",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2085,6 +2345,7 @@
         "Chinese": "【GBC】网格线 + 实机偏黄",
         "Japanese": "【GBC】Grid lines + Yellow",
         "Italian": "【GBC】Linee della griglia + Giallo",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2093,6 +2354,7 @@
         "Chinese": "【GBC】3倍大小",
         "Japanese": "【GBC】3X",
         "Italian": "【GBC】3X",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2101,6 +2363,7 @@
         "Chinese": "【WSC】网格线",
         "Japanese": "【WSC】Grid lines",
         "Italian": "【WSC】Linee della griglia",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2109,6 +2372,7 @@
         "Chinese": "【WSC】网格线+偏暗",
         "Japanese": "【WSC】Gird lines + Dark",
         "Italian": "【WSC】Linee della griglia + Scuro",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2117,6 +2381,7 @@
         "Chinese": "【WSC】3倍大小",
         "Japanese": "【WSC】3X",
         "Italian": "【WSC】3X",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2125,6 +2390,7 @@
         "Chinese": "【PCE】扫描线 + 2倍分辨率",
         "Japanese": "【PCE】Scanlines + 2x resolution",
         "Italian": "【PCE】Linee di scansione + Risoluzione 2x",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2133,6 +2399,7 @@
         "Chinese": "【NGPC】网格线",
         "Japanese": "【NGPC】Grid lines",
         "Italian": "【NGPC】Linee della griglia",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2141,6 +2408,7 @@
         "Chinese": "【NGPC】网格线+RGB",
         "Japanese": "【NGPC】Grid lines + RGB",
         "Italian": "【NGPC】Linee della griglia + RGB",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2149,6 +2417,7 @@
         "Chinese": "【NGP】3倍大小",
         "Japanese": "【NGP】3X",
         "Italian": "【NGP】3X",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2157,6 +2426,7 @@
         "Chinese": "【FC】扫描线 + 2倍分辨率",
         "Japanese": "【FC】Scanlines + 2x resolution",
         "Italian": "【FC】Linee di scansione + Risoluzione 2x",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2165,6 +2435,7 @@
         "Chinese": "【MD】扫描线 + 2倍分辨率（宽屏比例）",
         "Japanese": "【MD】Scanlines + 2x resolution (Wide)",
         "Italian": "【MD】Linee di scansione + Risoluzione 2x (Ampio)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2173,6 +2444,7 @@
         "Chinese": "【MD】扫描线 + 2倍分辨率（方屏比例）",
         "Japanese": "【MD】Scanlines + 2x resolution (Square)",
         "Italian": "【MD】Linee di scansione + Risoluzione 2x (Quadrato)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2181,6 +2453,7 @@
         "Chinese": "【GG】网格线",
         "Japanese": "【GG】Grid lines",
         "Italian": "【GG】Linee della griglia",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2189,6 +2462,7 @@
         "Chinese": "【GG】3倍大小",
         "Japanese": "【GG】3X",
         "Italian": "【GG】3X",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2197,6 +2471,7 @@
         "Chinese": "【GBA】网格线",
         "Japanese": "【GBA】Grid lines",
         "Italian": "【GBA】Linee della griglia",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2205,6 +2480,7 @@
         "Chinese": "【GBA】网格线 + 实机偏黄",
         "Japanese": "【GBA】Grid lines + Yellow",
         "Italian": "【GBA】Linee della griglia + Giallo",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2213,6 +2489,7 @@
         "Chinese": "【GBM】网格线",
         "Japanese": "【GBM】Grid lines",
         "Italian": "【GBM】Linee della griglia",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2221,6 +2498,7 @@
         "Chinese": "【GBM】网格线 + 实机高亮",
         "Japanese": "【GBM】Grid lines + Rear highlight",
         "Italian": "【GBM】Linee della griglia + Evidenziazione posteriore",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2229,6 +2507,7 @@
         "Chinese": "【GBA】3倍大小",
         "Japanese": "【GBA】3X",
         "Italian": "【GBA】3X",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2237,6 +2516,7 @@
         "Chinese": "【GBM】2倍大小",
         "Japanese": "【GBM】2X",
         "Italian": "【GBM】2X",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2245,6 +2525,7 @@
         "Chinese": "CD附加组件（MD模式，需重启）",
         "Japanese": "CDアドオン（MDモード）（再起動）",
         "Italian": "Add-on CD (modalità MD) (Richiede riavvio)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2253,6 +2534,7 @@
         "Chinese": "68K 地址错误",
         "Japanese": "68K Address Error",
         "Italian": "Errore di indirizzo 68K",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2261,6 +2543,7 @@
         "Chinese": "Mega Drive/Genesis主CPU（Motorola 68000）在尝试进行未对齐的内存访问时，会触发地址错误异常（导致崩溃）。启用此功能可以模拟这一行为。仅在运行ROM改版时才建议禁用此功能，因为此类改版通常基于精度较低的模拟器开发，可能依赖无效内存访问以确保正常运行。",
         "Japanese": "Mega Drive/Genesis のメイン CPU (Motorola 68000) は、アラインされていないメモリ アクセスを実行しようとすると、アドレス エラー例外 (クラッシュ) を生成します。これを有効にすると、この動作がシミュレートされます。これは、ROM ハックをプレイする場合のみ無効にする必要があります。これは、通常、精度の低いエミュレータを使用して開発されており、正しく動作するために無効な RAM アクセスに依存する可能性があるためです。",
         "Italian": "La CPU principale del Mega Drive/Genesis (Motorola 68000) genera un'eccezione di errore di indirizzo (crash) quando tenta di eseguire un accesso alla memoria non allineato. Abilitare questa opzione simulerà questo comportamento. Dovrebbe essere disabilitato solo quando si gioca a ROM hack, poiché queste sono generalmente sviluppate utilizzando emulatori meno accurati e potrebbero fare affidamento su accessi RAM non validi per funzionare correttamente.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2269,6 +2552,7 @@
         "Chinese": "高频",
         "Japanese": "EQ High",
         "Italian": "EQ Alto",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2277,6 +2561,7 @@
         "Chinese": "调节内部音频均衡器的高频段。",
         "Japanese": "内部オーディオイコライザーの高音域を調整します。",
         "Italian": "Regola la banda di alta frequenza dell'equalizzatore audio interno.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2285,6 +2570,7 @@
         "Chinese": "中频",
         "Japanese": "EQ Mid",
         "Italian": "EQ Medio",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2293,6 +2579,7 @@
         "Chinese": "调节内部音频均衡器的中频段。",
         "Japanese": "内部オーディオイコライザーの中音域を調整します。",
         "Italian": "Regola la banda di media frequenza dell'equalizzatore audio interno.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2301,6 +2588,7 @@
         "Chinese": "低频",
         "Japanese": "EQ Low",
         "Italian": "EQ Basso",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2309,6 +2597,7 @@
         "Chinese": "调节内部音频均衡器的低频段。",
         "Japanese": "内部オーディオイコライザーの低音域を調整します。",
         "Italian": "Regola la banda di bassa frequenza dell'equalizzatore audio interno.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2317,6 +2606,7 @@
         "Chinese": "启用低通音频滤波器，更准确地还原第一代Mega Drive/Genesis的经典音效。",
         "Japanese": "ローパス オーディオ フィルターを有効にして、Model 1 Mega Drive/Genesis の特徴的なサウンドをより正確にシミュレートします。",
         "Italian": "Abilita un filtro audio passa-basso per simulare meglio il suono caratteristico di un Mega Drive/Genesis Model 1.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2325,6 +2615,7 @@
         "Chinese": "Blargg NTSC 滤镜",
         "Japanese": "Blargg NTSC Filter",
         "Italian": "Filtro Blargg NTSC",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2333,6 +2624,7 @@
         "Chinese": "启用视频滤镜，模拟不同类型的NTSC电视信号。",
         "Japanese": "ビデオ フィルターを適用して、さまざまな NTSC TV 信号を模倣します。",
         "Italian": "Applica un filtro video per imitare vari segnali TV NTSC.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2341,6 +2633,7 @@
         "Chinese": "黑白",
         "Japanese": "モノクロ",
         "Italian": "Monocromatico",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2349,6 +2642,7 @@
         "Chinese": "AV端子",
         "Japanese": "コンポジット",
         "Italian": "Composito",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2357,6 +2651,7 @@
         "Chinese": "S端子",
         "Japanese": "S端子",
         "Italian": "S-Video",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2365,6 +2660,7 @@
         "Chinese": "核心提供的显示比例",
         "Japanese": "コア提供のアスペクト比",
         "Italian": "Proporzioni fornite dal core",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2373,6 +2669,7 @@
         "Chinese": "选择显示比例。仅当RetroArch的视频设置中将比例选项设为“核心提供”时，此设置才会生效。",
         "Japanese": "優先するコンテンツのアスペクト比を選択します。これは、RetroArch のアスペクト比がビデオ設定で「コア提供」に設定されている場合にのみ適用されます。",
         "Italian": "Scegli le proporzioni preferite per il contenuto. Questo si applica solo quando le proporzioni di RetroArch sono impostate su 'Fornite dal core' nelle impostazioni video.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2381,6 +2678,7 @@
         "Chinese": "系统启动ROM",
         "Japanese": "システムブートROM",
         "Italian": "ROM di avvio del sistema",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2389,6 +2687,7 @@
         "Chinese": "如果RetroArch的系统目录中存在官方BIOS或引导程序，则使用它来模拟硬件。将显示主机特定的启动序列或动画，然后运行加载的内容。",
         "Japanese": "RetroArch のシステム ディレクトリに存在する場合、エミュレートされたハードウェアに公式 BIOS/ブートローダーを使用します。コンソール固有の起動シーケンス/アニメーションを表示し、読み込まれたコンテンツを実行します。",
         "Italian": "Usa il BIOS/bootloader ufficiale per l'hardware emulato, se presente nella directory di sistema di RetroArch. Mostra la sequenza/animazione di avvio specifica della console, quindi esegue il contenuto caricato.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2397,6 +2696,7 @@
         "Chinese": "CD备份卡BRAM（需要重启）",
         "Japanese": "CD バックアップ カート BRAM (再起動)",
         "Italian": "BRAM della cartuccia di backup CD (Richiede riavvio)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2405,6 +2705,7 @@
         "Chinese": "在运行Sega CD/Mega-CD内容时，选择是为所有游戏共享一个备份RAM卡（共享），还是为每个游戏创建一个独立的备份RAM卡（每个游戏独立）。",
         "Japanese": "Sega CD/Mega-CD コンテンツを実行するときに、すべてのゲームで単一のバックアップ RAM カートを共有するか (カート毎)、ゲームごとに個別のバックアップ RAM カートを作成するか (ゲーム毎) を指定します。",
         "Italian": "Quando si esegue contenuto Sega CD/Mega-CD, specifica se condividere una singola cartuccia di backup RAM per tutti i giochi (Per-Cartuccia) o creare una cartuccia di backup RAM separata per ogni gioco (Per-Gioco).",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2413,6 +2714,7 @@
         "Chinese": "CD备份卡BRAM大小（需要重启）",
         "Japanese": "CD バックアップ カート BRAM サイズ (再起動)",
         "Italian": "Dimensione BRAM della cartuccia di backup CD (Richiede riavvio)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2421,6 +2723,7 @@
         "Chinese": "设置运行Sega CD/Mega-CD内容时的备份RAM卡大小。此选项在将备份RAM卡设置为每个游戏独立时特别有用，可以避免生成多个较大的卡带。",
         "Japanese": "Sega CD/Mega-CD コンテンツを実行するときに、バックアップ RAM カートのサイズを設定します。バックアップ RAM カートをゲームごとに設定して、複数の大きなカート サイズを回避する場合に便利です。",
         "Italian": "Imposta la dimensione della cartuccia di backup RAM quando si esegue contenuto Sega CD/Mega-CD. Utile quando si imposta la cartuccia di backup RAM su Per-Gioco per evitare dimensioni di cartuccia più grandi multiple.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2429,6 +2732,7 @@
         "Chinese": "CD访问时间",
         "Japanese": "CDアクセス時間",
         "Italian": "Tempo di accesso CD",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2437,6 +2741,7 @@
         "Chinese": "在启动读取或跳转到加载光盘上特定位置时，模拟原始CD硬件的延迟。某些CD游戏需要此功能，因为如果CD数据提前加载，它们会崩溃，同时它还可以修复一些游戏中的CD音频不同步问题。禁用此功能对于MSU-MD游戏非常有用，因为它可以使CD音频轨道的循环更加顺畅。",
         "Japanese": "読み込みを開始するとき、またはロードされたディスク上の特定の場所をシークするときに、元の CD ハードウェアの遅延をシミュレートします。これは、CD データがすぐに利用可能になるとクラッシュするいくつかの CD ゲームで必要であり、一部のゲームでの CD オーディオの同期ずれの問題も修正します。これを無効にすると、CD オーディオ トラックのループがよりシームレスになるため、MSU-MD ゲームで役立ちます。",
         "Italian": "Simula la latenza originale dell'hardware CD quando si avvia una lettura o si cerca una posizione specifica sul disco caricato. Questo è richiesto da alcuni giochi CD che si bloccano se i dati CD sono disponibili troppo presto e risolve anche i problemi di desincronizzazione dell'audio CD in alcuni giochi. Disabilitare questo può essere utile con i giochi MSU-MD in quanto rende i loop delle tracce audio CD più fluidi.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2445,6 +2750,7 @@
         "Chinese": "CD镜像缓存",
         "Japanese": "CDイメージキャッシュ",
         "Italian": "Cache immagine CD",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2453,6 +2759,7 @@
         "Chinese": "在启动时将CD镜像加载到内存中，仅支持CHD格式。需要重启。",
         "Japanese": "起動時に CD イメージをメモリに読み込みます。CHD のみがサポートされています。（再起動）",
         "Italian": "Carica l'immagine CD in memoria all'avvio. Supportato solo CHD. Riavvio richiesto.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2461,6 +2768,7 @@
         "Chinese": "显示高级音频音量设置（重新打开菜单）",
         "Japanese": "詳細なオーディオ音量設定を表示（メニューを再度開く）",
         "Italian": "Mostra impostazioni avanzate del volume audio (Riapri menu)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2469,6 +2777,7 @@
         "Chinese": "启用低级音频通道参数配置。注意：需要切换快速菜单才能使此设置生效。",
         "Japanese": "低レベルオーディオ チャネル パラメータの構成を有効にします。注: この設定を有効にするには、クイック メニューを切り替える必要があります。",
         "Italian": "Abilita la configurazione dei parametri di basso livello dei canali audio. NOTA: Il menu rapido deve essere attivato affinché questa impostazione abbia effetto.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2477,6 +2786,7 @@
         "Chinese": "PSG音调通道0音量百分比",
         "Japanese": "PSG Tone Channel 0 Volume %",
         "Italian": "Volume canale tono PSG 0 %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2485,6 +2795,7 @@
         "Chinese": "降低PSG音调通道0的音量。",
         "Japanese": "PSGトーンチャンネル0の音量を下げます。",
         "Italian": "Riduci il volume del canale tono PSG 0.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2493,6 +2804,7 @@
         "Chinese": "PSG音调通道1音量百分比",
         "Japanese": "PSG Tone Channel 1 Volume %",
         "Italian": "Volume canale tono PSG 1 %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2501,6 +2813,7 @@
         "Chinese": "降低PSG音调通道1的音量。",
         "Japanese": "PSGトーンチャンネル1の音量を下げます。",
         "Italian": "Riduci il volume del canale tono PSG 1.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2509,6 +2822,7 @@
         "Chinese": "PSG音调通道2音量百分比",
         "Japanese": "PSG Tone Channel 2 Volume %",
         "Italian": "Volume canale tono PSG 2 %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2517,6 +2831,7 @@
         "Chinese": "降低PSG音调通道2的音量。",
         "Japanese": "PSGトーンチャンネル2の音量を下げます。",
         "Italian": "Riduci il volume del canale tono PSG 2.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2525,6 +2840,7 @@
         "Chinese": "PSG音调通道3音量百分比",
         "Japanese": "PSG Noise Channel 3 Volume %",
         "Italian": "Volume canale rumore PSG 3 %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2533,6 +2849,7 @@
         "Chinese": "降低PSG音调通道3的音量。",
         "Japanese": "PSGノイズチャンネル3の音量を下げます。",
         "Italian": "Riduci il volume del canale rumore PSG 3.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2541,6 +2858,7 @@
         "Chinese": "Mega Drive/Genesis FM通道0音量百分比",
         "Japanese": "Mega Drive/Genesis FM チャンネル 0 音量 %",
         "Italian": "Volume canale FM Mega Drive/Genesis 0 %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2549,6 +2867,7 @@
         "Chinese": "调低Mega Drive/Genesis FM通道0的音量，仅适用于MAME FM模拟器。",
         "Japanese": "Mega Drive/Genesis FM チャンネル 0 の音量を下げます。MAME FM エミュレーターでのみ動作します。",
         "Italian": "Riduci il volume del canale FM Mega Drive/Genesis 0. Funziona solo con gli emulatori FM MAME.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2557,6 +2876,7 @@
         "Chinese": "Mega Drive/Genesis FM通道1音量百分比",
         "Japanese": "Mega Drive/Genesis FM チャンネル 1 音量 %",
         "Italian": "Volume canale FM Mega Drive/Genesis 1 %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2565,6 +2885,7 @@
         "Chinese": "调低Mega Drive/Genesis FM通道1的音量，仅适用于MAME FM模拟器。",
         "Japanese": "Mega Drive/Genesis FM チャンネル 1 の音量を下げます。MAME FM エミュレーターでのみ動作します。",
         "Italian": "Riduci il volume del canale FM Mega Drive/Genesis 1. Funziona solo con gli emulatori FM MAME.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2573,6 +2894,7 @@
         "Chinese": "Mega Drive/Genesis FM通道2音量百分比",
         "Japanese": "Mega Drive/Genesis FM チャンネル 2 音量 %",
         "Italian": "Volume canale FM Mega Drive/Genesis 2 %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2581,6 +2903,7 @@
         "Chinese": "调低Mega Drive/Genesis FM通道2的音量，仅适用于MAME FM模拟器。",
         "Japanese": "Mega Drive/Genesis FM チャンネル 2 の音量を下げます。MAME FM エミュレーターでのみ動作します。",
         "Italian": "Riduci il volume del canale FM Mega Drive/Genesis 2. Funziona solo con gli emulatori FM MAME.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2589,6 +2912,7 @@
         "Chinese": "Mega Drive/Genesis FM通道3音量百分比",
         "Japanese": "Mega Drive/Genesis FM チャンネル 3 音量 %",
         "Italian": "Volume del canale FM 3 di Mega Drive/Genesis %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2597,6 +2921,7 @@
         "Chinese": "调低Mega Drive/Genesis FM通道3的音量，仅适用于MAME FM模拟器。",
         "Japanese": "Mega Drive/Genesis FM チャンネル 3 の音量を下げます。MAME FM エミュレーターでのみ動作します。",
         "Italian": "Riduci il volume del canale FM 3 di Mega Drive/Genesis. Funziona solo con gli emulatori FM MAME.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2605,6 +2930,7 @@
         "Chinese": "Mega Drive/Genesis FM通道4音量百分比",
         "Japanese": "Mega Drive/Genesis FM チャンネル 4 音量 %",
         "Italian": "Volume del canale FM 4 di Mega Drive/Genesis %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2613,6 +2939,7 @@
         "Chinese": "调低Mega Drive/Genesis FM通道4的音量，仅适用于MAME FM模拟器。",
         "Japanese": "Mega Drive/Genesis FM チャンネル 4 の音量を下げます。MAME FM エミュレーターでのみ動作します。",
         "Italian": "Riduci il volume del canale FM 4 di Mega Drive/Genesis. Funziona solo con gli emulatori FM MAME.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2621,6 +2948,7 @@
         "Chinese": "Mega Drive/Genesis FM通道5音量百分比",
         "Japanese": "Mega Drive/Genesis FM チャンネル 5 音量 %",
         "Italian": "Volume del canale FM 5 di Mega Drive/Genesis %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2629,6 +2957,7 @@
         "Chinese": "调低Mega Drive/Genesis FM通道5的音量，仅适用于MAME FM模拟器。",
         "Japanese": "Mega Drive/Genesis FM チャンネル 5 の音量を下げます。MAME FM エミュレーターでのみ動作します。",
         "Italian": "Riduci il volume del canale FM 5 di Mega Drive/Genesis. Funziona solo con gli emulatori FM MAME.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2637,6 +2966,7 @@
         "Chinese": "Master System FM（YM2413）通道0音量百分比",
         "Japanese": "Master System FM（YM2413）チャンネル 0 音量％",
         "Italian": "Volume del canale FM 0 di Master System (YM2413) %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2645,6 +2975,7 @@
         "Chinese": "调低Master System FM通道0的音量。",
         "Japanese": "Master Systemの FM チャンネル 0 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 0 di Master System.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2653,6 +2984,7 @@
         "Chinese": "Master System FM（YM2413）通道1音量百分比",
         "Japanese": "Master System FM（YM2413）チャンネル 1 音量％",
         "Italian": "Volume del canale FM 1 di Master System (YM2413) %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2661,6 +2993,7 @@
         "Chinese": "调低Master System FM通道1的音量。",
         "Japanese": "Master Systemの FM チャンネル 1 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 1 di Master System.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2669,6 +3002,7 @@
         "Chinese": "Master System FM（YM2413）通道2音量百分比",
         "Japanese": "Master System FM（YM2413）チャンネル 2 音量％",
         "Italian": "Volume del canale FM 2 di Master System (YM2413) %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2677,6 +3011,7 @@
         "Chinese": "调低Master System FM通道2的音量。",
         "Japanese": "Master Systemの FM チャンネル 2 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 2 di Master System.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2685,6 +3020,7 @@
         "Chinese": "Master System FM（YM2413）通道3音量百分比",
         "Japanese": "Master System FM（YM2413）チャンネル 3 音量％",
         "Italian": "Volume del canale FM 3 di Master System (YM2413) %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2693,6 +3029,7 @@
         "Chinese": "调低Master System FM通道3的音量。",
         "Japanese": "Master Systemの FM チャンネル 3 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 3 di Master System.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2701,6 +3038,7 @@
         "Chinese": "Master System FM（YM2413）通道4音量百分比",
         "Japanese": "Master System FM（YM2413）チャンネル 4 音量％",
         "Italian": "Volume del canale FM 4 di Master System (YM2413) %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2709,6 +3047,7 @@
         "Chinese": "调低Master System FM通道4的音量。",
         "Japanese": "Master Systemの FM チャンネル 4 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 4 di Master System.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2717,6 +3056,7 @@
         "Chinese": "Master System FM（YM2413）通道5音量百分比",
         "Japanese": "Master System FM（YM2413）チャンネル 5 音量％",
         "Italian": "Volume del canale FM 5 di Master System (YM2413) %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2725,6 +3065,7 @@
         "Chinese": "调低Master System FM通道5的音量。",
         "Japanese": "Master Systemの FM チャンネル 5 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 5 di Master System.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2733,6 +3074,7 @@
         "Chinese": "Master System FM（YM2413）通道6音量百分比",
         "Japanese": "Master System FM（YM2413）チャンネル 6 音量％",
         "Italian": "Volume del canale FM 6 di Master System (YM2413) %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2741,6 +3083,7 @@
         "Chinese": "调低Master System FM通道6的音量。",
         "Japanese": "Master Systemの FM チャンネル 6 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 6 di Master System.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2749,6 +3092,7 @@
         "Chinese": "Master System FM（YM2413）通道7音量百分比",
         "Japanese": "Master System FM（YM2413）チャンネル 7 音量％",
         "Italian": "Volume del canale FM 7 di Master System (YM2413) %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2757,6 +3101,7 @@
         "Chinese": "调低Master System FM通道7的音量。",
         "Japanese": "Master Systemの FM チャンネル 7 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 7 di Master System.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2765,6 +3110,7 @@
         "Chinese": "Master System FM（YM2413）通道8音量百分比",
         "Japanese": "Master System FM（YM2413）チャンネル 8 音量％",
         "Italian": "Volume del canale FM 8 di Master System (YM2413) %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2773,6 +3119,7 @@
         "Chinese": "调低Master System FM通道8的音量。",
         "Japanese": "Master Systemの FM チャンネル 8 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 8 di Master System.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2781,6 +3128,7 @@
         "Chinese": "CD-DA音量",
         "Japanese": "CD-DA Volume",
         "Italian": "Volume CD-DA",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2789,6 +3137,7 @@
         "Chinese": "调整模拟CD音频播放输出的混音音量。",
         "Japanese": "エミュレートされた CD オーディオ再生出力のミキシング音量を調整します。",
         "Italian": "Regola il volume di miscelazione dell'output di riproduzione audio CD emulato.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2797,6 +3146,7 @@
         "Chinese": "PCM音量",
         "Japanese": "PCM Volume",
         "Italian": "Volume PCM",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2805,6 +3155,7 @@
         "Chinese": "调整模拟Sega CD/Mega-CD RF5C164 PCM声音生成器的混音音量。",
         "Japanese": "Sega CD/Mega CD RF5C164 PCM サウンド ジェネレータ出力のミキシング ボリュームを調整します。",
         "Italian": "Regola il volume di miscelazione dell'output del generatore di suoni PCM RF5C164 emulato di Sega CD/Mega-CD.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2813,6 +3164,7 @@
         "Chinese": "增强的逐单元垂直滚动功能",
         "Japanese": "タイルごとの垂直スクロールの強化",
         "Italian": "Scorrimento verticale migliorato per tile",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2821,6 +3173,7 @@
         "Chinese": "允许每个单元格独立垂直滚动，而非以16px为单位的2单元模式，通过与相邻单元格的vscroll值取平均实现。此修改仅适用于少数使用2单元垂直滚动模式的游戏",
         "Japanese": "隣接するセルの vscroll 値を平均化することで、16 ピクセルの 2 セルではなく、各セルを垂直方向にスクロールできるようにします。このハックは、2 セルの垂直スクロール モードを使用するいくつかのゲームにのみ適用されます。",
         "Italian": "Consente a ogni singola cella di scorrere verticalmente, invece di 16px 2-celle, mediando il valore di scorrimento verticale (vscroll) della cella adiacente. Questa modifica si applica solo a pochi giochi che utilizzano la modalità di scorrimento verticale a 2 celle.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2829,6 +3182,7 @@
         "Chinese": "逐单元垂直滚动增强限制",
         "Japanese": "タイルごとの垂直スクロール制限の強化",
         "Italian": "Limite di scorrimento verticale migliorato per tile",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2837,6 +3191,7 @@
         "Chinese": "仅当启用增强的逐单元垂直滚动功能时生效。用于调整垂直滚动增强的限制值。当相邻单元格之间的vscroll差值超过此限制时，增强功能将自动禁用。",
         "Japanese": "タイルごとの垂直スクロールの強化が有効な場合のみ。垂直スクロール強化の制限を調整します。隣接するタイル間の垂直スクロールの差がこの制限より大きい場合、強化は無効になります。",
         "Italian": "Solo quando lo scorrimento verticale migliorato per tile è abilitato. Regola il limite del miglioramento dello scorrimento verticale. Quando la differenza di scorrimento verticale (vscroll) tra le tile adiacenti è maggiore di questo limite, il miglioramento viene disabilitato.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2845,6 +3200,7 @@
         "Chinese": "CPU速度",
         "Japanese": "CPU Speed",
         "Italian": "Velocità della CPU",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2853,6 +3209,7 @@
         "Chinese": "对模拟的CPU进行超频，可减轻卡顿现象，但可能会导致一些故障。",
         "Japanese": "CPU をオーバークロックします。処理落ちを軽減できますが、不具合が発生する可能性があります。",
         "Italian": "Overclock della CPU emulata. Può ridurre il rallentamento, ma potrebbe causare glitch.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2861,6 +3218,7 @@
         "Chinese": "系统死机",
         "Japanese": "システムのロックアップ",
         "Italian": "Blocchi del sistema",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2869,6 +3227,7 @@
         "Chinese": "模拟真实硬件在非法地址访问时发生的系统死机现象。建议仅在运行某些依赖非法操作才能正常工作的演示程序或自制软件时，才禁用此功能。",
         "Japanese": "不正なアドレス アクセスを実行したときに実際のハードウェアで発生するシステム ロックアップをエミュレートします。これは、不正な動作によって正常に動作しない特定のデモや自作ソフトをプレイする場合にのみ無効にする必要があります。",
         "Italian": "Emula i blocchi del sistema che si verificano sull'hardware reale durante l'accesso a indirizzi illegali. Questo dovrebbe essere disabilitato solo quando si giocano determinati demo e homebrew che si basano su comportamenti illegali per un funzionamento corretto.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2877,6 +3236,7 @@
         "Chinese": "共享",
         "Japanese": "カート毎",
         "Italian": "Per cartuccia",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2885,6 +3245,7 @@
         "Chinese": "每个游戏独立",
         "Japanese": "ゲーム毎",
         "Italian": "Per gioco",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2893,6 +3254,7 @@
         "Chinese": "禁用",
         "Japanese": "無効",
         "Italian": "Disabilitato",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2901,6 +3263,7 @@
         "Chinese": "手动",
         "Japanese": "手動",
         "Italian": "Manuale",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2909,6 +3272,7 @@
         "Chinese": "FM前置放大器电平",
         "Japanese": "FMプリアンプレベル",
         "Italian": "Livello preamplificatore FM",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2917,6 +3281,7 @@
         "Chinese": "调整模拟的Mega Drive/Genesis FM音频合成器或Sega Mark III/Master System FM音频单元的前置放大器电平。",
         "Japanese": "Mega Drive/Genesis FM サウンド シンセサイザーまたはSega Mark III/Master System FM サウンド ユニットのオーディオ プリアンプ レベルを設定します。",
         "Italian": "Imposta il livello del preamplificatore audio del sintetizzatore FM Mega Drive/Genesis emulato o dell'unità audio FM Sega Mark III/Master System.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2925,6 +3290,7 @@
         "Chinese": "Game Gear扩展屏幕",
         "Japanese": "Game Gear拡張スクリーン",
         "Italian": "Schermo esteso di Game Gear",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2933,6 +3299,7 @@
         "Chinese": "强制Game Gear游戏以SMS模式运行，分辨率提升至256x192。可能会显示额外内容，但边框区域通常会出现损坏或多余的图像数据。",
         "Japanese": "Game Gear タイトルを SMS モードで実行するように強制し、解像度を 256x192 に上げます。追加コンテンツが表示される場合もありますが、通常は破損した/不要な画像データの境界線が表示されます。",
         "Italian": "Forza i titoli di Game Gear a funzionare in modalità SMS, con una risoluzione aumentata di 256x192. Potrebbe mostrare contenuti aggiuntivi, ma in genere visualizza un bordo di dati immagine corrotti/indesiderati.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2941,6 +3308,7 @@
         "Chinese": "显示光枪准星",
         "Japanese": "光線銃のクロスヘアを表示",
         "Italian": "Mostra il mirino della light gun",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2949,6 +3317,7 @@
         "Chinese": "在使用MD Menacer、MD Justifiers或MS Light Phaser输入设备时，显示光枪准星。",
         "Japanese": "MD Menacer、MD Justifiers、MS Light Phaser入力デバイス タイプを使用するときに、光線銃のクロスヘアを表示します。",
         "Italian": "Visualizza i mirini della light gun quando si utilizzano i tipi di dispositivo di input MD Menacer, MD Justifiers e MS Light Phaser.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2957,6 +3326,7 @@
         "Chinese": "光枪输入",
         "Japanese": "光線銃 input",
         "Italian": "Input della light gun",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2965,6 +3335,7 @@
         "Chinese": "使用鼠标或触摸屏控制光枪。",
         "Japanese": "光線銃を「マウス制御」または「タッチスクリーン」で使用します。",
         "Italian": "Utilizza un input 'Light Gun' o 'Touchscreen' controllato dal mouse.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2973,6 +3344,7 @@
         "Chinese": "反转鼠标Y轴",
         "Japanese": "マウスのY軸を反転",
         "Italian": "Inverti l'asse Y del mouse",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2981,6 +3353,7 @@
         "Chinese": "反转MD鼠标输入设备的Y轴。",
         "Japanese": "MD マウス入力デバイス タイプの Y 軸を反転します。",
         "Italian": "Inverte l'asse Y del tipo di dispositivo di input MD Mouse.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2989,6 +3362,7 @@
         "Chinese": "LCD残影滤镜",
         "Japanese": "LCDゴーストフィルター",
         "Italian": "Filtro ghosting LCD",
+        "French": "",
         "Comments": ""
     },
     {
@@ -2997,6 +3371,7 @@
         "Chinese": "应用“残影”滤镜，模拟Game Gear和Genesis Nomad LCD屏幕的显示效果。",
         "Japanese": "ゴーストフィルターを適用して、Game Gear および Genesis Nomad LCD パネルの表示特性を模倣します。",
         "Italian": "Applica un filtro 'ghosting' per imitare le caratteristiche di visualizzazione dei pannelli LCD di Game Gear e Genesis Nomad.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3005,6 +3380,7 @@
         "Chinese": "隐藏Master System侧边框",
         "Japanese": "マスターシステムサイドボーダーを非表示",
         "Italian": "Nascondi i bordi laterali del Master System",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3013,6 +3389,7 @@
         "Chinese": "运行Master System游戏时，可裁剪屏幕左侧或左右两侧各8个像素。",
         "Japanese": "マスター システムのゲームを実行するときに、画面の左側または左側と右側の両方から 8 ピクセルを切り取ります。",
         "Italian": "Taglia 8 pixel dal lato sinistro dello schermo o da entrambi i lati sinistro e destro durante l'esecuzione di giochi Master System.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3021,6 +3398,7 @@
         "Chinese": "卡带锁定",
         "Japanese": "カートリッジロックオン",
         "Italian": "Blocco della cartuccia",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3029,6 +3407,7 @@
         "Chinese": "锁定技术是Mega Drive/Genesis的一项功能，允许旧游戏通过特殊卡带的直通端口连接，以实现扩展或修改的游戏玩法。此选项用于指定模拟的特殊“锁定”卡带类型，并要求系统目录中存在相应的BIOS文件。",
         "Japanese": "「ロックオン テクノロジー」は、古いゲームを特別なカートリッジのパススルー ポートに接続して、ゲームプレイを拡張または変更できるようにする Mega Drive/Genesis の機能です。このオプションは、エミュレートする特別な「ロックオン」カートリッジの種類を指定します。対応する BIOS ファイルが RetroArch のシステム ディレクトリに存在する必要があります。",
         "Italian": "La tecnologia Lock-On è una funzionalità di Mega Drive/Genesis che consentiva a un gioco più vecchio di connettersi alla porta pass-through di una cartuccia speciale per un gameplay esteso o modificato. Questa opzione specifica quale tipo di cartuccia speciale 'lock-on' emulare. Un file bios corrispondente deve essere presente nella directory di sistema di RetroArch.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3037,6 +3416,7 @@
         "Chinese": "低通滤波器 %",
         "Japanese": "Low-Pass Filter %",
         "Italian": "Filtro passa-basso %",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3045,6 +3425,7 @@
         "Chinese": "设定音频低通滤波器的截止频率。较高的数值会增强滤波器的“强度”效果，因为更广泛的高频频谱会被衰减。",
         "Japanese": "オーディオ ローパス フィルターのカットオフ周波数を指定します。値が高いほど、高周波スペクトルのより広い範囲が減衰されるため、フィルターの「強度」が増すように感じられます。",
         "Italian": "Specifica la frequenza di taglio del filtro passa-basso audio. Un valore più alto aumenta la 'forza' percepita del filtro, poiché una gamma più ampia dello spettro ad alta frequenza viene attenuata.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3053,6 +3434,7 @@
         "Chinese": "移除扫描线精灵数量限制",
         "Japanese": "行ごとのスプライト制限を解除",
         "Italian": "Rimuovi il limite di sprite per linea",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3061,6 +3443,7 @@
         "Chinese": "移除原有的扫描线精灵数量限制。此功能可以减少屏幕闪烁，但可能引发视觉异常，因为部分游戏依赖该硬件限制来实现特殊效果。",
         "Japanese": "元のスプライト/スキャンラインのハードウェア制限を削除します。これにより、ちらつきは軽減されますが、一部のゲームではハードウェア制限を利用して特殊効果を生成するため、視覚的な不具合が発生する可能性があります。",
         "Italian": "Rimuove il limite hardware originale di sprite per linea di scansione. Questo riduce lo sfarfallio ma può causare glitch visivi, poiché alcuni giochi sfruttano il limite hardware per generare effetti speciali.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3069,6 +3452,7 @@
         "Chinese": "边框",
         "Japanese": "ボーダー",
         "Italian": "Bordi",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3077,6 +3461,7 @@
         "Chinese": "启用此选项以显示屏幕上下和左右的过扫描区域。这些区域通常会被标准清晰度电视边框所隐藏。",
         "Japanese": "これを有効にすると、画面の上部/下部および/または左側/右側のオーバースキャン領域が表示されます。これらは通常、標準解像度のテレビの端にあるベゼルによって隠れています。",
         "Italian": "Abilita questo per visualizzare le regioni di overscan nella parte superiore/inferiore e/o sinistra/destra dello schermo. Queste aree sarebbero normalmente nascoste dalla cornice attorno al bordo di un televisore a definizione standard.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3085,6 +3470,7 @@
         "Chinese": "音频前置放大器音量级别",
         "Japanese": "PSGプリアンプレベル",
         "Italian": "Livello preamplificatore PSG",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3093,6 +3479,7 @@
         "Chinese": "设置用于SG-1000、Sega Mark III、Master System、Game Gear和Mega Drive/Genesis的模拟SN76496四声道可编程声发生器的音频前置放大器音量级别。",
         "Japanese": "SG-1000、Sega Mark III、Master System、Game Gear、Mega Drive/Genesis に搭載されているエミュレートされた SN76496 4 チャンネル プログラマブル サウンド ジェネレーターのオーディオ プリアンプ レベルを設定します。",
         "Italian": "Imposta il livello del preamplificatore audio del generatore di suoni programmabile a 4 canali SN76496 emulato presente in SG-1000, Sega Mark III, Master System, Game Gear e Mega Drive/Genesis.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3101,6 +3488,7 @@
         "Chinese": "系统区域",
         "Japanese": "システムリージョン",
         "Italian": "Regione del sistema",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3109,6 +3497,7 @@
         "Chinese": "指定系统所属的区域。对于除Game Gear外的主机，'PAL'为50 Hz，而'NTSC'为60 Hz。如果选择错误的区域，游戏可能会以快于或慢于正常的速度运行。",
         "Japanese": "システムの地域を指定します。Game Gear 以外のコンソールの場合、「PAL」は 50 Hz、「NTSC」は 60 Hz です。間違った地域を選択すると、ゲームが通常よりも速くまたは遅く実行されることがあります。",
         "Italian": "Specifica da quale regione proviene il sistema. Per le console diverse da Game Gear, 'PAL' è 50 Hz, mentre 'NTSC' è 60 Hz. I giochi potrebbero funzionare più velocemente o più lentamente del normale se viene selezionata la regione errata.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3117,6 +3506,7 @@
         "Chinese": "交错模式 2 输出",
         "Japanese": "インターレースモード2出力",
         "Italian": "Uscita modalità interlacciata 2",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3125,6 +3515,7 @@
         "Chinese": "交错模式2允许Mega Drive/Genesis通过每帧绘制交替扫描线输出双倍高度（高分辨率）的320x448图像（此功能常用于《刺猬索尼克2》和《战车大作战》的多人模式）。“双场”模式忠实模拟原始硬件，呈现清晰图像，但伴随闪烁和交错伪影；“单场”模式则通过去交错滤镜稳定画面，但会导致轻微的模糊效果。",
         "Japanese": "「インターレース モード 2」では、Mega Drive/Genesis は、各フレームで交互にスキャン ラインを描画することで、高さ 2 倍 (高解像度) の 320x448 画像を出力できます (これは、ソニック ザ ヘッジホッグ 2 およびコンバット カーのマルチプレイヤー モードで使用されます)。「ダブル フィールド」は、元のハードウェアを模倣し、ちらつき/インターレース アーティファクトのある鮮明な画像を生成します。「シングル フィールド」は、インターレース解除フィルターを適用します。これにより、画像が安定しますが、若干のぼやけが生じます。",
         "Italian": "La Modalità Interlacciata 2 consente al Mega Drive/Genesis di produrre un'immagine a doppia altezza (alta risoluzione) di 320x448 disegnando linee di scansione alternate ogni fotogramma (utilizzato in Sonic the Hedgehog 2 e nelle modalità multiplayer di Combat Cars). 'Doppio Campo' imita l'hardware originale, producendo un'immagine nitida con artefatti di sfarfallio/interlacciamento. 'Campo Singolo' applica un filtro di deinterlacciamento, che stabilizza l'immagine ma causa un leggero sfuocamento.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3133,6 +3524,7 @@
         "Chinese": "音频输出",
         "Japanese": "音声出力",
         "Italian": "Uscita Audio",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3141,6 +3533,7 @@
         "Chinese": "选择立体声或单声道播放音频。",
         "Japanese": "ステレオまたはモノラルのサウンド再生を選択します。",
         "Italian": "Seleziona la riproduzione audio in stereo o mono.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3149,6 +3542,7 @@
         "Chinese": "CD System BRAM (需要重启)",
         "Japanese": "CD システム BRAM (再起動)",
         "Italian": "BRAM del Sistema CD (Richiede Riavvio)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3157,6 +3551,7 @@
         "Chinese": "运行Sega CD/Mega-CD内容时，可以选择共享一个特定区域内所有游戏的存档文件（按BIOS共享），或为每个游戏单独创建存档文件（按游戏存档）。需要注意的是，Sega CD/Mega-CD的内部存储空间非常有限，仅能存储少量游戏。为避免存储空间不足，推荐使用“按游戏存档”设置。",
         "Japanese": "Sega CD/Mega CD コンテンツを実行するときに、特定の地域のすべてのゲーム間で 1 つの保存ファイルを共有するか (BIOS毎)、ゲームごとに個別の保存ファイルを作成するか (ゲーム毎) を指定します。Sega CD/Mega CD の内部ストレージは限られており、少数のタイトルしか保存できないことに注意してください。容量不足を回避するには、「ゲーム毎」の設定をお勧めします。",
         "Italian": "Quando si esegue contenuti Sega CD/Mega-CD, specifica se condividere un unico file di salvataggio tra tutti i giochi di una specifica regione (Per-BIOS) o creare un file di salvataggio separato per ogni gioco (Per-Game). Nota che il Sega CD/Mega-CD ha una memoria interna limitata, sufficiente solo per un numero ristretto di titoli. Per evitare di esaurire lo spazio, si consiglia l'impostazione 'Per-Game'.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3165,6 +3560,7 @@
         "Chinese": "系统硬件",
         "Japanese": "システムハードウェア",
         "Italian": "Hardware di Sistema",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3173,6 +3569,7 @@
         "Chinese": "通过指定的模拟主机运行已加载的内容。“自动”模式将为当前游戏选择最适合的系统。",
         "Japanese": "ロードされたコンテンツを特定のエミュレートされたコンソールで実行します。'自動' は、現在のゲームに最も適したシステムを選択します。",
         "Italian": "Esegue il contenuto caricato con una console emulata specifica. 'Auto' selezionerà il sistema più appropriato per il gioco corrente.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3181,6 +3578,7 @@
         "Chinese": "强制 VDP 模式",
         "Japanese": "VDPモードを強制する",
         "Italian": "Forza Modalità VDP",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3189,6 +3587,7 @@
         "Chinese": "强制覆盖VDP模式，无论系统区域如何，都让其以NTSC 60Hz或PAL 50Hz运行。",
         "Japanese": "VDP モードをオーバーライドして、システム地域に関係なく、NTSC 60Hz または PAL 50Hz で強制的に実行します。",
         "Italian": "Sovrascrive la modalità VDP per forzarla a funzionare a NTSC 60Hz o PAL 50Hz, indipendentemente dalla regione del sistema.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3197,6 +3596,7 @@
         "Chinese": "Master System FM (YM2413)",
         "Japanese": "Master System FM (YM2413)",
         "Italian": "Master System FM (YM2413)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3205,6 +3605,7 @@
         "Chinese": "启用对Sega Mark III/Master System部分游戏所使用的FM音频单元的模拟功能，提供更高质量的音频输出。",
         "Japanese": "特定のSega Mark III/Master System ゲームで使用される FM サウンド ユニットのエミュレーションを有効にして、オーディオ出力を強化します。",
         "Italian": "Abilita l'emulazione dell'unità audio FM utilizzata da alcuni giochi Sega Mark III/Master System per una migliore qualità audio.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3213,6 +3614,7 @@
         "Chinese": "Master System FM (YM2413) 核心",
         "Japanese": "Master System FM (YM2413) Core",
         "Italian": "Nucleo Master System FM (YM2413)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3221,6 +3623,7 @@
         "Chinese": "选择模拟Sega Mark III/Master System FM音频单元的方式。“MAME”选项速度快，适合在大多数系统上全速运行；“Nuked”选项则具备周期精确的高质量音频模拟，但对CPU性能要求较高。",
         "Japanese": "Sega Mark III/Master System の FM サウンド ユニットをエミュレートするために使用される方法を選択します。「MAME」オプションは高速で、ほとんどのシステムでフル スピードで動作します。「Nuked」オプションはサイクル精度が高く、非常に高品質ですが、CPU 要件がかなり高くなります。",
         "Italian": "Seleziona il metodo utilizzato per emulare l'unità audio FM del Sega Mark III/Master System. L'opzione 'MAME' è veloce e funziona a piena velocità sulla maggior parte dei sistemi. L'opzione 'Nuked' è precisa nei cicli, di altissima qualità, ma richiede una CPU potente.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3229,6 +3632,7 @@
         "Chinese": "Mega Drive/Genesis FM",
         "Japanese": "Mega Drive/Genesis FM",
         "Italian": "Mega Drive/Genesis FM",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3237,6 +3641,7 @@
         "Chinese": "选择模拟Mega Drive/Genesis FM合成器（主要音频生成器）的方式。“MAME”选项速度快，适合在大多数系统上全速运行；“Nuked”选项具备周期精确的高质量音频模拟，但对CPU性能要求较高。原始的第一代Mega Drive/Genesis使用YM2612芯片，而后期改进版本则采用YM3438芯片。",
         "Japanese": "Mega Drive/Genesis の FM シンセサイザー (メイン サウンド ジェネレーター) をエミュレートするために使用される方法を選択します。「MAME」オプションは高速で、ほとんどのシステムでフル スピードで動作します。「Nuked」オプションはサイクル精度が高く、非常に高品質ですが、CPU 要件がかなり高くなります。YM2612 チップは、オリジナルの Model 1 Mega Drive/Genesis で使用されます。YM3438 は、後の Mega Drive/Genesis リビジョンで使用されます。",
         "Italian": "Seleziona il metodo utilizzato per emulare il sintetizzatore FM (principale generatore di suoni) del Mega Drive/Genesis. Le opzioni 'MAME' sono veloci e funzionano a piena velocità sulla maggior parte dei sistemi. Le opzioni 'Nuked' sono precise nei cicli, di altissima qualità, ma richiedono una CPU potente. Il chip YM2612 è utilizzato nel modello originale Mega Drive/Genesis Model 1. L'YM3438 è utilizzato nelle revisioni successive del Mega Drive/Genesis.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3245,6 +3650,7 @@
         "Chinese": "选择模拟Mega Drive/Genesis FM合成器（主要音频生成器）的方式。第一代Mega Drive/Genesis使用YM2612芯片，而后续改进版本则采用YM3438芯片。",
         "Japanese": "Mega Drive/Genesis の FM シンセサイザー (メイン サウンド ジェネレーター) をエミュレートするために使用される方法を選択します。YM2612 チップは、オリジナルの Model 1 Mega Drive/Genesis で使用されます。YM3438 は、後の Mega Drive/Genesis リビジョンで使用されます。",
         "Italian": "Seleziona il metodo utilizzato per emulare il sintetizzatore FM (principale generatore di suoni) del Mega Drive/Genesis. Il chip YM2612 è utilizzato nel modello originale Mega Drive/Genesis Model 1. L'YM3438 è utilizzato nelle revisioni successive del Mega Drive/Genesis.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3253,6 +3659,7 @@
         "Chinese": "RTC 支持",
         "Japanese": "RTC support",
         "Italian": "Supporto RTC",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3261,6 +3668,7 @@
         "Chinese": "设置模拟卡带的 RTC（实时时钟）支持。自动检测：使用 ROM 数据库来确定是否启用 RTC，适用于大多数商业游戏。强制启用 RTC：在使用自制软件或 ROM Hack 时，可能需要手动启用 RTC 以确保正常运行。",
         "Japanese": "エミュレートされたカートリッジの RTC サポートを設定します。自動検出では、ほとんどの市販タイトルで動作する ROM データベースが使用されます。自作または ROM ハックを使用する場合は、RTC を強制する必要があるかもしれません。",
         "Italian": "Imposta il supporto RTC per la cartuccia emulata. L'autorilevamento utilizza un database ROM che funziona con la maggior parte dei titoli commerciali. Potrebbe essere necessario forzare l'RTC quando si utilizzano homebrew o hack ROM.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3269,6 +3677,7 @@
         "Chinese": "震动支持",
         "Japanese": "Rumble support",
         "Italian": "Supporto Rumble",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3277,6 +3686,7 @@
         "Chinese": "设置模拟卡带的震动支持。自动检测：使用 ROM 数据库判断是否启用震动，适用于大多数商业游戏。强制启用：在支持震动的自制软件或 ROM Hack 中手动开启震动反馈。强制禁用：完全关闭震动功能，适用于不喜欢震动效果的用户。",
         "Japanese": "エミュレートされたカートリッジの Rumble サポートを設定します。自動検出では、ほとんどの市販タイトルで動作する ROM データベースを使用します。Rumble をサポートする自作ソフトや ROM ハックを使用する場合は、Rumble を強制的に有効にすることをお勧めします。Rumble が気に入らない場合は、強制的に無効にすることもできます。",
         "Italian": "Imposta il supporto Rumble per la cartuccia emulata. L'autorilevamento utilizza un database ROM che funziona con la maggior parte dei titoli commerciali. Potresti voler forzare il Rumble quando usi homebrew o hack ROM che lo supportano. Puoi anche disabilitarlo forzatamente se non ti piace.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3285,6 +3695,7 @@
         "Chinese": "自动",
         "Japanese": "自動",
         "Italian": "automatico",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3293,6 +3704,7 @@
         "Chinese": "联机线缆连接",
         "Japanese": "リンクケーブル接続",
         "Italian": "Connettività Cavo Link",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3301,6 +3713,7 @@
         "Chinese": "配置串行（联机线缆）连接方式。“自动”：根据已知游戏的需求自动选择合适的联机支持方式，适用于大多数情况。",
         "Japanese": "シリアル (リンク ケーブル) 接続を構成します。自動では、ほとんどの既知のゲームに対して適切なサポートが選択されます。",
         "Italian": "Configura la connessione seriale (Cavo Link). L'impostazione automatica selezionerà un supporto ragionevole per la maggior parte dei giochi conosciuti.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3309,6 +3722,7 @@
         "Chinese": "无精灵数量限制",
         "Japanese": "スプライト制限なし",
         "Italian": "Nessun Limite di Sprite",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3317,6 +3731,7 @@
         "Chinese": "此选项取消了硬件对每条扫描线上可显示精灵数量的限制，从而减少画面闪烁并改善视觉表现。然而，某些游戏可能依赖该限制来正确渲染画面（例如，用于隐藏某些精灵）。",
         "Japanese": "元のスキャンラインあたりのスプライトのハードウェア制限を削除します。一部のゲームでは、適切なレンダリングのためにハードウェア制限に依存する場合があります (一部のスプライトを非表示にするなど)。",
         "Italian": "Rimuove il limite hardware originale degli sprite per linea di scansione. Alcuni giochi potrebbero fare affidamento sul limite hardware per il rendering corretto (ad esempio, nascondendo alcuni sprite).",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3325,6 +3740,7 @@
         "Chinese": "自动",
         "Japanese": "自動",
         "Italian": "Automatico",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3333,6 +3749,7 @@
         "Chinese": "GBA 无线网卡",
         "Japanese": "GBAワイヤレスアダプタ",
         "Italian": "Adattatore Wireless GBA",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3341,6 +3758,7 @@
         "Chinese": "难度",
         "Japanese": "難度",
         "Italian": "Difficoltà",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3349,6 +3767,7 @@
         "Chinese": "普通",
         "Japanese": "Normal",
         "Italian": "Normale",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3357,6 +3776,7 @@
         "Chinese": "中等",
         "Japanese": "Medium",
         "Italian": "Medio",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3365,6 +3785,7 @@
         "Chinese": "困难",
         "Japanese": "Hard",
         "Italian": "Difficile",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3373,6 +3794,7 @@
         "Chinese": "简单",
         "Japanese": "Easy",
         "Italian": "Facile",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3381,6 +3803,7 @@
         "Chinese": "奖励生命",
         "Japanese": "Bonus Life",
         "Italian": "Vita Bonus",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3389,6 +3812,7 @@
         "Chinese": "投币规则",
         "Japanese": "Coinage",
         "Italian": "Monetazione",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3397,6 +3821,7 @@
         "Chinese": "每局失败上限",
         "Japanese": "Miss per game",
         "Italian": "Errori per partita",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3405,6 +3830,7 @@
         "Chinese": "1币1命",
         "Japanese": "1 Coin 1 Credit",
         "Italian": "1 Moneta 1 Credito",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3413,6 +3839,7 @@
         "Chinese": "1币2命",
         "Japanese": "1 Coin 2 Credit",
         "Italian": "1 Moneta 2 Crediti",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3421,6 +3848,7 @@
         "Chinese": "1币3命",
         "Japanese": "1 Coin 3 Credit",
         "Italian": "1 Moneta 3 Crediti",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3429,6 +3857,7 @@
         "Chinese": "1币4命",
         "Japanese": "1 Coin 4 Credit",
         "Italian": "1 Moneta 4 Crediti",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3437,6 +3866,7 @@
         "Chinese": "2币1命",
         "Japanese": "2 Coin 1 Credit",
         "Italian": "2 Monete 1 Credito",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3445,6 +3875,7 @@
         "Chinese": "3币1命",
         "Japanese": "3 Coin 1 Credit",
         "Italian": "3 Monete 1 Credito",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3453,6 +3884,7 @@
         "Chinese": "4币1命",
         "Japanese": "4 Coin 1 Credit",
         "Italian": "4 Monete 1 Credito",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3461,6 +3893,7 @@
         "Chinese": "5币1命",
         "Japanese": "5 Coin 1 Credit",
         "Italian": "5 Monete 1 Credito",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3469,6 +3902,7 @@
         "Chinese": "畅玩",
         "Japanese": "Free Play",
         "Italian": "Gioco Gratuito",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3477,6 +3911,7 @@
         "Chinese": "鼠标灵敏度",
         "Japanese": "マウスの感度",
         "Italian": "Sensibilità del Mouse",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3485,6 +3920,7 @@
         "Chinese": "鼠标灵敏度（百分比）。",
         "Japanese": "マウスの感度（％）。",
         "Italian": "Sensibilità del mouse in percentuale.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3493,6 +3929,7 @@
         "Chinese": "Arkanoid 模式",
         "Japanese": "Arkanoid Mode",
         "Italian": "Modalità Arkanoid",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3501,6 +3938,7 @@
         "Chinese": "选择用于 Arkanoid 游戏的设备。",
         "Japanese": "Arkanoidに使用するデバイスを選択します。",
         "Italian": "Seleziona il dispositivo da utilizzare per i giochi Arkanoid.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3509,6 +3947,7 @@
         "Chinese": "触摸屏",
         "Japanese": "タッチスクリーン",
         "Italian": "Touchscreen",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3517,6 +3956,7 @@
         "Chinese": "超频",
         "Japanese": "オーバークロック",
         "Italian": "Overclock",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3525,6 +3965,7 @@
         "Chinese": "启用或禁用超频，以减少某些游戏的运行卡顿。“后渲染”模式适用于所有游戏，而“垂直消隐”模式在《魂斗罗》等游戏中效果更佳。",
         "Japanese": "オーバークロックを有効または無効にします。これにより、一部のゲームの速度低下を軽減できます。ポストレンダリング方式はあらゆるゲームとの互換性が高く、Contra Force などのゲームでは Vblank の方が効果的です。",
         "Italian": "Abilita o disabilita l'overclocking, che può ridurre i rallentamenti in alcuni giochi. Il metodo Postrender è più compatibile con tutti i giochi, Vblank è più efficace per giochi come Contra Force.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3533,6 +3974,7 @@
         "Chinese": "RAM 初始值（需要重启）",
         "Japanese": "RAM パワーオンフィル (再起動)",
         "Italian": "Riempimento RAM all'Accensione (Richiede Riavvio)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3541,6 +3983,7 @@
         "Chinese": "开机时的 RAM 初始值。例如，某些游戏利用 RAM 初始值进行随机数生成。",
         "Japanese": "電源投入時の RAM 値。たとえば、一部のゲームでは乱数生成に初期 RAM 値に依存しています。",
         "Italian": "Valori della RAM all'accensione. Alcuni giochi si basano sui valori iniziali della RAM per la generazione di numeri casuali, ad esempio.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3549,6 +3992,7 @@
         "Chinese": "显示光枪准星",
         "Japanese": "ザッパーのクロスヘアを表示",
         "Italian": "Mostra Mirino Zapper",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3557,6 +4001,7 @@
         "Chinese": "使用光枪时，可选择显示或隐藏准星。",
         "Japanese": "ザッパー を使用するときに画面上のクロスヘアを表示または非表示にします。",
         "Italian": "Mostra o nasconde il mirino sullo schermo quando si utilizza un Zapper.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3565,6 +4010,7 @@
         "Chinese": "反转光枪触发信号",
         "Japanese": "ザッパートリガー信号を反転",
         "Italian": "Inverti Segnale di Trigger Zapper",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3573,6 +4019,7 @@
         "Chinese": "反转光枪触发逻辑。禁用此选项时，触发逻辑将与原始硬件的行为一致。",
         "Japanese": "ザッパー使用時のトリガー ロジックを反転します。無効にすると、元のハードウェアの動作に似たものになります。",
         "Italian": "Inverte la logica del trigger quando si utilizza un Zapper. Disabilitandolo si ripristina il comportamento originale dell'hardware.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3581,6 +4028,7 @@
         "Chinese": "反转光枪传感器信号",
         "Japanese": "ザッパーセンサー信号を反転",
         "Italian": "Inverti Segnale Sensore Zapper",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3589,6 +4037,7 @@
         "Chinese": "反转 Zapper 的传感器逻辑（仅适用于“顺序目标光枪模式”）。禁用此选项时，传感器逻辑将与原始 NES/FC 硬件的行为一致。",
         "Japanese": "ザッパー使用時にセンサー ロジックを反転します (シーケンシャル ターゲット ライト ガン モードのみ)。これを無効にすると、元の NES/FC ハードウェアの動作に似ています。",
         "Italian": "Inverte la logica del sensore quando si utilizza un Zapper (solo in modalità Light gun Sequential Targets). Disabilitandolo si ripristina il comportamento originale dell'hardware NES/FC.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3597,6 +4046,7 @@
         "Chinese": "光枪容差范围",
         "Japanese": "ザッパー耐性",
         "Italian": "Tolleranza Zapper",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3605,6 +4055,7 @@
         "Chinese": "设置目标区域周围的像素容差范围。",
         "Japanese": "ターゲット領域からターゲット上のピクセル数を設定します。",
         "Italian": "Imposta quanti pixel dall'area del bersaglio sono sul bersaglio.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3613,6 +4064,7 @@
         "Chinese": "默认",
         "Japanese": "Default",
         "Italian": "Predefinito",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3621,6 +4073,7 @@
         "Chinese": "随机",
         "Japanese": "Random",
         "Italian": "Casuale",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3629,6 +4082,7 @@
         "Chinese": "非常高",
         "Japanese": "Very High",
         "Italian": "Molto Alto",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3637,6 +4091,7 @@
         "Chinese": "无",
         "Japanese": "None",
         "Italian": "Nessuno",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3645,6 +4100,7 @@
         "Chinese": "玩家1",
         "Japanese": "Player 1",
         "Italian": "Giocatore 1",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3653,6 +4109,7 @@
         "Chinese": "玩家2",
         "Japanese": "Player 2",
         "Italian": "Giocatore 2",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3661,6 +4118,7 @@
         "Chinese": "两者都",
         "Japanese": "Both",
         "Italian": "Entrambi",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3669,6 +4127,7 @@
         "Chinese": "载入 BSX BIOS",
         "Japanese": "BSX BIOSをロードする",
         "Italian": "Carica il BIOS BSX",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3677,6 +4136,7 @@
         "Chinese": "许多 BSX 游戏可以在没有 BSX BIOS 的情况下运行。禁用 BIOS 后，模拟器将直接启动游戏。",
         "Japanese": "多くの BSX ゲームは BSX BIOS なしでも実行できます。これを無効にすると、エミュレーターはゲームを直接起動します。",
         "Italian": "Molti giochi BSX possono funzionare senza il BIOS BSX. Disabilitandolo, l'emulatore avvierà direttamente il gioco.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3685,6 +4145,7 @@
         "Chinese": "跳过",
         "Japanese": "Skip",
         "Italian": "Salta",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3693,6 +4154,7 @@
         "Chinese": "载入（如果有效的话）",
         "Japanese": "ロード（利用可能な場合）",
         "Italian": "Carica (se disponibile)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3701,6 +4163,7 @@
         "Chinese": "跳帧以避免音频缓冲区欠载（爆音）。此选项可提高性能，但可能会影响画面的流畅度。“自动”：根据前端的建议自动跳帧。“手动”：使用“跳帧阈值（%）”设置来控制跳帧频率。",
         "Japanese": "オーディオ バッファの不足 (パチパチ音) を回避するためにフレームをスキップします。視覚的な滑らかさを犠牲にしてパフォーマンスが向上します。「自動」は、フロントエンドから指示があった場合にフレームをスキップします。「手動」は、「フレームスキップしきい値 (%)」設定を利用します。",
         "Italian": "Salta i fotogrammi per evitare l'under-run del buffer audio (crepitio). Migliora le prestazioni a scapito della fluidità visiva. 'Auto' salta i fotogrammi quando consigliato dal frontend. 'Manuale' utilizza l'impostazione 'Soglia di Salto Fotogrammi (%)'.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3709,6 +4172,7 @@
         "Chinese": "提升性能（不安全，需重启）",
         "Japanese": "処理落ちを軽減（不安定、再起動）",
         "Italian": "Riduci Rallentamenti (Non Sicuro, Riavvio)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3717,6 +4181,7 @@
         "Chinese": "对 SNES CPU 进行超频。可能会导致游戏崩溃！“自动”：缩短加载时间。“低”：适用于大多数存在性能下降的游戏。“高”：仅在绝对必要时使用。",
         "Japanese": "SNES CPU をオーバークロックします。ゲームがクラッシュする可能性があります。読み込み時間を短縮するには 'AutoFastROM' を使用し、処理落ちが見られるほとんどのゲームには 'Low' を使用し、絶対に必要な場合にのみ 'High' を使用してください。",
         "Italian": "Overclock della CPU SNES. Potrebbe causare il crash dei giochi! Usa 'AutoFastROM' per tempi di caricamento più brevi, 'Basso' per la maggior parte dei giochi che mostrano rallentamenti e 'Alto' solo se strettamente necessario.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3725,6 +4190,7 @@
         "Chinese": "自动",
         "Japanese": "AutoFastROM",
         "Italian": "AutoFastROM",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3733,6 +4199,7 @@
         "Chinese": "低",
         "Japanese": "Low",
         "Italian": "Basso",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3741,6 +4208,7 @@
         "Chinese": "高",
         "Japanese": "High",
         "Italian": "Alto",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3749,6 +4217,7 @@
         "Chinese": "",
         "Japanese": "SuperFX オーバークロック",
         "Italian": "Overclock SuperFX",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3757,6 +4226,7 @@
         "Chinese": "对 SuperFX 芯片 进行超频或降频调整。可能提升使用 SuperFX 的游戏的帧率和流畅度。",
         "Japanese": "SuperFX チップをオーバークロックまたはアンダークロックします。これにより、SuperFX を使用するゲームのフレームレートとプレイアビリティが向上する可能性があります。",
         "Italian": "Overclock o underclock del chip SuperFX. Questo può migliorare il framerate e la giocabilità dei giochi che utilizzano SuperFX.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3765,6 +4235,7 @@
         "Chinese": "5 MHz (降频)",
         "Japanese": "5 MHz (Underclock)",
         "Italian": "5 MHz (Underclock)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3773,6 +4244,7 @@
         "Chinese": "6 MHz (降频)",
         "Japanese": "6 MHz (Underclock)",
         "Italian": "6 MHz (Underclock)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3781,6 +4253,7 @@
         "Chinese": "7 MHz (降频)",
         "Japanese": "7 MHz (Underclock)",
         "Italian": "7 MHz (Underclock)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3789,6 +4262,7 @@
         "Chinese": "8 MHz (降频)",
         "Japanese": "8 MHz (Underclock)",
         "Italian": "8 MHz (Underclock)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3797,6 +4271,7 @@
         "Chinese": "9 MHz (降频)",
         "Japanese": "9 MHz (Underclock)",
         "Italian": "9 MHz (Underclock)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3805,6 +4280,7 @@
         "Chinese": "10 MHz (SNES 时钟频率, 默认)",
         "Japanese": "10 MHz (SNES clock, Default)",
         "Italian": "10 MHz (Clock SNES, Predefinito)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3813,6 +4289,7 @@
         "Chinese": "11 MHz (超频)",
         "Japanese": "11 MHz (Overclock)",
         "Italian": "11 MHz (Overclock)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3821,6 +4298,7 @@
         "Chinese": "12 MHz (超频)",
         "Japanese": "12 MHz (Overclock)",
         "Italian": "12 MHz (Overclock)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3829,6 +4307,7 @@
         "Chinese": "13 MHz (超频)",
         "Japanese": "13 MHz (Overclock)",
         "Italian": "13 MHz (Overclock)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3837,6 +4316,7 @@
         "Chinese": "14 MHz (超频)",
         "Japanese": "14 MHz (Overclock)",
         "Italian": "14 MHz (Overclock)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3845,6 +4325,7 @@
         "Chinese": "15 MHz (超频)",
         "Japanese": "15 MHz (Overclock)",
         "Italian": "15 MHz (Overclock)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3853,6 +4334,7 @@
         "Chinese": "20 MHz (超频)",
         "Japanese": "20 MHz (Overclock)",
         "Italian": "20 MHz (Overclock)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3861,6 +4343,7 @@
         "Chinese": "30 MHz (超频)",
         "Japanese": "30 MHz (Overclock)",
         "Italian": "30 MHz (Overclock)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3869,6 +4352,7 @@
         "Chinese": "40 MHz (超频)",
         "Japanese": "40 MHz (Overclock)",
         "Italian": "40 MHz (Overclock)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3877,6 +4361,7 @@
         "Chinese": "减少闪烁（不安全）",
         "Japanese": "ちらつき軽減（不安定）",
         "Italian": "Riduci Sfarfallio (Non Sicuro)",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3885,6 +4370,7 @@
         "Chinese": "增加屏幕上可同时绘制的精灵数量，从而减少游戏中的闪烁现象。",
         "Japanese": "画面上に同時に描画できるスプライトの数を増やします。ゲーム中のちらつきを軽減します。",
         "Italian": "Aumenta il numero di sprite che possono essere disegnati simultaneamente sullo schermo. Riduce lo sfarfallio nei giochi.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3893,6 +4379,7 @@
         "Chinese": "指定在对生成的音频进行重采样时使用的算法（Game Boy 的音频速率仅受其 CPU 写入速度限制，因此“原生”频率在现代音频设备上不实用，必须进行降采样）。Sinc：提供最高质量的音频重采样。Cosine：降低性能消耗，适用于低端设备。",
         "Japanese": "生成されたオーディオを再サンプリングするときに使用するアルゴリズムを指定します (ゲームボーイのオーディオ レートは CPU の書き込み速度によってのみ制限されるため、ネイティブ周波数は最新のサウンド デバイスでは実用的ではなく、ダウンサンプリングする必要があります)。 「Sinc」は最高品質を生成します。 「Cosine」はローエンド ハードウェアでのパフォーマンスを向上させます。",
         "Italian": "Specifica quale algoritmo utilizzare per il ricampionamento dell'audio generato (la frequenza audio del Game Boy è limitata solo dalla velocità di scrittura della CPU, quindi le frequenze 'native' sono impraticabili sui dispositivi audio moderni e devono essere sottocampionate). 'Sinc' produce la qualità più alta. 'Cosine' migliora le prestazioni su hardware di fascia bassa.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3901,6 +4388,7 @@
         "Chinese": "启用基于亮度的亮度降低功能。可用于减少游戏中白色背景的眩光和眼睛疲劳。这些背景在非背光 Game Boy Color 设备上观看时较为正常，但在现代背光屏幕上可能会显得过于明亮。",
         "Japanese": "輝度に基づく明るさの低下を有効にします。白い背景でゲームをプレイするときに、まぶしさや目の疲れを避けるために使用できます。白い背景は、バックライトのないGame Boy Colorでの表示を目的としており、そのため、最新のバックライト付き画面で見ると不快なほど明るく見える場合があります。",
         "Italian": "Abilita la riduzione della luminosità basata sulla luminosità. Può essere utilizzato per evitare abbagliamenti/affaticamento degli occhi quando si gioca con sfondi bianchi, pensati per essere visualizzati su un Game Boy Color senza retroilluminazione e che quindi possono apparire eccessivamente luminosi su schermi retroilluminati moderni.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3909,6 +4397,7 @@
         "Chinese": "启用对官方 Game Boy 和 Game Boy Color 启动加载器的支持，并显示相应的启动 Logo 动画。",
         "Japanese": "対応する起動ロゴアニメーションを備えた公式 Game Boy および Game Boy Color ブートローダーのサポートを有効にします。",
         "Italian": "Abilita il supporto per i bootloader ufficiali di Game Boy e Game Boy Color, con le corrispondenti animazioni del logo di avvio.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3917,6 +4406,7 @@
         "Chinese": "启用 Game Boy 游戏的彩色化功能。Auto：自动选择最合适的调色板（通常是最丰富或最符合游戏风格的）。GBC：如果游戏有专门的 Game Boy Color 调色板，则使用它，否则使用 “GBC - Dark Green”（深绿色）。SGB：如果游戏有专门的 Super Game Boy 调色板，则使用它，否则使用 “SGB - 1A”。内置：使用核心选项中的内置调色板。自定义：从系统目录加载用户自定义的调色板。",
         "Japanese": "Game Boy ゲームのカラー化を有効にします。「Auto」は「Best」(最もカラフル/適切) パレットを選択します。「GBC」は、定義されている場合はゲーム固有のゲームボーイ カラー パレットを選択し、そうでない場合は「GBC - Dark Green」を選択します。「SGB」は、定義されている場合はゲーム固有のSuper Game Boy パレットを選択し、そうでない場合は「SGB - 1A」を選択します。「内部」は「内部パレット」コア オプションを使用します。「カスタム」は、システム ディレクトリからユーザーが作成したパレットを読み込みます。",
         "Italian": "Abilita la colorazione dei giochi Game Boy. 'Auto' seleziona la palette 'migliore' (più colorata/appropriata). 'GBC' seleziona la palette specifica per Game Boy Color se definita, altrimenti 'GBC - Dark Green'. 'SGB' seleziona la palette specifica per Super Game Boy se definita, altrimenti 'SGB - 1A'. 'Interno' utilizza l'opzione 'Palette Interna' del core. 'Personalizzato' carica una palette creata dall'utente dalla directory di sistema.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3925,6 +4415,7 @@
         "Chinese": "指定要模拟的硬件类型。Auto（推荐）：自动选择最适合当前游戏的硬件。GBA：模拟 Game Boy Advance 硬件，解锁某些 “GBA 增强” 的 Game Boy Color 游戏的额外功能（例如《香缇》、《温迪：魔女之路》、《塞尔达传说：时空之章/大地之章》等）。",
         "Japanese": "エミュレートするハードウェアの種類を指定します。「自動」が推奨されます。「GBA」を選択すると、特定の「GBA Enhanced」ゲームボーイカラー ゲーム (Shantae、Wendy - Every Witch Way、ゼルダの伝説: オラクル オブ シーズンズ/エイジズなど) の追加機能がロック解除されます。",
         "Italian": "Specifica quale tipo di hardware emulare. Si consiglia 'Auto'. Selezionando 'GBA' si sbloccano funzionalità extra in alcuni giochi Game Boy Color 'GBA Enhanced' (Shantae, Wendy - Every Witch Way, Legend of Zelda: Oracle of Seasons/Ages...).",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3933,6 +4424,7 @@
         "Chinese": "当“内部调色板”设置为“TWB64 - Pack 1”时，选择内部彩色化调色板。",
         "Japanese": "「内部パレット」が「TWB64 - パック 1」に設定されている場合は、内部カラー化パレットを選択します。",
         "Italian": "Seleziona la palette di colorazione interna quando 'Palette Interna' è impostata su 'TWB64 - Pack 1'.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3941,6 +4433,7 @@
         "Chinese": "当“内部调色板”设置为“TWB64 - Pack 2”时，选择内部彩色化调色板。",
         "Japanese": "「内部パレット」が「TWB64 - パック 2」に設定されている場合は、内部カラー化パレットを選択します。",
         "Italian": "Seleziona la palette di colorazione interna quando 'Palette Interna' è impostata su 'TWB64 - Pack 2'.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3949,6 +4442,7 @@
         "Chinese": "调整输出颜色以匹配真实 Game Boy Color 硬件的显示效果。“仅限 GBC”确保仅在游玩 Game Boy Color 游戏时，或在使用 Game Boy Color 调色板为 Game Boy 游戏上色时应用校正。“始终”会对所有内容应用颜色校正，但在使用“GB”或“SGB”内部调色板时可能会产生意外或次优的效果。",
         "Japanese": "実際の G​​ame Boy Color ハードウェアの表示に合わせて出力色を調整します。「GBC のみ」を選択すると、Game Boy Color ゲームをプレイするとき、または Game Boy Color パレットを使用して Game Boy ゲームをカラー化する場合にのみ補正が適用されます。「常に」を選択すると、すべてのコンテンツに色補正が適用され、「GB」または「SGB」内部カラーパレットを使用すると予期しない/最適ではない結果が生成されます。",
         "Italian": "Regola i colori di output per corrispondere alla visualizzazione dell'hardware reale del Game Boy Color. 'Solo GBC' garantisce che la correzione venga applicata solo quando si gioca a giochi Game Boy Color o quando si utilizza una palette Game Boy Color per colorare un gioco Game Boy. 'Sempre' applica la correzione del colore a tutti i contenuti e produrrà risultati imprevisti/subottimali quando si utilizzano palette di colori interne 'GB' o 'SGB'.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3957,6 +4451,7 @@
         "Chinese": "指定执行颜色校正的方法。“精确”可生成几乎与真实 Game Boy Color LCD 屏幕无差别的输出。“快速”仅降低颜色亮度和饱和度，适用于低端硬件，如果“精确”方法运行过慢，可选择此模式。",
         "Japanese": "色補正を実行するときに使用する方法を指定します。'正確' では、実際のゲームボーイカラー LCD パネルとほとんど区別がつかない出力が生成されます。'高速' では、色が暗くなり、彩度が下がるだけなので、'正確' の方法が遅すぎる場合は、ローエンドのハードウェアで使用できます。",
         "Italian": "Specifica il metodo utilizzato per eseguire la correzione del colore. 'Accurato' produce un output quasi indistinguibile da un pannello LCD reale di Game Boy Color. 'Veloce' si limita a scurire i colori e ridurre la saturazione e può essere utilizzato su hardware di fascia bassa se il metodo 'Accurato' è troppo lento.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3965,6 +4460,7 @@
         "Chinese": "模拟 Game Boy Color LCD 屏幕在不同照明角度下的物理响应。“中央”代表标准颜色再现。“屏幕上方”增加亮度。“屏幕下方”降低亮度。此设置仅在“颜色校正模式”设为“精确”时生效。",
         "Japanese": "さまざまな角度から照明を当てたときのゲームボーイカラー LCD パネルの物理的反応をシミュレートします。「中央」は標準的な色再現を表します。「画面の上」は明るさを上げます。「画面の下」は明るさを下げます。この設定は、「色補正モード」が「正確」に設定されている場合にのみ適用されます。",
         "Italian": "Simula la risposta fisica del pannello LCD del Game Boy Color quando illuminato da diverse angolazioni. 'Centrale' rappresenta la riproduzione del colore standard. 'Sopra lo Schermo' aumenta la luminosità. 'Sotto lo Schermo' riduce la luminosità. Questa impostazione si applica solo quando 'Modalità di Correzione Colore' è impostata su 'Accurato'.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3973,6 +4469,7 @@
         "Chinese": "模拟 LCD 残影效果。“简单”模式对当前帧和上一帧进行 50:50 混合。“LCD 残影”通过组合多个缓冲帧来模拟 LCD 的自然响应时间。部分游戏（如《Wave Race》《Ballistic》《Chikyuu Kaihou Gun ZAS》）依赖 LCD 残影实现透明效果，因此需要使用“简单”混合模式。",
         "Japanese": "LCD ゴースト効果をシミュレートします。「シンプル」は、現在のフレームと前のフレームを 50:50 でミックスします。「LCD ゴースト」は、複数のバッファリングされたフレームを組み合わせることで、自然な LCD 応答時間を模倣します。透明効果のために LCD ゴーストに依存するゲーム (Wave Race、Ballistic、Chikyuu Kaihou Gun ZAS など) をプレイする場合は、「シンプル」ブレンディングが必要です。",
         "Italian": "Simula gli effetti di ghosting LCD. 'Semplice' esegue un mix 50:50 dei fotogrammi corrente e precedente. 'LCD Ghosting' imita i tempi di risposta naturali dell'LCD combinando più fotogrammi bufferizzati. Il blending 'Semplice' è necessario quando si gioca a giochi che si affidano al ghosting LCD per effetti di trasparenza (Wave Race, Ballistic, Chikyuu Kaihou Gun ZAS...).",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3981,6 +4478,7 @@
         "Chinese": "启用触觉反馈效果，适用于支持此功能的游戏（如《Pokemon Pinball》《Perfect Dark》…）。",
         "Japanese": "サポートされているゲーム（ポケモンピンボール、パーフェクトダークなど）の触覚フィードバック効果を有効にします。",
         "Italian": "Abilita gli effetti di feedback aptico per i giochi supportati (Pokemon Pinball, Perfect Dark...).",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3989,6 +4487,7 @@
         "Chinese": "启用此选项后，可以同时按下/快速交替/长按左右（或上下）方向键。这可能会导致与移动相关的游戏故障。",
         "Japanese": "これを有効にすると、左右（または上下）の方向を同時に押す/素早く切り替える/保持できるようになります。これにより、動きに基づく不具合が発生する可能性があります。",
         "Italian": "Abilitando questa opzione sarà possibile premere/alternare rapidamente/mantenere premuti entrambi i direzioni sinistra e destra (o su e giù) contemporaneamente. Questo potrebbe causare glitch basati sul movimento.",
+        "French": "",
         "Comments": ""
     },
     {
@@ -3997,6 +4496,7 @@
         "Chinese": "内置",
         "Japanese": "内蔵",
         "Italian": "Interno",
+        "French": "",
         "Comments": ""
     },
     {
@@ -4005,6 +4505,7 @@
         "Chinese": "自定义",
         "Japanese": "カスタム",
         "Italian": "Personalizzato",
+        "French": "",
         "Comments": ""
     }
 ]
