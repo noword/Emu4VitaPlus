@@ -13,19 +13,22 @@
 #include "icons.h"
 #include "language_arch.h"
 
+#define DEFAULT_INTRO_MOVING_INTERVAL DEFAULT_TEXT_MOVING_INTERVAL * 2
+
 bool gRunning = true;
 char gCorePath[SCE_FIOS_PATH_MAX] = {0};
 
 void IntroMovingStatus::Reset()
 {
     pos = VITA_WIDTH;
+    speed_up = false;
 }
 
 bool IntroMovingStatus::Update(const char *text)
 {
-    if (delay.TimeUp())
+    if (speed_up || delay.TimeUp())
     {
-        pos += delta;
+        pos += speed_up ? delta * 5 : delta;
         if (-pos >= ImGui::CalcTextSize(text).x)
         {
             pos = VITA_WIDTH;
@@ -136,7 +139,7 @@ App::App() : _index_x(0), _index_y(0)
         }
     }
 
-    _moving_status.delay.SetInterval(DEFAULT_TEXT_MOVING_INTERVAL / 2);
+    _moving_status.delay.SetInterval(DEFAULT_INTRO_MOVING_INTERVAL);
     _UpdateIntro();
 }
 
@@ -243,6 +246,8 @@ void App::SetInputHooks(Input *input)
     input->SetKeyDownCallback(SCE_CTRL_L1, std::bind(&App::_OnKeyLeft, this, input), true);
     input->SetKeyDownCallback(SCE_CTRL_R1, std::bind(&App::_OnKeyRight, this, input), true);
     input->SetKeyUpCallback(SCE_CTRL_CIRCLE, std::bind(&App::_OnClick, this, input));
+    input->SetKeyDownCallback(SCE_CTRL_RSTICK_LEFT, std::bind(&App::_OnStartSpeedUpIntro, this, input));
+    input->SetKeyUpCallback(SCE_CTRL_RSTICK_LEFT, std::bind(&App::_OnStopSpeedUpIntro, this, input));
 }
 
 void App::UnsetInputHooks(Input *input)
@@ -297,7 +302,17 @@ size_t App::_GetIndex()
 
 void App::_UpdateIntro()
 {
-
+    LogFunctionName;
     _moving_status.Reset();
     _intro = gArchs[gConfig->language][_GetIndex()];
+}
+
+void App::_OnStartSpeedUpIntro(Input *input)
+{
+    _moving_status.speed_up = true;
+}
+
+void App::_OnStopSpeedUpIntro(Input *input)
+{
+    _moving_status.speed_up = false;
 }
