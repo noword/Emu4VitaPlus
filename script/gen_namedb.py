@@ -34,7 +34,16 @@ def gen_db(infos, db_name, core_name):
         fp.write(zbuf)
 
 
-for json_name, core_name in (('arcade', 'ARC'), ('nes', 'NES'), ('snes', 'SNES'), ('gba', 'GBA'), ('gbc', 'GBC')):
+for json_name, core_name in (
+    ('arcade', 'ARC'),
+    ('nes', 'NES'),
+    ('snes', 'SNES'),
+    ('gba', 'GBA'),
+    ('gbc', 'GBC'),
+    ('msx', 'MSX'),
+    ('ngp', 'NGP'),
+    ('wsc', 'WSC'),
+):
     print(json_name)
     names = json.load(open(f'rom_db/{json_name}.names.json', encoding='utf-8'))
     for lang_name, lang_code in LANGS:
