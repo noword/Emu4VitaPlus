@@ -208,22 +208,32 @@ namespace Utils
     LANGUAGE GetDefaultLanguage()
     {
         int sys_lang;
+        LANGUAGE lang;
         sceAppUtilSystemParamGetInt(SCE_SYSTEM_PARAM_ID_LANG, &sys_lang);
         switch (sys_lang)
         {
         case SCE_SYSTEM_PARAM_LANG_JAPANESE:
-            return LANGUAGE_JAPANESE;
+            lang = LANGUAGE_JAPANESE;
+            break;
+
         case SCE_SYSTEM_PARAM_LANG_CHINESE_S:
         case SCE_SYSTEM_PARAM_LANG_CHINESE_T:
-            return LANGUAGE_CHINESE;
+            lang = LANGUAGE_CHINESE;
+            break;
+
         case SCE_SYSTEM_PARAM_LANG_FRENCH:
-            return LANGUAGE_FRENCH;
+            lang = LANGUAGE_FRENCH;
+            break;
+
         case SCE_SYSTEM_PARAM_LANG_ITALIAN:
-            return LANGUAGE_ITALIAN;
+            lang = LANGUAGE_ITALIAN;
+            break;
+
         case SCE_SYSTEM_PARAM_LANG_ENGLISH_US:
         case SCE_SYSTEM_PARAM_LANG_ENGLISH_GB:
         default:
-            return LANGUAGE_ENGLISH;
+            lang = LANGUAGE_ENGLISH;
         }
+        return lang;
     }
 };

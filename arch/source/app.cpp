@@ -13,23 +13,25 @@
 #include "icons.h"
 #include "language_arch.h"
 
-#define DEFAULT_INTRO_MOVING_INTERVAL DEFAULT_TEXT_MOVING_INTERVAL * 2
-
 bool gRunning = true;
 char gCorePath[SCE_FIOS_PATH_MAX] = {0};
 
 void IntroMovingStatus::Reset()
 {
     pos = VITA_WIDTH;
-    speed_up = false;
+    delta = -1;
 }
 
 bool IntroMovingStatus::Update(const char *text)
 {
-    if (speed_up || delay.TimeUp())
+    if (delay.TimeUp())
     {
-        pos += speed_up ? delta * 5 : delta;
-        if (-pos >= ImGui::CalcTextSize(text).x)
+        pos += delta;
+        if (pos > VITA_WIDTH)
+        {
+            pos = VITA_WIDTH;
+        }
+        else if (-pos >= ImGui::CalcTextSize(text).x)
         {
             pos = VITA_WIDTH;
         }
@@ -38,7 +40,7 @@ bool IntroMovingStatus::Update(const char *text)
     return true;
 }
 
-App::App() : _index_x(0), _index_y(0)
+App::App() : _index_x(0), _index_y(0), _show_strick_count(60 * 6)
 {
     LogFunctionName;
 
@@ -64,6 +66,8 @@ App::App() : _index_x(0), _index_y(0)
     sceTouchSetSamplingState(SCE_TOUCH_PORT_BACK, SCE_TOUCH_SAMPLING_STATE_START);
 
     EnterButton = config.enterButtonAssign == SCE_SYSTEM_PARAM_ENTER_BUTTON_CIRCLE ? SCE_CTRL_CIRCLE : SCE_CTRL_CROSS;
+
+    gConfig = new Config();
 
     vita2d_init();
     vita2d_set_vblank_wait(1);
@@ -139,13 +143,14 @@ App::App() : _index_x(0), _index_y(0)
         }
     }
 
-    _moving_status.delay.SetInterval(DEFAULT_INTRO_MOVING_INTERVAL);
     _UpdateIntro();
 }
 
 App::~App()
 {
     LogFunctionName;
+
+    delete gConfig;
 
     for (auto button : _buttons)
     {
@@ -217,9 +222,19 @@ void App::_Show()
         ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, size.y});
         if (ImGui::Begin("info", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
         {
-            ImGui::SetCursorPos({(float)_moving_status.pos, 0});
+            ImGui::SetCursorPos({_moving_status.pos, 0});
             ImGui::Text(_intro);
             _moving_status.Update(_intro);
+
+            if (_show_strick_count > 0)
+            {
+                if ((_show_strick_count / 60) % 2 == 0)
+                {
+                    ImGui::SetCursorPos({_moving_status.pos - ImGui::CalcTextSize(BUTTON_RIGHT_ANALOG_LEFT_RIGHT).x * 1.5, 0});
+                    ImGui::Text(BUTTON_RIGHT_ANALOG_LEFT_RIGHT);
+                }
+                _show_strick_count--;
+            }
         }
         ImGui::End();
     }
@@ -246,8 +261,10 @@ void App::SetInputHooks(Input *input)
     input->SetKeyDownCallback(SCE_CTRL_L1, std::bind(&App::_OnKeyLeft, this, input), true);
     input->SetKeyDownCallback(SCE_CTRL_R1, std::bind(&App::_OnKeyRight, this, input), true);
     input->SetKeyUpCallback(SCE_CTRL_CIRCLE, std::bind(&App::_OnClick, this, input));
-    input->SetKeyDownCallback(SCE_CTRL_RSTICK_LEFT, std::bind(&App::_OnStartSpeedUpIntro, this, input));
-    input->SetKeyUpCallback(SCE_CTRL_RSTICK_LEFT, std::bind(&App::_OnStopSpeedUpIntro, this, input));
+    input->SetKeyDownCallback(SCE_CTRL_RSTICK_LEFT, std::bind(&App::_OnStartRollingIntro, this, input));
+    input->SetKeyUpCallback(SCE_CTRL_RSTICK_LEFT, std::bind(&App::_OnStopRollingIntro, this, input));
+    input->SetKeyDownCallback(SCE_CTRL_RSTICK_RIGHT, std::bind(&App::_OnStartRollingBackIntro, this, input));
+    input->SetKeyUpCallback(SCE_CTRL_RSTICK_RIGHT, std::bind(&App::_OnStopRollingIntro, this, input));
 }
 
 void App::UnsetInputHooks(Input *input)
@@ -263,6 +280,10 @@ void App::UnsetInputHooks(Input *input)
     input->UnsetKeyDownCallback(SCE_CTRL_L1);
     input->UnsetKeyDownCallback(SCE_CTRL_R1);
     input->UnsetKeyUpCallback(SCE_CTRL_CIRCLE);
+    input->UnsetKeyDownCallback(SCE_CTRL_RSTICK_LEFT);
+    input->UnsetKeyUpCallback(SCE_CTRL_RSTICK_LEFT);
+    input->UnsetKeyDownCallback(SCE_CTRL_RSTICK_RIGHT);
+    input->UnsetKeyUpCallback(SCE_CTRL_RSTICK_RIGHT);
 }
 
 void App::_OnKeyLeft(Input *input)
@@ -307,12 +328,17 @@ void App::_UpdateIntro()
     _intro = gArchs[gConfig->language][_GetIndex()];
 }
 
-void App::_OnStartSpeedUpIntro(Input *input)
+void App::_OnStartRollingIntro(Input *input)
 {
-    _moving_status.speed_up = true;
+    _moving_status.delta = -5;
 }
 
-void App::_OnStopSpeedUpIntro(Input *input)
+void App::_OnStopRollingIntro(Input *input)
 {
-    _moving_status.speed_up = false;
+    _moving_status.delta = -1;
+}
+
+void App::_OnStartRollingBackIntro(Input *input)
+{
+    _moving_status.delta = 5;
 }

@@ -10,7 +10,6 @@ extern char gCorePath[SCE_FIOS_PATH_MAX];
 
 struct IntroMovingStatus : public TextMovingStatus
 {
-    bool speed_up = false;
     void Reset();
     bool Update(const char *text);
 };
@@ -34,8 +33,9 @@ private:
     void _OnKeyRight(Input *input);
     void _OnKeyUp(Input *input);
     void _OnKeyDown(Input *input);
-    void _OnStartSpeedUpIntro(Input *input);
-    void _OnStopSpeedUpIntro(Input *input);
+    void _OnStartRollingIntro(Input *input);
+    void _OnStopRollingIntro(Input *input);
+    void _OnStartRollingBackIntro(Input *input);
 
     Input _input;
     std::vector<CoreButton *> _buttons;
@@ -43,4 +43,6 @@ private:
     size_t _index_y;
     IntroMovingStatus _moving_status;
     const char *_intro;
+
+    int _show_strick_count;
 };

@@ -10,6 +10,7 @@ Config *gConfig = nullptr;
 
 Config::Config()
 {
+    language = Utils::GetDefaultLanguage();
     Load();
 }
 
@@ -34,7 +35,7 @@ bool Config::Load(const char *path)
         last_core = tmp;
     }
 
-    tmp = ini.GetValue(MAIN_SECTION, "language", nullptr);
+    tmp = ini.GetValue(MAIN_SECTION, "language");
     if (tmp)
     {
         for (size_t i = 0; i < LANGUAGE_COUNT; i++)
@@ -45,10 +46,6 @@ bool Config::Load(const char *path)
                 break;
             }
         }
-    }
-    else
-    {
-        language = Utils::GetDefaultLanguage();
     }
 
     return true;

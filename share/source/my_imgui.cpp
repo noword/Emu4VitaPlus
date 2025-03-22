@@ -31,6 +31,7 @@ static vita2d_texture *gFontTexture = nullptr;
 const static ImWchar GamePadCharset[] = {0x219c, 0x21a1,
                                          0x21b0, 0x21b3,
                                          0x21bc, 0x21c3,
+                                         0x21c6, 0x21c6,
                                          0x21cb, 0x21cc,
                                          0x21d0, 0x21d3,
                                          0x21e0, 0x21e3,

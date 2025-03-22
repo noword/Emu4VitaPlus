@@ -10,7 +10,7 @@ int main(int argc, char *const argv[])
 {
     File::MakeDirs(APP_DATA_DIR);
     gLog = new Log(APP_LOG_PATH);
-    gConfig = new Config();
+
     LogInfo("updated on " __DATE__ " " __TIME__);
     LogDebug("Start");
 
@@ -19,8 +19,6 @@ int main(int argc, char *const argv[])
 
     LogDebug("Exit");
     LogInfo("gCorePath: %s", gCorePath);
-
-    delete gConfig;
 
     if (*gCorePath)
     {
