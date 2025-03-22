@@ -228,12 +228,15 @@ void App::_Show()
 
             if (_show_strick_count > 0)
             {
-                if ((_show_strick_count / 60) % 2 == 0)
-                {
-                    ImGui::SetCursorPos({_moving_status.pos - ImGui::CalcTextSize(BUTTON_RIGHT_ANALOG_LEFT_RIGHT).x * 1.5, 0});
-                    ImGui::Text(BUTTON_RIGHT_ANALOG_LEFT_RIGHT);
-                }
-                _show_strick_count--;
+                bool push_color = (_show_strick_count-- / 60) % 2 == 0;
+                if (push_color)
+                    ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32_DARK_GREY);
+
+                ImGui::SetCursorPos({_moving_status.pos - ImGui::CalcTextSize(BUTTON_RIGHT_ANALOG_LEFT_RIGHT).x * 1.5, 0});
+                ImGui::Text(BUTTON_RIGHT_ANALOG_LEFT_RIGHT);
+
+                if (push_color)
+                    ImGui::PopStyleColor();
             }
         }
         ImGui::End();
