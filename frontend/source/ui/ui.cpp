@@ -248,7 +248,7 @@ void Ui::CreateTables()
                                                                     LanguageString(gLanguageNames[LANGUAGE_CHINESE]),
                                                                     LanguageString(gLanguageNames[LANGUAGE_JAPANESE]),
                                                                     LanguageString(gLanguageNames[LANGUAGE_ITALIAN]),
-                                                                    LanguageString(gLanguageNames[LANGUAGE_FRENCH]),
+                                                                    // LanguageString(gLanguageNames[LANGUAGE_FRENCH]),
                                                                 },
                                                                 std::bind(&Ui::ChangeLanguage, gUi)),
                                                  new ItemConfig(LANG_INDEPENDENT_CORE_CONFIG,
