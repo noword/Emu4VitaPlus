@@ -19,7 +19,7 @@ const char *const LanguageString::Get() const
     }
 
     auto iter = gTrans.find(_string);
-    if (iter == gTrans.end())
+    if (iter == gTrans.end() || *(iter->second[gConfig->language - 1]) == '\x00')
     {
         return _string.c_str();
     }

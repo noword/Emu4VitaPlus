@@ -199,4 +199,8 @@ TearCrow
 
 [theheroGAC](https://github.com/theheroGAC) (Italian translation)
 
+[chronoss09](https://github.com/chronoss09) (French translation)
+
+[limonetas](https://github.com/limonetas) (Spanish translation)
+
 The developers of all open source software used in this project

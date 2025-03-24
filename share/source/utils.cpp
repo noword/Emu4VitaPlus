@@ -225,6 +225,10 @@ namespace Utils
             lang = LANGUAGE_FRENCH;
             break;
 
+        case SCE_SYSTEM_PARAM_LANG_SPANISH:
+            lang = LANGUAGE_SPANISH;
+            break;
+
         case SCE_SYSTEM_PARAM_LANG_ITALIAN:
             lang = LANGUAGE_ITALIAN;
             break;

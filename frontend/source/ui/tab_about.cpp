@@ -98,8 +98,9 @@ void TabAbout::_InitTexts()
               std::string(TEXT(LANG_SPECIAL_THANKS)) + ": yizhigai, KyleBing, TearCrow",
               std::string(TEXT(LANG_JAPANESE_TRANS)) + ": yyoossk",
               std::string(TEXT(LANG_ITALIAN_TRANS)) + ": theheroGAC",
-              std::string(TEXT(LANG_SITE)) +
-                  ": https://github.com/noword/Emu4VitaPlus",
+              std::string(TEXT(LANG_FRENCH_TRANS)) + "chronoss09",
+              std::string(TEXT(LANG_SPANISH_TRANS)) + ": limonetas",
+              std::string(TEXT(LANG_SITE)) + ": https://github.com/noword/Emu4VitaPlus",
               "",
               TEXT(LANG_EXTERNAL_COMPONENTS),
               "7-Zip (GPL v2.1) https://github.com/mcmilk/7-Zip.git",
