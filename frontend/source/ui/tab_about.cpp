@@ -98,7 +98,7 @@ void TabAbout::_InitTexts()
               std::string(TEXT(LANG_SPECIAL_THANKS)) + ": yizhigai, KyleBing, TearCrow",
               std::string(TEXT(LANG_JAPANESE_TRANS)) + ": yyoossk",
               std::string(TEXT(LANG_ITALIAN_TRANS)) + ": theheroGAC",
-              std::string(TEXT(LANG_FRENCH_TRANS)) + "chronoss09",
+              std::string(TEXT(LANG_FRENCH_TRANS)) + ": chronoss09",
               std::string(TEXT(LANG_SPANISH_TRANS)) + ": limonetas",
               std::string(TEXT(LANG_SITE)) + ": https://github.com/noword/Emu4VitaPlus",
               "",
