@@ -6,6 +6,8 @@
         "Japanese": "使用する BIOS イメージを選択してください。公式 BIOS はユーザーが用意する必要があります。非公式 (または組み込み) BIOS を使用すると、一部のゲームで互換性の問題が発生する可能性があります。公式の Nintendo BIOS を使用すると、最良の結果が得られます。",
         "Italian": "Scegli l'immagine BIOS da utilizzare. Il BIOS ufficiale deve essere fornito dall'utente. L'uso di un BIOS non ufficiale (o integrato) potrebbe causare problemi di incompatibilità con alcuni giochi. I migliori risultati si ottengono con il BIOS ufficiale Nintendo.",
         "French": "",
+        "Spanish": "Elija la imagen del BIOS que desea utilizar. El BIOS oficial debe ser proporcionado por el usuario. El uso de un BIOS no oficial (o incorporado) puede causar problemas de incompatibilidad con algunos juegos. Los mejores resultados se logran con el BIOS oficial de Nintendo.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -15,6 +17,8 @@
         "Japanese": "オートセレクト",
         "Italian": "Selezione automatica",
         "French": "",
+        "Spanish": "Selección automática",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -24,6 +28,8 @@
         "Japanese": "内蔵BIOS",
         "Italian": "BIOS integrato",
         "French": "",
+        "Spanish": "BIOS Incorporado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -33,6 +39,8 @@
         "Japanese": "公式BIOS",
         "Italian": "BIOS originale",
         "French": "",
+        "Spanish": "BIOS original",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -42,6 +50,8 @@
         "Japanese": "ブートモード",
         "Italian": "Modalità di avvio",
         "French": "",
+        "Spanish": "Modo de arranque",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -51,6 +61,8 @@
         "Japanese": "ゲームの前に BIOS を起動するかどうかを選択します。どちらのモードでも大きな違いはありません。",
         "Italian": "Scegli se avviare il BIOS prima del gioco o meno. Non c'è molta differenza tra le due modalità.",
         "French": "",
+        "Spanish": "Elija si desea iniciar el BIOS antes del juego o no. No hay mucha diferencia en ninguno de los dos modos.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -60,6 +72,8 @@
         "Japanese": "ゲームを起動する",
         "Italian": "Avvia direttamente il gioco",
         "French": "",
+        "Spanish": "Arranque del juego",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -69,6 +83,8 @@
         "Japanese": "BIOSを起動する",
         "Italian": "Avvia il BIOS",
         "French": "",
+        "Spanish": "Arranque de BIOS",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -78,6 +94,8 @@
         "Japanese": "フレームスキップ",
         "Italian": "Salto fotogrammi",
         "French": "",
+        "Spanish": "Salto de fotogramas",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -87,6 +105,8 @@
         "Japanese": "オーディオ バッファの不足 (パチパチ音) を回避するためにフレームをスキップします。視覚的な滑らかさを犠牲にしてパフォーマンスが向上します。「自動」は、フロントエンドから指示があった場合にフレームをスキップします。「自動 (しきい値)」は、「フレームスキップしきい値 (%)」設定を利用します。「固定間隔」は、「フレームスキップ間隔」設定を利用します。",
         "Italian": "Salta fotogrammi per evitare under-run del buffer audio (crepitio). Migliora le prestazioni a scapito della fluidità visiva. 'Auto' salta i fotogrammi quando consigliato dal frontend. 'Auto (Soglia)' utilizza l'impostazione 'Soglia di salto fotogrammi (%)'. 'Intervallo fisso' utilizza l'impostazione 'Intervallo di salto fotogrammi'.",
         "French": "",
+        "Spanish": "Omita fotogramas para evitar que el búfer de audio se desborde (crepite). Mejora el rendimiento a expensas de la suavidad visual. 'Auto' se salta fotogramas cuando lo aconseja la interfaz. 'Auto (Threshold)' utiliza el ajuste 'Frameskip Threshold (%)'. 'Intervalo fijo' utiliza la configuración 'Intervalo de salto de fotogramas'.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -96,6 +116,8 @@
         "Japanese": "無効",
         "Italian": "disabilitato",
         "French": "",
+        "Spanish": "Deshabilitado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -105,6 +127,8 @@
         "Japanese": "自動",
         "Italian": "Automatico",
         "French": "",
+        "Spanish": "Automático",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -114,6 +138,8 @@
         "Japanese": "自動（しきい値）",
         "Italian": "Automatico (Soglia)",
         "French": "",
+        "Spanish": "Automático (umbral)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -123,6 +149,8 @@
         "Japanese": "固定間隔",
         "Italian": "Intervallo fisso",
         "French": "",
+        "Spanish": "Intervalo fijo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -132,6 +160,8 @@
         "Japanese": "フレームスキップしきい値 (%)",
         "Italian": "Soglia di salto fotogrammi (%)",
         "French": "",
+        "Spanish": "Umbral de salto de fotogramas (%)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -141,6 +171,8 @@
         "Japanese": "「フレームスキップ」が「手動」に設定されている場合、オーディオ バッファ占有率のしきい値 (パーセンテージ) を指定します。このしきい値を下回ると、フレームがスキップされます。値が大きいほど、フレームがより頻繁にドロップされるため、パチパチ音が発生するリスクが軽減されます。",
         "Italian": "Quando 'Salto fotogrammi' è impostato su 'Manuale', specifica la soglia di occupazione del buffer audio (percentuale) al di sotto della quale i fotogrammi verranno saltati. Valori più alti riducono il rischio di crepitio facendo cadere i fotogrammi più frequentemente.",
         "French": "",
+        "Spanish": "Cuando 'Salto de fotogramas' se establece en 'Manual', especifica el umbral de ocupación del búfer de audio (porcentaje) por debajo del cual se omitirán los fotogramas. Los valores más altos reducen el riesgo de crujido al hacer que los fotogramas se caigan con más frecuencia.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -150,6 +182,8 @@
         "Japanese": "フレームスキップ間隔",
         "Italian": "Intervallo di salto fotogrammi",
         "French": "",
+        "Spanish": "Intervalo de salto de fotogramas",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -159,6 +193,8 @@
         "Japanese": "「フレームスキップ」が「固定間隔」に設定されている場合、ここで設定される値は、フレームがレンダリングされた後に省略されるフレームの数です。「0」= 60fps、「1」= 30fps、「2」= 15fps",
         "Italian": "Quando 'Salto fotogrammi' è impostato su 'Intervallo fisso', il valore impostato qui è il numero di fotogrammi omessi dopo il rendering di un fotogramma - ad esempio '0' = 60fps, '1' = 30fps, '2' = 15fps, ecc.",
         "French": "",
+        "Spanish": "Cuando 'Salto de fotogramas' se establece en 'Intervalo fijo', el valor establecido aquí es el número de fotogramas omitidos después de que se procesa un fotograma, es decir, '0' = 60 fps, '1' = 30 fps, '2' = 15 fps, etc.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -168,6 +204,8 @@
         "Japanese": "色補正",
         "Italian": "Correzione colore",
         "French": "",
+        "Spanish": "Corrección de color",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -177,6 +215,8 @@
         "Japanese": "実際の G​​BA ハードウェアの表示に合わせて出力色を調整します。",
         "Italian": "Regola i colori in uscita per corrispondere alla visualizzazione dell'hardware GBA reale.",
         "French": "",
+        "Spanish": "Ajusta los colores de salida para que coincidan con la visualización del hardware GBA real.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -186,6 +226,8 @@
         "Japanese": "有効",
         "Italian": "abilitato",
         "French": "",
+        "Spanish": "Habilitado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -195,6 +237,8 @@
         "Japanese": "フレーム間ブレンディング",
         "Italian": "Fusione inter-fotogramma",
         "French": "",
+        "Spanish": "Mezcla entre fotogramas",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -204,6 +248,8 @@
         "Japanese": "現在のフレームと前のフレームを 50:50 でミックスして、LCD ゴースト効果をシミュレートします。透明効果のために LCD ゴーストを利用するゲーム (F-Zero、Boktai シリーズなど) をプレイするときに、正しく動作するために必要です。",
         "Italian": "Simula gli effetti di ghosting LCD eseguendo una miscela 50:50 dei fotogrammi corrente e precedente. Necessario per il corretto funzionamento quando si gioca a giochi che sfruttano il ghosting LCD per effetti di trasparenza (F-Zero, la serie Boktai, ecc.).",
         "French": "",
+        "Spanish": "Simula los efectos de efecto fantasma de la pantalla LCD realizando una mezcla 50:50 de los fotogramas actuales y anteriores. Necesario para el correcto funcionamiento cuando se juega a juegos que explotan el efecto fantasma de la pantalla LCD para efectos de transparencia (F-Zero, la serie Boktai, etc.).",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -213,6 +259,8 @@
         "Japanese": "バックアップ保存方法（再起動）",
         "Italian": "Metodo di salvataggio di backup (Riavvio)",
         "French": "",
+        "Spanish": "Método de guardado de copia de seguridad (reiniciar)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -222,6 +270,8 @@
         "Japanese": "カートリッジ保存ファイルに使用するデータ形式を選択します。'gpSP' は、gpSP のスタンドアロン バージョンとの互換性のために使用できます。'libretro' は、フロントエンドとの統合を強化します。",
         "Italian": "Scegli il formato dei dati utilizzato per i file di salvataggio delle cartucce. 'gpSP' può essere utilizzato per la compatibilità con la versione autonoma di gpSP. 'libretro' offre una migliore integrazione con il frontend.",
         "French": "",
+        "Spanish": "Elija el formato de datos utilizado para los archivos de almacenamiento de cartuchos. 'gpSP' se puede utilizar para la compatibilidad con la versión independiente de gpSP. 'libretro' proporciona una mejor integración con la interfaz.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -231,6 +281,8 @@
         "Japanese": "動的再コンパイラ",
         "Italian": "Ricompilatore dinamico",
         "French": "",
+        "Spanish": "Recompilador dinámico",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -240,6 +292,8 @@
         "Japanese": "CPU 命令をネイティブ命令に動的に再コンパイルします。パフォーマンスは大幅に向上しますが、精度は低下する可能性があります。",
         "Italian": "Ricompila dinamicamente le istruzioni della CPU in istruzioni native. Migliora notevolmente le prestazioni, ma può ridurre l'accuratezza.",
         "French": "",
+        "Spanish": "Recompile dinámicamente las instrucciones de la CPU a instrucciones nativas. Mejora en gran medida el rendimiento, pero puede reducir la precisión.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -249,6 +303,8 @@
         "Japanese": "連射ボタン間隔",
         "Italian": "Intervallo del pulsante turbo",
         "French": "",
+        "Spanish": "Intervalo de botón de disparo continuo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -258,6 +314,8 @@
         "Japanese": "Turbo A/B ボタンを押したときの繰り返し間隔 (フレーム単位) を指定します。",
         "Italian": "Specifica l'intervallo di ripetizione (in fotogrammi) quando si tengono premuti i pulsanti Turbo A/B.",
         "French": "",
+        "Spanish": "",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -267,6 +325,8 @@
         "Japanese": "エミュレーションハック",
         "Italian": "Hack di emulazione",
         "French": "",
+        "Spanish": "Hacks de emulación",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -276,6 +336,8 @@
         "Japanese": "低レベルのパフォーマンスと互換性に影響するプロセッサのオーバークロックとエミュレーション精度のパラメータを構成します。",
         "Italian": "Configura i parametri di overclocking del processore e di accuratezza dell'emulazione che influiscono sulle prestazioni di basso livello e sulla compatibilità.",
         "French": "",
+        "Spanish": "Configure los parámetros de precisión de emulación y overclocking del procesador que afectan al rendimiento y la compatibilidad de bajo nivel.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -285,6 +347,8 @@
         "Japanese": "コンソールリージョン（再起動）",
         "Italian": "Regione della console (Riavvio)",
         "French": "",
+        "Spanish": "Región de la consola (reiniciar)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -294,6 +358,8 @@
         "Japanese": "システムの地域を指定します。「PAL」は 50hz、「NTSC」は 60hz です。間違った地域を選択すると、ゲームは通常よりも速くまたは遅く実行されます。",
         "Italian": "Specifica da quale regione proviene il sistema. 'PAL' è 50hz, 'NTSC' è 60hz. I giochi funzioneranno più velocemente o più lentamente del normale se viene selezionata la regione errata.",
         "French": "",
+        "Spanish": "Especifique la región de la que procede el sistema. 'PAL' es de 50hz, 'NTSC' es de 60hz. Los juegos se ejecutarán más rápido o más lento de lo normal si se selecciona la región incorrecta.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -303,6 +369,8 @@
         "Japanese": "オーディオフィルター",
         "Italian": "Filtro audio",
         "French": "",
+        "Spanish": "Filtro de audio",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -312,6 +380,8 @@
         "Japanese": "ローパス オーディオ フィルターを有効にして、高音のアーティファクトを和らげ、オリジナルの SNES ハードウェアの「低音」のサウンドを模倣します。",
         "Italian": "Abilita un filtro audio passa-basso per ammorbidire gli artefatti degli acuti e imitare il suono 'bassy' dell'hardware SNES originale.",
         "French": "",
+        "Spanish": "Habilita un filtro de audio de paso bajo para suavizar los artefactos de agudos e imitar el sonido \"grave\" del hardware original de SNES.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -321,6 +391,8 @@
         "Japanese": "オーディオフィルターレベル",
         "Italian": "Livello del filtro audio",
         "French": "",
+        "Spanish": "Nivel de filtro de audio",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -330,6 +402,8 @@
         "Japanese": "ローパス オーディオ フィルターのカットオフ周波数を指定します。値が高いほど、高周波スペクトルのより広い範囲が減衰されるため、フィルターの「強度」が増すように感じられます。",
         "Italian": "Specifica la frequenza di taglio del filtro audio passa-basso. Un valore più alto aumenta la 'forza' percepita del filtro, poiché una gamma più ampia dello spettro ad alta frequenza viene attenuata.",
         "French": "",
+        "Spanish": "Especifique la frecuencia de corte del filtro de audio de paso bajo. Un valor más alto aumenta la \"fuerza\" percibida del filtro, ya que se atenúa un rango más amplio del espectro de alta frecuencia.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -339,6 +413,8 @@
         "Japanese": "処理落ちを軽減する（Hack、不安定、再起動）",
         "Italian": "Riduzione rallentamenti (Hack, Non sicuro, Riavvio)",
         "French": "",
+        "Spanish": "Reducir la ralentización (hack, inestable, reiniciar)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -348,6 +424,8 @@
         "Japanese": "SNES の多くのゲームは、メイン CPU の弱さが原因で処理落ちに悩まされていました。このオプションは、バグの可能性を犠牲にして、処理落ちを軽減するのに役立ちます。COMPATIBLE: 処理落ちを軽減しますが、ゲームの互換性を可能な限り維持します。MAX: 処理落ちを可能な限り軽減しますが、より多くのゲームが壊れます。",
         "Italian": "Molti giochi per SNES soffrivano di rallentamenti a causa della debole CPU principale. Questa opzione aiuta a mitigare ciò al costo di possibili bug. COMPATIBILE: riduce i rallentamenti ma mantiene la compatibilità con i giochi il più possibile. MASSIMO: riduce i rallentamenti il più possibile ma romperà più giochi.",
         "French": "",
+        "Spanish": "Muchos juegos para SNES sufrieron una ralentización debido a la debilidad de la CPU principal. Esta opción ayuda a aliviar eso a costa de posibles errores. COMPATIBLE: Reduce la ralentización pero mantén la mayor compatibilidad posible con el juego. MAX: Reduce la ralentización tanto como sea posible, pero romperá más juegos.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -357,6 +435,8 @@
         "Japanese": "ちらつき低減（Hack、不安定）",
         "Italian": "Riduzione sfarfallio (Hack, Non sicuro)",
         "French": "",
+        "Spanish": "Reducir el parpadeo (hack, inestable)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -366,6 +446,8 @@
         "Japanese": "ゲームリンク",
         "Italian": "Collegamento di gioco",
         "French": "",
+        "Spanish": "Enlace del juego",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -375,6 +457,8 @@
         "Japanese": "ネットワーク化されたゲームリンク（マルチプレイヤー）の設定を変更します。",
         "Italian": "Modifica le impostazioni del collegamento di gioco in rete (multiplayer).",
         "French": "",
+        "Spanish": "Cambiaré la configuración del enlace de juego en red (multijugador).",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -384,6 +468,8 @@
         "Japanese": "内蔵",
         "Italian": "interno",
         "French": "",
+        "Spanish": "Interno",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -393,6 +479,8 @@
         "Japanese": "カスタム",
         "Italian": "personalizzato",
         "French": "",
+        "Spanish": "Personalizado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -402,6 +490,8 @@
         "Japanese": "GBカラー化",
         "Italian": "Colorazione GB",
         "French": "",
+        "Spanish": "Colorización GB",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -411,6 +501,8 @@
         "Japanese": "内蔵パレット",
         "Italian": "Tavolozza interna",
         "French": "",
+        "Spanish": "Paleta interna",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -420,6 +512,8 @@
         "Japanese": "「GB カラー化」が「内蔵」に設定されているとき、または「自動」に設定されていてゲームに事前定義された SGB/GBC パレットがない場合に、ゲームボーイ ゲームをカラー化するために使用するパレットを選択します。 「GB」パレットは、オリジナルのゲームボーイ ハードウェアの表示を模倣します。 「GBC」パレットは、ゲームボーイ カラーの、「SGB」パレットは、スーパー ゲームボーイの組み込みプリセットと同じです。",
         "Italian": "Seleziona la tavolozza utilizzata per colorare i giochi Game Boy quando 'Colorazione GB' è impostata su 'Interno', o quando 'Colorazione GB' è impostata su 'Automatico' e il gioco non ha una tavolozza SGB/GBC predefinita. Le tavolozze 'GB' imitano la visualizzazione dell'hardware Game Boy originale. Le tavolozze 'GBC' sono identiche ai preset integrati di Game Boy Color. Le tavolozze 'SGB' sono identiche ai preset integrati di Super Game Boy.",
         "French": "",
+        "Spanish": "Selecciona la paleta utilizada para colorear los juegos de Game Boy cuando 'Coloración GB' está configurada en 'Interna', o cuando 'Coloración GB' está configurada en 'Automático' y el juego no tiene una paleta SGB/GBC predefinida. Las paletas 'GB' imitan la pantalla del hardware original de Game Boy. Las paletas 'GBC' son idénticas a los ajustes preestablecidos incorporados de Game Boy Color. Las paletas 'SGB' son idénticas a los ajustes preestablecidos incorporados de la Super Game Boy.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -429,6 +523,8 @@
         "Japanese": "> TWB64 - Pack 1 パレット",
         "Italian": "> TWB64 - Pack 1 Tavolozza",
         "French": "",
+        "Spanish": "> TWB64 - Pack 1 Paleta",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -438,6 +534,8 @@
         "Japanese": "> TWB64 - Pack 2 パレット",
         "Italian": "> TWB64 - Pack 2 Tavolozza",
         "French": "",
+        "Spanish": "> TWB64 - Pack 2 Paleta",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -447,6 +545,8 @@
         "Japanese": "> PixelShift - Pack 1 パレット",
         "Italian": "> PixelShift - Pack 1 Tavolozza",
         "French": "",
+        "Spanish": "> PixelShift - Pack 1 Paleta",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -456,6 +556,8 @@
         "Japanese": "GBCのみ",
         "Italian": "Solo GBC",
         "French": "",
+        "Spanish": "Solo GBC",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -465,6 +567,8 @@
         "Japanese": "いつも",
         "Italian": "Sempre",
         "French": "",
+        "Spanish": "Siempre",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -474,6 +578,8 @@
         "Japanese": "色補正モード",
         "Italian": "Modalità correzione colore",
         "French": "",
+        "Spanish": "Modo de corrección de color",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -483,6 +589,8 @@
         "Japanese": "正確",
         "Italian": "Preciso",
         "French": "",
+        "Spanish": "Preciso",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -492,6 +600,8 @@
         "Japanese": "速い",
         "Italian": "Veloce",
         "French": "",
+        "Spanish": "Rápido",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -501,6 +611,8 @@
         "Japanese": "色補正 - フロントライトの位置",
         "Italian": "Correzione colore - Posizione luce frontale",
         "French": "",
+        "Spanish": "Corrección de color - Posición de la luz frontal",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -510,6 +622,8 @@
         "Japanese": "中央",
         "Italian": "Centrale",
         "French": "",
+        "Spanish": "Centrar",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -519,6 +633,8 @@
         "Japanese": "画面上方",
         "Italian": "Sopra lo schermo",
         "French": "",
+        "Spanish": "Sobre la pantalla",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -528,6 +644,8 @@
         "Japanese": "画面下方",
         "Italian": "Sotto lo schermo",
         "French": "",
+        "Spanish": "Debajo de la pantalla",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -537,6 +655,8 @@
         "Japanese": "ダークフィルターレベル（％）",
         "Italian": "Livello filtro scuro (%)",
         "French": "",
+        "Spanish": "Nivel de filtro oscuro (%)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -546,6 +666,8 @@
         "Japanese": "シンプル",
         "Italian": "Semplice",
         "French": "",
+        "Spanish": "Simple",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -555,6 +677,8 @@
         "Japanese": "LCDゴースト（正確）",
         "Italian": "Ghosting LCD (Preciso)",
         "French": "",
+        "Spanish": "Fantasma LCD (preciso)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -564,6 +688,8 @@
         "Japanese": "LCDゴースト（速い）",
         "Italian": "Ghosting LCD (Veloce)",
         "French": "",
+        "Spanish": "Fantasma LCD (rápido)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -573,6 +699,8 @@
         "Japanese": "オーディオリサンプラー",
         "Italian": "Ricampionatore audio",
         "French": "",
+        "Spanish": "Resampleador de audio",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -582,6 +710,8 @@
         "Japanese": "エミュレートされたハードウェア（再起動）",
         "Italian": "Hardware emulato (Riavvio richiesto)",
         "French": "",
+        "Spanish": "Hardware emulado (es necesario reiniciar)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -591,6 +721,8 @@
         "Japanese": "公式ブートローダーを使用する（再起動）",
         "Italian": "Usa bootloader ufficiale (Riavvio richiesto)",
         "French": "",
+        "Spanish": "Usar el bootloader oficial (reiniciar)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -600,6 +732,8 @@
         "Japanese": "反対方向を許可する",
         "Italian": "Consenti direzioni opposte",
         "French": "",
+        "Spanish": "Permitir direcciones opuestas",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -609,6 +743,8 @@
         "Japanese": "コントローラー振動強度",
         "Italian": "Forza vibrazione controller",
         "French": "",
+        "Spanish": "Intensidad de vibración del controlador",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -618,6 +754,8 @@
         "Japanese": "ゲームリンク設定を表示",
         "Italian": "Mostra impostazioni collegamento gioco",
         "French": "",
+        "Spanish": "Mostrar configuración del enlace del juego",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -627,6 +765,8 @@
         "Japanese": "ゲームリンクモード",
         "Italian": "Modalità collegamento gioco",
         "French": "",
+        "Spanish": "Modo de enlace de juego",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -636,6 +776,8 @@
         "Japanese": "未接続",
         "Italian": "Non connesso",
         "French": "",
+        "Spanish": "Desconectado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -645,6 +787,8 @@
         "Japanese": "ネットワークサーバー",
         "Italian": "Server di rete",
         "French": "",
+        "Spanish": "Servidor de red",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -654,6 +798,8 @@
         "Japanese": "ネットワーククライアント",
         "Italian": "Client di rete",
         "French": "",
+        "Spanish": "Cliente de red",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -663,6 +809,8 @@
         "Japanese": "ネットワークリンクポート",
         "Italian": "Porta collegamento rete",
         "French": "",
+        "Spanish": "Puerta de enlace de red",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -672,6 +820,8 @@
         "Japanese": "ポート",
         "Italian": "Porta",
         "French": "",
+        "Spanish": "Puerta de enlace de red",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -681,6 +831,8 @@
         "Japanese": "リージョン",
         "Italian": "Regione",
         "French": "",
+        "Spanish": "Región",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -690,6 +842,8 @@
         "Japanese": "コアに NTSC、PAL、または Dendy リージョン タイミングを使用するように強制します。",
         "Italian": "Forza il core a utilizzare i tempi delle regioni NTSC, PAL o Dendy.",
         "French": "",
+        "Spanish": "Forza a utilizar el temporizador de región NTSC, PAL o Dendy.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -699,6 +853,8 @@
         "Japanese": "Game Genie アドオン (再起動)」",
         "Italian": "Add-on Game Genie (Riavvio richiesto)",
         "French": "",
+        "Spanish": "Game Genie add-on (reiniciar)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -708,6 +864,8 @@
         "Japanese": "Game Genie アドオン カートリッジのエミュレーションを有効にして、ゲームの起動時にチート コードを入力できるようにします。Game Genie ROM ファイル「gamegenie.nes」がフロントエンドのシステム ディレクトリに存在している必要があります。FDS またはアーケード コンテンツには適用されません。",
         "Italian": "Abilita l'emulazione di una cartuccia add-on Game Genie, consentendo l'inserimento di codici cheat all'avvio dei giochi. Il file ROM di Game Genie 'gamegenie.nes' deve essere presente nella directory di sistema del frontend. Non si applica ai contenuti FDS o arcade.",
         "French": "",
+        "Spanish": "Habilita la emulación del cartucho de expansión Game Genie para permitir ingresar códigos de trampa al iniciar el juego. El archivo ROM de Game Genie \"gamegenie.nes\" debe existir en el directorio del sistema del frontend. No se aplica a contenido de FDS o arcade.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -717,6 +875,8 @@
         "Japanese": "詳細システムオプションを表示",
         "Italian": "Mostra opzioni di sistema avanzate",
         "French": "",
+        "Spanish": "Mostrar opciones avanzadas del sistema",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -726,6 +886,8 @@
         "Japanese": "詳細なシステムオプションと調整を表示します。",
         "Italian": "Mostra opzioni e modifiche avanzate del sistema.",
         "French": "",
+        "Spanish": "Muestra opciones y ajustes avanzados del sistema.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -735,6 +897,8 @@
         "Japanese": "詳細なサウンドオプションを表示",
         "Italian": "Mostra opzioni audio avanzate",
         "French": "",
+        "Spanish": "Mostrar opciones de sonido avanzadas",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -744,6 +908,8 @@
         "Japanese": "詳細なサウンドオプションと調整を表示します。",
         "Italian": "Mostra opzioni e modifiche audio avanzate.",
         "French": "",
+        "Spanish": "Muestra opciones de sonido avanzadas y ajustes.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -753,6 +919,8 @@
         "Japanese": "アスペクト比",
         "Italian": "Proporzioni",
         "French": "",
+        "Spanish": "Relación de aspecto",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -762,6 +930,8 @@
         "Japanese": "好みのアスペクト比を選択してください。",
         "Italian": "Scegli le proporzioni preferite.",
         "French": "",
+        "Spanish": "Elija la relación de aspecto preferida.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -771,6 +941,8 @@
         "Japanese": "ピクセルパーフェクト",
         "Italian": "Pixel perfetto",
         "French": "",
+        "Spanish": "Píxel perfecto",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -780,6 +952,8 @@
         "Japanese": "オーバースキャンを切り取り",
         "Italian": "Ritaglia l'overscan",
         "French": "",
+        "Spanish": "Sobreescaneo de recorte",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -789,6 +963,8 @@
         "Japanese": "画面のすべての側面から 8 ピクセルのオーバースキャンを削除します。",
         "Italian": "Rimuove 8 pixel di overscan da tutti i lati dello schermo.",
         "French": "",
+        "Spanish": "Elimina el sobreescaneo de 8 píxeles de todos los lados de la pantalla.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -798,6 +974,8 @@
         "Japanese": "水平左オーバースキャンを切り取り",
         "Italian": "Ritaglia l'overscan orizzontale sinistro",
         "French": "",
+        "Spanish": "Recortar horizontal a la izquierda",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -807,6 +985,8 @@
         "Japanese": "画面の左側からピクセルを削除して、標準の CRT テレビで見られるオーバースキャンをシミュレートします。",
         "Italian": "Rimuove i pixel dal lato sinistro dello schermo per simulare l'overscan visto sui televisori CRT standard.",
         "French": "",
+        "Spanish": "Elimina los píxeles del lado izquierdo de la pantalla para simular el sobreescaneo que se ve en los televisores CRT estándar.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -816,6 +996,8 @@
         "Japanese": "水平右オーバースキャンを切り取り",
         "Italian": "Ritaglia l'overscan orizzontale destro",
         "French": "",
+        "Spanish": "Recortar sobrebarrido horizontal a la derecha",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -825,6 +1007,8 @@
         "Japanese": "画面の右側からピクセルを削除して、標準の CRT テレビで見られるオーバースキャンをシミュレートします。",
         "Italian": "Rimuove i pixel dal lato destro dello schermo per simulare l'overscan visto sui televisori CRT standard.",
         "French": "",
+        "Spanish": "Elimina los píxeles del lado derecho de la pantalla para simular el sobreescaneo que se ve en los televisores CRT estándar.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -834,6 +1018,8 @@
         "Japanese": "垂直上オーバースキャンを切り取り",
         "Italian": "Ritaglia l'overscan verticale superiore",
         "French": "",
+        "Spanish": "Recorte vertical de sobrebarrido superior",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -843,6 +1029,8 @@
         "Japanese": "画面の上側からピクセルを削除して、標準の CRT テレビで見られるオーバースキャンをシミュレートします。",
         "Italian": "Rimuove i pixel dalla parte superiore dello schermo per simulare l'overscan visto sui televisori CRT standard.",
         "French": "",
+        "Spanish": "Elimina los píxeles de la parte superior de la pantalla para simular el overscan que se ve en los televisores CRT estándar.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -852,6 +1040,8 @@
         "Japanese": "垂直下オーバースキャンを切り取り",
         "Italian": "Ritaglia l'overscan verticale inferiore",
         "French": "",
+        "Spanish": "Recortar sobrebarrido inferior vertical",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -861,6 +1051,8 @@
         "Japanese": "画面の下側からピクセルを削除して、標準の CRT テレビで見られるオーバースキャンをシミュレートします。",
         "Italian": "Rimuove i pixel dalla parte inferiore dello schermo per simulare l'overscan visto sui televisori CRT standard.",
         "French": "",
+        "Spanish": "Elimina los píxeles de la parte inferior de la pantalla para simular el overscan que se ve en los televisores CRT estándar.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -870,6 +1062,8 @@
         "Japanese": "カラーパレット",
         "Italian": "Tavolozza colori",
         "French": "",
+        "Spanish": "Paleta de colores",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -879,6 +1073,8 @@
         "Japanese": "事前に生成されたパレット、ファイルまたは RAW 形式からのカスタム 64x3 パレット (nes-decoder シェーダーを使用する必要があります) から選択します。",
         "Italian": "Scegli tra tavolozze pre-generate, una tavolozza personalizzata 64x3 da file o formato raw (deve utilizzare uno shader nes-decoder).",
         "French": "",
+        "Spanish": "Elija entre paletas pregeneradas, una paleta personalizada de 64x3 de formato de archivo o sin procesar (necesita usar un sombreador nes-decoder).",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -888,6 +1084,8 @@
         "Japanese": "NTSCフィルター",
         "Italian": "Filtro NTSC",
         "French": "",
+        "Spanish": "Filtro NTSC",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -897,6 +1095,8 @@
         "Japanese": "Blargg's NTSC フィルターは、R​​F、コンポジット、S ビデオ、RGB ケーブル信号を複製するために使用されます。",
         "Italian": "I filtri NTSC di Blargg sono utilizzati per replicare i segnali RF, composito, S-Video e RGB.",
         "French": "",
+        "Spanish": "Los filtros NTSC de Blargg se utilizan para replicar señales de cable RF, Compuesto, S-Video y RGB.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -906,6 +1106,8 @@
         "Japanese": "音質",
         "Italian": "Qualità audio",
         "French": "",
+        "Spanish": "Calidad de sonido",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -915,6 +1117,8 @@
         "Japanese": "より高品質なサウンドを有効にします。パフォーマンス要件が増加します。",
         "Italian": "Abilita un suono di qualità superiore. Aumenta i requisiti di prestazioni.",
         "French": "",
+        "Spanish": "Permite un sonido de mayor calidad. Aumenta los requisitos de rendimiento.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -924,6 +1128,8 @@
         "Japanese": "オーディオRFフィルター",
         "Italian": "Filtro RF audio",
         "French": "",
+        "Spanish": "Filtro RF audio",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -933,6 +1139,8 @@
         "Japanese": "ローパス オーディオ フィルターを適用して、RF モジュレーターを介してテレビに接続したときに NES のミュートされたようなサウンドをシミュレートします。",
         "Italian": "Applica un filtro audio passa-basso per simulare il suono 'smorzato' del NES quando è connesso a un televisore tramite il modulatore RF.",
         "French": "",
+        "Spanish": "Aplique un filtro de audio de paso bajo para simular el sonido \"silenciado\" de la NES cuando se conecta a un televisor a través del modulador de RF.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -942,6 +1150,8 @@
         "Japanese": "ステレオサウンド効果",
         "Italian": "Effetto stereo",
         "French": "",
+        "Spanish": "Efecto de sonido estéreo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -951,6 +1161,8 @@
         "Japanese": "NES からのモノラル信号出力をアップミックスするときに、右のオーディオ チャネルを遅延させることにより、擬似ステレオ サウンド効果を有効にします。",
         "Italian": "Abilita un effetto stereo falso ritardando il canale audio destro durante l'upmix del segnale mono in uscita dal NES.",
         "French": "",
+        "Spanish": "Habilite un efecto de sonido estéreo falso retrasando el canal de audio derecho al mezclar la salida de señal mono de la NES.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -960,6 +1172,8 @@
         "Japanese": "オーディオデューティサイクルの入れ替え",
         "Italian": "Scambia i cicli di lavoro audio",
         "French": "",
+        "Spanish": "Intercambiar ciclos de trabajo de audio",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -969,6 +1183,8 @@
         "Japanese": "デューティサイクルの入れ替え",
         "Italian": "Scambia i cicli di lavoro",
         "French": "",
+        "Spanish": "Intercambiar ciclos de trabajo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -978,6 +1194,8 @@
         "Japanese": "パルス波チャネルのデューティ サイクル ビットが反転されたファミクローンのサウンドをシミュレートします。",
         "Italian": "Simula il suono dei famicloni che hanno i bit del ciclo di lavoro dei canali dell'onda quadra invertiti.",
         "French": "",
+        "Spanish": "Simula el sonido de los famiclones que tienen los canales de onda de pulso bits de ciclo de trabajo invertidos.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -987,6 +1205,8 @@
         "Japanese": "マスター音量",
         "Italian": "Volume principale",
         "French": "",
+        "Spanish": "Volumen Maestro",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -996,6 +1216,8 @@
         "Japanese": "マスター音量レベルを変更します。",
         "Italian": "Cambia il livello del volume principale.",
         "French": "",
+        "Spanish": "Cambie el nivel de volumen maestro.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1005,6 +1227,8 @@
         "Japanese": "オーディオチャンネル1（方形波1）",
         "Italian": "Canale audio 1 (Onda quadra 1)",
         "French": "",
+        "Spanish": "Canal de audio 1 (onda cuadrada 1)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1014,6 +1238,8 @@
         "Japanese": "パルス波発生器のオーディオ出力 1 を有効または無効にします。",
         "Italian": "Abilita o disabilita l'uscita audio 1 del generatore di onde quadre.",
         "French": "",
+        "Spanish": "Activa o desactiva la salida de audio 1 del generador de onda cuadrada.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1023,6 +1249,8 @@
         "Japanese": "オーディオチャンネル2（方形波2）",
         "Italian": "Canale audio 2 (Onda quadra 2)",
         "French": "",
+        "Spanish": "Canal de audio 2 (onda cuadrada 2)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1032,6 +1260,8 @@
         "Japanese": "パルス波発生器のオーディオ出力 2 を有効または無効にします。",
         "Italian": "Abilita o disabilita l'uscita audio 2 del generatore di onde quadre.",
         "French": "",
+        "Spanish": "Habilite o deshabilite la salida de audio 2 del generador de onda cuadrada.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1041,6 +1271,8 @@
         "Japanese": "オーディオチャンネル3（三角波）",
         "Italian": "Canale audio 3 (Onda triangolare)",
         "French": "",
+        "Spanish": "Canal de audio 3 (onda triangular)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1050,6 +1282,8 @@
         "Japanese": "三角波発生器のオーディオ出力を有効または無効にします。",
         "Italian": "Abilita o disabilita l'uscita audio del generatore di onde triangolari.",
         "French": "",
+        "Spanish": "Habilite o deshabilite la salida de audio del generador de ondas triangulares.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1059,6 +1293,8 @@
         "Japanese": "オーディオチャンネル4（ノイズ）",
         "Italian": "Canale audio 4 (Rumore)",
         "French": "",
+        "Spanish": "Canal de audio 4 (Ruido)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1068,6 +1304,8 @@
         "Japanese": "ノイズ発生器のオーディオ出力を有効または無効にします。",
         "Italian": "Abilita o disabilita l'uscita audio del generatore di rumore.",
         "French": "",
+        "Spanish": "Habilite o deshabilite la salida de audio del generador de ruido.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1077,6 +1315,8 @@
         "Japanese": "オーディオチャンネル5（PCM）",
         "Italian": "Canale audio 5 (PCM)",
         "French": "",
+        "Spanish": "Canal de audio 5 (PCM)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1086,6 +1326,8 @@
         "Japanese": "デルタ変調チャンネルのオーディオ出力を有効または無効にします。",
         "Italian": "Abilita o disabilita l'uscita audio del canale di modulazione delta.",
         "French": "",
+        "Spanish": "Activa o desactiva la salida de audio del canal de modulación delta.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1095,6 +1337,8 @@
         "Japanese": "Turbo有効",
         "Italian": "Abilita turbo",
         "French": "",
+        "Spanish": "Habilitar Turbo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1104,6 +1348,8 @@
         "Japanese": "Turboボタンを有効または無効にします。",
         "Italian": "Abilita o disabilita i pulsanti turbo.",
         "French": "",
+        "Spanish": "Activa o desactiva los botones turbo.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1113,6 +1359,8 @@
         "Japanese": "Turboディレイ（フレーム）",
         "Italian": "Ritardo turbo (in fotogrammi)",
         "French": "",
+        "Spanish": "Retardo Turbo (en fotogramas)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1122,6 +1370,8 @@
         "Japanese": "Turboボタンの繰り返し速度。（フレーム数）",
         "Italian": "Frequenza di ripetizione dei pulsanti turbo in fotogrammi.",
         "French": "",
+        "Spanish": "Frecuencia de repetición de los botones turbo en los fotogramas.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1131,6 +1381,8 @@
         "Japanese": "ザッパーモード",
         "Italian": "Modalità Zapper",
         "French": "",
+        "Spanish": "Modo Zapper",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1140,6 +1392,8 @@
         "Japanese": "ザッパーゲームに使用するデバイスを選択。",
         "Italian": "Seleziona il dispositivo da utilizzare per i giochi Zapper.",
         "French": "",
+        "Spanish": "Seleccione el dispositivo que desea usar para los juegos de Zapper.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1149,6 +1403,8 @@
         "Japanese": "Turbo A",
         "Italian": "Turbo A",
         "French": "",
+        "Spanish": "Turbo A",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1158,6 +1414,8 @@
         "Japanese": "Turbo B",
         "Italian": "Turbo B",
         "French": "",
+        "Spanish": "Turbo B",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1167,6 +1425,8 @@
         "Japanese": "Select",
         "Italian": "Seleziona",
         "French": "",
+        "Spanish": "Select",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1176,6 +1436,8 @@
         "Japanese": "Start",
         "Italian": "Start",
         "French": "",
+        "Spanish": "Start",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1185,6 +1447,8 @@
         "Japanese": "D-Pad Up",
         "Italian": "D-Pad Su",
         "French": "",
+        "Spanish": "D-Pad Arriba",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1194,6 +1458,8 @@
         "Japanese": "D-Pad Down",
         "Italian": "D-Pad Giù",
         "French": "",
+        "Spanish": "D-Pad Abajo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1203,6 +1469,8 @@
         "Japanese": "D-Pad Left",
         "Italian": "D-Pad Sinistra",
         "French": "",
+        "Spanish": "D-Pad Izquierda",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1212,6 +1480,8 @@
         "Japanese": "D-Pad Right",
         "Italian": "D-Pad Destra",
         "French": "",
+        "Spanish": "D-Pad Derecha",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1221,6 +1491,8 @@
         "Japanese": "L",
         "Italian": "L",
         "French": "",
+        "Spanish": "L",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1230,6 +1502,8 @@
         "Japanese": "R",
         "Italian": "R",
         "French": "",
+        "Spanish": "R",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1239,6 +1513,8 @@
         "Japanese": "Coin",
         "Italian": "Moneta",
         "French": "",
+        "Spanish": "Moneda",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1248,6 +1524,8 @@
         "Japanese": "Up",
         "Italian": "Su",
         "French": "",
+        "Spanish": "Arriba",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1257,6 +1535,8 @@
         "Japanese": "Down",
         "Italian": "Giù",
         "French": "",
+        "Spanish": "Abajo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1266,6 +1546,8 @@
         "Japanese": "Left",
         "Italian": "Sinistra",
         "French": "",
+        "Spanish": "Izquierda",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1275,6 +1557,8 @@
         "Japanese": "Right",
         "Italian": "Destra",
         "French": "",
+        "Spanish": "Derecha",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1284,6 +1568,8 @@
         "Japanese": "Attack",
         "Italian": "Attacco",
         "French": "",
+        "Spanish": "Atacar",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1293,6 +1579,8 @@
         "Japanese": "Jump",
         "Italian": "Salto",
         "French": "",
+        "Spanish": "Saltar",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1302,6 +1590,8 @@
         "Japanese": "Mode Switch",
         "Italian": "Cambio modalità",
         "French": "",
+        "Spanish": "Modo de interruptor",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1311,6 +1601,8 @@
         "Japanese": "Run",
         "Italian": "Corsa",
         "French": "",
+        "Spanish": "Correr",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1320,6 +1612,8 @@
         "Japanese": "Option",
         "Italian": "Opzione",
         "French": "",
+        "Spanish": "Opción",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1329,6 +1623,8 @@
         "Japanese": "X Cursor Left",
         "Italian": "Cursore X Sinistra",
         "French": "",
+        "Spanish": "X Cursor Izquierda",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1338,6 +1634,8 @@
         "Japanese": "X Cursor Up",
         "Italian": "Cursore X Su",
         "French": "",
+        "Spanish": "X Cursor Arriba",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1347,6 +1645,8 @@
         "Japanese": "X Cursor Down",
         "Italian": "Cursore X Giù",
         "French": "",
+        "Spanish": "X Cursor Abajo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1356,6 +1656,8 @@
         "Japanese": "X Cursor Right",
         "Italian": "Cursore X Destra",
         "French": "",
+        "Spanish": "X Cursor Derecha",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1365,6 +1667,8 @@
         "Japanese": "Y Cursor Left",
         "Italian": "Cursore Y Sinistra",
         "French": "",
+        "Spanish": "Y Cursor Izquierda",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1374,6 +1678,8 @@
         "Japanese": "Y Cursor Up",
         "Italian": "Cursore Y Su",
         "French": "",
+        "Spanish": "Y Cursor Arriba",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1383,6 +1689,8 @@
         "Japanese": "Y Cursor Down",
         "Italian": "Cursore Y Giù",
         "French": "",
+        "Spanish": "Y Cursor Abajo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1392,6 +1700,8 @@
         "Japanese": "Y Cursor Right",
         "Italian": "Cursore Y Destra",
         "French": "",
+        "Spanish": "Y Cursor Derecha",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1401,6 +1711,8 @@
         "Japanese": "画面を回転 + Dパッドをアクティブにする",
         "Italian": "Ruota schermo + D-Pad attivo",
         "French": "",
+        "Spanish": "Rotar la pantalla + activar el D-pad.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1410,6 +1722,8 @@
         "Japanese": "マウスX軸",
         "Italian": "Asse X mouse emulato",
         "French": "",
+        "Spanish": "Eje X del ratón emulado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1419,6 +1733,8 @@
         "Japanese": "マウスY軸",
         "Italian": "Asse Y mouse emulato",
         "French": "",
+        "Spanish": "Eje Y del ratón emulado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1428,6 +1744,8 @@
         "Japanese": "マウス左クリック",
         "Italian": "Clic sinistro mouse emulato",
         "French": "",
+        "Spanish": "Clic izquierdo del ratón emulado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1437,6 +1755,8 @@
         "Japanese": "マウス右クリック",
         "Italian": "Clic destro mouse emulato",
         "French": "",
+        "Spanish": "Clic derecho del ratón emulado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1446,6 +1766,8 @@
         "Japanese": "マウス減速",
         "Italian": "Rallenta mouse emulato",
         "French": "",
+        "Spanish": "Ralentización del ratón emulado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1455,6 +1777,8 @@
         "Japanese": "マウス加速",
         "Italian": "Accelera mouse emulato",
         "French": "",
+        "Spanish": "Aceleración del ratón emulado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1464,6 +1788,8 @@
         "Japanese": "Button 1",
         "Italian": "Pulsante 1",
         "French": "",
+        "Spanish": "Botón 1",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1473,6 +1799,8 @@
         "Japanese": "Button 2",
         "Italian": "Pulsante 2",
         "French": "",
+        "Spanish": "Botón 2",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1482,6 +1810,8 @@
         "Japanese": "Button 3",
         "Italian": "Pulsante 3",
         "French": "",
+        "Spanish": "Botón 3",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1491,6 +1821,8 @@
         "Japanese": "Button 4",
         "Italian": "Pulsante 4",
         "French": "",
+        "Spanish": "Botón 4",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1500,6 +1832,8 @@
         "Japanese": "Left Analog X",
         "Italian": "Analogico sinistro X",
         "French": "",
+        "Spanish": "Analog izquierdo X",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1509,6 +1843,8 @@
         "Japanese": "Left Analog Y",
         "Italian": "Analogico sinistro Y",
         "French": "",
+        "Spanish": "Analog izquierdo Y",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1518,6 +1854,8 @@
         "Japanese": "早送り",
         "Italian": "Avanti veloce",
         "French": "",
+        "Spanish": "Avance rápido",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1527,6 +1865,8 @@
         "Japanese": "前の内部パレット",
         "Italian": "Tavolozza interna precedente",
         "French": "",
+        "Spanish": "Paleta interna anterior",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1536,6 +1876,8 @@
         "Japanese": "次の内部パレット",
         "Italian": "Tavolozza interna successiva",
         "French": "",
+        "Spanish": "Paleta interna siguiente",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1545,6 +1887,8 @@
         "Japanese": "Mode",
         "Italian": "Modalità",
         "French": "",
+        "Spanish": "Modo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1554,6 +1898,8 @@
         "Japanese": "Switch Palette (+ Left/Right)",
         "Italian": "Cambia tavolozza (+ Sinistra/Destra)",
         "French": "",
+        "Spanish": "Cambiar paleta (+ Izquierda/Derecha)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1563,6 +1909,8 @@
         "Japanese": "(VSSystem) Insert Coin",
         "Italian": "(VSSystem) Inserisci moneta",
         "French": "",
+        "Spanish": "(VSSystem) Insertar moneda",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1572,6 +1920,8 @@
         "Japanese": "(FDS) Disk Side Change",
         "Italian": "(FDS) Cambio lato disco",
         "French": "",
+        "Spanish": "(FDS) Cambio del lado del disco",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1581,6 +1931,8 @@
         "Japanese": "(FDS) Insert/Eject Disk",
         "Italian": "(FDS) Inserisci/Estrai disco",
         "French": "",
+        "Spanish": "(FDS) Insertar/Expulsar disco",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1590,6 +1942,8 @@
         "Japanese": "Turbo R",
         "Italian": "Turbo R",
         "French": "",
+        "Spanish": "Turbo R",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1599,6 +1953,8 @@
         "Japanese": "Turbo L",
         "Italian": "Turbo L",
         "French": "",
+        "Spanish": "Turbo L",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1608,6 +1964,8 @@
         "Japanese": "Brighten Solar Sensor",
         "Italian": "Illumina sensore solare",
         "French": "",
+        "Spanish": "Iluminar sensor solar",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1617,6 +1975,8 @@
         "Japanese": "Darken Solar Sensor",
         "Italian": "Oscura sensore solare",
         "French": "",
+        "Spanish": "Oscurecer Sensor solar",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1626,6 +1986,8 @@
         "Japanese": "(VSSystem) Coin 1",
         "Italian": "(VSSystem) Moneta 1",
         "French": "",
+        "Spanish": "(VSSystem) Moneda 1",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1635,6 +1997,8 @@
         "Japanese": "(VSSystem) Coin 2",
         "Italian": "(VSSystem) Moneta 2",
         "French": "",
+        "Spanish": "(VSSystem) Moneda 2",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1644,6 +2008,8 @@
         "Japanese": "(Famicom) Microphone",
         "Italian": "(Famicom) Microfono",
         "French": "",
+        "Spanish": "(Famicom) Microfono",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1653,6 +2019,8 @@
         "Japanese": "⇓",
         "Italian": "Croce",
         "French": "",
+        "Spanish": "Cruz",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1662,6 +2030,8 @@
         "Japanese": "⇒",
         "Italian": "Cerchio",
         "French": "",
+        "Spanish": "Circulo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1671,6 +2041,8 @@
         "Japanese": "⇑",
         "Italian": "Triangolo",
         "French": "",
+        "Spanish": "Triángulo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1680,6 +2052,8 @@
         "Japanese": "⇐",
         "Italian": "Quadrato",
         "French": "",
+        "Spanish": "Cuadrado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1689,6 +2063,8 @@
         "Japanese": "Right Analog X",
         "Italian": "Analogico destro X",
         "French": "",
+        "Spanish": "Analogico derecha X",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1698,6 +2074,8 @@
         "Japanese": "Right Analog Y",
         "Italian": "Analogico destro Y",
         "French": "",
+        "Spanish": "Analogico derecha Y",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1707,6 +2085,8 @@
         "Japanese": "Gun Trigger",
         "Italian": "Grilletto pistola",
         "French": "",
+        "Spanish": "Gatillo de pistola",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1716,6 +2096,8 @@
         "Japanese": "Gun Reload",
         "Italian": "Ricarica pistola",
         "French": "",
+        "Spanish": "Recargar Arma",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1725,6 +2107,8 @@
         "Japanese": "Gun Aux A",
         "Italian": "Pistola ausiliaria A",
         "French": "",
+        "Spanish": "Arma auxiliar A",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1734,6 +2118,8 @@
         "Japanese": "Gun Aux B",
         "Italian": "Pistola ausiliaria B",
         "French": "",
+        "Spanish": "Arma auxiliar B",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1743,6 +2129,8 @@
         "Japanese": "Gun Start",
         "Italian": "Inizio pistola",
         "French": "",
+        "Spanish": "Arma de arranque",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1752,6 +2140,8 @@
         "Japanese": "D-Pad Left (violet)",
         "Italian": "D-Pad Sinistra (viola)",
         "French": "",
+        "Spanish": "D-Pad izquierdo (violeta)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1761,6 +2151,8 @@
         "Japanese": "D-Pad Up (white)",
         "Italian": "D-Pad Su (bianco)",
         "French": "",
+        "Spanish": "D-Pad Arriba (blanco)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1770,6 +2162,8 @@
         "Japanese": "D-Pad Down (orange)",
         "Italian": "D-Pad Giù (arancione)",
         "French": "",
+        "Spanish": "D-Pad Abajo (naranja)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1779,6 +2173,8 @@
         "Japanese": "D-Pad Right (green)",
         "Italian": "D-Pad Destra (verde)",
         "French": "",
+        "Spanish": "D-Pad derecha (verde)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1788,6 +2184,8 @@
         "Japanese": "Red Button",
         "Italian": "Pulsante rosso",
         "French": "",
+        "Spanish": "Botón rojo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1797,6 +2195,8 @@
         "Japanese": "Pen Button",
         "Italian": "Pulsante penna",
         "French": "",
+        "Spanish": "Botón de lápiz",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1806,6 +2206,8 @@
         "Japanese": "Pen State",
         "Italian": "Stato penna",
         "French": "",
+        "Spanish": "Estado del lápiz",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1815,6 +2217,8 @@
         "Japanese": "Pen on Storyware",
         "Italian": "Penna su Storyware",
         "French": "",
+        "Spanish": "Lápiz en Storyware",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1824,6 +2228,8 @@
         "Japanese": "Pen on Pad",
         "Italian": "Penna su Pad",
         "French": "",
+        "Spanish": "Lápiz en Pad",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1833,6 +2239,8 @@
         "Japanese": "Previous Page",
         "Italian": "Pagina precedente",
         "French": "",
+        "Spanish": "Página Anterior",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1842,6 +2250,8 @@
         "Japanese": "Next Page",
         "Italian": "Pagina successiva",
         "French": "",
+        "Spanish": "Página siguiente",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1851,6 +2261,8 @@
         "Japanese": "Button 1 Start",
         "Italian": "Pulsante 1 Start",
         "French": "",
+        "Spanish": "Botón 1 Inicio",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1860,6 +2272,8 @@
         "Japanese": "Button Pause",
         "Italian": "Pulsante pausa",
         "French": "",
+        "Spanish": "Pausa de botón",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1869,6 +2283,8 @@
         "Japanese": "Console Reset",
         "Italian": "Reset console",
         "French": "",
+        "Spanish": "Reiniciar consola",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1878,6 +2294,8 @@
         "Japanese": "Console Select",
         "Italian": "Selezione console",
         "French": "",
+        "Spanish": "Selección de consola",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1887,6 +2305,8 @@
         "Japanese": "Console Pause",
         "Italian": "Pausa console",
         "French": "",
+        "Spanish": "Pausa de la consola",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1896,6 +2316,8 @@
         "Japanese": "Left Difficulty",
         "Italian": "Difficoltà sinistra",
         "French": "",
+        "Spanish": "Dificultad izquierda",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1905,6 +2327,8 @@
         "Japanese": "Right Difficulty",
         "Italian": "Difficoltà destra",
         "French": "",
+        "Spanish": "Dificultad derecha",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1914,6 +2338,8 @@
         "Japanese": "(Dual Stick) P2 X-Axis",
         "Italian": "(Dual Stick) Asse X P2",
         "French": "",
+        "Spanish": "(Dual Stick) P2 X-Axis",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1923,6 +2349,8 @@
         "Japanese": "(Dual Stick) P2 Y-Axis",
         "Italian": "(Dual Stick) Asse Y P2",
         "French": "",
+        "Spanish": "(Dual Stick) P2 Y-Axis",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1932,6 +2360,8 @@
         "Japanese": "Black/White",
         "Italian": "Nero/Bianco",
         "French": "",
+        "Spanish": "Negro/Blanco",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1941,6 +2371,8 @@
         "Japanese": "Gamepad",
         "Italian": "Gamepad",
         "French": "",
+        "Spanish": "Mando",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1950,6 +2382,8 @@
         "Japanese": "SNES Joypad",
         "Italian": "Joypad SNES",
         "French": "",
+        "Spanish": "Joypad SNES",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1959,6 +2393,8 @@
         "Japanese": "SNES Mouse",
         "Italian": "Mouse SNES",
         "French": "",
+        "Spanish": "Mouse SNES",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1968,6 +2404,8 @@
         "Japanese": "PCE Joypad",
         "Italian": "Joypad PCE",
         "French": "",
+        "Spanish": "Joypad PCE",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1977,6 +2415,8 @@
         "Japanese": "Mouse",
         "Italian": "Mouse",
         "French": "",
+        "Spanish": "Mouse",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1986,6 +2426,8 @@
         "Japanese": "Classic",
         "Italian": "Classico",
         "French": "",
+        "Spanish": "Clásico",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -1995,6 +2437,8 @@
         "Japanese": "Modern",
         "Italian": "Moderno",
         "French": "",
+        "Spanish": "Moderno",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2004,6 +2448,8 @@
         "Japanese": "Mouse (ball only)",
         "Italian": "Mouse (solo palla)",
         "French": "",
+        "Spanish": "Mouse (bola solo)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2013,6 +2459,8 @@
         "Japanese": "Mouse (full)",
         "Italian": "Mouse (completo)",
         "French": "",
+        "Spanish": "Mouse (completo)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2022,6 +2470,8 @@
         "Japanese": "Pointer",
         "Italian": "Puntatore",
         "French": "",
+        "Spanish": "Puntero",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2031,6 +2481,8 @@
         "Japanese": "Lightgun",
         "Italian": "Pistola ottica",
         "French": "",
+        "Spanish": "Pistola óptica",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2040,6 +2492,8 @@
         "Japanese": "ATARI Joystick",
         "Italian": "Joystick ATARI",
         "French": "",
+        "Spanish": "Joystick ATARI",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2049,6 +2503,8 @@
         "Japanese": "ATARI 5200 Joystick",
         "Italian": "Joystick ATARI 5200",
         "French": "",
+        "Spanish": "Joystick ATARI 5200",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2058,6 +2514,8 @@
         "Japanese": "ATARI Keyboard",
         "Italian": "Tastiera ATARI",
         "French": "",
+        "Spanish": "Teclado ATARI",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2067,6 +2525,8 @@
         "Japanese": "RetroPad",
         "Italian": "RetroPad",
         "French": "",
+        "Spanish": "RetroPad",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2076,6 +2536,8 @@
         "Japanese": "Fightstick",
         "Italian": "Fightstick",
         "French": "",
+        "Spanish": "Fightstick",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2085,6 +2547,8 @@
         "Japanese": "8-Button",
         "Italian": "8 pulsanti",
         "French": "",
+        "Spanish": "8-Botón",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2094,6 +2558,8 @@
         "Japanese": "6-Button",
         "Italian": "6 pulsanti",
         "French": "",
+        "Spanish": "6-Botón",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2103,6 +2569,8 @@
         "Japanese": "standard",
         "Italian": "standard",
         "French": "",
+        "Spanish": "Estándar",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2112,6 +2580,8 @@
         "Japanese": "analog",
         "Italian": "analogico",
         "French": "",
+        "Spanish": "Analogico derecha Y",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2121,6 +2591,8 @@
         "Japanese": "mouse",
         "Italian": "mouse",
         "French": "",
+        "Spanish": "Mouse",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2130,6 +2602,8 @@
         "Japanese": "【SFC】Scanlines + 2x resolution",
         "Italian": "【SFC】Linee di scansione + risoluzione 2x",
         "French": "",
+        "Spanish": "【SFC】 Líneas de escaneo + resolución 2x",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2139,6 +2613,8 @@
         "Japanese": "【SFC】4:3 Full screen",
         "Italian": "【SFC】Schermo intero 4:3",
         "French": "",
+        "Spanish": "【SFC】4:3 Pantalla completa",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2148,6 +2624,8 @@
         "Japanese": "【Universal】4:3 Full screen",
         "Italian": "【Universale】Schermo intero 4:3",
         "French": "",
+        "Spanish": "【Universal】4:3 pantalla completa",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2157,6 +2635,8 @@
         "Japanese": "【Universal】Scanlines + 2x resolution",
         "Italian": "【Universale】Linee di scansione + risoluzione 2x",
         "French": "",
+        "Spanish": "【Universal】Líneas de escaneo + resolución 2x",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2166,6 +2646,8 @@
         "Japanese": "【Universal】Scanlines + RGB + 2x resolution",
         "Italian": "【Universale】Linee di scansione + RGB + risoluzione 2x",
         "French": "",
+        "Spanish": "【Universal】Líneas de escaneo + RGB + resolución 2x",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2175,6 +2657,8 @@
         "Japanese": "【Universal】TV Flat",
         "Italian": "【Universale】TV Flat",
         "French": "",
+        "Spanish": "【Universal】TV plana",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2184,6 +2668,8 @@
         "Japanese": "【Universal】TV",
         "Italian": "【Universale】TV",
         "French": "",
+        "Spanish": "【Universal】TV",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2193,6 +2679,8 @@
         "Japanese": "【Universal】TV integer",
         "Italian": "【Universale】TV integer",
         "French": "",
+        "Spanish": "【Universal】TV integer",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2202,6 +2690,8 @@
         "Japanese": "【Universal】Sony PVM Office",
         "Italian": "【Universale】Sony PVM Office",
         "French": "",
+        "Spanish": "【Universal】Sony PVM Office",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2211,6 +2701,8 @@
         "Japanese": "【NeoGeo】Scanlines",
         "Italian": "【NeoGeo】Linee di scansione",
         "French": "",
+        "Spanish": "【NeoGeo】Líneas de escaneo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2220,6 +2712,8 @@
         "Japanese": "【NeoGeo】Vertical, Scanlines",
         "Italian": "【NeoGeo】Verticale, linee di scansione",
         "French": "",
+        "Spanish": "【NeoGeo】Vertical, Líneas de escaneo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2229,6 +2723,8 @@
         "Japanese": "【Capcom】Scanlines",
         "Italian": "【Capcom】Linee di scansione",
         "French": "",
+        "Spanish": "【Capcom】Líneas de escaneo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2238,6 +2734,8 @@
         "Japanese": "【Capcom】Vertical, Scanlines",
         "Italian": "【Capcom】Verticale, linee di scansione",
         "French": "",
+        "Spanish": "【Capcom】Vertical, Líneas de escaneo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2247,6 +2745,8 @@
         "Japanese": "【PGM】Scanlines",
         "Italian": "【PGM】Linee di scansione",
         "French": "",
+        "Spanish": "【PGM】Líneas de escaneo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2256,6 +2756,8 @@
         "Japanese": "【PGM】Vertical, Scalines",
         "Italian": "【PGM】Verticale, linee di scansione",
         "French": "",
+        "Spanish": "【PGM】Vertical, Escalinas",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2265,6 +2767,8 @@
         "Japanese": "【GB】Grid lines",
         "Italian": "【GB】Linee della griglia",
         "French": "",
+        "Spanish": "【GB】Líneas de cuadrícula",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2274,6 +2778,8 @@
         "Japanese": "【GB】Grid lines + 20% Dark filter",
         "Italian": "【GB】Linee della griglia + Filtro scuro 20%",
         "French": "",
+        "Spanish": "【GB】 Líneas de cuadrícula + 20% Filtro oscuro",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2283,6 +2789,8 @@
         "Japanese": "【GB】Grid lines + Color Correction",
         "Italian": "【GB】Linee della griglia + Correzione colore",
         "French": "",
+        "Spanish": "【GB】 Líneas de cuadrícula + Corrección de color",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2292,6 +2800,8 @@
         "Japanese": "【GBP】Grid lines",
         "Italian": "【GBP】Linee della griglia",
         "French": "",
+        "Spanish": "【GBP】Líneas de cuadrícula",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2301,6 +2811,8 @@
         "Japanese": "【GBP】Grid lines + Color Correction",
         "Italian": "【GBP】Linee della griglia + Correzione colore",
         "French": "",
+        "Spanish": "【GBP】Líneas de cuadrícula + Corrección de color",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2310,6 +2822,8 @@
         "Japanese": "【GBL】Grid lines",
         "Italian": "【GBL】Linee della griglia",
         "French": "",
+        "Spanish": "【GBL】Líneas de cuadrícula",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2319,6 +2833,8 @@
         "Japanese": "【GBL】Grid lines + Color Correction",
         "Italian": "【GBL】Linee della griglia + Correzione colore",
         "French": "",
+        "Spanish": "【GBL】Líneas de cuadrícula + Corrección de color",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2328,6 +2844,8 @@
         "Japanese": "【GBL Famitsu Edition】Grid lines + Color Correction",
         "Italian": "【GBL Edizione Famitsu】Linee della griglia + Correzione colore",
         "French": "",
+        "Spanish": "【GBL Famitsu Edition】 Líneas de cuadrícula + Corrección de color",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2337,6 +2855,8 @@
         "Japanese": "【GBC】Grid lines",
         "Italian": "【GBC】Linee della griglia",
         "French": "",
+        "Spanish": "【GBC】Líneas de cuadrícula",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2346,6 +2866,8 @@
         "Japanese": "【GBC】Grid lines + Yellow",
         "Italian": "【GBC】Linee della griglia + Giallo",
         "French": "",
+        "Spanish": "【GBC】Líneas de cuadrícula + Amarillo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2355,6 +2877,8 @@
         "Japanese": "【GBC】3X",
         "Italian": "【GBC】3X",
         "French": "",
+        "Spanish": "【GBC】3X",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2364,6 +2888,8 @@
         "Japanese": "【WSC】Grid lines",
         "Italian": "【WSC】Linee della griglia",
         "French": "",
+        "Spanish": "【WSC】Líneas de cuadrícula",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2373,6 +2899,8 @@
         "Japanese": "【WSC】Gird lines + Dark",
         "Italian": "【WSC】Linee della griglia + Scuro",
         "French": "",
+        "Spanish": "【WSC】Líneas de cuadrícula + Oscuro",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2382,6 +2910,8 @@
         "Japanese": "【WSC】3X",
         "Italian": "【WSC】3X",
         "French": "",
+        "Spanish": "【WSC】3X",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2391,6 +2921,8 @@
         "Japanese": "【PCE】Scanlines + 2x resolution",
         "Italian": "【PCE】Linee di scansione + Risoluzione 2x",
         "French": "",
+        "Spanish": "【PCE】 Líneas de escaneo + resolución 2x",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2400,6 +2932,8 @@
         "Japanese": "【NGPC】Grid lines",
         "Italian": "【NGPC】Linee della griglia",
         "French": "",
+        "Spanish": "【NGPC】Líneas de cuadrícula",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2409,6 +2943,8 @@
         "Japanese": "【NGPC】Grid lines + RGB",
         "Italian": "【NGPC】Linee della griglia + RGB",
         "French": "",
+        "Spanish": "【NGPC】Líneas de cuadrícula + RGB",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2418,6 +2954,8 @@
         "Japanese": "【NGP】3X",
         "Italian": "【NGP】3X",
         "French": "",
+        "Spanish": "【NGP】3X",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2427,6 +2965,8 @@
         "Japanese": "【FC】Scanlines + 2x resolution",
         "Italian": "【FC】Linee di scansione + Risoluzione 2x",
         "French": "",
+        "Spanish": "【FC】Líneas de escaneo + resolución 2x",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2436,6 +2976,8 @@
         "Japanese": "【MD】Scanlines + 2x resolution (Wide)",
         "Italian": "【MD】Linee di scansione + Risoluzione 2x (Ampio)",
         "French": "",
+        "Spanish": "【MD】Líneas de escaneo + resolución 2x (Amplio)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2445,6 +2987,8 @@
         "Japanese": "【MD】Scanlines + 2x resolution (Square)",
         "Italian": "【MD】Linee di scansione + Risoluzione 2x (Quadrato)",
         "French": "",
+        "Spanish": "【MD】Líneas de escaneo + resolución 2x (cuadrada)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2454,6 +2998,8 @@
         "Japanese": "【GG】Grid lines",
         "Italian": "【GG】Linee della griglia",
         "French": "",
+        "Spanish": "【GG】Líneas de cuadrícula",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2463,6 +3009,8 @@
         "Japanese": "【GG】3X",
         "Italian": "【GG】3X",
         "French": "",
+        "Spanish": "【GG】3X",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2472,6 +3020,8 @@
         "Japanese": "【GBA】Grid lines",
         "Italian": "【GBA】Linee della griglia",
         "French": "",
+        "Spanish": "【GBA】Líneas de cuadrícula",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2481,6 +3031,8 @@
         "Japanese": "【GBA】Grid lines + Yellow",
         "Italian": "【GBA】Linee della griglia + Giallo",
         "French": "",
+        "Spanish": "【GBA】Líneas de cuadrícula + Amarillo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2490,6 +3042,8 @@
         "Japanese": "【GBM】Grid lines",
         "Italian": "【GBM】Linee della griglia",
         "French": "",
+        "Spanish": "【GBM】Lineas de cuadrícula",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2499,6 +3053,8 @@
         "Japanese": "【GBM】Grid lines + Rear highlight",
         "Italian": "【GBM】Linee della griglia + Evidenziazione posteriore",
         "French": "",
+        "Spanish": "【GBM】Líneas de cuadrícula + Resaltado trasero",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2508,6 +3064,8 @@
         "Japanese": "【GBA】3X",
         "Italian": "【GBA】3X",
         "French": "",
+        "Spanish": "【GBA】3X",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2517,6 +3075,8 @@
         "Japanese": "【GBM】2X",
         "Italian": "【GBM】2X",
         "French": "",
+        "Spanish": "【GBM】2X",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2526,6 +3086,8 @@
         "Japanese": "CDアドオン（MDモード）（再起動）",
         "Italian": "Add-on CD (modalità MD) (Richiede riavvio)",
         "French": "",
+        "Spanish": "Complemento de CD (modo MD) (Requiere reinicio)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2535,6 +3097,8 @@
         "Japanese": "68K Address Error",
         "Italian": "Errore di indirizzo 68K",
         "French": "",
+        "Spanish": "Error de dirección 68K",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2544,6 +3108,8 @@
         "Japanese": "Mega Drive/Genesis のメイン CPU (Motorola 68000) は、アラインされていないメモリ アクセスを実行しようとすると、アドレス エラー例外 (クラッシュ) を生成します。これを有効にすると、この動作がシミュレートされます。これは、ROM ハックをプレイする場合のみ無効にする必要があります。これは、通常、精度の低いエミュレータを使用して開発されており、正しく動作するために無効な RAM アクセスに依存する可能性があるためです。",
         "Italian": "La CPU principale del Mega Drive/Genesis (Motorola 68000) genera un'eccezione di errore di indirizzo (crash) quando tenta di eseguire un accesso alla memoria non allineato. Abilitare questa opzione simulerà questo comportamento. Dovrebbe essere disabilitato solo quando si gioca a ROM hack, poiché queste sono generalmente sviluppate utilizzando emulatori meno accurati e potrebbero fare affidamento su accessi RAM non validi per funzionare correttamente.",
         "French": "",
+        "Spanish": "La CPU principal de Mega Drive/Genesis (Motorola 68000) genera una excepción de error de dirección (bloqueo) al intentar realizar el acceso a memoria no alineada. Al habilitar esta opción, se simulará este comportamiento. Solo debe deshabilitarse cuando se juegan trucos de ROM, ya que estos generalmente se desarrollan usando emuladores menos precisos y pueden depender de un acceso RAM no válido para un funcionamiento correcto.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2553,6 +3119,8 @@
         "Japanese": "EQ High",
         "Italian": "EQ Alto",
         "French": "",
+        "Spanish": "EQ Alto",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2562,6 +3130,8 @@
         "Japanese": "内部オーディオイコライザーの高音域を調整します。",
         "Italian": "Regola la banda di alta frequenza dell'equalizzatore audio interno.",
         "French": "",
+        "Spanish": "Ajuste la banda de rango alto del ecualizador de audio interno.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2571,6 +3141,8 @@
         "Japanese": "EQ Mid",
         "Italian": "EQ Medio",
         "French": "",
+        "Spanish": "EQ Medio",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2580,6 +3152,8 @@
         "Japanese": "内部オーディオイコライザーの中音域を調整します。",
         "Italian": "Regola la banda di media frequenza dell'equalizzatore audio interno.",
         "French": "",
+        "Spanish": "Ajuste la banda de rango medio del ecualizador de audio interno.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2589,6 +3163,8 @@
         "Japanese": "EQ Low",
         "Italian": "EQ Basso",
         "French": "",
+        "Spanish": "EQ Bajo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2598,6 +3174,8 @@
         "Japanese": "内部オーディオイコライザーの低音域を調整します。",
         "Italian": "Regola la banda di bassa frequenza dell'equalizzatore audio interno.",
         "French": "",
+        "Spanish": "Ajuste la banda de rango bajo del ecualizador de audio interno.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2607,6 +3185,8 @@
         "Japanese": "ローパス オーディオ フィルターを有効にして、Model 1 Mega Drive/Genesis の特徴的なサウンドをより正確にシミュレートします。",
         "Italian": "Abilita un filtro audio passa-basso per simulare meglio il suono caratteristico di un Mega Drive/Genesis Model 1.",
         "French": "",
+        "Spanish": "Habilite un filtro de audio de paso bajo para simular mejor el sonido característico de un Model 1 Mega Drive/Genesis.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2616,6 +3196,8 @@
         "Japanese": "Blargg NTSC Filter",
         "Italian": "Filtro Blargg NTSC",
         "French": "",
+        "Spanish": "Filtro Blargg NTSC",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2625,6 +3207,8 @@
         "Japanese": "ビデオ フィルターを適用して、さまざまな NTSC TV 信号を模倣します。",
         "Italian": "Applica un filtro video per imitare vari segnali TV NTSC.",
         "French": "",
+        "Spanish": "Aplique un filtro de vídeo para imitar varias señales de TV NTSC.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2634,6 +3218,8 @@
         "Japanese": "モノクロ",
         "Italian": "Monocromatico",
         "French": "",
+        "Spanish": "Monocromatico",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2643,6 +3229,8 @@
         "Japanese": "コンポジット",
         "Italian": "Composito",
         "French": "",
+        "Spanish": "Compuesto",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2652,6 +3240,8 @@
         "Japanese": "S端子",
         "Italian": "S-Video",
         "French": "",
+        "Spanish": "S-Video",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2661,6 +3251,8 @@
         "Japanese": "コア提供のアスペクト比",
         "Italian": "Proporzioni fornite dal core",
         "French": "",
+        "Spanish": "Relación de aspecto proporcionada por el núcleo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2670,6 +3262,8 @@
         "Japanese": "優先するコンテンツのアスペクト比を選択します。これは、RetroArch のアスペクト比がビデオ設定で「コア提供」に設定されている場合にのみ適用されます。",
         "Italian": "Scegli le proporzioni preferite per il contenuto. Questo si applica solo quando le proporzioni di RetroArch sono impostate su 'Fornite dal core' nelle impostazioni video.",
         "French": "",
+        "Spanish": "Elija la relación de aspecto de contenido preferida. Esto solo se aplicará cuando la relación de aspecto de RetroArch esté configurada como 'Core provided' en la configuración de video.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2679,6 +3273,8 @@
         "Japanese": "システムブートROM",
         "Italian": "ROM di avvio del sistema",
         "French": "",
+        "Spanish": "ROM de arranque del sistema",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2688,6 +3284,8 @@
         "Japanese": "RetroArch のシステム ディレクトリに存在する場合、エミュレートされたハードウェアに公式 BIOS/ブートローダーを使用します。コンソール固有の起動シーケンス/アニメーションを表示し、読み込まれたコンテンツを実行します。",
         "Italian": "Usa il BIOS/bootloader ufficiale per l'hardware emulato, se presente nella directory di sistema di RetroArch. Mostra la sequenza/animazione di avvio specifica della console, quindi esegue il contenuto caricato.",
         "French": "",
+        "Spanish": "Utilice el BIOS/gestor de arranque oficial para el hardware emulado, si está presente en el directorio del sistema de RetroArch. Muestra la secuencia de inicio/animación específica de la consola y, a continuación, ejecuta el contenido cargado.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2697,6 +3295,8 @@
         "Japanese": "CD バックアップ カート BRAM (再起動)",
         "Italian": "BRAM della cartuccia di backup CD (Richiede riavvio)",
         "French": "",
+        "Spanish": "Respaldo de CD Cartucho BRAM (requiere reinicio)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2706,6 +3306,8 @@
         "Japanese": "Sega CD/Mega-CD コンテンツを実行するときに、すべてのゲームで単一のバックアップ RAM カートを共有するか (カート毎)、ゲームごとに個別のバックアップ RAM カートを作成するか (ゲーム毎) を指定します。",
         "Italian": "Quando si esegue contenuto Sega CD/Mega-CD, specifica se condividere una singola cartuccia di backup RAM per tutti i giochi (Per-Cartuccia) o creare una cartuccia di backup RAM separata per ogni gioco (Per-Gioco).",
         "French": "",
+        "Spanish": "Al ejecutar contenido de Sega CD/Mega-CD, especifica si se debe compartir un único cartucho de memoria RAM de copia de seguridad para todos los juegos (por cartucho) o si se debe crear un cartucho de memoria RAM de copia de seguridad independiente para cada juego (por juego).",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2715,6 +3317,8 @@
         "Japanese": "CD バックアップ カート BRAM サイズ (再起動)",
         "Italian": "Dimensione BRAM della cartuccia di backup CD (Richiede riavvio)",
         "French": "",
+        "Spanish": "Tamaño del cartucho de respaldo CD BRAM (requiere reinicio)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2724,6 +3328,8 @@
         "Japanese": "Sega CD/Mega-CD コンテンツを実行するときに、バックアップ RAM カートのサイズを設定します。バックアップ RAM カートをゲームごとに設定して、複数の大きなカート サイズを回避する場合に便利です。",
         "Italian": "Imposta la dimensione della cartuccia di backup RAM quando si esegue contenuto Sega CD/Mega-CD. Utile quando si imposta la cartuccia di backup RAM su Per-Gioco per evitare dimensioni di cartuccia più grandi multiple.",
         "French": "",
+        "Spanish": "Al ejecutar contenido de Sega CD/Mega-CD, configure el tamaño del cartucho de RAM de respaldo. Es útil configurar el cartucho de RAM de respaldo por juego para evitar múltiples tamaños de cartuchos grandes.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2733,6 +3339,8 @@
         "Japanese": "CDアクセス時間",
         "Italian": "Tempo di accesso CD",
         "French": "",
+        "Spanish": "Tiempo de acceso CD",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2742,6 +3350,8 @@
         "Japanese": "読み込みを開始するとき、またはロードされたディスク上の特定の場所をシークするときに、元の CD ハードウェアの遅延をシミュレートします。これは、CD データがすぐに利用可能になるとクラッシュするいくつかの CD ゲームで必要であり、一部のゲームでの CD オーディオの同期ずれの問題も修正します。これを無効にすると、CD オーディオ トラックのループがよりシームレスになるため、MSU-MD ゲームで役立ちます。",
         "Italian": "Simula la latenza originale dell'hardware CD quando si avvia una lettura o si cerca una posizione specifica sul disco caricato. Questo è richiesto da alcuni giochi CD che si bloccano se i dati CD sono disponibili troppo presto e risolve anche i problemi di desincronizzazione dell'audio CD in alcuni giochi. Disabilitare questo può essere utile con i giochi MSU-MD in quanto rende i loop delle tracce audio CD più fluidi.",
         "French": "",
+        "Spanish": "Cuando se inicia la carga o se busca en un lugar específico en el disco cargado, se simula la latencia del hardware original de CD. Esto es necesario en algunos juegos de CD que se bloquean cuando los datos del CD están disponibles de inmediato, y también corrige problemas de desincronización de audio de CD en algunos juegos. Deshabilitar esto hace que los bucles de las pistas de audio de CD sean más fluidos, lo que resulta útil en juegos de MSU-MD.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2751,6 +3361,8 @@
         "Japanese": "CDイメージキャッシュ",
         "Italian": "Cache immagine CD",
         "French": "",
+        "Spanish": "Caché de imagen de CD",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2760,6 +3372,8 @@
         "Japanese": "起動時に CD イメージをメモリに読み込みます。CHD のみがサポートされています。（再起動）",
         "Italian": "Carica l'immagine CD in memoria all'avvio. Supportato solo CHD. Riavvio richiesto.",
         "French": "",
+        "Spanish": "Al iniciar, carga la imagen del CD en la memoria. Solo se admite CHD. (Requiere Reiniciar)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2769,6 +3383,8 @@
         "Japanese": "詳細なオーディオ音量設定を表示（メニューを再度開く）",
         "Italian": "Mostra impostazioni avanzate del volume audio (Riapri menu)",
         "French": "",
+        "Spanish": "Muestre la configuración de volumen de audio detallada (abra el menú nuevamente)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2778,6 +3394,8 @@
         "Japanese": "低レベルオーディオ チャネル パラメータの構成を有効にします。注: この設定を有効にするには、クイック メニューを切り替える必要があります。",
         "Italian": "Abilita la configurazione dei parametri di basso livello dei canali audio. NOTA: Il menu rapido deve essere attivato affinché questa impostazione abbia effetto.",
         "French": "",
+        "Spanish": "Habilita la configuración de parámetros de canal de audio de bajo nivel. Nota: Para habilitar esta configuración, es necesario cambiar el menú rápido.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2787,6 +3405,8 @@
         "Japanese": "PSG Tone Channel 0 Volume %",
         "Italian": "Volume canale tono PSG 0 %",
         "French": "",
+        "Spanish": "Canal de tono PSG 0 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2796,6 +3416,8 @@
         "Japanese": "PSGトーンチャンネル0の音量を下げます。",
         "Italian": "Riduci il volume del canale tono PSG 0.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal de tono 0 del PSG.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2805,6 +3427,8 @@
         "Japanese": "PSG Tone Channel 1 Volume %",
         "Italian": "Volume canale tono PSG 1 %",
         "French": "",
+        "Spanish": "Canal de tono PSG 1 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2814,6 +3438,8 @@
         "Japanese": "PSGトーンチャンネル1の音量を下げます。",
         "Italian": "Riduci il volume del canale tono PSG 1.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal de tono 1 del PSG.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2823,6 +3449,8 @@
         "Japanese": "PSG Tone Channel 2 Volume %",
         "Italian": "Volume canale tono PSG 2 %",
         "French": "",
+        "Spanish": "PSG Tono Canal 2 Volumen %",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2832,6 +3460,8 @@
         "Japanese": "PSGトーンチャンネル2の音量を下げます。",
         "Italian": "Riduci il volume del canale tono PSG 2.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal de tono PSG 2.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2841,6 +3471,8 @@
         "Japanese": "PSG Noise Channel 3 Volume %",
         "Italian": "Volume canale rumore PSG 3 %",
         "French": "",
+        "Spanish": "PSG Canal de ruido 3 Volumen %",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2850,6 +3482,8 @@
         "Japanese": "PSGノイズチャンネル3の音量を下げます。",
         "Italian": "Riduci il volume del canale rumore PSG 3.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal de ruido PSG 3.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2859,6 +3493,8 @@
         "Japanese": "Mega Drive/Genesis FM チャンネル 0 音量 %",
         "Italian": "Volume canale FM Mega Drive/Genesis 0 %",
         "French": "",
+        "Spanish": "Mega Drive/Genesis FM Canal 0 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2868,6 +3504,8 @@
         "Japanese": "Mega Drive/Genesis FM チャンネル 0 の音量を下げます。MAME FM エミュレーターでのみ動作します。",
         "Italian": "Riduci il volume del canale FM Mega Drive/Genesis 0. Funziona solo con gli emulatori FM MAME.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal 0 de Mega Drive/Genesis FM. Solo funciona con el emulador MAME FM.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2877,6 +3515,8 @@
         "Japanese": "Mega Drive/Genesis FM チャンネル 1 音量 %",
         "Italian": "Volume canale FM Mega Drive/Genesis 1 %",
         "French": "",
+        "Spanish": "Mega Drive/Genesis FM Canal 1 Volumen %",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2886,6 +3526,8 @@
         "Japanese": "Mega Drive/Genesis FM チャンネル 1 の音量を下げます。MAME FM エミュレーターでのみ動作します。",
         "Italian": "Riduci il volume del canale FM Mega Drive/Genesis 1. Funziona solo con gli emulatori FM MAME.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal 1 de Mega Drive/Genesis FM. Solo funciona con el emulador MAME FM.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2895,6 +3537,8 @@
         "Japanese": "Mega Drive/Genesis FM チャンネル 2 音量 %",
         "Italian": "Volume canale FM Mega Drive/Genesis 2 %",
         "French": "",
+        "Spanish": "Mega Drive/Genesis FM canal 2 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2904,6 +3548,8 @@
         "Japanese": "Mega Drive/Genesis FM チャンネル 2 の音量を下げます。MAME FM エミュレーターでのみ動作します。",
         "Italian": "Riduci il volume del canale FM Mega Drive/Genesis 2. Funziona solo con gli emulatori FM MAME.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal 2 de Mega Drive/Genesis. Solo funciona con el emulador MAME FM.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2913,6 +3559,8 @@
         "Japanese": "Mega Drive/Genesis FM チャンネル 3 音量 %",
         "Italian": "Volume del canale FM 3 di Mega Drive/Genesis %",
         "French": "",
+        "Spanish": "Mega Drive/Genesis FM canal 3 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2922,6 +3570,8 @@
         "Japanese": "Mega Drive/Genesis FM チャンネル 3 の音量を下げます。MAME FM エミュレーターでのみ動作します。",
         "Italian": "Riduci il volume del canale FM 3 di Mega Drive/Genesis. Funziona solo con gli emulatori FM MAME.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal 3 de Mega Drive/Genesis. Solo funciona con el emulador MAME FM.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2931,6 +3581,8 @@
         "Japanese": "Mega Drive/Genesis FM チャンネル 4 音量 %",
         "Italian": "Volume del canale FM 4 di Mega Drive/Genesis %",
         "French": "",
+        "Spanish": "Mega Drive/Genesis FM Canal 4 Volumen %",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2940,6 +3592,8 @@
         "Japanese": "Mega Drive/Genesis FM チャンネル 4 の音量を下げます。MAME FM エミュレーターでのみ動作します。",
         "Italian": "Riduci il volume del canale FM 4 di Mega Drive/Genesis. Funziona solo con gli emulatori FM MAME.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal 4 de Mega Drive/Genesis. Solo funciona con el emulador MAME FM.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2949,6 +3603,8 @@
         "Japanese": "Mega Drive/Genesis FM チャンネル 5 音量 %",
         "Italian": "Volume del canale FM 5 di Mega Drive/Genesis %",
         "French": "",
+        "Spanish": "Mega Drive/Genesis FM canal 5 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2958,6 +3614,8 @@
         "Japanese": "Mega Drive/Genesis FM チャンネル 5 の音量を下げます。MAME FM エミュレーターでのみ動作します。",
         "Italian": "Riduci il volume del canale FM 5 di Mega Drive/Genesis. Funziona solo con gli emulatori FM MAME.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal 5 de Mega Drive/Genesis. Solo funciona en el emulador MAME FM.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2967,6 +3625,8 @@
         "Japanese": "Master System FM（YM2413）チャンネル 0 音量％",
         "Italian": "Volume del canale FM 0 di Master System (YM2413) %",
         "French": "",
+        "Spanish": "Master System FM (YM2413) Canal 0 Volumen %",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2976,6 +3636,8 @@
         "Japanese": "Master Systemの FM チャンネル 0 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 0 di Master System.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal FM 0 del Master System.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2985,6 +3647,8 @@
         "Japanese": "Master System FM（YM2413）チャンネル 1 音量％",
         "Italian": "Volume del canale FM 1 di Master System (YM2413) %",
         "French": "",
+        "Spanish": "Master System FM (YM2413) Canal 1 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -2994,6 +3658,8 @@
         "Japanese": "Master Systemの FM チャンネル 1 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 1 di Master System.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal FM 1 del Master System.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3003,6 +3669,8 @@
         "Japanese": "Master System FM（YM2413）チャンネル 2 音量％",
         "Italian": "Volume del canale FM 2 di Master System (YM2413) %",
         "French": "",
+        "Spanish": "Master System FM (YM2413) Canal 2 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3012,6 +3680,8 @@
         "Japanese": "Master Systemの FM チャンネル 2 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 2 di Master System.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal FM 2 del Master System.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3021,6 +3691,8 @@
         "Japanese": "Master System FM（YM2413）チャンネル 3 音量％",
         "Italian": "Volume del canale FM 3 di Master System (YM2413) %",
         "French": "",
+        "Spanish": "Master System FM (YM2413) Canal 3 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3030,6 +3702,8 @@
         "Japanese": "Master Systemの FM チャンネル 3 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 3 di Master System.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal FM 3 del Master System.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3039,6 +3713,8 @@
         "Japanese": "Master System FM（YM2413）チャンネル 4 音量％",
         "Italian": "Volume del canale FM 4 di Master System (YM2413) %",
         "French": "",
+        "Spanish": "Master System FM (YM2413) Canal 4 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3048,6 +3724,8 @@
         "Japanese": "Master Systemの FM チャンネル 4 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 4 di Master System.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal FM 4 del Master System.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3057,6 +3735,8 @@
         "Japanese": "Master System FM（YM2413）チャンネル 5 音量％",
         "Italian": "Volume del canale FM 5 di Master System (YM2413) %",
         "French": "",
+        "Spanish": "Master System FM (YM2413) Canal 5 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3066,6 +3746,8 @@
         "Japanese": "Master Systemの FM チャンネル 5 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 5 di Master System.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal FM 5 del Master System.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3075,6 +3757,8 @@
         "Japanese": "Master System FM（YM2413）チャンネル 6 音量％",
         "Italian": "Volume del canale FM 6 di Master System (YM2413) %",
         "French": "",
+        "Spanish": "Master System FM (YM2413) Canal 6 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3084,6 +3768,8 @@
         "Japanese": "Master Systemの FM チャンネル 6 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 6 di Master System.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal FM 6 del Master System.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3093,6 +3779,8 @@
         "Japanese": "Master System FM（YM2413）チャンネル 7 音量％",
         "Italian": "Volume del canale FM 7 di Master System (YM2413) %",
         "French": "",
+        "Spanish": "Master System FM (YM2413) Canal 7 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3102,6 +3790,8 @@
         "Japanese": "Master Systemの FM チャンネル 7 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 7 di Master System.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal FM 7 del Master System.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3111,6 +3801,8 @@
         "Japanese": "Master System FM（YM2413）チャンネル 8 音量％",
         "Italian": "Volume del canale FM 8 di Master System (YM2413) %",
         "French": "",
+        "Spanish": "Master System FM (YM2413) Canal 8 % de volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3120,6 +3812,8 @@
         "Japanese": "Master Systemの FM チャンネル 8 の音量を下げます。",
         "Italian": "Riduci il volume del canale FM 8 di Master System.",
         "French": "",
+        "Spanish": "Bajar el volumen del canal FM 8 del Master System.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3129,6 +3823,8 @@
         "Japanese": "CD-DA Volume",
         "Italian": "Volume CD-DA",
         "French": "",
+        "Spanish": "Volumen de CD-DA",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3138,6 +3834,8 @@
         "Japanese": "エミュレートされた CD オーディオ再生出力のミキシング音量を調整します。",
         "Italian": "Regola il volume di miscelazione dell'output di riproduzione audio CD emulato.",
         "French": "",
+        "Spanish": "Ajusta el volumen de mezcla de la salida de reproducción de audio de CD emulado.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3147,6 +3845,8 @@
         "Japanese": "PCM Volume",
         "Italian": "Volume PCM",
         "French": "",
+        "Spanish": "PCM Volumen",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3156,6 +3856,8 @@
         "Japanese": "Sega CD/Mega CD RF5C164 PCM サウンド ジェネレータ出力のミキシング ボリュームを調整します。",
         "Italian": "Regola il volume di miscelazione dell'output del generatore di suoni PCM RF5C164 emulato di Sega CD/Mega-CD.",
         "French": "",
+        "Spanish": "Ajusta el volumen de mezcla de la salida del generador de sonido PCM RF5C164 Sega CD/Mega-CD emulado.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3165,6 +3867,8 @@
         "Japanese": "タイルごとの垂直スクロールの強化",
         "Italian": "Scorrimento verticale migliorato per tile",
         "French": "",
+        "Spanish": "Mejora del desplazamiento vertical por mosaicos.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3174,6 +3878,8 @@
         "Japanese": "隣接するセルの vscroll 値を平均化することで、16 ピクセルの 2 セルではなく、各セルを垂直方向にスクロールできるようにします。このハックは、2 セルの垂直スクロール モードを使用するいくつかのゲームにのみ適用されます。",
         "Italian": "Consente a ogni singola cella di scorrere verticalmente, invece di 16px 2-celle, mediando il valore di scorrimento verticale (vscroll) della cella adiacente. Questa modifica si applica solo a pochi giochi che utilizzano la modalità di scorrimento verticale a 2 celle.",
         "French": "",
+        "Spanish": "Permite desplazar verticalmente cada celda en lugar de dos celdas de 16 píxeles promediando el valor de vscroll de las celdas adyacentes. Este truco solo se aplica a algunos juegos que utilizan el modo de desplazamiento vertical de dos celdas.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3183,6 +3889,8 @@
         "Japanese": "タイルごとの垂直スクロール制限の強化",
         "Italian": "Limite di scorrimento verticale migliorato per tile",
         "French": "",
+        "Spanish": "Límite de desplazamiento vertical por mosaico mejorado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3192,6 +3900,8 @@
         "Japanese": "タイルごとの垂直スクロールの強化が有効な場合のみ。垂直スクロール強化の制限を調整します。隣接するタイル間の垂直スクロールの差がこの制限より大きい場合、強化は無効になります。",
         "Italian": "Solo quando lo scorrimento verticale migliorato per tile è abilitato. Regola il limite del miglioramento dello scorrimento verticale. Quando la differenza di scorrimento verticale (vscroll) tra le tile adiacenti è maggiore di questo limite, il miglioramento viene disabilitato.",
         "French": "",
+        "Spanish": "Solo cuando está habilitado el desplazamiento vertical por mosaico mejorado. Ajusta el límite de la mejora del desplazamiento vertical. Cuando la diferencia de vscroll entre mosaicos vecinos es mayor que este límite, la mejora se desactiva.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3201,6 +3911,8 @@
         "Japanese": "CPU Speed",
         "Italian": "Velocità della CPU",
         "French": "",
+        "Spanish": "Velocidad de la CPU",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3210,6 +3922,8 @@
         "Japanese": "CPU をオーバークロックします。処理落ちを軽減できますが、不具合が発生する可能性があります。",
         "Italian": "Overclock della CPU emulata. Può ridurre il rallentamento, ma potrebbe causare glitch.",
         "French": "",
+        "Spanish": "Overlockea la CPU emulada. Puede reducir la ralentización, pero puede causar fallos.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3219,6 +3933,8 @@
         "Japanese": "システムのロックアップ",
         "Italian": "Blocchi del sistema",
         "French": "",
+        "Spanish": "Bloqueos del sistema",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3228,6 +3944,8 @@
         "Japanese": "不正なアドレス アクセスを実行したときに実際のハードウェアで発生するシステム ロックアップをエミュレートします。これは、不正な動作によって正常に動作しない特定のデモや自作ソフトをプレイする場合にのみ無効にする必要があります。",
         "Italian": "Emula i blocchi del sistema che si verificano sull'hardware reale durante l'accesso a indirizzi illegali. Questo dovrebbe essere disabilitato solo quando si giocano determinati demo e homebrew che si basano su comportamenti illegali per un funzionamento corretto.",
         "French": "",
+        "Spanish": "Emule los bloqueos del sistema que se producen en el hardware real al realizar un acceso ilegal a direcciones. Esto solo debe desactivarse cuando se juegan ciertas demos y homebrew que se basan en un comportamiento ilegal para su correcto funcionamiento.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3237,6 +3955,8 @@
         "Japanese": "カート毎",
         "Italian": "Per cartuccia",
         "French": "",
+        "Spanish": "Cada cartucho",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3246,6 +3966,8 @@
         "Japanese": "ゲーム毎",
         "Italian": "Per gioco",
         "French": "",
+        "Spanish": "Por cada juego",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3255,6 +3977,8 @@
         "Japanese": "無効",
         "Italian": "Disabilitato",
         "French": "",
+        "Spanish": "Deshabilitado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3264,6 +3988,8 @@
         "Japanese": "手動",
         "Italian": "Manuale",
         "French": "",
+        "Spanish": "Manual",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3273,6 +3999,8 @@
         "Japanese": "FMプリアンプレベル",
         "Italian": "Livello preamplificatore FM",
         "French": "",
+        "Spanish": "Nivel de preamplificador FM",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3282,6 +4010,8 @@
         "Japanese": "Mega Drive/Genesis FM サウンド シンセサイザーまたはSega Mark III/Master System FM サウンド ユニットのオーディオ プリアンプ レベルを設定します。",
         "Italian": "Imposta il livello del preamplificatore audio del sintetizzatore FM Mega Drive/Genesis emulato o dell'unità audio FM Sega Mark III/Master System.",
         "French": "",
+        "Spanish": "Ajuste el nivel del preamplificador de audio del sintetizador de sonido Mega Drive/Genesis FM emulado o de la unidad de sonido FM Sega Mark III/Master System.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3291,6 +4021,8 @@
         "Japanese": "Game Gear拡張スクリーン",
         "Italian": "Schermo esteso di Game Gear",
         "French": "",
+        "Spanish": "Pantalla extendida de Game Gear",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3300,6 +4032,8 @@
         "Japanese": "Game Gear タイトルを SMS モードで実行するように強制し、解像度を 256x192 に上げます。追加コンテンツが表示される場合もありますが、通常は破損した/不要な画像データの境界線が表示されます。",
         "Italian": "Forza i titoli di Game Gear a funzionare in modalità SMS, con una risoluzione aumentata di 256x192. Potrebbe mostrare contenuti aggiuntivi, ma in genere visualizza un bordo di dati immagine corrotti/indesiderati.",
         "French": "",
+        "Spanish": "Obliga a los títulos de Game Gear a ejecutarse en modo SMS, con una resolución aumentada de 256x192. Puede mostrar contenido adicional, pero normalmente muestra un borde de datos de imagen dañados o no deseados.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3309,6 +4043,8 @@
         "Japanese": "光線銃のクロスヘアを表示",
         "Italian": "Mostra il mirino della light gun",
         "French": "",
+        "Spanish": "Mostrar punto de mira de pistola de luz",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3318,6 +4054,8 @@
         "Japanese": "MD Menacer、MD Justifiers、MS Light Phaser入力デバイス タイプを使用するときに、光線銃のクロスヘアを表示します。",
         "Italian": "Visualizza i mirini della light gun quando si utilizzano i tipi di dispositivo di input MD Menacer, MD Justifiers e MS Light Phaser.",
         "French": "",
+        "Spanish": "Muestra el punto de mira de la pistola de luz cuando se utilizan los tipos de dispositivos de entrada MD Menacer, MD Justifiers y MS Light Phaser.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3327,6 +4065,8 @@
         "Japanese": "光線銃 input",
         "Italian": "Input della light gun",
         "French": "",
+        "Spanish": "Entrada de pistola de luz",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3336,6 +4076,8 @@
         "Japanese": "光線銃を「マウス制御」または「タッチスクリーン」で使用します。",
         "Italian": "Utilizza un input 'Light Gun' o 'Touchscreen' controllato dal mouse.",
         "French": "",
+        "Spanish": "Utilice una entrada de 'Pistola de luz' o 'Pantalla táctil' controlada por el mouse.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3345,6 +4087,8 @@
         "Japanese": "マウスのY軸を反転",
         "Italian": "Inverti l'asse Y del mouse",
         "French": "",
+        "Spanish": "Invertir el eje Y del mouse",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3354,6 +4098,8 @@
         "Japanese": "MD マウス入力デバイス タイプの Y 軸を反転します。",
         "Italian": "Inverte l'asse Y del tipo di dispositivo di input MD Mouse.",
         "French": "",
+        "Spanish": "Invierte el eje Y del tipo de dispositivo de entrada MD Mouse.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3363,6 +4109,8 @@
         "Japanese": "LCDゴーストフィルター",
         "Italian": "Filtro ghosting LCD",
         "French": "",
+        "Spanish": "Filtro de fantasma LCD",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3372,6 +4120,8 @@
         "Japanese": "ゴーストフィルターを適用して、Game Gear および Genesis Nomad LCD パネルの表示特性を模倣します。",
         "Italian": "Applica un filtro 'ghosting' per imitare le caratteristiche di visualizzazione dei pannelli LCD di Game Gear e Genesis Nomad.",
         "French": "",
+        "Spanish": "Aplica un filtro de imagen \"fantasma\" para imitar las características de visualización de los paneles LCD de Game Gear y Genesis Nomad.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3381,6 +4131,8 @@
         "Japanese": "マスターシステムサイドボーダーを非表示",
         "Italian": "Nascondi i bordi laterali del Master System",
         "French": "",
+        "Spanish": "Ocultar los bordes laterales del Master System",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3390,6 +4142,8 @@
         "Japanese": "マスター システムのゲームを実行するときに、画面の左側または左側と右側の両方から 8 ピクセルを切り取ります。",
         "Italian": "Taglia 8 pixel dal lato sinistro dello schermo o da entrambi i lati sinistro e destro durante l'esecuzione di giochi Master System.",
         "French": "",
+        "Spanish": "Corta 8 píxeles del lado izquierdo de la pantalla o de los lados izquierdo y derecho cuando se ejecutan juegos de Master System.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3399,6 +4153,8 @@
         "Japanese": "カートリッジロックオン",
         "Italian": "Blocco della cartuccia",
         "French": "",
+        "Spanish": "Bloqueo del cartucho",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3408,6 +4164,8 @@
         "Japanese": "「ロックオン テクノロジー」は、古いゲームを特別なカートリッジのパススルー ポートに接続して、ゲームプレイを拡張または変更できるようにする Mega Drive/Genesis の機能です。このオプションは、エミュレートする特別な「ロックオン」カートリッジの種類を指定します。対応する BIOS ファイルが RetroArch のシステム ディレクトリに存在する必要があります。",
         "Italian": "La tecnologia Lock-On è una funzionalità di Mega Drive/Genesis che consentiva a un gioco più vecchio di connettersi alla porta pass-through di una cartuccia speciale per un gameplay esteso o modificato. Questa opzione specifica quale tipo di cartuccia speciale 'lock-on' emulare. Un file bios corrispondente deve essere presente nella directory di sistema di RetroArch.",
         "French": "",
+        "Spanish": "La tecnología Lock-On es una característica de Mega Drive/Genesis que permitía que un juego antiguo se conectara al puerto de paso de un cartucho especial para un juego extendido o alterado. Esta opción especifica qué tipo de cartucho especial de \"bloqueo\" se va a emular. Un archivo de BIOS correspondiente debe estar presente en el directorio del sistema de RetroArch.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3417,6 +4175,8 @@
         "Japanese": "Low-Pass Filter %",
         "Italian": "Filtro passa-basso %",
         "French": "",
+        "Spanish": "De filtro de paso bajo % ",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3426,6 +4186,8 @@
         "Japanese": "オーディオ ローパス フィルターのカットオフ周波数を指定します。値が高いほど、高周波スペクトルのより広い範囲が減衰されるため、フィルターの「強度」が増すように感じられます。",
         "Italian": "Specifica la frequenza di taglio del filtro passa-basso audio. Un valore più alto aumenta la 'forza' percepita del filtro, poiché una gamma più ampia dello spettro ad alta frequenza viene attenuata.",
         "French": "",
+        "Spanish": "Especifique la frecuencia de corte del filtro de paso bajo de audio. Un valor más alto aumenta la \"fuerza\" percibida del filtro, ya que se atenúa un rango más amplio del espectro de alta frecuencia.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3435,6 +4197,8 @@
         "Japanese": "行ごとのスプライト制限を解除",
         "Italian": "Rimuovi il limite di sprite per linea",
         "French": "",
+        "Spanish": "Eliminar el límite de sprites por línea",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3444,6 +4208,8 @@
         "Japanese": "元のスプライト/スキャンラインのハードウェア制限を削除します。これにより、ちらつきは軽減されますが、一部のゲームではハードウェア制限を利用して特殊効果を生成するため、視覚的な不具合が発生する可能性があります。",
         "Italian": "Rimuove il limite hardware originale di sprite per linea di scansione. Questo riduce lo sfarfallio ma può causare glitch visivi, poiché alcuni giochi sfruttano il limite hardware per generare effetti speciali.",
         "French": "",
+        "Spanish": "Elimina el límite de hardware original de sprite por línea de exploración. Esto reduce el parpadeo, pero puede causar fallos visuales, ya que algunos juegos explotan el límite del hardware para generar efectos especiales.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3453,6 +4219,8 @@
         "Japanese": "ボーダー",
         "Italian": "Bordi",
         "French": "",
+        "Spanish": "Bordes",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3462,6 +4230,8 @@
         "Japanese": "これを有効にすると、画面の上部/下部および/または左側/右側のオーバースキャン領域が表示されます。これらは通常、標準解像度のテレビの端にあるベゼルによって隠れています。",
         "Italian": "Abilita questo per visualizzare le regioni di overscan nella parte superiore/inferiore e/o sinistra/destra dello schermo. Queste aree sarebbero normalmente nascoste dalla cornice attorno al bordo di un televisore a definizione standard.",
         "French": "",
+        "Spanish": "Habilite esta opción para mostrar las regiones de sobreescaneo en la parte superior/inferior y/o izquierda/derecha de la pantalla. Normalmente, estos estarían ocultos por el bisel alrededor del borde de un televisor de definición estándar.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3471,6 +4241,8 @@
         "Japanese": "PSGプリアンプレベル",
         "Italian": "Livello preamplificatore PSG",
         "French": "",
+        "Spanish": "Nivel de preamplificación PSG",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3480,6 +4252,8 @@
         "Japanese": "SG-1000、Sega Mark III、Master System、Game Gear、Mega Drive/Genesis に搭載されているエミュレートされた SN76496 4 チャンネル プログラマブル サウンド ジェネレーターのオーディオ プリアンプ レベルを設定します。",
         "Italian": "Imposta il livello del preamplificatore audio del generatore di suoni programmabile a 4 canali SN76496 emulato presente in SG-1000, Sega Mark III, Master System, Game Gear e Mega Drive/Genesis.",
         "French": "",
+        "Spanish": "Establece el nivel de preamplificador de audio del generador de tonos de SN76496 programable de 4 canales emulado que se encuentra en SG-1000, Sega Mark III, Master System, Game Gear y Mega Drive/Genesis.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3489,6 +4263,8 @@
         "Japanese": "システムリージョン",
         "Italian": "Regione del sistema",
         "French": "",
+        "Spanish": "Región del sistema",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3498,6 +4274,8 @@
         "Japanese": "システムの地域を指定します。Game Gear 以外のコンソールの場合、「PAL」は 50 Hz、「NTSC」は 60 Hz です。間違った地域を選択すると、ゲームが通常よりも速くまたは遅く実行されることがあります。",
         "Italian": "Specifica da quale regione proviene il sistema. Per le console diverse da Game Gear, 'PAL' è 50 Hz, mentre 'NTSC' è 60 Hz. I giochi potrebbero funzionare più velocemente o più lentamente del normale se viene selezionata la regione errata.",
         "French": "",
+        "Spanish": "Especifica la región de la que procede el sistema. Para consolas que no sean Game Gear, 'PAL' es de 50 Hz, mientras que 'NTSC' es de 60 Hz. Los juegos pueden ejecutarse más rápido o más lento de lo normal si se selecciona la región incorrecta.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3507,6 +4285,8 @@
         "Japanese": "インターレースモード2出力",
         "Italian": "Uscita modalità interlacciata 2",
         "French": "",
+        "Spanish": "Salida de modo entrelazado 2",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3516,6 +4296,8 @@
         "Japanese": "「インターレース モード 2」では、Mega Drive/Genesis は、各フレームで交互にスキャン ラインを描画することで、高さ 2 倍 (高解像度) の 320x448 画像を出力できます (これは、ソニック ザ ヘッジホッグ 2 およびコンバット カーのマルチプレイヤー モードで使用されます)。「ダブル フィールド」は、元のハードウェアを模倣し、ちらつき/インターレース アーティファクトのある鮮明な画像を生成します。「シングル フィールド」は、インターレース解除フィルターを適用します。これにより、画像が安定しますが、若干のぼやけが生じます。",
         "Italian": "La Modalità Interlacciata 2 consente al Mega Drive/Genesis di produrre un'immagine a doppia altezza (alta risoluzione) di 320x448 disegnando linee di scansione alternate ogni fotogramma (utilizzato in Sonic the Hedgehog 2 e nelle modalità multiplayer di Combat Cars). 'Doppio Campo' imita l'hardware originale, producendo un'immagine nitida con artefatti di sfarfallio/interlacciamento. 'Campo Singolo' applica un filtro di deinterlacciamento, che stabilizza l'immagine ma causa un leggero sfuocamento.",
         "French": "",
+        "Spanish": "El modo entrelazado 2 permite a Mega Drive/Genesis producir una imagen de doble altura (alta resolución) de 320x448 dibujando líneas de escaneo alternas en cada fotograma (utilizado en los modos multijugador Sonic the Hedgehog 2 y Combat Cars). 'Double Field' imita el hardware original, produciendo una imagen nítida con artefactos de parpadeo/entrelazado. 'Campo único' aplica un filtro de desentrelazado, que estabiliza la imagen pero provoca un ligero desenfoque.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3525,6 +4307,8 @@
         "Japanese": "音声出力",
         "Italian": "Uscita Audio",
         "French": "",
+        "Spanish": "Salida de audio",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3534,6 +4318,8 @@
         "Japanese": "ステレオまたはモノラルのサウンド再生を選択します。",
         "Italian": "Seleziona la riproduzione audio in stereo o mono.",
         "French": "",
+        "Spanish": "Seleccione la reproducción de audio en estéreo o mono.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3543,6 +4329,8 @@
         "Japanese": "CD システム BRAM (再起動)",
         "Italian": "BRAM del Sistema CD (Richiede Riavvio)",
         "French": "",
+        "Spanish": "CD System BRAM (requiere reinicio)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3552,6 +4340,8 @@
         "Japanese": "Sega CD/Mega CD コンテンツを実行するときに、特定の地域のすべてのゲーム間で 1 つの保存ファイルを共有するか (BIOS毎)、ゲームごとに個別の保存ファイルを作成するか (ゲーム毎) を指定します。Sega CD/Mega CD の内部ストレージは限られており、少数のタイトルしか保存できないことに注意してください。容量不足を回避するには、「ゲーム毎」の設定をお勧めします。",
         "Italian": "Quando si esegue contenuti Sega CD/Mega-CD, specifica se condividere un unico file di salvataggio tra tutti i giochi di una specifica regione (Per-BIOS) o creare un file di salvataggio separato per ogni gioco (Per-Game). Nota che il Sega CD/Mega-CD ha una memoria interna limitata, sufficiente solo per un numero ristretto di titoli. Per evitare di esaurire lo spazio, si consiglia l'impostazione 'Per-Game'.",
         "French": "",
+        "Spanish": "Al ejecutar contenido de Sega CD/Mega-CD, especifique si desea compartir un único archivo de guardado entre todos los juegos de una región específica (por BIOS) o crear un archivo de guardado independiente para cada juego (por juego). Tenga en cuenta que el Sega CD / Mega-CD tiene una memoria interna limitada, que solo es suficiente para un pequeño número de títulos. Para evitar quedarse sin espacio, se recomienda la configuración 'Por juego'.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3561,6 +4351,8 @@
         "Japanese": "システムハードウェア",
         "Italian": "Hardware di Sistema",
         "French": "",
+        "Spanish": "Hardware del sistema",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3570,6 +4362,8 @@
         "Japanese": "ロードされたコンテンツを特定のエミュレートされたコンソールで実行します。'自動' は、現在のゲームに最も適したシステムを選択します。",
         "Italian": "Esegue il contenuto caricato con una console emulata specifica. 'Auto' selezionerà il sistema più appropriato per il gioco corrente.",
         "French": "",
+        "Spanish": "Ejecuta contenido cargado con una consola emulada específica. 'Auto' seleccionará el sistema más apropiado para el juego actual.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3579,6 +4373,8 @@
         "Japanese": "VDPモードを強制する",
         "Italian": "Forza Modalità VDP",
         "French": "",
+        "Spanish": "Forzar el modo VDP",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3588,6 +4384,8 @@
         "Japanese": "VDP モードをオーバーライドして、システム地域に関係なく、NTSC 60Hz または PAL 50Hz で強制的に実行します。",
         "Italian": "Sovrascrive la modalità VDP per forzarla a funzionare a NTSC 60Hz o PAL 50Hz, indipendentemente dalla regione del sistema.",
         "French": "",
+        "Spanish": "Sobrescribe el modo VDP para forzar su ejecución a NTSC 60 Hz o PAL 50 Hz, independientemente de la región del sistema.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3597,6 +4395,8 @@
         "Japanese": "Master System FM (YM2413)",
         "Italian": "Master System FM (YM2413)",
         "French": "",
+        "Spanish": "Sistema maestro FM (YM2413)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3606,6 +4406,8 @@
         "Japanese": "特定のSega Mark III/Master System ゲームで使用される FM サウンド ユニットのエミュレーションを有効にして、オーディオ出力を強化します。",
         "Italian": "Abilita l'emulazione dell'unità audio FM utilizzata da alcuni giochi Sega Mark III/Master System per una migliore qualità audio.",
         "French": "",
+        "Spanish": "Habilite la emulación de unidad de audio FM utilizada por algunos juegos de Sega Mark III / Master System para una mejor calidad de audio.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3615,6 +4417,8 @@
         "Japanese": "Master System FM (YM2413) Core",
         "Italian": "Nucleo Master System FM (YM2413)",
         "French": "",
+        "Spanish": "Sistema Maestro Nucleo FM (YM2413)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3624,6 +4428,8 @@
         "Japanese": "Sega Mark III/Master System の FM サウンド ユニットをエミュレートするために使用される方法を選択します。「MAME」オプションは高速で、ほとんどのシステムでフル スピードで動作します。「Nuked」オプションはサイクル精度が高く、非常に高品質ですが、CPU 要件がかなり高くなります。",
         "Italian": "Seleziona il metodo utilizzato per emulare l'unità audio FM del Sega Mark III/Master System. L'opzione 'MAME' è veloce e funziona a piena velocità sulla maggior parte dei sistemi. L'opzione 'Nuked' è precisa nei cicli, di altissima qualità, ma richiede una CPU potente.",
         "French": "",
+        "Spanish": "Seleccione el método utilizado para emular la unidad de audio FM de la Sega Mark III/Master System. La opción 'MAME' es rápida y funciona a toda velocidad en la mayoría de los sistemas. La opción 'Nuked' es precisa en ciclos, de muy alta calidad, pero requiere una CPU potente.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3633,6 +4439,8 @@
         "Japanese": "Mega Drive/Genesis FM",
         "Italian": "Mega Drive/Genesis FM",
         "French": "",
+        "Spanish": "Mega Drive/Genesis FM",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3642,6 +4450,8 @@
         "Japanese": "Mega Drive/Genesis の FM シンセサイザー (メイン サウンド ジェネレーター) をエミュレートするために使用される方法を選択します。「MAME」オプションは高速で、ほとんどのシステムでフル スピードで動作します。「Nuked」オプションはサイクル精度が高く、非常に高品質ですが、CPU 要件がかなり高くなります。YM2612 チップは、オリジナルの Model 1 Mega Drive/Genesis で使用されます。YM3438 は、後の Mega Drive/Genesis リビジョンで使用されます。",
         "Italian": "Seleziona il metodo utilizzato per emulare il sintetizzatore FM (principale generatore di suoni) del Mega Drive/Genesis. Le opzioni 'MAME' sono veloci e funzionano a piena velocità sulla maggior parte dei sistemi. Le opzioni 'Nuked' sono precise nei cicli, di altissima qualità, ma richiedono una CPU potente. Il chip YM2612 è utilizzato nel modello originale Mega Drive/Genesis Model 1. L'YM3438 è utilizzato nelle revisioni successive del Mega Drive/Genesis.",
         "French": "",
+        "Spanish": "Seleccione el método utilizado para emular el sintetizador FM (generador de sonido principal) de la Mega Drive/Genesis. Las opciones 'MAME' son rápidas y funcionan a toda velocidad en la mayoría de los sistemas. Las opciones 'Nuked' son precisas en el ciclismo, de la más alta calidad, pero requieren una CPU potente. El chip YM2612 se utiliza en el modelo original Mega Drive/Genesis Model 1. El YM3438 se utiliza en revisiones posteriores de la Mega Drive/Genesis.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3651,6 +4461,8 @@
         "Japanese": "Mega Drive/Genesis の FM シンセサイザー (メイン サウンド ジェネレーター) をエミュレートするために使用される方法を選択します。YM2612 チップは、オリジナルの Model 1 Mega Drive/Genesis で使用されます。YM3438 は、後の Mega Drive/Genesis リビジョンで使用されます。",
         "Italian": "Seleziona il metodo utilizzato per emulare il sintetizzatore FM (principale generatore di suoni) del Mega Drive/Genesis. Il chip YM2612 è utilizzato nel modello originale Mega Drive/Genesis Model 1. L'YM3438 è utilizzato nelle revisioni successive del Mega Drive/Genesis.",
         "French": "",
+        "Spanish": "Seleccione el método utilizado para emular el sintetizador FM (generador de sonido principal) de la Mega Drive/Genesis. El chip YM2612 se utiliza en el modelo original Mega Drive/Genesis Model 1. El YM3438 se utiliza en revisiones posteriores de la Mega Drive/Genesis.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3660,6 +4472,8 @@
         "Japanese": "RTC support",
         "Italian": "Supporto RTC",
         "French": "",
+        "Spanish": "Compatibilidad con RTC",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3669,6 +4483,8 @@
         "Japanese": "エミュレートされたカートリッジの RTC サポートを設定します。自動検出では、ほとんどの市販タイトルで動作する ROM データベースが使用されます。自作または ROM ハックを使用する場合は、RTC を強制する必要があるかもしれません。",
         "Italian": "Imposta il supporto RTC per la cartuccia emulata. L'autorilevamento utilizza un database ROM che funziona con la maggior parte dei titoli commerciali. Potrebbe essere necessario forzare l'RTC quando si utilizzano homebrew o hack ROM.",
         "French": "",
+        "Spanish": "Establece la compatibilidad con RTC para el cartucho emulado. La detección automática utiliza una base de datos de ROM que funciona con la mayoría de los títulos comerciales. Es posible que debas forzar RTC cuando uses trucos caseros o de ROM.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3678,6 +4494,8 @@
         "Japanese": "Rumble support",
         "Italian": "Supporto Rumble",
         "French": "",
+        "Spanish": "Soporte de Rumble",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3687,6 +4505,8 @@
         "Japanese": "エミュレートされたカートリッジの Rumble サポートを設定します。自動検出では、ほとんどの市販タイトルで動作する ROM データベースを使用します。Rumble をサポートする自作ソフトや ROM ハックを使用する場合は、Rumble を強制的に有効にすることをお勧めします。Rumble が気に入らない場合は、強制的に無効にすることもできます。",
         "Italian": "Imposta il supporto Rumble per la cartuccia emulata. L'autorilevamento utilizza un database ROM che funziona con la maggior parte dei titoli commerciali. Potresti voler forzare il Rumble quando usi homebrew o hack ROM che lo supportano. Puoi anche disabilitarlo forzatamente se non ti piace.",
         "French": "",
+        "Spanish": "Configure la compatibilidad con Rumble para el cartucho emulado. La detección automática utiliza una base de datos de ROM que funciona con la mayoría de los títulos comerciales. Es posible que desee forzar el Rumble cuando use trucos caseros o de ROM que lo admitan. También puede deshabilitarlo a la fuerza si no le gusta.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3696,6 +4516,8 @@
         "Japanese": "自動",
         "Italian": "automatico",
         "French": "",
+        "Spanish": "Automático",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3705,6 +4527,8 @@
         "Japanese": "リンクケーブル接続",
         "Italian": "Connettività Cavo Link",
         "French": "",
+        "Spanish": "Conectividad de cable de enlace",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3714,6 +4538,8 @@
         "Japanese": "シリアル (リンク ケーブル) 接続を構成します。自動では、ほとんどの既知のゲームに対して適切なサポートが選択されます。",
         "Italian": "Configura la connessione seriale (Cavo Link). L'impostazione automatica selezionerà un supporto ragionevole per la maggior parte dei giochi conosciuti.",
         "French": "",
+        "Spanish": "Configure la conexión serie (cable de enlace). La configuración automática seleccionará el soporte razonable para la mayoría de los juegos conocidos.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3723,6 +4549,8 @@
         "Japanese": "スプライト制限なし",
         "Italian": "Nessun Limite di Sprite",
         "French": "",
+        "Spanish": "Sin límite de sprites",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3732,6 +4560,8 @@
         "Japanese": "元のスキャンラインあたりのスプライトのハードウェア制限を削除します。一部のゲームでは、適切なレンダリングのためにハードウェア制限に依存する場合があります (一部のスプライトを非表示にするなど)。",
         "Italian": "Rimuove il limite hardware originale degli sprite per linea di scansione. Alcuni giochi potrebbero fare affidamento sul limite hardware per il rendering corretto (ad esempio, nascondendo alcuni sprite).",
         "French": "",
+        "Spanish": "Elimina el límite de hardware original de sprites por línea de exploración. Algunos juegos pueden depender del límite de hardware para renderizarse correctamente (por ejemplo, ocultar algunos sprites).",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3741,6 +4571,8 @@
         "Japanese": "自動",
         "Italian": "Automatico",
         "French": "",
+        "Spanish": "Automático",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3750,6 +4582,8 @@
         "Japanese": "GBAワイヤレスアダプタ",
         "Italian": "Adattatore Wireless GBA",
         "French": "",
+        "Spanish": "Adaptador inalámbrico GBA",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3759,6 +4593,8 @@
         "Japanese": "難度",
         "Italian": "Difficoltà",
         "French": "",
+        "Spanish": "Dificultad",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3768,6 +4604,8 @@
         "Japanese": "Normal",
         "Italian": "Normale",
         "French": "",
+        "Spanish": "Normal",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3777,6 +4615,8 @@
         "Japanese": "Medium",
         "Italian": "Medio",
         "French": "",
+        "Spanish": "Medio",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3786,6 +4626,8 @@
         "Japanese": "Hard",
         "Italian": "Difficile",
         "French": "",
+        "Spanish": "Difícil",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3795,6 +4637,8 @@
         "Japanese": "Easy",
         "Italian": "Facile",
         "French": "",
+        "Spanish": "Facil",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3804,6 +4648,8 @@
         "Japanese": "Bonus Life",
         "Italian": "Vita Bonus",
         "French": "",
+        "Spanish": "Bonificación de vida",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3813,6 +4659,8 @@
         "Japanese": "Coinage",
         "Italian": "Monetazione",
         "French": "",
+        "Spanish": "Acuñación",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3822,6 +4670,8 @@
         "Japanese": "Miss per game",
         "Italian": "Errori per partita",
         "French": "",
+        "Spanish": "Errores por partido",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3831,6 +4681,8 @@
         "Japanese": "1 Coin 1 Credit",
         "Italian": "1 Moneta 1 Credito",
         "French": "",
+        "Spanish": "1 Moneda 1 Crédito",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3840,6 +4692,8 @@
         "Japanese": "1 Coin 2 Credit",
         "Italian": "1 Moneta 2 Crediti",
         "French": "",
+        "Spanish": "1 Moneda 2 Crédito",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3849,6 +4703,8 @@
         "Japanese": "1 Coin 3 Credit",
         "Italian": "1 Moneta 3 Crediti",
         "French": "",
+        "Spanish": "1 Moneda 3 Crédito",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3858,6 +4714,8 @@
         "Japanese": "1 Coin 4 Credit",
         "Italian": "1 Moneta 4 Crediti",
         "French": "",
+        "Spanish": "1 Moneda 4 Crédito",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3867,6 +4725,8 @@
         "Japanese": "2 Coin 1 Credit",
         "Italian": "2 Monete 1 Credito",
         "French": "",
+        "Spanish": "2 Monedas 1 Crédito",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3876,6 +4736,8 @@
         "Japanese": "3 Coin 1 Credit",
         "Italian": "3 Monete 1 Credito",
         "French": "",
+        "Spanish": "3 Monedas 1 Crédito",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3885,6 +4747,8 @@
         "Japanese": "4 Coin 1 Credit",
         "Italian": "4 Monete 1 Credito",
         "French": "",
+        "Spanish": "4 Monedas 1 Crédito",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3894,6 +4758,8 @@
         "Japanese": "5 Coin 1 Credit",
         "Italian": "5 Monete 1 Credito",
         "French": "",
+        "Spanish": "5 Monedas 1 Crédito",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3903,6 +4769,8 @@
         "Japanese": "Free Play",
         "Italian": "Gioco Gratuito",
         "French": "",
+        "Spanish": "Juega gratis",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3912,6 +4780,8 @@
         "Japanese": "マウスの感度",
         "Italian": "Sensibilità del Mouse",
         "French": "",
+        "Spanish": "Sensibilidad del mouse",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3921,6 +4791,8 @@
         "Japanese": "マウスの感度（％）。",
         "Italian": "Sensibilità del mouse in percentuale.",
         "French": "",
+        "Spanish": "Sensibilidad del mouse en porcentaje",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3930,6 +4802,8 @@
         "Japanese": "Arkanoid Mode",
         "Italian": "Modalità Arkanoid",
         "French": "",
+        "Spanish": "Modo Arkanoid",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3939,6 +4813,8 @@
         "Japanese": "Arkanoidに使用するデバイスを選択します。",
         "Italian": "Seleziona il dispositivo da utilizzare per i giochi Arkanoid.",
         "French": "",
+        "Spanish": "Selecciona el dispositivo que quieres usar para los juegos de Arkanoid.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3948,6 +4824,8 @@
         "Japanese": "タッチスクリーン",
         "Italian": "Touchscreen",
         "French": "",
+        "Spanish": "Pantalla táctil",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3957,6 +4835,8 @@
         "Japanese": "オーバークロック",
         "Italian": "Overclock",
         "French": "",
+        "Spanish": "Overclock",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3966,6 +4846,8 @@
         "Japanese": "オーバークロックを有効または無効にします。これにより、一部のゲームの速度低下を軽減できます。ポストレンダリング方式はあらゆるゲームとの互換性が高く、Contra Force などのゲームでは Vblank の方が効果的です。",
         "Italian": "Abilita o disabilita l'overclocking, che può ridurre i rallentamenti in alcuni giochi. Il metodo Postrender è più compatibile con tutti i giochi, Vblank è più efficace per giochi come Contra Force.",
         "French": "",
+        "Spanish": "Habilita o deshabilita el overclocking, que puede reducir las ralentizaciones en algunos juegos. El método Postrender es más compatible con todos los juegos, Vblank es más efectivo para juegos como Contra Force.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3975,6 +4857,8 @@
         "Japanese": "RAM パワーオンフィル (再起動)",
         "Italian": "Riempimento RAM all'Accensione (Richiede Riavvio)",
         "French": "",
+        "Spanish": "Llenado de RAM al encender (requiere reinicio)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3984,6 +4868,8 @@
         "Japanese": "電源投入時の RAM 値。たとえば、一部のゲームでは乱数生成に初期 RAM 値に依存しています。",
         "Italian": "Valori della RAM all'accensione. Alcuni giochi si basano sui valori iniziali della RAM per la generazione di numeri casuali, ad esempio.",
         "French": "",
+        "Spanish": "Valores de RAM en el encendido. Algunos juegos se basan en los valores iniciales de RAM para la generación de números aleatorios, por ejemplo.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -3993,6 +4879,8 @@
         "Japanese": "ザッパーのクロスヘアを表示",
         "Italian": "Mostra Mirino Zapper",
         "French": "",
+        "Spanish": "Exposición Mirino Zapper",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4002,6 +4890,8 @@
         "Japanese": "ザッパー を使用するときに画面上のクロスヘアを表示または非表示にします。",
         "Italian": "Mostra o nasconde il mirino sullo schermo quando si utilizza un Zapper.",
         "French": "",
+        "Spanish": "Muestra u oculta el punto de mira en la pantalla cuando se usa un Zapper.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4011,6 +4901,8 @@
         "Japanese": "ザッパートリガー信号を反転",
         "Italian": "Inverti Segnale di Trigger Zapper",
         "French": "",
+        "Spanish": "Señal de Zapper de disparo inverso",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4020,6 +4912,8 @@
         "Japanese": "ザッパー使用時のトリガー ロジックを反転します。無効にすると、元のハードウェアの動作に似たものになります。",
         "Italian": "Inverte la logica del trigger quando si utilizza un Zapper. Disabilitandolo si ripristina il comportamento originale dell'hardware.",
         "French": "",
+        "Spanish": "Invierte la lógica del activador cuando se usa un Zapper. Al deshabilitarlo, se restaura el comportamiento original del hardware.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4029,6 +4923,8 @@
         "Japanese": "ザッパーセンサー信号を反転",
         "Italian": "Inverti Segnale Sensore Zapper",
         "French": "",
+        "Spanish": "Señal del sensor de zapper inverso",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4038,6 +4934,8 @@
         "Japanese": "ザッパー使用時にセンサー ロジックを反転します (シーケンシャル ターゲット ライト ガン モードのみ)。これを無効にすると、元の NES/FC ハードウェアの動作に似ています。",
         "Italian": "Inverte la logica del sensore quando si utilizza un Zapper (solo in modalità Light gun Sequential Targets). Disabilitandolo si ripristina il comportamento originale dell'hardware NES/FC.",
         "French": "",
+        "Spanish": "Invierte la lógica del sensor cuando se usa un Zapper (solo en el modo de objetivos secuenciales de pistola ligera). Al desactivarlo, se restaura el comportamiento original del hardware NES/FC.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4047,6 +4945,8 @@
         "Japanese": "ザッパー耐性",
         "Italian": "Tolleranza Zapper",
         "French": "",
+        "Spanish": "Tolerancia de Zapper",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4056,6 +4956,8 @@
         "Japanese": "ターゲット領域からターゲット上のピクセル数を設定します。",
         "Italian": "Imposta quanti pixel dall'area del bersaglio sono sul bersaglio.",
         "French": "",
+        "Spanish": "Establezca cuántos píxeles del área de destino están en el destino.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4065,6 +4967,8 @@
         "Japanese": "Default",
         "Italian": "Predefinito",
         "French": "",
+        "Spanish": "Predeterminado",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4074,6 +4978,8 @@
         "Japanese": "Random",
         "Italian": "Casuale",
         "French": "",
+        "Spanish": "aleatorio",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4083,6 +4989,8 @@
         "Japanese": "Very High",
         "Italian": "Molto Alto",
         "French": "",
+        "Spanish": "Muy alto",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4092,6 +5000,8 @@
         "Japanese": "None",
         "Italian": "Nessuno",
         "French": "",
+        "Spanish": "Ninguno",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4101,6 +5011,8 @@
         "Japanese": "Player 1",
         "Italian": "Giocatore 1",
         "French": "",
+        "Spanish": "Jugador 1",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4110,6 +5022,8 @@
         "Japanese": "Player 2",
         "Italian": "Giocatore 2",
         "French": "",
+        "Spanish": "Jugador 2",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4119,6 +5033,8 @@
         "Japanese": "Both",
         "Italian": "Entrambi",
         "French": "",
+        "Spanish": "Ambos",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4128,6 +5044,8 @@
         "Japanese": "BSX BIOSをロードする",
         "Italian": "Carica il BIOS BSX",
         "French": "",
+        "Spanish": "Cargar la BIOS de BSX",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4137,6 +5055,8 @@
         "Japanese": "多くの BSX ゲームは BSX BIOS なしでも実行できます。これを無効にすると、エミュレーターはゲームを直接起動します。",
         "Italian": "Molti giochi BSX possono funzionare senza il BIOS BSX. Disabilitandolo, l'emulatore avvierà direttamente il gioco.",
         "French": "",
+        "Spanish": "Muchos juegos de BSX pueden ejecutarse sin el BIOS de BSX. Si lo deshabilitas, el emulador iniciará el juego directamente.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4146,6 +5066,8 @@
         "Japanese": "Skip",
         "Italian": "Salta",
         "French": "",
+        "Spanish": "Omitir",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4155,6 +5077,8 @@
         "Japanese": "ロード（利用可能な場合）",
         "Italian": "Carica (se disponibile)",
         "French": "",
+        "Spanish": "Cargar (si está disponible)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4164,6 +5088,8 @@
         "Japanese": "オーディオ バッファの不足 (パチパチ音) を回避するためにフレームをスキップします。視覚的な滑らかさを犠牲にしてパフォーマンスが向上します。「自動」は、フロントエンドから指示があった場合にフレームをスキップします。「手動」は、「フレームスキップしきい値 (%)」設定を利用します。",
         "Italian": "Salta i fotogrammi per evitare l'under-run del buffer audio (crepitio). Migliora le prestazioni a scapito della fluidità visiva. 'Auto' salta i fotogrammi quando consigliato dal frontend. 'Manuale' utilizza l'impostazione 'Soglia di Salto Fotogrammi (%)'.",
         "French": "",
+        "Spanish": "Omita fotogramas para evitar que el búfer de audio se desborde (crepite). Mejorar el rendimiento a expensas de la fluidez visual. 'Auto' salta fotogramas cuando lo recomienda la interfaz. 'Manual' utiliza el ajuste 'Umbral de salto de fotogramas (%)'.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4173,6 +5099,8 @@
         "Japanese": "処理落ちを軽減（不安定、再起動）",
         "Italian": "Riduci Rallentamenti (Non Sicuro, Riavvio)",
         "French": "",
+        "Spanish": "Reducir las ralentizaciones (inseguro, reinicio)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4182,6 +5110,8 @@
         "Japanese": "SNES CPU をオーバークロックします。ゲームがクラッシュする可能性があります。読み込み時間を短縮するには 'AutoFastROM' を使用し、処理落ちが見られるほとんどのゲームには 'Low' を使用し、絶対に必要な場合にのみ 'High' を使用してください。",
         "Italian": "Overclock della CPU SNES. Potrebbe causare il crash dei giochi! Usa 'AutoFastROM' per tempi di caricamento più brevi, 'Basso' per la maggior parte dei giochi che mostrano rallentamenti e 'Alto' solo se strettamente necessario.",
         "French": "",
+        "Spanish": "Overclocking de CPU SNES. ¡Puede hacer que los juegos se bloqueen! Use 'AutoFastROM' para tiempos de carga más cortos, 'Bajo' para la mayoría de los juegos que muestran ralentizaciones y 'Alto' solo si es absolutamente necesario.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4191,6 +5121,8 @@
         "Japanese": "AutoFastROM",
         "Italian": "AutoFastROM",
         "French": "",
+        "Spanish": "AutoFastROM",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4200,6 +5132,8 @@
         "Japanese": "Low",
         "Italian": "Basso",
         "French": "",
+        "Spanish": "Bajo",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4209,6 +5143,8 @@
         "Japanese": "High",
         "Italian": "Alto",
         "French": "",
+        "Spanish": "Alto",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4218,6 +5154,8 @@
         "Japanese": "SuperFX オーバークロック",
         "Italian": "Overclock SuperFX",
         "French": "",
+        "Spanish": "SuperFX Overclock",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4227,6 +5165,8 @@
         "Japanese": "SuperFX チップをオーバークロックまたはアンダークロックします。これにより、SuperFX を使用するゲームのフレームレートとプレイアビリティが向上する可能性があります。",
         "Italian": "Overclock o underclock del chip SuperFX. Questo può migliorare il framerate e la giocabilità dei giochi che utilizzano SuperFX.",
         "French": "",
+        "Spanish": "Overclocking o underclocking del chip SuperFX. Esto puede mejorar la velocidad de fotogramas y la jugabilidad de los juegos que usan SuperFX.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4236,6 +5176,8 @@
         "Japanese": "5 MHz (Underclock)",
         "Italian": "5 MHz (Underclock)",
         "French": "",
+        "Spanish": "5 MHz (Underclock)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4245,6 +5187,8 @@
         "Japanese": "6 MHz (Underclock)",
         "Italian": "6 MHz (Underclock)",
         "French": "",
+        "Spanish": "6 MHz (Underclock)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4254,6 +5198,8 @@
         "Japanese": "7 MHz (Underclock)",
         "Italian": "7 MHz (Underclock)",
         "French": "",
+        "Spanish": "7 MHz (Underclock)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4263,6 +5209,8 @@
         "Japanese": "8 MHz (Underclock)",
         "Italian": "8 MHz (Underclock)",
         "French": "",
+        "Spanish": "8 MHz (Underclock)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4272,6 +5220,8 @@
         "Japanese": "9 MHz (Underclock)",
         "Italian": "9 MHz (Underclock)",
         "French": "",
+        "Spanish": "9 MHz (Underclock)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4281,6 +5231,8 @@
         "Japanese": "10 MHz (SNES clock, Default)",
         "Italian": "10 MHz (Clock SNES, Predefinito)",
         "French": "",
+        "Spanish": "10 MHz (SNES clock, predeterminado)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4290,6 +5242,8 @@
         "Japanese": "11 MHz (Overclock)",
         "Italian": "11 MHz (Overclock)",
         "French": "",
+        "Spanish": "11 MHz (Overclock)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4299,6 +5253,8 @@
         "Japanese": "12 MHz (Overclock)",
         "Italian": "12 MHz (Overclock)",
         "French": "",
+        "Spanish": "12 MHz (Overclock)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4308,6 +5264,8 @@
         "Japanese": "13 MHz (Overclock)",
         "Italian": "13 MHz (Overclock)",
         "French": "",
+        "Spanish": "13 MHz (Overclock)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4317,6 +5275,8 @@
         "Japanese": "14 MHz (Overclock)",
         "Italian": "14 MHz (Overclock)",
         "French": "",
+        "Spanish": "14 MHz (Overclock)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4326,6 +5286,8 @@
         "Japanese": "15 MHz (Overclock)",
         "Italian": "15 MHz (Overclock)",
         "French": "",
+        "Spanish": "15 MHz (Overclock)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4335,6 +5297,8 @@
         "Japanese": "20 MHz (Overclock)",
         "Italian": "20 MHz (Overclock)",
         "French": "",
+        "Spanish": "20 MHz (Overclock)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4344,6 +5308,8 @@
         "Japanese": "30 MHz (Overclock)",
         "Italian": "30 MHz (Overclock)",
         "French": "",
+        "Spanish": "30 MHz (Overclock)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4353,6 +5319,8 @@
         "Japanese": "40 MHz (Overclock)",
         "Italian": "40 MHz (Overclock)",
         "French": "",
+        "Spanish": "40 MHz (Overclock)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4362,6 +5330,8 @@
         "Japanese": "ちらつき軽減（不安定）",
         "Italian": "Riduci Sfarfallio (Non Sicuro)",
         "French": "",
+        "Spanish": "Reducir el parpadeo (no seguro)",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4371,6 +5341,8 @@
         "Japanese": "画面上に同時に描画できるスプライトの数を増やします。ゲーム中のちらつきを軽減します。",
         "Italian": "Aumenta il numero di sprite che possono essere disegnati simultaneamente sullo schermo. Riduce lo sfarfallio nei giochi.",
         "French": "",
+        "Spanish": "Aumenta el número de sprites que se pueden dibujar simultáneamente en la pantalla. Reduce el parpadeo en los juegos.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4380,6 +5352,8 @@
         "Japanese": "生成されたオーディオを再サンプリングするときに使用するアルゴリズムを指定します (ゲームボーイのオーディオ レートは CPU の書き込み速度によってのみ制限されるため、ネイティブ周波数は最新のサウンド デバイスでは実用的ではなく、ダウンサンプリングする必要があります)。 「Sinc」は最高品質を生成します。 「Cosine」はローエンド ハードウェアでのパフォーマンスを向上させます。",
         "Italian": "Specifica quale algoritmo utilizzare per il ricampionamento dell'audio generato (la frequenza audio del Game Boy è limitata solo dalla velocità di scrittura della CPU, quindi le frequenze 'native' sono impraticabili sui dispositivi audio moderni e devono essere sottocampionate). 'Sinc' produce la qualità più alta. 'Cosine' migliora le prestazioni su hardware di fascia bassa.",
         "French": "",
+        "Spanish": "Especifica qué algoritmo usar para remuestrear el audio generado (la frecuencia de audio de la Game Boy solo está limitada por la velocidad de escritura de la CPU, por lo que las frecuencias \"nativas\" no son prácticas en los dispositivos de audio modernos y deben reducirse). 'Sinc' produce la más alta calidad. 'Coseno' mejora el rendimiento en hardware de gama baja.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4389,6 +5363,8 @@
         "Japanese": "輝度に基づく明るさの低下を有効にします。白い背景でゲームをプレイするときに、まぶしさや目の疲れを避けるために使用できます。白い背景は、バックライトのないGame Boy Colorでの表示を目的としており、そのため、最新のバックライト付き画面で見ると不快なほど明るく見える場合があります。",
         "Italian": "Abilita la riduzione della luminosità basata sulla luminosità. Può essere utilizzato per evitare abbagliamenti/affaticamento degli occhi quando si gioca con sfondi bianchi, pensati per essere visualizzati su un Game Boy Color senza retroilluminazione e che quindi possono apparire eccessivamente luminosi su schermi retroilluminati moderni.",
         "French": "",
+        "Spanish": "Permite la reducción del brillo basada en el brillo. Se puede utilizar para evitar el deslumbramiento o la fatiga visual cuando se juega con fondos blancos, que están pensados para mostrarse en una Game Boy Color sin retroiluminación y, por lo tanto, pueden parecer demasiado brillantes en pantallas retroiluminadas modernas.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4398,6 +5374,8 @@
         "Japanese": "対応する起動ロゴアニメーションを備えた公式 Game Boy および Game Boy Color ブートローダーのサポートを有効にします。",
         "Italian": "Abilita il supporto per i bootloader ufficiali di Game Boy e Game Boy Color, con le corrispondenti animazioni del logo di avvio.",
         "French": "",
+        "Spanish": "Habilita la compatibilidad con los cargadores de arranque oficiales de Game Boy y Game Boy Color, con las animaciones correspondientes del logotipo de arranque.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4407,6 +5385,8 @@
         "Japanese": "Game Boy ゲームのカラー化を有効にします。「Auto」は「Best」(最もカラフル/適切) パレットを選択します。「GBC」は、定義されている場合はゲーム固有のゲームボーイ カラー パレットを選択し、そうでない場合は「GBC - Dark Green」を選択します。「SGB」は、定義されている場合はゲーム固有のSuper Game Boy パレットを選択し、そうでない場合は「SGB - 1A」を選択します。「内部」は「内部パレット」コア オプションを使用します。「カスタム」は、システム ディレクトリからユーザーが作成したパレットを読み込みます。",
         "Italian": "Abilita la colorazione dei giochi Game Boy. 'Auto' seleziona la palette 'migliore' (più colorata/appropriata). 'GBC' seleziona la palette specifica per Game Boy Color se definita, altrimenti 'GBC - Dark Green'. 'SGB' seleziona la palette specifica per Super Game Boy se definita, altrimenti 'SGB - 1A'. 'Interno' utilizza l'opzione 'Palette Interna' del core. 'Personalizzato' carica una palette creata dall'utente dalla directory di sistema.",
         "French": "",
+        "Spanish": "Habilite el colorear de juegos de Game Boy. 'Auto' selecciona la 'mejor' paleta (más colorida/apropiada). 'GBC' selecciona la paleta específica de Game Boy Color si está definida, de lo contrario, 'GBC - Verde oscuro'. 'SGB' selecciona la paleta específica para Super Game Boy si está definida, de lo contrario, 'SGB - 1A'. 'Interno' utiliza la opción 'Paleta interna' del núcleo. 'Personalizado' carga una paleta creada por el usuario desde el directorio del sistema.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4416,6 +5396,8 @@
         "Japanese": "エミュレートするハードウェアの種類を指定します。「自動」が推奨されます。「GBA」を選択すると、特定の「GBA Enhanced」ゲームボーイカラー ゲーム (Shantae、Wendy - Every Witch Way、ゼルダの伝説: オラクル オブ シーズンズ/エイジズなど) の追加機能がロック解除されます。",
         "Italian": "Specifica quale tipo di hardware emulare. Si consiglia 'Auto'. Selezionando 'GBA' si sbloccano funzionalità extra in alcuni giochi Game Boy Color 'GBA Enhanced' (Shantae, Wendy - Every Witch Way, Legend of Zelda: Oracle of Seasons/Ages...).",
         "French": "",
+        "Spanish": "Especifica el tipo de hardware que se va a emular. Se recomienda 'Auto'. Al seleccionar 'GBA' se desbloquean funciones adicionales en algunos juegos de Game Boy Color 'GBA Enhanced' (Shantae, Wendy - Every Witch Way, Legend of Zelda: Oracle of Seasons/Ages...).",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4425,6 +5407,8 @@
         "Japanese": "「内部パレット」が「TWB64 - パック 1」に設定されている場合は、内部カラー化パレットを選択します。",
         "Italian": "Seleziona la palette di colorazione interna quando 'Palette Interna' è impostata su 'TWB64 - Pack 1'.",
         "French": "",
+        "Spanish": "Seleccione la paleta de colores interna cuando la 'Paleta interna' esté configurada en 'TWB64 - Pack 1'.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4434,6 +5418,8 @@
         "Japanese": "「内部パレット」が「TWB64 - パック 2」に設定されている場合は、内部カラー化パレットを選択します。",
         "Italian": "Seleziona la palette di colorazione interna quando 'Palette Interna' è impostata su 'TWB64 - Pack 2'.",
         "French": "",
+        "Spanish": "Seleccione la paleta de colores interna cuando la 'Paleta interna' esté configurada en 'TWB64 - Pack 2'.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4443,6 +5429,8 @@
         "Japanese": "実際の G​​ame Boy Color ハードウェアの表示に合わせて出力色を調整します。「GBC のみ」を選択すると、Game Boy Color ゲームをプレイするとき、または Game Boy Color パレットを使用して Game Boy ゲームをカラー化する場合にのみ補正が適用されます。「常に」を選択すると、すべてのコンテンツに色補正が適用され、「GB」または「SGB」内部カラーパレットを使用すると予期しない/最適ではない結果が生成されます。",
         "Italian": "Regola i colori di output per corrispondere alla visualizzazione dell'hardware reale del Game Boy Color. 'Solo GBC' garantisce che la correzione venga applicata solo quando si gioca a giochi Game Boy Color o quando si utilizza una palette Game Boy Color per colorare un gioco Game Boy. 'Sempre' applica la correzione del colore a tutti i contenuti e produrrà risultati imprevisti/subottimali quando si utilizzano palette di colori interne 'GB' o 'SGB'.",
         "French": "",
+        "Spanish": "Ajusta los colores de salida para que coincidan con la pantalla de hardware real de Game Boy Color. 'Solo GBC' garantiza que la corrección solo se aplique cuando se juegue a juegos de Game Boy Color o cuando se use una paleta de colores de Game Boy para colorear un juego de Game Boy. 'Siempre' aplica la corrección de color a todo el contenido y producirá resultados inesperados/subóptimos cuando se utilicen paletas de colores internas 'GB' o 'SGB'.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4452,6 +5440,8 @@
         "Japanese": "色補正を実行するときに使用する方法を指定します。'正確' では、実際のゲームボーイカラー LCD パネルとほとんど区別がつかない出力が生成されます。'高速' では、色が暗くなり、彩度が下がるだけなので、'正確' の方法が遅すぎる場合は、ローエンドのハードウェアで使用できます。",
         "Italian": "Specifica il metodo utilizzato per eseguire la correzione del colore. 'Accurato' produce un output quasi indistinguibile da un pannello LCD reale di Game Boy Color. 'Veloce' si limita a scurire i colori e ridurre la saturazione e può essere utilizzato su hardware di fascia bassa se il metodo 'Accurato' è troppo lento.",
         "French": "",
+        "Spanish": "Especifica el método utilizado para realizar la corrección de color. 'Preciso' produce una salida que es casi indistinguible de un panel LCD a color real de Game Boy. 'Rápido' solo oscurece los colores y reduce la saturación y se puede usar en hardware de gama baja si el método 'Preciso' es demasiado lento.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4461,6 +5451,8 @@
         "Japanese": "さまざまな角度から照明を当てたときのゲームボーイカラー LCD パネルの物理的反応をシミュレートします。「中央」は標準的な色再現を表します。「画面の上」は明るさを上げます。「画面の下」は明るさを下げます。この設定は、「色補正モード」が「正確」に設定されている場合にのみ適用されます。",
         "Italian": "Simula la risposta fisica del pannello LCD del Game Boy Color quando illuminato da diverse angolazioni. 'Centrale' rappresenta la riproduzione del colore standard. 'Sopra lo Schermo' aumenta la luminosità. 'Sotto lo Schermo' riduce la luminosità. Questa impostazione si applica solo quando 'Modalità di Correzione Colore' è impostata su 'Accurato'.",
         "French": "",
+        "Spanish": "Simula la respuesta física del panel LCD de Game Boy Color cuando se ilumina desde diferentes ángulos. 'Medio' representa la reproducción estándar del color. 'Por encima de la pantalla' aumenta el brillo. 'Under Screen' reduce el brillo. Esta configuración solo se aplica cuando 'Modo de corrección de color' está configurado en 'Preciso'.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4470,6 +5462,8 @@
         "Japanese": "LCD ゴースト効果をシミュレートします。「シンプル」は、現在のフレームと前のフレームを 50:50 でミックスします。「LCD ゴースト」は、複数のバッファリングされたフレームを組み合わせることで、自然な LCD 応答時間を模倣します。透明効果のために LCD ゴーストに依存するゲーム (Wave Race、Ballistic、Chikyuu Kaihou Gun ZAS など) をプレイする場合は、「シンプル」ブレンディングが必要です。",
         "Italian": "Simula gli effetti di ghosting LCD. 'Semplice' esegue un mix 50:50 dei fotogrammi corrente e precedente. 'LCD Ghosting' imita i tempi di risposta naturali dell'LCD combinando più fotogrammi bufferizzati. Il blending 'Semplice' è necessario quando si gioca a giochi che si affidano al ghosting LCD per effetti di trasparenza (Wave Race, Ballistic, Chikyuu Kaihou Gun ZAS...).",
         "French": "",
+        "Spanish": "Simula efectos de efecto fantasma de LCD. 'Simple' realiza una mezcla 50:50 de los fotogramas actuales y anteriores. 'LCD Ghosting' imita los tiempos de respuesta naturales de la pantalla LCD mediante la combinación de múltiples fotogramas con búfer. La mezcla \"simple\" es necesaria cuando se juega a juegos que dependen del efecto fantasma de la pantalla LCD para obtener efectos de transparencia (Wave Race, Ballistic, Chikyuu Kaihou Gun ZAS...).",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4479,6 +5473,8 @@
         "Japanese": "サポートされているゲーム（ポケモンピンボール、パーフェクトダークなど）の触覚フィードバック効果を有効にします。",
         "Italian": "Abilita gli effetti di feedback aptico per i giochi supportati (Pokemon Pinball, Perfect Dark...).",
         "French": "",
+        "Spanish": "Habilita los efectos de retroalimentación háptica para los juegos compatibles (Pokemon Pinball, Perfect Dark...).",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4488,6 +5484,8 @@
         "Japanese": "これを有効にすると、左右（または上下）の方向を同時に押す/素早く切り替える/保持できるようになります。これにより、動きに基づく不具合が発生する可能性があります。",
         "Italian": "Abilitando questa opzione sarà possibile premere/alternare rapidamente/mantenere premuti entrambi i direzioni sinistra e destra (o su e giù) contemporaneamente. Questo potrebbe causare glitch basati sul movimento.",
         "French": "",
+        "Spanish": "Habilitar esta opción le permitirá presionar/alternar/mantener rápidamente las direcciones izquierda y derecha (o arriba y abajo) al mismo tiempo. Esto podría causar fallos basados en el movimiento.",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4497,6 +5495,8 @@
         "Japanese": "内蔵",
         "Italian": "Interno",
         "French": "",
+        "Spanish": "Interno",
+        "comments": "",
         "Comments": ""
     },
     {
@@ -4506,6 +5506,8 @@
         "Japanese": "カスタム",
         "Italian": "Personalizzato",
         "French": "",
+        "Spanish": "Personalizado",
+        "comments": "",
         "Comments": ""
     }
 ]

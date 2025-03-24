@@ -7,6 +7,7 @@
         "Japanese": "システム",
         "Italian": "Sistema",
         "French": "Système",
+        "Spanish": "Sistema",
         "Comments": ""
     },
     {
@@ -17,6 +18,7 @@
         "Japanese": "ディスク",
         "Italian": "Disco",
         "French": "Disque",
+        "Spanish": "Disco",
         "Comments": ""
     },
     {
@@ -27,6 +29,7 @@
         "Japanese": "ステート",
         "Italian": "Stato",
         "French": "État",
+        "Spanish": "Estado",
         "Comments": ""
     },
     {
@@ -37,6 +40,7 @@
         "Japanese": "チート",
         "Italian": "Trucco",
         "French": "Triche",
+        "Spanish": "Trucos",
         "Comments": ""
     },
     {
@@ -47,6 +51,7 @@
         "Japanese": "ブラウザ",
         "Italian": "Browser",
         "French": "Navigateur",
+        "Spanish": "Navegador",
         "Comments": ""
     },
     {
@@ -57,6 +62,7 @@
         "Japanese": "お気に入り",
         "Italian": "Preferiti",
         "French": "Favoris",
+        "Spanish": "Favoritos",
         "Comments": ""
     },
     {
@@ -67,6 +73,7 @@
         "Japanese": "グラフィック",
         "Italian": "Grafica",
         "French": "Graphique",
+        "Spanish": "Graficos",
         "Comments": ""
     },
     {
@@ -77,7 +84,8 @@
         "Japanese": "コントロール",
         "Italian": "Controllo",
         "French": "Contrôle",
-		"Comments": ""
+        "Spanish": "Control",
+        "Comments": ""
     },
     {
         "No.": "9",
@@ -87,6 +95,7 @@
         "Japanese": "ホットキー",
         "Italian": "Tasto di scelta rapida",
         "French": "Raccourci clavier",
+        "Spanish": "Atajo",
         "Comments": ""
     },
     {
@@ -97,6 +106,7 @@
         "Japanese": "コア",
         "Italian": "Core",
         "French": "Core",
+        "Spanish": "Nucleo",
         "Comments": ""
     },
     {
@@ -107,6 +117,7 @@
         "Japanese": "オプション",
         "Italian": "Opzioni",
         "French": "Options",
+        "Spanish": "Opciones",
         "Comments": ""
     },
     {
@@ -117,6 +128,7 @@
         "Japanese": "About",
         "Italian": "Informazioni",
         "French": "À propos",
+        "Spanish": "Acerca",
         "Comments": ""
     },
     {
@@ -127,6 +139,7 @@
         "Japanese": "続ける",
         "Italian": "Riprendi gioco",
         "French": "Reprendre le jeu",
+        "Spanish": "Resumir el juego",
         "Comments": ""
     },
     {
@@ -137,6 +150,7 @@
         "Japanese": "リセット",
         "Italian": "Riavvia gioco",
         "French": "Réinitialiser le jeu",
+        "Spanish": "Reiniciar el juego",
         "Comments": ""
     },
     {
@@ -146,7 +160,8 @@
         "Chinese": "退出游戏",
         "Japanese": "ゲーム終了",
         "Italian": "Esci dal gioco",
-		"French": "Quitter le jeu",
+        "French": "Quitter le jeu",
+        "Spanish": "Salir del juego",
         "Comments": ""
     },
     {
@@ -156,7 +171,8 @@
         "Chinese": "返回前端",
         "Japanese": "ホームに戻る",
         "Italian": "Torna ad Arch",
-		"French": "Retour sur RetroArch",
+        "French": "Retour sur RetroArch",
+        "Spanish": "Volver al arch",
         "Comments": ""
     },
     {
@@ -166,6 +182,8 @@
         "Chinese": "清理缓存",
         "Japanese": "キャッシュ削除",
         "Italian": "Pulisci cache",
+        "French": "",
+        "Spanish": "Limpiar cache",
         "Comments": ""
     },
     {
@@ -175,7 +193,8 @@
         "Chinese": "退出程序",
         "Japanese": "終了",
         "Italian": "Esci dall'app",
-		"French": "Quitter l'application",
+        "French": "Quitter l'application",
+        "Spanish": "Salir de la app",
         "Comments": ""
     },
     {
@@ -185,7 +204,8 @@
         "Chinese": "语言",
         "Japanese": "言語",
         "Italian": "Lingua",
-		"French": "Langues",
+        "French": "Langues",
+        "Spanish": "Lenguaje",
         "Comments": ""
     },
     {
@@ -195,7 +215,8 @@
         "Chinese": "启用回溯",
         "Japanese": "巻き戻し機能",
         "Italian": "Abilita riavvolgimento",
-		"French": "Activer le rembobinage",
+        "French": "Activer le rembobinage",
+        "Spanish": "Habilitar rebobinado",
         "Comments": ""
     },
     {
@@ -205,7 +226,8 @@
         "Chinese": "回溯缓冲区大小 (M)",
         "Japanese": "巻き戻しバッファサイズ",
         "Italian": "Dimensione buffer riavvolgimento (M)",
-		"French": "Taille du tampon de rembobinage (M)",
+        "French": "Taille du tampon de rembobinage (M)",
+        "Spanish": "Tamaño del búfer de rebobinado (m)",
         "Comments": ""
     },
     {
@@ -215,7 +237,8 @@
         "Chinese": "静音",
         "Japanese": "ミュート",
         "Italian": "Silenzia",
-		"French": "Muet",
+        "French": "Muet",
+        "Spanish": "Silenciar",
         "Comments": ""
     },
     {
@@ -225,7 +248,8 @@
         "Chinese": "模拟鼠标",
         "Japanese": "マウス",
         "Italian": "Mouse simulato",
-		"French": "Simulée la souris",
+        "French": "Simulée la souris",
+        "Spanish": "Simular mouse",
         "Comments": ""
     },
     {
@@ -235,7 +259,8 @@
         "Chinese": "模拟光枪",
         "Japanese": "光線銃",
         "Italian": "Pistola ottica simulata",
-		"French": "Simulée le pistolet",
+        "French": "Simulée le pistolet",
+        "Spanish": "Pistola de luz simulada",
         "Comments": ""
     },
     {
@@ -245,7 +270,8 @@
         "Chinese": "⇢ ⇣ 互换 (需要重启)",
         "Japanese": "⇢ ⇣　入れ替え",
         "Italian": "Scambia ⇢ ⇣ (Riavvio richiesto)",
-		"French": "Échanger ⇢ ⇣ (Redémarrage requis)",
+        "French": "Échanger ⇢ ⇣ (Redémarrage requis)",
+        "Spanish": "Cambiar ⇢ ⇣ (Requiere reiniciar)",
         "Comments": ""
     },
     {
@@ -255,7 +281,8 @@
         "Chinese": "后触控板模拟 ↲↳⇋⇌",
         "Japanese": "背面タッチパネルに ↲↳⇋⇌ を割り当て",
         "Italian": "Simula ↲↳⇋⇌ con il pannello touch posteriore",
-		"French": "Simuler ↲↳⇋⇌ avec le panneau tactile arrière)",
+        "French": "Simuler ↲↳⇋⇌ avec le panneau tactile arrière)",
+        "Spanish": "Simular ↲↳⇋⇌ con el panel táctil trasero",
         "Comments": ""
     },
     {
@@ -265,7 +292,8 @@
         "Chinese": "画面尺寸",
         "Japanese": "画面サイズ",
         "Italian": "Dimensione schermo",
-		"French": "Taille de l'écran",
+        "French": "Taille de l'écran",
+        "Spanish": "Tamaño de la pantalla",
         "Comments": ""
     },
     {
@@ -275,7 +303,8 @@
         "Chinese": "画面比例",
         "Japanese": "アスペクト比",
         "Italian": "Rapporto d'aspetto",
-		"French": "Rapport hauteur/largeur",
+        "French": "Rapport hauteur/largeur",
+        "Spanish": "Relación de aspecto",
         "Comments": ""
     },
     {
@@ -285,7 +314,8 @@
         "Chinese": "画面旋转",
         "Japanese": "画面回転",
         "Italian": "Rotazione schermo",
-		"French": "Rotation de l'affichage",
+        "French": "Rotation de l'affichage",
+        "Spanish": "Rotación de la pantalla",
         "Comments": ""
     },
     {
@@ -295,7 +325,8 @@
         "Chinese": "图形着色器",
         "Japanese": "シェーダー",
         "Italian": "Shader grafico",
-		"French": "Shader graphique",
+        "French": "Shader graphique",
+        "Spanish": "Sombreador de graficos",
         "Comments": ""
     },
     {
@@ -305,7 +336,8 @@
         "Chinese": "平滑图像",
         "Japanese": "アンチエイリアス",
         "Italian": "Grafica morbida",
-		"French": "Graphiques fluides",
+        "French": "Graphiques fluides",
+        "Spanish": "Gráficos suaves",
         "Comments": ""
     },
     {
@@ -315,7 +347,8 @@
         "Chinese": "遮罩图选择",
         "Japanese": "オーバーレイ選択",
         "Italian": "Selezione overlay",
-		"French": "Sélection de superposition (Overlay)",
+        "French": "Sélection de superposition (Overlay)",
+        "Spanish": "Selección de superposición",
         "Comments": ""
     },
     {
@@ -325,7 +358,8 @@
         "Chinese": "遮罩图显示模式",
         "Japanese": "オーバーレイモード",
         "Italian": "Modalità overlay",
-		"French": "Mode de superposition",
+        "French": "Mode de superposition",
+        "Spanish": "Modo de superposición",
         "Comments": ""
     },
     {
@@ -335,7 +369,8 @@
         "Chinese": "显示帧数",
         "Japanese": "FPS表示",
         "Italian": "Mostra FPS",
-		"French": "Afficher les FPS",
+        "French": "Afficher les FPS",
+        "Spanish": "Mostrar FPS",
         "Comments": ""
     },
     {
@@ -345,7 +380,8 @@
         "Chinese": "1倍大小",
         "Japanese": "1倍",
         "Italian": "1X",
-		"French": "1X",
+        "French": "1X",
+        "Spanish": "1X",
         "Comments": ""
     },
     {
@@ -355,7 +391,8 @@
         "Chinese": "2倍大小",
         "Japanese": "2倍",
         "Italian": "2X",
-		"French": "2X",
+        "French": "2X",
+        "Spanish": "2X",
         "Comments": ""
     },
     {
@@ -365,7 +402,8 @@
         "Chinese": "3倍大小",
         "Japanese": "3倍",
         "Italian": "3X",
-		"French": "3X",
+        "French": "3X",
+        "Spanish": "3X",
         "Comments": ""
     },
     {
@@ -375,7 +413,8 @@
         "Chinese": "铺满屏幕",
         "Japanese": "全画面",
         "Italian": "Schermo intero",
-		"French": "Plein écran",
+        "French": "Plein écran",
+        "Spanish": "Pantalla completa",
         "Comments": ""
     },
     {
@@ -385,7 +424,8 @@
         "Chinese": "由游戏分辨率",
         "Japanese": "ゲーム解像度",
         "Italian": "In base alla risoluzione del gioco",
-		"French": "Par résolution du jeu",
+        "French": "Par résolution du jeu",
+        "Spanish": "Por resolución de juego",
         "Comments": ""
     },
     {
@@ -395,7 +435,8 @@
         "Chinese": "由设备屏幕",
         "Japanese": "画面に合わせる",
         "Italian": "In base allo schermo del dispositivo",
-		"French": "Par résolution de l'écran",
+        "French": "Par résolution de l'écran",
+        "Spanish": "Por la pantalla del dispositivo",
         "Comments": ""
     },
     {
@@ -406,6 +447,7 @@
         "Japanese": "8:7",
         "Italian": "8:7",
         "French": "8:7",
+        "Spanish": "8:7",
         "Comments": ""
     },
     {
@@ -415,7 +457,8 @@
         "Chinese": "4:3",
         "Japanese": "4:3",
         "Italian": "4:3",
-		"French": "4:3",
+        "French": "4:3",
+        "Spanish": "4:3",
         "Comments": ""
     },
     {
@@ -425,7 +468,8 @@
         "Chinese": "3:2",
         "Japanese": "3:2",
         "Italian": "3:2",
-		"French": "3:2",
+        "French": "3:2",
+        "Spanish": "3:2",
         "Comments": ""
     },
     {
@@ -435,7 +479,8 @@
         "Chinese": "16:9",
         "Japanese": "16:9",
         "Italian": "16:9",
-		"French": "16:9",
+        "French": "16:9",
+        "Spanish": "16:9",
         "Comments": ""
     },
     {
@@ -445,7 +490,8 @@
         "Chinese": "禁用",
         "Japanese": "無効",
         "Italian": "Disabilita",
-		"French": "Désactiver",
+        "French": "Désactiver",
+        "Spanish": "Inválido",
         "Comments": ""
     },
     {
@@ -455,7 +501,8 @@
         "Chinese": "旋转90度(顺时针)",
         "Japanese": "90°回転",
         "Italian": "Ruota di 90° in senso orario",
-		"French": "Rotation de 90°CW",
+        "French": "Rotation de 90°CW",
+        "Spanish": "Girar 90°",
         "Comments": ""
     },
     {
@@ -465,7 +512,8 @@
         "Chinese": "旋转180度(顺时针)",
         "Japanese": "180°回転",
         "Italian": "Ruota di 180° in senso orario",
-		"French": "Rotation de 180°CW",
+        "French": "Rotation de 180°CW",
+        "Spanish": "Girar 180°",
         "Comments": ""
     },
     {
@@ -475,7 +523,8 @@
         "Chinese": "旋转270度(顺时针)",
         "Japanese": "270°回転",
         "Italian": "Ruota di 270° in senso orario",
-		"French": "Rotation de 270°CW",
+        "French": "Rotation de 270°CW",
+        "Spanish": "Girar 270°",
         "Comments": ""
     },
     {
@@ -485,7 +534,8 @@
         "Chinese": "默认",
         "Japanese": "Default",
         "Italian": "Predefinito",
-		"French": "Par défaut",
+        "French": "Par défaut",
+        "Spanish": "Predeterminado",
         "Comments": ""
     },
     {
@@ -495,7 +545,8 @@
         "Chinese": "LCD3x",
         "Japanese": "LCD3x",
         "Italian": "LCD3x",
-		"French": "LCD3x",
+        "French": "LCD3x",
+        "Spanish": "LCD3x",
         "Comments": ""
     },
     {
@@ -505,7 +556,8 @@
         "Chinese": "锐利双线性",
         "Japanese": "バイリニア",
         "Italian": "Bilineare semplice nitido",
-		"French": "Sharp bilinear simple",
+        "French": "Sharp bilinear simple",
+        "Spanish": "Nítido simple bilineal",
         "Comments": ""
     },
     {
@@ -515,7 +567,8 @@
         "Chinese": "锐利双线性+扫描线",
         "Japanese": "バイリニア＋スキャンライン",
         "Italian": "Bilineare nitido con linee di scansione",
-		"French": "Sharp bilinear",
+        "French": "Sharp bilinear",
+        "Spanish": "Bilineal nítido con líneas de escaneo",
         "Comments": ""
     },
     {
@@ -525,7 +578,8 @@
         "Chinese": "高级AA",
         "Japanese": "Advanced AA",
         "Italian": "AA avanzato",
-		"French": "Advanced AA",
+        "French": "Advanced AA",
+        "Spanish": "AA Avanzado",
         "Comments": ""
     },
     {
@@ -535,7 +589,8 @@
         "Chinese": "覆层模式",
         "Japanese": "Overlay",
         "Italian": "Overlay",
-		"French": "Superposition (Overlay)",
+        "French": "Superposition (Overlay)",
+        "Spanish": "Superponer",
         "Comments": ""
     },
     {
@@ -545,7 +600,8 @@
         "Chinese": "背景模式",
         "Japanese": "Background",
         "Italian": "Sfondo",
-		"French": "Arrière-plan",
+        "French": "Arrière-plan",
+        "Spanish": "Fondo",
         "Comments": ""
     },
     {
@@ -555,7 +611,8 @@
         "Chinese": "否",
         "Japanese": "いいえ",
         "Italian": "No",
-		"French": "Non",
+        "French": "Non",
+        "Spanish": "No",
         "Comments": ""
     },
     {
@@ -565,7 +622,8 @@
         "Chinese": "是",
         "Japanese": "はい",
         "Italian": "Sì",
-		"French": "Oui",
+        "French": "Oui",
+        "Spanish": "Sí",
         "Comments": ""
     },
     {
@@ -575,7 +633,8 @@
         "Chinese": "连发",
         "Japanese": "Turbo",
         "Italian": "Turbo",
-		"French": "Turbo",
+        "French": "Turbo",
+        "Spanish": "Turbo",
         "Comments": ""
     },
     {
@@ -585,7 +644,8 @@
         "Chinese": "无",
         "Japanese": "None",
         "Italian": "Nessuno",
-		"French": "Aucun",
+        "French": "Aucun",
+        "Spanish": "Ninguno",
         "Comments": ""
     },
     {
@@ -595,7 +655,8 @@
         "Chinese": "保存存档",
         "Japanese": "Save state",
         "Italian": "Salva stato",
-		"French": "Sauvegarde d'état",
+        "French": "Sauvegarde d'état",
+        "Spanish": "Guardar estado",
         "Comments": ""
     },
     {
@@ -605,7 +666,8 @@
         "Chinese": "读取存档",
         "Japanese": "Load state",
         "Italian": "Carica stato",
-		"French": "Chargement d'état",
+        "French": "Chargement d'état",
+        "Spanish": "Cargar estado",
         "Comments": ""
     },
     {
@@ -615,7 +677,8 @@
         "Chinese": "加速游戏",
         "Japanese": "Game speed up",
         "Italian": "Aumenta velocità gioco",
-		"French": "Accélération du jeu",
+        "French": "Accélération du jeu",
+        "Spanish": "Velocidad del juego",
         "Comments": ""
     },
     {
@@ -625,7 +688,8 @@
         "Chinese": "减速游戏",
         "Japanese": "Game speed down",
         "Italian": "Riduci velocità gioco",
-		"French": "Diminution de la vitesse du jeu",
+        "French": "Diminution de la vitesse du jeu",
+        "Spanish": "Reducción de la velocidad del juego",
         "Comments": ""
     },
     {
@@ -635,7 +699,8 @@
         "Chinese": "回溯游戏",
         "Japanese": "巻き戻す",
         "Italian": "Riavvolgi gioco",
-		"French": "Retour en arrière",
+        "French": "Retour en arrière",
+        "Spanish": "Rebobinar el juego",
         "Comments": ""
     },
     {
@@ -645,7 +710,8 @@
         "Chinese": "控制器端口+",
         "Japanese": "コントローラーポート＋",
         "Italian": "Porta controller +",
-		"French": "Port du contrôleur +",
+        "French": "Port du contrôleur +",
+        "Spanish": "Puerto del controlador+",
         "Comments": ""
     },
     {
@@ -655,7 +721,8 @@
         "Chinese": "控制器端口-",
         "Japanese": "コントローラーポートー",
         "Italian": "Porta controller -",
-		"French": "Port du contrôleur -",
+        "French": "Port du contrôleur -",
+        "Spanish": "Puerto del controlador-",
         "Comments": ""
     },
     {
@@ -665,7 +732,8 @@
         "Chinese": "切换菜单",
         "Japanese": "メニュートグル",
         "Italian": "Attiva/disattiva menu",
-		"French": "Menu Basculer",
+        "French": "Menu Basculer",
+        "Spanish": "Alternar menú",
         "Comments": ""
     },
     {
@@ -675,7 +743,8 @@
         "Chinese": "恢复默认设置",
         "Japanese": "configリセット",
         "Italian": "Ripristina configurazioni",
-		"French": "Réinitialiser les configurations",
+        "French": "Réinitialiser les configurations",
+        "Spanish": "Reiniciar configuración",
         "Comments": ""
     },
     {
@@ -685,7 +754,8 @@
         "Chinese": "编译于",
         "Japanese": "Compiled on",
         "Italian": "Compilato il",
-		"French": "Compilé par",
+        "French": "Compilé par",
+        "Spanish": "Compilado en",
         "Comments": ""
     },
     {
@@ -695,7 +765,8 @@
         "Chinese": "作者",
         "Japanese": "Author",
         "Italian": "Autore",
-		"French": "Auteur",
+        "French": "Auteur",
+        "Spanish": "Autor",
         "Comments": ""
     },
     {
@@ -705,7 +776,8 @@
         "Chinese": "特别感谢",
         "Japanese": "Special Thanks",
         "Italian": "Ringraziamenti speciali",
-		"French": "Remerciements",
+        "French": "Remerciements",
+        "Spanish": "Agradecimientos especiales",
         "Comments": ""
     },
     {
@@ -715,7 +787,8 @@
         "Chinese": "网址",
         "Japanese": "Site",
         "Italian": "Sito",
-		"French": "Site",
+        "French": "Site",
+        "Spanish": "Sitio",
         "Comments": ""
     },
     {
@@ -725,7 +798,8 @@
         "Chinese": "自动存档",
         "Japanese": "オートセーブ",
         "Italian": "Salvataggio automatico",
-		"French": "Sauvegarde automatique",
+        "French": "Sauvegarde automatique",
+        "Spanish": "Guardado automático",
         "Comments": ""
     },
     {
@@ -735,7 +809,8 @@
         "Chinese": "空",
         "Japanese": "空",
         "Italian": "Vuoto",
-		"French": "Vide",
+        "French": "Vide",
+        "Spanish": "Vacío",
         "Comments": ""
     },
     {
@@ -745,7 +820,8 @@
         "Chinese": "保存",
         "Japanese": "セーブ",
         "Italian": "Salva",
-		"French": "Sauvegarder",
+        "French": "Sauvegarder",
+        "Spanish": "Guardar",
         "Comments": ""
     },
     {
@@ -755,7 +831,8 @@
         "Chinese": "读取",
         "Japanese": "ロード",
         "Italian": "Carica",
-		"French": "Chargement",
+        "French": "Chargement",
+        "Spanish": "Cargar",
         "Comments": ""
     },
     {
@@ -765,7 +842,8 @@
         "Chinese": "删除",
         "Japanese": "削除",
         "Italian": "Elimina",
-		"French": "Supprimer",
+        "French": "Supprimer",
+        "Spanish": "Borrar",
         "Comments": ""
     },
     {
@@ -775,7 +853,8 @@
         "Chinese": "取消",
         "Japanese": "キャンセル",
         "Italian": "Annulla",
-		"French": "Annuler",
+        "French": "Annuler",
+        "Spanish": "Cancelar",
         "Comments": ""
     },
     {
@@ -785,7 +864,8 @@
         "Chinese": "确认",
         "Japanese": "OK",
         "Italian": "OK",
-		"French": "Ok",
+        "French": "Ok",
+        "Spanish": "OK",
         "Comments": ""
     },
     {
@@ -795,7 +875,8 @@
         "Chinese": "你确定要覆盖这个存档吗？",
         "Japanese": "save stateを上書きしますか？",
         "Italian": "Sei sicuro di voler sovrascrivere questo stato di salvataggio?",
-		"French": "Êtes-vous sûr de vouloir écraser cette sauvegarde d'état ?",
+        "French": "Êtes-vous sûr de vouloir écraser cette sauvegarde d'état ?",
+        "Spanish": "¿Estás seguro de que desea sobrescribir este estado de guardado?",
         "Comments": ""
     },
     {
@@ -805,7 +886,8 @@
         "Chinese": "你确定要载入这个存档吗？",
         "Japanese": "save stateを読み込みますか？",
         "Italian": "Sei sicuro di voler caricare questo stato di salvataggio?",
-		"French": "Êtes-vous sûr de vouloir charger cette sauvegarde d'état ?",
+        "French": "Êtes-vous sûr de vouloir charger cette sauvegarde d'état ?",
+        "Spanish": "¿Estás seguro de que desea cargar este estado de guardado?",
         "Comments": ""
     },
     {
@@ -815,7 +897,8 @@
         "Chinese": "你确定要删除这个存档吗？",
         "Japanese": "save stateを削除しますか？",
         "Italian": "Sei sicuro di voler eliminare questo stato di salvataggio?",
-		"French": "Êtes-vous sûr de vouloir supprimer cette sauvegarde d'état ?",
+        "French": "Êtes-vous sûr de vouloir supprimer cette sauvegarde d'état ?",
+        "Spanish": "¿Estás seguro de que desea eliminar este estado de guardado?",
         "Comments": ""
     },
     {
@@ -825,7 +908,8 @@
         "Chinese": "你确定要从收藏夹中移除此游戏吗？",
         "Japanese": "このゲームをお気に入りから削除しますか？",
         "Italian": "Sei sicuro di voler rimuovere questo gioco dai preferiti?",
-		"French": "Êtes-vous sûr de vouloir supprimer ce jeu de vos favoris ?",
+        "French": "Êtes-vous sûr de vouloir supprimer ce jeu de vos favoris ?",
+        "Spanish": "¿Estás seguro de que quieres eliminar este juego de tus favoritos?",
         "Comments": ""
     },
     {
@@ -835,7 +919,8 @@
         "Chinese": "你确定要清理缓存文件吗？",
         "Japanese": "キャッシュを初期化しますか？",
         "Italian": "Sei sicuro di voler pulire i file nella cache?",
-		"French": "Êtes-vous sûr de vouloir nettoyer les fichiers mis en cache ?",
+        "French": "Êtes-vous sûr de vouloir nettoyer les fichiers mis en cache ?",
+        "Spanish": "¿Estás seguro de que quieres limpiar los archivos almacenados en caché?",
         "Comments": ""
     },
     {
@@ -845,7 +930,8 @@
         "Chinese": "使用的外部组件",
         "Japanese": "External components used by Emu4Vita++",
         "Italian": "Componenti esterni utilizzati da Emu4Vita++",
-		"French": "Composants externes utilisés par Emu4Vita++",
+        "French": "Composants externes utilisés par Emu4Vita++",
+        "Spanish": "Componentes externos utilizados por Emu4Vita++",
         "Comments": ""
     },
     {
@@ -855,7 +941,8 @@
         "Chinese": "进入目录",
         "Japanese": "開く",
         "Italian": "Apri cartella",
-		"French": "Ouvrir le dossier",
+        "French": "Ouvrir le dossier",
+        "Spanish": "Abrir carpeta",
         "Comments": ""
     },
     {
@@ -865,7 +952,8 @@
         "Chinese": "返回上级目录",
         "Japanese": "戻る",
         "Italian": "Torna alla cartella precedente",
-		"French": "Retour au dossier précédent",
+        "French": "Retour au dossier précédent",
+        "Spanish": "Volver a la carpeta anterior",
         "Comments": ""
     },
     {
@@ -875,7 +963,8 @@
         "Chinese": "开始游戏",
         "Japanese": "ゲーム起動",
         "Italian": "Avvia gioco",
-		"French": "Démarrer le jeu",
+        "French": "Démarrer le jeu",
+        "Spanish": "Iniciar juego",
         "Comments": ""
     },
     {
@@ -885,7 +974,8 @@
         "Chinese": "添加到收藏夹",
         "Japanese": "お気に入りに追加",
         "Italian": "Aggiungi ai preferiti",
-		"French": "Ajouter aux favoris",
+        "French": "Ajouter aux favoris",
+        "Spanish": "Agregar a favoritos",
         "Comments": ""
     },
     {
@@ -895,7 +985,8 @@
         "Chinese": "移出收藏夹",
         "Japanese": "お気に入りから削除",
         "Italian": "Rimuovi dai preferiti",
-		"French": "Supprimer des favoris",
+        "French": "Supprimer des favoris",
+        "Spanish": "Quitar de favoritos",
         "Comments": ""
     },
     {
@@ -905,7 +996,8 @@
         "Chinese": "搜索",
         "Japanese": "検索",
         "Italian": "Cerca",
-		"French": "Recherche",
+        "French": "Recherche",
+        "Spanish": "Buscar",
         "Comments": ""
     },
     {
@@ -915,7 +1007,8 @@
         "Chinese": "下一个",
         "Japanese": "次",
         "Italian": "Avanti",
-		"French": "Suivant",
+        "French": "Suivant",
+        "Spanish": "Proximo",
         "Comments": ""
     },
     {
@@ -925,7 +1018,8 @@
         "Chinese": "文件管理",
         "Japanese": "ファイル管理",
         "Italian": "Gestione file",
-		"French": "Gestion des fichiers",
+        "French": "Gestion des fichiers",
+        "Spanish": "Gestor de archivos",
         "Comments": ""
     },
     {
@@ -935,7 +1029,8 @@
         "Chinese": "复制",
         "Japanese": "コピー",
         "Italian": "Copia",
-		"French": "Copier",
+        "French": "Copier",
+        "Spanish": "Copiar",
         "Comments": ""
     },
     {
@@ -945,7 +1040,8 @@
         "Chinese": "剪切",
         "Japanese": "カット",
         "Italian": "Taglia",
-		"French": "Couper",
+        "French": "Couper",
+        "Spanish": "Cortar",
         "Comments": ""
     },
     {
@@ -955,7 +1051,8 @@
         "Chinese": "粘贴",
         "Japanese": "ペースト",
         "Italian": "Incolla",
-		"French": "Coller",
+        "French": "Coller",
+        "Spanish": "Pegar",
         "Comments": ""
     },
     {
@@ -965,7 +1062,8 @@
         "Chinese": "重命名",
         "Japanese": "リネーム",
         "Italian": "Rinomina",
-		"French": "Renommer",
+        "French": "Renommer",
+        "Spanish": "Renombrar",
         "Comments": ""
     },
     {
@@ -975,7 +1073,8 @@
         "Chinese": "更改设置后，重置游戏以生效",
         "Japanese": "ゲームをリセットするまで設定は適用されません。",
         "Italian": "Dopo aver modificato le impostazioni, riavvia il gioco per applicare le modifiche",
-		"French": "Après avoir modifié les paramètres, réinitialisez le jeu pour que cela prenne effet",
+        "French": "Après avoir modifié les paramètres, réinitialisez le jeu pour que cela prenne effet",
+        "Spanish": "Después de cambiar la configuración, reinicia el juego para que surta efecto",
         "Comments": ""
     },
     {
@@ -985,7 +1084,8 @@
         "Chinese": "启用",
         "Japanese": "有効",
         "Italian": "Abilitato",
-		"French": "Activer",
+        "French": "Activer",
+        "Spanish": "Activar",
         "Comments": ""
     },
     {
@@ -995,7 +1095,8 @@
         "Chinese": "禁用",
         "Japanese": "無効",
         "Italian": "Disabilitato",
-		"French": "Désactiver",
+        "French": "Désactiver",
+        "Spanish": "Desactivar",
         "Comments": ""
     },
     {
@@ -1005,7 +1106,8 @@
         "Chinese": "载入 rom 失败，按任意键继续",
         "Japanese": "ROMの読み込みに失敗。キーを押してください。",
         "Italian": "Caricamento ROM fallito, premi un tasto per continuare",
-		"French": "Échec du chargement du jeu, appuyez sur n'importe quelle touche pour continuer",
+        "French": "Échec du chargement du jeu, appuyez sur n'importe quelle touche pour continuer",
+        "Spanish": "No se pudo cargar la rom, presione cualquier tecla para continuar",
         "Comments": ""
     },
     {
@@ -1015,7 +1117,8 @@
         "Chinese": "触控屏 + ↜ ↝",
         "Japanese": "前面タッチパネル ＋ ↜ ↝",
         "Italian": "Pannello touch frontale + ↜ ↝",
-		"French": "Panneau tactile avant + ↜ ↝",
+        "French": "Panneau tactile avant + ↜ ↝",
+        "Spanish": "Panel táctil frontal + ↜ ↝",
         "Comments": ""
     },
     {
@@ -1025,7 +1128,8 @@
         "Chinese": "后触控板 + ↜ ↝",
         "Japanese": "背面タッチパネル ＋ ↜ ↝",
         "Italian": "Pannello touch posteriore + ↜ ↝",
-		"French": "Panneau tactile arrière + ↜ ↝",
+        "French": "Panneau tactile arrière + ↜ ↝",
+        "Spanish": "Panel táctil trasero + ↜ ↝",
         "Comments": ""
     },
     {
@@ -1035,7 +1139,8 @@
         "Chinese": "未设置",
         "Japanese": "未設定",
         "Italian": "Non impostato",
-		"French": "Non défini",
+        "French": "Non défini",
+        "Spanish": "No establecido",
         "Comments": ""
     },
     {
@@ -1044,8 +1149,9 @@
         "English": "Device port ",
         "Chinese": "设备端口 ",
         "Japanese": "デバイスポート",
-        "Italian": "Porta dispositivo ",
-		"French": "Port de l'appareil ",
+        "Italian": "Porta dispositivo",
+        "French": "Port de l'appareil ",
+        "Spanish": "Puerto del dispositivo",
         "Comments": ""
     },
     {
@@ -1055,7 +1161,8 @@
         "Chinese": "找到",
         "Japanese": "Found",
         "Italian": "Trovato",
-		"French": "Trouvé",
+        "French": "Trouvé",
+        "Spanish": "Encontrado",
         "Comments": ""
     },
     {
@@ -1065,7 +1172,8 @@
         "Chinese": "未找到",
         "Japanese": "Not found",
         "Italian": "Non trovato",
-		"French": "Non trouvé",
+        "French": "Non trouvé",
+        "Spanish": "No encontrado",
         "Comments": ""
     },
     {
@@ -1075,7 +1183,8 @@
         "Chinese": "文件",
         "Japanese": "file",
         "Italian": "file",
-		"French": "Fichier",
+        "French": "Fichier",
+        "Spanish": "Archivo",
         "Comments": ""
     },
     {
@@ -1085,7 +1194,8 @@
         "Chinese": "文件",
         "Japanese": "files",
         "Italian": "file",
-		"French": "Fichiers",
+        "French": "Fichiers",
+        "Spanish": "Archivos",
         "Comments": ""
     },
     {
@@ -1095,7 +1205,8 @@
         "Chinese": "cn",
         "Japanese": "jp",
         "Italian": "it",
-		"French": "Fr",
+        "French": "Fr",
+        "Spanish": "es",
         "Comments": ""
     },
     {
@@ -1105,7 +1216,8 @@
         "Chinese": "独立的核心设置",
         "Japanese": "独立したコア設定",
         "Italian": "Configurazione core indipendente",
-		"French": "Configuration de base indépendante",
+        "French": "Configuration de base indépendante",
+        "Spanish": "Configuración de núcleo independiente",
         "Comments": ""
     },
     {
@@ -1115,7 +1227,8 @@
         "Chinese": "你确定要删除这个文件吗？",
         "Japanese": "このファイルを削除してもよろしいですか？",
         "Italian": "Sei sicuro di voler eliminare questo file?",
-		"French": "Êtes-vous sûr de vouloir supprimer ce fichier ?",
+        "French": "Êtes-vous sûr de vouloir supprimer ce fichier ?",
+        "Spanish": "¿Estás seguro de que quieres eliminar este archivo?",
         "Comments": ""
     },
     {
@@ -1125,7 +1238,8 @@
         "Chinese": "存在同名文件，覆盖吗？",
         "Japanese": "同じ名前のファイルが存在します。上書きしますか？",
         "Italian": "Esiste già un file con lo stesso nome. Sovrascriverlo?",
-		"French": "Un fichier portant le même nom existe. Le remplacer ?",
+        "French": "Un fichier portant le même nom existe. Le remplacer ?",
+        "Spanish": "Ya existe un archivo con el mismo nombre. ¿Deseas Sobreescribirlo?",
         "Comments": ""
     },
     {
@@ -1135,7 +1249,8 @@
         "Chinese": "不能粘贴在同一目录下",
         "Japanese": "同じディレクトリに貼り付けることはできません。",
         "Italian": "Impossibile incollare nella stessa directory",
-		"French": "Impossible de coller dans le même répertoire",
+        "French": "Impossible de coller dans le même répertoire",
+        "Spanish": "No se puede pegar en el mismo directorio",
         "Comments": ""
     },
     {
@@ -1145,7 +1260,8 @@
         "Chinese": "文件已删除",
         "Japanese": "ファイルを削除しました。",
         "Italian": "File eliminato",
-		"French": "Fichier supprimé",
+        "French": "Fichier supprimé",
+        "Spanish": "Archivo eliminado",
         "Comments": ""
     },
     {
@@ -1155,7 +1271,8 @@
         "Chinese": "文件删除失败",
         "Japanese": "ファイルの削除に失敗しました。",
         "Italian": "Eliminazione file fallita",
-		"French": "Suppression du fichier échoué",
+        "French": "Suppression du fichier échoué",
+        "Spanish": "No se pudo eliminar el archivo",
         "Comments": ""
     },
     {
@@ -1165,7 +1282,8 @@
         "Chinese": "游戏速度",
         "Japanese": "ゲームスピード",
         "Italian": "Velocità di gioco",
-		"French": "Vitesse du jeu",
+        "French": "Vitesse du jeu",
+        "Spanish": "Velocidad del juego",
         "Comments": ""
     },
     {
@@ -1175,7 +1293,8 @@
         "Chinese": "插入这张盘吗？",
         "Japanese": "このディスクを挿入しますか?",
         "Italian": "Inserire questo disco?",
-		"French": "Insérer ce disque ?",
+        "French": "Insérer ce disque ?",
+        "Spanish": "¿Insertar este disco?",
         "Comments": ""
     },
     {
@@ -1185,7 +1304,8 @@
         "Chinese": "缺少 BIOS 文件：",
         "Japanese": "BIOSファイルが見つかりません:",
         "Italian": "File BIOS mancanti:",
-		"French": "Fichiers BIOS manquants :",
+        "French": "Fichiers BIOS manquants :",
+        "Spanish": "No se encontró el archivo BIOS:",
         "Comments": ""
     },
     {
@@ -1195,7 +1315,8 @@
         "Chinese": "最大",
         "Japanese": "最大",
         "Italian": "Massimo",
-		"French": "Maximum",
+        "French": "Maximum",
+        "Spanish": "Máximo",
         "Comments": ""
     },
     {
@@ -1205,7 +1326,8 @@
         "Chinese": "速度步长",
         "Japanese": "速度ステップ",
         "Italian": "Passo di velocità",
-		"French": "Étape de vitesse",
+        "French": "Étape de vitesse",
+        "Spanish": "Paso de velocidad",
         "Comments": ""
     },
     {
@@ -1215,37 +1337,41 @@
         "Chinese": "日语翻译",
         "Japanese": "日本語翻訳",
         "Italian": "traduzione giapponese",
-		"French": "Traduction japonaise",
+        "French": "Traduction japonaise",
+        "Spanish": "Traducción al japonés",
         "Comments": ""
     },
     {
         "No.": "123",
-        "Tag": "LANG_CHINESE_TRANS",
-        "English": "Italian translation",
-        "Chinese": "中文翻译",
-        "Japanese": "中国語翻訳",
-        "Italian": "traduzione italiana",
-		"French": "Traduction Chinoise",
-        "Comments": ""
-    },
-    {
-        "No.": "124",
         "Tag": "LANG_ITALIAN_TRANS",
         "English": "Italian translation",
         "Chinese": "意大利语翻译",
         "Japanese": "イタリア語翻訳",
         "Italian": "traduzione italiana",
-		"French": "Traduction italienne",
+        "French": "Traduction italienne",
+        "Spanish": "Traducción al italiano",
         "Comments": ""
     },
     {
-        "No.": "125",
+        "No.": "124",
         "Tag": "LANG_FRENCH_TRANS",
         "English": "French translation",
         "Chinese": "法语翻译",
         "Japanese": "フランス語翻訳",
         "Italian": "traduzione francese",
-		"French": "Traduction Française",
+        "French": "Traduction Française",
+        "Spanish": "Traducción al francés",
+        "Comments": ""
+    },
+    {
+        "No.": "125",
+        "Tag": "LANG_SPANISH_TRANS",
+        "English": "Spanish translation",
+        "Chinese": "西班牙语翻译",
+        "Japanese": "スペイン語翻訳",
+        "Italian": "traduzione in spagnolo",
+        "French": "traduction en espagnol",
+        "Spanish": "Traducción al español",
         "Comments": ""
     }
 ]
