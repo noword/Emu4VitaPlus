@@ -154,7 +154,9 @@ void TabAbout::_InitTexts()
               "https://github.com/libretro/tgbdual-libretro",
               "https://github.com/libretro/libretro-meowPC98",
               "https://github.com/libretro/blueMSX-libretro",
-              "https://github.com/libretro/fmsx-libretro"};
+              "https://github.com/libretro/fmsx-libretro",
+              "https://github.com/libretro/vice-libretro",
+              "https://github.com/libretro/px68k-libretro"};
 }
 
 void TabAbout::_OnKeyUp(Input *input)

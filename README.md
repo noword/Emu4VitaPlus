@@ -103,6 +103,12 @@ MSX
  - [Marat Fayzullin's fMSX](https://github.com/libretro/fmsx-libretro)
  - [blueMSX](https://github.com/libretro/blueMSX-libretro)
 
+Commodore 64
+ - [VICE](https://github.com/libretro/vice-libretro)
+
+Sharp X68000
+ - [PX68k](https://github.com/libretro/px68k-libretro)
+
 # 编译前准备
 ## Windows
 * 安装 [msys2](https://www.msys2.org/) 或 [devkitPro](https://github.com/devkitPro/installer/releases)
