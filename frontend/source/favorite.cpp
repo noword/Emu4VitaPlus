@@ -35,7 +35,10 @@ bool Favorites::Load(const char *path)
         fav.item.name = ini.GetValue(sec, "name");
         fav.item.entry_name = ini.GetValue(sec, "entry");
         fav.item.crc32 = ini.GetLongValue(sec, "crc32");
-        this->emplace(fav.item.name, fav);
+        if (File::Exist((fav.path + '/' + fav.item.name).c_str()))
+        {
+            this->emplace(fav.item.name, fav);
+        }
     }
 
     return true;
