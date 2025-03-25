@@ -263,7 +263,7 @@ void App::SetInputHooks(Input *input)
     input->SetKeyDownCallback(SCE_CTRL_LSTICK_DOWN, std::bind(&App::_OnKeyDown, this, input), true);
     input->SetKeyDownCallback(SCE_CTRL_L1, std::bind(&App::_OnKeyLeft, this, input), true);
     input->SetKeyDownCallback(SCE_CTRL_R1, std::bind(&App::_OnKeyRight, this, input), true);
-    input->SetKeyUpCallback(SCE_CTRL_CIRCLE, std::bind(&App::_OnClick, this, input));
+    input->SetKeyUpCallback(EnterButton, std::bind(&App::_OnClick, this, input));
     input->SetKeyDownCallback(SCE_CTRL_RSTICK_LEFT, std::bind(&App::_OnStartRollingIntro, this, input));
     input->SetKeyUpCallback(SCE_CTRL_RSTICK_LEFT, std::bind(&App::_OnStopRollingIntro, this, input));
     input->SetKeyDownCallback(SCE_CTRL_RSTICK_RIGHT, std::bind(&App::_OnStartRollingBackIntro, this, input));
@@ -282,7 +282,7 @@ void App::UnsetInputHooks(Input *input)
     input->UnsetKeyDownCallback(SCE_CTRL_LSTICK_DOWN);
     input->UnsetKeyDownCallback(SCE_CTRL_L1);
     input->UnsetKeyDownCallback(SCE_CTRL_R1);
-    input->UnsetKeyUpCallback(SCE_CTRL_CIRCLE);
+    input->UnsetKeyUpCallback(EnterButton);
     input->UnsetKeyDownCallback(SCE_CTRL_RSTICK_LEFT);
     input->UnsetKeyUpCallback(SCE_CTRL_RSTICK_LEFT);
     input->UnsetKeyDownCallback(SCE_CTRL_RSTICK_RIGHT);
