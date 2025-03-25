@@ -122,6 +122,7 @@ Ui::~Ui()
     LogFunctionName;
     delete _boot_ui;
     delete _dialog;
+
     _DeinitImgui();
     _ClearTabs();
 }
@@ -235,6 +236,8 @@ void Ui::CreateTables()
         hotkeys.emplace_back(new ItemHotkey((HotKeyConfig)i, &gConfig->hotkeys[i]));
     }
     hotkeys.emplace_back(new ItemBase(LANG_RESET_CONFIGS, "", ResetHotkey));
+    hotkeys[SWITCH_KEYBOARD]->SetVisable(ENABLE_KEYBOARD);
+
     _tabs[TAB_INDEX_HOTKEY] = new TabSeletable(LANG_HOTKEY, hotkeys);
 
     UpdateCoreOptions();

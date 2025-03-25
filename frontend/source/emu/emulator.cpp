@@ -38,11 +38,17 @@ Emulator::Emulator()
       _show_video(true),
       _loaded(false),
       _disk_contorl(nullptr),
-      _speed(1.0)
+      _speed(1.0),
+      _keyboard(nullptr)
 {
     retro_get_system_info(&_info);
     sceKernelCreateLwMutex(&_run_mutex, "run_mutex", 0, 0, NULL);
     _InitArcadeManager();
+
+    if (ENABLE_KEYBOARD)
+    {
+        _keyboard = new Keyboard();
+    }
 }
 
 Emulator::~Emulator()
@@ -57,6 +63,11 @@ Emulator::~Emulator()
     if (_arcade_manager)
     {
         delete _arcade_manager;
+    }
+
+    if (_keyboard)
+    {
+        delete _keyboard;
     }
 
     sceKernelDeleteLwMutex(&_run_mutex);

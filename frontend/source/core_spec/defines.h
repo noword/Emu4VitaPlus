@@ -43,5 +43,6 @@ extern const bool DEFAULT_AUTO_SAVE;
 extern const bool DEFAULT_INDEPENDENT_CORE_CONFIG;
 extern const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN;
 extern const bool CONTROL_SPEED_BY_VIDEO;
+extern const bool ENABLE_KEYBOARD;
 
 extern const bool IS_ARCADE;

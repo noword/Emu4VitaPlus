@@ -13,8 +13,10 @@
 #include "arcade_manager.h"
 #include "disk_control.h"
 #include "rect.h"
+#include "keyboard.h"
 
 using namespace Emu4VitaPlus;
+
 #define MAX_SPEED 3.0
 #define MIN_SPEED 0.3
 
@@ -121,6 +123,7 @@ private:
     // void _OnHotkeyCtrlPortUp(Input *input);
     // void _OnHotkeyCtrlPortDown(Input *input);
     void _OnHotkeyExitGame(Input *input);
+    void _OnHotkeyKeyboard(Input *input);
 
     std::string _SaveDirPath();
     std::string _SaveNamePath(uint32_t id);
@@ -166,6 +169,7 @@ private:
     ArcadeManager *_arcade_manager;
 
     DiskControl *_disk_contorl;
+    Keyboard *_keyboard;
 };
 
 extern Emulator *gEmulator;

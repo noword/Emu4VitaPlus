@@ -170,6 +170,11 @@ void Emulator::Show()
     }
 
     _video_delay.Wait();
+
+    if (status == APP_STATUS_RUN_GAME && _keyboard && _keyboard->Visable())
+    {
+        _keyboard->Show();
+    }
 }
 
 bool Emulator::GetCurrentSoftwareFramebuffer(retro_framebuffer *fb)
