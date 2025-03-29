@@ -18,6 +18,10 @@ int16_t InputStateCallback(unsigned port, unsigned device, unsigned index, unsig
     // LogDebug("port:%d device:%d index:%d id:%d", port, device, index, id);
     if (gEmulator->_keyboard->Visable())
     {
+        if (device == RETRO_DEVICE_KEYBOARD)
+        {
+            gEmulator->_GetKeybaordState(index, id);
+        }
         return 0;
     }
 
@@ -227,6 +231,13 @@ int16_t Emulator::_GetPointerState(unsigned index, unsigned id)
     }
 
     return 0;
+}
+
+int16_t Emulator::_GetKeybaordState(unsigned index, unsigned id)
+{
+    LogFunctionNameLimited;
+    LogDebug("%d %d", index, id);
+    return _keyboard->CheckKey((retro_key)id);
 }
 
 void Emulator::SetupKeys()

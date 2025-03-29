@@ -203,7 +203,10 @@ const KeyButton Keyboard::_buttons[] = {
     KeyButton{{RETROK_RIGHT, KEY_RIGHT}, {X_EXT2, Y_5}},
 };
 
-Keyboard::Keyboard() : _visable(false), _mod(0), _status{0}
+Keyboard::Keyboard()
+    : _visable(false),
+      _mod(0),
+      _callback(nullptr)
 {
     sceKernelCreateLwMutex(&_mutex, "keyboard_mutex", 0, 0, NULL);
 };
@@ -245,7 +248,12 @@ void Keyboard::Show()
 
             if (ImGui::Button(key->str, button.size))
             {
-                _OnKey(*key);
+                _OnKeyUp(*key); // release
+            }
+
+            if (ImGui::IsItemActive())
+            {
+                _OnKeyDown(*key);
             }
 
             if (push_color)
@@ -263,21 +271,46 @@ void Keyboard::Show()
 void Keyboard::SetVisable(bool visable)
 {
     LogFunctionName;
+    LogDebug("  %d", visable);
     _visable = visable;
     ImGui_ImplVita2D_TouchUsage(visable);
     ImGui_ImplVita2D_GamepadUsage(visable);
+    if (!visable)
+    {
+        ImGui::GetIO().MousePos = {0., 0.};
+    }
 };
 
-void Keyboard::_OnKey(const Key &key)
+void Keyboard::_OnKeyDown(const Key &key)
 {
     LogFunctionName;
     LogDebug("  %04x %s", key.key, key.str);
 
     Lock();
 
-    _mod ^= key.mod;
-    _status[key.key] = true;
+    if (!_status[key.key])
+    {
+        _status[key.key] = true;
+        if (_callback)
+        {
+            _callback(true, key.key, 0, key.mod);
+        }
+    }
 
+    Unlock();
+}
+
+void Keyboard::_OnKeyUp(const Key &key)
+{
+    LogFunctionName;
+    LogDebug("  %04x %s", key.key, key.str);
+    Lock();
+
+    _status[key.key] = false;
+    if (_callback)
+    {
+        _callback(false, key.key, 0, key.mod);
+    }
     Unlock();
 }
 

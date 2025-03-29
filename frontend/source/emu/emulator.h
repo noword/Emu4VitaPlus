@@ -112,6 +112,7 @@ private:
     int16_t _GetMouseState(unsigned index, unsigned id);
     int16_t _GetLightGunState(unsigned index, unsigned id);
     int16_t _GetPointerState(unsigned index, unsigned id);
+    int16_t _GetKeybaordState(unsigned index, unsigned id);
 
     void _OnPsButton(Input *input);
     void _OnHotkeySave(Input *input);

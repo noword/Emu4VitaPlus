@@ -44,13 +44,29 @@ namespace Emu4VitaPlus
         void SetVisable(bool visable);
         int32_t Lock(uint32_t *timeout = NULL);
         void Unlock();
+        bool CheckKey(retro_key key)
+        {
+            bool release = _status[key];
+            if (release)
+            {
+                _status[key] = false;
+            }
+            return release;
+        };
+
+        void SetCallback(retro_keyboard_event_t callback) { _callback = callback; };
 
     private:
-        void _OnKey(const Key &key);
+        void _OnKeyDown(const Key &key);
+        void _OnKeyUp(const Key &key);
+
         static const KeyButton _buttons[];
         std::bitset<RETROK_LAST> _status;
         uint8_t _mod;
         bool _visable;
         SceKernelLwMutexWork _mutex;
+
+        retro_keyboard_event_t _callback;
     };
+
 };

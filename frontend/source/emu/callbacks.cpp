@@ -125,7 +125,8 @@ bool EnvironmentCallback(unsigned cmd, void *data)
 
     case RETRO_ENVIRONMENT_SET_KEYBOARD_CALLBACK:
         LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_KEYBOARD_CALLBACK");
-        return false;
+        gEmulator->_keyboard->SetCallback(data ? ((const retro_keyboard_callback *)data)->callback : nullptr);
+        break;
 
     case RETRO_ENVIRONMENT_SET_DISK_CONTROL_INTERFACE:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_DISK_CONTROL_INTERFACE");
