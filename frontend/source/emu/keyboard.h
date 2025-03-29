@@ -44,16 +44,7 @@ namespace Emu4VitaPlus
         void SetVisable(bool visable);
         int32_t Lock(uint32_t *timeout = NULL);
         void Unlock();
-        bool CheckKey(retro_key key)
-        {
-            bool release = _status[key];
-            if (release)
-            {
-                _status[key] = false;
-            }
-            return release;
-        };
-
+        bool CheckKey(retro_key key);
         void SetCallback(retro_keyboard_event_t callback) { _callback = callback; };
 
     private:

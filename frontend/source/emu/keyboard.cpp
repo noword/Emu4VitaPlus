@@ -172,7 +172,7 @@ const KeyButton Keyboard::_buttons[] = {
     KeyButton{{RETROK_h, "H"}, {X_H, Y_3}},
     KeyButton{{RETROK_j, "J"}, {X_J, Y_3}},
     KeyButton{{RETROK_k, "K"}, {X_K, Y_3}},
-    KeyButton{{RETROK_a, "L"}, {X_L, Y_3}},
+    KeyButton{{RETROK_l, "L"}, {X_L, Y_3}},
     KeyButton{{RETROK_SEMICOLON, ";"}, {X_SEMICOLON, Y_3}, {RETROK_COLON, ":"}},
     KeyButton{{RETROK_QUOTE, "'"}, {X_QUOTE, Y_3}, {RETROK_QUOTEDBL, "\""}},
     KeyButton{{RETROK_RETURN, "Enter"}, {X_RETURN, Y_3}, EMPTY_KEY, {KEY_RETURN_WIDTH, KEY_BUTTON_HEIGHT}},
@@ -206,7 +206,8 @@ const KeyButton Keyboard::_buttons[] = {
 Keyboard::Keyboard()
     : _visable(false),
       _mod(0),
-      _callback(nullptr)
+      _callback(nullptr),
+      _status{0}
 {
     sceKernelCreateLwMutex(&_mutex, "keyboard_mutex", 0, 0, NULL);
 };
@@ -288,7 +289,7 @@ void Keyboard::_OnKeyDown(const Key &key)
 
     Lock();
 
-    if (!_status[key.key])
+    if (!_status[key.key] && key.mod == RETROKMOD_NONE)
     {
         _status[key.key] = true;
         if (_callback)
@@ -306,10 +307,22 @@ void Keyboard::_OnKeyUp(const Key &key)
     LogDebug("  %04x %s", key.key, key.str);
     Lock();
 
-    _status[key.key] = false;
-    if (_callback)
+    if (key.mod == RETROKMOD_NONE)
     {
-        _callback(false, key.key, 0, key.mod);
+        _status[key.key] = false;
+        if (_callback)
+        {
+            _callback(false, key.key, 0, key.mod);
+        }
+    }
+    else
+    {
+        bool down = _status[key.key] = !_status[key.key];
+        if (_callback)
+        {
+            _callback(down, key.key, 0, key.mod);
+        }
+        _mod ^= key.mod;
     }
     Unlock();
 }
@@ -322,4 +335,12 @@ int32_t Keyboard::Lock(uint32_t *timeout)
 void Keyboard::Unlock()
 {
     sceKernelUnlockLwMutex(&_mutex, 1);
+}
+
+bool Keyboard::CheckKey(retro_key key)
+{
+    Lock();
+    bool result = _status[key];
+    Unlock();
+    return result;
 }
