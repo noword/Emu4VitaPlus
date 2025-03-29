@@ -1,8 +1,9 @@
 #pragma once
 #include <imgui_vita2d/imgui_vita.h>
+#include <psp2/kernel/threadmgr.h>
 #include <libretro.h>
 #include <string>
-#include <vector>
+#include <bitset>
 #include <stdint.h>
 #include "input.h"
 
@@ -19,8 +20,6 @@ namespace Emu4VitaPlus
         retro_key key;
         const char *str;
         retro_mod mod = RETROKMOD_NONE;
-        bool down = false;
-        bool last_down = false;
     };
 
     struct KeyButton
@@ -42,12 +41,16 @@ namespace Emu4VitaPlus
         void UnsetInputHooks(Input *input);
 
         bool Visable() { return _visable; };
-        void SetVisable(bool visable) { _visable = visable; };
+        void SetVisable(bool visable);
+        int32_t Lock(uint32_t *timeout = NULL);
+        void Unlock();
 
     private:
-        std::vector<KeyButton> _buttons;
-        retro_key _down_key;
+        void _OnKey(const Key &key);
+        static const KeyButton _buttons[];
+        std::bitset<RETROK_LAST> _status;
         uint8_t _mod;
         bool _visable;
+        SceKernelLwMutexWork _mutex;
     };
 };

@@ -5,7 +5,7 @@
 
 using namespace Emu4VitaPlus;
 
-#define KEYBOARD_WIDTH (KEY_BUTTON_NEXT * 15)
+#define KEYBOARD_WIDTH (KEY_BUTTON_NEXT * 18.5)
 #define KEYBOARD_HEIGHT (KEY_BUTTON_NEXT * 6)
 
 #define KEY_BACKSPACE_WIDTH (KEY_BUTTON_WIDTH * 2 + KEY_BUTTON_INTERVAL)
@@ -32,6 +32,9 @@ using namespace Emu4VitaPlus;
 #define X_F10 (X_F9 + KEY_BUTTON_NEXT)
 #define X_F11 (X_F10 + KEY_BUTTON_NEXT)
 #define X_F12 (X_F11 + KEY_BUTTON_NEXT)
+#define X_EXT0 (X_F12 + KEY_BUTTON_WIDTH * 1.5)
+#define X_EXT1 (X_EXT0 + KEY_BUTTON_NEXT)
+#define X_EXT2 (X_EXT1 + KEY_BUTTON_NEXT)
 
 #define X_BACKQUOTE X_START
 #define X_1 (X_BACKQUOTE + KEY_BUTTON_NEXT)
@@ -97,6 +100,7 @@ using namespace Emu4VitaPlus;
 #define X_RALT (X_SPACE + KEY_SPACE_WIDTH + KEY_BUTTON_INTERVAL)
 #define X_RMETA (X_RALT + KEY_BOTTOM_WIDTH + KEY_BUTTON_INTERVAL)
 #define X_RCTRL (X_RMETA + KEY_BOTTOM_WIDTH + KEY_BUTTON_INTERVAL)
+#define X_LEFT (X_RCTRL + KEY_BUTTON_WIDTH * 1.5)
 
 #define Y_0 0
 #define Y_1 (Y_0 + KEY_BUTTON_HEIGHT + KEY_BUTTON_INTERVAL)
@@ -105,91 +109,109 @@ using namespace Emu4VitaPlus;
 #define Y_4 (Y_3 + KEY_BUTTON_HEIGHT + KEY_BUTTON_INTERVAL)
 #define Y_5 (Y_4 + KEY_BUTTON_HEIGHT + KEY_BUTTON_INTERVAL)
 
-Keyboard::Keyboard() : _visable(false)
-{
-    _buttons = {
-        KeyButton{{RETROK_ESCAPE, "esc"}, {X_ESC, Y_0}},
-        KeyButton{{RETROK_F1, "F1"}, {X_F1, Y_0}},
-        KeyButton{{RETROK_F2, "F2"}, {X_F2, Y_0}},
-        KeyButton{{RETROK_F3, "F3"}, {X_F3, Y_0}},
-        KeyButton{{RETROK_F4, "F4"}, {X_F4, Y_0}},
-        KeyButton{{RETROK_F5, "F5"}, {X_F5, Y_0}},
-        KeyButton{{RETROK_F6, "F6"}, {X_F6, Y_0}},
-        KeyButton{{RETROK_F7, "F7"}, {X_F7, Y_0}},
-        KeyButton{{RETROK_F8, "F8"}, {X_F8, Y_0}},
-        KeyButton{{RETROK_F9, "F9"}, {X_F9, Y_0}},
-        KeyButton{{RETROK_F10, "F10"}, {X_F10, Y_0}},
-        KeyButton{{RETROK_F11, "F11"}, {X_F11, Y_0}},
-        KeyButton{{RETROK_F12, "F12"}, {X_F12, Y_0}},
+const KeyButton Keyboard::_buttons[] = {
+    KeyButton{{RETROK_ESCAPE, "Esc"}, {X_ESC, Y_0}},
+    KeyButton{{RETROK_F1, "F1"}, {X_F1, Y_0}},
+    KeyButton{{RETROK_F2, "F2"}, {X_F2, Y_0}},
+    KeyButton{{RETROK_F3, "F3"}, {X_F3, Y_0}},
+    KeyButton{{RETROK_F4, "F4"}, {X_F4, Y_0}},
+    KeyButton{{RETROK_F5, "F5"}, {X_F5, Y_0}},
+    KeyButton{{RETROK_F6, "F6"}, {X_F6, Y_0}},
+    KeyButton{{RETROK_F7, "F7"}, {X_F7, Y_0}},
+    KeyButton{{RETROK_F8, "F8"}, {X_F8, Y_0}},
+    KeyButton{{RETROK_F9, "F9"}, {X_F9, Y_0}},
+    KeyButton{{RETROK_F10, "F10"}, {X_F10, Y_0}},
+    KeyButton{{RETROK_F11, "F11"}, {X_F11, Y_0}},
+    KeyButton{{RETROK_F12, "F12"}, {X_F12, Y_0}},
+    KeyButton{{RETROK_PRINT, KEY_PRTSC}, {X_EXT0, Y_0}},
+    KeyButton{{RETROK_SCROLLOCK, KEY_SCRLK, RETROKMOD_SCROLLOCK}, {X_EXT1, Y_0}},
+    KeyButton{{RETROK_PAUSE, KEY_PAUSE}, {X_EXT2, Y_0}},
 
-        KeyButton{{RETROK_BACKQUOTE, "`"}, {X_BACKQUOTE, Y_1}, {RETROK_TILDE, "~"}},
-        KeyButton{{RETROK_1, "1"}, {X_1, Y_1}, {RETROK_EXCLAIM, "!"}},
-        KeyButton{{RETROK_2, "2"}, {X_2, Y_1}, {RETROK_AT, "@"}},
-        KeyButton{{RETROK_3, "3"}, {X_3, Y_1}, {RETROK_HASH, "#"}},
-        KeyButton{{RETROK_4, "4"}, {X_4, Y_1}, {RETROK_DOLLAR, "$"}},
-        KeyButton{{RETROK_5, "5"}, {X_5, Y_1}, {(retro_key)'%', "%"}},
-        KeyButton{{RETROK_6, "6"}, {X_6, Y_1}, {RETROK_CARET, "^"}},
-        KeyButton{{RETROK_7, "7"}, {X_7, Y_1}, {RETROK_AMPERSAND, "&"}},
-        KeyButton{{RETROK_8, "8"}, {X_8, Y_1}, {RETROK_ASTERISK, "*"}},
-        KeyButton{{RETROK_9, "9"}, {X_9, Y_1}, {RETROK_LEFTPAREN, "("}},
-        KeyButton{{RETROK_0, "0"}, {X_0, Y_1}, {RETROK_RIGHTPAREN, ")"}},
-        KeyButton{{RETROK_MINUS, "-"}, {X_MINUS, Y_1}, {RETROK_UNDERSCORE, "_"}},
-        KeyButton{{RETROK_EQUALS, "="}, {X_EQUALS, Y_1}, {RETROK_PLUS, "+"}},
-        KeyButton{{RETROK_BACKSPACE, "backspace"}, {X_BACKSPACE, Y_1}, EMPTY_KEY, {KEY_BACKSPACE_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_BACKQUOTE, "`"}, {X_BACKQUOTE, Y_1}, {RETROK_TILDE, "~"}},
+    KeyButton{{RETROK_1, "1"}, {X_1, Y_1}, {RETROK_EXCLAIM, "!"}},
+    KeyButton{{RETROK_2, "2"}, {X_2, Y_1}, {RETROK_AT, "@"}},
+    KeyButton{{RETROK_3, "3"}, {X_3, Y_1}, {RETROK_HASH, "#"}},
+    KeyButton{{RETROK_4, "4"}, {X_4, Y_1}, {RETROK_DOLLAR, "$"}},
+    KeyButton{{RETROK_5, "5"}, {X_5, Y_1}, {(retro_key)'%', "%"}},
+    KeyButton{{RETROK_6, "6"}, {X_6, Y_1}, {RETROK_CARET, "^"}},
+    KeyButton{{RETROK_7, "7"}, {X_7, Y_1}, {RETROK_AMPERSAND, "&"}},
+    KeyButton{{RETROK_8, "8"}, {X_8, Y_1}, {RETROK_ASTERISK, "*"}},
+    KeyButton{{RETROK_9, "9"}, {X_9, Y_1}, {RETROK_LEFTPAREN, "("}},
+    KeyButton{{RETROK_0, "0"}, {X_0, Y_1}, {RETROK_RIGHTPAREN, ")"}},
+    KeyButton{{RETROK_MINUS, "-"}, {X_MINUS, Y_1}, {RETROK_UNDERSCORE, "_"}},
+    KeyButton{{RETROK_EQUALS, "="}, {X_EQUALS, Y_1}, {RETROK_PLUS, "+"}},
+    KeyButton{{RETROK_BACKSPACE, "Backspace"}, {X_BACKSPACE, Y_1}, EMPTY_KEY, {KEY_BACKSPACE_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_INSERT, KEY_INSERT}, {X_EXT0, Y_1}},
+    KeyButton{{RETROK_HOME, KEY_HOME}, {X_EXT1, Y_1}},
+    KeyButton{{RETROK_PAGEUP, KEY_PAGEUP}, {X_EXT2, Y_1}},
 
-        KeyButton{{RETROK_TAB, "tab"}, {X_TAB, Y_2}, EMPTY_KEY, {KEY_TAB_WIDTH, KEY_BUTTON_HEIGHT}},
-        KeyButton{{RETROK_q, "Q"}, {X_Q, Y_2}},
-        KeyButton{{RETROK_w, "W"}, {X_W, Y_2}},
-        KeyButton{{RETROK_e, "E"}, {X_E, Y_2}},
-        KeyButton{{RETROK_r, "R"}, {X_R, Y_2}},
-        KeyButton{{RETROK_t, "T"}, {X_T, Y_2}},
-        KeyButton{{RETROK_y, "Y"}, {X_Y, Y_2}},
-        KeyButton{{RETROK_u, "U"}, {X_U, Y_2}},
-        KeyButton{{RETROK_i, "I"}, {X_I, Y_2}},
-        KeyButton{{RETROK_o, "O"}, {X_O, Y_2}},
-        KeyButton{{RETROK_p, "P"}, {X_P, Y_2}},
-        KeyButton{{RETROK_LEFTBRACKET, "["}, {X_LEFTBRACKET, Y_2}, {RETROK_LEFTBRACE, "{"}},
-        KeyButton{{RETROK_RIGHTBRACKET, "]"}, {X_RIGHTBRACKET, Y_2}, {RETROK_RIGHTBRACE, "}"}},
-        KeyButton{{RETROK_BACKSLASH, "\\"}, {X_BACKSLASH, Y_2}, {RETROK_BAR, "|"}, {KEY_BUTTON_WIDTH * 1.5 + KEY_BUTTON_INTERVAL, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_TAB, "Tab"}, {X_TAB, Y_2}, EMPTY_KEY, {KEY_TAB_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_q, "Q"}, {X_Q, Y_2}},
+    KeyButton{{RETROK_w, "W"}, {X_W, Y_2}},
+    KeyButton{{RETROK_e, "E"}, {X_E, Y_2}},
+    KeyButton{{RETROK_r, "R"}, {X_R, Y_2}},
+    KeyButton{{RETROK_t, "T"}, {X_T, Y_2}},
+    KeyButton{{RETROK_y, "Y"}, {X_Y, Y_2}},
+    KeyButton{{RETROK_u, "U"}, {X_U, Y_2}},
+    KeyButton{{RETROK_i, "I"}, {X_I, Y_2}},
+    KeyButton{{RETROK_o, "O"}, {X_O, Y_2}},
+    KeyButton{{RETROK_p, "P"}, {X_P, Y_2}},
+    KeyButton{{RETROK_LEFTBRACKET, "["}, {X_LEFTBRACKET, Y_2}, {RETROK_LEFTBRACE, "{"}},
+    KeyButton{{RETROK_RIGHTBRACKET, "]"}, {X_RIGHTBRACKET, Y_2}, {RETROK_RIGHTBRACE, "}"}},
+    KeyButton{{RETROK_BACKSLASH, "\\"}, {X_BACKSLASH, Y_2}, {RETROK_BAR, "|"}, {KEY_BUTTON_WIDTH * 1.5 + KEY_BUTTON_INTERVAL, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_DELETE, KEY_DELETE}, {X_EXT0, Y_2}},
+    KeyButton{{RETROK_HOME, KEY_END}, {X_EXT1, Y_2}},
+    KeyButton{{RETROK_PAGEUP, KEY_PAGEDOWN}, {X_EXT2, Y_2}},
 
-        KeyButton{{RETROK_CAPSLOCK, "cpas", RETROKMOD_CAPSLOCK}, {X_CAPSLOCK, Y_3}, EMPTY_KEY, {KEY_CAPSLOCK_WIDTH, KEY_BUTTON_HEIGHT}},
-        KeyButton{{RETROK_a, "A"}, {X_A, Y_3}},
-        KeyButton{{RETROK_s, "S"}, {X_S, Y_3}},
-        KeyButton{{RETROK_d, "D"}, {X_D, Y_3}},
-        KeyButton{{RETROK_f, "F"}, {X_F, Y_3}},
-        KeyButton{{RETROK_g, "G"}, {X_G, Y_3}},
-        KeyButton{{RETROK_h, "H"}, {X_H, Y_3}},
-        KeyButton{{RETROK_j, "J"}, {X_J, Y_3}},
-        KeyButton{{RETROK_k, "K"}, {X_K, Y_3}},
-        KeyButton{{RETROK_a, "L"}, {X_L, Y_3}},
-        KeyButton{{RETROK_SEMICOLON, ";"}, {X_SEMICOLON, Y_3}, {RETROK_COLON, ":"}},
-        KeyButton{{RETROK_QUOTE, "'"}, {X_QUOTE, Y_3}, {RETROK_QUOTEDBL, "\""}},
-        KeyButton{{RETROK_RETURN, "enter"}, {X_RETURN, Y_3}, EMPTY_KEY, {KEY_RETURN_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_CAPSLOCK, "Cpas", RETROKMOD_CAPSLOCK}, {X_CAPSLOCK, Y_3}, EMPTY_KEY, {KEY_CAPSLOCK_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_a, "A"}, {X_A, Y_3}},
+    KeyButton{{RETROK_s, "S"}, {X_S, Y_3}},
+    KeyButton{{RETROK_d, "D"}, {X_D, Y_3}},
+    KeyButton{{RETROK_f, "F"}, {X_F, Y_3}},
+    KeyButton{{RETROK_g, "G"}, {X_G, Y_3}},
+    KeyButton{{RETROK_h, "H"}, {X_H, Y_3}},
+    KeyButton{{RETROK_j, "J"}, {X_J, Y_3}},
+    KeyButton{{RETROK_k, "K"}, {X_K, Y_3}},
+    KeyButton{{RETROK_a, "L"}, {X_L, Y_3}},
+    KeyButton{{RETROK_SEMICOLON, ";"}, {X_SEMICOLON, Y_3}, {RETROK_COLON, ":"}},
+    KeyButton{{RETROK_QUOTE, "'"}, {X_QUOTE, Y_3}, {RETROK_QUOTEDBL, "\""}},
+    KeyButton{{RETROK_RETURN, "Enter"}, {X_RETURN, Y_3}, EMPTY_KEY, {KEY_RETURN_WIDTH, KEY_BUTTON_HEIGHT}},
 
-        KeyButton{{RETROK_LSHIFT, "shift", RETROKMOD_SHIFT}, {X_LSHIFT, Y_4}, EMPTY_KEY, {KEY_LSHIFT_WIDTH, KEY_BUTTON_HEIGHT}},
-        KeyButton{{RETROK_z, "Z"}, {X_Z, Y_4}},
-        KeyButton{{RETROK_x, "X"}, {X_X, Y_4}},
-        KeyButton{{RETROK_c, "C"}, {X_C, Y_4}},
-        KeyButton{{RETROK_v, "V"}, {X_V, Y_4}},
-        KeyButton{{RETROK_b, "B"}, {X_B, Y_4}},
-        KeyButton{{RETROK_n, "N"}, {X_N, Y_4}},
-        KeyButton{{RETROK_m, "M"}, {X_M, Y_4}},
-        KeyButton{{RETROK_COMMA, ","}, {X_COMMA, Y_4}, {RETROK_LESS, "<"}},
-        KeyButton{{RETROK_PERIOD, "."}, {X_PERIOD, Y_4}, {RETROK_GREATER, ">"}},
-        KeyButton{{RETROK_SLASH, "/"}, {X_SLASH, Y_4}, {RETROK_QUESTION, "?"}},
-        KeyButton{{RETROK_RSHIFT, "shift", RETROKMOD_SHIFT}, {X_RSHIFT, Y_4}, EMPTY_KEY, {KEY_RSHIFT_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_LSHIFT, "Shift", RETROKMOD_SHIFT}, {X_LSHIFT, Y_4}, EMPTY_KEY, {KEY_LSHIFT_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_z, "Z"}, {X_Z, Y_4}},
+    KeyButton{{RETROK_x, "X"}, {X_X, Y_4}},
+    KeyButton{{RETROK_c, "C"}, {X_C, Y_4}},
+    KeyButton{{RETROK_v, "V"}, {X_V, Y_4}},
+    KeyButton{{RETROK_b, "B"}, {X_B, Y_4}},
+    KeyButton{{RETROK_n, "N"}, {X_N, Y_4}},
+    KeyButton{{RETROK_m, "M"}, {X_M, Y_4}},
+    KeyButton{{RETROK_COMMA, ","}, {X_COMMA, Y_4}, {RETROK_LESS, "<"}},
+    KeyButton{{RETROK_PERIOD, "."}, {X_PERIOD, Y_4}, {RETROK_GREATER, ">"}},
+    KeyButton{{RETROK_SLASH, "/"}, {X_SLASH, Y_4}, {RETROK_QUESTION, "?"}},
+    KeyButton{{RETROK_RSHIFT, "Shift ", RETROKMOD_SHIFT}, {X_RSHIFT, Y_4}, EMPTY_KEY, {KEY_RSHIFT_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_UP, KEY_UP}, {X_EXT1, Y_4}},
 
-        KeyButton{{RETROK_LCTRL, "ctrl", RETROKMOD_CTRL}, {X_LCTRL, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
-        KeyButton{{RETROK_LMETA, ICON_WIN, RETROKMOD_META}, {X_LMETA, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
-        KeyButton{{RETROK_LALT, "alt", RETROKMOD_ALT}, {X_LALT, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
-        KeyButton{{RETROK_SPACE, ""}, {X_SPACE, Y_5}, EMPTY_KEY, {KEY_SPACE_WIDTH, KEY_BUTTON_HEIGHT}},
-        KeyButton{{RETROK_RALT, "alt", RETROKMOD_ALT}, {X_RALT, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
-        KeyButton{{RETROK_RMETA, ICON_WIN, RETROKMOD_META}, {X_RMETA, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
-        KeyButton{{RETROK_RCTRL, "ctrl", RETROKMOD_CTRL}, {X_RCTRL, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
-    };
+    KeyButton{{RETROK_LCTRL, "Ctrl", RETROKMOD_CTRL}, {X_LCTRL, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_LMETA, KEY_WIN, RETROKMOD_META}, {X_LMETA, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_LALT, "Alt", RETROKMOD_ALT}, {X_LALT, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_SPACE, ""}, {X_SPACE, Y_5}, EMPTY_KEY, {KEY_SPACE_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_RALT, "Alt ", RETROKMOD_ALT}, {X_RALT, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_RMETA, KEY_WIN " ", RETROKMOD_META}, {X_RMETA, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_RCTRL, "Ctrl ", RETROKMOD_CTRL}, {X_RCTRL, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_LEFT, KEY_LEFT}, {X_EXT0, Y_5}},
+    KeyButton{{RETROK_DOWN, KEY_DOWN}, {X_EXT1, Y_5}},
+    KeyButton{{RETROK_RIGHT, KEY_RIGHT}, {X_EXT2, Y_5}},
 };
 
-Keyboard::~Keyboard() {};
+Keyboard::Keyboard() : _visable(false), _mod(0), _status{0}
+{
+    sceKernelCreateLwMutex(&_mutex, "keyboard_mutex", 0, 0, NULL);
+};
+
+Keyboard::~Keyboard()
+{
+    sceKernelDeleteLwMutex(&_mutex);
+};
 
 void Keyboard::Show()
 {
@@ -200,16 +222,71 @@ void Keyboard::Show()
     ImGui::SetNextWindowSize({KEYBOARD_WIDTH, KEYBOARD_HEIGHT});
     ImGui::SetNextWindowBgAlpha(0.5);
 
-    if (ImGui::Begin("keyboard", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
+    if (ImGui::Begin("keyboard", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar))
     {
+        bool shift_mod = _mod & RETROKMOD_SHIFT;
         for (const auto button : _buttons)
         {
             ImGui::SetCursorPos(button.pos);
-            ImGui::Button(button.key.str, button.size);
+            const Key *key;
+            if (shift_mod && button.shift.key != RETROK_UNKNOWN)
+            {
+                key = &button.shift;
+            }
+            else
+            {
+                key = &button.key;
+            }
+            bool push_color = key->mod & _mod;
+            if (push_color)
+            {
+                ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered));
+            }
+
+            if (ImGui::Button(key->str, button.size))
+            {
+                _OnKey(*key);
+            }
+
+            if (push_color)
+            {
+                ImGui::PopStyleColor();
+            }
         }
     }
     ImGui::End();
 
     ImGui::Render();
     My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
+}
+
+void Keyboard::SetVisable(bool visable)
+{
+    LogFunctionName;
+    _visable = visable;
+    ImGui_ImplVita2D_TouchUsage(visable);
+    ImGui_ImplVita2D_GamepadUsage(visable);
+};
+
+void Keyboard::_OnKey(const Key &key)
+{
+    LogFunctionName;
+    LogDebug("  %04x %s", key.key, key.str);
+
+    Lock();
+
+    _mod ^= key.mod;
+    _status[key.key] = true;
+
+    Unlock();
+}
+
+int32_t Keyboard::Lock(uint32_t *timeout)
+{
+    return sceKernelLockLwMutex(&_mutex, 1, timeout);
+}
+
+void Keyboard::Unlock()
+{
+    sceKernelUnlockLwMutex(&_mutex, 1);
 }

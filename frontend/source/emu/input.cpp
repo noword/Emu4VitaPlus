@@ -16,6 +16,10 @@ int16_t InputStateCallback(unsigned port, unsigned device, unsigned index, unsig
     LogFunctionNameLimited;
 
     // LogDebug("port:%d device:%d index:%d id:%d", port, device, index, id);
+    if (gEmulator->_keyboard->Visable())
+    {
+        return 0;
+    }
 
     if ((device == RETRO_DEVICE_JOYPAD || device == RETRO_DEVICE_ANALOG) && port != 0)
         return 0;
@@ -329,6 +333,12 @@ void Emulator::SetupKeysWithSaveConfig()
 void Emulator::_OnPsButton(Input *input)
 {
     LogFunctionName;
+    if (_keyboard && _keyboard->Visable())
+    {
+        gVideo->Lock();
+        _keyboard->SetVisable(false);
+        gVideo->Unlock();
+    }
     gStatus.Set(APP_STATUS_SHOW_UI_IN_GAME);
     Save();
 }

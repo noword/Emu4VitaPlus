@@ -37,6 +37,8 @@ const static ImWchar GamePadCharset[] = {0x219c, 0x21a1,
                                          0x21e0, 0x21e3,
                                          0x21e7, 0x21e7,
                                          0x21f7, 0x21f8,
+                                         0x2430, 0x2432,
+                                         0x2434, 0x2439,
                                          0x243c, 0x243e,
                                          0xe000, 0xe000,
                                          0xe008, 0xe008,
@@ -49,6 +51,7 @@ const static ImWchar IconCharset[] = {0xe800, 0xe80f,
                                       0xf0c9, 0xf0c9,
                                       0xf11b, 0xf11b,
                                       0xf135, 0xf135,
+                                      0xf175, 0xf178,
                                       0xf1de, 0xf1de,
                                       0xf204, 0xf205,
                                       0x0000};
@@ -143,7 +146,6 @@ static void gen_font_texture(ImFontAtlas *fonts)
     int width, height;
     uint32_t *pixels = NULL;
     fonts->GetTexDataAsRGBA32((uint8_t **)&pixels, &width, &height);
-
     gFontTexture = vita2d_create_empty_texture(width, height);
     const auto stride = vita2d_texture_get_stride(gFontTexture) / 4;
     uint32_t *texture_data = (uint32_t *)vita2d_texture_get_datap(gFontTexture);
@@ -398,6 +400,15 @@ IMGUI_API void My_ImGui_ImplVita2D_Init(uint32_t language, const char *cache_pat
     _vita2d_imguiWvpParam = sceGxmProgramFindParameterByName(&_binary_assets_imgui_v_cg_gxp_start, "wvp");
 
     matrix_init_orthographic(ortho_proj_matrix, 0.0f, VITA_WIDTH, VITA_HEIGHT, 0.0f, 0.0f, 1.0f);
+
+    sceTouchSetSamplingState(SCE_TOUCH_PORT_FRONT, SCE_TOUCH_SAMPLING_STATE_START);
+    sceCtrlSetSamplingMode(SCE_CTRL_MODE_ANALOG_WIDE);
+
+    ImGuiIO &io = ImGui::GetIO();
+    io.MouseDrawCursor = true;
+    io.ClipboardUserData = NULL;
+
+    ImGui_ImplVita2D_InitTouch();
 }
 
 IMGUI_API void My_ImGui_ImplVita2D_Shutdown()
