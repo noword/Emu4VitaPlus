@@ -154,6 +154,7 @@ namespace Emu4Vita
         independent_core_config = DEFAULT_INDEPENDENT_CORE_CONFIG;
         reboot_when_loading_again = DEFAULT_REBOOT_WHEN_LOADING_AGAIN;
         speed_step = 0;
+        support_no_game = 0;
         language = Utils::GetDefaultLanguage();
 
         DefaultControlMap();

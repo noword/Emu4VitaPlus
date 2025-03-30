@@ -59,6 +59,7 @@ namespace Emu4Vita
         uint32_t sim_button;
         uint32_t independent_core_config;
         uint32_t speed_step;
+        uint32_t support_no_game;
 
         static const std::unordered_map<uint32_t, const char *> PsvKeyStr;
         static const std::unordered_map<uint32_t, const char *> HotkeyStr;

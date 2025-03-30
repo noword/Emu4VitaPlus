@@ -244,17 +244,16 @@ void Keyboard::Show()
             bool push_color = key->mod & _mod;
             if (push_color)
             {
-                ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered));
+                ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32_GREEN);
             }
 
             if (ImGui::Button(key->str, button.size))
             {
-                _OnKeyUp(*key); // release
+                _OnKeyUp(button.key); // release
             }
-
-            if (ImGui::IsItemActive())
+            else if (ImGui::IsItemActive())
             {
-                _OnKeyDown(*key);
+                _OnKeyDown(button.key); // hold
             }
 
             if (push_color)
@@ -294,7 +293,8 @@ void Keyboard::_OnKeyDown(const Key &key)
         _status[key.key] = true;
         if (_callback)
         {
-            _callback(true, key.key, 0, key.mod);
+            LogDebug("  _callback down %04x %s", key.key, key.str);
+            _callback(true, key.key, 0, RETROKMOD_NONE);
         }
     }
 
@@ -307,23 +307,23 @@ void Keyboard::_OnKeyUp(const Key &key)
     LogDebug("  %04x %s", key.key, key.str);
     Lock();
 
-    if (key.mod == RETROKMOD_NONE)
+    bool down;
+    if (key.mod == RETROKMOD_NONE) // normal keys
     {
-        _status[key.key] = false;
-        if (_callback)
-        {
-            _callback(false, key.key, 0, key.mod);
-        }
+        down = _status[key.key] = false;
     }
-    else
+    else // shift, ctrl, alt, win, capslock keys
     {
-        bool down = _status[key.key] = !_status[key.key];
-        if (_callback)
-        {
-            _callback(down, key.key, 0, key.mod);
-        }
+        down = _status[key.key] = !_status[key.key];
         _mod ^= key.mod;
     }
+
+    if (_callback)
+    {
+        LogDebug("  _callback %d %04x %s", down, key.key, key.str);
+        _callback(down, key.key, 0, key.mod);
+    }
+
     Unlock();
 }
 
@@ -342,5 +342,7 @@ bool Keyboard::CheckKey(retro_key key)
     Lock();
     bool result = _status[key];
     Unlock();
+
+    // LogDebug("CheckKey %04x %d", key, result);
     return result;
 }

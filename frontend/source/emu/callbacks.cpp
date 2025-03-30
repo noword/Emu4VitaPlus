@@ -124,7 +124,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_SET_KEYBOARD_CALLBACK:
-        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_KEYBOARD_CALLBACK");
+        LogDebug("  cmd: RETRO_ENVIRONMENT_SET_KEYBOARD_CALLBACK");
         gEmulator->_keyboard->SetCallback(data ? ((const retro_keyboard_callback *)data)->callback : nullptr);
         break;
 
@@ -160,8 +160,12 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_SET_SUPPORT_NO_GAME:
-        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_SUPPORT_NO_GAME");
-        return false;
+        LogDebug("  cmd: RETRO_ENVIRONMENT_SET_SUPPORT_NO_GAME");
+        if (data)
+        {
+            gConfig->support_no_game = *(bool *)data;
+        }
+        break;
 
     case RETRO_ENVIRONMENT_SET_FRAME_TIME_CALLBACK:
         LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_FRAME_TIME_CALLBACK");

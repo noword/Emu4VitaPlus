@@ -236,7 +236,6 @@ int16_t Emulator::_GetPointerState(unsigned index, unsigned id)
 int16_t Emulator::_GetKeybaordState(unsigned index, unsigned id)
 {
     LogFunctionNameLimited;
-    LogDebug("%d %d", index, id);
     return _keyboard->CheckKey((retro_key)id);
 }
 
