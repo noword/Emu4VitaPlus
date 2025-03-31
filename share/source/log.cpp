@@ -29,20 +29,20 @@ Log::~Log()
 
 void Log::log(int log_level, const char *format, ...)
 {
-	if (!format)
-	{
-		return;
-	}
 
+	va_list args;
+	va_start(args, format);
+	log_v(log_level, format, args);
+	va_end(args);
+}
+
+void Log::log_v(int log_level, const char *format, va_list args)
+{
 	sceKernelLockLwMutex(&_mutex, 1, NULL);
 	FILE *fp = fopen(_name.c_str(), "a");
 	if (fp)
 	{
-		va_list args;
-		va_start(args, format);
 		vsnprintf(_buf, _buf_len, format, args);
-		va_end(args);
-
 		SceDateTime time;
 		sceRtcGetCurrentClockLocalTime(&time);
 		fprintf(fp, "[%c] %02d:%02d:%02d.%03d %s\n", LogLevelChars[log_level], time.hour, time.minute, time.second, time.microsecond / 1000, _buf);
@@ -56,12 +56,12 @@ extern "C"
 {
 #endif
 
-#define CLOG_INTERFACE(FORMAT, LEVEL)   \
-	{                                   \
-		va_list args;                   \
-		va_start(args, FORMAT);         \
-		gLog->log(LEVEL, FORMAT, args); \
-		va_end(args);                   \
+#define CLOG_INTERFACE(FORMAT, LEVEL)     \
+	{                                     \
+		va_list args;                     \
+		va_start(args, FORMAT);           \
+		gLog->log_v(LEVEL, FORMAT, args); \
+		va_end(args);                     \
 	}
 
 	void CLogTrace(const char *fmt, ...)

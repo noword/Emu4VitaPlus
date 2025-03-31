@@ -108,6 +108,7 @@ public:
     Log(const char *name, int buf_len = 2048);
     virtual ~Log();
     void log(int log_level, const char *format, ...);
+    void log_v(int log_level, const char *format, va_list args);
 
 private:
     std::string _name;

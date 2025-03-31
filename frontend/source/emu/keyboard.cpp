@@ -286,28 +286,30 @@ void Keyboard::_OnKeyDown(const Key &key)
     LogFunctionName;
     LogDebug("  %04x %s", key.key, key.str);
 
-    Lock();
+    bool need_callback = false;
 
+    Lock();
     if (!_status[key.key] && key.mod == RETROKMOD_NONE)
     {
-        _status[key.key] = true;
-        if (_callback)
-        {
-            LogDebug("  _callback down %04x %s", key.key, key.str);
-            _callback(true, key.key, 0, RETROKMOD_NONE);
-        }
+        need_callback = _status[key.key] = true;
     }
-
     Unlock();
+
+    if (need_callback && _callback)
+    {
+        LogDebug("  _callback down %04x %s %02x", key.key, key.str, _mod);
+        _callback(true, key.key, 0, RETROKMOD_NONE);
+    }
 }
 
 void Keyboard::_OnKeyUp(const Key &key)
 {
     LogFunctionName;
     LogDebug("  %04x %s", key.key, key.str);
-    Lock();
 
     bool down;
+
+    Lock();
     if (key.mod == RETROKMOD_NONE) // normal keys
     {
         down = _status[key.key] = false;
@@ -317,14 +319,13 @@ void Keyboard::_OnKeyUp(const Key &key)
         down = _status[key.key] = !_status[key.key];
         _mod ^= key.mod;
     }
+    Unlock();
 
     if (_callback)
     {
-        LogDebug("  _callback %d %04x %s", down, key.key, key.str);
-        _callback(down, key.key, 0, key.mod);
+        LogDebug("  _callback %d %04x %s %02x", down, key.key, key.str, _mod);
+        _callback(down, key.key, 0, _mod);
     }
-
-    Unlock();
 }
 
 int32_t Keyboard::Lock(uint32_t *timeout)
@@ -343,6 +344,6 @@ bool Keyboard::CheckKey(retro_key key)
     bool result = _status[key];
     Unlock();
 
-    // LogDebug("CheckKey %04x %d", key, result);
+    LogDebug("CheckKey %04x %d", key, result);
     return result;
 }

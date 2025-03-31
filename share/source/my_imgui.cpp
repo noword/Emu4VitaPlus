@@ -402,7 +402,7 @@ IMGUI_API void My_ImGui_ImplVita2D_Init(uint32_t language, const char *cache_pat
     matrix_init_orthographic(ortho_proj_matrix, 0.0f, VITA_WIDTH, VITA_HEIGHT, 0.0f, 0.0f, 1.0f);
 
     sceTouchSetSamplingState(SCE_TOUCH_PORT_FRONT, SCE_TOUCH_SAMPLING_STATE_START);
-    sceCtrlSetSamplingMode(SCE_CTRL_MODE_ANALOG_WIDE);
+    // sceCtrlSetSamplingMode(SCE_CTRL_MODE_ANALOG_WIDE);
 
     ImGuiIO &io = ImGui::GetIO();
     io.MouseDrawCursor = true;
