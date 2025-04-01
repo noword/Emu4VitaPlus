@@ -297,8 +297,8 @@ void Keyboard::_OnKeyDown(const Key &key)
 
     if (need_callback && _callback)
     {
-        LogDebug("  _callback down %04x %s %02x", key.key, key.str, _mod);
-        _callback(true, key.key, 0, RETROKMOD_NONE);
+        LogDebug("  _callback down %04x %s %04x", key.key, key.str, _mod);
+        _callback(true, key.key, 0, _mod);
     }
 }
 
@@ -323,7 +323,7 @@ void Keyboard::_OnKeyUp(const Key &key)
 
     if (_callback)
     {
-        LogDebug("  _callback %d %04x %s %02x", down, key.key, key.str, _mod);
+        LogDebug("  _callback %d %04x %s %04x", down, key.key, key.str, _mod);
         _callback(down, key.key, 0, _mod);
     }
 }
@@ -345,5 +345,5 @@ bool Keyboard::CheckKey(retro_key key)
     Unlock();
 
     LogDebug("CheckKey %04x %d", key, result);
-    return result;
+    return 0;
 }

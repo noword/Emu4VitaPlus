@@ -17,9 +17,9 @@ namespace Emu4VitaPlus
 
     struct Key
     {
-        retro_key key;
+        unsigned key;
         const char *str;
-        retro_mod mod = RETROKMOD_NONE;
+        uint16_t mod = RETROKMOD_NONE;
     };
 
     struct KeyButton
@@ -53,7 +53,7 @@ namespace Emu4VitaPlus
 
         static const KeyButton _buttons[];
         std::bitset<RETROK_LAST> _status;
-        uint8_t _mod;
+        uint16_t _mod;
         bool _visable;
         SceKernelLwMutexWork _mutex;
 
