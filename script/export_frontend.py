@@ -33,7 +33,8 @@ for lang in LANGS:
 for k, v in trans_trans.items():
     t = []
     for language in LANGS[1:]:
-        t.append(f'"{v[language].replace('"', '\\"')}"')
+        lang = v[language].replace('"', '\\"')
+        t.append(f'"{lang}"')
     t = ',\n     '.join(t)
     TRANS.append(
         f'''    {{"{k}", 
