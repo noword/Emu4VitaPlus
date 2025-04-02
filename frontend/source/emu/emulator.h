@@ -125,6 +125,8 @@ private:
     // void _OnHotkeyCtrlPortDown(Input *input);
     void _OnHotkeyExitGame(Input *input);
     void _OnHotkeyKeyboard(Input *input);
+    void _OnHotkeyKeyboardUp(Input *input);
+    void _OnHotkeyKeyboardDown(Input *input);
 
     std::string _SaveDirPath();
     std::string _SaveNamePath(uint32_t id);

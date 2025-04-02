@@ -9,6 +9,10 @@
 
 namespace Emu4VitaPlus
 {
+
+#define KEYBOARD_WIDTH (KEY_BUTTON_NEXT * 18.5)
+#define KEYBOARD_HEIGHT (KEY_BUTTON_NEXT * 6)
+
 #define KEY_BUTTON_WIDTH 50
 #define KEY_BUTTON_HEIGHT 50
 #define KEY_BUTTON_INTERVAL 2
@@ -46,11 +50,15 @@ namespace Emu4VitaPlus
         void Unlock();
         bool CheckKey(retro_key key);
         void SetCallback(retro_keyboard_event_t callback) { _callback = callback; };
+        void SetKeyboardUp() { _pos = {.0, .0}; };
+        void SetKeyboardDown() { _pos = {(VITA_WIDTH - KEYBOARD_WIDTH) / 2, VITA_HEIGHT - KEYBOARD_HEIGHT}; };
 
     private:
         void _OnKeyDown(const Key &key);
         void _OnKeyUp(const Key &key);
+        void _ModKeyDown();
 
+        ImVec2 _pos;
         static const KeyButton _buttons[];
         std::bitset<RETROK_LAST> _status;
         uint16_t _mod;

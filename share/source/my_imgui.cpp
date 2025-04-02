@@ -37,8 +37,6 @@ const static ImWchar GamePadCharset[] = {0x219c, 0x21a1,
                                          0x21e0, 0x21e3,
                                          0x21e7, 0x21e7,
                                          0x21f7, 0x21f8,
-                                         0x2430, 0x2432,
-                                         0x2434, 0x2439,
                                          0x243c, 0x243e,
                                          0xe000, 0xe000,
                                          0xe008, 0xe008,
@@ -58,13 +56,11 @@ const static ImWchar IconCharset[] = {0xe800, 0xe80f,
 
 const static ImWchar RomanNumCharset[] = {0x2160, 0x216c, 0x0000};
 
-static void matrix_init_orthographic(float *m,
-                                     float left,
-                                     float right,
-                                     float bottom,
-                                     float top,
-                                     float near,
-                                     float far)
+const static ImWchar KeyCharset[] = {0x2430, 0x2432,
+                                     0x2434, 0x2439,
+                                     0x0000};
+
+static void matrix_init_orthographic(float *m, float left, float right, float bottom, float top, float near, float far)
 {
     m[0x0] = 2.0f / (right - left);
     m[0x4] = 0.0f;
@@ -289,6 +285,10 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
                                  30.0f,
                                  &font_config,
                                  GamePadCharset);
+    io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" GAMEPAD_FONT_NAME,
+                                 45.0f,
+                                 &font_config,
+                                 KeyCharset);
     io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" ICON_FONT_NAME,
                                  24.0f,
                                  &font_config,

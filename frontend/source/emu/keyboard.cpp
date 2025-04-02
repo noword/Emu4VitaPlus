@@ -5,9 +5,6 @@
 
 using namespace Emu4VitaPlus;
 
-#define KEYBOARD_WIDTH (KEY_BUTTON_NEXT * 18.5)
-#define KEYBOARD_HEIGHT (KEY_BUTTON_NEXT * 6)
-
 #define KEY_BACKSPACE_WIDTH (KEY_BUTTON_WIDTH * 2 + KEY_BUTTON_INTERVAL)
 #define KEY_TAB_WIDTH (KEY_BUTTON_WIDTH * 1.5)
 #define KEY_CAPSLOCK_WIDTH (KEY_BUTTON_WIDTH * 1.8)
@@ -192,11 +189,11 @@ const KeyButton Keyboard::_buttons[] = {
     KeyButton{{RETROK_UP, KEY_UP}, {X_EXT1, Y_4}},
 
     KeyButton{{RETROK_LCTRL, "Ctrl", RETROKMOD_CTRL}, {X_LCTRL, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
-    KeyButton{{RETROK_LMETA, KEY_WIN, RETROKMOD_META}, {X_LMETA, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_LSUPER, KEY_WIN, RETROKMOD_META}, {X_LMETA, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
     KeyButton{{RETROK_LALT, "Alt", RETROKMOD_ALT}, {X_LALT, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
     KeyButton{{RETROK_SPACE, ""}, {X_SPACE, Y_5}, EMPTY_KEY, {KEY_SPACE_WIDTH, KEY_BUTTON_HEIGHT}},
     KeyButton{{RETROK_RALT, "Alt ", RETROKMOD_ALT}, {X_RALT, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
-    KeyButton{{RETROK_RMETA, KEY_WIN " ", RETROKMOD_META}, {X_RMETA, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
+    KeyButton{{RETROK_RSUPER, KEY_WIN " ", RETROKMOD_META}, {X_RMETA, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
     KeyButton{{RETROK_RCTRL, "Ctrl ", RETROKMOD_CTRL}, {X_RCTRL, Y_5}, EMPTY_KEY, {KEY_BOTTOM_WIDTH, KEY_BUTTON_HEIGHT}},
     KeyButton{{RETROK_LEFT, KEY_LEFT}, {X_EXT0, Y_5}},
     KeyButton{{RETROK_DOWN, KEY_DOWN}, {X_EXT1, Y_5}},
@@ -209,6 +206,7 @@ Keyboard::Keyboard()
       _callback(nullptr),
       _status{0}
 {
+    SetKeyboardDown();
     sceKernelCreateLwMutex(&_mutex, "keyboard_mutex", 0, 0, NULL);
 };
 
@@ -222,7 +220,7 @@ void Keyboard::Show()
     ImGui_ImplVita2D_NewFrame();
     ImGui::SetMouseCursor(ImGuiMouseCursor_None);
 
-    ImGui::SetNextWindowPos({(VITA_WIDTH - KEYBOARD_WIDTH) / 2, VITA_HEIGHT - KEYBOARD_HEIGHT});
+    ImGui::SetNextWindowPos(_pos);
     ImGui::SetNextWindowSize({KEYBOARD_WIDTH, KEYBOARD_HEIGHT});
     ImGui::SetNextWindowBgAlpha(0.5);
 
@@ -298,6 +296,7 @@ void Keyboard::_OnKeyDown(const Key &key)
     if (need_callback && _callback)
     {
         LogDebug("  _callback down %04x %s %04x", key.key, key.str, _mod);
+        _ModKeyDown();
         _callback(true, key.key, 0, _mod);
     }
 }
@@ -344,6 +343,25 @@ bool Keyboard::CheckKey(retro_key key)
     bool result = _status[key];
     Unlock();
 
-    LogDebug("CheckKey %04x %d", key, result);
-    return 0;
+    // LogDebug("CheckKey %04x %d", key, result);
+    return result;
+}
+
+void Keyboard::_ModKeyDown()
+{
+    //_callback should be checked when call
+    for (const auto &key : {RETROK_RSHIFT,
+                            RETROK_LSHIFT,
+                            RETROK_RCTRL,
+                            RETROK_LCTRL,
+                            RETROK_RALT,
+                            RETROK_LALT,
+                            RETROK_LSUPER,
+                            RETROK_RSUPER})
+    {
+        if (_status[key])
+        {
+            _callback(true, key, 0, _mod);
+        }
+    }
 }

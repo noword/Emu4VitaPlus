@@ -237,7 +237,8 @@ void Ui::CreateTables()
     }
     hotkeys.emplace_back(new ItemBase(LANG_RESET_CONFIGS, "", ResetHotkey));
     hotkeys[SWITCH_KEYBOARD]->SetVisable(ENABLE_KEYBOARD);
-
+    hotkeys[KEYBOARD_UP]->SetVisable(ENABLE_KEYBOARD);
+    hotkeys[KEYBOARD_DOWN]->SetVisable(ENABLE_KEYBOARD);
     _tabs[TAB_INDEX_HOTKEY] = new TabSeletable(LANG_HOTKEY, hotkeys);
 
     UpdateCoreOptions();

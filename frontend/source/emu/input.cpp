@@ -317,6 +317,8 @@ void Emulator::SetupKeys()
     if (ENABLE_KEYBOARD)
     {
         BIND_HOTKEY(SWITCH_KEYBOARD, _OnHotkeyKeyboard);
+        BIND_HOTKEY(KEYBOARD_UP, _OnHotkeyKeyboardUp);
+        BIND_HOTKEY(KEYBOARD_DOWN, _OnHotkeyKeyboardDown);
     }
 
     BIND_HOTKEY_UP(GAME_REWIND, _OnHotkeyRewindUp);
@@ -442,12 +444,35 @@ void Emulator::_OnHotkeyExitGame(Input *input)
 void Emulator::_OnHotkeyKeyboard(Input *input)
 {
     LogFunctionName;
-    gVideo->Lock();
+
     if (_keyboard)
     {
+        gVideo->Lock();
         _keyboard->SetVisable(!_keyboard->Visable());
+        gVideo->Unlock();
     }
-    gVideo->Unlock();
+}
+
+void Emulator::_OnHotkeyKeyboardUp(Input *input)
+{
+    LogFunctionName;
+    if (_keyboard)
+    {
+        gVideo->Lock();
+        _keyboard->SetKeyboardUp();
+        gVideo->Unlock();
+    }
+}
+
+void Emulator::_OnHotkeyKeyboardDown(Input *input)
+{
+    LogFunctionName;
+    if (_keyboard)
+    {
+        gVideo->Lock();
+        _keyboard->SetKeyboardDown();
+        gVideo->Unlock();
+    }
 }
 
 void Emulator::_SetControllerInfo(retro_controller_info *info)

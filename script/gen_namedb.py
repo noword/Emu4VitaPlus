@@ -5,6 +5,7 @@ from io import BytesIO
 from struct import pack
 from cores import CORES
 import shutil
+import os
 
 LANGS = (
     ('English', 'en'),
@@ -70,4 +71,7 @@ for json_name, core_name in (
         db_name += ".zdb"
         shutil.copy(db_name, f'../arch/pkg/data/{core_name}')
         for core in CORES[core_name]:
-            shutil.copy(db_name, f'../apps/{core}/pkg/assets')
+            dst_path = f'../apps/{core}/pkg/assets'
+            if not os.path.exists(dst_path):
+                os.mkdir(dst_path)
+            shutil.copy(db_name, f'{dst_path}/{db_name}')
