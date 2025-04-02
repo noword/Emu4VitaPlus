@@ -311,6 +311,15 @@ void TabBrowser::_OnActive(Input *input)
     }
 }
 
+void TabBrowser::_OnPsActive(Input *input)
+{
+    LogFunctionName;
+    if (gConfig->support_no_game && gEmulator->LoadRom(NULL, NULL, 0))
+    {
+        UnsetInputHooks(input);
+    }
+}
+
 void TabBrowser::_OnKeyCross(Input *input)
 {
     LogFunctionName;

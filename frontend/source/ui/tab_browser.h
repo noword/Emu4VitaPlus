@@ -46,6 +46,7 @@ private:
     void _OnKeySquare(Input *input);
     void _OnKeyStart(Input *input);
     void _OnKeySelect(Input *input);
+    void _OnPsActive(Input *input);
 
     void _OnDialog(Input *input, int index);
     void _OnConfirmDialog(Input *input, int index);

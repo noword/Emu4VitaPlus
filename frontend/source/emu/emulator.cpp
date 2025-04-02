@@ -93,6 +93,16 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
 {
     LogFunctionName;
 
+    char *buf = nullptr;
+    bool result = false;
+    retro_game_info game_info = {0};
+
+    if (path == nullptr)
+    {
+        result = retro_load_game(NULL);
+        goto LOADED;
+    }
+
     LogDebug(" %s %s %08x", path, entry_name, crc32);
 
     if (!File::Exist(path))
@@ -112,11 +122,8 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
     _current_name = File::GetStem(path);
     gStateManager->Init(_current_name.c_str());
 
-    retro_game_info game_info = {0};
     _core_options_updated = false;
 
-    char *buf = nullptr;
-    bool result = false;
     const char *_path;
     if (entry_name && *entry_name && crc32)
     {
@@ -155,6 +162,7 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
     gConfig->core_options.Load((std::string(CORE_SAVEFILES_DIR) + "/" + gEmulator->GetCurrentName() + "/core.ini").c_str());
 
     result = retro_load_game(&game_info);
+LOADED:
     if (result)
     {
         gStatus.Set(APP_STATUS_RUN_GAME);
