@@ -336,6 +336,12 @@ namespace Emu4Vita
             return RETRO_LANGUAGE_JAPANESE;
         case LANGUAGE_ITALIAN:
             return RETRO_LANGUAGE_ITALIAN;
+        case LANGUAGE_FRENCH:
+            return RETRO_LANGUAGE_FRENCH;
+        case LANGUAGE_SPANISH:
+            return RETRO_LANGUAGE_SPANISH;
+        case LANGUAGE_RUSSIAN:
+            return RETRO_LANGUAGE_RUSSIAN;
         case LANGUAGE_ENGLISH:
         default:
             return RETRO_LANGUAGE_ENGLISH;

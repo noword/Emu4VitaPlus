@@ -233,6 +233,10 @@ namespace Utils
             lang = LANGUAGE_ITALIAN;
             break;
 
+        case SCE_SYSTEM_PARAM_LANG_RUSSIAN:
+            lang = LANGUAGE_RUSSIAN;
+            break;
+
         case SCE_SYSTEM_PARAM_LANG_ENGLISH_US:
         case SCE_SYSTEM_PARAM_LANG_ENGLISH_GB:
         default:

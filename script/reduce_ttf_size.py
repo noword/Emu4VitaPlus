@@ -7682,8 +7682,12 @@ SHIFT_JIS = [
     [0xFFE5, 0xFFE5],
 ]
 
+CYRILLIC = [
+    [0x0400, 0x052F],
+]
+
 TEXTS = ''
-for code in GB_2312 + SHIFT_JIS:
+for code in GB_2312 + SHIFT_JIS + CYRILLIC:
     TEXTS += ''.join(chr(x) for x in range(code[0], code[1] + 1))
 
 TEXTS = list(set(TEXTS))
