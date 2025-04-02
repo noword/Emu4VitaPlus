@@ -71,6 +71,10 @@ TabBrowser::~TabBrowser()
 void TabBrowser::SetInputHooks(Input *input)
 {
     TabSeletable::SetInputHooks(input);
+    if (gConfig->support_no_game)
+    {
+        input->SetKeyUpCallback(SCE_CTRL_START | SCE_CTRL_PSBUTTON, std::bind(&TabBrowser::_OnPsActive, this, input));
+    }
     input->SetKeyUpCallback(CancelButton, std::bind(&TabBrowser::_OnKeyCross, this, input));
     input->SetKeyUpCallback(SCE_CTRL_TRIANGLE, std::bind(&TabBrowser::_OnKeyTriangle, this, input));
     input->SetKeyUpCallback(SCE_CTRL_SQUARE, std::bind(&TabBrowser::_OnKeySquare, this, input));
@@ -82,6 +86,10 @@ void TabBrowser::SetInputHooks(Input *input)
 void TabBrowser::UnsetInputHooks(Input *input)
 {
     TabSeletable::UnsetInputHooks(input);
+    if (gConfig->support_no_game)
+    {
+        input->UnsetKeyUpCallback(SCE_CTRL_START | SCE_CTRL_PSBUTTON);
+    }
     input->UnsetKeyUpCallback(CancelButton);
     input->UnsetKeyUpCallback(SCE_CTRL_TRIANGLE);
     input->UnsetKeyUpCallback(SCE_CTRL_SQUARE);
