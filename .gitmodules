@@ -123,7 +123,7 @@
 [submodule "deps/lz4"]
 	path = deps/lz4
 	url = https://github.com/lz4/lz4.git
-    branch = master
+    branch = release
 [submodule "cores/libretro-vecx"]
 	path = cores/libretro-vecx
 	url = https://github.com/libretro/libretro-vecx.git

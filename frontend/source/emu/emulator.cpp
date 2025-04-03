@@ -100,6 +100,8 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
     if (path == nullptr)
     {
         gStatus.Set(APP_STATUS_BOOT);
+        path = "";
+        _current_name = "";
         result = retro_load_game(NULL);
         goto LOADED;
     }

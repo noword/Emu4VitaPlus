@@ -266,6 +266,8 @@ void Keyboard::Show()
     My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
 }
 
+extern int mx, my;
+
 void Keyboard::SetVisable(bool visable)
 {
     LogFunctionName;
@@ -275,7 +277,8 @@ void Keyboard::SetVisable(bool visable)
     ImGui_ImplVita2D_GamepadUsage(visable);
     if (!visable)
     {
-        ImGui::GetIO().MousePos = {0., 0.};
+        ImGui::GetIO().MousePos = {-FLT_MAX, -FLT_MAX};
+        mx = my = 0;
     }
 };
 
