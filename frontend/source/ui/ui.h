@@ -43,6 +43,7 @@ private:
     void _OnPsButton(Input *input);
     void _OnDialog(Input *input, int index);
     void _OnCleanCache(Input *input);
+    void _OnStartCore(Input *input);
 
     void _ShowNormal();
     void _ShowHint();

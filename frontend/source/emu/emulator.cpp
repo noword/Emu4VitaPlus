@@ -99,6 +99,7 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
 
     if (path == nullptr)
     {
+        gStatus.Set(APP_STATUS_BOOT);
         result = retro_load_game(NULL);
         goto LOADED;
     }
@@ -162,6 +163,7 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
     gConfig->core_options.Load((std::string(CORE_SAVEFILES_DIR) + "/" + gEmulator->GetCurrentName() + "/core.ini").c_str());
 
     result = retro_load_game(&game_info);
+
 LOADED:
     if (result)
     {

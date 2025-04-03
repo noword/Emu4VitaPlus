@@ -151,16 +151,17 @@ void Ui::CreateTables()
 
     _ClearTabs();
 
-    std::vector<ItemBase *> items{new ItemBase(LANG_RESUME_GAME, "", ResumeGame, NULL, false),
-                                  new ItemBase(LANG_RESET_GAME, "", ResetGame, NULL, false),
-                                  new ItemBase(LANG_EXIT_GAME, "", ExitGame, NULL, false)};
+    std::vector<ItemBase *> items{
+        new ItemBase(LANG_START_CORE_NO_GAME, "", std::bind(&Ui::_OnStartCore, this, &_input)),
+        new ItemBase(LANG_RESUME_GAME, "", ResumeGame, NULL, false),
+        new ItemBase(LANG_RESET_GAME, "", ResetGame, NULL, false),
+        new ItemBase(LANG_EXIT_GAME, "", ExitGame, NULL, false),
+        new ItemBase(LANG_BACK_TO_ARCH, "", ReturnToArch),
+        new ItemBase(LANG_CLEAN_CACHE, "", std::bind(&Ui::_OnCleanCache, this, &_input)),
+        new ItemBase(LANG_EXIT, "", ExitApp)};
 
-    if (gConfig->boot_from_arch)
-    {
-        items.emplace_back(new ItemBase(LANG_BACK_TO_ARCH, "", ReturnToArch));
-    }
-    items.emplace_back(new ItemBase(LANG_CLEAN_CACHE, "", std::bind(&Ui::_OnCleanCache, this, &_input)));
-    items.emplace_back(new ItemBase(LANG_EXIT, "", ExitApp));
+    items[0]->SetVisable(gConfig->support_no_game);
+    items[4]->SetVisable(gConfig->boot_from_arch);
 
     _tabs[TAB_INDEX_SYSTEM] = new TabSeletable(LANG_SYSTEM, items);
 
@@ -379,9 +380,10 @@ void Ui::OnStatusChanged(APP_STATUS status)
         _tabs[TAB_INDEX_FAVORITE]->SetVisable(status == APP_STATUS_SHOW_UI);
 
         TabSeletable *system_tab = (TabSeletable *)(_tabs[TAB_INDEX_SYSTEM]);
-        system_tab->SetItemVisable(0, status == APP_STATUS_SHOW_UI_IN_GAME);
-        system_tab->SetItemVisable(1, status == APP_STATUS_SHOW_UI_IN_GAME && retro_serialize_size() > 0);
-        system_tab->SetItemVisable(2, status == APP_STATUS_SHOW_UI_IN_GAME);
+        system_tab->SetItemVisable(0, status == APP_STATUS_SHOW_UI && gConfig->support_no_game);           // LANG_START_CORE_NO_GAME
+        system_tab->SetItemVisable(1, status == APP_STATUS_SHOW_UI_IN_GAME);                               // LANG_RESUME_GAME
+        system_tab->SetItemVisable(2, status == APP_STATUS_SHOW_UI_IN_GAME && retro_serialize_size() > 0); // LANG_RESET_GAME
+        system_tab->SetItemVisable(3, status == APP_STATUS_SHOW_UI_IN_GAME);                               // LANG_EXIT_GAME
 
         if (status == APP_STATUS_SHOW_UI_IN_GAME)
         {
@@ -701,5 +703,14 @@ void Ui::_OnDialog(Input *input, int index)
 
     default:
         break;
+    }
+}
+
+void Ui::_OnStartCore(Input *input)
+{
+    LogFunctionName;
+    if (gConfig->support_no_game && gEmulator->LoadRom(NULL, NULL, 0))
+    {
+        _tabs[TAB_INDEX_SYSTEM]->UnsetInputHooks(input);
     }
 }

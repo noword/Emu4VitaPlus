@@ -239,7 +239,7 @@ void Keyboard::Show()
             {
                 key = &button.key;
             }
-            bool push_color = key->mod & _mod;
+            bool push_color = (key->mod & _mod) && _status[key->key];
             if (push_color)
             {
                 ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32_GREEN);

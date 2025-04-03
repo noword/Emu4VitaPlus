@@ -1534,5 +1534,17 @@
         "Spanish": "Traducción al español",
         "Russian": "",
         "Comments": ""
+    },
+    {
+        "No.": "129",
+        "Tag": "LANG_START_CORE_NO_GAME",
+        "English": "Start core without content",
+        "Chinese": "直接启动核心",
+        "Japanese": "コンテンツなしでコアを起動",
+        "Italian": "Avvia il core senza contenuto",
+        "French": "Démarrer le core sans contenu",
+        "Spanish": "Iniciar el núcleo sin contenido",
+        "Russian": "",
+        "Comments": ""
     }
 ]
