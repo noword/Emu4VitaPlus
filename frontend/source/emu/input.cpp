@@ -16,7 +16,7 @@ int16_t InputStateCallback(unsigned port, unsigned device, unsigned index, unsig
     LogFunctionNameLimited;
 
     // LogDebug("port:%d device:%d index:%d id:%d", port, device, index, id);
-    if (gEmulator->_keyboard->Visable())
+    if (ENABLE_KEYBOARD && gEmulator->_keyboard->Visable())
     {
         if (device == RETRO_DEVICE_KEYBOARD)
         {

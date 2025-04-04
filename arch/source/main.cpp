@@ -14,8 +14,9 @@ int main(int argc, char *const argv[])
     LogInfo("updated on " __DATE__ " " __TIME__);
     LogDebug("Start");
 
-    App app;
-    app.Run();
+    App *app = new App();
+    app->Run();
+    delete app;
 
     LogDebug("Exit");
     LogInfo("gCorePath: %s", gCorePath);
