@@ -8,6 +8,7 @@
 #include "language_define.h"
 #include "log.h"
 #include "gb2312.i"
+#include "cyrillic.i"
 #include "icons.h"
 #include "utils.h"
 
@@ -59,6 +60,8 @@ const static ImWchar RomanNumCharset[] = {0x2160, 0x216c, 0x0000};
 const static ImWchar KeyCharset[] = {0x2430, 0x2432,
                                      0x2434, 0x2439,
                                      0x0000};
+
+const static ImWchar BracketsCharset[] = {0x3010, 0x3011, 0x0000};
 
 static void matrix_init_orthographic(float *m, float left, float right, float bottom, float top, float near, float far)
 {
@@ -225,7 +228,7 @@ static const ImWchar *get_glyph_ranges(uint32_t language)
     case LANGUAGE_JAPANESE:
         return ImGui::GetIO().Fonts->GetGlyphRangesJapanese();
     case LANGUAGE_RUSSIAN:
-        return ImGui::GetIO().Fonts->GetGlyphRangesCyrillic();
+        return CYRILLIC;
     case LANGUAGE_ENGLISH:
     case LANGUAGE_ITALIAN:
     case LANGUAGE_FRENCH:
@@ -283,6 +286,10 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
                                  27.0f,
                                  &font_config,
                                  RomanNumCharset);
+    io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" TEXT_FONT_NAME,
+                                 27.0f,
+                                 &font_config,
+                                 BracketsCharset);
     io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" GAMEPAD_FONT_NAME,
                                  30.0f,
                                  &font_config,
