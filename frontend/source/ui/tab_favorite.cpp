@@ -29,7 +29,7 @@ TabFavorite::TabFavorite()
     _UpdateStatus();
     _UpdateTexture();
 
-    _dialog = new Dialog{LANG_REMOVE_FAVORITE,
+    _dialog = new Dialog{LANG_REMOVE_FAVORITE_CONFIRM,
                          {LANG_OK, LANG_CANCEL},
                          std::bind(&TabFavorite::_OnDialog, this, std::placeholders::_1, std::placeholders::_2)};
 }
