@@ -34,6 +34,8 @@ add_custom_target(
     ${CMAKE_CURRENT_SOURCE_DIR}/source/language_define.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/source/language_define.h)
 
+add_compile_definitions(_APP_VER_STR="${APP_VER}")
+
 file(GLOB SRC source/*.cpp)
 
 if(NOT ${CMAKE_CURRENT_SOURCE_DIR}/source/language_define.cpp IN_LIST SRC)

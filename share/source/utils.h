@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <functional>
 #include "language_define.h"
 
 #define ALIGN_UP(x, a) ((x) + ((a) - 1)) & ~((a) - 1)
@@ -10,6 +11,8 @@
 
 namespace Utils
 {
+    using CheckVersionCallback = std::function<void(bool)>;
+
     void Lower(std::string *s);
     void StripQuotes(std::string *s);
     void TrimString(std::string *s);
@@ -19,4 +22,6 @@ namespace Utils
     int Utf8ToUtf16(const char *utf8, uint16_t *utf16, size_t size);
 
     LANGUAGE GetDefaultLanguage();
+
+    void CheckVersion(CheckVersionCallback callback);
 };

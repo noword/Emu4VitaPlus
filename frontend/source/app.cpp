@@ -31,6 +31,12 @@ extern "C" int getVMBlock();
 
 AppStatus gStatus;
 
+void OnVersionChecked(bool has_new)
+{
+    LogFunctionName;
+    LogDebug("%d", has_new);
+}
+
 App::App(int argc, char *const argv[])
 {
     LogFunctionName;
@@ -140,6 +146,8 @@ App::App(int argc, char *const argv[])
                                             SCE_SHELL_UTIL_LOCK_TYPE_USB_CONNECTION |
                                             SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN_2));
 #endif
+
+    Utils::CheckVersion(OnVersionChecked);
 }
 
 App::~App()

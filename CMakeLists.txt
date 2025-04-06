@@ -103,12 +103,12 @@ set(CMAKE_EXE_LINKER_FLAGS "-Wl,-q,-no-enum-size-warning,--as-needed,--gc-sectio
 set(OUT_PATH "${CMAKE_BINARY_DIR}/out")
 file(MAKE_DIRECTORY ${OUT_PATH})
 
+set(APP_VER "0.26")
+set(SFO_APP_VER "00.26")
+
 add_subdirectory(deps)
 add_subdirectory(share)
 add_subdirectory(frontend)
-
-set(APP_VER "0.26")
-set(SFO_APP_VER "00.26")
 
 foreach(core ${CORES})
     if(BUILD STREQUAL "All" OR BUILD STREQUAL "Arch" OR BUILD STREQUAL ${core})

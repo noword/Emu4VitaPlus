@@ -1,8 +1,10 @@
 #include <imgui_vita2d/imgui_vita.h>
 #include <psp2/power.h>
+#include <psp2/net/http.h>
 #include <algorithm>
 #include <stdio.h>
 #include <zlib.h>
+#include <jsoncpp/json/json.h>
 #include "my_imgui.h"
 #include "utils.h"
 #include "log.h"
@@ -243,5 +245,124 @@ namespace Utils
             lang = LANGUAGE_ENGLISH;
         }
         return lang;
+    }
+
+#define RELEASE_URL "https://api.github.com/repos/noword/Emu4VitaPlus/releases/latest"
+// #define USER_AGENT "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
+#define USER_AGENT "libhttp/3.65 (PS Vita)"
+
+    bool _HasNewVersion(const char *buf, size_t size)
+    {
+        Json::Value root;
+        Json::CharReaderBuilder builder;
+        Json::CharReader *reader = builder.newCharReader();
+        bool result = false;
+        if (reader->parse(buf, buf + size + 1, &root, nullptr) && root.isMember("tag_name"))
+        {
+            const char *tag_name = root["tag_name"].asCString();
+            result = !(*tag_name == 'v' && strcmp(tag_name + 1, _APP_VER_STR) == 0);
+            // LogDebug("%s %s %d", tag_name, _APP_VER_STR, result);
+        }
+        return result;
+    }
+
+    int32_t CheckVersionThread(uint32_t args, void *argp)
+    {
+        LogFunctionName;
+        // LogDebug("%d %08x", args, *(uint32_t *)argp);
+        CheckVersionCallback *callback = (CheckVersionCallback *)argp;
+
+        int template_id = 0;
+        int connection_id = 0;
+        int request_id = 0;
+        int ret, status_code;
+        uint64_t length = 0;
+        char *buf = nullptr;
+        static uint8_t netmem[1024 * 1024];
+        SceNetInitParam net{netmem, sizeof(netmem), 0};
+
+        sceNetInit(&net);
+        sceNetCtlInit();
+        sceSslInit(1024 * 1024);
+        sceHttpInit(1024 * 1024);
+        sceHttpsDisableOption(SCE_HTTPS_FLAG_SERVER_VERIFY);
+
+        if ((template_id = sceHttpCreateTemplate(USER_AGENT, SCE_HTTP_VERSION_1_1, SCE_TRUE)) < 0)
+        {
+            LogWarn("sceHttpCreateTemplate failed: %08x", template_id);
+            goto END;
+        }
+
+        if ((connection_id = sceHttpCreateConnectionWithURL(template_id, RELEASE_URL, SCE_TRUE)) < 0)
+        {
+            LogWarn("sceHttpCreateConnectionWithURL failed: %08x", connection_id);
+            goto END;
+        }
+
+        if ((request_id = sceHttpCreateRequestWithURL(connection_id, SCE_HTTP_METHOD_GET, RELEASE_URL, 0)) < 0)
+        {
+            LogWarn("sceHttpCreateRequestWithURL failed: %08x", request_id);
+            goto END;
+        }
+
+        // if ((ret = sceHttpAddRequestHeader(request_id, "Accept", "application/vnd.github+json", SCE_HTTP_HEADER_OVERWRITE)) < 0)
+        // {
+        //     LogWarn("sceHttpAddRequestHeader failed: %08x", ret);
+        //     goto END;
+        // }
+
+        if ((ret = sceHttpSendRequest(request_id, NULL, 0)) < 0)
+        {
+            LogWarn("sceHttpSendRequest failed: %08x", ret);
+            goto END;
+        }
+
+        if (((ret = sceHttpGetStatusCode(request_id, &status_code)) < 0) || (status_code != 200))
+        {
+            LogWarn("sceHttpGetStatusCode failed: %08x %d", ret, status_code);
+            goto END;
+        }
+
+        if ((ret = sceHttpGetResponseContentLength(request_id, &length)) < 0)
+        {
+            LogWarn("sceHttpGetResponseContentLength failed: %08x", ret);
+            goto END;
+        }
+
+        buf = new char[length + 1];
+        if ((ret = sceHttpReadData(request_id, buf, length + 1)) != length)
+        {
+            LogWarn("sceHttpReadData failed: %08x", ret);
+            goto END;
+        }
+
+        buf[length] = '\x00';
+        (*callback)(_HasNewVersion(buf, length));
+
+    END:
+        if (buf)
+            delete[] buf;
+
+        if (request_id > 0)
+            sceHttpDeleteRequest(request_id);
+
+        if (connection_id > 0)
+            sceHttpDeleteConnection(connection_id);
+
+        if (template_id > 0)
+            sceHttpDeleteTemplate(template_id);
+
+        sceHttpTerm();
+        sceSslTerm();
+        sceNetCtlTerm();
+        sceNetTerm();
+
+        return 0;
+    }
+
+    void CheckVersion(CheckVersionCallback callback)
+    {
+        SceUID thread_id = sceKernelCreateThread(__PRETTY_FUNCTION__, CheckVersionThread, 0x10000100, 0x4000, 0, SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT, NULL);
+        sceKernelStartThread(thread_id, sizeof(callback), (void *)&callback);
     }
 };
