@@ -224,7 +224,7 @@ static const ImWchar *get_glyph_ranges(uint32_t language)
     switch (language)
     {
     case LANGUAGE_CHINESE:
-        return GB_2312;
+        return GB_2312_SHIFT_JIS;
     case LANGUAGE_JAPANESE:
         return ImGui::GetIO().Fonts->GetGlyphRangesJapanese();
     case LANGUAGE_RUSSIAN:
