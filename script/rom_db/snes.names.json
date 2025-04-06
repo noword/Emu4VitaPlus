@@ -16647,17 +16647,17 @@
     {
         "CRC32": "FB1C9082",
         "English": "World Cup USA 94 (USA) (En,Fr,De,Es,It,Nl,Pt,Sv)",
-        "Chinese": "94美国世界盃足球(美版)(英,法,德,西,意,荷,葡,瑞)"
+        "Chinese": "94美国世界杯足球(美版)(英,法,德,西,意,荷,葡,瑞)"
     },
     {
         "CRC32": "24F92540",
         "English": "World Cup USA 94 (Japan) (En,Fr,De,Es,It,Nl,Pt,Sv)",
-        "Chinese": "94美国世界盃足球(日版)(英,法,德,西,意,荷,葡,瑞)"
+        "Chinese": "94美国世界杯足球(日版)(英,法,德,西,意,荷,葡,瑞)"
     },
     {
         "CRC32": "5EB18063",
         "English": "World Cup USA 94 (Europe) (En,Fr,De,Es,It,Nl,Pt,Sv)",
-        "Chinese": "94美国世界盃足球(欧版)(英,法,德,西,意,荷,葡,瑞)"
+        "Chinese": "94美国世界杯足球(欧版)(英,法,德,西,意,荷,葡,瑞)"
     },
     {
         "CRC32": "6928D52A",
@@ -16667,12 +16667,12 @@
     {
         "CRC32": "CAB690A1",
         "English": "World Cup Striker (Japan)",
-        "Chinese": "世界盃足球(日版)"
+        "Chinese": "世界杯足球(日版)"
     },
     {
         "CRC32": "6D16F5E7",
         "English": "World Cup Striker (Europe) (En,Fr,De)",
-        "Chinese": "世界盃足球(欧版)(英,法,德)"
+        "Chinese": "世界杯足球(欧版)(英,法,德)"
     },
     {
         "CRC32": "762EA6E9",
@@ -21202,7 +21202,7 @@
     {
         "CRC32": "4EA9F93F",
         "English": "Steel Talons (USA)",
-        "Chinese": "钢爪直昇机(美版)"
+        "Chinese": "钢爪直升机(美版)"
     },
     {
         "CRC32": "B25F606A",
@@ -22222,7 +22222,7 @@
     {
         "CRC32": "31BE696C",
         "English": "Shin Nekketsu Kouha - Kunio-tachi no Banka (Japan)",
-        "Chinese": "热血硬派-国雄之輓歌(日版)"
+        "Chinese": "热血硬派-国雄之挽歌(日版)"
     },
     {
         "CRC32": "68AEA5B8",
@@ -23117,22 +23117,22 @@
     {
         "CRC32": "09F827A5",
         "English": "Rise of the Robots (Japan) (En)",
-        "Chinese": "昇刚机器人(日版)(英)"
+        "Chinese": "升刚机器人(日版)(英)"
     },
     {
         "CRC32": "83BA0AC0",
         "English": "Rise of the Robots (USA)",
-        "Chinese": "昇刚机器人(美版)"
+        "Chinese": "升刚机器人(美版)"
     },
     {
         "CRC32": "8D4E7082",
         "English": "Rise of the Robots (Europe)",
-        "Chinese": "昇刚机器人(欧版)"
+        "Chinese": "升刚机器人(欧版)"
     },
     {
         "CRC32": "908B90B1",
         "English": "Rise of the Phoenix (USA)",
-        "Chinese": "昇凤传(美版)"
+        "Chinese": "升凤传(美版)"
     },
     {
         "CRC32": "503B5B86",
@@ -23842,7 +23842,7 @@
     {
         "CRC32": "D16810CD",
         "English": "Pokonyan! - Henpokorin Adventure (Japan)",
-        "Chinese": "叮噹猫(日版)"
+        "Chinese": "叮当猫(日版)"
     },
     {
         "CRC32": "C675B93A",
@@ -24682,7 +24682,7 @@
     {
         "CRC32": "32A4612F",
         "English": "Oraga Land Shusai - Best Farmer Shuukakusai (Japan)",
-        "Chinese": "三吉的收穫祭(日版)"
+        "Chinese": "三吉的收获祭(日版)"
     },
     {
         "CRC32": "65BBE8B4",
@@ -25012,7 +25012,7 @@
     {
         "CRC32": "584CE502",
         "English": "NHL Stanley Cup (USA) (En,Fr)",
-        "Chinese": "NHL史丹利盃冰棍赛(美版)(英,法)"
+        "Chinese": "NHL史丹利杯冰棍赛(美版)(英,法)"
     },
     {
         "CRC32": "AD70FAF2",
@@ -25767,12 +25767,12 @@
     {
         "CRC32": "0B207E7F",
         "English": "Mohawk & Headphone Jack (USA)",
-        "Chinese": "刺蝟超人魔哈克(美版)"
+        "Chinese": "刺猬超人魔哈克(美版)"
     },
     {
         "CRC32": "6CF14848",
         "English": "Mohawk & Headphone Jack (Europe)",
-        "Chinese": "刺蝟超人魔哈克(欧版)"
+        "Chinese": "刺猬超人魔哈克(欧版)"
     },
     {
         "CRC32": "62A92E57",
@@ -27507,7 +27507,7 @@
     {
         "CRC32": "09E9A04E",
         "English": "Killer Instinct (USA) (Rev 1)",
-        "Chinese": "杀手輓歌(美版)(版本1)"
+        "Chinese": "杀手挽歌(美版)(版本1)"
     },
     {
         "CRC32": "7EE385A7",
@@ -27522,12 +27522,12 @@
     {
         "CRC32": "252C1DA7",
         "English": "Killer Instinct (USA)",
-        "Chinese": "杀手輓歌(美版)"
+        "Chinese": "杀手挽歌(美版)"
     },
     {
         "CRC32": "3D7252D4",
         "English": "Killer Instinct (Europe)",
-        "Chinese": "杀手輓歌(欧版)"
+        "Chinese": "杀手挽歌(欧版)"
     },
     {
         "CRC32": "C985925C",
@@ -27942,12 +27942,12 @@
     {
         "CRC32": "FB770320",
         "English": "Jungle Strike (Europe)",
-        "Chinese": "丛林激战直昇机(欧版)"
+        "Chinese": "丛林激战直升机(欧版)"
     },
     {
         "CRC32": "335487E5",
         "English": "Jungle Strike (USA)",
-        "Chinese": "丛林激战直昇机(美版)"
+        "Chinese": "丛林激战直升机(美版)"
     },
     {
         "CRC32": "EEC6A20F",
@@ -29202,7 +29202,7 @@
     {
         "CRC32": "0B94CCD4",
         "English": "Hebereke no Oishii Puzzle wa Irimasenka (Japan)",
-        "Chinese": "魔法气泡昇官大竞赛(日版)"
+        "Chinese": "魔法气泡升官大竞赛(日版)"
     },
     {
         "CRC32": "DD852671",
@@ -30832,7 +30832,7 @@
     {
         "CRC32": "2C6EB470",
         "English": "Euro Football Champ (Europe)",
-        "Chinese": "欧洲冠军盃足球赛(欧版)"
+        "Chinese": "欧洲冠军杯足球赛(欧版)"
     },
     {
         "CRC32": "AE066C31",
@@ -31647,7 +31647,7 @@
     {
         "CRC32": "0354F4B1",
         "English": "Dirt Racer (Europe) (En,Fr,De)",
-        "Chinese": "髒污赛车(欧版)(英,法,德)"
+        "Chinese": "脏污赛车(欧版)(英,法,德)"
     },
     {
         "CRC32": "6C043BF1",
@@ -34227,12 +34227,12 @@
     {
         "CRC32": "6B452801",
         "English": "Air Cavalry (USA)",
-        "Chinese": "空中骑兵直昇机(美版)"
+        "Chinese": "空中骑兵直升机(美版)"
     },
     {
         "CRC32": "B3F57CC6",
         "English": "Air Cavalry (Europe)",
-        "Chinese": "空中骑兵直昇机(欧版)"
+        "Chinese": "空中骑兵直升机(欧版)"
     },
     {
         "CRC32": "F953B79A",

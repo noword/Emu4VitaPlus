@@ -7688,41 +7688,42 @@ CYRILLIC = [
     [0x2000, 0x206F],
 ]
 
-TEXTS = ''
-for code in GB_2312 + SHIFT_JIS + CYRILLIC:
-    TEXTS += ''.join(chr(x) for x in range(code[0], code[1] + 1))
+if __name__ == '__main__':
+    TEXTS = ''
+    for code in GB_2312 + SHIFT_JIS + CYRILLIC:
+        TEXTS += ''.join(chr(x) for x in range(code[0], code[1] + 1))
 
-TEXTS = list(set(TEXTS))
-TEXTS.sort()
+    TEXTS = list(set(TEXTS))
+    TEXTS.sort()
 
-TEXTS = ''.join(TEXTS)
+    TEXTS = ''.join(TEXTS)
 
-# 加载TTF字体文件
-input_font_path = "AlibabaPuHuiTi-2-65-Medium.ttf"
-output_font_path = "../share/pkg/assets/AlibabaPuHuiTi-2-65-Medium.ttf"
-font = TTFont(input_font_path)
+    # 加载TTF字体文件
+    input_font_path = "AlibabaPuHuiTi-2-65-Medium.ttf"
+    output_font_path = "../share/pkg/assets/AlibabaPuHuiTi-2-65-Medium.ttf"
+    font = TTFont(input_font_path)
 
-# 创建子集化选项，删除Hinting信息
-options = Options()
-options.hinting = False  # 禁用Hinting数据
-options.desubroutinize = True  # 去除复杂字形中的子程序引用
-options.flavor = None  # 不进行额外压缩（可选）
-options.drop_tables += ['DSIG']  # 删除特定表格，比如数字签名表‘DSIG’（通常无用）
+    # 创建子集化选项，删除Hinting信息
+    options = Options()
+    options.hinting = False  # 禁用Hinting数据
+    options.desubroutinize = True  # 去除复杂字形中的子程序引用
+    options.flavor = None  # 不进行额外压缩（可选）
+    options.drop_tables += ['DSIG']  # 删除特定表格，比如数字签名表‘DSIG’（通常无用）
 
-# 创建子集化器
-subsetter = Subsetter(options=options)
+    # 创建子集化器
+    subsetter = Subsetter(options=options)
 
-# 因为不减少字符数量，所以将所有字形加载到子集化器中
-subsetter.populate(text=TEXTS)
-# subsetter.populate(glyphs=font.getGlyphOrder())
-subsetter.subset(font)
+    # 因为不减少字符数量，所以将所有字形加载到子集化器中
+    subsetter.populate(text=TEXTS)
+    # subsetter.populate(glyphs=font.getGlyphOrder())
+    subsetter.subset(font)
 
-# 进一步优化表格数据
-for table in ['FFTM', 'GDEF', 'LTSH', 'PCLT', 'VDMX', 'hdmx', 'kern', 'morx', 'opbd']:
-    if table in font:
-        del font[table]  # 删除一些冗余表格，如果存在的话
+    # 进一步优化表格数据
+    for table in ['FFTM', 'GDEF', 'LTSH', 'PCLT', 'VDMX', 'hdmx', 'kern', 'morx', 'opbd']:
+        if table in font:
+            del font[table]  # 删除一些冗余表格，如果存在的话
 
-# 保存优化后的字体文件
-font.save(output_font_path)
+    # 保存优化后的字体文件
+    font.save(output_font_path)
 
-print(f"字体优化完成，保存到：{output_font_path}")
+    print(f"字体优化完成，保存到：{output_font_path}")
