@@ -15,6 +15,8 @@ const char *DEFAULT_CORE_SETTINGS[][2] =
 #elif defined(NEKOP2KAI_BUILD)
     {{"np2kai_clk_mult", "2"},
      {"np2kai_joymode", "Keypad"}}
+#elif defined(MAME2003_BUILD)
+    {{"mame2003_rstick_to_btns", "disabled"}}
 #else
     {{}}
 #endif
