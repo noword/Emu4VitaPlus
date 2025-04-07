@@ -1546,5 +1546,17 @@
         "Spanish": "Iniciar el núcleo sin contenido",
         "Russian": "",
         "Comments": ""
+    },
+    {
+        "No.": "130",
+        "Tag": "LANG_NEW_VERSION_AVAILABLE",
+        "English": "A new version is available",
+        "Chinese": "检测到新版本",
+        "Japanese": "新しいバージョンが利用可能です",
+        "Italian": "È disponibile una nuova versione",
+        "French": "Une nouvelle version est disponible",
+        "Spanish": "Hay una nueva versión disponible",
+        "Russian": "",
+        "Comments": ""
     }
 ]

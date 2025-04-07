@@ -34,7 +34,11 @@ AppStatus gStatus;
 void OnVersionChecked(bool has_new)
 {
     LogFunctionName;
-    LogDebug("%d", has_new);
+
+    if (has_new)
+    {
+        gUi->SetHint(TEXT(LANG_NEW_VERSION_AVAILABLE), 3 * 60);
+    }
 }
 
 App::App(int argc, char *const argv[])
