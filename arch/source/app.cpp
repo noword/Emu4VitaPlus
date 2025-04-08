@@ -40,7 +40,12 @@ bool IntroMovingStatus::Update(const char *text)
     return true;
 }
 
-App::App() : _index_x(0), _index_y(0), _show_strick_count(60 * 6)
+App::App()
+    : _index_x(0),
+      _index_y(0),
+      _show_strick_count(60 * 6),
+      _in_choice(false),
+      _current_buttons(&_visable_buttons)
 {
     LogFunctionName;
 
@@ -67,8 +72,6 @@ App::App() : _index_x(0), _index_y(0), _show_strick_count(60 * 6)
 
     EnterButton = config.enterButtonAssign == SCE_SYSTEM_PARAM_ENTER_BUTTON_CIRCLE ? SCE_CTRL_CIRCLE : SCE_CTRL_CROSS;
 
-    gConfig = new Config();
-
     vita2d_init();
     vita2d_set_vblank_wait(1);
 
@@ -83,44 +86,70 @@ App::App() : _index_x(0), _index_y(0), _show_strick_count(60 * 6)
     style->Colors[ImGuiCol_TitleBg] = style->Colors[ImGuiCol_TitleBgActive];
 
     _buttons = {
-        new CoreButton("ATARI2600", {{"Stella 2014", "Stella2014"}}),          // 1977
-        new CoreButton("ATARI5200", {{"Atari800", "Atari800"}}),               // 1982
-        new CoreButton("ATARI7800", {{"ProSystem", "ProSystem"}}),             // 1986
-        new CoreButton("C64", {{"the Versatile Commodore Emulator", "vice"}}), // 1982.1
-        new CoreButton("VECTREX", {{"vecx", "vecx"}}),                         // 1982.4
-        new CoreButton("ZXS", {{"fuse", "fuse"}}),                             // 1982.11
-        new CoreButton("DOS", {{"DOS BOX Pure", "DOSBoxPure"}}),               // 1981
-        new CoreButton("PC98", {{"Neko Project II", "nekop2"},                 // 1982
-                                {"Neko Project II kai", "np2kai"}}),
-        new CoreButton("MSX", {{"blueMSX", "blueMSX"}, // 1983
-                               {"Marat Fayzullin's fMSX", "fMSX"}}),
-        new CoreButton("NES", {{"FCEUmm " ICON_STAR, "FCEUmm"}, // 1983
-                               {"Nestopia", "Nestopia"}}),
-        new CoreButton("AMIGA", {{"uae4arm", "uae4arm"}}), // 1985
-        new CoreButton("X68000", {{"Portable (x)keropi PRO-68K", "px68k"}}),
-        new CoreButton("PCE", {{"Mednafen PCE Fast", "MednafenPCEFast"}, // 1987
-                               {"Mednafen SuperGrafx", "MednafenPCESuperGrafx"}}),
-        new CoreButton("MD", {{"Genesis Plus GX " ICON_STAR, "GenesisPlusGX"}, // 1988
-                              {"Genesis Plus GX Wide", "GenesisPlusGXWide"},
-                              {"PicoDrive", "PicoDrive"}}),
-        new CoreButton("GBC", {{"Gambatte", "Gambatte"}, // 1989,1998
-                               {"TGB Dual", "TGBDual"},
-                               {"mGBA", "mGBA"}}),
-        new CoreButton("SNES", {{"Snes9x 2002", "Snes9x2002"}, // 1990
-                                {"Snes9x 2005" ICON_STAR, "Snes9x2005"},
-                                {"Snes9x 2010", "Snes9x2010"},
-                                {"Mednafen Supafaust", "Supafaust"},
-                                {"Chimera SNES" ICON_STAR, "ChimeraSNES"}}),
-        new CoreButton("NEOCD", {{"neocd", "neocd"}}),                // 1994
-        new CoreButton("PS1", {{"PCSX ReARMed", "PCSXReARMed"}}),     // 1994.12
-        new CoreButton("NGP", {{"Mednafen NeoPop", "MednafenNgp"}}),  // 1998
-        new CoreButton("WSC", {{"Mednafen Wswan", "MednafenWswan"}}), // 1999
-        new CoreButton("GBA", {{"gpSP " ICON_STAR, "gpSP"},           // 2001
-                               {"VBA Next", "VBANext"},
-                               {"mGBA", "mGBA"}}),
-        new CoreButton("ARC", {{"FBA Lite", "FBALite"}, {"FBA 2012", "FBA2012"}, {"FinalBurn Neo", "FBNeo"}, {"FinalBurn Neo Xtreme", "FBNeoXtreme"}, {"MAME 2003" ICON_STAR, "MAME2003"}, {"MAME 2003 Plus", "MAME2003Plus"}, {"MAME 2003 Xtreme" ICON_STAR, "MAME2003XTREME"}}),
-
-        // new CoreButton("ATARIST", {{"Hatari", "hatari"}}),
+        new CoreButton(ATARI2600, // 1977
+                       {{"Stella 2014", "Stella2014"}}),
+        new CoreButton(ATARI5200, // 1982
+                       {{"Atari800", "Atari800"}}),
+        new CoreButton(ATARI7800, // 1986
+                       {{"ProSystem", "ProSystem"}}),
+        new CoreButton(C64, // 1982.1
+                       {{"the Versatile Commodore Emulator", "vice"}}),
+        new CoreButton(VECTREX, // 1982.4
+                       {{"vecx", "vecx"}}),
+        new CoreButton(ZXS, // 1982.11
+                       {{"fuse", "fuse"}}),
+        new CoreButton(DOS, // 1981
+                       {{"DOS BOX Pure", "DOSBoxPure"}}),
+        new CoreButton(PC98, // 1982
+                       {{"Neko Project II", "nekop2"},
+                        {"Neko Project II kai", "np2kai"}}),
+        new CoreButton(MSX, // 1983
+                       {{"blueMSX", "blueMSX"},
+                        {"Marat Fayzullin's fMSX", "fMSX"}}),
+        new CoreButton(NES, // 1983
+                       {{"FCEUmm " ICON_STAR, "FCEUmm"},
+                        {"Nestopia", "Nestopia"}}),
+        new CoreButton(AMIGA, // 1985
+                       {{"uae4arm", "uae4arm"}}),
+        new CoreButton(X68000, // 1987
+                       {{"Portable (x)keropi PRO-68K", "px68k"}}),
+        new CoreButton(PCE, // 1987
+                       {{"Mednafen PCE Fast", "MednafenPCEFast"},
+                        {"Mednafen SuperGrafx", "MednafenPCESuperGrafx"}}),
+        new CoreButton(MD, // 1988
+                       {{"Genesis Plus GX " ICON_STAR, "GenesisPlusGX"},
+                        {"Genesis Plus GX Wide", "GenesisPlusGXWide"},
+                        {"PicoDrive", "PicoDrive"}}),
+        new CoreButton(GBC, // 1989,1998
+                       {{"Gambatte", "Gambatte"},
+                        {"TGB Dual", "TGBDual"},
+                        {"mGBA", "mGBA"}}),
+        new CoreButton(SNES, // 1990
+                       {{"Snes9x 2002", "Snes9x2002"},
+                        {"Snes9x 2005" ICON_STAR, "Snes9x2005"},
+                        {"Snes9x 2010", "Snes9x2010"},
+                        {"Mednafen Supafaust", "Supafaust"},
+                        {"Chimera SNES" ICON_STAR, "ChimeraSNES"}}),
+        new CoreButton(NEOCD, // 1994
+                       {{"neocd", "neocd"}}),
+        new CoreButton(PS1, // 1994.12
+                       {{"PCSX ReARMed", "PCSXReARMed"}}),
+        new CoreButton(NGP, // 1998
+                       {{"Mednafen NeoPop", "MednafenNgp"}}),
+        new CoreButton(WSC, // 1999
+                       {{"Mednafen Wswan", "MednafenWswan"}}),
+        new CoreButton(GBA, // 2001
+                       {{"VBA Next", "VBANext"},
+                        {"gpSP " ICON_STAR, "gpSP"},
+                        {"mGBA", "mGBA"}}),
+        new CoreButton(ARC,
+                       {{"FBA Lite", "FBALite"},
+                        {"FBA 2012", "FBA2012"},
+                        {"FinalBurn Neo", "FBNeo"},
+                        {"FinalBurn Neo Xtreme", "FBNeoXtreme"},
+                        {"MAME 2003" ICON_STAR, "MAME2003"},
+                        {"MAME 2003 Plus", "MAME2003Plus"},
+                        {"MAME 2003 Xtreme" ICON_STAR, "MAME2003XTREME"}}),
     };
 
     _input.SetTurboInterval(DEFAULT_TURBO_START_TIME * 5);
@@ -143,6 +172,8 @@ App::App() : _index_x(0), _index_y(0), _show_strick_count(60 * 6)
         }
     }
 
+    sceKernelCreateLwMutex(&_video_mutex, "video_mutex", 0, 0, NULL);
+    _SetVisableButtons();
     _UpdateIntro();
 }
 
@@ -151,6 +182,7 @@ App::~App()
     LogFunctionName;
 
     delete gConfig;
+    sceKernelDeleteLwMutex(&_video_mutex);
 
     for (auto button : _buttons)
     {
@@ -192,19 +224,21 @@ void App::_Show()
     ImGui::SetCursorPos(pos);
     size_t count = 0;
     size_t index = _GetIndex();
-    for (auto button : _buttons)
+
+    _VideoLock();
+    for (auto button : *_current_buttons)
     {
         bool selected = (count == index);
-        button->Show(selected);
+        button->Show(selected, _in_choice);
         if (selected)
         {
-            size_t half = (_buttons.size() + 1) / 2;
+            size_t half = (_visable_buttons.size() + 1) / 2;
             ImGui::SetScrollHereX(float(count % half) / float(half));
         }
 
         count++;
 
-        if (count != _buttons.size() / 2)
+        if (count != (_visable_buttons.size() + 1) / 2)
         {
             ImGui::SameLine();
         }
@@ -214,6 +248,13 @@ void App::_Show()
             ImGui::SetCursorPos(pos);
         }
     }
+    _VideoUnlock();
+
+    if (_current_buttons->size() & 1)
+    {
+        // show an empty button
+        ImGui::Button("", {BUTTON_SIZE, BUTTON_SIZE});
+    }
 
     if (*_intro)
     {
@@ -222,7 +263,7 @@ void App::_Show()
         ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, size.y});
         if (ImGui::Begin("info", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
         {
-            ImGui::SetCursorPos({_moving_status.pos, 0});
+            ImGui::SetCursorPos({(float)_moving_status.pos, 0.f});
             ImGui::Text(_intro);
             _moving_status.Update(_intro);
 
@@ -263,6 +304,7 @@ void App::SetInputHooks(Input *input)
     input->SetKeyDownCallback(SCE_CTRL_LSTICK_DOWN, std::bind(&App::_OnKeyDown, this, input), true);
     input->SetKeyDownCallback(SCE_CTRL_L1, std::bind(&App::_OnKeyLeft, this, input), true);
     input->SetKeyDownCallback(SCE_CTRL_R1, std::bind(&App::_OnKeyRight, this, input), true);
+    input->SetKeyDownCallback(SCE_CTRL_START, std::bind(&App::_OnKeyStart, this, input));
     input->SetKeyUpCallback(EnterButton, std::bind(&App::_OnClick, this, input));
     input->SetKeyDownCallback(SCE_CTRL_RSTICK_LEFT, std::bind(&App::_OnStartRollingIntro, this, input));
     input->SetKeyUpCallback(SCE_CTRL_RSTICK_LEFT, std::bind(&App::_OnStopRollingIntro, this, input));
@@ -282,6 +324,7 @@ void App::UnsetInputHooks(Input *input)
     input->UnsetKeyDownCallback(SCE_CTRL_LSTICK_DOWN);
     input->UnsetKeyDownCallback(SCE_CTRL_L1);
     input->UnsetKeyDownCallback(SCE_CTRL_R1);
+    input->UnsetKeyDownCallback(SCE_CTRL_START);
     input->UnsetKeyUpCallback(EnterButton);
     input->UnsetKeyDownCallback(SCE_CTRL_RSTICK_LEFT);
     input->UnsetKeyUpCallback(SCE_CTRL_RSTICK_LEFT);
@@ -291,13 +334,13 @@ void App::UnsetInputHooks(Input *input)
 
 void App::_OnKeyLeft(Input *input)
 {
-    LOOP_MINUS_ONE(_index_x, (_buttons.size() + _index_y) / ROW_COUNT);
+    LOOP_MINUS_ONE(_index_x, (_current_buttons->size() + 1 + _index_y) / ROW_COUNT);
     _UpdateIntro();
 }
 
 void App::_OnKeyRight(Input *input)
 {
-    LOOP_PLUS_ONE(_index_x, (_buttons.size() + _index_y) / ROW_COUNT);
+    LOOP_PLUS_ONE(_index_x, (_current_buttons->size() + +1 + _index_y) / ROW_COUNT);
     _UpdateIntro();
 }
 
@@ -316,19 +359,47 @@ void App::_OnKeyDown(Input *input)
 void App::_OnClick(Input *input)
 {
     LogFunctionName;
-    _buttons[_GetIndex()]->OnActive(input);
+    if (_in_choice)
+    {
+        gConfig->consoles[_GetIndex()] = !gConfig->consoles[_GetIndex()];
+    }
+    else
+    {
+        _visable_buttons[_GetIndex()]->OnActive(input);
+    }
+}
+
+void App::_OnKeyStart(Input *input)
+{
+    LogFunctionName;
+    _in_choice = !_in_choice;
+    if (_in_choice)
+    {
+        _current_buttons = &_buttons;
+    }
+    else
+    {
+        _SetVisableButtons();
+        _current_buttons = &_visable_buttons;
+        _UpdateIntro();
+    }
 }
 
 size_t App::_GetIndex()
 {
-    return _index_y * _buttons.size() / ROW_COUNT + _index_x;
+    size_t index = _index_y * (_current_buttons->size() + 1) / ROW_COUNT + _index_x;
+    if (index >= _current_buttons->size())
+    {
+        index = _current_buttons->size() - 1;
+    }
+    return index;
 }
 
 void App::_UpdateIntro()
 {
     LogFunctionName;
     _moving_status.Reset();
-    _intro = gArchs[gConfig->language][_GetIndex()];
+    _intro = (*_current_buttons)[_GetIndex()]->GetIntro();
 }
 
 void App::_OnStartRollingIntro(Input *input)
@@ -344,4 +415,32 @@ void App::_OnStopRollingIntro(Input *input)
 void App::_OnStartRollingBackIntro(Input *input)
 {
     _moving_status.delta = 5;
+}
+
+void App::_SetVisableButtons()
+{
+    LogFunctionName;
+    _VideoLock();
+
+    _visable_buttons.clear();
+    for (size_t i = 0; i < CONSOLE_COUNT; i++)
+    {
+        LogDebug("%s %d", CONSOLE_NAMES[i], gConfig->consoles[i]);
+        if (gConfig->consoles[i])
+        {
+            _visable_buttons.push_back(_buttons[i]);
+        }
+    }
+
+    _VideoUnlock();
+}
+
+int32_t App::_VideoLock(uint32_t *timeout)
+{
+    return sceKernelLockLwMutex(&_video_mutex, 1, timeout);
+}
+
+void App::_VideoUnlock()
+{
+    sceKernelUnlockLwMutex(&_video_mutex, 1);
 }

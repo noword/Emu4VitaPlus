@@ -35,12 +35,13 @@ ARCHS = '\n'.join(ARCHS)
 open('language_arch.h', 'w', encoding='utf-8').write(
     f'''#pragma once
 #include "language_define.h"
+#include "config.h"
 
 enum ARCH_ENUM{{
 {ARCH_ENUM}
 }};
 
-extern const char *gArchs[][ARCH_ENUM::INTRO_COUNT];
+extern const char *gArchs[][CONSOLE::CONSOLE_COUNT];
 '''
 )
 
@@ -48,7 +49,7 @@ extern const char *gArchs[][ARCH_ENUM::INTRO_COUNT];
 open('language_arch.cpp', 'w', encoding='utf-8').write(
     f'''#include "language_arch.h"
 
-const char *gArchs[][ARCH_ENUM::INTRO_COUNT] = {{
+const char *gArchs[][CONSOLE::CONSOLE_COUNT] = {{
 {ARCHS}
 }};
 '''

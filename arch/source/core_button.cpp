@@ -5,14 +5,16 @@
 #include "file.h"
 #include "app.h"
 #include "config.h"
+#include "language_arch.h"
+#include "icons.h"
 
-CoreButton::CoreButton(std::string name, std::vector<CoreName> cores)
-    : _name(std::move(name)),
+CoreButton::CoreButton(CONSOLE console, std::vector<CoreName> cores)
+    : _console(console),
       _cores(std::move(cores)),
       _actived(false),
       _index(0)
 {
-    std::string icon = std::string(CORE_DATA_DIR) + "/" + _name + "/icon0.png";
+    std::string icon = std::string(CORE_DATA_DIR) + "/" + CONSOLE_NAMES[_console] + "/icon0.png";
     _texture = vita2d_load_PNG_file(icon.c_str());
 }
 
@@ -24,35 +26,50 @@ CoreButton::~CoreButton()
     }
 }
 
-void CoreButton::Show(bool selected)
+void CoreButton::Show(bool selected, bool choice)
 {
     ImVec4 color = selected ? ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered) : ImVec4{0, 0, 0, 0};
     ImGui::ImageButton(_texture, {BUTTON_SIZE, BUTTON_SIZE}, {0.f, 0.f}, {1.f, 1.f}, 0, color);
 
     ImVec2 pos = ImGui::GetItemRectMin();
-    ImVec2 size = ImGui::CalcTextSize(_name.c_str());
+    ImVec2 size = ImGui::CalcTextSize(CONSOLE_NAMES[_console]);
 
     pos.x += (BUTTON_SIZE - size.x) / 2;
     pos.y += BUTTON_SIZE - size.y - 5;
     ImDrawList *draw_list = ImGui::GetWindowDrawList();
-    draw_list->AddText(pos, IM_COL32_WHITE, _name.c_str());
+    draw_list->AddText(pos,
+                       (choice && !gConfig->consoles[_console]) ? IM_COL32_DARK_GREY : IM_COL32_WHITE,
+                       CONSOLE_NAMES[_console]);
 
     if (selected)
     {
         _ShowPopup();
     }
+
+    if (choice)
+    {
+        pos = ImGui::GetItemRectMin();
+        if (gConfig->consoles[_console])
+        {
+            draw_list->AddText(pos, IM_COL32_WHITE, ICON_ON);
+        }
+        else
+        {
+            draw_list->AddText(pos, IM_COL32_DARK_GREY, ICON_OFF);
+        }
+    }
 }
 
 void CoreButton::_ShowPopup()
 {
-    bool is_popup = ImGui::IsPopupOpen(_name.c_str());
+    bool is_popup = ImGui::IsPopupOpen(CONSOLE_NAMES[_console]);
 
     if (_actived && !is_popup)
     {
-        ImGui::OpenPopup(_name.c_str());
+        ImGui::OpenPopup(CONSOLE_NAMES[_console]);
     }
 
-    if (ImGui::BeginPopupModal(_name.c_str(), NULL, ImGuiWindowFlags_NoTitleBar))
+    if (ImGui::BeginPopupModal(CONSOLE_NAMES[_console], NULL, ImGuiWindowFlags_NoTitleBar))
     {
         if (!_actived && is_popup)
         {
@@ -129,4 +146,9 @@ void CoreButton::UnsetInputHooks(Input *input)
     input->UnsetKeyDownCallback(SCE_CTRL_LSTICK_DOWN);
     input->UnsetKeyUpCallback(SCE_CTRL_CIRCLE);
     input->UnsetKeyUpCallback(SCE_CTRL_CROSS);
+}
+
+const char *CoreButton::GetIntro() const
+{
+    return gArchs[gConfig->language][_console];
 }

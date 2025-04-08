@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "input.h"
+#include "defines.h"
 
 using namespace Emu4VitaPlus;
 
@@ -20,12 +21,13 @@ class CoreButton
     friend class App;
 
 public:
-    CoreButton(std::string name, std::vector<CoreName> cores);
+    CoreButton(CONSOLE console, std::vector<CoreName> cores);
     virtual ~CoreButton();
-    void Show(bool selected);
+    void Show(bool selected, bool choice = false);
     void OnActive(Input *input);
     void SetInputHooks(Input *input);
     void UnsetInputHooks(Input *input);
+    const char *GetIntro() const;
 
 private:
     void _ShowPopup();
@@ -35,9 +37,10 @@ private:
     void _OnCancel(Input *input);
     void _BootCore();
 
-    std::string _name;
     std::vector<CoreName> _cores;
     vita2d_texture *_texture;
     bool _actived;
     size_t _index;
+
+    CONSOLE _console;
 };

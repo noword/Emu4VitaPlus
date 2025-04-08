@@ -9,3 +9,32 @@
 #define BUTTON_SIZE 158
 #define MAIN_WINDOW_PADDING 10
 #define ROW_COUNT 2
+
+enum CONSOLE
+{
+    ATARI2600 = 0,
+    ATARI5200,
+    ATARI7800,
+    C64,
+    VECTREX,
+    ZXS,
+    DOS,
+    PC98,
+    MSX,
+    NES,
+    PCE,
+    AMIGA,
+    X68000,
+    MD,
+    GBC,
+    SNES,
+    NEOCD,
+    PS1,
+    NGP,
+    WSC,
+    GBA,
+    ARC,
+    CONSOLE_COUNT
+};
+
+extern const char *CONSOLE_NAMES[];

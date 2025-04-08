@@ -13,6 +13,7 @@ public:
 
     std::string last_core;
     uint32_t language;
+    bool consoles[CONSOLE_COUNT];
 
 private:
 };

@@ -5,8 +5,34 @@
 #include "utils.h"
 
 #define MAIN_SECTION "MAIN"
+#define CONSOLE_SECTION "CONSOLE"
 
 Config *gConfig = nullptr;
+
+const char *CONSOLE_NAMES[] = {
+    "ATARI2600",
+    "ATARI5200",
+    "ATARI7800",
+    "C64",
+    "VECTREX",
+    "ZXS",
+    "DOS",
+    "PC98",
+    "MSX",
+    "NES",
+    "PCE",
+    "AMIGA",
+    "X68000",
+    "MD",
+    "GBC",
+    "SNES",
+    "NEOCD",
+    "PS1",
+    "NGP",
+    "WSC",
+    "GBA",
+    "ARC",
+};
 
 Config::Config()
 {
@@ -48,6 +74,11 @@ bool Config::Load(const char *path)
         }
     }
 
+    for (size_t i = 0; i < CONSOLE_COUNT; i++)
+    {
+        consoles[i] = ini.GetBoolValue(CONSOLE_SECTION, CONSOLE_NAMES[i], true);
+    }
+
     return true;
 }
 
@@ -57,8 +88,15 @@ bool Config::Save(const char *path)
     LogDebug("path: %s", path);
 
     CSimpleIniA ini;
+
     ini.SetValue(MAIN_SECTION, "last_core", last_core.c_str());
     ini.SetValue(MAIN_SECTION, "language", gLanguageNames[language]);
+
+    for (size_t i = 0; i < CONSOLE_COUNT; i++)
+    {
+        ini.SetBoolValue(CONSOLE_SECTION, CONSOLE_NAMES[i], consoles[i]);
+    }
+
     File::Remove(path);
     return ini.SaveFile(path, false) == SI_OK;
 }

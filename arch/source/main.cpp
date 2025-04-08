@@ -14,6 +14,8 @@ int main(int argc, char *const argv[])
     LogInfo("updated on " __DATE__ " " __TIME__);
     LogDebug("Start");
 
+    gConfig = new Config();
+
     App *app = new App();
     app->Run();
     delete app;
