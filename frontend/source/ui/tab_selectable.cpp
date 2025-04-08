@@ -113,7 +113,7 @@ void TabSeletable::Show(bool selected)
         if (_status_text.size() > 0)
         {
             ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0, 255, 0, 255));
-            ImGui::TextWrapped(_status_text.c_str());
+            ImGui::TextWrapped("%s", _status_text.c_str());
             ImGui::PopStyleColor();
         }
 
