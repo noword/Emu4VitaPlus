@@ -382,6 +382,7 @@ void App::_OnKeyStart(Input *input)
         _SetVisableButtons();
         _current_buttons = &_visable_buttons;
         _UpdateIntro();
+        gConfig->Save();
     }
 }
 
