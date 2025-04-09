@@ -122,8 +122,7 @@ App::App()
                         {"PicoDrive", "PicoDrive"}}),
         new CoreButton(GBC, // 1989,1998
                        {{"Gambatte", "Gambatte"},
-                        {"TGB Dual", "TGBDual"},
-                        {"mGBA", "mGBA"}}),
+                        {"TGB Dual", "TGBDual"}}),
         new CoreButton(SNES, // 1990
                        {{"Snes9x 2002", "Snes9x2002"},
                         {"Snes9x 2005" ICON_STAR, "Snes9x2005"},
@@ -140,8 +139,7 @@ App::App()
                        {{"Mednafen Wswan", "MednafenWswan"}}),
         new CoreButton(GBA, // 2001
                        {{"VBA Next", "VBANext"},
-                        {"gpSP " ICON_STAR, "gpSP"},
-                        {"mGBA", "mGBA"}}),
+                        {"gpSP " ICON_STAR, "gpSP"}}),
         new CoreButton(ARC,
                        {{"FBA Lite", "FBALite"},
                         {"FBA 2012", "FBA2012"},

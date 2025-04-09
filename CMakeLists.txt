@@ -21,7 +21,6 @@ endif()
 
 set(CORES
     gpsp
-    mgba
     vba_next
     gambatte
     fba_lite

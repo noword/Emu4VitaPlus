@@ -18,7 +18,6 @@ project("Arch")
 
 set(CORE_SHORTS
     gpSP
-    mGBA
     VBANext
     Gambatte
     FBALite
@@ -65,7 +64,6 @@ set(CORE_SHORTS
 
 set(CORES
     gpsp
-    mgba
     vba_next
     gambatte
     fba_lite
