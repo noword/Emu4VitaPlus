@@ -344,13 +344,13 @@ void App::UnsetInputHooks(Input *input)
 
 void App::_OnKeyLeft(Input *input)
 {
-    LOOP_MINUS_ONE(_index_x, (_current_buttons->size() + 1 + _index_y) / ROW_COUNT);
+    LOOP_MINUS_ONE(_index_x, (_current_buttons->size() + 1) / ROW_COUNT);
     _UpdateIntro();
 }
 
 void App::_OnKeyRight(Input *input)
 {
-    LOOP_PLUS_ONE(_index_x, (_current_buttons->size() + +1 + _index_y) / ROW_COUNT);
+    LOOP_PLUS_ONE(_index_x, (_current_buttons->size() + 1) / ROW_COUNT);
     _UpdateIntro();
 }
 
@@ -398,7 +398,7 @@ void App::_OnKeyStart(Input *input)
 
 size_t App::_GetIndex()
 {
-    size_t index = _index_y * (_current_buttons->size() + 1) / ROW_COUNT + _index_x;
+    size_t index = _index_y * ((_current_buttons->size() + 1) / ROW_COUNT) + _index_x;
     if (index >= _current_buttons->size())
     {
         index = _current_buttons->size() - 1;
