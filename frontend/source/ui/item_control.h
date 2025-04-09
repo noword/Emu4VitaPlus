@@ -20,7 +20,7 @@ public:
     {
         ItemSelectable::Show(selected);
         ImGui::SameLine();
-        _control_map->turbo ? ImGui::Text(TEXT(LANG_TURBO)) : ImGui::TextDisabled(TEXT(LANG_TURBO));
+        _control_map->turbo ? ImGui::TextUnformatted(TEXT(LANG_TURBO)) : ImGui::TextDisabled(TEXT(LANG_TURBO));
     };
 
     virtual void OnOption(Input *input) override

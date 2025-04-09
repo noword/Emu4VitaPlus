@@ -66,7 +66,7 @@ void ItemSelectable::_ShowCombo(const char *text)
 
 void ItemSelectable::_ShowOnOff(bool on)
 {
-    on ? ImGui::Text(ICON_ON) : ImGui::TextDisabled(ICON_OFF);
+    on ? ImGui::TextUnformatted(ICON_ON) : ImGui::TextDisabled(ICON_OFF);
 }
 
 void ItemSelectable::SetInputHooks(Input *input)

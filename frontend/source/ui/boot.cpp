@@ -22,7 +22,7 @@ void Boot::Show()
             {
                 ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32_GREEN);
             }
-            ImGui::Text(log.c_str());
+            ImGui::TextUnformatted(log.c_str());
 
             if (count == _index && ImGui::GetScrollMaxY() > 0.f)
             {

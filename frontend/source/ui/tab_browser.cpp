@@ -134,7 +134,7 @@ void TabBrowser::Show(bool selected)
             {
                 current_path += std::string(" " ICON_SERACH) + _directory->GetSearchString();
             }
-            ImGui::Text(current_path.c_str());
+            ImGui::TextUnformatted(current_path.c_str());
             if (ImGui::ListBoxHeader("", ImGui::GetContentRegionAvail()))
             {
                 if (_in_refreshing)
@@ -209,14 +209,14 @@ void TabBrowser::Show(bool selected)
                         if (i != 0 && j != 0)
                         {
                             ImGui::SetCursorScreenPos({pos.x + i, pos.y + j});
-                            ImGui::Text(_name);
+                            ImGui::TextUnformatted(_name);
                         }
                     }
                 ImGui::PopStyleColor();
 
                 ImGui::SetCursorScreenPos(pos);
                 ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0, 255, 0, 255));
-                ImGui::Text(_name);
+                ImGui::TextUnformatted(_name);
                 ImGui::PopStyleColor();
             }
 

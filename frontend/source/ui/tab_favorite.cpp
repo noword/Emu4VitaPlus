@@ -59,7 +59,7 @@ void TabFavorite::Show(bool selected)
 
             auto iter = gFavorites->begin();
             std::advance(iter, _index);
-            ImGui::Text(iter->second.path.c_str());
+            ImGui::TextUnformatted(iter->second.path.c_str());
 
             size_t count = 0;
             const float total = gFavorites->size();

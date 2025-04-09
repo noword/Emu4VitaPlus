@@ -36,7 +36,7 @@ void Dialog::Show()
         const char *text = _text.Get();
         if (*text)
         {
-            ImGui::Text(_text.Get());
+            ImGui::TextUnformatted(_text.Get());
             ImGui::Separator();
         }
 
