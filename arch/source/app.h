@@ -51,7 +51,7 @@ private:
     IntroMovingStatus _moving_status;
     const char *_intro;
 
-    int _show_strick_count;
+    int _start_count;
 
     SceKernelLwMutexWork _video_mutex;
     bool _in_choice;

@@ -9,7 +9,7 @@
         "French": "L'Atari 2600 est une console de jeux vidéo de salon développée et produite par Atari, Inc. Sortie en septembre 1977 sous le nom d'Atari Video Computer System (Atari VCS), elle a popularisé le matériel à microprocesseur et les jeux stockés sur des cartouches ROM interchangeables, un format utilisé pour la première fois avec la Fairchild Channel F en 1976. La VCS était fournie avec deux joysticks, une paire de manettes et une cartouche de jeu, initialement Combat, puis Pac-Man. Sears a commercialisé la console sous le nom de Tele-Games Video Arcade. Atari a rebaptisé la VCS Atari 2600 en novembre 1982, parallèlement à la sortie de l'Atari 5200.",
         "Spanish": "La Atari 2600 es una consola de videojuegos doméstica desarrollada y producida por Atari, Inc. Lanzada en septiembre de 1977 como Atari Video Computer System (Atari VCS), popularizó el hardware basado en microprocesadores y los juegos almacenados en cartuchos ROM intercambiables, un formato utilizado por primera vez con el Fairchild Channel F en 1976. El VCS se incluía con dos controladores de joystick, un par de controladores de paleta unidos y un cartucho de juego, inicialmente Combat y más tarde Pac-Man. Sears vendió el sistema como Tele-Games Video Arcade. Atari rebautizó el VCS como Atari 2600 en noviembre de 1982, junto con el lanzamiento del Atari 5200.",
         "Russian": "",
-        "Comments": ""
+        "Comments": "Grabbed from wikipedia"
     },
     {
         "No.": "2",
@@ -260,6 +260,18 @@
         "Italian": "Un videogioco arcade (chiamato anche coin-op, abbreviazione di coin-operated, in italiano \"macchina a gettoni\", sebbene il termine si possa riferire anche a giochi che non fanno uso di un monitor, come i flipper) è un videogioco che si gioca in una postazione pubblica apposita, azionata a gettoni o a monete e costituita fisicamente da un elaboratore posto all'interno di un cabinato. Il termine inglese arcade , che indica genericamente una galleria commerciale, significa in questo caso sala giochi.",
         "French": "Un jeu vidéo d'arcade est un jeu qui capte les données du joueur via ses commandes, les traite via des composants électriques ou informatiques, et les affiche sur un écran électronique ou un écran similaire. Tous les jeux vidéo d'arcade fonctionnent avec des pièces ou acceptent d'autres moyens de paiement, sont hébergés dans une borne d'arcade et sont présents dans les salles de jeux, aux côtés d'autres types de jeux d'arcade. Jusqu'au début des années 2000, les jeux vidéo d'arcade constituaient le segment le plus important et le plus avancé technologiquement de l'industrie du jeu vidéo.",
         "Spanish": "Un videojuego de arcade es un juego de arcade que toma la entrada del jugador de sus controles, la procesa a través de componentes eléctricos o computarizados y muestra la salida a un monitor electrónico o pantalla similar. Todos los videojuegos de arcade funcionan con monedas o aceptan otros medios de pago, alojados en un gabinete de arcade y ubicados en salas de juegos junto con otros tipos de juegos de arcade. Hasta principios de la década de 2000, los videojuegos arcade eran el segmento más grande y tecnológicamente avanzado de la industria de los videojuegos.",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "23",
+        "Tag": "LANG_MANAGE_ICONS",
+        "English": "⇸ Manage icons",
+        "Chinese": "⇸ 管理图标",
+        "Japanese": "⇸ アイコンを管理",
+        "Italian": "⇸ Gestisci le icone",
+        "French": "⇸ Gérer les icônes",
+        "Spanish": "⇸ Administrar los iconos",
         "Russian": "",
         "Comments": ""
     }

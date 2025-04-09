@@ -43,7 +43,7 @@ bool IntroMovingStatus::Update(const char *text)
 App::App()
     : _index_x(0),
       _index_y(0),
-      _show_strick_count(60 * 6),
+      _start_count(60 * 6),
       _in_choice(false),
       _current_buttons(&_visable_buttons)
 {
@@ -217,70 +217,82 @@ void App::_Show()
     ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, MAIN_WINDOW_PADDING});
     ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2});
 
-    ImGui::Begin("Emu4Vita++ v" APP_VER_STR, NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoInputs);
-    My_Imgui_ShowTimePower();
-    ImVec2 pos = ImGui::GetWindowPos();
-    pos.y = (ImGui::GetContentRegionMax().y - BUTTON_SIZE * 2) / 2 + 20;
-    ImGui::SetCursorPos(pos);
-    size_t count = 0;
-    size_t index = _GetIndex();
-
-    _VideoLock();
-    for (auto button : *_current_buttons)
+    if (ImGui::Begin("Emu4Vita++ v" APP_VER_STR, NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoInputs))
     {
-        bool selected = (count == index);
-        button->Show(selected, _in_choice);
-        if (selected)
+        My_Imgui_ShowTimePower();
+
+        ImVec2 pos = ImGui::GetWindowPos();
+
+        if (_start_count > 0)
         {
-            size_t half = (_visable_buttons.size() + 1) / 2;
-            ImGui::SetScrollHereX(float(count % half) / float(half));
+            _start_count--;
+            const char *manage_icons = gArchs[gConfig->language][LANG_MANAGE_ICONS];
+            ImVec2 size = ImGui::CalcTextSize(manage_icons);
+            ImGui::GetWindowDrawList()->AddText({(VITA_WIDTH - size.x) / 2.f, 70.f}, IM_COL32_WHITE, manage_icons);
         }
 
-        count++;
+        pos.y = (ImGui::GetContentRegionMax().y - BUTTON_SIZE * 2) / 2 + 20;
+        ImGui::SetCursorPos(pos);
+        size_t count = 0;
+        size_t index = _GetIndex();
 
-        if (count != (_visable_buttons.size() + 1) / 2)
+        _VideoLock();
+        for (auto button : *_current_buttons)
         {
-            ImGui::SameLine();
-        }
-        else
-        {
-            pos.y += BUTTON_SIZE + 8;
-            ImGui::SetCursorPos(pos);
-        }
-    }
-    _VideoUnlock();
-
-    if (_current_buttons->size() & 1)
-    {
-        // show an empty button
-        ImGui::Button("", {BUTTON_SIZE, BUTTON_SIZE});
-    }
-
-    if (*_intro)
-    {
-        ImVec2 size = ImGui::CalcTextSize(_intro);
-        ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2 - size.y});
-        ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, size.y});
-        if (ImGui::Begin("info", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
-        {
-            ImGui::SetCursorPos({(float)_moving_status.pos, 0.f});
-            ImGui::Text(_intro);
-            _moving_status.Update(_intro);
-
-            if (_show_strick_count > 0)
+            bool selected = (count == index);
+            button->Show(selected, _in_choice);
+            if (selected)
             {
-                bool push_color = (_show_strick_count-- / 60) % 2 == 0;
-                if (push_color)
-                    ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32_DARK_GREY);
+                size_t half = (_current_buttons->size() + 1) / 2;
+                ImGui::SetScrollHereX(float(count % half) / float(half));
+            }
 
-                ImGui::SetCursorPos({_moving_status.pos - ImGui::CalcTextSize(BUTTON_RIGHT_ANALOG_LEFT_RIGHT).x * 1.5, 0});
-                ImGui::Text(BUTTON_RIGHT_ANALOG_LEFT_RIGHT);
+            count++;
 
-                if (push_color)
-                    ImGui::PopStyleColor();
+            if (count != (_current_buttons->size() + 1) / 2)
+            {
+                ImGui::SameLine();
+            }
+            else
+            {
+                pos.y += BUTTON_SIZE + 8;
+                ImGui::SetCursorPos(pos);
             }
         }
-        ImGui::End();
+        _VideoUnlock();
+
+        if (_current_buttons->size() & 1)
+        {
+            // show an empty button
+            ImGui::Button("", {BUTTON_SIZE, BUTTON_SIZE});
+        }
+
+        if (*_intro)
+        {
+            ImVec2 size = ImGui::CalcTextSize(_intro);
+            ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2 - size.y});
+            ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, size.y});
+            if (ImGui::Begin("info", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
+            {
+                ImGui::SetCursorPos({(float)_moving_status.pos, 0.f});
+                ImGui::TextUnformatted(_intro);
+                _moving_status.Update(_intro);
+
+                if (_start_count > 0)
+                {
+                    bool push_color = (_start_count / 60) % 2 == 0;
+                    if (push_color)
+                        ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32_DARK_GREY);
+
+                    ImGui::SetCursorPos({_moving_status.pos - ImGui::CalcTextSize(BUTTON_RIGHT_ANALOG_LEFT_RIGHT).x * 1.5, 0});
+                    ImGui::TextUnformatted(BUTTON_RIGHT_ANALOG_LEFT_RIGHT);
+
+                    if (push_color)
+                        ImGui::PopStyleColor();
+                }
+            }
+            ImGui::End();
+        }
     }
 
     ImGui::End();
