@@ -162,6 +162,7 @@ static void gen_font_texture(ImFontAtlas *fonts)
             pixels += width;
         }
     }
+
     fonts->TexID = gFontTexture;
 }
 
@@ -204,15 +205,19 @@ static bool load_font_cache(const char *path)
     fread(fonts->TexPixelsAlpha8, size, 1, fp);
     fread(fonts->TexUvLines, sizeof(fonts->TexUvLines), 1, fp);
 
+    ImFontGlyph *glyphs = new ImFontGlyph[cache.glyphs_size];
+    fread(glyphs, sizeof(ImFontGlyph), cache.glyphs_size, fp);
     font->Glyphs.reserve(cache.glyphs_size);
     for (size_t i = 0; i < cache.glyphs_size; i++)
     {
-        ImFontGlyph glyph;
-        fread(&glyph, sizeof(ImFontGlyph), 1, fp);
-        font->AddGlyph(&config, glyph.Codepoint & 0xffff, glyph.X0, glyph.Y0, glyph.X1, glyph.Y1,
-                       glyph.U0, glyph.V0, glyph.U1, glyph.V1, glyph.AdvanceX);
-        font->SetGlyphVisible(glyph.Codepoint, glyph.Visible);
+        font->AddGlyph(&config, glyphs->Codepoint & 0xffff,
+                       glyphs->X0, glyphs->Y0, glyphs->X1, glyphs->Y1,
+                       glyphs->U0, glyphs->V0, glyphs->U1, glyphs->V1, glyphs->AdvanceX);
+        font->SetGlyphVisible(glyphs->Codepoint, glyphs->Visible);
+        glyphs++;
     }
+
+    delete[] glyphs;
 
     font->BuildLookupTable();
     gen_font_texture(fonts);
