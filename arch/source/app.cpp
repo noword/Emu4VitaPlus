@@ -76,7 +76,7 @@ App::App()
     vita2d_set_vblank_wait(1);
 
     ImGui::CreateContext();
-    My_ImGui_ImplVita2D_Init(gConfig->language);
+    My_ImGui_ImplVita2D_Init(gConfig->language, CACHE_DIR);
     ImGui_ImplVita2D_TouchUsage(false);
     ImGui_ImplVita2D_UseIndirectFrontTouch(false);
     ImGui_ImplVita2D_UseRearTouch(false);

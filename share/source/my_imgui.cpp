@@ -204,6 +204,7 @@ static bool load_font_cache(const char *path)
     fread(fonts->TexPixelsAlpha8, size, 1, fp);
     fread(fonts->TexUvLines, sizeof(fonts->TexUvLines), 1, fp);
 
+    font->Glyphs.reserve(cache.glyphs_size);
     for (size_t i = 0; i < cache.glyphs_size; i++)
     {
         ImFontGlyph glyph;

@@ -2,7 +2,9 @@
 
 #define APP_ASSETS_DIR "app0:assets"
 #define CORE_DATA_DIR "app0:data"
-#define APP_DATA_DIR "ux0:data/EMU4VITAPLUS/" APP_DIR_NAME
+#define ROOT_DIR "ux0:data/EMU4VITAPLUS"
+#define APP_DATA_DIR ROOT_DIR "/" APP_DIR_NAME
+#define CACHE_DIR ROOT_DIR "/cache"
 #define APP_LOG_PATH APP_DATA_DIR "/Emu4Vita++.log"
 #define APP_CONFIG_PATH APP_DATA_DIR "/config.ini"
 
