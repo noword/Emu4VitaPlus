@@ -17,6 +17,7 @@ QQ群：550802386
 
 # 截屏
 ![](screenshots/arch.jpg)
+![](screenshots/arch_0.jpg)
 ![](screenshots/browser.jpg)
 ![](screenshots/control.jpg)
 ![](screenshots/hotkey.jpg)

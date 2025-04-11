@@ -153,26 +153,26 @@ App::App()
     _input.SetTurboInterval(DEFAULT_TURBO_START_TIME * 5);
     SetInputHooks(&_input);
 
+    sceKernelCreateLwMutex(&_video_mutex, "video_mutex", 0, 0, NULL);
+    _SetVisableButtons();
+    _UpdateIntro();
+
     bool found = false;
-    for (size_t i = 0; i < _buttons.size() && !found; i++)
+    for (size_t i = 0; i < _visable_buttons.size() && !found; i++)
     {
-        CoreButton *button = _buttons[i];
-        for (size_t j = 0; j < button->_cores.size(); j++)
+        CoreButton *button = _visable_buttons[i];
+        for (size_t j = 0; j < _visable_buttons->_cores.size(); j++)
         {
             if (gConfig->last_core == button->_cores[j].boot_name)
             {
-                _index_x = i % (_buttons.size() / ROW_COUNT);
-                _index_y = i / (_buttons.size() / ROW_COUNT);
+                _index_x = i % (_visable_buttons.size() / ROW_COUNT);
+                _index_y = i / (_visable_buttons.size() / ROW_COUNT);
                 button->_index = j;
                 found = true;
                 break;
             }
         }
     }
-
-    sceKernelCreateLwMutex(&_video_mutex, "video_mutex", 0, 0, NULL);
-    _SetVisableButtons();
-    _UpdateIntro();
 }
 
 App::~App()

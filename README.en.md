@@ -8,6 +8,7 @@ The version with log will output more logs in `ux0:data/EMU4VITAPLUS/[core]/Emu4
 
 # Screenshots
 ![](screenshots/arch.jpg)
+![](screenshots/arch_0.jpg)
 ![](screenshots/browser.jpg)
 ![](screenshots/control.jpg)
 ![](screenshots/hotkey.jpg)
