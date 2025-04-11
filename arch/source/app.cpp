@@ -138,8 +138,8 @@ App::App()
         new CoreButton(WSC, // 1999
                        {{"Mednafen Wswan", "MednafenWswan"}}),
         new CoreButton(GBA, // 2001
-                       {{"VBA Next", "VBANext"},
-                        {"gpSP " ICON_STAR, "gpSP"}}),
+                       {{"gpSP " ICON_STAR, "gpSP"},
+                        {"VBA Next", "VBANext"}}),
         new CoreButton(ARC,
                        {{"FBA Lite", "FBALite"},
                         {"FBA 2012", "FBA2012"},

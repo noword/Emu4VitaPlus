@@ -278,8 +278,12 @@ namespace Utils
         int ret, status_code;
         uint64_t length = 0;
         char *buf = nullptr;
-        static uint8_t netmem[1024 * 1024];
-        SceNetInitParam net{netmem, sizeof(netmem), 0};
+        uint8_t *netmem = new uint8_t[1024 * 1024];
+        SceNetInitParam net{netmem, 1024 * 1024, 0};
+
+        sceSysmoduleLoadModule(SCE_SYSMODULE_NET);
+        sceSysmoduleLoadModule(SCE_SYSMODULE_HTTP);
+        sceSysmoduleLoadModule(SCE_SYSMODULE_SSL);
 
         sceNetInit(&net);
         sceNetCtlInit();
@@ -356,6 +360,12 @@ namespace Utils
         sceSslTerm();
         sceNetCtlTerm();
         sceNetTerm();
+
+        sceSysmoduleUnloadModule(SCE_SYSMODULE_SSL);
+        sceSysmoduleUnloadModule(SCE_SYSMODULE_HTTP);
+        sceSysmoduleUnloadModule(SCE_SYSMODULE_NET);
+
+        delete[] netmem;
 
         return 0;
     }
