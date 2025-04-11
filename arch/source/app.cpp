@@ -161,7 +161,7 @@ App::App()
     for (size_t i = 0; i < _visable_buttons.size() && !found; i++)
     {
         CoreButton *button = _visable_buttons[i];
-        for (size_t j = 0; j < _visable_buttons->_cores.size(); j++)
+        for (size_t j = 0; j < button->_cores.size(); j++)
         {
             if (gConfig->last_core == button->_cores[j].boot_name)
             {
