@@ -206,15 +206,16 @@ static bool load_font_cache(const char *path)
     fread(fonts->TexUvLines, sizeof(fonts->TexUvLines), 1, fp);
 
     ImFontGlyph *glyphs = new ImFontGlyph[cache.glyphs_size];
+    ImFontGlyph *g = glyphs;
     fread(glyphs, sizeof(ImFontGlyph), cache.glyphs_size, fp);
     font->Glyphs.reserve(cache.glyphs_size);
     for (size_t i = 0; i < cache.glyphs_size; i++)
     {
-        font->AddGlyph(&config, glyphs->Codepoint & 0xffff,
-                       glyphs->X0, glyphs->Y0, glyphs->X1, glyphs->Y1,
-                       glyphs->U0, glyphs->V0, glyphs->U1, glyphs->V1, glyphs->AdvanceX);
-        font->SetGlyphVisible(glyphs->Codepoint, glyphs->Visible);
-        glyphs++;
+        font->AddGlyph(&config, g->Codepoint & 0xffff,
+                       g->X0, g->Y0, g->X1, g->Y1,
+                       g->U0, g->V0, g->U1, g->V1, g->AdvanceX);
+        font->SetGlyphVisible(g->Codepoint, g->Visible);
+        g++;
     }
 
     delete[] glyphs;

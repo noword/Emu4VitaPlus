@@ -28,17 +28,9 @@ vita2d_texture *Overlay::Get()
 {
     if (_texture == nullptr && image_name.size() > 0)
     {
-        for (auto const &path : {"app0:assets", CONSOLE_DIR, APP_DATA_DIR, ROOT_DIR})
-        {
-            const std::string name = std::string(path) + "/" OVERLAYS_DIR_NAME "/" + image_name;
-
-            _texture = vita2d_load_PNG_file(name.c_str());
-            if (_texture)
-                break;
-            _texture = vita2d_load_JPEG_file(name.c_str());
-            if (_texture)
-                break;
-        }
+        _texture = vita2d_load_PNG_file(image_name.c_str());
+        if (!_texture)
+            _texture = vita2d_load_JPEG_file(image_name.c_str());
     }
     return _texture;
 }
@@ -76,6 +68,7 @@ bool Overlays::Load(const char *path)
         overlay.name = section.pItem;
         overlay.image_name = ini.GetValue(section.pItem, "image_name", "NULL");
         Utils::StripQuotes(&overlay.image_name);
+        overlay.image_name = std::string(path) + "/" + overlay.image_name;
         overlay.viewport_width = ini.GetLongValue(section.pItem, "viewport_width");
         overlay.viewport_height = ini.GetLongValue(section.pItem, "viewport_height");
         overlay.viewport_rotate = ini.GetLongValue(section.pItem, "viewport_rotate");
