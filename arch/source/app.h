@@ -28,6 +28,7 @@ private:
     size_t _GetIndex();
     void _UpdateIntro();
     void _SetVisableButtons();
+    void _RestoreLastCore();
 
     void _OnClick(Input *input);
     void _OnKeyLeft(Input *input);

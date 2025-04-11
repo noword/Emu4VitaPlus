@@ -154,25 +154,10 @@ App::App()
     SetInputHooks(&_input);
 
     sceKernelCreateLwMutex(&_video_mutex, "video_mutex", 0, 0, NULL);
-    _SetVisableButtons();
-    _UpdateIntro();
 
-    bool found = false;
-    for (size_t i = 0; i < _visable_buttons.size() && !found; i++)
-    {
-        CoreButton *button = _visable_buttons[i];
-        for (size_t j = 0; j < button->_cores.size(); j++)
-        {
-            if (gConfig->last_core == button->_cores[j].boot_name)
-            {
-                _index_x = i % (_visable_buttons.size() / ROW_COUNT);
-                _index_y = i / (_visable_buttons.size() / ROW_COUNT);
-                button->_index = j;
-                found = true;
-                break;
-            }
-        }
-    }
+    _SetVisableButtons();
+    _RestoreLastCore();
+    _UpdateIntro();
 }
 
 App::~App()
@@ -454,4 +439,24 @@ int32_t App::_VideoLock(uint32_t *timeout)
 void App::_VideoUnlock()
 {
     sceKernelUnlockLwMutex(&_video_mutex, 1);
+}
+
+void App::_RestoreLastCore()
+{
+    bool found = false;
+    for (size_t i = 0; i < _visable_buttons.size() && !found; i++)
+    {
+        CoreButton *button = _visable_buttons[i];
+        for (size_t j = 0; j < button->_cores.size(); j++)
+        {
+            if (gConfig->last_core == button->_cores[j].boot_name)
+            {
+                _index_x = i % (_visable_buttons.size() / ROW_COUNT);
+                _index_y = i / (_visable_buttons.size() / ROW_COUNT);
+                button->_index = j;
+                found = true;
+                break;
+            }
+        }
+    }
 }
