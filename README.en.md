@@ -12,6 +12,7 @@ The version with log will output more logs in `ux0:data/EMU4VITAPLUS/[core]/Emu4
 ![](screenshots/browser.jpg)
 ![](screenshots/control.jpg)
 ![](screenshots/hotkey.jpg)
+![](screenshots/cheat.jpg)
 
 ## [overlay and shaders](GRAPHICS.md)
 

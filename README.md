@@ -21,6 +21,7 @@ QQ群：550802386
 ![](screenshots/browser.jpg)
 ![](screenshots/control.jpg)
 ![](screenshots/hotkey.jpg)
+![](screenshots/cheat.jpg)
 
 ## [遮罩和着色器](GRAPHICS.md)
 
