@@ -270,7 +270,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_GET_FASTFORWARDING:
-        *(bool *)data = false;
+        *(bool *)data = gEmulator->_speed > 1.0;
         break;
 
     case RETRO_ENVIRONMENT_GET_TARGET_REFRESH_RATE:
@@ -327,16 +327,19 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_SET_AUDIO_BUFFER_STATUS_CALLBACK:
-        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_AUDIO_BUFFER_STATUS_CALLBACK");
-        return false;
-        // LogDebug("  cmd: RETRO_ENVIRONMENT_SET_AUDIO_BUFFER_STATUS_CALLBACK");
-        // gEmulator->_audio.SetBufStatusCallback(data ? ((const retro_audio_buffer_status_callback *)data)->callback : nullptr);
-        // break;
+        // LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_AUDIO_BUFFER_STATUS_CALLBACK");
+        // return false;
+        LogDebug("  cmd: RETRO_ENVIRONMENT_SET_AUDIO_BUFFER_STATUS_CALLBACK");
+        gEmulator->_audio.SetBufStatusCallback(data ? ((const retro_audio_buffer_status_callback *)data)->callback : nullptr);
+        break;
 
     case RETRO_ENVIRONMENT_SET_MINIMUM_AUDIO_LATENCY:
-        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_MINIMUM_AUDIO_LATENCY");
+        // LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_MINIMUM_AUDIO_LATENCY");
+        LogDebug("  cmd: RETRO_ENVIRONMENT_SET_MINIMUM_AUDIO_LATENCY");
         LogDebug("  data: %d", *(const unsigned *)data);
-        return false;
+        gEmulator->SetSpeed(gEmulator->_speed); // will reset audio
+        break;
+        // return false;
 
     case RETRO_ENVIRONMENT_SET_CORE_OPTIONS_V2:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_CORE_OPTIONS_V2");

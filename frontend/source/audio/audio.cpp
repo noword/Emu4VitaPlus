@@ -7,7 +7,7 @@
 #include "emulator.h"
 #include "app.h"
 
-#define AUDIO_SKIP_THRESHOLD 25
+#define AUDIO_SKIP_THRESHOLD 5
 
 const uint32_t SAMPLE_RATES[] = {8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000};
 
@@ -113,16 +113,16 @@ namespace Emu4VitaPlus
     {
         LogFunctionName;
 
-        for (size_t i = 0; i < sizeof(SAMPLE_RATES) / sizeof(uint32_t); i++)
+        for (auto const &psv_sample_rate : SAMPLE_RATES)
         {
-            if ((sample_rate >= SAMPLE_RATES[i] - SAMPLE_RATE_NEGLECT) && (sample_rate <= SAMPLE_RATES[i] + SAMPLE_RATE_NEGLECT))
+            if ((sample_rate >= psv_sample_rate - SAMPLE_RATE_NEGLECT) && (sample_rate <= psv_sample_rate + SAMPLE_RATE_NEGLECT))
             {
-                *out_sample_rate = SAMPLE_RATES[i];
+                *out_sample_rate = psv_sample_rate;
                 return true;
             }
-            else if (SAMPLE_RATES[i] < sample_rate)
+            else if (psv_sample_rate < sample_rate)
             {
-                *out_sample_rate = SAMPLE_RATES[i];
+                *out_sample_rate = psv_sample_rate;
             }
         }
 
