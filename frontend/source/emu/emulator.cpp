@@ -326,12 +326,13 @@ void Emulator::_ShowSpeedHint()
 
 void Emulator::Wait()
 {
-    bool in_time = _delay.Wait();
+    _show_video = _delay.Wait();
+    //     bool in_time = _delay.Wait();
 
-    if (_show_video)
-        _show_video = in_time;
-    else
-        _show_video = true;
+    //     if (_show_video)
+    //         _show_video = in_time;
+    //     else
+    //         _show_video = true;
 }
 
 static void ConvertTextureToRGB888(vita2d_texture *texture, uint8_t *dst, size_t width = 0, size_t height = 0)
