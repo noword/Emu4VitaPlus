@@ -238,7 +238,7 @@ END:
 
 static inline void WriteStr(FILE *fp, const std::string &s)
 {
-    size_t size = s.size();
+    size_t size = s.size() + 1;
     fwrite(&size, sizeof(uint16_t), 1, fp);
     fwrite(s.c_str(), size, 1, fp);
 }
@@ -249,7 +249,14 @@ static inline std::string ReadStr(FILE *fp)
     char s[SCE_FIOS_PATH_MAX];
     fread(&size, sizeof(uint16_t), 1, fp);
     fread(s, size, 1, fp);
-    s[size] = '\x00';
+    return s;
+}
+
+static inline const char *ReadStr(char **p)
+{
+    const char *s = *p + sizeof(uint16_t);
+    *p += *(uint16_t *)(*p);
+    *p += sizeof(uint16_t);
     return s;
 }
 
@@ -257,24 +264,26 @@ bool RetroArchPlaylists::_LoadCache(uint32_t crc32, ItemMap &items)
 {
     char name[SCE_FIOS_PATH_MAX];
     snprintf(name, SCE_FIOS_PATH_MAX, PLAYLISTS_CACHE_DIR "/%08x.bin", crc32);
-    FILE *fp = fopen(name, "rb");
-    if (!fp)
+    char *buf;
+    if (File::ReadFile(name, (void **)&buf) == 0)
     {
         LogError("failed to open %s for writing", name);
         return false;
     }
 
-    uint8_t db_index = _GetDbIndex(ReadStr(fp).c_str());
-    size_t size;
-    fread(&size, sizeof(size_t), 1, fp);
+    char *p = buf;
+
+    uint8_t db_index = _GetDbIndex(ReadStr(&p));
+    const size_t size = *(size_t *)p;
+    p += sizeof(size_t);
     for (size_t i = 0; i < size; i++)
     {
-        uint32_t crc;
-        fread(&crc, sizeof(uint32_t), 1, fp);
-        items[crc] = {db_index, ReadStr(fp)};
+        uint32_t *crc = (uint32_t *)p;
+        p += sizeof(uint32_t);
+        items[*crc] = {db_index, ReadStr(&p)};
     }
 
-    fclose(fp);
+    delete[] buf;
 
     return true;
 }

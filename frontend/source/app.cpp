@@ -74,6 +74,7 @@ App::App(int argc, char *const argv[])
     {
         File::RemoveAllFiles(ARCADE_CACHE_DIR);
         File::RemoveAllFiles(ARCHIVE_CACHE_DIR);
+        File::RemoveAllFiles(PLAYLISTS_CACHE_DIR);
         File::RemoveAllFiles(CACHE_DIR);
         gConfig->Save();
     }
