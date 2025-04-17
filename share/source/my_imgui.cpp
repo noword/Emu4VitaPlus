@@ -63,7 +63,7 @@ const static ImWchar KeyCharset[] = {0x2430, 0x2432,
 
 const static ImWchar BracketsCharset[] = {0x3010, 0x3011, 0x0000};
 
-static void matrix_init_orthographic(float *m, float left, float right, float bottom, float top, float near, float far)
+static void MatrixInitOrthographic(float *m, float left, float right, float bottom, float top, float near, float far)
 {
     m[0x0] = 2.0f / (right - left);
     m[0x4] = 0.0f;
@@ -108,7 +108,7 @@ struct FontCache
     ImVec2 white_uv;
 };
 
-static bool save_font_cache(const char *path)
+static bool SaveFontCache(const char *path)
 {
     LogFunctionName;
     if (!gFontTexture)
@@ -140,7 +140,7 @@ static bool save_font_cache(const char *path)
     return true;
 }
 
-static void gen_font_texture(ImFontAtlas *fonts)
+static void GenFontTexture(ImFontAtlas *fonts)
 {
     int width, height;
     uint32_t *pixels = NULL;
@@ -166,7 +166,7 @@ static void gen_font_texture(ImFontAtlas *fonts)
     fonts->TexID = gFontTexture;
 }
 
-static bool load_font_cache(const char *path)
+static bool LoadFontCache(const char *path)
 {
     LogFunctionName;
     FILE *fp = fopen(path, "rb");
@@ -221,12 +221,12 @@ static bool load_font_cache(const char *path)
     delete[] glyphs;
 
     font->BuildLookupTable();
-    gen_font_texture(fonts);
+    GenFontTexture(fonts);
     fclose(fp);
     return true;
 }
 
-static const ImWchar *get_glyph_ranges(uint32_t language)
+static const ImWchar *GetGlyphRanges(uint32_t language)
 {
     switch (language)
     {
@@ -245,7 +245,7 @@ static const ImWchar *get_glyph_ranges(uint32_t language)
     }
 }
 
-static uint32_t get_language_crc32(uint32_t language)
+static uint32_t GetLanguageCrc32(uint32_t language)
 {
     const char *name = gLanguageNames[language];
     return crc32(0, (uint8_t *)name, strlen(name));
@@ -260,8 +260,8 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
 
     if (cache_path)
     {
-        snprintf(name, 255, "%s/font_%08x.bin", cache_path, get_language_crc32(language));
-        if (load_font_cache(name))
+        snprintf(name, 255, "%s/font_%08x.bin", cache_path, GetLanguageCrc32(language));
+        if (LoadFontCache(name))
         {
             return;
         }
@@ -282,7 +282,7 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
     font_config.OversampleV = 1;
     font_config.PixelSnapH = 1;
 
-    const ImWchar *glyph_ranges = get_glyph_ranges(language);
+    const ImWchar *glyph_ranges = GetGlyphRanges(language);
 
     io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" TEXT_FONT_NAME,
                                  27.0f,
@@ -309,11 +309,11 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
                                  24.0f,
                                  &font_config,
                                  IconCharset);
-    gen_font_texture(io.Fonts);
+    GenFontTexture(io.Fonts);
 
     if (cache_path)
     {
-        save_font_cache(name);
+        SaveFontCache(name);
     }
     return;
 }
@@ -415,7 +415,7 @@ IMGUI_API void My_ImGui_ImplVita2D_Init(uint32_t language, const char *cache_pat
     // find vertex uniforms by name and cache parameter information
     _vita2d_imguiWvpParam = sceGxmProgramFindParameterByName(&_binary_assets_imgui_v_cg_gxp_start, "wvp");
 
-    matrix_init_orthographic(ortho_proj_matrix, 0.0f, VITA_WIDTH, VITA_HEIGHT, 0.0f, 0.0f, 1.0f);
+    MatrixInitOrthographic(ortho_proj_matrix, 0.0f, VITA_WIDTH, VITA_HEIGHT, 0.0f, 0.0f, 1.0f);
 
     sceTouchSetSamplingState(SCE_TOUCH_PORT_FRONT, SCE_TOUCH_SAMPLING_STATE_START);
     // sceCtrlSetSamplingMode(SCE_CTRL_MODE_ANALOG_WIDE);
