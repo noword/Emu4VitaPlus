@@ -127,6 +127,7 @@ App::App(int argc, char *const argv[])
         gVideo->Unlock();
     }
 
+    gUi->AppendLog("Check BIOS files");
     std::vector<const char *> bios;
     if (!CheckBios(bios))
     {
