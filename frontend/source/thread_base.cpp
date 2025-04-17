@@ -121,3 +121,14 @@ void ThreadBase::Signal()
 {
     sceKernelSignalSema(_semaid, 1);
 }
+
+void StartThread(SceKernelThreadEntry entry,
+                 SceSize args,
+                 void *argp,
+                 int priority,
+                 int cpu_affinity,
+                 int stack_size)
+{
+    SceUID thread_id = sceKernelCreateThread(__PRETTY_FUNCTION__, entry, priority, stack_size, 0, cpu_affinity, NULL);
+    sceKernelStartThread(thread_id, args, argp);
+}

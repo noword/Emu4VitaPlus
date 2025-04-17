@@ -37,3 +37,9 @@ protected:
     SceKernelLwMutexWork _mutex;
     SceUID _semaid;
 };
+
+// entry function must call sceKernelExitDeleteThread at end
+void StartThread(SceKernelThreadEntry entry, SceSize args, void *argp,
+                 int priority = SCE_KERNEL_DEFAULT_PRIORITY_USER,
+                 int cpu_affinity = SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT,
+                 int stack_size = 0x10000);
