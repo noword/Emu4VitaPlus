@@ -63,6 +63,7 @@ void TabFavorite::Show(bool selected)
 
             size_t count = 0;
             const float total = gFavorites->size();
+            const std::string *rom_name = nullptr;
             if (ImGui::ListBoxHeader("", ImGui::GetContentRegionAvail()))
             {
                 ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0, 255, 0, 255));
@@ -70,16 +71,19 @@ void TabFavorite::Show(bool selected)
                 {
                     if (count == _index)
                     {
-                        My_Imgui_Selectable(fav.second.item.name.c_str(), true, &_moving_status);
+                        My_ImGui_Selectable(fav.second.item.name.c_str(), true, &_moving_status);
                     }
                     else
                     {
                         ImGui::Selectable(fav.second.item.name.c_str());
                     }
 
-                    if (count == _index && ImGui::GetScrollMaxY() > 0.f)
+                    if (count == _index)
                     {
-                        ImGui::SetScrollHereY((float)_index / total);
+                        rom_name = &fav.second.rom_name;
+
+                        if (ImGui::GetScrollMaxY() > 0.f)
+                            ImGui::SetScrollHereY((float)_index / total);
                     }
                     count++;
                 }
@@ -93,13 +97,25 @@ void TabFavorite::Show(bool selected)
             _texture_max_width = avail_size.x;
             _texture_max_height = avail_size.y;
 
+            ImVec2 pos = ImGui::GetCursorScreenPos();
             if (_texture != nullptr)
             {
-                ImVec2 pos = ImGui::GetCursorScreenPos();
                 pos.x += ceilf(fmax(0.0f, (avail_size.x - _texture_width) * 0.5f));
                 pos.y += ceilf(fmax(0.0f, (avail_size.y - _texture_height) * 0.5f));
                 ImGui::SetCursorScreenPos(pos);
                 ImGui::Image(_texture, {_texture_width, _texture_height});
+            }
+
+            if (rom_name && rom_name->size() > 0)
+            {
+                static TextMovingStatus _name_mov;
+                _name_mov.Update(rom_name->c_str());
+
+                ImVec2 s = ImGui::CalcTextSize(rom_name->c_str());
+                pos.x += fmax(0, (avail_size.x - s.x) / 2) + _name_mov.pos;
+                pos.y += (_texture == nullptr ? (avail_size.y - s.y) / 2 : 10);
+
+                My_ImGui_HighlightText(rom_name->c_str(), pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
             }
 
             ImGui::NextColumn();

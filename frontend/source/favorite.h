@@ -8,6 +8,7 @@ struct Favorite
 {
     DirItem item;
     std::string path;
+    std::string rom_name;
 
     bool operator<(const Favorite &other) const { return item.name < other.item.name; };
 };

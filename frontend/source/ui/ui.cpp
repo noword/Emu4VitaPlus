@@ -480,7 +480,7 @@ void Ui::Show()
 
         if (ImGui::Begin(_title.c_str(), NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
         {
-            My_Imgui_ShowTimePower();
+            My_ImGui_ShowTimePower();
             (status == APP_STATUS_BOOT) ? _boot_ui->Show() : _ShowNormal();
         }
 

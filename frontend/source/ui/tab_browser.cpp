@@ -163,7 +163,7 @@ void TabBrowser::Show(bool selected)
                         }
 
                         if (i == _index)
-                            My_Imgui_Selectable(name.c_str(), true, &_moving_status);
+                            My_ImGui_Selectable(name.c_str(), true, &_moving_status);
                         else
                             ImGui::Selectable(name.c_str());
 
@@ -194,30 +194,14 @@ void TabBrowser::Show(bool selected)
 
             if (_name != nullptr)
             {
+                static TextMovingStatus _name_mov;
+                _name_mov.Update(_name);
+
                 ImVec2 s = ImGui::CalcTextSize(_name);
-                pos.x += fmax(0, (avail_size.x - s.x) / 2);
+                pos.x += fmax(0, (avail_size.x - s.x) / 2) + _name_mov.pos;
                 pos.y += (_texture == nullptr ? (avail_size.y - s.y) / 2 : 10);
-                if (_moving_status.Update(_name))
-                {
-                    pos.x += _moving_status.pos;
-                }
 
-                ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyleColorVec4(ImGuiCol_Border));
-                for (int i = -2; i <= 2; i++)
-                    for (int j = -2; j <= 2; j++)
-                    {
-                        if (i != 0 && j != 0)
-                        {
-                            ImGui::SetCursorScreenPos({pos.x + i, pos.y + j});
-                            ImGui::TextUnformatted(_name);
-                        }
-                    }
-                ImGui::PopStyleColor();
-
-                ImGui::SetCursorScreenPos(pos);
-                ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0, 255, 0, 255));
-                ImGui::TextUnformatted(_name);
-                ImGui::PopStyleColor();
+                My_ImGui_HighlightText(_name, pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
             }
 
             ImGui::NextColumn();
@@ -355,7 +339,7 @@ void TabBrowser::_OnKeyStart(Input *input)
     const auto &iter = gFavorites->find(item.name);
     if (iter == gFavorites->end())
     {
-        gFavorites->emplace(item.name, Favorite{item, _directory->GetCurrentPath()});
+        gFavorites->emplace(item.name, Favorite{item, _directory->GetCurrentPath(), _name ? _name : ""});
     }
     else
     {

@@ -57,7 +57,7 @@ public:
             ImGui::OpenPopup(text);
         }
 
-        if (My_Imgui_BeginCombo(text, _GetPreviewText(), ImGuiComboFlags_NoArrowButton))
+        if (My_ImGui_BeginCombo(text, _GetPreviewText(), ImGuiComboFlags_NoArrowButton))
         {
             if (!_actived && is_popup)
             {

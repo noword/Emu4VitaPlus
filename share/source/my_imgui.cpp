@@ -507,7 +507,7 @@ static float CalcMaxPopupHeightFromItemCount(int items_count)
     return (g.FontSize + g.Style.ItemSpacing.y) * items_count - g.Style.ItemSpacing.y + (g.Style.WindowPadding.y * 2);
 }
 
-bool My_Imgui_BeginCombo(const char *label, const char *preview_value, ImGuiComboFlags flags)
+IMGUI_API bool My_ImGui_BeginCombo(const char *label, const char *preview_value, ImGuiComboFlags flags)
 {
     // Always consume the SetNextWindowSizeConstraint() call in our early return paths
     ImGuiContext *g = ImGui::GetCurrentContext();
@@ -618,7 +618,7 @@ bool My_Imgui_BeginCombo(const char *label, const char *preview_value, ImGuiComb
     return true;
 }
 
-IMGUI_API void My_Imgui_CenteredText(const char *text, ...)
+IMGUI_API void My_ImGui_CenteredText(const char *text, ...)
 {
     char buf[0x100];
 
@@ -669,7 +669,7 @@ bool TextMovingStatus::Update(const char *text)
     return true;
 }
 
-IMGUI_API bool My_Imgui_Selectable(const char *label, bool selected, TextMovingStatus *status)
+IMGUI_API bool My_ImGui_Selectable(const char *label, bool selected, TextMovingStatus *status)
 {
     if (status->Update(label))
     {
@@ -679,7 +679,7 @@ IMGUI_API bool My_Imgui_Selectable(const char *label, bool selected, TextMovingS
     return ImGui::Selectable(label, selected);
 }
 
-void My_Imgui_ShowTimePower()
+IMGUI_API void My_ImGui_ShowTimePower()
 {
     int percent = scePowerGetBatteryLifePercent();
     ImU32 color = percent <= 25 ? IM_COL32_RED : IM_COL32_GREEN;
@@ -748,5 +748,25 @@ void My_Imgui_SpinText::Show()
     _Update();
     ImGui::PushStyleColor(ImGuiCol_Text, _color);
     ImGui::Text(_frames[_count]);
+    ImGui::PopStyleColor();
+}
+
+IMGUI_API void My_ImGui_HighlightText(const char *text, ImVec2 position, ImU32 text_color, ImU32 shadow_color)
+{
+    ImGui::PushStyleColor(ImGuiCol_Text, shadow_color);
+    for (int i = -2; i <= 2; i++)
+        for (int j = -2; j <= 2; j++)
+        {
+            if (i != 0 && j != 0)
+            {
+                ImGui::SetCursorScreenPos({position.x + i, position.y + j});
+                ImGui::TextUnformatted(text);
+            }
+        }
+    ImGui::PopStyleColor();
+
+    ImGui::SetCursorScreenPos(position);
+    ImGui::PushStyleColor(ImGuiCol_Text, text_color);
+    ImGui::TextUnformatted(text);
     ImGui::PopStyleColor();
 }

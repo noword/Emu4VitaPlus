@@ -61,7 +61,7 @@ void TabAbout::Show(bool selected)
         {
             for (size_t i = 0; i < _texts.size(); i++)
             {
-                My_Imgui_CenteredText(_texts[i].c_str());
+                My_ImGui_CenteredText(_texts[i].c_str());
                 if (i == _index && ImGui::GetScrollMaxY() > 0.f)
                 {
                     ImGui::SetScrollHereY((float)_index / _texts.size());
