@@ -54,6 +54,7 @@ private:
     void _UpdateTexture();
     void _UpdateStatus();
     void _UpdateName();
+    void _UpdateInfo();
     void _Update() override;
 
     void _Search(const char *s);
@@ -72,6 +73,7 @@ private:
     Input *_input;
     RomNameMap _name_map;
     const char *_name;
+    std::string _info;
     TextMovingStatus _name_moving_status;
 
     Clipboard _clipboard;

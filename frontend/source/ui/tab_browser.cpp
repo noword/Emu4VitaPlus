@@ -134,7 +134,9 @@ void TabBrowser::Show(bool selected)
             {
                 current_path += std::string(" " ICON_SERACH) + _directory->GetSearchString();
             }
+
             ImGui::TextUnformatted(current_path.c_str());
+            ImVec2 current_pos;
             if (ImGui::ListBoxHeader("", ImGui::GetContentRegionAvail()))
             {
                 if (_in_refreshing)
@@ -163,7 +165,10 @@ void TabBrowser::Show(bool selected)
                         }
 
                         if (i == _index)
+                        {
+                            current_pos = ImGui::GetCursorScreenPos();
                             My_ImGui_Selectable(name.c_str(), true, &_moving_status);
+                        }
                         else
                             ImGui::Selectable(name.c_str());
 
@@ -202,6 +207,12 @@ void TabBrowser::Show(bool selected)
                 pos.y += (_texture == nullptr ? (avail_size.y - s.y) / 2 : 10);
 
                 My_ImGui_HighlightText(_name, pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
+            }
+
+            if (_info.size() > 0)
+            {
+                ImGui::SetCursorScreenPos({ImGui::GetCursorScreenPos().x, current_pos.y});
+                ImGui::TextUnformatted(_info.c_str());
             }
 
             ImGui::NextColumn();
@@ -702,11 +713,29 @@ void TabBrowser::_UpdateName()
     }
 }
 
+void TabBrowser::_UpdateInfo()
+{
+    if (_info.size() > 0)
+    {
+        gVideo->Lock();
+        _info = "";
+        gVideo->Unlock();
+    }
+
+    bool is_dir;
+    const std::string full_path = _GetCurrentFullPath(&is_dir);
+    gVideo->Lock();
+    _info = GetFileInfoString(full_path.c_str());
+    LogDebug(_info.c_str());
+    gVideo->Unlock();
+}
+
 void TabBrowser::_Update()
 {
     _UpdateTexture();
     _UpdateStatus();
     _UpdateName();
+    _UpdateInfo();
     _moving_status.Reset();
 }
 

@@ -165,7 +165,7 @@ namespace File
         }
 
         SceRtcTick tick;
-        sceRtcGetTick(&stat.st_mtime, &tick);
+        sceRtcGetTick(&stat.st_ctime, &tick);
         sceRtcConvertUtcToLocalTime(&tick, &tick);
         sceRtcSetTick(time, &tick);
 

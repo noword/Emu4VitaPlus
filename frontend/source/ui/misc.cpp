@@ -75,3 +75,60 @@ void CalcFitSize(float width, float height, float max_width, float max_height, f
         *out_width = max_width;
     }
 }
+
+static void FormatNumber(unsigned int v, char *s)
+{
+    char s_temp[32];
+    sprintf(s_temp, "%u", v);
+    int len = strlen(s_temp);
+
+    int remainder = len % 3;
+    if (remainder == 0 && len != 0)
+    {
+        remainder = 3;
+    }
+
+    char *dst = s;
+    const char *src = s_temp;
+
+    for (int i = 0; i < remainder; ++i)
+    {
+        *dst++ = *src++;
+    }
+
+    int remaining = len - remainder;
+    if (remaining > 0)
+    {
+        *dst++ = ',';
+        int num_groups = remaining / 3;
+        for (int i = 0; i < num_groups; ++i)
+        {
+            *dst++ = *src++;
+            *dst++ = *src++;
+            *dst++ = *src++;
+            if (i != num_groups - 1)
+            {
+                *dst++ = ',';
+            }
+        }
+    }
+
+    *dst = '\0';
+}
+
+std::string GetFileInfoString(const char *path)
+{
+    char s[64];
+    SceDateTime time;
+    size_t size = File::GetSize(path);
+    if (size == 0 || !File::GetCreateTime(path, &time))
+    {
+        return "";
+    }
+
+    char num[64];
+    FormatNumber(size, num);
+    snprintf(s, 64, "%d/%02d/%02d %02d:%02d %12s", time.year + 1969, time.month, time.day, time.hour, time.minute, num);
+
+    return s;
+}
