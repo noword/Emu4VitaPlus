@@ -128,7 +128,7 @@ std::string GetFileInfoString(const char *path)
 
     char num[64];
     FormatNumber(size, num);
-    snprintf(s, 64, "%d/%02d/%02d %02d:%02d %12s", time.year + 1969, time.month, time.day, time.hour, time.minute, num);
+    snprintf(s, 64, "  %d/%02d/%02d  %02d:%02d %20s", time.year + 1969, time.month, time.day, time.hour, time.minute, num);
 
     return s;
 }

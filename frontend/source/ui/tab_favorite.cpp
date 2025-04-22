@@ -100,22 +100,44 @@ void TabFavorite::Show(bool selected)
             ImVec2 pos = ImGui::GetCursorScreenPos();
             if (_texture != nullptr)
             {
-                pos.x += ceilf(fmax(0.0f, (avail_size.x - _texture_width) * 0.5f));
-                pos.y += ceilf(fmax(0.0f, (avail_size.y - _texture_height) * 0.5f));
-                ImGui::SetCursorScreenPos(pos);
+                ImVec2 texture_pos = pos;
+                texture_pos.x += ceilf(fmax(0.0f, (avail_size.x - _texture_width) * 0.5f));
+                texture_pos.y += ceilf(fmax(0.0f, (avail_size.y - _texture_height) * 0.5f));
+                ImGui::SetCursorScreenPos(texture_pos);
                 ImGui::Image(_texture, {_texture_width, _texture_height});
             }
 
             if (rom_name && rom_name->size() > 0)
             {
-                static TextMovingStatus _name_mov;
-                _name_mov.Update(rom_name->c_str());
+                _name_moving_status.Update(rom_name->c_str());
+                ImVec2 text_size = ImGui::CalcTextSize(rom_name->c_str());
+                ImVec2 text_pos = pos;
+                text_pos.x += fmax(0, (avail_size.x - text_size.x) / 2) + _name_moving_status.pos;
+                text_pos.y += (_texture == nullptr ? (avail_size.y - text_size.y) / 2 : 10);
 
-                ImVec2 s = ImGui::CalcTextSize(rom_name->c_str());
-                pos.x += fmax(0, (avail_size.x - s.x) / 2) + _name_mov.pos;
-                pos.y += (_texture == nullptr ? (avail_size.y - s.y) / 2 : 10);
+                My_ImGui_HighlightText(rom_name->c_str(), text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
+            }
 
-                My_ImGui_HighlightText(rom_name->c_str(), pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
+            if (_info.size() > 0)
+            {
+                ImVec2 text_size = ImGui::CalcTextSize(_info.c_str());
+                ImVec2 text_pos = pos;
+
+                if (_texture)
+                {
+                    text_pos.y += avail_size.y - text_size.y - 10;
+                    My_ImGui_HighlightText(_info.c_str(), text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
+                }
+                else
+                {
+                    text_pos.y += (avail_size.y - text_size.y) / 2;
+                    if (rom_name && rom_name->size() > 0)
+                    {
+                        text_pos.y += text_size.y;
+                    }
+                    ImGui::SetCursorScreenPos(text_pos);
+                    ImGui::TextUnformatted(_info.c_str());
+                }
             }
 
             ImGui::NextColumn();
@@ -238,8 +260,29 @@ void TabFavorite::_UpdateTexture()
     }
 }
 
+void TabFavorite::_UpdateInfo()
+{
+    if (_info.size() > 0)
+    {
+        gVideo->Lock();
+        _info = "";
+        gVideo->Unlock();
+    }
+
+    auto iter = gFavorites->begin();
+    std::advance(iter, _index);
+    const Favorite &fav = iter->second;
+    std::string full_path = fav.path + "/" + fav.item.name;
+    gVideo->Lock();
+    _info = GetFileInfoString(full_path.c_str());
+    gVideo->Unlock();
+}
+
 void TabFavorite::_Update()
 {
     _UpdateStatus();
     _UpdateTexture();
+    _UpdateInfo();
+    _moving_status.Reset();
+    _name_moving_status.Reset();
 }

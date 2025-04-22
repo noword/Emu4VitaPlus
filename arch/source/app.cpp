@@ -202,7 +202,7 @@ void App::_Show()
 
     if (ImGui::Begin("Emu4Vita++ v" APP_VER_STR, NULL, ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoInputs))
     {
-        My_Imgui_ShowTimePower();
+        My_ImGui_ShowTimePower();
 
         ImVec2 pos = ImGui::GetWindowPos();
 

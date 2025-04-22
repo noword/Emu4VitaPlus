@@ -22,6 +22,7 @@ private:
     void _OnDialog(Input *input, int index);
     void _UpdateStatus();
     void _UpdateTexture();
+    void _UpdateInfo();
     void _Update() override;
 
     Dialog *_dialog;
@@ -30,4 +31,6 @@ private:
     float _texture_height;
     float _texture_max_width;
     float _texture_max_height;
+    TextMovingStatus _name_moving_status;
+    std::string _info;
 };
