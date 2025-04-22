@@ -7,7 +7,7 @@
         "Italian": "Scegli l'immagine BIOS da utilizzare. Il BIOS ufficiale deve essere fornito dall'utente. L'uso di un BIOS non ufficiale (o integrato) potrebbe causare problemi di incompatibilità con alcuni giochi. I migliori risultati si ottengono con il BIOS ufficiale Nintendo.",
         "French": "",
         "Spanish": "Elija la imagen del BIOS que desea utilizar. El BIOS oficial debe ser proporcionado por el usuario. El uso de un BIOS no oficial (o incorporado) puede causar problemas de incompatibilidad con algunos juegos. Los mejores resultados se logran con el BIOS oficial de Nintendo.",
-        "Russian": "",
+        "Russian": "Образ BIOS, который следует использовать. Официальный BIOS должен быть предоставлен пользователем. Использование неофициального (или встроенного) BIOS может вызвать проблемы несовместимости с некоторыми играми. Наилучшие результаты достигаются при использовании официального BIOS Nintendo.",
         "Comments": ""
     },
     {
@@ -18,7 +18,7 @@
         "Italian": "Selezione automatica",
         "French": "",
         "Spanish": "Selección automática",
-        "Russian": "",
+        "Russian": "Автоматический выбор",
         "Comments": ""
     },
     {
@@ -29,7 +29,7 @@
         "Italian": "BIOS integrato",
         "French": "",
         "Spanish": "BIOS Incorporado",
-        "Russian": "",
+        "Russian": "Встроенный BIOS",
         "Comments": ""
     },
     {
@@ -40,7 +40,7 @@
         "Italian": "BIOS originale",
         "French": "",
         "Spanish": "BIOS original",
-        "Russian": "",
+        "Russian": "Официальный BIOS",
         "Comments": ""
     },
     {
@@ -51,7 +51,7 @@
         "Italian": "Modalità di avvio",
         "French": "",
         "Spanish": "Modo de arranque",
-        "Russian": "",
+        "Russian": "Режим загрузки",
         "Comments": ""
     },
     {
@@ -62,7 +62,7 @@
         "Italian": "Scegli se avviare il BIOS prima del gioco o meno. Non c'è molta differenza tra le due modalità.",
         "French": "",
         "Spanish": "Elija si desea iniciar el BIOS antes del juego o no. No hay mucha diferencia en ninguno de los dos modos.",
-        "Russian": "",
+        "Russian": "Следует ли загружать BIOS перед игрой или нет. Между этими двумя режимами нет большой разницы.",
         "Comments": ""
     },
     {
@@ -73,7 +73,7 @@
         "Italian": "Avvia direttamente il gioco",
         "French": "",
         "Spanish": "Arranque del juego",
-        "Russian": "",
+        "Russian": "Загружать сразу игру",
         "Comments": ""
     },
     {
@@ -84,7 +84,7 @@
         "Italian": "Avvia il BIOS",
         "French": "",
         "Spanish": "Arranque de BIOS",
-        "Russian": "",
+        "Russian": "Загружать BIOS",
         "Comments": ""
     },
     {
@@ -95,7 +95,7 @@
         "Italian": "Salto fotogrammi",
         "French": "",
         "Spanish": "Salto de fotogramas",
-        "Russian": "",
+        "Russian": "Пропуск кадров",
         "Comments": ""
     },
     {
@@ -106,7 +106,7 @@
         "Italian": "Salta fotogrammi per evitare under-run del buffer audio (crepitio). Migliora le prestazioni a scapito della fluidità visiva. 'Auto' salta i fotogrammi quando consigliato dal frontend. 'Auto (Soglia)' utilizza l'impostazione 'Soglia di salto fotogrammi (%)'. 'Intervallo fisso' utilizza l'impostazione 'Intervallo di salto fotogrammi'.",
         "French": "",
         "Spanish": "Omita fotogramas para evitar que el búfer de audio se desborde (crepite). Mejora el rendimiento a expensas de la suavidad visual. 'Auto' se salta fotogramas cuando lo aconseja la interfaz. 'Auto (Threshold)' utiliza el ajuste 'Frameskip Threshold (%)'. 'Intervalo fijo' utiliza la configuración 'Intervalo de salto de fotogramas'.",
-        "Russian": "",
+        "Russian": "Пропускать кадры, чтобы избежать переполнения аудиобуфера (потрескиваний). Улучшает производительность за счёт визуальной плавности. [Автоматически] — пропускает кадры по указанию пользовательского интерфейса. [Автоматически (порог)] — использует значение параметра “Порог пропуска кадров (%)”. [Фиксированный интервал] — использует значение параметра “Интервал пропуска кадров”.",
         "Comments": ""
     },
     {
@@ -117,7 +117,7 @@
         "Italian": "disabilitato",
         "French": "",
         "Spanish": "Deshabilitado",
-        "Russian": "",
+        "Russian": "Отключено",
         "Comments": ""
     },
     {
@@ -128,7 +128,7 @@
         "Italian": "Automatico",
         "French": "",
         "Spanish": "Automático",
-        "Russian": "",
+        "Russian": "Автоматически",
         "Comments": ""
     },
     {
@@ -139,7 +139,7 @@
         "Italian": "Automatico (Soglia)",
         "French": "",
         "Spanish": "Automático (umbral)",
-        "Russian": "",
+        "Russian": "Автоматически (порог)",
         "Comments": ""
     },
     {
@@ -150,7 +150,7 @@
         "Italian": "Intervallo fisso",
         "French": "",
         "Spanish": "Intervalo fijo",
-        "Russian": "",
+        "Russian": "Фиксированный интервал",
         "Comments": ""
     },
     {
@@ -161,7 +161,7 @@
         "Italian": "Soglia di salto fotogrammi (%)",
         "French": "",
         "Spanish": "Umbral de salto de fotogramas (%)",
-        "Russian": "",
+        "Russian": "Порог пропуска кадров (%)",
         "Comments": ""
     },
     {
@@ -172,7 +172,7 @@
         "Italian": "Quando 'Salto fotogrammi' è impostato su 'Manuale', specifica la soglia di occupazione del buffer audio (percentuale) al di sotto della quale i fotogrammi verranno saltati. Valori più alti riducono il rischio di crepitio facendo cadere i fotogrammi più frequentemente.",
         "French": "",
         "Spanish": "Cuando 'Salto de fotogramas' se establece en 'Manual', especifica el umbral de ocupación del búfer de audio (porcentaje) por debajo del cual se omitirán los fotogramas. Los valores más altos reducen el riesgo de crujido al hacer que los fotogramas se caigan con más frecuencia.",
-        "Russian": "",
+        "Russian": "Если для параметра “Пропуск кадров” установлено значение [Вручную], этот параметр определяет пороговое значение заполнения аудиобуфера (в процентах), ниже которого кадры будут пропускаться. Более высокие значения приведут к более частому пропуску кадров, что снизит риск появления потрескиваний.",
         "Comments": ""
     },
     {
@@ -183,7 +183,7 @@
         "Italian": "Intervallo di salto fotogrammi",
         "French": "",
         "Spanish": "Intervalo de salto de fotogramas",
-        "Russian": "",
+        "Russian": "Интервал пропуска кадров",
         "Comments": ""
     },
     {
@@ -194,7 +194,7 @@
         "Italian": "Quando 'Salto fotogrammi' è impostato su 'Intervallo fisso', il valore impostato qui è il numero di fotogrammi omessi dopo il rendering di un fotogramma - ad esempio '0' = 60fps, '1' = 30fps, '2' = 15fps, ecc.",
         "French": "",
         "Spanish": "Cuando 'Salto de fotogramas' se establece en 'Intervalo fijo', el valor establecido aquí es el número de fotogramas omitidos después de que se procesa un fotograma, es decir, '0' = 60 fps, '1' = 30 fps, '2' = 15 fps, etc.",
-        "Russian": "",
+        "Russian": "Если для параметра “Пропуск кадров” установлено значение [Фиксированный интервал], то заданное здесь значение — это количество кадров, которые будут пропущены после отрисовки кадра. [0] — 60 кадров в секунду, [1] — 30 кадров в секунду, [2] — 15 кадров в секунду и так далее.",
         "Comments": ""
     },
     {
@@ -205,7 +205,7 @@
         "Italian": "Correzione colore",
         "French": "",
         "Spanish": "Corrección de color",
-        "Russian": "",
+        "Russian": "Цветокоррекция",
         "Comments": ""
     },
     {
@@ -216,7 +216,7 @@
         "Italian": "Regola i colori in uscita per corrispondere alla visualizzazione dell'hardware GBA reale.",
         "French": "",
         "Spanish": "Ajusta los colores de salida para que coincidan con la visualización del hardware GBA real.",
-        "Russian": "",
+        "Russian": "Настройка цвета в соответствии с отображением на ЖК-экране настоящего GBA.",
         "Comments": ""
     },
     {
@@ -227,7 +227,7 @@
         "Italian": "abilitato",
         "French": "",
         "Spanish": "Habilitado",
-        "Russian": "",
+        "Russian": "Включено",
         "Comments": ""
     },
     {
@@ -238,7 +238,7 @@
         "Italian": "Fusione inter-fotogramma",
         "French": "",
         "Spanish": "Mezcla entre fotogramas",
-        "Russian": "",
+        "Russian": "Межкадровое смешивание",
         "Comments": ""
     },
     {
@@ -249,7 +249,7 @@
         "Italian": "Simula gli effetti di ghosting LCD eseguendo una miscela 50:50 dei fotogrammi corrente e precedente. Necessario per il corretto funzionamento quando si gioca a giochi che sfruttano il ghosting LCD per effetti di trasparenza (F-Zero, la serie Boktai, ecc.).",
         "French": "",
         "Spanish": "Simula los efectos de efecto fantasma de la pantalla LCD realizando una mezcla 50:50 de los fotogramas actuales y anteriores. Necesario para el correcto funcionamiento cuando se juega a juegos que explotan el efecto fantasma de la pantalla LCD para efectos de transparencia (F-Zero, la serie Boktai, etc.).",
-        "Russian": "",
+        "Russian": "Имитация эффекта ореола ЖК-дисплея путём смешивания текущего и предыдущего кадров в равном соотношении (50:50). Необходимо для корректного отображения игр, использующих ореол ЖК-дисплея для создания эффекта прозрачности (F-Zero, серия Boktai и т.д.).",
         "Comments": ""
     },
     {
@@ -260,7 +260,7 @@
         "Italian": "Metodo di salvataggio di backup (Riavvio)",
         "French": "",
         "Spanish": "Método de guardado de copia de seguridad (reiniciar)",
-        "Russian": "",
+        "Russian": "Формат файлов сохранений (перезапуск)",
         "Comments": ""
     },
     {
@@ -271,7 +271,7 @@
         "Italian": "Scegli il formato dei dati utilizzato per i file di salvataggio delle cartucce. 'gpSP' può essere utilizzato per la compatibilità con la versione autonoma di gpSP. 'libretro' offre una migliore integrazione con il frontend.",
         "French": "",
         "Spanish": "Elija el formato de datos utilizado para los archivos de almacenamiento de cartuchos. 'gpSP' se puede utilizar para la compatibilidad con la versión independiente de gpSP. 'libretro' proporciona una mejor integración con la interfaz.",
-        "Russian": "",
+        "Russian": "Формат данных, который будет использоваться для файлов сохранений. Режим [gpSP] совместим с автономной версией gpSP. Режим [libretro] обеспечивает лучшую интеграцию с пользовательским интерфейсом.",
         "Comments": ""
     },
     {
@@ -282,7 +282,7 @@
         "Italian": "Ricompilatore dinamico",
         "French": "",
         "Spanish": "Recompilador dinámico",
-        "Russian": "",
+        "Russian": "Динамическая перекомпиляция",
         "Comments": ""
     },
     {
@@ -293,7 +293,7 @@
         "Italian": "Ricompila dinamicamente le istruzioni della CPU in istruzioni native. Migliora notevolmente le prestazioni, ma può ridurre l'accuratezza.",
         "French": "",
         "Spanish": "Recompile dinámicamente las instrucciones de la CPU a instrucciones nativas. Mejora en gran medida el rendimiento, pero puede reducir la precisión.",
-        "Russian": "",
+        "Russian": "Динамическая перекомпиляция инструкций процессора в собственные инструкции. Значительно повышает производительность, но может снизить точность.",
         "Comments": ""
     },
     {
@@ -304,7 +304,7 @@
         "Italian": "Intervallo del pulsante turbo",
         "French": "",
         "Spanish": "Intervalo de botón de disparo continuo",
-        "Russian": "",
+        "Russian": "Интервал между нажатиями кнопки Turbo",
         "Comments": ""
     },
     {
@@ -315,7 +315,7 @@
         "Italian": "Specifica l'intervallo di ripetizione (in fotogrammi) quando si tengono premuti i pulsanti Turbo A/B.",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Интервал между повторами нажатий (в кадрах) при удержании кнопок Turbo A/B.",
         "Comments": ""
     },
     {
@@ -326,7 +326,7 @@
         "Italian": "Hack di emulazione",
         "French": "",
         "Spanish": "Hacks de emulación",
-        "Russian": "",
+        "Russian": "Хаки эмуляции",
         "Comments": ""
     },
     {
@@ -337,7 +337,7 @@
         "Italian": "Configura i parametri di overclocking del processore e di accuratezza dell'emulazione che influiscono sulle prestazioni di basso livello e sulla compatibilità.",
         "French": "",
         "Spanish": "Configure los parámetros de precisión de emulación y overclocking del procesador que afectan al rendimiento y la compatibilidad de bajo nivel.",
-        "Russian": "",
+        "Russian": "Параметры разгона процессора и точности эмуляции, которые влияют на низкоуровневую производительность и совместимость.",
         "Comments": ""
     },
     {
@@ -348,7 +348,7 @@
         "Italian": "Regione della console (Riavvio)",
         "French": "",
         "Spanish": "Región de la consola (reiniciar)",
-        "Russian": "",
+        "Russian": "Регион консоли (перезапуск)",
         "Comments": ""
     },
     {
@@ -359,7 +359,7 @@
         "Italian": "Specifica da quale regione proviene il sistema. 'PAL' è 50hz, 'NTSC' è 60hz. I giochi funzioneranno più velocemente o più lentamente del normale se viene selezionata la regione errata.",
         "French": "",
         "Spanish": "Especifique la región de la que procede el sistema. 'PAL' es de 50hz, 'NTSC' es de 60hz. Los juegos se ejecutarán más rápido o más lento de lo normal si se selecciona la región incorrecta.",
-        "Russian": "",
+        "Russian": "Задаёт регион консоли. [PAL] — это 50 Гц, а [NTSC] — это 60 Гц. Если выбран неправильный регион, то игра будет работать быстрее или медленнее, чем было задумано изначально.",
         "Comments": ""
     },
     {
@@ -370,7 +370,7 @@
         "Italian": "Filtro audio",
         "French": "",
         "Spanish": "Filtro de audio",
-        "Russian": "",
+        "Russian": "Аудиофильтр",
         "Comments": ""
     },
     {
@@ -381,7 +381,7 @@
         "Italian": "Abilita un filtro audio passa-basso per ammorbidire gli artefatti degli acuti e imitare il suono 'bassy' dell'hardware SNES originale.",
         "French": "",
         "Spanish": "Habilita un filtro de audio de paso bajo para suavizar los artefactos de agudos e imitar el sonido \"grave\" del hardware original de SNES.",
-        "Russian": "",
+        "Russian": "Задействовать фильтр нижних частот для смягчения артефактов высоких частот и имитации «басовитого» оригинального звучания SNES.",
         "Comments": ""
     },
     {
@@ -392,7 +392,7 @@
         "Italian": "Livello del filtro audio",
         "French": "",
         "Spanish": "Nivel de filtro de audio",
-        "Russian": "",
+        "Russian": "Уровень аудиофильтра",
         "Comments": ""
     },
     {
@@ -403,7 +403,7 @@
         "Italian": "Specifica la frequenza di taglio del filtro audio passa-basso. Un valore più alto aumenta la 'forza' percepita del filtro, poiché una gamma più ampia dello spettro ad alta frequenza viene attenuata.",
         "French": "",
         "Spanish": "Especifique la frecuencia de corte del filtro de audio de paso bajo. Un valor más alto aumenta la \"fuerza\" percibida del filtro, ya que se atenúa un rango más amplio del espectro de alta frecuencia.",
-        "Russian": "",
+        "Russian": "Задаёт частоту среза фильтра низких частот. Более высокое значение увеличит воспринимаемую «силу» фильтра, поскольку при этом «ослабится» более широкий диапазон спектра высоких частот.",
         "Comments": ""
     },
     {
@@ -414,7 +414,7 @@
         "Italian": "Riduzione rallentamenti (Hack, Non sicuro, Riavvio)",
         "French": "",
         "Spanish": "Reducir la ralentización (hack, inestable, reiniciar)",
-        "Russian": "",
+        "Russian": "Сокращение замедлений (нестабильно)",
         "Comments": ""
     },
     {
@@ -425,7 +425,7 @@
         "Italian": "Molti giochi per SNES soffrivano di rallentamenti a causa della debole CPU principale. Questa opzione aiuta a mitigare ciò al costo di possibili bug. COMPATIBILE: riduce i rallentamenti ma mantiene la compatibilità con i giochi il più possibile. MASSIMO: riduce i rallentamenti il più possibile ma romperà più giochi.",
         "French": "",
         "Spanish": "Muchos juegos para SNES sufrieron una ralentización debido a la debilidad de la CPU principal. Esta opción ayuda a aliviar eso a costa de posibles errores. COMPATIBLE: Reduce la ralentización pero mantén la mayor compatibilidad posible con el juego. MAX: Reduce la ralentización tanto como sea posible, pero romperá más juegos.",
-        "Russian": "",
+        "Russian": "Многие игры для SNES страдают от замедлений из-за слабого основного процессора. Этот параметр помогает устранить эту проблему ценой возможных ошибок. [Compatible] — уменьшает замедление, по возможности сохраняя максимальную совместимость с играми. [Max] — максимально устраняет замедление, но может существенно нарушить игровой процесс. Необходим перезапуск.",
         "Comments": ""
     },
     {
@@ -436,7 +436,7 @@
         "Italian": "Riduzione sfarfallio (Hack, Non sicuro)",
         "French": "",
         "Spanish": "Reducir el parpadeo (hack, inestable)",
-        "Russian": "",
+        "Russian": "Уменьшение мерцания (нестабильно)",
         "Comments": ""
     },
     {
@@ -447,7 +447,7 @@
         "Italian": "Collegamento di gioco",
         "French": "",
         "Spanish": "Enlace del juego",
-        "Russian": "",
+        "Russian": "Game Link",
         "Comments": ""
     },
     {
@@ -458,7 +458,7 @@
         "Italian": "Modifica le impostazioni del collegamento di gioco in rete (multiplayer).",
         "French": "",
         "Spanish": "Cambiaré la configuración del enlace de juego en red (multijugador).",
-        "Russian": "",
+        "Russian": "Изменение сетевых настроек Game Link (многопользовательский режим).",
         "Comments": ""
     },
     {
@@ -469,7 +469,7 @@
         "Italian": "interno",
         "French": "",
         "Spanish": "Interno",
-        "Russian": "",
+        "Russian": "Внутренний",
         "Comments": ""
     },
     {
@@ -480,7 +480,7 @@
         "Italian": "personalizzato",
         "French": "",
         "Spanish": "Personalizado",
-        "Russian": "",
+        "Russian": "Настраиваемый",
         "Comments": ""
     },
     {
@@ -491,7 +491,7 @@
         "Italian": "Colorazione GB",
         "French": "",
         "Spanish": "Colorización GB",
-        "Russian": "",
+        "Russian": "Колоризация GB",
         "Comments": ""
     },
     {
@@ -502,7 +502,7 @@
         "Italian": "Tavolozza interna",
         "French": "",
         "Spanish": "Paleta interna",
-        "Russian": "",
+        "Russian": "Внутренняя палитра",
         "Comments": ""
     },
     {
@@ -513,7 +513,7 @@
         "Italian": "Seleziona la tavolozza utilizzata per colorare i giochi Game Boy quando 'Colorazione GB' è impostata su 'Interno', o quando 'Colorazione GB' è impostata su 'Automatico' e il gioco non ha una tavolozza SGB/GBC predefinita. Le tavolozze 'GB' imitano la visualizzazione dell'hardware Game Boy originale. Le tavolozze 'GBC' sono identiche ai preset integrati di Game Boy Color. Le tavolozze 'SGB' sono identiche ai preset integrati di Super Game Boy.",
         "French": "",
         "Spanish": "Selecciona la paleta utilizada para colorear los juegos de Game Boy cuando 'Coloración GB' está configurada en 'Interna', o cuando 'Coloración GB' está configurada en 'Automático' y el juego no tiene una paleta SGB/GBC predefinida. Las paletas 'GB' imitan la pantalla del hardware original de Game Boy. Las paletas 'GBC' son idénticas a los ajustes preestablecidos incorporados de Game Boy Color. Las paletas 'SGB' son idénticas a los ajustes preestablecidos incorporados de la Super Game Boy.",
-        "Russian": "",
+        "Russian": "Палитра, используемая для колоризации игр Game Boy, если для параметра “Колоризация GB” установлено значение [Внутренняя], или если для параметра “Колоризация GB” установлено значение [Автоматически] и в игре нет предустановленной палитры SGB/GBC. Палитры 'GB' имитируют отображение настоящего Game Boy. Палитры 'GBC' идентичны встроенным предустановкам Game Boy Color. Палитры 'SGB' идентичны встроенным предустановкам Super Game Boy.",
         "Comments": ""
     },
     {
@@ -524,7 +524,7 @@
         "Italian": "> TWB64 - Pack 1 Tavolozza",
         "French": "",
         "Spanish": "> TWB64 - Pack 1 Paleta",
-        "Russian": "",
+        "Russian": "Палитра TWB64 - Pack 1",
         "Comments": ""
     },
     {
@@ -535,7 +535,7 @@
         "Italian": "> TWB64 - Pack 2 Tavolozza",
         "French": "",
         "Spanish": "> TWB64 - Pack 2 Paleta",
-        "Russian": "",
+        "Russian": "Палитра TWB64 - Pack 2",
         "Comments": ""
     },
     {
@@ -546,7 +546,7 @@
         "Italian": "> PixelShift - Pack 1 Tavolozza",
         "French": "",
         "Spanish": "> PixelShift - Pack 1 Paleta",
-        "Russian": "",
+        "Russian": "Палитра PixelShift - Pack 1",
         "Comments": ""
     },
     {
@@ -557,7 +557,7 @@
         "Italian": "Solo GBC",
         "French": "",
         "Spanish": "Solo GBC",
-        "Russian": "",
+        "Russian": "Только GBC",
         "Comments": ""
     },
     {
@@ -568,7 +568,7 @@
         "Italian": "Sempre",
         "French": "",
         "Spanish": "Siempre",
-        "Russian": "",
+        "Russian": "Всегда",
         "Comments": ""
     },
     {
@@ -579,7 +579,7 @@
         "Italian": "Modalità correzione colore",
         "French": "",
         "Spanish": "Modo de corrección de color",
-        "Russian": "",
+        "Russian": "Режим цветокоррекции",
         "Comments": ""
     },
     {
@@ -590,7 +590,7 @@
         "Italian": "Preciso",
         "French": "",
         "Spanish": "Preciso",
-        "Russian": "",
+        "Russian": "Точно",
         "Comments": ""
     },
     {
@@ -601,7 +601,7 @@
         "Italian": "Veloce",
         "French": "",
         "Spanish": "Rápido",
-        "Russian": "",
+        "Russian": "Быстро",
         "Comments": ""
     },
     {
@@ -612,7 +612,7 @@
         "Italian": "Correzione colore - Posizione luce frontale",
         "French": "",
         "Spanish": "Corrección de color - Posición de la luz frontal",
-        "Russian": "",
+        "Russian": "Положение передней подсветки",
         "Comments": ""
     },
     {
@@ -623,7 +623,7 @@
         "Italian": "Centrale",
         "French": "",
         "Spanish": "Centrar",
-        "Russian": "",
+        "Russian": "По центру",
         "Comments": ""
     },
     {
@@ -634,7 +634,7 @@
         "Italian": "Sopra lo schermo",
         "French": "",
         "Spanish": "Sobre la pantalla",
-        "Russian": "",
+        "Russian": "Выше экрана",
         "Comments": ""
     },
     {
@@ -645,7 +645,7 @@
         "Italian": "Sotto lo schermo",
         "French": "",
         "Spanish": "Debajo de la pantalla",
-        "Russian": "",
+        "Russian": "Ниже экрана",
         "Comments": ""
     },
     {
@@ -656,7 +656,7 @@
         "Italian": "Livello filtro scuro (%)",
         "French": "",
         "Spanish": "Nivel de filtro oscuro (%)",
-        "Russian": "",
+        "Russian": "Уровень тёмного фильтра (%)",
         "Comments": ""
     },
     {
@@ -667,7 +667,7 @@
         "Italian": "Semplice",
         "French": "",
         "Spanish": "Simple",
-        "Russian": "",
+        "Russian": "Просто",
         "Comments": ""
     },
     {
@@ -678,7 +678,7 @@
         "Italian": "Ghosting LCD (Preciso)",
         "French": "",
         "Spanish": "Fantasma LCD (preciso)",
-        "Russian": "",
+        "Russian": "Ореол ЖК-дисплея (Точно)",
         "Comments": ""
     },
     {
@@ -689,7 +689,7 @@
         "Italian": "Ghosting LCD (Veloce)",
         "French": "",
         "Spanish": "Fantasma LCD (rápido)",
-        "Russian": "",
+        "Russian": "Ореол ЖК-дисплея (Быстро)",
         "Comments": ""
     },
     {
@@ -700,7 +700,7 @@
         "Italian": "Ricampionatore audio",
         "French": "",
         "Spanish": "Resampleador de audio",
-        "Russian": "",
+        "Russian": "Передискретизация звука",
         "Comments": ""
     },
     {
@@ -711,7 +711,7 @@
         "Italian": "Hardware emulato (Riavvio richiesto)",
         "French": "",
         "Spanish": "Hardware emulado (es necesario reiniciar)",
-        "Russian": "",
+        "Russian": "Эмулируемое оборудование (перезапуск)",
         "Comments": ""
     },
     {
@@ -722,7 +722,7 @@
         "Italian": "Usa bootloader ufficiale (Riavvio richiesto)",
         "French": "",
         "Spanish": "Usar el bootloader oficial (reiniciar)",
-        "Russian": "",
+        "Russian": "Официальный загрузчик (перезапуск)",
         "Comments": ""
     },
     {
@@ -733,7 +733,7 @@
         "Italian": "Consenti direzioni opposte",
         "French": "",
         "Spanish": "Permitir direcciones opuestas",
-        "Russian": "",
+        "Russian": "Разрешить противоположные направления",
         "Comments": ""
     },
     {
@@ -744,7 +744,7 @@
         "Italian": "Forza vibrazione controller",
         "French": "",
         "Spanish": "Intensidad de vibración del controlador",
-        "Russian": "",
+        "Russian": "Интенсивность вибрации контроллера",
         "Comments": ""
     },
     {
@@ -755,7 +755,7 @@
         "Italian": "Mostra impostazioni collegamento gioco",
         "French": "",
         "Spanish": "Mostrar configuración del enlace del juego",
-        "Russian": "",
+        "Russian": "Показать настройки Game Link",
         "Comments": ""
     },
     {
@@ -766,7 +766,7 @@
         "Italian": "Modalità collegamento gioco",
         "French": "",
         "Spanish": "Modo de enlace de juego",
-        "Russian": "",
+        "Russian": "Режим Game Link",
         "Comments": ""
     },
     {
@@ -777,7 +777,7 @@
         "Italian": "Non connesso",
         "French": "",
         "Spanish": "Desconectado",
-        "Russian": "",
+        "Russian": "Не подключено",
         "Comments": ""
     },
     {
@@ -788,7 +788,7 @@
         "Italian": "Server di rete",
         "French": "",
         "Spanish": "Servidor de red",
-        "Russian": "",
+        "Russian": "Сетевой сервер",
         "Comments": ""
     },
     {
@@ -799,7 +799,7 @@
         "Italian": "Client di rete",
         "French": "",
         "Spanish": "Cliente de red",
-        "Russian": "",
+        "Russian": "Сетевой клиент",
         "Comments": ""
     },
     {
@@ -810,7 +810,7 @@
         "Italian": "Porta collegamento rete",
         "French": "",
         "Spanish": "Puerta de enlace de red",
-        "Russian": "",
+        "Russian": "Порт сетевого подключения",
         "Comments": ""
     },
     {
@@ -821,7 +821,7 @@
         "Italian": "Porta",
         "French": "",
         "Spanish": "Puerta de enlace de red",
-        "Russian": "",
+        "Russian": "Порт",
         "Comments": ""
     },
     {
@@ -832,7 +832,7 @@
         "Italian": "Regione",
         "French": "",
         "Spanish": "Región",
-        "Russian": "",
+        "Russian": "Регион",
         "Comments": ""
     },
     {
@@ -843,7 +843,7 @@
         "Italian": "Forza il core a utilizzare i tempi delle regioni NTSC, PAL o Dendy.",
         "French": "",
         "Spanish": "Forza a utilizar el temporizador de región NTSC, PAL o Dendy.",
-        "Russian": "",
+        "Russian": "Принудительно использовать региональные тайминги NTSC, PAL или Dendy.",
         "Comments": ""
     },
     {
@@ -854,7 +854,7 @@
         "Italian": "Add-on Game Genie (Riavvio richiesto)",
         "French": "",
         "Spanish": "Game Genie add-on (reiniciar)",
-        "Russian": "",
+        "Russian": "Дополнение Game Genie (перезапуск)",
         "Comments": ""
     },
     {
@@ -865,7 +865,7 @@
         "Italian": "Abilita l'emulazione di una cartuccia add-on Game Genie, consentendo l'inserimento di codici cheat all'avvio dei giochi. Il file ROM di Game Genie 'gamegenie.nes' deve essere presente nella directory di sistema del frontend. Non si applica ai contenuti FDS o arcade.",
         "French": "",
         "Spanish": "Habilita la emulación del cartucho de expansión Game Genie para permitir ingresar códigos de trampa al iniciar el juego. El archivo ROM de Game Genie \"gamegenie.nes\" debe existir en el directorio del sistema del frontend. No se aplica a contenido de FDS o arcade.",
-        "Russian": "",
+        "Russian": "Имитация устройства Game Genie, позволяющего вводить чит-коды при запуске игр. Файл ПЗУ Game Genie (gamegenie.nes) должен находиться в системном каталоге пользовательского интерфейса. Не применимо к FDS или аркадному контенту.",
         "Comments": ""
     },
     {
@@ -876,7 +876,7 @@
         "Italian": "Mostra opzioni di sistema avanzate",
         "French": "",
         "Spanish": "Mostrar opciones avanzadas del sistema",
-        "Russian": "",
+        "Russian": "Дополнительные параметры системы",
         "Comments": ""
     },
     {
@@ -887,7 +887,7 @@
         "Italian": "Mostra opzioni e modifiche avanzate del sistema.",
         "French": "",
         "Spanish": "Muestra opciones y ajustes avanzados del sistema.",
-        "Russian": "",
+        "Russian": "Показывать дополнительные параметры системы и их тонкие настройки.",
         "Comments": ""
     },
     {
@@ -898,7 +898,7 @@
         "Italian": "Mostra opzioni audio avanzate",
         "French": "",
         "Spanish": "Mostrar opciones de sonido avanzadas",
-        "Russian": "",
+        "Russian": "Дополнительные параметры звука",
         "Comments": ""
     },
     {
@@ -909,7 +909,7 @@
         "Italian": "Mostra opzioni e modifiche audio avanzate.",
         "French": "",
         "Spanish": "Muestra opciones de sonido avanzadas y ajustes.",
-        "Russian": "",
+        "Russian": "Показывать дополнительные параметры звука и их тонкие настройки.",
         "Comments": ""
     },
     {
@@ -920,7 +920,7 @@
         "Italian": "Proporzioni",
         "French": "",
         "Spanish": "Relación de aspecto",
-        "Russian": "",
+        "Russian": "Соотношение сторон",
         "Comments": ""
     },
     {
@@ -931,7 +931,7 @@
         "Italian": "Scegli le proporzioni preferite.",
         "French": "",
         "Spanish": "Elija la relación de aspecto preferida.",
-        "Russian": "",
+        "Russian": "Предпочтительное соотношение сторон.",
         "Comments": ""
     },
     {
@@ -942,7 +942,7 @@
         "Italian": "Pixel perfetto",
         "French": "",
         "Spanish": "Píxel perfecto",
-        "Russian": "",
+        "Russian": "Пиксель в пиксель",
         "Comments": ""
     },
     {
@@ -953,7 +953,7 @@
         "Italian": "Ritaglia l'overscan",
         "French": "",
         "Spanish": "Sobreescaneo de recorte",
-        "Russian": "",
+        "Russian": "Обрезка вылетов развёртки",
         "Comments": ""
     },
     {
@@ -964,7 +964,7 @@
         "Italian": "Rimuove 8 pixel di overscan da tutti i lati dello schermo.",
         "French": "",
         "Spanish": "Elimina el sobreescaneo de 8 píxeles de todos los lados de la pantalla.",
-        "Russian": "",
+        "Russian": "Обрезать вылеты развёртки по 8 пикселей с каждой стороны.",
         "Comments": ""
     },
     {
@@ -975,7 +975,7 @@
         "Italian": "Ritaglia l'overscan orizzontale sinistro",
         "French": "",
         "Spanish": "Recortar horizontal a la izquierda",
-        "Russian": "",
+        "Russian": "Обрезать левый вылет развёртки",
         "Comments": ""
     },
     {
@@ -986,7 +986,7 @@
         "Italian": "Rimuove i pixel dal lato sinistro dello schermo per simulare l'overscan visto sui televisori CRT standard.",
         "French": "",
         "Spanish": "Elimina los píxeles del lado izquierdo de la pantalla para simular el sobreescaneo que se ve en los televisores CRT estándar.",
-        "Russian": "",
+        "Russian": "Удалить пиксели с левой стороны экрана для имитации обрезки вылетов развёртки, наблюдаемого на стандартных ЭЛТ-телевизорах.",
         "Comments": ""
     },
     {
@@ -997,7 +997,7 @@
         "Italian": "Ritaglia l'overscan orizzontale destro",
         "French": "",
         "Spanish": "Recortar sobrebarrido horizontal a la derecha",
-        "Russian": "",
+        "Russian": "Обрезать правый вылет развёртки",
         "Comments": ""
     },
     {
@@ -1008,7 +1008,7 @@
         "Italian": "Rimuove i pixel dal lato destro dello schermo per simulare l'overscan visto sui televisori CRT standard.",
         "French": "",
         "Spanish": "Elimina los píxeles del lado derecho de la pantalla para simular el sobreescaneo que se ve en los televisores CRT estándar.",
-        "Russian": "",
+        "Russian": "Удалить пиксели с правой стороны экрана для имитации обрезки вылетов развёртки, наблюдаемого на стандартных ЭЛТ-телевизорах.",
         "Comments": ""
     },
     {
@@ -1019,7 +1019,7 @@
         "Italian": "Ritaglia l'overscan verticale superiore",
         "French": "",
         "Spanish": "Recorte vertical de sobrebarrido superior",
-        "Russian": "",
+        "Russian": "Обрезать верхний вылет развёртки",
         "Comments": ""
     },
     {
@@ -1030,7 +1030,7 @@
         "Italian": "Rimuove i pixel dalla parte superiore dello schermo per simulare l'overscan visto sui televisori CRT standard.",
         "French": "",
         "Spanish": "Elimina los píxeles de la parte superior de la pantalla para simular el overscan que se ve en los televisores CRT estándar.",
-        "Russian": "",
+        "Russian": "Удалить пиксели верхней части экрана для имитации обрезки вылетов развёртки, наблюдаемого на стандартных ЭЛТ-телевизорах.",
         "Comments": ""
     },
     {
@@ -1041,7 +1041,7 @@
         "Italian": "Ritaglia l'overscan verticale inferiore",
         "French": "",
         "Spanish": "Recortar sobrebarrido inferior vertical",
-        "Russian": "",
+        "Russian": "Обрезать нижний вылет развёртки",
         "Comments": ""
     },
     {
@@ -1052,7 +1052,7 @@
         "Italian": "Rimuove i pixel dalla parte inferiore dello schermo per simulare l'overscan visto sui televisori CRT standard.",
         "French": "",
         "Spanish": "Elimina los píxeles de la parte inferior de la pantalla para simular el overscan que se ve en los televisores CRT estándar.",
-        "Russian": "",
+        "Russian": "Удалить пиксели нижней части экрана для имитации обрезки вылетов развёртки, наблюдаемого на стандартных ЭЛТ-телевизорах.",
         "Comments": ""
     },
     {
@@ -1063,7 +1063,7 @@
         "Italian": "Tavolozza colori",
         "French": "",
         "Spanish": "Paleta de colores",
-        "Russian": "",
+        "Russian": "Цветовая палитра",
         "Comments": ""
     },
     {
@@ -1074,7 +1074,7 @@
         "Italian": "Scegli tra tavolozze pre-generate, una tavolozza personalizzata 64x3 da file o formato raw (deve utilizzare uno shader nes-decoder).",
         "French": "",
         "Spanish": "Elija entre paletas pregeneradas, una paleta personalizada de 64x3 de formato de archivo o sin procesar (necesita usar un sombreador nes-decoder).",
-        "Russian": "",
+        "Russian": "Выбор из предварительно сгенерированных палитр, пользовательских палитр 64x3 из файла или из формата raw (необходим шейдер nes-decoder).",
         "Comments": ""
     },
     {
@@ -1085,7 +1085,7 @@
         "Italian": "Filtro NTSC",
         "French": "",
         "Spanish": "Filtro NTSC",
-        "Russian": "",
+        "Russian": "Фильтр NTSC",
         "Comments": ""
     },
     {
@@ -1096,7 +1096,7 @@
         "Italian": "I filtri NTSC di Blargg sono utilizzati per replicare i segnali RF, composito, S-Video e RGB.",
         "French": "",
         "Spanish": "Los filtros NTSC de Blargg se utilizan para replicar señales de cable RF, Compuesto, S-Video y RGB.",
-        "Russian": "",
+        "Russian": "Фильтры NTSC от Blargg используются для имитации радиочастотных (RF), композитных, S-Video и RGB кабельных сигналов.",
         "Comments": ""
     },
     {
@@ -1107,7 +1107,7 @@
         "Italian": "Qualità audio",
         "French": "",
         "Spanish": "Calidad de sonido",
-        "Russian": "",
+        "Russian": "Уровень качества звука",
         "Comments": ""
     },
     {
@@ -1118,7 +1118,7 @@
         "Italian": "Abilita un suono di qualità superiore. Aumenta i requisiti di prestazioni.",
         "French": "",
         "Spanish": "Permite un sonido de mayor calidad. Aumenta los requisitos de rendimiento.",
-        "Russian": "",
+        "Russian": "Более качественный звук повышает требования к производительности устройства.",
         "Comments": ""
     },
     {
@@ -1129,7 +1129,7 @@
         "Italian": "Filtro RF audio",
         "French": "",
         "Spanish": "Filtro RF audio",
-        "Russian": "",
+        "Russian": "RF аудиофильтр",
         "Comments": ""
     },
     {
@@ -1140,7 +1140,7 @@
         "Italian": "Applica un filtro audio passa-basso per simulare il suono 'smorzato' del NES quando è connesso a un televisore tramite il modulatore RF.",
         "French": "",
         "Spanish": "Aplique un filtro de audio de paso bajo para simular el sonido \"silenciado\" de la NES cuando se conecta a un televisor a través del modulador de RF.",
-        "Russian": "",
+        "Russian": "Низкочастотный аудиофильтр для имитации эффекта «приглушённого» звука NES, подключённой к телевизору через радиочастотный (RF) модулятор.",
         "Comments": ""
     },
     {
@@ -1151,7 +1151,7 @@
         "Italian": "Effetto stereo",
         "French": "",
         "Spanish": "Efecto de sonido estéreo",
-        "Russian": "",
+        "Russian": "Эффект стереозвука",
         "Comments": ""
     },
     {
@@ -1162,7 +1162,7 @@
         "Italian": "Abilita un effetto stereo falso ritardando il canale audio destro durante l'upmix del segnale mono in uscita dal NES.",
         "French": "",
         "Spanish": "Habilite un efecto de sonido estéreo falso retrasando el canal de audio derecho al mezclar la salida de señal mono de la NES.",
-        "Russian": "",
+        "Russian": "Задействовать эффект поддельного стереозвука, задержав правый аудиоканал при повышающем микшировании монофонического сигнала, поступающего с NES.",
         "Comments": ""
     },
     {
@@ -1173,7 +1173,7 @@
         "Italian": "Scambia i cicli di lavoro audio",
         "French": "",
         "Spanish": "Intercambiar ciclos de trabajo de audio",
-        "Russian": "",
+        "Russian": "Изменить рабочие циклы аудио",
         "Comments": ""
     },
     {
@@ -1184,7 +1184,7 @@
         "Italian": "Scambia i cicli di lavoro",
         "French": "",
         "Spanish": "Intercambiar ciclos de trabajo",
-        "Russian": "",
+        "Russian": "Изменить рабочие циклы",
         "Comments": ""
     },
     {
@@ -1195,7 +1195,7 @@
         "Italian": "Simula il suono dei famicloni che hanno i bit del ciclo di lavoro dei canali dell'onda quadra invertiti.",
         "French": "",
         "Spanish": "Simula el sonido de los famiclones que tienen los canales de onda de pulso bits de ciclo de trabajo invertidos.",
-        "Russian": "",
+        "Russian": "Имитация звука фамиклонов, у которых перепутана скважность прямоугольных импульсных сигналов.",
         "Comments": ""
     },
     {
@@ -1206,7 +1206,7 @@
         "Italian": "Volume principale",
         "French": "",
         "Spanish": "Volumen Maestro",
-        "Russian": "",
+        "Russian": "Общая громкость",
         "Comments": ""
     },
     {
@@ -1217,7 +1217,7 @@
         "Italian": "Cambia il livello del volume principale.",
         "French": "",
         "Spanish": "Cambie el nivel de volumen maestro.",
-        "Russian": "",
+        "Russian": "Изменить уровень общей громкости.",
         "Comments": ""
     },
     {
@@ -1228,7 +1228,7 @@
         "Italian": "Canale audio 1 (Onda quadra 1)",
         "French": "",
         "Spanish": "Canal de audio 1 (onda cuadrada 1)",
-        "Russian": "",
+        "Russian": "Аудиоканал 1 (прямоугольная волна 1)",
         "Comments": ""
     },
     {
@@ -1239,7 +1239,7 @@
         "Italian": "Abilita o disabilita l'uscita audio 1 del generatore di onde quadre.",
         "French": "",
         "Spanish": "Activa o desactiva la salida de audio 1 del generador de onda cuadrada.",
-        "Russian": "",
+        "Russian": "Включить или выключить аудиовыход 1-го генератора импульсных волн.",
         "Comments": ""
     },
     {
@@ -1250,7 +1250,7 @@
         "Italian": "Canale audio 2 (Onda quadra 2)",
         "French": "",
         "Spanish": "Canal de audio 2 (onda cuadrada 2)",
-        "Russian": "",
+        "Russian": "Аудиоканал 2 (прямоугольная волна 2)",
         "Comments": ""
     },
     {
@@ -1261,7 +1261,7 @@
         "Italian": "Abilita o disabilita l'uscita audio 2 del generatore di onde quadre.",
         "French": "",
         "Spanish": "Habilite o deshabilite la salida de audio 2 del generador de onda cuadrada.",
-        "Russian": "",
+        "Russian": "Включить или выключить аудиовыход 2-го генератора импульсных волн.",
         "Comments": ""
     },
     {
@@ -1272,7 +1272,7 @@
         "Italian": "Canale audio 3 (Onda triangolare)",
         "French": "",
         "Spanish": "Canal de audio 3 (onda triangular)",
-        "Russian": "",
+        "Russian": "Аудиоканал 3 (треугольная волна)",
         "Comments": ""
     },
     {
@@ -1283,7 +1283,7 @@
         "Italian": "Abilita o disabilita l'uscita audio del generatore di onde triangolari.",
         "French": "",
         "Spanish": "Habilite o deshabilite la salida de audio del generador de ondas triangulares.",
-        "Russian": "",
+        "Russian": "Включить или выключить аудиовыход генератора треугольной волны.",
         "Comments": ""
     },
     {
@@ -1294,7 +1294,7 @@
         "Italian": "Canale audio 4 (Rumore)",
         "French": "",
         "Spanish": "Canal de audio 4 (Ruido)",
-        "Russian": "",
+        "Russian": "Аудиоканал 4 (шум)",
         "Comments": ""
     },
     {
@@ -1305,7 +1305,7 @@
         "Italian": "Abilita o disabilita l'uscita audio del generatore di rumore.",
         "French": "",
         "Spanish": "Habilite o deshabilite la salida de audio del generador de ruido.",
-        "Russian": "",
+        "Russian": "Включить или выключить аудиовыход генератора шума.",
         "Comments": ""
     },
     {
@@ -1316,7 +1316,7 @@
         "Italian": "Canale audio 5 (PCM)",
         "French": "",
         "Spanish": "Canal de audio 5 (PCM)",
-        "Russian": "",
+        "Russian": "Аудиоканал 5 (ИКМ)",
         "Comments": ""
     },
     {
@@ -1327,7 +1327,7 @@
         "Italian": "Abilita o disabilita l'uscita audio del canale di modulazione delta.",
         "French": "",
         "Spanish": "Activa o desactiva la salida de audio del canal de modulación delta.",
-        "Russian": "",
+        "Russian": "Включить или выключить аудиовыход канала дельта-модуляции.",
         "Comments": ""
     },
     {
@@ -1338,7 +1338,7 @@
         "Italian": "Abilita turbo",
         "French": "",
         "Spanish": "Habilitar Turbo",
-        "Russian": "",
+        "Russian": "Задействовать кнопки Turbo",
         "Comments": ""
     },
     {
@@ -1349,7 +1349,7 @@
         "Italian": "Abilita o disabilita i pulsanti turbo.",
         "French": "",
         "Spanish": "Activa o desactiva los botones turbo.",
-        "Russian": "",
+        "Russian": "Включить или отключить кнопки Turbo.",
         "Comments": ""
     },
     {
@@ -1360,7 +1360,7 @@
         "Italian": "Ritardo turbo (in fotogrammi)",
         "French": "",
         "Spanish": "Retardo Turbo (en fotogramas)",
-        "Russian": "",
+        "Russian": "Задержка Turbo (в кадрах)",
         "Comments": ""
     },
     {
@@ -1371,7 +1371,7 @@
         "Italian": "Frequenza di ripetizione dei pulsanti turbo in fotogrammi.",
         "French": "",
         "Spanish": "Frecuencia de repetición de los botones turbo en los fotogramas.",
-        "Russian": "",
+        "Russian": "Частота повтора нажатий кнопок Turbo в кадрах.",
         "Comments": ""
     },
     {
@@ -1382,7 +1382,7 @@
         "Italian": "Modalità Zapper",
         "French": "",
         "Spanish": "Modo Zapper",
-        "Russian": "",
+        "Russian": "Режим светового пистолета",
         "Comments": ""
     },
     {
@@ -1393,7 +1393,7 @@
         "Italian": "Seleziona il dispositivo da utilizzare per i giochi Zapper.",
         "French": "",
         "Spanish": "Seleccione el dispositivo que desea usar para los juegos de Zapper.",
-        "Russian": "",
+        "Russian": "Устройство, которое будет использоваться для игр со световым пистолетом.",
         "Comments": ""
     },
     {
@@ -1404,7 +1404,7 @@
         "Italian": "Turbo A",
         "French": "",
         "Spanish": "Turbo A",
-        "Russian": "",
+        "Russian": "Turbo A",
         "Comments": ""
     },
     {
@@ -1415,7 +1415,7 @@
         "Italian": "Turbo B",
         "French": "",
         "Spanish": "Turbo B",
-        "Russian": "",
+        "Russian": "Turbo B",
         "Comments": ""
     },
     {
@@ -1426,7 +1426,7 @@
         "Italian": "Seleziona",
         "French": "",
         "Spanish": "Select",
-        "Russian": "",
+        "Russian": "SELECT",
         "Comments": ""
     },
     {
@@ -1437,7 +1437,7 @@
         "Italian": "Start",
         "French": "",
         "Spanish": "Start",
-        "Russian": "",
+        "Russian": "START",
         "Comments": ""
     },
     {
@@ -1448,7 +1448,7 @@
         "Italian": "D-Pad Su",
         "French": "",
         "Spanish": "D-Pad Arriba",
-        "Russian": "",
+        "Russian": "D-Pad вверх",
         "Comments": ""
     },
     {
@@ -1459,7 +1459,7 @@
         "Italian": "D-Pad Giù",
         "French": "",
         "Spanish": "D-Pad Abajo",
-        "Russian": "",
+        "Russian": "D-Pad вниз",
         "Comments": ""
     },
     {
@@ -1470,7 +1470,7 @@
         "Italian": "D-Pad Sinistra",
         "French": "",
         "Spanish": "D-Pad Izquierda",
-        "Russian": "",
+        "Russian": "D-Pad влево",
         "Comments": ""
     },
     {
@@ -1481,7 +1481,7 @@
         "Italian": "D-Pad Destra",
         "French": "",
         "Spanish": "D-Pad Derecha",
-        "Russian": "",
+        "Russian": "D-Pad вправо",
         "Comments": ""
     },
     {
@@ -1492,7 +1492,7 @@
         "Italian": "L",
         "French": "",
         "Spanish": "L",
-        "Russian": "",
+        "Russian": "L",
         "Comments": ""
     },
     {
@@ -1503,7 +1503,7 @@
         "Italian": "R",
         "French": "",
         "Spanish": "R",
-        "Russian": "",
+        "Russian": "R",
         "Comments": ""
     },
     {
@@ -1514,7 +1514,7 @@
         "Italian": "Moneta",
         "French": "",
         "Spanish": "Moneda",
-        "Russian": "",
+        "Russian": "Монета",
         "Comments": ""
     },
     {
@@ -1525,7 +1525,7 @@
         "Italian": "Su",
         "French": "",
         "Spanish": "Arriba",
-        "Russian": "",
+        "Russian": "Вверх",
         "Comments": ""
     },
     {
@@ -1536,7 +1536,7 @@
         "Italian": "Giù",
         "French": "",
         "Spanish": "Abajo",
-        "Russian": "",
+        "Russian": "Вниз",
         "Comments": ""
     },
     {
@@ -1547,7 +1547,7 @@
         "Italian": "Sinistra",
         "French": "",
         "Spanish": "Izquierda",
-        "Russian": "",
+        "Russian": "Влево",
         "Comments": ""
     },
     {
@@ -1558,7 +1558,7 @@
         "Italian": "Destra",
         "French": "",
         "Spanish": "Derecha",
-        "Russian": "",
+        "Russian": "Вправо",
         "Comments": ""
     },
     {
@@ -1569,7 +1569,7 @@
         "Italian": "Attacco",
         "French": "",
         "Spanish": "Atacar",
-        "Russian": "",
+        "Russian": "Атака",
         "Comments": ""
     },
     {
@@ -1580,7 +1580,7 @@
         "Italian": "Salto",
         "French": "",
         "Spanish": "Saltar",
-        "Russian": "",
+        "Russian": "Прыжок",
         "Comments": ""
     },
     {
@@ -1591,7 +1591,7 @@
         "Italian": "Cambio modalità",
         "French": "",
         "Spanish": "Modo de interruptor",
-        "Russian": "",
+        "Russian": "Переключение режимов",
         "Comments": ""
     },
     {
@@ -1602,7 +1602,7 @@
         "Italian": "Corsa",
         "French": "",
         "Spanish": "Correr",
-        "Russian": "",
+        "Russian": "RUN",
         "Comments": ""
     },
     {
@@ -1613,7 +1613,7 @@
         "Italian": "Opzione",
         "French": "",
         "Spanish": "Opción",
-        "Russian": "",
+        "Russian": "Option",
         "Comments": ""
     },
     {
@@ -1624,7 +1624,7 @@
         "Italian": "Cursore X Sinistra",
         "French": "",
         "Spanish": "X Cursor Izquierda",
-        "Russian": "",
+        "Russian": "X-курсор влево",
         "Comments": ""
     },
     {
@@ -1635,7 +1635,7 @@
         "Italian": "Cursore X Su",
         "French": "",
         "Spanish": "X Cursor Arriba",
-        "Russian": "",
+        "Russian": "X-курсор вверх",
         "Comments": ""
     },
     {
@@ -1646,7 +1646,7 @@
         "Italian": "Cursore X Giù",
         "French": "",
         "Spanish": "X Cursor Abajo",
-        "Russian": "",
+        "Russian": "X-курсор вниз",
         "Comments": ""
     },
     {
@@ -1657,7 +1657,7 @@
         "Italian": "Cursore X Destra",
         "French": "",
         "Spanish": "X Cursor Derecha",
-        "Russian": "",
+        "Russian": "X-курсор вправо",
         "Comments": ""
     },
     {
@@ -1668,7 +1668,7 @@
         "Italian": "Cursore Y Sinistra",
         "French": "",
         "Spanish": "Y Cursor Izquierda",
-        "Russian": "",
+        "Russian": "Y-курсор влево",
         "Comments": ""
     },
     {
@@ -1679,7 +1679,7 @@
         "Italian": "Cursore Y Su",
         "French": "",
         "Spanish": "Y Cursor Arriba",
-        "Russian": "",
+        "Russian": "Y-курсор вверх",
         "Comments": ""
     },
     {
@@ -1690,7 +1690,7 @@
         "Italian": "Cursore Y Giù",
         "French": "",
         "Spanish": "Y Cursor Abajo",
-        "Russian": "",
+        "Russian": "Y-курсор вниз",
         "Comments": ""
     },
     {
@@ -1701,7 +1701,7 @@
         "Italian": "Cursore Y Destra",
         "French": "",
         "Spanish": "Y Cursor Derecha",
-        "Russian": "",
+        "Russian": "Y-курсор вправо",
         "Comments": ""
     },
     {
@@ -1712,7 +1712,7 @@
         "Italian": "Ruota schermo + D-Pad attivo",
         "French": "",
         "Spanish": "Rotar la pantalla + activar el D-pad.",
-        "Russian": "",
+        "Russian": "Поворот экрана + активация D-Pad",
         "Comments": ""
     },
     {
@@ -1723,7 +1723,7 @@
         "Italian": "Asse X mouse emulato",
         "French": "",
         "Spanish": "Eje X del ratón emulado",
-        "Russian": "",
+        "Russian": "Имитация оси X мыши",
         "Comments": ""
     },
     {
@@ -1734,7 +1734,7 @@
         "Italian": "Asse Y mouse emulato",
         "French": "",
         "Spanish": "Eje Y del ratón emulado",
-        "Russian": "",
+        "Russian": "Имитация оси Y мыши",
         "Comments": ""
     },
     {
@@ -1745,7 +1745,7 @@
         "Italian": "Clic sinistro mouse emulato",
         "French": "",
         "Spanish": "Clic izquierdo del ratón emulado",
-        "Russian": "",
+        "Russian": "Имитация нажатия левой кнопки мыши",
         "Comments": ""
     },
     {
@@ -1756,7 +1756,7 @@
         "Italian": "Clic destro mouse emulato",
         "French": "",
         "Spanish": "Clic derecho del ratón emulado",
-        "Russian": "",
+        "Russian": "Имитация нажатия правой кнопки мыши",
         "Comments": ""
     },
     {
@@ -1767,7 +1767,7 @@
         "Italian": "Rallenta mouse emulato",
         "French": "",
         "Spanish": "Ralentización del ratón emulado",
-        "Russian": "",
+        "Russian": "Имитация замедления мыши",
         "Comments": ""
     },
     {
@@ -1778,7 +1778,7 @@
         "Italian": "Accelera mouse emulato",
         "French": "",
         "Spanish": "Aceleración del ratón emulado",
-        "Russian": "",
+        "Russian": "Имитация ускорения мыши",
         "Comments": ""
     },
     {
@@ -1789,7 +1789,7 @@
         "Italian": "Pulsante 1",
         "French": "",
         "Spanish": "Botón 1",
-        "Russian": "",
+        "Russian": "Кнопка 1",
         "Comments": ""
     },
     {
@@ -1800,7 +1800,7 @@
         "Italian": "Pulsante 2",
         "French": "",
         "Spanish": "Botón 2",
-        "Russian": "",
+        "Russian": "Кнопка 2",
         "Comments": ""
     },
     {
@@ -1811,7 +1811,7 @@
         "Italian": "Pulsante 3",
         "French": "",
         "Spanish": "Botón 3",
-        "Russian": "",
+        "Russian": "Кнопка 3",
         "Comments": ""
     },
     {
@@ -1822,7 +1822,7 @@
         "Italian": "Pulsante 4",
         "French": "",
         "Spanish": "Botón 4",
-        "Russian": "",
+        "Russian": "Кнопка 4",
         "Comments": ""
     },
     {
@@ -1833,7 +1833,7 @@
         "Italian": "Analogico sinistro X",
         "French": "",
         "Spanish": "Analog izquierdo X",
-        "Russian": "",
+        "Russian": "Левый джойстик X",
         "Comments": ""
     },
     {
@@ -1844,7 +1844,7 @@
         "Italian": "Analogico sinistro Y",
         "French": "",
         "Spanish": "Analog izquierdo Y",
-        "Russian": "",
+        "Russian": "Левый джойстик Y",
         "Comments": ""
     },
     {
@@ -1855,7 +1855,7 @@
         "Italian": "Avanti veloce",
         "French": "",
         "Spanish": "Avance rápido",
-        "Russian": "",
+        "Russian": "Быстрая перемотка вперёд",
         "Comments": ""
     },
     {
@@ -1866,7 +1866,7 @@
         "Italian": "Tavolozza interna precedente",
         "French": "",
         "Spanish": "Paleta interna anterior",
-        "Russian": "",
+        "Russian": "Предыдущая внутренняя цветовая палитра",
         "Comments": ""
     },
     {
@@ -1877,7 +1877,7 @@
         "Italian": "Tavolozza interna successiva",
         "French": "",
         "Spanish": "Paleta interna siguiente",
-        "Russian": "",
+        "Russian": "Следующая внутренняя цветовая палитра",
         "Comments": ""
     },
     {
@@ -1888,7 +1888,7 @@
         "Italian": "Modalità",
         "French": "",
         "Spanish": "Modo",
-        "Russian": "",
+        "Russian": "MODE",
         "Comments": ""
     },
     {
@@ -1899,7 +1899,7 @@
         "Italian": "Cambia tavolozza (+ Sinistra/Destra)",
         "French": "",
         "Spanish": "Cambiar paleta (+ Izquierda/Derecha)",
-        "Russian": "",
+        "Russian": "Сменить цветовую палитру (+ Влево/Вправо)",
         "Comments": ""
     },
     {
@@ -1910,7 +1910,7 @@
         "Italian": "(VSSystem) Inserisci moneta",
         "French": "",
         "Spanish": "(VSSystem) Insertar moneda",
-        "Russian": "",
+        "Russian": "(VSSystem) вставить монету",
         "Comments": ""
     },
     {
@@ -1921,7 +1921,7 @@
         "Italian": "(FDS) Cambio lato disco",
         "French": "",
         "Spanish": "(FDS) Cambio del lado del disco",
-        "Russian": "",
+        "Russian": "(FDS) перевернуть диск",
         "Comments": ""
     },
     {
@@ -1932,7 +1932,7 @@
         "Italian": "(FDS) Inserisci/Estrai disco",
         "French": "",
         "Spanish": "(FDS) Insertar/Expulsar disco",
-        "Russian": "",
+        "Russian": "(FDS) вставить/извлечь диск",
         "Comments": ""
     },
     {
@@ -1943,7 +1943,7 @@
         "Italian": "Turbo R",
         "French": "",
         "Spanish": "Turbo R",
-        "Russian": "",
+        "Russian": "Turbo R",
         "Comments": ""
     },
     {
@@ -1954,7 +1954,7 @@
         "Italian": "Turbo L",
         "French": "",
         "Spanish": "Turbo L",
-        "Russian": "",
+        "Russian": "Turbo L",
         "Comments": ""
     },
     {
@@ -1965,7 +1965,7 @@
         "Italian": "Illumina sensore solare",
         "French": "",
         "Spanish": "Iluminar sensor solar",
-        "Russian": "",
+        "Russian": "Засветить солнечный датчик",
         "Comments": ""
     },
     {
@@ -1976,7 +1976,7 @@
         "Italian": "Oscura sensore solare",
         "French": "",
         "Spanish": "Oscurecer Sensor solar",
-        "Russian": "",
+        "Russian": "Затемнить солнечный датчик",
         "Comments": ""
     },
     {
@@ -1987,7 +1987,7 @@
         "Italian": "(VSSystem) Moneta 1",
         "French": "",
         "Spanish": "(VSSystem) Moneda 1",
-        "Russian": "",
+        "Russian": "(VSSystem) монета 1",
         "Comments": ""
     },
     {
@@ -1998,7 +1998,7 @@
         "Italian": "(VSSystem) Moneta 2",
         "French": "",
         "Spanish": "(VSSystem) Moneda 2",
-        "Russian": "",
+        "Russian": "(VSSystem) монета 2",
         "Comments": ""
     },
     {
@@ -2009,7 +2009,7 @@
         "Italian": "(Famicom) Microfono",
         "French": "",
         "Spanish": "(Famicom) Microfono",
-        "Russian": "",
+        "Russian": "(Famicom) микрофон",
         "Comments": ""
     },
     {
@@ -2020,7 +2020,7 @@
         "Italian": "Croce",
         "French": "",
         "Spanish": "Cruz",
-        "Russian": "",
+        "Russian": "Крест",
         "Comments": ""
     },
     {
@@ -2031,7 +2031,7 @@
         "Italian": "Cerchio",
         "French": "",
         "Spanish": "Circulo",
-        "Russian": "",
+        "Russian": "Круг",
         "Comments": ""
     },
     {
@@ -2042,7 +2042,7 @@
         "Italian": "Triangolo",
         "French": "",
         "Spanish": "Triángulo",
-        "Russian": "",
+        "Russian": "Треугольник",
         "Comments": ""
     },
     {
@@ -2053,7 +2053,7 @@
         "Italian": "Quadrato",
         "French": "",
         "Spanish": "Cuadrado",
-        "Russian": "",
+        "Russian": "Квадрат",
         "Comments": ""
     },
     {
@@ -2064,7 +2064,7 @@
         "Italian": "Analogico destro X",
         "French": "",
         "Spanish": "Analogico derecha X",
-        "Russian": "",
+        "Russian": "Правый джойстик X",
         "Comments": ""
     },
     {
@@ -2075,7 +2075,7 @@
         "Italian": "Analogico destro Y",
         "French": "",
         "Spanish": "Analogico derecha Y",
-        "Russian": "",
+        "Russian": "Правый джойстик Y",
         "Comments": ""
     },
     {
@@ -2086,7 +2086,7 @@
         "Italian": "Grilletto pistola",
         "French": "",
         "Spanish": "Gatillo de pistola",
-        "Russian": "",
+        "Russian": "Спусковой крючок пистолета",
         "Comments": ""
     },
     {
@@ -2097,7 +2097,7 @@
         "Italian": "Ricarica pistola",
         "French": "",
         "Spanish": "Recargar Arma",
-        "Russian": "",
+        "Russian": "Перезарядка пистолета",
         "Comments": ""
     },
     {
@@ -2108,7 +2108,7 @@
         "Italian": "Pistola ausiliaria A",
         "French": "",
         "Spanish": "Arma auxiliar A",
-        "Russian": "",
+        "Russian": "Вспомогательное A пистолета",
         "Comments": ""
     },
     {
@@ -2119,7 +2119,7 @@
         "Italian": "Pistola ausiliaria B",
         "French": "",
         "Spanish": "Arma auxiliar B",
-        "Russian": "",
+        "Russian": "Вспомогательное B пистолета",
         "Comments": ""
     },
     {
@@ -2130,7 +2130,7 @@
         "Italian": "Inizio pistola",
         "French": "",
         "Spanish": "Arma de arranque",
-        "Russian": "",
+        "Russian": "START пистолета",
         "Comments": ""
     },
     {
@@ -2141,7 +2141,7 @@
         "Italian": "D-Pad Sinistra (viola)",
         "French": "",
         "Spanish": "D-Pad izquierdo (violeta)",
-        "Russian": "",
+        "Russian": "D-Pad влево (фиолетовый)",
         "Comments": ""
     },
     {
@@ -2152,7 +2152,7 @@
         "Italian": "D-Pad Su (bianco)",
         "French": "",
         "Spanish": "D-Pad Arriba (blanco)",
-        "Russian": "",
+        "Russian": "D-Pad вверх (белый)",
         "Comments": ""
     },
     {
@@ -2163,7 +2163,7 @@
         "Italian": "D-Pad Giù (arancione)",
         "French": "",
         "Spanish": "D-Pad Abajo (naranja)",
-        "Russian": "",
+        "Russian": "D-Pad вниз (оранжевый)",
         "Comments": ""
     },
     {
@@ -2174,7 +2174,7 @@
         "Italian": "D-Pad Destra (verde)",
         "French": "",
         "Spanish": "D-Pad derecha (verde)",
-        "Russian": "",
+        "Russian": "D-Pad вправо (зелёный)",
         "Comments": ""
     },
     {
@@ -2185,7 +2185,7 @@
         "Italian": "Pulsante rosso",
         "French": "",
         "Spanish": "Botón rojo",
-        "Russian": "",
+        "Russian": "Красная кнопка",
         "Comments": ""
     },
     {
@@ -2196,7 +2196,7 @@
         "Italian": "Pulsante penna",
         "French": "",
         "Spanish": "Botón de lápiz",
-        "Russian": "",
+        "Russian": "Кнопка пера",
         "Comments": ""
     },
     {
@@ -2207,7 +2207,7 @@
         "Italian": "Stato penna",
         "French": "",
         "Spanish": "Estado del lápiz",
-        "Russian": "",
+        "Russian": "Состояние пера",
         "Comments": ""
     },
     {
@@ -2218,7 +2218,7 @@
         "Italian": "Penna su Storyware",
         "French": "",
         "Spanish": "Lápiz en Storyware",
-        "Russian": "",
+        "Russian": "Перо на Storyware-картридже",
         "Comments": ""
     },
     {
@@ -2229,7 +2229,7 @@
         "Italian": "Penna su Pad",
         "French": "",
         "Spanish": "Lápiz en Pad",
-        "Russian": "",
+        "Russian": "Перо на планшете",
         "Comments": ""
     },
     {
@@ -2240,7 +2240,7 @@
         "Italian": "Pagina precedente",
         "French": "",
         "Spanish": "Página Anterior",
-        "Russian": "",
+        "Russian": "Предыдущая страница",
         "Comments": ""
     },
     {
@@ -2251,7 +2251,7 @@
         "Italian": "Pagina successiva",
         "French": "",
         "Spanish": "Página siguiente",
-        "Russian": "",
+        "Russian": "Следующая страница",
         "Comments": ""
     },
     {
@@ -2262,7 +2262,7 @@
         "Italian": "Pulsante 1 Start",
         "French": "",
         "Spanish": "Botón 1 Inicio",
-        "Russian": "",
+        "Russian": "Кнопка 1 START",
         "Comments": ""
     },
     {
@@ -2273,7 +2273,7 @@
         "Italian": "Pulsante pausa",
         "French": "",
         "Spanish": "Pausa de botón",
-        "Russian": "",
+        "Russian": "Кнопка PAUSE",
         "Comments": ""
     },
     {
@@ -2284,7 +2284,7 @@
         "Italian": "Reset console",
         "French": "",
         "Spanish": "Reiniciar consola",
-        "Russian": "",
+        "Russian": "RESET консоли",
         "Comments": ""
     },
     {
@@ -2295,7 +2295,7 @@
         "Italian": "Selezione console",
         "French": "",
         "Spanish": "Selección de consola",
-        "Russian": "",
+        "Russian": "SELECT консоли",
         "Comments": ""
     },
     {
@@ -2306,7 +2306,7 @@
         "Italian": "Pausa console",
         "French": "",
         "Spanish": "Pausa de la consola",
-        "Russian": "",
+        "Russian": "PAUSE консоли",
         "Comments": ""
     },
     {
@@ -2317,7 +2317,7 @@
         "Italian": "Difficoltà sinistra",
         "French": "",
         "Spanish": "Dificultad izquierda",
-        "Russian": "",
+        "Russian": "Переключатель сложности левый",
         "Comments": ""
     },
     {
@@ -2328,7 +2328,7 @@
         "Italian": "Difficoltà destra",
         "French": "",
         "Spanish": "Dificultad derecha",
-        "Russian": "",
+        "Russian": "Переключатель сложности правый",
         "Comments": ""
     },
     {
@@ -2339,7 +2339,7 @@
         "Italian": "(Dual Stick) Asse X P2",
         "French": "",
         "Spanish": "(Dual Stick) P2 X-Axis",
-        "Russian": "",
+        "Russian": "(Dual Stick) P2 ось X",
         "Comments": ""
     },
     {
@@ -2350,7 +2350,7 @@
         "Italian": "(Dual Stick) Asse Y P2",
         "French": "",
         "Spanish": "(Dual Stick) P2 Y-Axis",
-        "Russian": "",
+        "Russian": "(Dual Stick) P2 ось Y",
         "Comments": ""
     },
     {
@@ -2361,7 +2361,7 @@
         "Italian": "Nero/Bianco",
         "French": "",
         "Spanish": "Negro/Blanco",
-        "Russian": "",
+        "Russian": "Black/White",
         "Comments": ""
     },
     {
@@ -2372,7 +2372,7 @@
         "Italian": "Gamepad",
         "French": "",
         "Spanish": "Mando",
-        "Russian": "",
+        "Russian": "Геймпад",
         "Comments": ""
     },
     {
@@ -2383,7 +2383,7 @@
         "Italian": "Joypad SNES",
         "French": "",
         "Spanish": "Joypad SNES",
-        "Russian": "",
+        "Russian": "Джойпад SNES",
         "Comments": ""
     },
     {
@@ -2394,7 +2394,7 @@
         "Italian": "Mouse SNES",
         "French": "",
         "Spanish": "Mouse SNES",
-        "Russian": "",
+        "Russian": "Мышь SNES",
         "Comments": ""
     },
     {
@@ -2405,7 +2405,7 @@
         "Italian": "Joypad PCE",
         "French": "",
         "Spanish": "Joypad PCE",
-        "Russian": "",
+        "Russian": "Джойпад PCE",
         "Comments": ""
     },
     {
@@ -2416,7 +2416,7 @@
         "Italian": "Mouse",
         "French": "",
         "Spanish": "Mouse",
-        "Russian": "",
+        "Russian": "Мышь",
         "Comments": ""
     },
     {
@@ -2427,7 +2427,7 @@
         "Italian": "Classico",
         "French": "",
         "Spanish": "Clásico",
-        "Russian": "",
+        "Russian": "Классический",
         "Comments": ""
     },
     {
@@ -2438,7 +2438,7 @@
         "Italian": "Moderno",
         "French": "",
         "Spanish": "Moderno",
-        "Russian": "",
+        "Russian": "Современный",
         "Comments": ""
     },
     {
@@ -2449,7 +2449,7 @@
         "Italian": "Mouse (solo palla)",
         "French": "",
         "Spanish": "Mouse (bola solo)",
-        "Russian": "",
+        "Russian": "Мышь (только координаты)",
         "Comments": ""
     },
     {
@@ -2460,7 +2460,7 @@
         "Italian": "Mouse (completo)",
         "French": "",
         "Spanish": "Mouse (completo)",
-        "Russian": "",
+        "Russian": "Мышь (полная)",
         "Comments": ""
     },
     {
@@ -2471,7 +2471,7 @@
         "Italian": "Puntatore",
         "French": "",
         "Spanish": "Puntero",
-        "Russian": "",
+        "Russian": "Указатель",
         "Comments": ""
     },
     {
@@ -2482,7 +2482,7 @@
         "Italian": "Pistola ottica",
         "French": "",
         "Spanish": "Pistola óptica",
-        "Russian": "",
+        "Russian": "Световой пистолет",
         "Comments": ""
     },
     {
@@ -2493,7 +2493,7 @@
         "Italian": "Joystick ATARI",
         "French": "",
         "Spanish": "Joystick ATARI",
-        "Russian": "",
+        "Russian": "Джойстик Atari",
         "Comments": ""
     },
     {
@@ -2504,7 +2504,7 @@
         "Italian": "Joystick ATARI 5200",
         "French": "",
         "Spanish": "Joystick ATARI 5200",
-        "Russian": "",
+        "Russian": "Джойстик Atari 5200",
         "Comments": ""
     },
     {
@@ -2515,7 +2515,7 @@
         "Italian": "Tastiera ATARI",
         "French": "",
         "Spanish": "Teclado ATARI",
-        "Russian": "",
+        "Russian": "Клавиатура Atari",
         "Comments": ""
     },
     {
@@ -2526,7 +2526,7 @@
         "Italian": "RetroPad",
         "French": "",
         "Spanish": "RetroPad",
-        "Russian": "",
+        "Russian": "RetroPad",
         "Comments": ""
     },
     {
@@ -2537,7 +2537,7 @@
         "Italian": "Fightstick",
         "French": "",
         "Spanish": "Fightstick",
-        "Russian": "",
+        "Russian": "Аркадный контроллер",
         "Comments": ""
     },
     {
@@ -2548,7 +2548,7 @@
         "Italian": "8 pulsanti",
         "French": "",
         "Spanish": "8-Botón",
-        "Russian": "",
+        "Russian": "8-кнопочный",
         "Comments": ""
     },
     {
@@ -2559,7 +2559,7 @@
         "Italian": "6 pulsanti",
         "French": "",
         "Spanish": "6-Botón",
-        "Russian": "",
+        "Russian": "6-кнопочный",
         "Comments": ""
     },
     {
@@ -2570,7 +2570,7 @@
         "Italian": "standard",
         "French": "",
         "Spanish": "Estándar",
-        "Russian": "",
+        "Russian": "Стандартный",
         "Comments": ""
     },
     {
@@ -2581,7 +2581,7 @@
         "Italian": "analogico",
         "French": "",
         "Spanish": "Analogico derecha Y",
-        "Russian": "",
+        "Russian": "Аналоговый",
         "Comments": ""
     },
     {
@@ -2592,7 +2592,7 @@
         "Italian": "mouse",
         "French": "",
         "Spanish": "Mouse",
-        "Russian": "",
+        "Russian": "Мышь",
         "Comments": ""
     },
     {
@@ -2603,7 +2603,7 @@
         "Italian": "【SFC】Linee di scansione + risoluzione 2x",
         "French": "",
         "Spanish": "【SFC】 Líneas de escaneo + resolución 2x",
-        "Russian": "",
+        "Russian": "[SFC] Scanlines + 2x resolution",
         "Comments": ""
     },
     {
@@ -2614,7 +2614,7 @@
         "Italian": "【SFC】Schermo intero 4:3",
         "French": "",
         "Spanish": "【SFC】4:3 Pantalla completa",
-        "Russian": "",
+        "Russian": "[SFC] 4:3 Full screen",
         "Comments": ""
     },
     {
@@ -2625,7 +2625,7 @@
         "Italian": "【Universale】Schermo intero 4:3",
         "French": "",
         "Spanish": "【Universal】4:3 pantalla completa",
-        "Russian": "",
+        "Russian": "[Universal] 4:3 Full screen",
         "Comments": ""
     },
     {
@@ -2636,7 +2636,7 @@
         "Italian": "【Universale】Linee di scansione + risoluzione 2x",
         "French": "",
         "Spanish": "【Universal】Líneas de escaneo + resolución 2x",
-        "Russian": "",
+        "Russian": "[Universal] Scanlines + 2x resolution",
         "Comments": ""
     },
     {
@@ -2647,7 +2647,7 @@
         "Italian": "【Universale】Linee di scansione + RGB + risoluzione 2x",
         "French": "",
         "Spanish": "【Universal】Líneas de escaneo + RGB + resolución 2x",
-        "Russian": "",
+        "Russian": "[Universal] Scanlines + RGB + 2x resolution",
         "Comments": ""
     },
     {
@@ -2658,7 +2658,7 @@
         "Italian": "【Universale】TV Flat",
         "French": "",
         "Spanish": "【Universal】TV plana",
-        "Russian": "",
+        "Russian": "[Universal] TV Flat",
         "Comments": ""
     },
     {
@@ -2669,7 +2669,7 @@
         "Italian": "【Universale】TV",
         "French": "",
         "Spanish": "【Universal】TV",
-        "Russian": "",
+        "Russian": "[Universal] TV",
         "Comments": ""
     },
     {
@@ -2680,7 +2680,7 @@
         "Italian": "【Universale】TV integer",
         "French": "",
         "Spanish": "【Universal】TV integer",
-        "Russian": "",
+        "Russian": "[Universal] TV integer",
         "Comments": ""
     },
     {
@@ -2691,7 +2691,7 @@
         "Italian": "【Universale】Sony PVM Office",
         "French": "",
         "Spanish": "【Universal】Sony PVM Office",
-        "Russian": "",
+        "Russian": "[Universal] Sony PVM Office",
         "Comments": ""
     },
     {
@@ -2702,7 +2702,7 @@
         "Italian": "【NeoGeo】Linee di scansione",
         "French": "",
         "Spanish": "【NeoGeo】Líneas de escaneo",
-        "Russian": "",
+        "Russian": "[NeoGeo] Scanlines",
         "Comments": ""
     },
     {
@@ -2713,7 +2713,7 @@
         "Italian": "【NeoGeo】Verticale, linee di scansione",
         "French": "",
         "Spanish": "【NeoGeo】Vertical, Líneas de escaneo",
-        "Russian": "",
+        "Russian": "[NeoGeo] Vertical, Scanlines",
         "Comments": ""
     },
     {
@@ -2724,7 +2724,7 @@
         "Italian": "【Capcom】Linee di scansione",
         "French": "",
         "Spanish": "【Capcom】Líneas de escaneo",
-        "Russian": "",
+        "Russian": "[Capcom] Scanlines",
         "Comments": ""
     },
     {
@@ -2735,7 +2735,7 @@
         "Italian": "【Capcom】Verticale, linee di scansione",
         "French": "",
         "Spanish": "【Capcom】Vertical, Líneas de escaneo",
-        "Russian": "",
+        "Russian": "[Capcom] Vertical, Scanlines",
         "Comments": ""
     },
     {
@@ -2746,7 +2746,7 @@
         "Italian": "【PGM】Linee di scansione",
         "French": "",
         "Spanish": "【PGM】Líneas de escaneo",
-        "Russian": "",
+        "Russian": "[PGM] Scanlines",
         "Comments": ""
     },
     {
@@ -2757,7 +2757,7 @@
         "Italian": "【PGM】Verticale, linee di scansione",
         "French": "",
         "Spanish": "【PGM】Vertical, Escalinas",
-        "Russian": "",
+        "Russian": "[PGM] Vertical, Scanlines",
         "Comments": ""
     },
     {
@@ -2768,7 +2768,7 @@
         "Italian": "【GB】Linee della griglia",
         "French": "",
         "Spanish": "【GB】Líneas de cuadrícula",
-        "Russian": "",
+        "Russian": "[GB] Grid lines",
         "Comments": ""
     },
     {
@@ -2779,7 +2779,7 @@
         "Italian": "【GB】Linee della griglia + Filtro scuro 20%",
         "French": "",
         "Spanish": "【GB】 Líneas de cuadrícula + 20% Filtro oscuro",
-        "Russian": "",
+        "Russian": "[GB] Grid lines + 20% Dark filter",
         "Comments": ""
     },
     {
@@ -2790,7 +2790,7 @@
         "Italian": "【GB】Linee della griglia + Correzione colore",
         "French": "",
         "Spanish": "【GB】 Líneas de cuadrícula + Corrección de color",
-        "Russian": "",
+        "Russian": "[GB] Grid lines + Color Correction",
         "Comments": ""
     },
     {
@@ -2801,7 +2801,7 @@
         "Italian": "【GBP】Linee della griglia",
         "French": "",
         "Spanish": "【GBP】Líneas de cuadrícula",
-        "Russian": "",
+        "Russian": "[GBP] Grid lines",
         "Comments": ""
     },
     {
@@ -2812,7 +2812,7 @@
         "Italian": "【GBP】Linee della griglia + Correzione colore",
         "French": "",
         "Spanish": "【GBP】Líneas de cuadrícula + Corrección de color",
-        "Russian": "",
+        "Russian": "[GBP] Grid lines + Color Correction",
         "Comments": ""
     },
     {
@@ -2823,7 +2823,7 @@
         "Italian": "【GBL】Linee della griglia",
         "French": "",
         "Spanish": "【GBL】Líneas de cuadrícula",
-        "Russian": "",
+        "Russian": "[GBL] Grid lines",
         "Comments": ""
     },
     {
@@ -2834,7 +2834,7 @@
         "Italian": "【GBL】Linee della griglia + Correzione colore",
         "French": "",
         "Spanish": "【GBL】Líneas de cuadrícula + Corrección de color",
-        "Russian": "",
+        "Russian": "[GBL] Grid lines + Color Correction",
         "Comments": ""
     },
     {
@@ -2845,7 +2845,7 @@
         "Italian": "【GBL Edizione Famitsu】Linee della griglia + Correzione colore",
         "French": "",
         "Spanish": "【GBL Famitsu Edition】 Líneas de cuadrícula + Corrección de color",
-        "Russian": "",
+        "Russian": "[GBL Famitsu Edition] Grid lines + Color Correction",
         "Comments": ""
     },
     {
@@ -2856,7 +2856,7 @@
         "Italian": "【GBC】Linee della griglia",
         "French": "",
         "Spanish": "【GBC】Líneas de cuadrícula",
-        "Russian": "",
+        "Russian": "[GBC] Grid lines",
         "Comments": ""
     },
     {
@@ -2867,7 +2867,7 @@
         "Italian": "【GBC】Linee della griglia + Giallo",
         "French": "",
         "Spanish": "【GBC】Líneas de cuadrícula + Amarillo",
-        "Russian": "",
+        "Russian": "[GBC] Grid lines + Yellow",
         "Comments": ""
     },
     {
@@ -2878,7 +2878,7 @@
         "Italian": "【GBC】3X",
         "French": "",
         "Spanish": "【GBC】3X",
-        "Russian": "",
+        "Russian": "[GBC] 3X",
         "Comments": ""
     },
     {
@@ -2889,7 +2889,7 @@
         "Italian": "【WSC】Linee della griglia",
         "French": "",
         "Spanish": "【WSC】Líneas de cuadrícula",
-        "Russian": "",
+        "Russian": "[WSC] Grid lines",
         "Comments": ""
     },
     {
@@ -2900,7 +2900,7 @@
         "Italian": "【WSC】Linee della griglia + Scuro",
         "French": "",
         "Spanish": "【WSC】Líneas de cuadrícula + Oscuro",
-        "Russian": "",
+        "Russian": "[WSC] Gird lines + Dark",
         "Comments": ""
     },
     {
@@ -2911,7 +2911,7 @@
         "Italian": "【WSC】3X",
         "French": "",
         "Spanish": "【WSC】3X",
-        "Russian": "",
+        "Russian": "[WSC] 3X",
         "Comments": ""
     },
     {
@@ -2922,7 +2922,7 @@
         "Italian": "【PCE】Linee di scansione + Risoluzione 2x",
         "French": "",
         "Spanish": "【PCE】 Líneas de escaneo + resolución 2x",
-        "Russian": "",
+        "Russian": "[PCE] Scanlines + 2x resolution",
         "Comments": ""
     },
     {
@@ -2933,7 +2933,7 @@
         "Italian": "【NGPC】Linee della griglia",
         "French": "",
         "Spanish": "【NGPC】Líneas de cuadrícula",
-        "Russian": "",
+        "Russian": "[NGPC] Grid lines",
         "Comments": ""
     },
     {
@@ -2944,7 +2944,7 @@
         "Italian": "【NGPC】Linee della griglia + RGB",
         "French": "",
         "Spanish": "【NGPC】Líneas de cuadrícula + RGB",
-        "Russian": "",
+        "Russian": "[NGPC] Grid lines + RGB",
         "Comments": ""
     },
     {
@@ -2955,7 +2955,7 @@
         "Italian": "【NGP】3X",
         "French": "",
         "Spanish": "【NGP】3X",
-        "Russian": "",
+        "Russian": "[NGP] 3X",
         "Comments": ""
     },
     {
@@ -2966,7 +2966,7 @@
         "Italian": "【FC】Linee di scansione + Risoluzione 2x",
         "French": "",
         "Spanish": "【FC】Líneas de escaneo + resolución 2x",
-        "Russian": "",
+        "Russian": "[FC] Scanlines + 2x resolution",
         "Comments": ""
     },
     {
@@ -2977,7 +2977,7 @@
         "Italian": "【MD】Linee di scansione + Risoluzione 2x (Ampio)",
         "French": "",
         "Spanish": "【MD】Líneas de escaneo + resolución 2x (Amplio)",
-        "Russian": "",
+        "Russian": "[MD] Scanlines + 2x resolution (Wide)",
         "Comments": ""
     },
     {
@@ -2988,7 +2988,7 @@
         "Italian": "【MD】Linee di scansione + Risoluzione 2x (Quadrato)",
         "French": "",
         "Spanish": "【MD】Líneas de escaneo + resolución 2x (cuadrada)",
-        "Russian": "",
+        "Russian": "[MD] Scanlines + 2x resolution (Square)",
         "Comments": ""
     },
     {
@@ -2999,7 +2999,7 @@
         "Italian": "【GG】Linee della griglia",
         "French": "",
         "Spanish": "【GG】Líneas de cuadrícula",
-        "Russian": "",
+        "Russian": "[GG] Grid lines",
         "Comments": ""
     },
     {
@@ -3010,7 +3010,7 @@
         "Italian": "【GG】3X",
         "French": "",
         "Spanish": "【GG】3X",
-        "Russian": "",
+        "Russian": "[GG] 3X",
         "Comments": ""
     },
     {
@@ -3021,7 +3021,7 @@
         "Italian": "【GBA】Linee della griglia",
         "French": "",
         "Spanish": "【GBA】Líneas de cuadrícula",
-        "Russian": "",
+        "Russian": "[GBA] Grid lines",
         "Comments": ""
     },
     {
@@ -3032,7 +3032,7 @@
         "Italian": "【GBA】Linee della griglia + Giallo",
         "French": "",
         "Spanish": "【GBA】Líneas de cuadrícula + Amarillo",
-        "Russian": "",
+        "Russian": "[GBA] Grid lines + Yellow",
         "Comments": ""
     },
     {
@@ -3043,7 +3043,7 @@
         "Italian": "【GBM】Linee della griglia",
         "French": "",
         "Spanish": "【GBM】Lineas de cuadrícula",
-        "Russian": "",
+        "Russian": "[GBM] Grid lines",
         "Comments": ""
     },
     {
@@ -3054,7 +3054,7 @@
         "Italian": "【GBM】Linee della griglia + Evidenziazione posteriore",
         "French": "",
         "Spanish": "【GBM】Líneas de cuadrícula + Resaltado trasero",
-        "Russian": "",
+        "Russian": "[GBM] Grid lines + Rear highlight",
         "Comments": ""
     },
     {
@@ -3065,7 +3065,7 @@
         "Italian": "【GBA】3X",
         "French": "",
         "Spanish": "【GBA】3X",
-        "Russian": "",
+        "Russian": "[GBA] 3X",
         "Comments": ""
     },
     {
@@ -3076,7 +3076,7 @@
         "Italian": "【GBM】2X",
         "French": "",
         "Spanish": "【GBM】2X",
-        "Russian": "",
+        "Russian": "[GBM] 2X",
         "Comments": ""
     },
     {
@@ -3087,7 +3087,7 @@
         "Italian": "Add-on CD (modalità MD) (Richiede riavvio)",
         "French": "",
         "Spanish": "Complemento de CD (modo MD) (Requiere reinicio)",
-        "Russian": "",
+        "Russian": "Дополнение CD (режим MD) (перезапуск)",
         "Comments": ""
     },
     {
@@ -3098,7 +3098,7 @@
         "Italian": "Errore di indirizzo 68K",
         "French": "",
         "Spanish": "Error de dirección 68K",
-        "Russian": "",
+        "Russian": "68K Address Error",
         "Comments": ""
     },
     {
@@ -3109,7 +3109,7 @@
         "Italian": "La CPU principale del Mega Drive/Genesis (Motorola 68000) genera un'eccezione di errore di indirizzo (crash) quando tenta di eseguire un accesso alla memoria non allineato. Abilitare questa opzione simulerà questo comportamento. Dovrebbe essere disabilitato solo quando si gioca a ROM hack, poiché queste sono generalmente sviluppate utilizzando emulatori meno accurati e potrebbero fare affidamento su accessi RAM non validi per funzionare correttamente.",
         "French": "",
         "Spanish": "La CPU principal de Mega Drive/Genesis (Motorola 68000) genera una excepción de error de dirección (bloqueo) al intentar realizar el acceso a memoria no alineada. Al habilitar esta opción, se simulará este comportamiento. Solo debe deshabilitarse cuando se juegan trucos de ROM, ya que estos generalmente se desarrollan usando emuladores menos precisos y pueden depender de un acceso RAM no válido para un funcionamiento correcto.",
-        "Russian": "",
+        "Russian": "Главный процессор Mega Drive/Genesis (Motorola 68000) генерирует исключение Address Error (аварийный отказ) при попытке выполнить невыровненный доступ к памяти. Включение этого параметра имитирует такое поведение. Его следует отключать только при игре в ROM-хаки, поскольку они обычно разрабатываются с использованием менее точных эмуляторов и могут полагаться на некорректные обращения к памяти.",
         "Comments": ""
     },
     {
@@ -3120,7 +3120,7 @@
         "Italian": "EQ Alto",
         "French": "",
         "Spanish": "EQ Alto",
-        "Russian": "",
+        "Russian": "Эквализация высоких частот",
         "Comments": ""
     },
     {
@@ -3131,7 +3131,7 @@
         "Italian": "Regola la banda di alta frequenza dell'equalizzatore audio interno.",
         "French": "",
         "Spanish": "Ajuste la banda de rango alto del ecualizador de audio interno.",
-        "Russian": "",
+        "Russian": "Регулировка диапазона высоких частот внутреннего звукового эквалайзера.",
         "Comments": ""
     },
     {
@@ -3142,7 +3142,7 @@
         "Italian": "EQ Medio",
         "French": "",
         "Spanish": "EQ Medio",
-        "Russian": "",
+        "Russian": "Эквализация средних частот",
         "Comments": ""
     },
     {
@@ -3153,7 +3153,7 @@
         "Italian": "Regola la banda di media frequenza dell'equalizzatore audio interno.",
         "French": "",
         "Spanish": "Ajuste la banda de rango medio del ecualizador de audio interno.",
-        "Russian": "",
+        "Russian": "Регулировка диапазона средних частот внутреннего звукового эквалайзера.",
         "Comments": ""
     },
     {
@@ -3164,7 +3164,7 @@
         "Italian": "EQ Basso",
         "French": "",
         "Spanish": "EQ Bajo",
-        "Russian": "",
+        "Russian": "Эквализация низких частот",
         "Comments": ""
     },
     {
@@ -3175,7 +3175,7 @@
         "Italian": "Regola la banda di bassa frequenza dell'equalizzatore audio interno.",
         "French": "",
         "Spanish": "Ajuste la banda de rango bajo del ecualizador de audio interno.",
-        "Russian": "",
+        "Russian": "Регулировка диапазона низких частот внутреннего звукового эквалайзера.",
         "Comments": ""
     },
     {
@@ -3186,7 +3186,7 @@
         "Italian": "Abilita un filtro audio passa-basso per simulare meglio il suono caratteristico di un Mega Drive/Genesis Model 1.",
         "French": "",
         "Spanish": "Habilite un filtro de audio de paso bajo para simular mejor el sonido característico de un Model 1 Mega Drive/Genesis.",
-        "Russian": "",
+        "Russian": "Задействовать фильтр нижних частот для лучшей имитации характерного звука Mega Drive/Genesis Model 1.",
         "Comments": ""
     },
     {
@@ -3197,7 +3197,7 @@
         "Italian": "Filtro Blargg NTSC",
         "French": "",
         "Spanish": "Filtro Blargg NTSC",
-        "Russian": "",
+        "Russian": "Фильтр Blargg NTSC",
         "Comments": ""
     },
     {
@@ -3208,7 +3208,7 @@
         "Italian": "Applica un filtro video per imitare vari segnali TV NTSC.",
         "French": "",
         "Spanish": "Aplique un filtro de vídeo para imitar varias señales de TV NTSC.",
-        "Russian": "",
+        "Russian": "Видеофильтр для имитации различных телевизионных сигналов NTSC.",
         "Comments": ""
     },
     {
@@ -3219,7 +3219,7 @@
         "Italian": "Monocromatico",
         "French": "",
         "Spanish": "Monocromatico",
-        "Russian": "",
+        "Russian": "Чёрно-белое изображение",
         "Comments": ""
     },
     {
@@ -3230,7 +3230,7 @@
         "Italian": "Composito",
         "French": "",
         "Spanish": "Compuesto",
-        "Russian": "",
+        "Russian": "Композитный видеосигнал",
         "Comments": ""
     },
     {
@@ -3241,7 +3241,7 @@
         "Italian": "S-Video",
         "French": "",
         "Spanish": "S-Video",
-        "Russian": "",
+        "Russian": "Сигнал S-Video",
         "Comments": ""
     },
     {
@@ -3252,7 +3252,7 @@
         "Italian": "Proporzioni fornite dal core",
         "French": "",
         "Spanish": "Relación de aspecto proporcionada por el núcleo",
-        "Russian": "",
+        "Russian": "Соотношение сторон, задаваемое ядром",
         "Comments": ""
     },
     {
@@ -3263,7 +3263,7 @@
         "Italian": "Scegli le proporzioni preferite per il contenuto. Questo si applica solo quando le proporzioni di RetroArch sono impostate su 'Fornite dal core' nelle impostazioni video.",
         "French": "",
         "Spanish": "Elija la relación de aspecto de contenido preferida. Esto solo se aplicará cuando la relación de aspecto de RetroArch esté configurada como 'Core provided' en la configuración de video.",
-        "Russian": "",
+        "Russian": "Предпочтительное соотношение сторон экрана. Эта настройка будет применяться, если для параметра “Соотношение сторон” в настройках изображения установлено значение [Задаётся ядром].",
         "Comments": ""
     },
     {
@@ -3274,7 +3274,7 @@
         "Italian": "ROM di avvio del sistema",
         "French": "",
         "Spanish": "ROM de arranque del sistema",
-        "Russian": "",
+        "Russian": "Загрузочное ПЗУ системы",
         "Comments": ""
     },
     {
@@ -3285,7 +3285,7 @@
         "Italian": "Usa il BIOS/bootloader ufficiale per l'hardware emulato, se presente nella directory di sistema di RetroArch. Mostra la sequenza/animazione di avvio specifica della console, quindi esegue il contenuto caricato.",
         "French": "",
         "Spanish": "Utilice el BIOS/gestor de arranque oficial para el hardware emulado, si está presente en el directorio del sistema de RetroArch. Muestra la secuencia de inicio/animación específica de la consola y, a continuación, ejecuta el contenido cargado.",
-        "Russian": "",
+        "Russian": "Если в системном каталоге интерфейса присутствует официальный BIOS или загрузчик, то он будет использован при запуске. На экране появится загрузочная последовательность или анимация, характерная для конкретной консоли, а затем запустится контент.",
         "Comments": ""
     },
     {
@@ -3296,7 +3296,7 @@
         "Italian": "BRAM della cartuccia di backup CD (Richiede riavvio)",
         "French": "",
         "Spanish": "Respaldo de CD Cartucho BRAM (requiere reinicio)",
-        "Russian": "",
+        "Russian": "Картридж CD BRAM (перезапуск)",
         "Comments": ""
     },
     {
@@ -3307,7 +3307,7 @@
         "Italian": "Quando si esegue contenuto Sega CD/Mega-CD, specifica se condividere una singola cartuccia di backup RAM per tutti i giochi (Per-Cartuccia) o creare una cartuccia di backup RAM separata per ogni gioco (Per-Gioco).",
         "French": "",
         "Spanish": "Al ejecutar contenido de Sega CD/Mega-CD, especifica si se debe compartir un único cartucho de memoria RAM de copia de seguridad para todos los juegos (por cartucho) o si se debe crear un cartucho de memoria RAM de copia de seguridad independiente para cada juego (por juego).",
-        "Russian": "",
+        "Russian": "Следует ли использовать один картридж CD Backup RAM для всех игр — режим [Общий картридж], или для каждой игры будет создаваться отдельный картридж CD Backup RAM — режим [Каждая игра отдельно].",
         "Comments": ""
     },
     {
@@ -3318,7 +3318,7 @@
         "Italian": "Dimensione BRAM della cartuccia di backup CD (Richiede riavvio)",
         "French": "",
         "Spanish": "Tamaño del cartucho de respaldo CD BRAM (requiere reinicio)",
-        "Russian": "",
+        "Russian": "Размер картриджа CD BRAM (перезапуск)",
         "Comments": ""
     },
     {
@@ -3329,7 +3329,7 @@
         "Italian": "Imposta la dimensione della cartuccia di backup RAM quando si esegue contenuto Sega CD/Mega-CD. Utile quando si imposta la cartuccia di backup RAM su Per-Gioco per evitare dimensioni di cartuccia più grandi multiple.",
         "French": "",
         "Spanish": "Al ejecutar contenido de Sega CD/Mega-CD, configure el tamaño del cartucho de RAM de respaldo. Es útil configurar el cartucho de RAM de respaldo por juego para evitar múltiples tamaños de cartuchos grandes.",
-        "Russian": "",
+        "Russian": "Размер картриджа CD Backup RAM. Полезно при выборе отдельного картриджа CD Backup RAM для каждой игры — режим [Каждая игра отдельно], чтобы избежать появления множества картриджей большего размера.",
         "Comments": ""
     },
     {
@@ -3340,7 +3340,7 @@
         "Italian": "Tempo di accesso CD",
         "French": "",
         "Spanish": "Tiempo de acceso CD",
-        "Russian": "",
+        "Russian": "Время доступа к CD-диску",
         "Comments": ""
     },
     {
@@ -3351,7 +3351,7 @@
         "Italian": "Simula la latenza originale dell'hardware CD quando si avvia una lettura o si cerca una posizione specifica sul disco caricato. Questo è richiesto da alcuni giochi CD che si bloccano se i dati CD sono disponibili troppo presto e risolve anche i problemi di desincronizzazione dell'audio CD in alcuni giochi. Disabilitare questo può essere utile con i giochi MSU-MD in quanto rende i loop delle tracce audio CD più fluidi.",
         "French": "",
         "Spanish": "Cuando se inicia la carga o se busca en un lugar específico en el disco cargado, se simula la latencia del hardware original de CD. Esto es necesario en algunos juegos de CD que se bloquean cuando los datos del CD están disponibles de inmediato, y también corrige problemas de desincronización de audio de CD en algunos juegos. Deshabilitar esto hace que los bucles de las pistas de audio de CD sean más fluidos, lo que resulta útil en juegos de MSU-MD.",
-        "Russian": "",
+        "Russian": "Имитация аппаратной задержки CD-привода при инициировании чтения или поиска определённого места на загруженном CD-диске. Необходима для некоторых игр, которые могут сбоить, если данные с диска становятся доступны слишком рано. Это также помогает устранить проблемы рассинхронизации звука в ряде игр. Отключение может быть полезно в играх MSU-MD, так как способствует более плавному зацикливанию звуковых дорожек CD.",
         "Comments": ""
     },
     {
@@ -3362,7 +3362,7 @@
         "Italian": "Cache immagine CD",
         "French": "",
         "Spanish": "Caché de imagen de CD",
-        "Russian": "",
+        "Russian": "Кэширование образов CD-дисков",
         "Comments": ""
     },
     {
@@ -3373,7 +3373,7 @@
         "Italian": "Carica l'immagine CD in memoria all'avvio. Supportato solo CHD. Riavvio richiesto.",
         "French": "",
         "Spanish": "Al iniciar, carga la imagen del CD en la memoria. Solo se admite CHD. (Requiere Reiniciar)",
-        "Russian": "",
+        "Russian": "Загружать образ CD-диска в память при запуске. Поддерживается только формат CHD. Необходим перезапуск.",
         "Comments": ""
     },
     {
@@ -3384,7 +3384,7 @@
         "Italian": "Mostra impostazioni avanzate del volume audio (Riapri menu)",
         "French": "",
         "Spanish": "Muestre la configuración de volumen de audio detallada (abra el menú nuevamente)",
-        "Russian": "",
+        "Russian": "Дополнительные настройки громкости звука",
         "Comments": ""
     },
     {
@@ -3395,7 +3395,7 @@
         "Italian": "Abilita la configurazione dei parametri di basso livello dei canali audio. NOTA: Il menu rapido deve essere attivato affinché questa impostazione abbia effetto.",
         "French": "",
         "Spanish": "Habilita la configuración de parámetros de canal de audio de bajo nivel. Nota: Para habilitar esta configuración, es necesario cambiar el menú rápido.",
-        "Russian": "",
+        "Russian": "Включить настройку низкоуровневых параметров аудиоканала. Для вступления этой настройки в силу потребуется закрыть и повторно открыть меню.",
         "Comments": ""
     },
     {
@@ -3406,7 +3406,7 @@
         "Italian": "Volume canale tono PSG 0 %",
         "French": "",
         "Spanish": "Canal de tono PSG 0 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала тона 0 PSG (%)",
         "Comments": ""
     },
     {
@@ -3417,7 +3417,7 @@
         "Italian": "Riduci il volume del canale tono PSG 0.",
         "French": "",
         "Spanish": "Bajar el volumen del canal de tono 0 del PSG.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 0-го канала тона программируемого звукового генератора (PSG).",
         "Comments": ""
     },
     {
@@ -3428,7 +3428,7 @@
         "Italian": "Volume canale tono PSG 1 %",
         "French": "",
         "Spanish": "Canal de tono PSG 1 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала тона 1 PSG (%)",
         "Comments": ""
     },
     {
@@ -3439,7 +3439,7 @@
         "Italian": "Riduci il volume del canale tono PSG 1.",
         "French": "",
         "Spanish": "Bajar el volumen del canal de tono 1 del PSG.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 1-го канала тона программируемого звукового генератора (PSG).",
         "Comments": ""
     },
     {
@@ -3450,7 +3450,7 @@
         "Italian": "Volume canale tono PSG 2 %",
         "French": "",
         "Spanish": "PSG Tono Canal 2 Volumen %",
-        "Russian": "",
+        "Russian": "Громкость канала тона 2 PSG (%)",
         "Comments": ""
     },
     {
@@ -3461,7 +3461,7 @@
         "Italian": "Riduci il volume del canale tono PSG 2.",
         "French": "",
         "Spanish": "Bajar el volumen del canal de tono PSG 2.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 2-го канала тона программируемого звукового генератора (PSG).",
         "Comments": ""
     },
     {
@@ -3472,7 +3472,7 @@
         "Italian": "Volume canale rumore PSG 3 %",
         "French": "",
         "Spanish": "PSG Canal de ruido 3 Volumen %",
-        "Russian": "",
+        "Russian": "Громкость канала шума 3 PSG (%)",
         "Comments": ""
     },
     {
@@ -3483,7 +3483,7 @@
         "Italian": "Riduci il volume del canale rumore PSG 3.",
         "French": "",
         "Spanish": "Bajar el volumen del canal de ruido PSG 3.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 3-го канала шума программируемого звукового генератора (PSG).",
         "Comments": ""
     },
     {
@@ -3494,7 +3494,7 @@
         "Italian": "Volume canale FM Mega Drive/Genesis 0 %",
         "French": "",
         "Spanish": "Mega Drive/Genesis FM Canal 0 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала 0 MD/Genesis FM (%)",
         "Comments": ""
     },
     {
@@ -3505,7 +3505,7 @@
         "Italian": "Riduci il volume del canale FM Mega Drive/Genesis 0. Funziona solo con gli emulatori FM MAME.",
         "French": "",
         "Spanish": "Bajar el volumen del canal 0 de Mega Drive/Genesis FM. Solo funciona con el emulador MAME FM.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 0-го канала Mega Drive/Genesis FM. Работает только с эмуляторами MAME FM.",
         "Comments": ""
     },
     {
@@ -3516,7 +3516,7 @@
         "Italian": "Volume canale FM Mega Drive/Genesis 1 %",
         "French": "",
         "Spanish": "Mega Drive/Genesis FM Canal 1 Volumen %",
-        "Russian": "",
+        "Russian": "Громкость канала 1 MD/Genesis FM (%)",
         "Comments": ""
     },
     {
@@ -3527,7 +3527,7 @@
         "Italian": "Riduci il volume del canale FM Mega Drive/Genesis 1. Funziona solo con gli emulatori FM MAME.",
         "French": "",
         "Spanish": "Bajar el volumen del canal 1 de Mega Drive/Genesis FM. Solo funciona con el emulador MAME FM.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 1-го канала Mega Drive/Genesis FM. Работает только с эмуляторами MAME FM.",
         "Comments": ""
     },
     {
@@ -3538,7 +3538,7 @@
         "Italian": "Volume canale FM Mega Drive/Genesis 2 %",
         "French": "",
         "Spanish": "Mega Drive/Genesis FM canal 2 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала 2 MD/Genesis FM (%)",
         "Comments": ""
     },
     {
@@ -3549,7 +3549,7 @@
         "Italian": "Riduci il volume del canale FM Mega Drive/Genesis 2. Funziona solo con gli emulatori FM MAME.",
         "French": "",
         "Spanish": "Bajar el volumen del canal 2 de Mega Drive/Genesis. Solo funciona con el emulador MAME FM.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 2-го канала Mega Drive/Genesis FM. Работает только с эмуляторами MAME FM.",
         "Comments": ""
     },
     {
@@ -3560,7 +3560,7 @@
         "Italian": "Volume del canale FM 3 di Mega Drive/Genesis %",
         "French": "",
         "Spanish": "Mega Drive/Genesis FM canal 3 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала 3 MD/Genesis FM (%)",
         "Comments": ""
     },
     {
@@ -3571,7 +3571,7 @@
         "Italian": "Riduci il volume del canale FM 3 di Mega Drive/Genesis. Funziona solo con gli emulatori FM MAME.",
         "French": "",
         "Spanish": "Bajar el volumen del canal 3 de Mega Drive/Genesis. Solo funciona con el emulador MAME FM.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 3-го канала Mega Drive/Genesis FM. Работает только с эмуляторами MAME FM.",
         "Comments": ""
     },
     {
@@ -3582,7 +3582,7 @@
         "Italian": "Volume del canale FM 4 di Mega Drive/Genesis %",
         "French": "",
         "Spanish": "Mega Drive/Genesis FM Canal 4 Volumen %",
-        "Russian": "",
+        "Russian": "Громкость канала 4 MD/Genesis FM (%)",
         "Comments": ""
     },
     {
@@ -3593,7 +3593,7 @@
         "Italian": "Riduci il volume del canale FM 4 di Mega Drive/Genesis. Funziona solo con gli emulatori FM MAME.",
         "French": "",
         "Spanish": "Bajar el volumen del canal 4 de Mega Drive/Genesis. Solo funciona con el emulador MAME FM.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 4-го канала Mega Drive/Genesis FM. Работает только с эмуляторами MAME FM.",
         "Comments": ""
     },
     {
@@ -3604,7 +3604,7 @@
         "Italian": "Volume del canale FM 5 di Mega Drive/Genesis %",
         "French": "",
         "Spanish": "Mega Drive/Genesis FM canal 5 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала 5 MD/Genesis FM (%)",
         "Comments": ""
     },
     {
@@ -3615,7 +3615,7 @@
         "Italian": "Riduci il volume del canale FM 5 di Mega Drive/Genesis. Funziona solo con gli emulatori FM MAME.",
         "French": "",
         "Spanish": "Bajar el volumen del canal 5 de Mega Drive/Genesis. Solo funciona en el emulador MAME FM.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 5-го канала Mega Drive/Genesis FM. Работает только с эмуляторами MAME FM.",
         "Comments": ""
     },
     {
@@ -3626,7 +3626,7 @@
         "Italian": "Volume del canale FM 0 di Master System (YM2413) %",
         "French": "",
         "Spanish": "Master System FM (YM2413) Canal 0 Volumen %",
-        "Russian": "",
+        "Russian": "Громкость канала 0 MS FM (YM2413) (%)",
         "Comments": ""
     },
     {
@@ -3637,7 +3637,7 @@
         "Italian": "Riduci il volume del canale FM 0 di Master System.",
         "French": "",
         "Spanish": "Bajar el volumen del canal FM 0 del Master System.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 0-го канала Master System FM Sound Unit.",
         "Comments": ""
     },
     {
@@ -3648,7 +3648,7 @@
         "Italian": "Volume del canale FM 1 di Master System (YM2413) %",
         "French": "",
         "Spanish": "Master System FM (YM2413) Canal 1 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала 1 MS FM (YM2413) (%)",
         "Comments": ""
     },
     {
@@ -3659,7 +3659,7 @@
         "Italian": "Riduci il volume del canale FM 1 di Master System.",
         "French": "",
         "Spanish": "Bajar el volumen del canal FM 1 del Master System.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 1-го канала Master System FM Sound Unit.",
         "Comments": ""
     },
     {
@@ -3670,7 +3670,7 @@
         "Italian": "Volume del canale FM 2 di Master System (YM2413) %",
         "French": "",
         "Spanish": "Master System FM (YM2413) Canal 2 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала 2 MS FM (YM2413) (%)",
         "Comments": ""
     },
     {
@@ -3681,7 +3681,7 @@
         "Italian": "Riduci il volume del canale FM 2 di Master System.",
         "French": "",
         "Spanish": "Bajar el volumen del canal FM 2 del Master System.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 2-го канала Master System FM Sound Unit.",
         "Comments": ""
     },
     {
@@ -3692,7 +3692,7 @@
         "Italian": "Volume del canale FM 3 di Master System (YM2413) %",
         "French": "",
         "Spanish": "Master System FM (YM2413) Canal 3 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала 3 MS FM (YM2413) (%)",
         "Comments": ""
     },
     {
@@ -3703,7 +3703,7 @@
         "Italian": "Riduci il volume del canale FM 3 di Master System.",
         "French": "",
         "Spanish": "Bajar el volumen del canal FM 3 del Master System.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 3-го канала Master System FM Sound Unit.",
         "Comments": ""
     },
     {
@@ -3714,7 +3714,7 @@
         "Italian": "Volume del canale FM 4 di Master System (YM2413) %",
         "French": "",
         "Spanish": "Master System FM (YM2413) Canal 4 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала 4 MS FM (YM2413) (%)",
         "Comments": ""
     },
     {
@@ -3725,7 +3725,7 @@
         "Italian": "Riduci il volume del canale FM 4 di Master System.",
         "French": "",
         "Spanish": "Bajar el volumen del canal FM 4 del Master System.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 4-го канала Master System FM Sound Unit.",
         "Comments": ""
     },
     {
@@ -3736,7 +3736,7 @@
         "Italian": "Volume del canale FM 5 di Master System (YM2413) %",
         "French": "",
         "Spanish": "Master System FM (YM2413) Canal 5 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала 5 MS FM (YM2413) (%)",
         "Comments": ""
     },
     {
@@ -3747,7 +3747,7 @@
         "Italian": "Riduci il volume del canale FM 5 di Master System.",
         "French": "",
         "Spanish": "Bajar el volumen del canal FM 5 del Master System.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 5-го канала Master System FM Sound Unit.",
         "Comments": ""
     },
     {
@@ -3758,7 +3758,7 @@
         "Italian": "Volume del canale FM 6 di Master System (YM2413) %",
         "French": "",
         "Spanish": "Master System FM (YM2413) Canal 6 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала 6 MS FM (YM2413) (%)",
         "Comments": ""
     },
     {
@@ -3769,7 +3769,7 @@
         "Italian": "Riduci il volume del canale FM 6 di Master System.",
         "French": "",
         "Spanish": "Bajar el volumen del canal FM 6 del Master System.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 6-го канала Master System FM Sound Unit.",
         "Comments": ""
     },
     {
@@ -3780,7 +3780,7 @@
         "Italian": "Volume del canale FM 7 di Master System (YM2413) %",
         "French": "",
         "Spanish": "Master System FM (YM2413) Canal 7 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала 7 MS FM (YM2413) (%)",
         "Comments": ""
     },
     {
@@ -3791,7 +3791,7 @@
         "Italian": "Riduci il volume del canale FM 7 di Master System.",
         "French": "",
         "Spanish": "Bajar el volumen del canal FM 7 del Master System.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 7-го канала Master System FM Sound Unit.",
         "Comments": ""
     },
     {
@@ -3802,7 +3802,7 @@
         "Italian": "Volume del canale FM 8 di Master System (YM2413) %",
         "French": "",
         "Spanish": "Master System FM (YM2413) Canal 8 % de volumen",
-        "Russian": "",
+        "Russian": "Громкость канала 8 MS FM (YM2413) (%)",
         "Comments": ""
     },
     {
@@ -3813,7 +3813,7 @@
         "Italian": "Riduci il volume del canale FM 8 di Master System.",
         "French": "",
         "Spanish": "Bajar el volumen del canal FM 8 del Master System.",
-        "Russian": "",
+        "Russian": "Уменьшить громкость 8-го канала Master System FM Sound Unit.",
         "Comments": ""
     },
     {
@@ -3824,7 +3824,7 @@
         "Italian": "Volume CD-DA",
         "French": "",
         "Spanish": "Volumen de CD-DA",
-        "Russian": "",
+        "Russian": "Громкость CD-DA",
         "Comments": ""
     },
     {
@@ -3835,7 +3835,7 @@
         "Italian": "Regola il volume di miscelazione dell'output di riproduzione audio CD emulato.",
         "French": "",
         "Spanish": "Ajusta el volumen de mezcla de la salida de reproducción de audio de CD emulado.",
-        "Russian": "",
+        "Russian": "Регулировка громкости микширования эмулируемого выхода воспроизведения аудио CD.",
         "Comments": ""
     },
     {
@@ -3846,7 +3846,7 @@
         "Italian": "Volume PCM",
         "French": "",
         "Spanish": "PCM Volumen",
-        "Russian": "",
+        "Russian": "Громкость PCM",
         "Comments": ""
     },
     {
@@ -3857,7 +3857,7 @@
         "Italian": "Regola il volume di miscelazione dell'output del generatore di suoni PCM RF5C164 emulato di Sega CD/Mega-CD.",
         "French": "",
         "Spanish": "Ajusta el volumen de mezcla de la salida del generador de sonido PCM RF5C164 Sega CD/Mega-CD emulado.",
-        "Russian": "",
+        "Russian": "Регулировка громкости микширования эмулируемого выхода звукового генератора PCM RF5C164 Sega CD/Mega-CD.",
         "Comments": ""
     },
     {
@@ -3868,7 +3868,7 @@
         "Italian": "Scorrimento verticale migliorato per tile",
         "French": "",
         "Spanish": "Mejora del desplazamiento vertical por mosaicos.",
-        "Russian": "",
+        "Russian": "Улучшенная вертикальная прокрутка",
         "Comments": ""
     },
     {
@@ -3879,7 +3879,7 @@
         "Italian": "Consente a ogni singola cella di scorrere verticalmente, invece di 16px 2-celle, mediando il valore di scorrimento verticale (vscroll) della cella adiacente. Questa modifica si applica solo a pochi giochi che utilizzano la modalità di scorrimento verticale a 2 celle.",
         "French": "",
         "Spanish": "Permite desplazar verticalmente cada celda en lugar de dos celdas de 16 píxeles promediando el valor de vscroll de las celdas adyacentes. Este truco solo se aplica a algunos juegos que utilizan el modo de desplazamiento vertical de dos celdas.",
-        "Russian": "",
+        "Russian": "Позволяет прокручивать каждую ячейку по вертикали отдельно, усредняя значение vscroll соседней ячейки, а не ограничиваться 2 ячейками (16 пикселей). Этот способ применим только к нескольким играм, в которых используется режим вертикальной прокрутки по 2 ячейкам.",
         "Comments": ""
     },
     {
@@ -3890,7 +3890,7 @@
         "Italian": "Limite di scorrimento verticale migliorato per tile",
         "French": "",
         "Spanish": "Límite de desplazamiento vertical por mosaico mejorado",
-        "Russian": "",
+        "Russian": "Предел улучшения вертикальной прокрутки",
         "Comments": ""
     },
     {
@@ -3901,7 +3901,7 @@
         "Italian": "Solo quando lo scorrimento verticale migliorato per tile è abilitato. Regola il limite del miglioramento dello scorrimento verticale. Quando la differenza di scorrimento verticale (vscroll) tra le tile adiacenti è maggiore di questo limite, il miglioramento viene disabilitato.",
         "French": "",
         "Spanish": "Solo cuando está habilitado el desplazamiento vertical por mosaico mejorado. Ajusta el límite de la mejora del desplazamiento vertical. Cuando la diferencia de vscroll entre mosaicos vecinos es mayor que este límite, la mejora se desactiva.",
-        "Russian": "",
+        "Russian": "Действует только в том случае, если включена улучшенная вертикальная прокрутка. Если разница значений vscroll соседних ячеек превышает этот предел, улучшение автоматически отключается.",
         "Comments": ""
     },
     {
@@ -3912,7 +3912,7 @@
         "Italian": "Velocità della CPU",
         "French": "",
         "Spanish": "Velocidad de la CPU",
-        "Russian": "",
+        "Russian": "Скорость ЦПУ",
         "Comments": ""
     },
     {
@@ -3923,7 +3923,7 @@
         "Italian": "Overclock della CPU emulata. Può ridurre il rallentamento, ma potrebbe causare glitch.",
         "French": "",
         "Spanish": "Overlockea la CPU emulada. Puede reducir la ralentización, pero puede causar fallos.",
-        "Russian": "",
+        "Russian": "Разгон эмулируемого процессора способен уменьшить замедление, но может вызвать сбои.",
         "Comments": ""
     },
     {
@@ -3934,7 +3934,7 @@
         "Italian": "Blocchi del sistema",
         "French": "",
         "Spanish": "Bloqueos del sistema",
-        "Russian": "",
+        "Russian": "Системные блокировки",
         "Comments": ""
     },
     {
@@ -3945,7 +3945,7 @@
         "Italian": "Emula i blocchi del sistema che si verificano sull'hardware reale durante l'accesso a indirizzi illegali. Questo dovrebbe essere disabilitato solo quando si giocano determinati demo e homebrew che si basano su comportamenti illegali per un funzionamento corretto.",
         "French": "",
         "Spanish": "Emule los bloqueos del sistema que se producen en el hardware real al realizar un acceso ilegal a direcciones. Esto solo debe desactivarse cuando se juegan ciertas demos y homebrew que se basan en un comportamiento ilegal para su correcto funcionamiento.",
-        "Russian": "",
+        "Russian": "Имитация блокировок системы, которые происходят на настоящем оборудовании при доступе к недопустимым адресам. Это должно быть отключено только для определённых homebrew, которые используют такое поведение для корректной работы.",
         "Comments": ""
     },
     {
@@ -3956,7 +3956,7 @@
         "Italian": "Per cartuccia",
         "French": "",
         "Spanish": "Cada cartucho",
-        "Russian": "",
+        "Russian": "Общий картридж",
         "Comments": ""
     },
     {
@@ -3967,7 +3967,7 @@
         "Italian": "Per gioco",
         "French": "",
         "Spanish": "Por cada juego",
-        "Russian": "",
+        "Russian": "Каждая игра отдельно",
         "Comments": ""
     },
     {
@@ -3978,7 +3978,7 @@
         "Italian": "Disabilitato",
         "French": "",
         "Spanish": "Deshabilitado",
-        "Russian": "",
+        "Russian": "Отключено",
         "Comments": ""
     },
     {
@@ -3989,7 +3989,7 @@
         "Italian": "Manuale",
         "French": "",
         "Spanish": "Manual",
-        "Russian": "",
+        "Russian": "Вручную",
         "Comments": ""
     },
     {
@@ -4000,7 +4000,7 @@
         "Italian": "Livello preamplificatore FM",
         "French": "",
         "Spanish": "Nivel de preamplificador FM",
-        "Russian": "",
+        "Russian": "Уровень предусиления FM",
         "Comments": ""
     },
     {
@@ -4011,7 +4011,7 @@
         "Italian": "Imposta il livello del preamplificatore audio del sintetizzatore FM Mega Drive/Genesis emulato o dell'unità audio FM Sega Mark III/Master System.",
         "French": "",
         "Spanish": "Ajuste el nivel del preamplificador de audio del sintetizador de sonido Mega Drive/Genesis FM emulado o de la unidad de sonido FM Sega Mark III/Master System.",
-        "Russian": "",
+        "Russian": "Уровень предусиления эмулируемого FM синтезатора звука Mega Drive/Genesis или устройства FM Sound Unit системы Sega Mark III/Master System.",
         "Comments": ""
     },
     {
@@ -4022,7 +4022,7 @@
         "Italian": "Schermo esteso di Game Gear",
         "French": "",
         "Spanish": "Pantalla extendida de Game Gear",
-        "Russian": "",
+        "Russian": "Расширенный экран Game Gear",
         "Comments": ""
     },
     {
@@ -4033,7 +4033,7 @@
         "Italian": "Forza i titoli di Game Gear a funzionare in modalità SMS, con una risoluzione aumentata di 256x192. Potrebbe mostrare contenuti aggiuntivi, ma in genere visualizza un bordo di dati immagine corrotti/indesiderati.",
         "French": "",
         "Spanish": "Obliga a los títulos de Game Gear a ejecutarse en modo SMS, con una resolución aumentada de 256x192. Puede mostrar contenido adicional, pero normalmente muestra un borde de datos de imagen dañados o no deseados.",
-        "Russian": "",
+        "Russian": "Заставляет игры Game Gear запускаться в режиме SMS с разрешением, увеличенным до 256x192. Может начать отображаться дополнительный контент, но обычно отображается рамка из искажённых или избыточных данных.",
         "Comments": ""
     },
     {
@@ -4044,7 +4044,7 @@
         "Italian": "Mostra il mirino della light gun",
         "French": "",
         "Spanish": "Mostrar punto de mira de pistola de luz",
-        "Russian": "",
+        "Russian": "Показывать прицел светового пистолета",
         "Comments": ""
     },
     {
@@ -4055,7 +4055,7 @@
         "Italian": "Visualizza i mirini della light gun quando si utilizzano i tipi di dispositivo di input MD Menacer, MD Justifiers e MS Light Phaser.",
         "French": "",
         "Spanish": "Muestra el punto de mira de la pistola de luz cuando se utilizan los tipos de dispositivos de entrada MD Menacer, MD Justifiers y MS Light Phaser.",
-        "Russian": "",
+        "Russian": "Отображать перекрестие прицела светового пистолета при использовании устройств ввода MD Menacer, MD Justifiers или MS Light Phaser.",
         "Comments": ""
     },
     {
@@ -4066,7 +4066,7 @@
         "Italian": "Input della light gun",
         "French": "",
         "Spanish": "Entrada de pistola de luz",
-        "Russian": "",
+        "Russian": "Ввод светового пистолета",
         "Comments": ""
     },
     {
@@ -4077,7 +4077,7 @@
         "Italian": "Utilizza un input 'Light Gun' o 'Touchscreen' controllato dal mouse.",
         "French": "",
         "Spanish": "Utilice una entrada de 'Pistola de luz' o 'Pantalla táctil' controlada por el mouse.",
-        "Russian": "",
+        "Russian": "Использовать мышь или сенсорный экран для управления световым пистолетом.",
         "Comments": ""
     },
     {
@@ -4088,7 +4088,7 @@
         "Italian": "Inverti l'asse Y del mouse",
         "French": "",
         "Spanish": "Invertir el eje Y del mouse",
-        "Russian": "",
+        "Russian": "Инвертировать ось Y мыши",
         "Comments": ""
     },
     {
@@ -4099,7 +4099,7 @@
         "Italian": "Inverte l'asse Y del tipo di dispositivo di input MD Mouse.",
         "French": "",
         "Spanish": "Invierte el eje Y del tipo de dispositivo de entrada MD Mouse.",
-        "Russian": "",
+        "Russian": "Инвертирует ось Y устройства ввода мыши MD Mouse.",
         "Comments": ""
     },
     {
@@ -4110,7 +4110,7 @@
         "Italian": "Filtro ghosting LCD",
         "French": "",
         "Spanish": "Filtro de fantasma LCD",
-        "Russian": "",
+        "Russian": "Фильтр ореола ЖК-дисплея",
         "Comments": ""
     },
     {
@@ -4121,7 +4121,7 @@
         "Italian": "Applica un filtro 'ghosting' per imitare le caratteristiche di visualizzazione dei pannelli LCD di Game Gear e Genesis Nomad.",
         "French": "",
         "Spanish": "Aplica un filtro de imagen \"fantasma\" para imitar las características de visualización de los paneles LCD de Game Gear y Genesis Nomad.",
-        "Russian": "",
+        "Russian": "Фильтр ореола ЖК-дисплея для имитации эффектов ЖК-экранов Game Gear и Genesis Nomad.",
         "Comments": ""
     },
     {
@@ -4132,7 +4132,7 @@
         "Italian": "Nascondi i bordi laterali del Master System",
         "French": "",
         "Spanish": "Ocultar los bordes laterales del Master System",
-        "Russian": "",
+        "Russian": "Скрыть боковую рамку Master System",
         "Comments": ""
     },
     {
@@ -4143,7 +4143,7 @@
         "Italian": "Taglia 8 pixel dal lato sinistro dello schermo o da entrambi i lati sinistro e destro durante l'esecuzione di giochi Master System.",
         "French": "",
         "Spanish": "Corta 8 píxeles del lado izquierdo de la pantalla o de los lados izquierdo y derecho cuando se ejecutan juegos de Master System.",
-        "Russian": "",
+        "Russian": "При запуске игр Master System обрезать 8 пикселей с левой стороны экрана или с обеих сторон.",
         "Comments": ""
     },
     {
@@ -4154,7 +4154,7 @@
         "Italian": "Blocco della cartuccia",
         "French": "",
         "Spanish": "Bloqueo del cartucho",
-        "Russian": "",
+        "Russian": "Lock-On картридж",
         "Comments": ""
     },
     {
@@ -4165,7 +4165,7 @@
         "Italian": "La tecnologia Lock-On è una funzionalità di Mega Drive/Genesis che consentiva a un gioco più vecchio di connettersi alla porta pass-through di una cartuccia speciale per un gameplay esteso o modificato. Questa opzione specifica quale tipo di cartuccia speciale 'lock-on' emulare. Un file bios corrispondente deve essere presente nella directory di sistema di RetroArch.",
         "French": "",
         "Spanish": "La tecnología Lock-On es una característica de Mega Drive/Genesis que permitía que un juego antiguo se conectara al puerto de paso de un cartucho especial para un juego extendido o alterado. Esta opción especifica qué tipo de cartucho especial de \"bloqueo\" se va a emular. Un archivo de BIOS correspondiente debe estar presente en el directorio del sistema de RetroArch.",
-        "Russian": "",
+        "Russian": "«Lock-On» — технология Mega Drive/Genesis, которая позволяет играм подключаться к сквозному порту специального картриджа для расширения или изменения игрового процесса. Эта настройка определяет, какой тип «lock-on» картриджа следует имитировать. Соответствующий файл ПЗУ должен находиться в системном каталоге интерфейса.",
         "Comments": ""
     },
     {
@@ -4176,7 +4176,7 @@
         "Italian": "Filtro passa-basso %",
         "French": "",
         "Spanish": "De filtro de paso bajo % ",
-        "Russian": "",
+        "Russian": "Фильтр нижних частот (%)",
         "Comments": ""
     },
     {
@@ -4187,7 +4187,7 @@
         "Italian": "Specifica la frequenza di taglio del filtro passa-basso audio. Un valore più alto aumenta la 'forza' percepita del filtro, poiché una gamma più ampia dello spettro ad alta frequenza viene attenuata.",
         "French": "",
         "Spanish": "Especifique la frecuencia de corte del filtro de paso bajo de audio. Un valor más alto aumenta la \"fuerza\" percibida del filtro, ya que se atenúa un rango más amplio del espectro de alta frecuencia.",
-        "Russian": "",
+        "Russian": "Задаёт частоту среза фильтра низких частот. Более высокое значение увеличит воспринимаемую «силу» фильтра, поскольку при этом «ослабится» более широкий диапазон спектра высоких частот.",
         "Comments": ""
     },
     {
@@ -4198,7 +4198,7 @@
         "Italian": "Rimuovi il limite di sprite per linea",
         "French": "",
         "Spanish": "Eliminar el límite de sprites por línea",
-        "Russian": "",
+        "Russian": "Снятие ограничения количества спрайтов",
         "Comments": ""
     },
     {
@@ -4209,7 +4209,7 @@
         "Italian": "Rimuove il limite hardware originale di sprite per linea di scansione. Questo riduce lo sfarfallio ma può causare glitch visivi, poiché alcuni giochi sfruttano il limite hardware per generare effetti speciali.",
         "French": "",
         "Spanish": "Elimina el límite de hardware original de sprite por línea de exploración. Esto reduce el parpadeo, pero puede causar fallos visuales, ya que algunos juegos explotan el límite del hardware para generar efectos especiales.",
-        "Russian": "",
+        "Russian": "Снять исходное аппаратное ограничение на количество спрайтов, которые могут быть отображены на одной строке развёртки, тем самым уменьшая мерцание. Однако некоторые игры могут полагаться на это ограничение для корректного отображения спецэффектов.",
         "Comments": ""
     },
     {
@@ -4220,7 +4220,7 @@
         "Italian": "Bordi",
         "French": "",
         "Spanish": "Bordes",
-        "Russian": "",
+        "Russian": "Рамка",
         "Comments": ""
     },
     {
@@ -4231,7 +4231,7 @@
         "Italian": "Abilita questo per visualizzare le regioni di overscan nella parte superiore/inferiore e/o sinistra/destra dello schermo. Queste aree sarebbero normalmente nascoste dalla cornice attorno al bordo di un televisore a definizione standard.",
         "French": "",
         "Spanish": "Habilite esta opción para mostrar las regiones de sobreescaneo en la parte superior/inferior y/o izquierda/derecha de la pantalla. Normalmente, estos estarían ocultos por el bisel alrededor del borde de un televisor de definición estándar.",
-        "Russian": "",
+        "Russian": "Отображать области избыточного изображения в верхней/нижней и/или левой/правой частях экрана. На телевизорах стандартной чёткости эти области обычно скрыты рамкой.",
         "Comments": ""
     },
     {
@@ -4242,7 +4242,7 @@
         "Italian": "Livello preamplificatore PSG",
         "French": "",
         "Spanish": "Nivel de preamplificación PSG",
-        "Russian": "",
+        "Russian": "Уровень громкости предусилителя PSG",
         "Comments": ""
     },
     {
@@ -4253,7 +4253,7 @@
         "Italian": "Imposta il livello del preamplificatore audio del generatore di suoni programmabile a 4 canali SN76496 emulato presente in SG-1000, Sega Mark III, Master System, Game Gear e Mega Drive/Genesis.",
         "French": "",
         "Spanish": "Establece el nivel de preamplificador de audio del generador de tonos de SN76496 programable de 4 canales emulado que se encuentra en SG-1000, Sega Mark III, Master System, Game Gear y Mega Drive/Genesis.",
-        "Russian": "",
+        "Russian": "Уровень громкости предусилителя эмулируемого 4-канального программируемого звукового генератора (PSG) SN76496, используемого в SG-1000, Sega Mark III, Master System, Game Gear и Mega Drive/Genesis.",
         "Comments": ""
     },
     {
@@ -4264,7 +4264,7 @@
         "Italian": "Regione del sistema",
         "French": "",
         "Spanish": "Región del sistema",
-        "Russian": "",
+        "Russian": "Регион консоли",
         "Comments": ""
     },
     {
@@ -4275,7 +4275,7 @@
         "Italian": "Specifica da quale regione proviene il sistema. Per le console diverse da Game Gear, 'PAL' è 50 Hz, mentre 'NTSC' è 60 Hz. I giochi potrebbero funzionare più velocemente o più lentamente del normale se viene selezionata la regione errata.",
         "French": "",
         "Spanish": "Especifica la región de la que procede el sistema. Para consolas que no sean Game Gear, 'PAL' es de 50 Hz, mientras que 'NTSC' es de 60 Hz. Los juegos pueden ejecutarse más rápido o más lento de lo normal si se selecciona la región incorrecta.",
-        "Russian": "",
+        "Russian": "Задаёт регион консоли. Для консолей, отличных от Game Gear, [PAL] — это 50 Гц, а [NTSC] — это 60 Гц. Игры могут работать быстрее или медленнее обычного, если выбран неправильный регион.",
         "Comments": ""
     },
     {
@@ -4286,7 +4286,7 @@
         "Italian": "Uscita modalità interlacciata 2",
         "French": "",
         "Spanish": "Salida de modo entrelazado 2",
-        "Russian": "",
+        "Russian": "Вывод в чересстрочном режиме 2",
         "Comments": ""
     },
     {
@@ -4297,7 +4297,7 @@
         "Italian": "La Modalità Interlacciata 2 consente al Mega Drive/Genesis di produrre un'immagine a doppia altezza (alta risoluzione) di 320x448 disegnando linee di scansione alternate ogni fotogramma (utilizzato in Sonic the Hedgehog 2 e nelle modalità multiplayer di Combat Cars). 'Doppio Campo' imita l'hardware originale, producendo un'immagine nitida con artefatti di sfarfallio/interlacciamento. 'Campo Singolo' applica un filtro di deinterlacciamento, che stabilizza l'immagine ma causa un leggero sfuocamento.",
         "French": "",
         "Spanish": "El modo entrelazado 2 permite a Mega Drive/Genesis producir una imagen de doble altura (alta resolución) de 320x448 dibujando líneas de escaneo alternas en cada fotograma (utilizado en los modos multijugador Sonic the Hedgehog 2 y Combat Cars). 'Double Field' imita el hardware original, produciendo una imagen nítida con artefactos de parpadeo/entrelazado. 'Campo único' aplica un filtro de desentrelazado, que estabiliza la imagen pero provoca un ligero desenfoque.",
-        "Russian": "",
+        "Russian": "Чересстрочный режим 2 (Interlaced Mode 2) позволяет Mega Drive/Genesis выводить изображение двойной высоты (320×448 для NTSC, 320x480 для PAL), отрисовывая чередующиеся линии развёртки в каждом кадре (эта возможность используется в многопользовательских режимах Sonic the Hedgehog 2 и Combat Cars). Режим [Double Field] точно имитирует оригинальное оборудование, демонстрируя чёткое изображение, но с мерцанием и артефактами чересстрочной развёртки. Режим [Single Field] применяет фильтр деинтерлейсинга, стабилизирующий изображение, но вызывающий лёгкое размытие.",
         "Comments": ""
     },
     {
@@ -4308,7 +4308,7 @@
         "Italian": "Uscita Audio",
         "French": "",
         "Spanish": "Salida de audio",
-        "Russian": "",
+        "Russian": "Аудиовыход",
         "Comments": ""
     },
     {
@@ -4319,7 +4319,7 @@
         "Italian": "Seleziona la riproduzione audio in stereo o mono.",
         "French": "",
         "Spanish": "Seleccione la reproducción de audio en estéreo o mono.",
-        "Russian": "",
+        "Russian": "Воспроизводить звук в стерео или моно режиме.",
         "Comments": ""
     },
     {
@@ -4330,7 +4330,7 @@
         "Italian": "BRAM del Sistema CD (Richiede Riavvio)",
         "French": "",
         "Spanish": "CD System BRAM (requiere reinicio)",
-        "Russian": "",
+        "Russian": "BRAM консоли (перезапуск)",
         "Comments": ""
     },
     {
@@ -4341,7 +4341,7 @@
         "Italian": "Quando si esegue contenuti Sega CD/Mega-CD, specifica se condividere un unico file di salvataggio tra tutti i giochi di una specifica regione (Per-BIOS) o creare un file di salvataggio separato per ogni gioco (Per-Game). Nota che il Sega CD/Mega-CD ha una memoria interna limitata, sufficiente solo per un numero ristretto di titoli. Per evitare di esaurire lo spazio, si consiglia l'impostazione 'Per-Game'.",
         "French": "",
         "Spanish": "Al ejecutar contenido de Sega CD/Mega-CD, especifique si desea compartir un único archivo de guardado entre todos los juegos de una región específica (por BIOS) o crear un archivo de guardado independiente para cada juego (por juego). Tenga en cuenta que el Sega CD / Mega-CD tiene una memoria interna limitada, que solo es suficiente para un pequeño número de títulos. Para evitar quedarse sin espacio, se recomienda la configuración 'Por juego'.",
-        "Russian": "",
+        "Russian": "Следует ли использовать один файл сохранения для всех игр определённого региона — режим [Per-BIOS] или создавать отдельный файл сохранения для каждой игры — режим [Каждая игра отдельно]. Следует отметить, что внутреннее пространство памяти Sega CD/Mega-CD весьма ограничено и может хранить лишь небольшое количество сохранений. Чтобы избежать нехватки места для сохранения, рекомендуется использовать режим [Каждая игра отдельно].",
         "Comments": ""
     },
     {
@@ -4352,7 +4352,7 @@
         "Italian": "Hardware di Sistema",
         "French": "",
         "Spanish": "Hardware del sistema",
-        "Russian": "",
+        "Russian": "Эмулируемое оборудование",
         "Comments": ""
     },
     {
@@ -4363,7 +4363,7 @@
         "Italian": "Esegue il contenuto caricato con una console emulata specifica. 'Auto' selezionerà il sistema più appropriato per il gioco corrente.",
         "French": "",
         "Spanish": "Ejecuta contenido cargado con una consola emulada específica. 'Auto' seleccionará el sistema más apropiado para el juego actual.",
-        "Russian": "",
+        "Russian": "Запускать контент на определённой эмулируемой консоли. Режим [Автоматически] выберет наиболее подходящую систему для текущей игры.",
         "Comments": ""
     },
     {
@@ -4374,7 +4374,7 @@
         "Italian": "Forza Modalità VDP",
         "French": "",
         "Spanish": "Forzar el modo VDP",
-        "Russian": "",
+        "Russian": "Принудительный режим VDP",
         "Comments": ""
     },
     {
@@ -4385,7 +4385,7 @@
         "Italian": "Sovrascrive la modalità VDP per forzarla a funzionare a NTSC 60Hz o PAL 50Hz, indipendentemente dalla regione del sistema.",
         "French": "",
         "Spanish": "Sobrescribe el modo VDP para forzar su ejecución a NTSC 60 Hz o PAL 50 Hz, independientemente de la región del sistema.",
-        "Russian": "",
+        "Russian": "Переопределение режима VDP, принудительно задавая частоту NTSC 60 Гц или PAL 50 Гц, независимо от региона системы.",
         "Comments": ""
     },
     {
@@ -4396,7 +4396,7 @@
         "Italian": "Master System FM (YM2413)",
         "French": "",
         "Spanish": "Sistema maestro FM (YM2413)",
-        "Russian": "",
+        "Russian": "Master System FM (YM2413)",
         "Comments": ""
     },
     {
@@ -4407,7 +4407,7 @@
         "Italian": "Abilita l'emulazione dell'unità audio FM utilizzata da alcuni giochi Sega Mark III/Master System per una migliore qualità audio.",
         "French": "",
         "Spanish": "Habilite la emulación de unidad de audio FM utilizada por algunos juegos de Sega Mark III / Master System para una mejor calidad de audio.",
-        "Russian": "",
+        "Russian": "Имитация FM Sound Unit, используемого в некоторых играх Sega Mark III/Master System, для улучшения вывода звука.",
         "Comments": ""
     },
     {
@@ -4418,7 +4418,7 @@
         "Italian": "Nucleo Master System FM (YM2413)",
         "French": "",
         "Spanish": "Sistema Maestro Nucleo FM (YM2413)",
-        "Russian": "",
+        "Russian": "Ядро Master System FM (YM2413)",
         "Comments": ""
     },
     {
@@ -4429,7 +4429,7 @@
         "Italian": "Seleziona il metodo utilizzato per emulare l'unità audio FM del Sega Mark III/Master System. L'opzione 'MAME' è veloce e funziona a piena velocità sulla maggior parte dei sistemi. L'opzione 'Nuked' è precisa nei cicli, di altissima qualità, ma richiede una CPU potente.",
         "French": "",
         "Spanish": "Seleccione el método utilizado para emular la unidad de audio FM de la Sega Mark III/Master System. La opción 'MAME' es rápida y funciona a toda velocidad en la mayoría de los sistemas. La opción 'Nuked' es precisa en ciclos, de muy alta calidad, pero requiere una CPU potente.",
-        "Russian": "",
+        "Russian": "Метод, используемый для эмуляции FM Sound Unit системы Sega Mark III/Master. [MAME] является быстрым и подходит для работы на полной скорости на большинстве систем, а [Nuked] обеспечивает высококачественную эмуляцию звука с точностью до цикла, но более требователен к производительности ЦПУ.",
         "Comments": ""
     },
     {
@@ -4440,7 +4440,7 @@
         "Italian": "Mega Drive/Genesis FM",
         "French": "",
         "Spanish": "Mega Drive/Genesis FM",
-        "Russian": "",
+        "Russian": "Mega Drive/Genesis FM",
         "Comments": ""
     },
     {
@@ -4451,7 +4451,7 @@
         "Italian": "Seleziona il metodo utilizzato per emulare il sintetizzatore FM (principale generatore di suoni) del Mega Drive/Genesis. Le opzioni 'MAME' sono veloci e funzionano a piena velocità sulla maggior parte dei sistemi. Le opzioni 'Nuked' sono precise nei cicli, di altissima qualità, ma richiedono una CPU potente. Il chip YM2612 è utilizzato nel modello originale Mega Drive/Genesis Model 1. L'YM3438 è utilizzato nelle revisioni successive del Mega Drive/Genesis.",
         "French": "",
         "Spanish": "Seleccione el método utilizado para emular el sintetizador FM (generador de sonido principal) de la Mega Drive/Genesis. Las opciones 'MAME' son rápidas y funcionan a toda velocidad en la mayoría de los sistemas. Las opciones 'Nuked' son precisas en el ciclismo, de la más alta calidad, pero requieren una CPU potente. El chip YM2612 se utiliza en el modelo original Mega Drive/Genesis Model 1. El YM3438 se utiliza en revisiones posteriores de la Mega Drive/Genesis.",
-        "Russian": "",
+        "Russian": "Метод, используемый для эмуляции FM-синтезатора (основного генератора звука) Mega Drive/Genesis. [MAME] является быстрым и подходит для работы на полной скорости на большинстве систем, в то время как [Nuked] обеспечивает высококачественную эмуляцию звука с точностью до цикла, но более требователен к производительности ЦПУ. В оригинальной Mega Drive/Genesis Model 1 использовался чип YM2612, а в последующих ревизиях — YM3438.",
         "Comments": ""
     },
     {
@@ -4462,7 +4462,7 @@
         "Italian": "Seleziona il metodo utilizzato per emulare il sintetizzatore FM (principale generatore di suoni) del Mega Drive/Genesis. Il chip YM2612 è utilizzato nel modello originale Mega Drive/Genesis Model 1. L'YM3438 è utilizzato nelle revisioni successive del Mega Drive/Genesis.",
         "French": "",
         "Spanish": "Seleccione el método utilizado para emular el sintetizador FM (generador de sonido principal) de la Mega Drive/Genesis. El chip YM2612 se utiliza en el modelo original Mega Drive/Genesis Model 1. El YM3438 se utiliza en revisiones posteriores de la Mega Drive/Genesis.",
-        "Russian": "",
+        "Russian": "Метод, используемый для эмуляции FM-синтезатора (основного генератора звука) Mega Drive/Genesis. В оригинальной Mega Drive/Genesis Model 1 использовался чип YM2612, а в последующих ревизиях — YM3438.",
         "Comments": ""
     },
     {
@@ -4473,7 +4473,7 @@
         "Italian": "Supporto RTC",
         "French": "",
         "Spanish": "Compatibilidad con RTC",
-        "Russian": "",
+        "Russian": "Поддержка RTC",
         "Comments": ""
     },
     {
@@ -4484,7 +4484,7 @@
         "Italian": "Imposta il supporto RTC per la cartuccia emulata. L'autorilevamento utilizza un database ROM che funziona con la maggior parte dei titoli commerciali. Potrebbe essere necessario forzare l'RTC quando si utilizzano homebrew o hack ROM.",
         "French": "",
         "Spanish": "Establece la compatibilidad con RTC para el cartucho emulado. La detección automática utiliza una base de datos de ROM que funciona con la mayoría de los títulos comerciales. Es posible que debas forzar RTC cuando uses trucos caseros o de ROM.",
-        "Russian": "",
+        "Russian": "Поддержка часов реального времени (RTC) для эмулируемого картриджа. Режим [Автоматически] использует базу данных, чтобы определить, нужен ли RTC для данного ROM, что подходит для большинства коммерческих игр. При использовании homebrew или ROM-хаков может потребоваться принудительно включать RTC.",
         "Comments": ""
     },
     {
@@ -4495,7 +4495,7 @@
         "Italian": "Supporto Rumble",
         "French": "",
         "Spanish": "Soporte de Rumble",
-        "Russian": "",
+        "Russian": "Поддержка вибрации",
         "Comments": ""
     },
     {
@@ -4506,7 +4506,7 @@
         "Italian": "Imposta il supporto Rumble per la cartuccia emulata. L'autorilevamento utilizza un database ROM che funziona con la maggior parte dei titoli commerciali. Potresti voler forzare il Rumble quando usi homebrew o hack ROM che lo supportano. Puoi anche disabilitarlo forzatamente se non ti piace.",
         "French": "",
         "Spanish": "Configure la compatibilidad con Rumble para el cartucho emulado. La detección automática utiliza una base de datos de ROM que funciona con la mayoría de los títulos comerciales. Es posible que desee forzar el Rumble cuando use trucos caseros o de ROM que lo admitan. También puede deshabilitarlo a la fuerza si no le gusta.",
-        "Russian": "",
+        "Russian": "Поддержка вибрации (Rumble) для эмулируемого картриджа. Режим [Автоматически] использует базу данных, чтобы определить, нужна ли вибрация для данного ROM, что подходит для большинства коммерческих игр. При использовании homebrew или ROM-хаков может потребоваться принудительно включать вибрацию.",
         "Comments": ""
     },
     {
@@ -4517,7 +4517,7 @@
         "Italian": "automatico",
         "French": "",
         "Spanish": "Automático",
-        "Russian": "",
+        "Russian": "Автоматически",
         "Comments": ""
     },
     {
@@ -4528,7 +4528,7 @@
         "Italian": "Connettività Cavo Link",
         "French": "",
         "Spanish": "Conectividad de cable de enlace",
-        "Russian": "",
+        "Russian": "Подключение кабеля Game Link",
         "Comments": ""
     },
     {
@@ -4539,7 +4539,7 @@
         "Italian": "Configura la connessione seriale (Cavo Link). L'impostazione automatica selezionerà un supporto ragionevole per la maggior parte dei giochi conosciuti.",
         "French": "",
         "Spanish": "Configure la conexión serie (cable de enlace). La configuración automática seleccionará el soporte razonable para la mayoría de los juegos conocidos.",
-        "Russian": "",
+        "Russian": "Настройка последовательного подключения (по кабелю Game Link). Программа автоматически подберёт подходящее подключение на основе известных требований игры, что подходит для большинства ситуаций.",
         "Comments": ""
     },
     {
@@ -4550,7 +4550,7 @@
         "Italian": "Nessun Limite di Sprite",
         "French": "",
         "Spanish": "Sin límite de sprites",
-        "Russian": "",
+        "Russian": "Снятие ограничения количества спрайтов",
         "Comments": ""
     },
     {
@@ -4561,7 +4561,7 @@
         "Italian": "Rimuove il limite hardware originale degli sprite per linea di scansione. Alcuni giochi potrebbero fare affidamento sul limite hardware per il rendering corretto (ad esempio, nascondendo alcuni sprite).",
         "French": "",
         "Spanish": "Elimina el límite de hardware original de sprites por línea de exploración. Algunos juegos pueden depender del límite de hardware para renderizarse correctamente (por ejemplo, ocultar algunos sprites).",
-        "Russian": "",
+        "Russian": "Снять исходное аппаратное ограничение на количество спрайтов, которые могут быть отображены на одной строке развёртки, тем самым уменьшая мерцание и улучшая визуальные характеристики. Однако некоторые игры могут полагаться на это ограничение для корректного отображения изображения (например, чтобы скрыть определённые спрайты).",
         "Comments": ""
     },
     {
@@ -4572,7 +4572,7 @@
         "Italian": "Automatico",
         "French": "",
         "Spanish": "Automático",
-        "Russian": "",
+        "Russian": "Автоматически",
         "Comments": ""
     },
     {
@@ -4583,7 +4583,7 @@
         "Italian": "Adattatore Wireless GBA",
         "French": "",
         "Spanish": "Adaptador inalámbrico GBA",
-        "Russian": "",
+        "Russian": "Адаптер беспроводной связи GBA",
         "Comments": ""
     },
     {
@@ -4594,7 +4594,7 @@
         "Italian": "Difficoltà",
         "French": "",
         "Spanish": "Dificultad",
-        "Russian": "",
+        "Russian": "Уровень сложности",
         "Comments": ""
     },
     {
@@ -4605,7 +4605,7 @@
         "Italian": "Normale",
         "French": "",
         "Spanish": "Normal",
-        "Russian": "",
+        "Russian": "Нормальный",
         "Comments": ""
     },
     {
@@ -4616,7 +4616,7 @@
         "Italian": "Medio",
         "French": "",
         "Spanish": "Medio",
-        "Russian": "",
+        "Russian": "Средний",
         "Comments": ""
     },
     {
@@ -4627,7 +4627,7 @@
         "Italian": "Difficile",
         "French": "",
         "Spanish": "Difícil",
-        "Russian": "",
+        "Russian": "Жёсткий",
         "Comments": ""
     },
     {
@@ -4638,7 +4638,7 @@
         "Italian": "Facile",
         "French": "",
         "Spanish": "Facil",
-        "Russian": "",
+        "Russian": "Легкий",
         "Comments": ""
     },
     {
@@ -4649,7 +4649,7 @@
         "Italian": "Vita Bonus",
         "French": "",
         "Spanish": "Bonificación de vida",
-        "Russian": "",
+        "Russian": "Бонусная жизнь",
         "Comments": ""
     },
     {
@@ -4660,7 +4660,7 @@
         "Italian": "Monetazione",
         "French": "",
         "Spanish": "Acuñación",
-        "Russian": "",
+        "Russian": "Стоимость монет",
         "Comments": ""
     },
     {
@@ -4671,7 +4671,7 @@
         "Italian": "Errori per partita",
         "French": "",
         "Spanish": "Errores por partido",
-        "Russian": "",
+        "Russian": "Лимит неудач на одну игру",
         "Comments": ""
     },
     {
@@ -4682,7 +4682,7 @@
         "Italian": "1 Moneta 1 Credito",
         "French": "",
         "Spanish": "1 Moneda 1 Crédito",
-        "Russian": "",
+        "Russian": "1 монета 1 кредит",
         "Comments": ""
     },
     {
@@ -4693,7 +4693,7 @@
         "Italian": "1 Moneta 2 Crediti",
         "French": "",
         "Spanish": "1 Moneda 2 Crédito",
-        "Russian": "",
+        "Russian": "1 монета 2 кредита",
         "Comments": ""
     },
     {
@@ -4704,7 +4704,7 @@
         "Italian": "1 Moneta 3 Crediti",
         "French": "",
         "Spanish": "1 Moneda 3 Crédito",
-        "Russian": "",
+        "Russian": "1 монета 3 кредита",
         "Comments": ""
     },
     {
@@ -4715,7 +4715,7 @@
         "Italian": "1 Moneta 4 Crediti",
         "French": "",
         "Spanish": "1 Moneda 4 Crédito",
-        "Russian": "",
+        "Russian": "1 монета 4 кредита",
         "Comments": ""
     },
     {
@@ -4726,7 +4726,7 @@
         "Italian": "2 Monete 1 Credito",
         "French": "",
         "Spanish": "2 Monedas 1 Crédito",
-        "Russian": "",
+        "Russian": "2 монеты 1 кредит",
         "Comments": ""
     },
     {
@@ -4737,7 +4737,7 @@
         "Italian": "3 Monete 1 Credito",
         "French": "",
         "Spanish": "3 Monedas 1 Crédito",
-        "Russian": "",
+        "Russian": "3 монеты 1 кредит",
         "Comments": ""
     },
     {
@@ -4748,7 +4748,7 @@
         "Italian": "4 Monete 1 Credito",
         "French": "",
         "Spanish": "4 Monedas 1 Crédito",
-        "Russian": "",
+        "Russian": "4 монеты 1 кредит",
         "Comments": ""
     },
     {
@@ -4759,7 +4759,7 @@
         "Italian": "5 Monete 1 Credito",
         "French": "",
         "Spanish": "5 Monedas 1 Crédito",
-        "Russian": "",
+        "Russian": "5 монет 1 кредит",
         "Comments": ""
     },
     {
@@ -4770,7 +4770,7 @@
         "Italian": "Gioco Gratuito",
         "French": "",
         "Spanish": "Juega gratis",
-        "Russian": "",
+        "Russian": "Бесплатная игра",
         "Comments": ""
     },
     {
@@ -4781,7 +4781,7 @@
         "Italian": "Sensibilità del Mouse",
         "French": "",
         "Spanish": "Sensibilidad del mouse",
-        "Russian": "",
+        "Russian": "Чувствительность мыши",
         "Comments": ""
     },
     {
@@ -4792,7 +4792,7 @@
         "Italian": "Sensibilità del mouse in percentuale.",
         "French": "",
         "Spanish": "Sensibilidad del mouse en porcentaje",
-        "Russian": "",
+        "Russian": "Чувствительность мыши (в процентах).",
         "Comments": ""
     },
     {
@@ -4803,7 +4803,7 @@
         "Italian": "Modalità Arkanoid",
         "French": "",
         "Spanish": "Modo Arkanoid",
-        "Russian": "",
+        "Russian": "Режим арканоида",
         "Comments": ""
     },
     {
@@ -4814,7 +4814,7 @@
         "Italian": "Seleziona il dispositivo da utilizzare per i giochi Arkanoid.",
         "French": "",
         "Spanish": "Selecciona el dispositivo que quieres usar para los juegos de Arkanoid.",
-        "Russian": "",
+        "Russian": "Устройство, которое будет использоваться для игры в арканоид.",
         "Comments": ""
     },
     {
@@ -4825,7 +4825,7 @@
         "Italian": "Touchscreen",
         "French": "",
         "Spanish": "Pantalla táctil",
-        "Russian": "",
+        "Russian": "Сенсорный экран",
         "Comments": ""
     },
     {
@@ -4836,7 +4836,7 @@
         "Italian": "Overclock",
         "French": "",
         "Spanish": "Overclock",
-        "Russian": "",
+        "Russian": "Разгон",
         "Comments": ""
     },
     {
@@ -4847,7 +4847,7 @@
         "Italian": "Abilita o disabilita l'overclocking, che può ridurre i rallentamenti in alcuni giochi. Il metodo Postrender è più compatibile con tutti i giochi, Vblank è più efficace per giochi come Contra Force.",
         "French": "",
         "Spanish": "Habilita o deshabilita el overclocking, que puede reducir las ralentizaciones en algunos juegos. El método Postrender es más compatible con todos los juegos, Vblank es más efectivo para juegos como Contra Force.",
-        "Russian": "",
+        "Russian": "Включает или отключает разгон, что может уменьшить замедление в некоторых играх. Режим [Postrender] подходит для всех игр, а [VBlank] лучше работает в таких играх, как Contra Force.",
         "Comments": ""
     },
     {
@@ -4858,7 +4858,7 @@
         "Italian": "Riempimento RAM all'Accensione (Richiede Riavvio)",
         "French": "",
         "Spanish": "Llenado de RAM al encender (requiere reinicio)",
-        "Russian": "",
+        "Russian": "Начальные значения ОЗУ (перезапуск)",
         "Comments": ""
     },
     {
@@ -4869,7 +4869,7 @@
         "Italian": "Valori della RAM all'accensione. Alcuni giochi si basano sui valori iniziali della RAM per la generazione di numeri casuali, ad esempio.",
         "French": "",
         "Spanish": "Valores de RAM en el encendido. Algunos juegos se basan en los valores iniciales de RAM para la generación de números aleatorios, por ejemplo.",
-        "Russian": "",
+        "Russian": "Значения ОЗУ при включении питания. Например, некоторые игры используют начальные значения оперативной памяти для генерации случайных чисел.",
         "Comments": ""
     },
     {
@@ -4880,7 +4880,7 @@
         "Italian": "Mostra Mirino Zapper",
         "French": "",
         "Spanish": "Exposición Mirino Zapper",
-        "Russian": "",
+        "Russian": "Показывать прицел светового пистолета",
         "Comments": ""
     },
     {
@@ -4891,7 +4891,7 @@
         "Italian": "Mostra o nasconde il mirino sullo schermo quando si utilizza un Zapper.",
         "French": "",
         "Spanish": "Muestra u oculta el punto de mira en la pantalla cuando se usa un Zapper.",
-        "Russian": "",
+        "Russian": "Отображать перекрестие прицела светового пистолета при использовании устройства ввода Zapper.",
         "Comments": ""
     },
     {
@@ -4902,7 +4902,7 @@
         "Italian": "Inverti Segnale di Trigger Zapper",
         "French": "",
         "Spanish": "Señal de Zapper de disparo inverso",
-        "Russian": "",
+        "Russian": "Инверсия сигнала срабатывания пистолета",
         "Comments": ""
     },
     {
@@ -4913,7 +4913,7 @@
         "Italian": "Inverte la logica del trigger quando si utilizza un Zapper. Disabilitandolo si ripristina il comportamento originale dell'hardware.",
         "French": "",
         "Spanish": "Invierte la lógica del activador cuando se usa un Zapper. Al deshabilitarlo, se restaura el comportamiento original del hardware.",
-        "Russian": "",
+        "Russian": "Инвертирует логику срабатывания светового пистолета. Если эта настройка отключена, логика срабатывания будет соответствовать исходному поведению оборудования.",
         "Comments": ""
     },
     {
@@ -4924,7 +4924,7 @@
         "Italian": "Inverti Segnale Sensore Zapper",
         "French": "",
         "Spanish": "Señal del sensor de zapper inverso",
-        "Russian": "",
+        "Russian": "Инверсия сигнала датчика пистолета",
         "Comments": ""
     },
     {
@@ -4935,7 +4935,7 @@
         "Italian": "Inverte la logica del sensore quando si utilizza un Zapper (solo in modalità Light gun Sequential Targets). Disabilitandolo si ripristina il comportamento originale dell'hardware NES/FC.",
         "French": "",
         "Spanish": "Invierte la lógica del sensor cuando se usa un Zapper (solo en el modo de objetivos secuenciales de pistola ligera). Al desactivarlo, se restaura el comportamiento original del hardware NES/FC.",
-        "Russian": "",
+        "Russian": "Инвертирует логику работы датчика светового пистолета (только в режиме Sequential Target Light Gun). Если эта настройка отключена, логика работы датчиков будет соответствовать исходному поведению оборудования NES/FC.",
         "Comments": ""
     },
     {
@@ -4946,7 +4946,7 @@
         "Italian": "Tolleranza Zapper",
         "French": "",
         "Spanish": "Tolerancia de Zapper",
-        "Russian": "",
+        "Russian": "Допуск светового пистолета",
         "Comments": ""
     },
     {
@@ -4957,7 +4957,7 @@
         "Italian": "Imposta quanti pixel dall'area del bersaglio sono sul bersaglio.",
         "French": "",
         "Spanish": "Establezca cuántos píxeles del área de destino están en el destino.",
-        "Russian": "",
+        "Russian": "Устанавливает, сколько пикселей из области прицела должно попасть на цель.",
         "Comments": ""
     },
     {
@@ -4968,7 +4968,7 @@
         "Italian": "Predefinito",
         "French": "",
         "Spanish": "Predeterminado",
-        "Russian": "",
+        "Russian": "По умолчанию",
         "Comments": ""
     },
     {
@@ -4979,7 +4979,7 @@
         "Italian": "Casuale",
         "French": "",
         "Spanish": "aleatorio",
-        "Russian": "",
+        "Russian": "Случайные значения",
         "Comments": ""
     },
     {
@@ -4990,7 +4990,7 @@
         "Italian": "Molto Alto",
         "French": "",
         "Spanish": "Muy alto",
-        "Russian": "",
+        "Russian": "Очень высокий",
         "Comments": ""
     },
     {
@@ -5001,7 +5001,7 @@
         "Italian": "Nessuno",
         "French": "",
         "Spanish": "Ninguno",
-        "Russian": "",
+        "Russian": "Не выбрано",
         "Comments": ""
     },
     {
@@ -5012,7 +5012,7 @@
         "Italian": "Giocatore 1",
         "French": "",
         "Spanish": "Jugador 1",
-        "Russian": "",
+        "Russian": "Игрок 1",
         "Comments": ""
     },
     {
@@ -5023,7 +5023,7 @@
         "Italian": "Giocatore 2",
         "French": "",
         "Spanish": "Jugador 2",
-        "Russian": "",
+        "Russian": "Игрок 2",
         "Comments": ""
     },
     {
@@ -5034,7 +5034,7 @@
         "Italian": "Entrambi",
         "French": "",
         "Spanish": "Ambos",
-        "Russian": "",
+        "Russian": "Оба",
         "Comments": ""
     },
     {
@@ -5045,7 +5045,7 @@
         "Italian": "Carica il BIOS BSX",
         "French": "",
         "Spanish": "Cargar la BIOS de BSX",
-        "Russian": "",
+        "Russian": "Загружать BIOS BSX",
         "Comments": ""
     },
     {
@@ -5056,7 +5056,7 @@
         "Italian": "Molti giochi BSX possono funzionare senza il BIOS BSX. Disabilitandolo, l'emulatore avvierà direttamente il gioco.",
         "French": "",
         "Spanish": "Muchos juegos de BSX pueden ejecutarse sin el BIOS de BSX. Si lo deshabilitas, el emulador iniciará el juego directamente.",
-        "Russian": "",
+        "Russian": "Многие игры BSX могут запускаться без BSX BIOS. При отключённом BSX BIOS эмулятор будет запускать игру напрямую.",
         "Comments": ""
     },
     {
@@ -5067,7 +5067,7 @@
         "Italian": "Salta",
         "French": "",
         "Spanish": "Omitir",
-        "Russian": "",
+        "Russian": "Пропускать",
         "Comments": ""
     },
     {
@@ -5078,7 +5078,7 @@
         "Italian": "Carica (se disponibile)",
         "French": "",
         "Spanish": "Cargar (si está disponible)",
-        "Russian": "",
+        "Russian": "Загружать (если есть)",
         "Comments": ""
     },
     {
@@ -5089,7 +5089,7 @@
         "Italian": "Salta i fotogrammi per evitare l'under-run del buffer audio (crepitio). Migliora le prestazioni a scapito della fluidità visiva. 'Auto' salta i fotogrammi quando consigliato dal frontend. 'Manuale' utilizza l'impostazione 'Soglia di Salto Fotogrammi (%)'.",
         "French": "",
         "Spanish": "Omita fotogramas para evitar que el búfer de audio se desborde (crepite). Mejorar el rendimiento a expensas de la fluidez visual. 'Auto' salta fotogramas cuando lo recomienda la interfaz. 'Manual' utiliza el ajuste 'Umbral de salto de fotogramas (%)'.",
-        "Russian": "",
+        "Russian": "Пропускать кадры, чтобы избежать переполнения аудиобуфера (потрескиваний). Улучшает производительность за счёт визуальной плавности. [Автоматически] — пропускает кадры по указанию пользовательского интерфейса. [Вручную] — использует значение параметра “Порог пропуска кадров (%)”.",
         "Comments": ""
     },
     {
@@ -5100,7 +5100,7 @@
         "Italian": "Riduci Rallentamenti (Non Sicuro, Riavvio)",
         "French": "",
         "Spanish": "Reducir las ralentizaciones (inseguro, reinicio)",
-        "Russian": "",
+        "Russian": "Режим разгона для устранения замедлений",
         "Comments": ""
     },
     {
@@ -5111,7 +5111,7 @@
         "Italian": "Overclock della CPU SNES. Potrebbe causare il crash dei giochi! Usa 'AutoFastROM' per tempi di caricamento più brevi, 'Basso' per la maggior parte dei giochi che mostrano rallentamenti e 'Alto' solo se strettamente necessario.",
         "French": "",
         "Spanish": "Overclocking de CPU SNES. ¡Puede hacer que los juegos se bloqueen! Use 'AutoFastROM' para tiempos de carga más cortos, 'Bajo' para la mayoría de los juegos que muestran ralentizaciones y 'Alto' solo si es absolutamente necesario.",
-        "Russian": "",
+        "Russian": "Разгон процессора SNES. Небезопасно, может привести к сбоям в играх! Режим [AutoFastROM] подойдёт для сокращения времени запуска, [Низкий] будет эффективен для большинства игр, в которых наблюдается замедление, а [Высокий] следует применять только в особых случаях. Необходим перезапуск.",
         "Comments": ""
     },
     {
@@ -5122,7 +5122,7 @@
         "Italian": "AutoFastROM",
         "French": "",
         "Spanish": "AutoFastROM",
-        "Russian": "",
+        "Russian": "AutoFastROM",
         "Comments": ""
     },
     {
@@ -5133,7 +5133,7 @@
         "Italian": "Basso",
         "French": "",
         "Spanish": "Bajo",
-        "Russian": "",
+        "Russian": "Низкий",
         "Comments": ""
     },
     {
@@ -5144,7 +5144,7 @@
         "Italian": "Alto",
         "French": "",
         "Spanish": "Alto",
-        "Russian": "",
+        "Russian": "Высокий",
         "Comments": ""
     },
     {
@@ -5155,7 +5155,7 @@
         "Italian": "Overclock SuperFX",
         "French": "",
         "Spanish": "SuperFX Overclock",
-        "Russian": "",
+        "Russian": "Регулировка частоты SuperFX",
         "Comments": ""
     },
     {
@@ -5166,7 +5166,7 @@
         "Italian": "Overclock o underclock del chip SuperFX. Questo può migliorare il framerate e la giocabilità dei giochi che utilizzano SuperFX.",
         "French": "",
         "Spanish": "Overclocking o underclocking del chip SuperFX. Esto puede mejorar la velocidad de fotogramas y la jugabilidad de los juegos que usan SuperFX.",
-        "Russian": "",
+        "Russian": "Регулировка тактовой частоты сопроцессоров SuperFX. Может повысить частоту кадров и улучшить плавность воспроизведения игр, использующих SuperFX.",
         "Comments": ""
     },
     {
@@ -5177,7 +5177,7 @@
         "Italian": "5 MHz (Underclock)",
         "French": "",
         "Spanish": "5 MHz (Underclock)",
-        "Russian": "",
+        "Russian": "5 МГц (пониженная частота)",
         "Comments": ""
     },
     {
@@ -5188,7 +5188,7 @@
         "Italian": "6 MHz (Underclock)",
         "French": "",
         "Spanish": "6 MHz (Underclock)",
-        "Russian": "",
+        "Russian": "6 МГц (пониженная частота)",
         "Comments": ""
     },
     {
@@ -5199,7 +5199,7 @@
         "Italian": "7 MHz (Underclock)",
         "French": "",
         "Spanish": "7 MHz (Underclock)",
-        "Russian": "",
+        "Russian": "7 МГц (пониженная частота)",
         "Comments": ""
     },
     {
@@ -5210,7 +5210,7 @@
         "Italian": "8 MHz (Underclock)",
         "French": "",
         "Spanish": "8 MHz (Underclock)",
-        "Russian": "",
+        "Russian": "8 МГц (пониженная частота)",
         "Comments": ""
     },
     {
@@ -5221,7 +5221,7 @@
         "Italian": "9 MHz (Underclock)",
         "French": "",
         "Spanish": "9 MHz (Underclock)",
-        "Russian": "",
+        "Russian": "9 МГц (пониженная частота)",
         "Comments": ""
     },
     {
@@ -5232,7 +5232,7 @@
         "Italian": "10 MHz (Clock SNES, Predefinito)",
         "French": "",
         "Spanish": "10 MHz (SNES clock, predeterminado)",
-        "Russian": "",
+        "Russian": "10 МГц (частота по умолчанию)",
         "Comments": ""
     },
     {
@@ -5243,7 +5243,7 @@
         "Italian": "11 MHz (Overclock)",
         "French": "",
         "Spanish": "11 MHz (Overclock)",
-        "Russian": "",
+        "Russian": "11 МГц (повышенная частота)",
         "Comments": ""
     },
     {
@@ -5254,7 +5254,7 @@
         "Italian": "12 MHz (Overclock)",
         "French": "",
         "Spanish": "12 MHz (Overclock)",
-        "Russian": "",
+        "Russian": "12 МГц (повышенная частота)",
         "Comments": ""
     },
     {
@@ -5265,7 +5265,7 @@
         "Italian": "13 MHz (Overclock)",
         "French": "",
         "Spanish": "13 MHz (Overclock)",
-        "Russian": "",
+        "Russian": "13 МГц (повышенная частота)",
         "Comments": ""
     },
     {
@@ -5276,7 +5276,7 @@
         "Italian": "14 MHz (Overclock)",
         "French": "",
         "Spanish": "14 MHz (Overclock)",
-        "Russian": "",
+        "Russian": "14 МГц (повышенная частота)",
         "Comments": ""
     },
     {
@@ -5287,7 +5287,7 @@
         "Italian": "15 MHz (Overclock)",
         "French": "",
         "Spanish": "15 MHz (Overclock)",
-        "Russian": "",
+        "Russian": "15 МГц (повышенная частота)",
         "Comments": ""
     },
     {
@@ -5298,7 +5298,7 @@
         "Italian": "20 MHz (Overclock)",
         "French": "",
         "Spanish": "20 MHz (Overclock)",
-        "Russian": "",
+        "Russian": "20 МГц (повышенная частота)",
         "Comments": ""
     },
     {
@@ -5309,7 +5309,7 @@
         "Italian": "30 MHz (Overclock)",
         "French": "",
         "Spanish": "30 MHz (Overclock)",
-        "Russian": "",
+        "Russian": "30 МГц (повышенная частота)",
         "Comments": ""
     },
     {
@@ -5320,7 +5320,7 @@
         "Italian": "40 MHz (Overclock)",
         "French": "",
         "Spanish": "40 MHz (Overclock)",
-        "Russian": "",
+        "Russian": "40 МГц (повышенная частота)",
         "Comments": ""
     },
     {
@@ -5331,7 +5331,7 @@
         "Italian": "Riduci Sfarfallio (Non Sicuro)",
         "French": "",
         "Spanish": "Reducir el parpadeo (no seguro)",
-        "Russian": "",
+        "Russian": "Уменьшение мерцания (нестабильно)",
         "Comments": ""
     },
     {
@@ -5342,7 +5342,7 @@
         "Italian": "Aumenta il numero di sprite che possono essere disegnati simultaneamente sullo schermo. Riduce lo sfarfallio nei giochi.",
         "French": "",
         "Spanish": "Aumenta el número de sprites que se pueden dibujar simultáneamente en la pantalla. Reduce el parpadeo en los juegos.",
-        "Russian": "",
+        "Russian": "Увеличивает количество спрайтов, которые могут быть отображены на экране одновременно, тем самым уменьшая мерцание в игре.",
         "Comments": ""
     },
     {
@@ -5353,7 +5353,7 @@
         "Italian": "Specifica quale algoritmo utilizzare per il ricampionamento dell'audio generato (la frequenza audio del Game Boy è limitata solo dalla velocità di scrittura della CPU, quindi le frequenze 'native' sono impraticabili sui dispositivi audio moderni e devono essere sottocampionate). 'Sinc' produce la qualità più alta. 'Cosine' migliora le prestazioni su hardware di fascia bassa.",
         "French": "",
         "Spanish": "Especifica qué algoritmo usar para remuestrear el audio generado (la frecuencia de audio de la Game Boy solo está limitada por la velocidad de escritura de la CPU, por lo que las frecuencias \"nativas\" no son prácticas en los dispositivos de audio modernos y deben reducirse). 'Sinc' produce la más alta calidad. 'Coseno' mejora el rendimiento en hardware de gama baja.",
-        "Russian": "",
+        "Russian": "Алгоритм, который будет использоваться при передискретизации сгенерированного звука. Частота дискретизация звука Game Boy ограничена только скоростью записи его процессора, поэтому «родные» частоты непрактичны для современного звукового оборудования и должны быть понижены. [Sinc] — обеспечивает наивысшее качество. [Cosine] — повышает производительность на маломощном оборудовании.",
         "Comments": ""
     },
     {
@@ -5364,7 +5364,7 @@
         "Italian": "Abilita la riduzione della luminosità basata sulla luminosità. Può essere utilizzato per evitare abbagliamenti/affaticamento degli occhi quando si gioca con sfondi bianchi, pensati per essere visualizzati su un Game Boy Color senza retroilluminazione e che quindi possono apparire eccessivamente luminosi su schermi retroilluminati moderni.",
         "French": "",
         "Spanish": "Permite la reducción del brillo basada en el brillo. Se puede utilizar para evitar el deslumbramiento o la fatiga visual cuando se juega con fondos blancos, que están pensados para mostrarse en una Game Boy Color sin retroiluminación y, por lo tanto, pueden parecer demasiado brillantes en pantallas retroiluminadas modernas.",
-        "Russian": "",
+        "Russian": "Позволяет уменьшить яркость в зависимости от светимости изображения. Может использоваться для предотвращения бликов и напряжения глаз от белых фонов в играх. Предназначенные для просмотра на экране Game Boy Color без подсветки, они могут оказаться слишком яркими на современных экранах с подсветкой.",
         "Comments": ""
     },
     {
@@ -5375,7 +5375,7 @@
         "Italian": "Abilita il supporto per i bootloader ufficiali di Game Boy e Game Boy Color, con le corrispondenti animazioni del logo di avvio.",
         "French": "",
         "Spanish": "Habilita la compatibilidad con los cargadores de arranque oficiales de Game Boy y Game Boy Color, con las animaciones correspondientes del logotipo de arranque.",
-        "Russian": "",
+        "Russian": "Использовать официальные загрузчики Game Boy и Game Boy Color с соответствующими анимациями логотипа при запуске.",
         "Comments": ""
     },
     {
@@ -5386,7 +5386,7 @@
         "Italian": "Abilita la colorazione dei giochi Game Boy. 'Auto' seleziona la palette 'migliore' (più colorata/appropriata). 'GBC' seleziona la palette specifica per Game Boy Color se definita, altrimenti 'GBC - Dark Green'. 'SGB' seleziona la palette specifica per Super Game Boy se definita, altrimenti 'SGB - 1A'. 'Interno' utilizza l'opzione 'Palette Interna' del core. 'Personalizzato' carica una palette creata dall'utente dalla directory di sistema.",
         "French": "",
         "Spanish": "Habilite el colorear de juegos de Game Boy. 'Auto' selecciona la 'mejor' paleta (más colorida/apropiada). 'GBC' selecciona la paleta específica de Game Boy Color si está definida, de lo contrario, 'GBC - Verde oscuro'. 'SGB' selecciona la paleta específica para Super Game Boy si está definida, de lo contrario, 'SGB - 1A'. 'Interno' utiliza la opción 'Paleta interna' del núcleo. 'Personalizado' carga una paleta creada por el usuario desde el directorio del sistema.",
-        "Russian": "",
+        "Russian": "Режим колоризации игр для Game Boy. [Автоматически] подбирает «лучшую» (наиболее красочную/подходящую) палитру. [GBC] выбирает палитру Game Boy Color для конкретной игры, если она определена, иначе 'GBC - Dark Green'. [SGB] выбирает палитру Super Game Boy для конкретной игры, если она определена, иначе 'SGB - 1A'. [Внутренняя] использует значение параметра “Внутренняя палитра”. [Настраиваемая] загружает созданную пользователем палитру из системного каталога.",
         "Comments": ""
     },
     {
@@ -5397,7 +5397,7 @@
         "Italian": "Specifica quale tipo di hardware emulare. Si consiglia 'Auto'. Selezionando 'GBA' si sbloccano funzionalità extra in alcuni giochi Game Boy Color 'GBA Enhanced' (Shantae, Wendy - Every Witch Way, Legend of Zelda: Oracle of Seasons/Ages...).",
         "French": "",
         "Spanish": "Especifica el tipo de hardware que se va a emular. Se recomienda 'Auto'. Al seleccionar 'GBA' se desbloquean funciones adicionales en algunos juegos de Game Boy Color 'GBA Enhanced' (Shantae, Wendy - Every Witch Way, Legend of Zelda: Oracle of Seasons/Ages...).",
-        "Russian": "",
+        "Russian": "Тип оборудования для эмуляции. Рекомендуется использовать режим [Автоматически]. При выборе [GBA] открываются дополнительные возможности в некоторых «GBA-улучшенных» играх Game Boy Color (Shantae, Wendy: Every Witch Way, Legend of Zelda: Oracle of Seasons/Ages и т.д.).",
         "Comments": ""
     },
     {
@@ -5408,7 +5408,7 @@
         "Italian": "Seleziona la palette di colorazione interna quando 'Palette Interna' è impostata su 'TWB64 - Pack 1'.",
         "French": "",
         "Spanish": "Seleccione la paleta de colores interna cuando la 'Paleta interna' esté configurada en 'TWB64 - Pack 1'.",
-        "Russian": "",
+        "Russian": "Выбор внутренней палитры колоризации, если для параметра “Внутренняя палитра” установлено значение [TWB64 - Pack 1].",
         "Comments": ""
     },
     {
@@ -5419,7 +5419,7 @@
         "Italian": "Seleziona la palette di colorazione interna quando 'Palette Interna' è impostata su 'TWB64 - Pack 2'.",
         "French": "",
         "Spanish": "Seleccione la paleta de colores interna cuando la 'Paleta interna' esté configurada en 'TWB64 - Pack 2'.",
-        "Russian": "",
+        "Russian": "Выбор внутренней палитры колоризации, если для параметра “Внутренняя палитра” установлено значение [TWB64 - Pack 2].",
         "Comments": ""
     },
     {
@@ -5430,7 +5430,7 @@
         "Italian": "Regola i colori di output per corrispondere alla visualizzazione dell'hardware reale del Game Boy Color. 'Solo GBC' garantisce che la correzione venga applicata solo quando si gioca a giochi Game Boy Color o quando si utilizza una palette Game Boy Color per colorare un gioco Game Boy. 'Sempre' applica la correzione del colore a tutti i contenuti e produrrà risultati imprevisti/subottimali quando si utilizzano palette di colori interne 'GB' o 'SGB'.",
         "French": "",
         "Spanish": "Ajusta los colores de salida para que coincidan con la pantalla de hardware real de Game Boy Color. 'Solo GBC' garantiza que la corrección solo se aplique cuando se juegue a juegos de Game Boy Color o cuando se use una paleta de colores de Game Boy para colorear un juego de Game Boy. 'Siempre' aplica la corrección de color a todo el contenido y producirá resultados inesperados/subóptimos cuando se utilicen paletas de colores internas 'GB' o 'SGB'.",
-        "Russian": "",
+        "Russian": "Корректирует цвета вывода так, чтобы они соответствовали отображению на ЖК-экране настоящего Game Boy Color. [Только GBC] гарантирует, что коррекция будет применяться только при воспроизведении игр Game Boy Color или при использовании палитры Game Boy Color для колоризации игр Game Boy. [Всегда] применяет цветокоррекцию ко всем играм, но может привести к неожиданным или неоптимальным результатам при использовании внутренних палитр 'GB' или 'SGB'.",
         "Comments": ""
     },
     {
@@ -5441,7 +5441,7 @@
         "Italian": "Specifica il metodo utilizzato per eseguire la correzione del colore. 'Accurato' produce un output quasi indistinguibile da un pannello LCD reale di Game Boy Color. 'Veloce' si limita a scurire i colori e ridurre la saturazione e può essere utilizzato su hardware di fascia bassa se il metodo 'Accurato' è troppo lento.",
         "French": "",
         "Spanish": "Especifica el método utilizado para realizar la corrección de color. 'Preciso' produce una salida que es casi indistinguible de un panel LCD a color real de Game Boy. 'Rápido' solo oscurece los colores y reduce la saturación y se puede usar en hardware de gama baja si el método 'Preciso' es demasiado lento.",
-        "Russian": "",
+        "Russian": "Метод, с помощью которого выполняется цветокоррекция. [Точно] позволяет получить результат, практически неотличимый от ЖК-экрана настоящего Game Boy Color. [Быстро] просто уменьшает яркость и насыщенность цвета, и может использоваться если метод [Точно] работает слишком медленно.",
         "Comments": ""
     },
     {
@@ -5452,7 +5452,7 @@
         "Italian": "Simula la risposta fisica del pannello LCD del Game Boy Color quando illuminato da diverse angolazioni. 'Centrale' rappresenta la riproduzione del colore standard. 'Sopra lo Schermo' aumenta la luminosità. 'Sotto lo Schermo' riduce la luminosità. Questa impostazione si applica solo quando 'Modalità di Correzione Colore' è impostata su 'Accurato'.",
         "French": "",
         "Spanish": "Simula la respuesta física del panel LCD de Game Boy Color cuando se ilumina desde diferentes ángulos. 'Medio' representa la reproducción estándar del color. 'Por encima de la pantalla' aumenta el brillo. 'Under Screen' reduce el brillo. Esta configuración solo se aplica cuando 'Modo de corrección de color' está configurado en 'Preciso'.",
-        "Russian": "",
+        "Russian": "Имитация физической реакции ЖК-экрана Game Boy Color при освещении под разными углами. [По центру] означает стандартную цветопередачу. [Выше экрана] увеличивает яркость. [Ниже экрана] уменьшает яркость. Эта настройка применяется только в том случае, если для параметра “Режим цветокоррекции” установлено значение [Точно].",
         "Comments": ""
     },
     {
@@ -5463,7 +5463,7 @@
         "Italian": "Simula gli effetti di ghosting LCD. 'Semplice' esegue un mix 50:50 dei fotogrammi corrente e precedente. 'LCD Ghosting' imita i tempi di risposta naturali dell'LCD combinando più fotogrammi bufferizzati. Il blending 'Semplice' è necessario quando si gioca a giochi che si affidano al ghosting LCD per effetti di trasparenza (Wave Race, Ballistic, Chikyuu Kaihou Gun ZAS...).",
         "French": "",
         "Spanish": "Simula efectos de efecto fantasma de LCD. 'Simple' realiza una mezcla 50:50 de los fotogramas actuales y anteriores. 'LCD Ghosting' imita los tiempos de respuesta naturales de la pantalla LCD mediante la combinación de múltiples fotogramas con búfer. La mezcla \"simple\" es necesaria cuando se juega a juegos que dependen del efecto fantasma de la pantalla LCD para obtener efectos de transparencia (Wave Race, Ballistic, Chikyuu Kaihou Gun ZAS...).",
-        "Russian": "",
+        "Russian": "Имитация эффекта ореола ЖК-дисплея. В режиме [Просто] происходит смешивание текущего и предыдущего кадров в равном соотношении (50:50). Режим [Ореол ЖК-дисплея] имитирует естественное время отклика ЖК-дисплея, комбинируя несколько буферизованных кадров. Режим [Просто] необходим для корректного отображения игр, использующих ореол ЖК-дисплея для создания эффекта прозрачности (Wave Race, Ballistic, Chikyuu Kaihou Gun ZAS и т.д.).",
         "Comments": ""
     },
     {
@@ -5474,7 +5474,7 @@
         "Italian": "Abilita gli effetti di feedback aptico per i giochi supportati (Pokemon Pinball, Perfect Dark...).",
         "French": "",
         "Spanish": "Habilita los efectos de retroalimentación háptica para los juegos compatibles (Pokemon Pinball, Perfect Dark...).",
-        "Russian": "",
+        "Russian": "Задействовать эффекты тактильной обратной связи для поддерживаемых игр (Pokemon Pinball, Perfect Dark и т.д.).",
         "Comments": ""
     },
     {
@@ -5485,7 +5485,7 @@
         "Italian": "Abilitando questa opzione sarà possibile premere/alternare rapidamente/mantenere premuti entrambi i direzioni sinistra e destra (o su e giù) contemporaneamente. Questo potrebbe causare glitch basati sul movimento.",
         "French": "",
         "Spanish": "Habilitar esta opción le permitirá presionar/alternar/mantener rápidamente las direcciones izquierda y derecha (o arriba y abajo) al mismo tiempo. Esto podría causar fallos basados en el movimiento.",
-        "Russian": "",
+        "Russian": "Если этот параметр включён, можно одновременно нажимать/быстро чередовать/удерживать направления влево и вправо (или вверх и вниз). Может привести к сбоям при перемещении.",
         "Comments": ""
     },
     {
@@ -5496,7 +5496,7 @@
         "Italian": "Interno",
         "French": "",
         "Spanish": "Interno",
-        "Russian": "",
+        "Russian": "Внутренняя",
         "Comments": ""
     },
     {
@@ -5507,7 +5507,7 @@
         "Italian": "Personalizzato",
         "French": "",
         "Spanish": "Personalizado",
-        "Russian": "",
+        "Russian": "Настраиваемая",
         "Comments": ""
     }
 ]
