@@ -205,8 +205,15 @@ void TabBrowser::Show(bool selected)
                 ImVec2 text_pos = pos;
                 text_pos.x += fmax(0, (avail_size.x - text_size.x) / 2) + _name_moving_status.pos;
                 text_pos.y += (_texture == nullptr ? (avail_size.y - text_size.y) / 2 : 10);
-
-                My_ImGui_HighlightText(_name, text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
+                if (_texture)
+                {
+                    My_ImGui_HighlightText(_name, text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
+                }
+                else
+                {
+                    ImGui::SetCursorScreenPos(text_pos);
+                    ImGui::TextUnformatted(_name);
+                }
             }
 
             if (_info.size() > 0)

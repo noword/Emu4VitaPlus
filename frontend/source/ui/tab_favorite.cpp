@@ -115,7 +115,15 @@ void TabFavorite::Show(bool selected)
                 text_pos.x += fmax(0, (avail_size.x - text_size.x) / 2) + _name_moving_status.pos;
                 text_pos.y += (_texture == nullptr ? (avail_size.y - text_size.y) / 2 : 10);
 
-                My_ImGui_HighlightText(rom_name->c_str(), text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
+                if (_texture)
+                {
+                    My_ImGui_HighlightText(rom_name->c_str(), text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
+                }
+                else
+                {
+                    ImGui::SetCursorScreenPos(text_pos);
+                    ImGui::TextUnformatted(rom_name->c_str());
+                }
             }
 
             if (_info.size() > 0)
