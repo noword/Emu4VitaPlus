@@ -8,7 +8,7 @@
         "Italian": "Sistema",
         "French": "Système",
         "Spanish": "Sistema",
-        "Russian": "",
+        "Russian": "Система",
         "Comments": ""
     },
     {
@@ -20,7 +20,7 @@
         "Italian": "Disco",
         "French": "Disque",
         "Spanish": "Disco",
-        "Russian": "",
+        "Russian": "Диск",
         "Comments": ""
     },
     {
@@ -32,7 +32,7 @@
         "Italian": "Stato",
         "French": "État",
         "Spanish": "Estado",
-        "Russian": "",
+        "Russian": "Быстрые сохранения",
         "Comments": ""
     },
     {
@@ -44,7 +44,7 @@
         "Italian": "Trucco",
         "French": "Triche",
         "Spanish": "Trucos",
-        "Russian": "",
+        "Russian": "Чит-коды",
         "Comments": ""
     },
     {
@@ -56,7 +56,7 @@
         "Italian": "Browser",
         "French": "Navigateur",
         "Spanish": "Navegador",
-        "Russian": "",
+        "Russian": "Проводник",
         "Comments": ""
     },
     {
@@ -68,7 +68,7 @@
         "Italian": "Preferiti",
         "French": "Favoris",
         "Spanish": "Favoritos",
-        "Russian": "",
+        "Russian": "Избранное",
         "Comments": ""
     },
     {
@@ -80,7 +80,7 @@
         "Italian": "Grafica",
         "French": "Graphique",
         "Spanish": "Graficos",
-        "Russian": "",
+        "Russian": "Изображение",
         "Comments": ""
     },
     {
@@ -92,7 +92,7 @@
         "Italian": "Controllo",
         "French": "Contrôle",
         "Spanish": "Control",
-        "Russian": "",
+        "Russian": "Управление",
         "Comments": ""
     },
     {
@@ -104,7 +104,7 @@
         "Italian": "Tasto di scelta rapida",
         "French": "Raccourci clavier",
         "Spanish": "Atajo",
-        "Russian": "",
+        "Russian": "Горячие клавиши",
         "Comments": ""
     },
     {
@@ -116,7 +116,7 @@
         "Italian": "Core",
         "French": "Core",
         "Spanish": "Nucleo",
-        "Russian": "",
+        "Russian": "Ядро",
         "Comments": ""
     },
     {
@@ -128,7 +128,7 @@
         "Italian": "Opzioni",
         "French": "Options",
         "Spanish": "Opciones",
-        "Russian": "",
+        "Russian": "Параметры",
         "Comments": ""
     },
     {
@@ -140,7 +140,7 @@
         "Italian": "Informazioni",
         "French": "À propos",
         "Spanish": "Acerca",
-        "Russian": "",
+        "Russian": "О программе",
         "Comments": ""
     },
     {
@@ -152,7 +152,7 @@
         "Italian": "Riprendi gioco",
         "French": "Reprendre le jeu",
         "Spanish": "Resumir el juego",
-        "Russian": "",
+        "Russian": "Продолжить игру",
         "Comments": ""
     },
     {
@@ -164,7 +164,7 @@
         "Italian": "Riavvia gioco",
         "French": "Réinitialiser le jeu",
         "Spanish": "Reiniciar el juego",
-        "Russian": "",
+        "Russian": "Сбросить игру",
         "Comments": ""
     },
     {
@@ -176,7 +176,7 @@
         "Italian": "Esci dal gioco",
         "French": "Quitter le jeu",
         "Spanish": "Salir del juego",
-        "Russian": "",
+        "Russian": "Выйти из игры",
         "Comments": ""
     },
     {
@@ -188,7 +188,7 @@
         "Italian": "Torna ad Arch",
         "French": "Retour sur RetroArch",
         "Spanish": "Volver al arch",
-        "Russian": "",
+        "Russian": "Вернуться в главное меню",
         "Comments": ""
     },
     {
@@ -200,7 +200,7 @@
         "Italian": "Pulisci cache",
         "French": "",
         "Spanish": "Limpiar cache",
-        "Russian": "",
+        "Russian": "Очистить кэш",
         "Comments": ""
     },
     {
@@ -212,7 +212,7 @@
         "Italian": "Esci dall'app",
         "French": "Quitter l'application",
         "Spanish": "Salir de la app",
-        "Russian": "",
+        "Russian": "Выйти из программы",
         "Comments": ""
     },
     {
@@ -224,7 +224,7 @@
         "Italian": "Lingua",
         "French": "Langues",
         "Spanish": "Lenguaje",
-        "Russian": "",
+        "Russian": "Язык",
         "Comments": ""
     },
     {
@@ -236,7 +236,7 @@
         "Italian": "Abilita riavvolgimento",
         "French": "Activer le rembobinage",
         "Spanish": "Habilitar rebobinado",
-        "Russian": "",
+        "Russian": "Поддержка перемотки",
         "Comments": ""
     },
     {
@@ -248,7 +248,7 @@
         "Italian": "Dimensione buffer riavvolgimento (M)",
         "French": "Taille du tampon de rembobinage (M)",
         "Spanish": "Tamaño del búfer de rebobinado (m)",
-        "Russian": "",
+        "Russian": "Размер буфера перемотки (Мбайт)",
         "Comments": ""
     },
     {
@@ -260,7 +260,7 @@
         "Italian": "Silenzia",
         "French": "Muet",
         "Spanish": "Silenciar",
-        "Russian": "",
+        "Russian": "Отключить звук",
         "Comments": ""
     },
     {
@@ -272,7 +272,7 @@
         "Italian": "Mouse simulato",
         "French": "Simulée la souris",
         "Spanish": "Simular mouse",
-        "Russian": "",
+        "Russian": "Имитация мыши",
         "Comments": ""
     },
     {
@@ -284,7 +284,7 @@
         "Italian": "Pistola ottica simulata",
         "French": "Simulée le pistolet",
         "Spanish": "Pistola de luz simulada",
-        "Russian": "",
+        "Russian": "Имитация светового пистолета",
         "Comments": ""
     },
     {
@@ -296,7 +296,7 @@
         "Italian": "Scambia ⇢ ⇣ (Riavvio richiesto)",
         "French": "Échanger ⇢ ⇣ (Redémarrage requis)",
         "Spanish": "Cambiar ⇢ ⇣ (Requiere reiniciar)",
-        "Russian": "",
+        "Russian": "Подмена ⇢ ⇣ (перезапуск)",
         "Comments": ""
     },
     {
@@ -308,7 +308,7 @@
         "Italian": "Simula ↲↳⇋⇌ con il pannello touch posteriore",
         "French": "Simuler ↲↳⇋⇌ avec le panneau tactile arrière)",
         "Spanish": "Simular ↲↳⇋⇌ con el panel táctil trasero",
-        "Russian": "",
+        "Russian": "Имитация ↲↳⇋⇌ на задней панели",
         "Comments": ""
     },
     {
@@ -320,7 +320,7 @@
         "Italian": "Dimensione schermo",
         "French": "Taille de l'écran",
         "Spanish": "Tamaño de la pantalla",
-        "Russian": "",
+        "Russian": "Размер экрана",
         "Comments": ""
     },
     {
@@ -332,7 +332,7 @@
         "Italian": "Rapporto d'aspetto",
         "French": "Rapport hauteur/largeur",
         "Spanish": "Relación de aspecto",
-        "Russian": "",
+        "Russian": "Соотношение сторон",
         "Comments": ""
     },
     {
@@ -344,7 +344,7 @@
         "Italian": "Rotazione schermo",
         "French": "Rotation de l'affichage",
         "Spanish": "Rotación de la pantalla",
-        "Russian": "",
+        "Russian": "Поворот экрана",
         "Comments": ""
     },
     {
@@ -356,7 +356,7 @@
         "Italian": "Shader grafico",
         "French": "Shader graphique",
         "Spanish": "Sombreador de graficos",
-        "Russian": "",
+        "Russian": "Шейдер",
         "Comments": ""
     },
     {
@@ -368,7 +368,7 @@
         "Italian": "Grafica morbida",
         "French": "Graphiques fluides",
         "Spanish": "Gráficos suaves",
-        "Russian": "",
+        "Russian": "Сглаживание",
         "Comments": ""
     },
     {
@@ -380,7 +380,7 @@
         "Italian": "Selezione overlay",
         "French": "Sélection de superposition (Overlay)",
         "Spanish": "Selección de superposición",
-        "Russian": "",
+        "Russian": "Лицевая панель",
         "Comments": ""
     },
     {
@@ -392,7 +392,7 @@
         "Italian": "Modalità overlay",
         "French": "Mode de superposition",
         "Spanish": "Modo de superposición",
-        "Russian": "",
+        "Russian": "Режим отображения лицевой панели",
         "Comments": ""
     },
     {
@@ -404,7 +404,7 @@
         "Italian": "Mostra FPS",
         "French": "Afficher les FPS",
         "Spanish": "Mostrar FPS",
-        "Russian": "",
+        "Russian": "Отображение количества кадров в секунду",
         "Comments": ""
     },
     {
@@ -416,7 +416,7 @@
         "Italian": "1X",
         "French": "1X",
         "Spanish": "1X",
-        "Russian": "",
+        "Russian": "1X",
         "Comments": ""
     },
     {
@@ -428,7 +428,7 @@
         "Italian": "2X",
         "French": "2X",
         "Spanish": "2X",
-        "Russian": "",
+        "Russian": "2X",
         "Comments": ""
     },
     {
@@ -440,7 +440,7 @@
         "Italian": "3X",
         "French": "3X",
         "Spanish": "3X",
-        "Russian": "",
+        "Russian": "3X",
         "Comments": ""
     },
     {
@@ -452,7 +452,7 @@
         "Italian": "Schermo intero",
         "French": "Plein écran",
         "Spanish": "Pantalla completa",
-        "Russian": "",
+        "Russian": "Во весь экран",
         "Comments": ""
     },
     {
@@ -464,7 +464,7 @@
         "Italian": "In base alla risoluzione del gioco",
         "French": "Par résolution du jeu",
         "Spanish": "Por resolución de juego",
-        "Russian": "",
+        "Russian": "По разрешению игры",
         "Comments": ""
     },
     {
@@ -476,7 +476,7 @@
         "Italian": "In base allo schermo del dispositivo",
         "French": "Par résolution de l'écran",
         "Spanish": "Por la pantalla del dispositivo",
-        "Russian": "",
+        "Russian": "По экрану устройства",
         "Comments": ""
     },
     {
@@ -488,7 +488,7 @@
         "Italian": "8:7",
         "French": "8:7",
         "Spanish": "8:7",
-        "Russian": "",
+        "Russian": "8:7",
         "Comments": ""
     },
     {
@@ -500,7 +500,7 @@
         "Italian": "4:3",
         "French": "4:3",
         "Spanish": "4:3",
-        "Russian": "",
+        "Russian": "4:3",
         "Comments": ""
     },
     {
@@ -512,7 +512,7 @@
         "Italian": "3:2",
         "French": "3:2",
         "Spanish": "3:2",
-        "Russian": "",
+        "Russian": "3:2",
         "Comments": ""
     },
     {
@@ -524,7 +524,7 @@
         "Italian": "16:9",
         "French": "16:9",
         "Spanish": "16:9",
-        "Russian": "",
+        "Russian": "16:9",
         "Comments": ""
     },
     {
@@ -536,7 +536,7 @@
         "Italian": "Disabilita",
         "French": "Désactiver",
         "Spanish": "Inválido",
-        "Russian": "",
+        "Russian": "Отключить",
         "Comments": ""
     },
     {
@@ -548,7 +548,7 @@
         "Italian": "Ruota di 90° in senso orario",
         "French": "Rotation de 90°CW",
         "Spanish": "Girar 90°",
-        "Russian": "",
+        "Russian": "На 90° по часовой стрелке",
         "Comments": ""
     },
     {
@@ -560,7 +560,7 @@
         "Italian": "Ruota di 180° in senso orario",
         "French": "Rotation de 180°CW",
         "Spanish": "Girar 180°",
-        "Russian": "",
+        "Russian": "На 180°",
         "Comments": ""
     },
     {
@@ -572,7 +572,7 @@
         "Italian": "Ruota di 270° in senso orario",
         "French": "Rotation de 270°CW",
         "Spanish": "Girar 270°",
-        "Russian": "",
+        "Russian": "На 270° по часовой стрелке",
         "Comments": ""
     },
     {
@@ -584,7 +584,7 @@
         "Italian": "Predefinito",
         "French": "Par défaut",
         "Spanish": "Predeterminado",
-        "Russian": "",
+        "Russian": "По умолчанию",
         "Comments": ""
     },
     {
@@ -596,7 +596,7 @@
         "Italian": "LCD3x",
         "French": "LCD3x",
         "Spanish": "LCD3x",
-        "Russian": "",
+        "Russian": "LCD3x",
         "Comments": ""
     },
     {
@@ -608,7 +608,7 @@
         "Italian": "Bilineare semplice nitido",
         "French": "Sharp bilinear simple",
         "Spanish": "Nítido simple bilineal",
-        "Russian": "",
+        "Russian": "Sharp bilinear simple",
         "Comments": ""
     },
     {
@@ -620,7 +620,7 @@
         "Italian": "Bilineare nitido con linee di scansione",
         "French": "Sharp bilinear",
         "Spanish": "Bilineal nítido con líneas de escaneo",
-        "Russian": "",
+        "Russian": "Sharp bilinear",
         "Comments": ""
     },
     {
@@ -632,7 +632,7 @@
         "Italian": "AA avanzato",
         "French": "Advanced AA",
         "Spanish": "AA Avanzado",
-        "Russian": "",
+        "Russian": "Advanced AA",
         "Comments": ""
     },
     {
@@ -644,7 +644,7 @@
         "Italian": "Overlay",
         "French": "Superposition (Overlay)",
         "Spanish": "Superponer",
-        "Russian": "",
+        "Russian": "Наложение",
         "Comments": ""
     },
     {
@@ -656,7 +656,7 @@
         "Italian": "Sfondo",
         "French": "Arrière-plan",
         "Spanish": "Fondo",
-        "Russian": "",
+        "Russian": "Задник",
         "Comments": ""
     },
     {
@@ -668,7 +668,7 @@
         "Italian": "No",
         "French": "Non",
         "Spanish": "No",
-        "Russian": "",
+        "Russian": "Нет",
         "Comments": ""
     },
     {
@@ -680,7 +680,7 @@
         "Italian": "Sì",
         "French": "Oui",
         "Spanish": "Sí",
-        "Russian": "",
+        "Russian": "Да",
         "Comments": ""
     },
     {
@@ -692,7 +692,7 @@
         "Italian": "Turbo",
         "French": "Turbo",
         "Spanish": "Turbo",
-        "Russian": "",
+        "Russian": "Turbo",
         "Comments": ""
     },
     {
@@ -704,7 +704,7 @@
         "Italian": "Nessuno",
         "French": "Aucun",
         "Spanish": "Ninguno",
-        "Russian": "",
+        "Russian": "Не выбрано",
         "Comments": ""
     },
     {
@@ -716,7 +716,7 @@
         "Italian": "Salva stato",
         "French": "Sauvegarde d'état",
         "Spanish": "Guardar estado",
-        "Russian": "",
+        "Russian": "Сохранить состояние",
         "Comments": ""
     },
     {
@@ -728,7 +728,7 @@
         "Italian": "Carica stato",
         "French": "Chargement d'état",
         "Spanish": "Cargar estado",
-        "Russian": "",
+        "Russian": "Загрузить состояние",
         "Comments": ""
     },
     {
@@ -740,7 +740,7 @@
         "Italian": "Aumenta velocità gioco",
         "French": "Accélération du jeu",
         "Spanish": "Velocidad del juego",
-        "Russian": "",
+        "Russian": "Ускорение игры",
         "Comments": ""
     },
     {
@@ -752,7 +752,7 @@
         "Italian": "Riduci velocità gioco",
         "French": "Diminution de la vitesse du jeu",
         "Spanish": "Reducción de la velocidad del juego",
-        "Russian": "",
+        "Russian": "Замедление игры",
         "Comments": ""
     },
     {
@@ -764,7 +764,7 @@
         "Italian": "Riavvolgi gioco",
         "French": "Retour en arrière",
         "Spanish": "Rebobinar el juego",
-        "Russian": "",
+        "Russian": "Обратная перемотка",
         "Comments": ""
     },
     {
@@ -776,7 +776,7 @@
         "Italian": "Porta controller +",
         "French": "Port du contrôleur +",
         "Spanish": "Puerto del controlador+",
-        "Russian": "",
+        "Russian": "Порт контроллера +",
         "Comments": ""
     },
     {
@@ -788,7 +788,7 @@
         "Italian": "Porta controller -",
         "French": "Port du contrôleur -",
         "Spanish": "Puerto del controlador-",
-        "Russian": "",
+        "Russian": "Порт контроллера -",
         "Comments": ""
     },
     {
@@ -800,7 +800,7 @@
         "Italian": "Cambia tastiera",
         "French": "Changer de clavier",
         "Spanish": "Cambiar teclado",
-        "Russian": "",
+        "Russian": "Вызвать клавиатуру",
         "Comments": ""
     },
     {
@@ -812,7 +812,7 @@
         "Italian": "Sposta la tastiera in alto",
         "French": "Déplacer le clavier vers le haut",
         "Spanish": "Mover el teclado hacia arriba",
-        "Russian": "",
+        "Russian": "Переместить клавиатуру вверх",
         "Comments": ""
     },
     {
@@ -824,7 +824,7 @@
         "Italian": "Sposta la tastiera in basso",
         "French": "Déplacer le clavier vers le bas",
         "Spanish": "Mover el teclado hacia abajo",
-        "Russian": "",
+        "Russian": "Переместить клавиатуру вниз",
         "Comments": ""
     },
     {
@@ -836,7 +836,7 @@
         "Italian": "Attiva/disattiva menu",
         "French": "Menu Basculer",
         "Spanish": "Alternar menú",
-        "Russian": "",
+        "Russian": "Вызвать меню",
         "Comments": ""
     },
     {
@@ -848,7 +848,7 @@
         "Italian": "Ripristina configurazioni",
         "French": "Réinitialiser les configurations",
         "Spanish": "Reiniciar configuración",
-        "Russian": "",
+        "Russian": "Сброс настроек",
         "Comments": ""
     },
     {
@@ -860,7 +860,7 @@
         "Italian": "Compilato il",
         "French": "Compilé par",
         "Spanish": "Compilado en",
-        "Russian": "",
+        "Russian": "Дата сборки:",
         "Comments": ""
     },
     {
@@ -872,7 +872,7 @@
         "Italian": "Autore",
         "French": "Auteur",
         "Spanish": "Autor",
-        "Russian": "",
+        "Russian": "Автор",
         "Comments": ""
     },
     {
@@ -884,7 +884,7 @@
         "Italian": "Ringraziamenti speciali",
         "French": "Remerciements",
         "Spanish": "Agradecimientos especiales",
-        "Russian": "",
+        "Russian": "Особая благодарность",
         "Comments": ""
     },
     {
@@ -896,7 +896,7 @@
         "Italian": "Sito",
         "French": "Site",
         "Spanish": "Sitio",
-        "Russian": "",
+        "Russian": "Веб-сайт",
         "Comments": ""
     },
     {
@@ -908,7 +908,7 @@
         "Italian": "Salvataggio automatico",
         "French": "Sauvegarde automatique",
         "Spanish": "Guardado automático",
-        "Russian": "",
+        "Russian": "Автоматическое сохранение",
         "Comments": ""
     },
     {
@@ -920,7 +920,7 @@
         "Italian": "Vuoto",
         "French": "Vide",
         "Spanish": "Vacío",
-        "Russian": "",
+        "Russian": "Пусто",
         "Comments": ""
     },
     {
@@ -932,7 +932,7 @@
         "Italian": "Salva",
         "French": "Sauvegarder",
         "Spanish": "Guardar",
-        "Russian": "",
+        "Russian": "Сохранить",
         "Comments": ""
     },
     {
@@ -944,7 +944,7 @@
         "Italian": "Carica",
         "French": "Chargement",
         "Spanish": "Cargar",
-        "Russian": "",
+        "Russian": "Загрузить",
         "Comments": ""
     },
     {
@@ -956,7 +956,7 @@
         "Italian": "Elimina",
         "French": "Supprimer",
         "Spanish": "Borrar",
-        "Russian": "",
+        "Russian": "Удалить",
         "Comments": ""
     },
     {
@@ -968,7 +968,7 @@
         "Italian": "Annulla",
         "French": "Annuler",
         "Spanish": "Cancelar",
-        "Russian": "",
+        "Russian": "Отмена",
         "Comments": ""
     },
     {
@@ -980,7 +980,7 @@
         "Italian": "OK",
         "French": "Ok",
         "Spanish": "OK",
-        "Russian": "",
+        "Russian": "ОК",
         "Comments": ""
     },
     {
@@ -992,7 +992,7 @@
         "Italian": "Sei sicuro di voler sovrascrivere questo stato di salvataggio?",
         "French": "Êtes-vous sûr de vouloir écraser cette sauvegarde d'état ?",
         "Spanish": "¿Estás seguro de que desea sobrescribir este estado de guardado?",
-        "Russian": "",
+        "Russian": "Перезаписать это сохранение?",
         "Comments": ""
     },
     {
@@ -1004,7 +1004,7 @@
         "Italian": "Sei sicuro di voler caricare questo stato di salvataggio?",
         "French": "Êtes-vous sûr de vouloir charger cette sauvegarde d'état ?",
         "Spanish": "¿Estás seguro de que desea cargar este estado de guardado?",
-        "Russian": "",
+        "Russian": "Загрузить это сохранение?",
         "Comments": ""
     },
     {
@@ -1016,7 +1016,7 @@
         "Italian": "Sei sicuro di voler eliminare questo stato di salvataggio?",
         "French": "Êtes-vous sûr de vouloir supprimer cette sauvegarde d'état ?",
         "Spanish": "¿Estás seguro de que desea eliminar este estado de guardado?",
-        "Russian": "",
+        "Russian": "Удалить это сохранение?",
         "Comments": ""
     },
     {
@@ -1028,7 +1028,7 @@
         "Italian": "Sei sicuro di voler rimuovere questo gioco dai preferiti?",
         "French": "Êtes-vous sûr de vouloir supprimer ce jeu de vos favoris ?",
         "Spanish": "¿Estás seguro de que quieres eliminar este juego de tus favoritos?",
-        "Russian": "",
+        "Russian": "Удалить эту игру из избранного?",
         "Comments": ""
     },
     {
@@ -1040,7 +1040,7 @@
         "Italian": "Sei sicuro di voler pulire i file nella cache?",
         "French": "Êtes-vous sûr de vouloir nettoyer les fichiers mis en cache ?",
         "Spanish": "¿Estás seguro de que quieres limpiar los archivos almacenados en caché?",
-        "Russian": "",
+        "Russian": "Удалить временные файлы?",
         "Comments": ""
     },
     {
@@ -1052,7 +1052,7 @@
         "Italian": "Componenti esterni utilizzati da Emu4Vita++",
         "French": "Composants externes utilisés par Emu4Vita++",
         "Spanish": "Componentes externos utilizados por Emu4Vita++",
-        "Russian": "",
+        "Russian": "Внешние компоненты, используемые Emu4Vita++",
         "Comments": ""
     },
     {
@@ -1064,7 +1064,7 @@
         "Italian": "Apri cartella",
         "French": "Ouvrir le dossier",
         "Spanish": "Abrir carpeta",
-        "Russian": "",
+        "Russian": "В каталог",
         "Comments": ""
     },
     {
@@ -1076,7 +1076,7 @@
         "Italian": "Torna alla cartella precedente",
         "French": "Retour au dossier précédent",
         "Spanish": "Volver a la carpeta anterior",
-        "Russian": "",
+        "Russian": "Назад",
         "Comments": ""
     },
     {
@@ -1088,7 +1088,7 @@
         "Italian": "Avvia gioco",
         "French": "Démarrer le jeu",
         "Spanish": "Iniciar juego",
-        "Russian": "",
+        "Russian": "Запустить",
         "Comments": ""
     },
     {
@@ -1100,7 +1100,7 @@
         "Italian": "Aggiungi ai preferiti",
         "French": "Ajouter aux favoris",
         "Spanish": "Agregar a favoritos",
-        "Russian": "",
+        "Russian": "В избранное",
         "Comments": ""
     },
     {
@@ -1112,7 +1112,7 @@
         "Italian": "Rimuovi dai preferiti",
         "French": "Supprimer des favoris",
         "Spanish": "Quitar de favoritos",
-        "Russian": "",
+        "Russian": "Удалить из избранного",
         "Comments": ""
     },
     {
@@ -1124,7 +1124,7 @@
         "Italian": "Cerca",
         "French": "Recherche",
         "Spanish": "Buscar",
-        "Russian": "",
+        "Russian": "Поиск",
         "Comments": ""
     },
     {
@@ -1136,7 +1136,7 @@
         "Italian": "Avanti",
         "French": "Suivant",
         "Spanish": "Proximo",
-        "Russian": "",
+        "Russian": "Далее",
         "Comments": ""
     },
     {
@@ -1148,7 +1148,7 @@
         "Italian": "Gestione file",
         "French": "Gestion des fichiers",
         "Spanish": "Gestor de archivos",
-        "Russian": "",
+        "Russian": "Действия",
         "Comments": ""
     },
     {
@@ -1160,7 +1160,7 @@
         "Italian": "Copia",
         "French": "Copier",
         "Spanish": "Copiar",
-        "Russian": "",
+        "Russian": "Скопировать",
         "Comments": ""
     },
     {
@@ -1172,7 +1172,7 @@
         "Italian": "Taglia",
         "French": "Couper",
         "Spanish": "Cortar",
-        "Russian": "",
+        "Russian": "Вырезать",
         "Comments": ""
     },
     {
@@ -1184,7 +1184,7 @@
         "Italian": "Incolla",
         "French": "Coller",
         "Spanish": "Pegar",
-        "Russian": "",
+        "Russian": "Вставить",
         "Comments": ""
     },
     {
@@ -1196,7 +1196,7 @@
         "Italian": "Rinomina",
         "French": "Renommer",
         "Spanish": "Renombrar",
-        "Russian": "",
+        "Russian": "Переименовать",
         "Comments": ""
     },
     {
@@ -1208,7 +1208,7 @@
         "Italian": "Dopo aver modificato le impostazioni, riavvia il gioco per applicare le modifiche",
         "French": "Après avoir modifié les paramètres, réinitialisez le jeu pour que cela prenne effet",
         "Spanish": "Después de cambiar la configuración, reinicia el juego para que surta efecto",
-        "Russian": "",
+        "Russian": "После внесения изменений в настройки, рекомендуется перезапустить игру для их применения",
         "Comments": ""
     },
     {
@@ -1220,7 +1220,7 @@
         "Italian": "Abilitato",
         "French": "Activer",
         "Spanish": "Activar",
-        "Russian": "",
+        "Russian": "Включено",
         "Comments": ""
     },
     {
@@ -1232,7 +1232,7 @@
         "Italian": "Disabilitato",
         "French": "Désactiver",
         "Spanish": "Desactivar",
-        "Russian": "",
+        "Russian": "Отключено",
         "Comments": ""
     },
     {
@@ -1244,7 +1244,7 @@
         "Italian": "Caricamento ROM fallito, premi un tasto per continuare",
         "French": "Échec du chargement du jeu, appuyez sur n'importe quelle touche pour continuer",
         "Spanish": "No se pudo cargar la rom, presione cualquier tecla para continuar",
-        "Russian": "",
+        "Russian": "Запуск не удался, нажмите любую кнопку для продолжения",
         "Comments": ""
     },
     {
@@ -1256,7 +1256,7 @@
         "Italian": "Pannello touch frontale + ↜ ↝",
         "French": "Panneau tactile avant + ↜ ↝",
         "Spanish": "Panel táctil frontal + ↜ ↝",
-        "Russian": "",
+        "Russian": "Сенсорный экран + ↜ ↝",
         "Comments": ""
     },
     {
@@ -1268,7 +1268,7 @@
         "Italian": "Pannello touch posteriore + ↜ ↝",
         "French": "Panneau tactile arrière + ↜ ↝",
         "Spanish": "Panel táctil trasero + ↜ ↝",
-        "Russian": "",
+        "Russian": "Задняя панель + ↜ ↝",
         "Comments": ""
     },
     {
@@ -1280,7 +1280,7 @@
         "Italian": "Non impostato",
         "French": "Non défini",
         "Spanish": "No establecido",
-        "Russian": "",
+        "Russian": "Не установлено",
         "Comments": ""
     },
     {
@@ -1292,7 +1292,7 @@
         "Italian": "Porta dispositivo",
         "French": "Port de l'appareil ",
         "Spanish": "Puerto del dispositivo",
-        "Russian": "",
+        "Russian": "Порт устройства ",
         "Comments": ""
     },
     {
@@ -1304,7 +1304,7 @@
         "Italian": "Trovato",
         "French": "Trouvé",
         "Spanish": "Encontrado",
-        "Russian": "",
+        "Russian": "Найдено",
         "Comments": ""
     },
     {
@@ -1316,7 +1316,7 @@
         "Italian": "Non trovato",
         "French": "Non trouvé",
         "Spanish": "No encontrado",
-        "Russian": "",
+        "Russian": "Не найдено",
         "Comments": ""
     },
     {
@@ -1328,7 +1328,7 @@
         "Italian": "file",
         "French": "Fichier",
         "Spanish": "Archivo",
-        "Russian": "",
+        "Russian": "файл",
         "Comments": ""
     },
     {
@@ -1340,7 +1340,7 @@
         "Italian": "file",
         "French": "Fichiers",
         "Spanish": "Archivos",
-        "Russian": "",
+        "Russian": "файлы",
         "Comments": ""
     },
     {
@@ -1352,7 +1352,7 @@
         "Italian": "it",
         "French": "Fr",
         "Spanish": "es",
-        "Russian": "",
+        "Russian": "ru",
         "Comments": ""
     },
     {
@@ -1364,7 +1364,7 @@
         "Italian": "Configurazione core indipendente",
         "French": "Configuration de base indépendante",
         "Spanish": "Configuración de núcleo independiente",
-        "Russian": "",
+        "Russian": "Независимая конфигурация ядра",
         "Comments": ""
     },
     {
@@ -1376,7 +1376,7 @@
         "Italian": "Sei sicuro di voler eliminare questo file?",
         "French": "Êtes-vous sûr de vouloir supprimer ce fichier ?",
         "Spanish": "¿Estás seguro de que quieres eliminar este archivo?",
-        "Russian": "",
+        "Russian": "Удалить этот файл?",
         "Comments": ""
     },
     {
@@ -1388,7 +1388,7 @@
         "Italian": "Esiste già un file con lo stesso nome. Sovrascriverlo?",
         "French": "Un fichier portant le même nom existe. Le remplacer ?",
         "Spanish": "Ya existe un archivo con el mismo nombre. ¿Deseas Sobreescribirlo?",
-        "Russian": "",
+        "Russian": "Файл с таким именем уже существует. Перезаписать?",
         "Comments": ""
     },
     {
@@ -1400,7 +1400,7 @@
         "Italian": "Impossibile incollare nella stessa directory",
         "French": "Impossible de coller dans le même répertoire",
         "Spanish": "No se puede pegar en el mismo directorio",
-        "Russian": "",
+        "Russian": "Невозможно вставить в тот же каталог",
         "Comments": ""
     },
     {
@@ -1412,7 +1412,7 @@
         "Italian": "File eliminato",
         "French": "Fichier supprimé",
         "Spanish": "Archivo eliminado",
-        "Russian": "",
+        "Russian": "Файл удалён",
         "Comments": ""
     },
     {
@@ -1424,7 +1424,7 @@
         "Italian": "Eliminazione file fallita",
         "French": "Suppression du fichier échoué",
         "Spanish": "No se pudo eliminar el archivo",
-        "Russian": "",
+        "Russian": "Ошибка удаления файла",
         "Comments": ""
     },
     {
@@ -1436,7 +1436,7 @@
         "Italian": "Velocità di gioco",
         "French": "Vitesse du jeu",
         "Spanish": "Velocidad del juego",
-        "Russian": "",
+        "Russian": "Скорость игры",
         "Comments": ""
     },
     {
@@ -1448,7 +1448,7 @@
         "Italian": "Inserire questo disco?",
         "French": "Insérer ce disque ?",
         "Spanish": "¿Insertar este disco?",
-        "Russian": "",
+        "Russian": "Вставить этот диск?",
         "Comments": ""
     },
     {
@@ -1460,7 +1460,7 @@
         "Italian": "File BIOS mancanti:",
         "French": "Fichiers BIOS manquants :",
         "Spanish": "No se encontró el archivo BIOS:",
-        "Russian": "",
+        "Russian": "Отсутствуют файлы BIOS:",
         "Comments": ""
     },
     {
@@ -1472,7 +1472,7 @@
         "Italian": "Massimo",
         "French": "Maximum",
         "Spanish": "Máximo",
-        "Russian": "",
+        "Russian": "Максимум",
         "Comments": ""
     },
     {
@@ -1484,7 +1484,7 @@
         "Italian": "Passo di velocità",
         "French": "Étape de vitesse",
         "Spanish": "Paso de velocidad",
-        "Russian": "",
+        "Russian": "Шаг ускорения",
         "Comments": ""
     },
     {
@@ -1496,7 +1496,7 @@
         "Italian": "traduzione giapponese",
         "French": "Traduction japonaise",
         "Spanish": "Traducción al japonés",
-        "Russian": "",
+        "Russian": "Перевод на японский язык",
         "Comments": ""
     },
     {
@@ -1508,7 +1508,7 @@
         "Italian": "traduzione italiana",
         "French": "Traduction italienne",
         "Spanish": "Traducción al italiano",
-        "Russian": "",
+        "Russian": "Перевод на итальянский язык",
         "Comments": ""
     },
     {
@@ -1520,7 +1520,7 @@
         "Italian": "traduzione francese",
         "French": "Traduction Française",
         "Spanish": "Traducción al francés",
-        "Russian": "",
+        "Russian": "Перевод на французский язык",
         "Comments": ""
     },
     {
@@ -1532,7 +1532,7 @@
         "Italian": "traduzione in spagnolo",
         "French": "traduction en espagnol",
         "Spanish": "Traducción al español",
-        "Russian": "",
+        "Russian": "Перевод на испанский язык",
         "Comments": ""
     },
     {
@@ -1544,7 +1544,7 @@
         "Italian": "Avvia il core senza contenuto",
         "French": "Démarrer le core sans contenu",
         "Spanish": "Iniciar el núcleo sin contenido",
-        "Russian": "",
+        "Russian": "Запустить ядро без контента",
         "Comments": ""
     },
     {
@@ -1556,7 +1556,19 @@
         "Italian": "È disponibile una nuova versione",
         "French": "Une nouvelle version est disponible",
         "Spanish": "Hay una nueva versión disponible",
-        "Russian": "",
+        "Russian": "Доступна новая версия",
+        "Comments": ""
+    },
+    {
+        "No.": "131",
+        "Tag": "LANG_RUSSIAN_TRANS",
+        "English": "Russian translation",
+        "Chinese": "俄语翻译",
+        "Japanese": "ロシア語翻訳",
+        "Italian": "traduzione russa",
+        "French": "traduction en russe",
+        "Spanish": "Traducción al ruso",
+        "Russian": "Перевод на русский язык",
         "Comments": ""
     }
 ]
