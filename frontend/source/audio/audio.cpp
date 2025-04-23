@@ -7,7 +7,7 @@
 #include "emulator.h"
 #include "app.h"
 
-#define AUDIO_SKIP_THRESHOLD 5
+#define AUDIO_SKIP_THRESHOLD 30
 
 const uint32_t SAMPLE_RATES[] = {8000, 11025, 12000, 16000, 22050, 24000, 32000, 44100, 48000};
 
@@ -156,9 +156,9 @@ namespace Emu4VitaPlus
 
     void Audio::NotifyBufStatus()
     {
-        if (_buf_status_callback)
+        if (_buf_status_callback && _output)
         {
-            size_t occupancy = (_resampler == nullptr ? _out_buf.OccupancySize() : _resampler->GetInBufOccupancy());
+            unsigned occupancy = _output->GetOccupancy();
             _buf_status_callback(gConfig->mute, occupancy, occupancy < AUDIO_SKIP_THRESHOLD);
             // if (occupancy < AUDIO_SKIP_THRESHOLD)
             // {
