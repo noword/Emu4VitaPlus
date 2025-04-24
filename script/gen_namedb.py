@@ -44,6 +44,7 @@ for json_name, core_name in (
     ('msx', 'MSX'),
     ('ngp', 'NGP'),
     ('wsc', 'WSC'),
+    ('pce', 'PCE'),
 ):
     print(json_name)
     names = json.load(open(f'rom_db/{json_name}.names.json', encoding='utf-8'))
