@@ -36,6 +36,11 @@ const char *CONSOLE_NAMES[] = {
 
 Config::Config()
 {
+    for (size_t i = 0; i < CONSOLE_COUNT; i++)
+    {
+        consoles[i] = true;
+    }
+
     language = Utils::GetDefaultLanguage();
     Load();
 }

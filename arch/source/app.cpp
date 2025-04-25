@@ -356,7 +356,17 @@ void App::_OnClick(Input *input)
     LogFunctionName;
     if (_in_choice)
     {
-        gConfig->consoles[_GetIndex()] = !gConfig->consoles[_GetIndex()];
+        size_t count = 0;
+        for (size_t i = 0; i < CONSOLE_COUNT && count < 1; i++)
+        {
+            if (gConfig->consoles[i])
+            {
+                count += 1;
+            }
+        }
+
+        if (count > 1)
+            gConfig->consoles[_GetIndex()] = !gConfig->consoles[_GetIndex()];
     }
     else
     {
