@@ -5,7 +5,7 @@
 
 AudioOutput::AudioOutput(uint32_t sample_size, uint32_t sample_rate, AudioBuf *buf)
     : ThreadBase(_AudioThread),
-      _sample_size(sample_size * 2),
+      _sample_size(sample_size),
       _out_buf(buf)
 {
     _port = sceAudioOutOpenPort(SCE_AUDIO_OUT_PORT_TYPE_VOICE, sample_size, sample_rate, SCE_AUDIO_OUT_MODE_STEREO);

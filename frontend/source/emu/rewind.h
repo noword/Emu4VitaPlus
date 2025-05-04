@@ -197,7 +197,7 @@ private:
     uint32_t _block_count;
     uint8_t *_tmp_buf;
     RewindBlock *_last_full_block;
-    Delay _delay;
+    Delay<double> _delay;
 
     RewindBlocks _blocks{BLOCK_SIZE};
     RewindContens *_contens;

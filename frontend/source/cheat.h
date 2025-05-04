@@ -47,5 +47,5 @@ public:
 private:
     static int _CheatThread(SceSize args, void *argp);
 
-    Delay _delay;
+    Delay<double> _delay;
 };

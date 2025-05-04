@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include <jpeglib.h>
 #include "emulator.h"
-#include "callbacks.h"
 #include "app.h"
 #include "defines.h"
 #include "core_options.h"

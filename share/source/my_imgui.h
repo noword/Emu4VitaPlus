@@ -13,7 +13,7 @@ struct TextMovingStatus
 {
     int pos = 0;
     int delta = -1;
-    Delay delay{DEFAULT_TEXT_MOVING_INTERVAL};
+    Delay<uint64_t> delay{DEFAULT_TEXT_MOVING_INTERVAL};
 
     void Reset();
     bool Update(const char *text);

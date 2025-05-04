@@ -638,7 +638,7 @@ void TextMovingStatus::Reset()
 {
     pos = 0;
     delta = -1;
-    delay.SetDelay(DEFAULT_TEXT_MOVING_START);
+    delay.SetInterval(DEFAULT_TEXT_MOVING_START);
 }
 
 bool TextMovingStatus::Update(const char *text)

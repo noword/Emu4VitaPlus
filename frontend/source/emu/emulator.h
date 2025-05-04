@@ -146,7 +146,7 @@ private:
     Rect<int> _video_rect;
     bool _graphics_config_changed;
     VIDEO_ROTATION _video_rotation;
-    Delay _video_delay;
+    Delay<double> _video_delay;
     vita2d_texture *_last_texture;
 
     Audio _audio;
@@ -154,7 +154,7 @@ private:
     uint32_t _keys[16];
     uint32_t _keys_mask;
     double _speed;
-    Delay _delay;
+    Delay<double> _delay;
     uint32_t _frame_count;
     bool _show_video;
 
