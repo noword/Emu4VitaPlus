@@ -1,4 +1,5 @@
 #include "device_options.h"
+#include "retro_module.h"
 #include "icons.h"
 #include "log.h"
 
@@ -74,7 +75,7 @@ void ControllerTypes::Apply(uint32_t port) const
         if (value == v.desc)
         {
             LogDebug("  retro_set_controller_port_device: %d %x", port, v.device);
-            retro_set_controller_port_device(port, v.device);
+            gRetro->retro_set_controller_port_device(port, v.device);
             break;
         }
     }

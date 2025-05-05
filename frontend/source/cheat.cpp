@@ -4,6 +4,7 @@
 #include "utils.h"
 #include "log.h"
 #include "emulator.h"
+#include "retro_module.h"
 #include "app.h"
 
 #define KEY_BUF_SIZE 32
@@ -102,7 +103,7 @@ void Cheat::Apply(int index, bool *run_cheat)
 {
     if (code.size() > 0)
     {
-        retro_cheat_set(index, 1, code.c_str());
+        gRetro->retro_cheat_set(index, 1, code.c_str());
         return;
     }
     else
@@ -256,8 +257,8 @@ void Cheat::_ApplyRetro(bool *run_cheat)
 
     if (_memory_data == nullptr)
     {
-        _memory_data = (uint8_t *)retro_get_memory_data(RETRO_MEMORY_SYSTEM_RAM);
-        _memory_size = retro_get_memory_size(RETRO_MEMORY_SYSTEM_RAM);
+        _memory_data = (uint8_t *)gRetro->retro_get_memory_data(RETRO_MEMORY_SYSTEM_RAM);
+        _memory_size = gRetro->retro_get_memory_size(RETRO_MEMORY_SYSTEM_RAM);
         LogDebug("_memory_data:%08x _memory_size:%08x\n", _memory_data, _memory_size);
     }
 

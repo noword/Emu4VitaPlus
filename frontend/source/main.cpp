@@ -4,6 +4,7 @@
 #include "log.h"
 #include "profiler.h"
 #include "defines.h"
+#include "retro_module.h"
 
 #define SCE_LIBC_HEAP_SIZE_EXTENDED_ALLOC_NO_LIMIT (0xffffffffU)
 
@@ -22,6 +23,8 @@ int main(int argc, char *const argv[])
     LogInfo("Emu4Vita++ v%s", APP_VER_STR);
     LogInfo("updated on " __DATE__ " " __TIME__);
 
+    RetroModule *module = new RetroModule("app0:gpsp_libretro.suprx");
+
     // must use for keeping this variables
     LogInfo("%d", sceUserMainThreadStackSize);
     LogInfo("%d", sceLibcHeapExtendedAlloc);
@@ -34,6 +37,7 @@ int main(int argc, char *const argv[])
         app.Run();
     }
 
+    delete module;
     LogInfo("Exit main()");
 
 #if LOG_LEVEL <= LOG_LEVEL_DEBUG

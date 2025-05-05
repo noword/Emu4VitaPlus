@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <jpeglib.h>
 #include "emulator.h"
+#include "retro_module.h"
 #include "app.h"
 #include "defines.h"
 #include "core_options.h"
@@ -40,7 +41,7 @@ Emulator::Emulator()
       _speed(1.0),
       _keyboard(nullptr)
 {
-    retro_get_system_info(&_info);
+    gRetro->retro_get_system_info(&_info);
     sceKernelCreateLwMutex(&_run_mutex, "run_mutex", 0, 0, NULL);
     _InitArcadeManager();
 
@@ -71,21 +72,21 @@ Emulator::~Emulator()
 
     sceKernelDeleteLwMutex(&_run_mutex);
 
-    retro_deinit();
+    gRetro->retro_deinit();
 }
 
 void Emulator::Init()
 {
     LogFunctionName;
 
-    retro_set_environment(EnvironmentCallback);
-    retro_set_video_refresh(VideoRefreshCallback);
-    retro_set_audio_sample(AudioSampleCallback);
-    retro_set_audio_sample_batch(AudioSampleBatchCallback);
-    retro_set_input_poll(InputPollCallback);
-    retro_set_input_state(InputStateCallback);
+    gRetro->retro_set_environment(EnvironmentCallback);
+    gRetro->retro_set_video_refresh(VideoRefreshCallback);
+    gRetro->retro_set_audio_sample(AudioSampleCallback);
+    gRetro->retro_set_audio_sample_batch(AudioSampleBatchCallback);
+    gRetro->retro_set_input_poll(InputPollCallback);
+    gRetro->retro_set_input_state(InputStateCallback);
 
-    retro_init();
+    gRetro->retro_init();
 }
 
 bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
@@ -101,7 +102,7 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
         gStatus.Set(APP_STATUS_BOOT);
         path = "";
         _current_name = "";
-        result = retro_load_game(NULL);
+        result = gRetro->retro_load_game(NULL);
         goto LOADED;
     }
 
@@ -163,7 +164,7 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
 
     gConfig->core_options.Load((std::string(CORE_SAVEFILES_DIR) + "/" + gEmulator->GetCurrentName() + "/core.ini").c_str());
 
-    result = retro_load_game(&game_info);
+    result = gRetro->retro_load_game(&game_info);
 
 LOADED:
     if (result)
@@ -171,7 +172,7 @@ LOADED:
         gStatus.Set(APP_STATUS_RUN_GAME);
 
         _last_texture = nullptr;
-        retro_get_system_av_info(&_av_info);
+        gRetro->retro_get_system_av_info(&_av_info);
         SetupKeys();
 
         SetSpeed(1.0);
@@ -183,7 +184,7 @@ LOADED:
         Load();
         LogDebug("stack free size: %d", sceKernelCheckThreadStack());
         LogDebug("run first frame");
-        retro_run();
+        gRetro->retro_run();
         LogDebug("first frame end");
 
         _frame_count = 0;
@@ -234,7 +235,7 @@ void Emulator::UnloadGame()
             gStateManager->states[0]->Save();
         }
         Save();
-        retro_unload_game();
+        gRetro->retro_unload_game();
         Unlock();
 
         _last_texture = nullptr;
@@ -272,7 +273,7 @@ void Emulator::Run()
     BeginProfile("retro_run");
 
     Lock();
-    retro_run();
+    gRetro->retro_run();
     _audio.NotifyBufStatus();
     Unlock();
 
@@ -300,7 +301,7 @@ void Emulator::Reset()
     if (gStatus.Get() & (APP_STATUS_RUN_GAME | APP_STATUS_SHOW_UI_IN_GAME))
     {
         gStatus.Set(APP_STATUS_BOOT);
-        retro_reset();
+        gRetro->retro_reset();
         gStatus.Set(APP_STATUS_RUN_GAME);
     }
 }
@@ -518,11 +519,11 @@ void Emulator::Save()
     for (auto id : RETRO_MEMORY_IDS)
     {
         void *data = NULL;
-        size_t size = retro_get_memory_size(id);
+        size_t size = gRetro->retro_get_memory_size(id);
         LogDebug("  %d %d", id, size);
         if (size > 0)
         {
-            data = retro_get_memory_data(id);
+            data = gRetro->retro_get_memory_data(id);
         }
 
         if (data == NULL)
@@ -548,10 +549,10 @@ void Emulator::Load()
     for (auto id : RETRO_MEMORY_IDS)
     {
         void *data = NULL;
-        size_t size = retro_get_memory_size(id);
+        size_t size = gRetro->retro_get_memory_size(id);
         if (size > 0)
         {
-            data = retro_get_memory_data(id);
+            data = gRetro->retro_get_memory_data(id);
         }
         if (data == NULL)
         {
