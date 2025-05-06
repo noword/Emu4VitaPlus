@@ -47,7 +47,8 @@ include_directories(
     ../frontend/source/core_spec
     ../deps/libretro-common/include
     ../deps/7-Zip/C
-    ../share/source)
+    ../share/source
+    ../apps)
 
 file(GLOB SRC ../frontend/source/core_spec/*.cpp)
 
@@ -57,8 +58,6 @@ target_link_libraries(
     ${ELF_NAME}
     share
     frontend
-    ${LIBRETRO_LIBRARY}
-    retro_comm
     vita2d
     vita2d_ext
     imgui_vita2d
@@ -102,6 +101,9 @@ set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
 
 vita_create_self(${EBOOT_NAME} ${ELF_NAME} STRIPPED)
 
+set(LIBRETRO_ELF ${CORE_NAME}_libretro.elf)
+list(APPEND PRIVATE_PKG_FILES FILE ${CMAKE_CURRENT_BINARY_DIR}/${CORE_NAME}_libretro.suprx ${CORE_NAME}_libretro.suprx)
+
 if(NOT BUILD_SELF)
     set(VITA_MKSFOEX_FLAGS -d ATTRIBUTE2=12)
     vita_create_vpk(
@@ -130,3 +132,31 @@ if(NOT BUILD_SELF)
         add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk ${ARC_TAG})
     endif()
 endif()
+
+add_executable(${LIBRETRO_ELF} core.cpp sbrk.c)
+target_link_libraries(${LIBRETRO_ELF}
+    ${LIBRETRO_LIBRARY}
+    retro_comm
+    pthread
+    7zip
+    zlibstatic
+    FLAC
+    ogg
+    SceLibKernel_stub
+    SceIofilemgr_stub
+    SceDisplay_stub
+    SceCtrl_stub
+    ScePower_stub
+    SceVideodec_stub
+    SceAppMgr_stub
+    SceSysmem_stub
+    SceSysmodule_stub
+    SceShellSvc_stub
+    SceThreadmgrForDriver_stub
+    SceKernelThreadMgr_stub
+    SceMotion_stub
+    SceFiber_stub
+)
+
+set_target_properties(${LIBRETRO_ELF} PROPERTIES COMPILE_FLAGS "-Wno-main")
+vita_create_self(${CORE_NAME}_libretro.suprx ${LIBRETRO_ELF} UNSAFE CONFIG ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)
