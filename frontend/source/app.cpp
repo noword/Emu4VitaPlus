@@ -27,8 +27,6 @@
 #undef TEXT
 #endif
 
-extern "C" int getVMBlock();
-
 AppStatus gStatus;
 
 void OnVersionChecked(bool has_new)
@@ -68,7 +66,7 @@ App::App(int argc, char *const argv[])
     // sceTouchSetSamplingState(SCE_TOUCH_PORT_BACK, SCE_TOUCH_SAMPLING_STATE_START);
 
     _IsSaveMode();
-    LogDebug("getVMBlock: %08x", getVMBlock());
+    // LogDebug("getVMBlock: %08x", getVMBlock());
     gConfig = new Emu4Vita::Config();
     if (!gConfig->Load())
     {
