@@ -2,7 +2,7 @@
 #include "retro_module.h"
 #include "log.h"
 
-#define LOG_DEBUG_FUNC_ADDR(FUNC) LogDebug("%08x " #FUNC, gRetro->FUNC);
+#define LOG_DEBUG_FUNC_ADDR(FUNC) LogDebug("%08x %08x " #FUNC, FUNC, gRetro->FUNC);
 
 RetroCore *gRetro = nullptr;
 

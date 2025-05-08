@@ -13,7 +13,7 @@ include_directories(
     ../deps/simpleini
     ../deps/minizip-ng
     ../deps/7-Zip/C
-    ../apps)
+    ../cores)
 
 file(GLOB SRC
     source/*.c
@@ -48,9 +48,8 @@ if(NOT ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.cpp IN_LIST SRC)
     list(APPEND SRC ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.cpp)
 endif()
 
-add_compile_definitions(SCE_LIBC_SIZE=0xA00000)
+# add_compile_definitions(SCE_LIBC_SIZE=0xA00000)
 add_library(frontend OBJECT ${SRC})
 
-add_custom_target(FILE_TOUCHER
-    COMMAND ${CMAKE_COMMAND} -E touch_nocreate ${CMAKE_CURRENT_SOURCE_DIR}/source/ui/tab_about.cpp)
+add_custom_target(FILE_TOUCHER COMMAND ${CMAKE_COMMAND} -E touch_nocreate ${CMAKE_CURRENT_SOURCE_DIR}/source/ui/tab_about.cpp)
 add_dependencies(frontend FILE_TOUCHER LANG_FRONTEND)

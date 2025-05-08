@@ -279,7 +279,7 @@ void Ui::CreateTables()
                                                  new ItemConfig(LANG_SPEED_STEP,
                                                                 "",
                                                                 &gConfig->speed_step,
-                                                                Emu4Vita::SPEED_STEP_OPTIONS),
+                                                                Emu4VitaPlus::SPEED_STEP_OPTIONS),
                                                  new ItemConfig(LANG_MUTE,
                                                                 "",
                                                                 (uint32_t *)&gConfig->mute,

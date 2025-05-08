@@ -1,24 +1,33 @@
 cmake_minimum_required(VERSION 3.12)
 
-set(CORE_TAG ${CORE_NAME}_build)
+set(CORE_ARGS platform=vita EXTERNAL_ZLIB=1)
+set(CORE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${CORE})
+set(CORE_MAKEFILE_NAME Makefile)
 
+if(CORE STREQUAL "gpsp")
+elseif(CORE STREQUAL "snes9x2002")
+else()
+    message(FATAL_ERROR "unknown core: " ${CORE})
+endif()
+
+set(LIBRETRO_ELF libretro_${CORE}.elf)
+set(LIBRETRO_SUPRX ${CORE}_libretro.suprx CACHE INTERNAL "LIBRETRO_SUPRX")
+
+set(CORE_TAG ${CORE}_build)
 add_custom_target(
     ${CORE_TAG} ALL
     COMMAND make -f ${CORE_MAKEFILE_NAME} ${CORE_ARGS} -j4
     WORKING_DIRECTORY ${CORE_DIR})
 
-add_library(${CORE_NAME} STATIC IMPORTED)
+add_library(${CORE} STATIC IMPORTED)
 set_property(
-    TARGET ${CORE_NAME}
+    TARGET ${CORE}
     APPEND
     PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
 
-set(LIBRETRO_LIBRARY ${CORE_DIR}/${CORE_NAME}_libretro_vita.a)
-set_target_properties(${CORE_NAME} PROPERTIES IMPORTED_LOCATION "${LIBRETRO_LIBRARY}")
-add_dependencies(${CORE_NAME} ${CORE_TAG})
-
-set(SUPRX_NAME ${CORE_SHORT_NAME}.suprx)
-set(SO_NAME ${CORE_SHORT_NAME})
+set(LIBRETRO_LIBRARY ${CORE_DIR}/${CORE}_libretro_vita.a)
+set_target_properties(${CORE} PROPERTIES IMPORTED_LOCATION "${LIBRETRO_LIBRARY}")
+add_dependencies(${CORE} ${CORE_TAG})
 
 include_directories(
     ../frontend/source
@@ -29,57 +38,37 @@ include_directories(
     ../deps/7-Zip/C
     ../share/source)
 
-set(CMAKE_EXE_LINKER_FLAGS "-u retro_run -Wl,-q")
+add_executable(${LIBRETRO_ELF} core.cpp sbrk.c)
 
-add_executable(${SO_NAME} core.c)
-add_dependencies(${SO_NAME} ${CORE_TAG})
-
-# set_target_properties(${SO_NAME}
-# PROPERTIES LINK_FLAGS "-u retro_run"
-# COMPILE_FLAGS "-D__PSP2_USER__"
-# )
-target_link_libraries(
-    ${SO_NAME}
+set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
+target_link_libraries(${LIBRETRO_ELF}
     ${LIBRETRO_LIBRARY}
     retro_comm
-    vita2d
-    vita2d_ext
-    imgui_vita2d
-    swresample
-    swscale
-    speexdsp
-    avutil
-    SimpleIni
-    png
-    jpeg
-    zlibstatic
-    lzma
-    minizip
-    7zip
-    lz4
     pthread
+    7zip
+    zlibstatic
     FLAC
     ogg
-    ScePvf_stub_weak
-    ScePgf_stub_weak
-    SceDisplay_stub_weak
-    SceGxm_stub_weak
-    SceCtrl_stub_weak
-    SceTouch_stub_weak
-    ScePower_stub_weak
-    SceAudio_stub_weak
-    SceRtc_stub_weak
-    SceCommonDialog_stub_weak
-    SceSysmodule_stub_weak
-    SceAppUtil_stub_weak
-    SceAppMgr_stub_weak
-    SceShellSvc_stub_weak
-    SceMotion_stub_weak
-    SceHid_stub_weak
-    SceFiber_stub_weak)
-
-vita_create_self(${SUPRX_NAME} ${SO_NAME}
-    CONFIG ${CMAKE_CURRENT_SOURCE_DIR}/exports.yml
-    UNSAFE
+    SceLibKernel_stub
+    SceIofilemgr_stub
+    SceDisplay_stub
+    SceCtrl_stub
+    ScePower_stub
+    SceVideodec_stub
+    SceAppMgr_stub
+    SceSysmem_stub
+    SceSysmodule_stub
+    SceShellSvc_stub
+    SceThreadmgrForDriver_stub
+    SceKernelThreadMgr_stub
+    SceMotion_stub
+    SceFiber_stub
 )
-vita_create_stubs(stub_${CORE_SHORT_NAME} ${SO_NAME} ${CMAKE_CURRENT_SOURCE_DIR}/exports.yml GEN_EXPORTS)
+
+set_target_properties(${LIBRETRO_ELF} PROPERTIES COMPILE_FLAGS "-Wno-main -DSCE_LIBC_SIZE=0xA00000")
+
+vita_create_self(${LIBRETRO_SUPRX} ${LIBRETRO_ELF} STRIPPED UNSAFE CONFIG ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)
+
+if(CREATE_STUB)
+    vita_create_stubs(stub_${CORE} ${LIBRETRO_ELF} ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)
+endif()

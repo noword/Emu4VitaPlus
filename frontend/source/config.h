@@ -16,7 +16,7 @@
 #define REWIND_BUF_SIZE_STEP 5
 #define DEFAULT_MUTE false
 
-namespace Emu4Vita
+namespace Emu4VitaPlus
 {
     extern std::vector<LanguageString> SPEED_STEP_OPTIONS;
 
@@ -71,4 +71,4 @@ namespace Emu4Vita
     };
 }
 
-extern Emu4Vita::Config *gConfig;
+extern Emu4VitaPlus::Config *gConfig;

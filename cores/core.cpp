@@ -15,8 +15,8 @@ extern "C"
 {
 #endif
 
-    void _init_vita_heap(void);
-    void _free_vita_heap(void);
+    extern void _init_vita_heap(void);
+    extern void _free_vita_heap(void);
 
     int module_stop(SceSize argc, const void *args)
     {
@@ -34,7 +34,6 @@ extern "C"
 
     extern "C" int module_start(SceSize argc, void *args)
     {
-        printf("module_start");
         PRINT_VALUE(module_stop);
         PRINT_VALUE(module_exit);
         PRINT_VALUE(sceUserMainThreadStackSize);

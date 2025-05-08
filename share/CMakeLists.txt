@@ -1,15 +1,16 @@
 cmake_minimum_required(VERSION 3.12)
 
-set(PUBLIC_PKG_DIR ${CMAKE_CURRENT_SOURCE_DIR}/pkg)
+# set(PUBLIC_PKG_DIR ${CMAKE_CURRENT_SOURCE_DIR}/pkg)
 
-file(GLOB_RECURSE PKG_FILES ${PUBLIC_PKG_DIR}/*)
+# file(GLOB_RECURSE PKG_FILES ${PUBLIC_PKG_DIR}/*)
+# set(PUBLIC_PKG_FILES "")
+
+# foreach(file ${PKG_FILES})
+# file(RELATIVE_PATH rel ${PUBLIC_PKG_DIR} ${file})
+# list(APPEND PUBLIC_PKG_FILES FILE ${file} ${rel})
+# endforeach()
 set(PUBLIC_PKG_FILES "")
-
-foreach(file ${PKG_FILES})
-    file(RELATIVE_PATH rel ${PUBLIC_PKG_DIR} ${file})
-    list(APPEND PUBLIC_PKG_FILES FILE ${file} ${rel})
-endforeach()
-
+collect_files(PUBLIC_PKG_FILES ${CMAKE_CURRENT_SOURCE_DIR}/pkg)
 SET(PUBLIC_PKG_FILES "${PUBLIC_PKG_FILES}" CACHE INTERNAL "PUBLIC_PKG_FILES")
 
 add_custom_command(

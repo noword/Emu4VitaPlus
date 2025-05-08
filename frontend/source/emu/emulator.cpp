@@ -41,7 +41,13 @@ Emulator::Emulator()
       _speed(1.0),
       _keyboard(nullptr)
 {
+    LogFunctionName;
     gRetro->retro_get_system_info(&_info);
+    LogDebug("%s %s", _info.library_name, _info.library_version);
+
+    memset(&_info, 0, sizeof(_info));
+    retro_get_system_info(&_info);
+    LogDebug("%s %s", _info.library_name, _info.library_version);
     sceKernelCreateLwMutex(&_run_mutex, "run_mutex", 0, 0, NULL);
     _InitArcadeManager();
 
@@ -236,6 +242,8 @@ void Emulator::UnloadGame()
         }
         Save();
         gRetro->retro_unload_game();
+        gRetro->retro_deinit();
+        gRetro->retro_init();
         Unlock();
 
         _last_texture = nullptr;

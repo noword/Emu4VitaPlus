@@ -25,7 +25,7 @@ extern const char CORE_CHEATS_DIR[];
 extern const char APP_TITLE_NAME[];
 extern const char CORE_FULL_NAME[];
 extern const char APP_VER_STR[];
-extern const char CONSOLE[];
+// extern const char CONSOLE[];
 extern const char CONSOLE_DIR[];
 extern const char CORE_SHORT_NAME[];
 

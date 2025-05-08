@@ -21,7 +21,7 @@ const char CORE_CHEATS_DIR[] = _APP_DATA_DIR "/cheats";
 const char APP_TITLE_NAME[] = _APP_TITLE_NAME;
 const char CORE_FULL_NAME[] = _CORE_FULL_NAME;
 const char APP_VER_STR[] = _APP_VER_STR;
-const char CONSOLE[] = _CONSOLE;
+// const char CONSOLE[] = _CONSOLE;
 const char CONSOLE_DIR[] = "app0:data/" _CONSOLE;
 const char CORE_SHORT_NAME[] = _CORE_SHORT_NAME;
 
@@ -395,8 +395,107 @@ const std::vector<ControlMapConfig> CONTROL_MAPS = {
 #endif
 };
 
-// for stupid DosBox Pure
-retro_time_t cpu_features_get_time_usec(void)
+// // for stupid DosBox Pure
+// retro_time_t cpu_features_get_time_usec(void)
+// {
+//     return sceKernelGetSystemTimeWide();
+// }
+enum CONSOLE
 {
-    return sceKernelGetSystemTimeWide();
+    ATARI2600 = 0,
+    ATARI5200,
+    ATARI7800,
+    C64,
+    VECTREX,
+    ZXS,
+    DOS,
+    PC98,
+    MSX,
+    NES,
+    AMIGA,
+    X68000,
+    PCE,
+    MD,
+    GBC,
+    SNES,
+    NEOGEOCD,
+    PS1,
+    NGP,
+    WSC,
+    GBA,
+    ARC,
+    CONSOLE_COUNT
+};
+
+enum CORE
+{
+    GPSP = 0,
+    VBA_NEXT,
+    GAMBATTE,
+    FBA_LITE,
+    FBNEO,
+    FBALPHA2012,
+    SNES9X2002,
+    SNES9X2005,
+    SNES9X2010,
+    FCEUMM,
+    NESTOPIA,
+    GENESIS_PLUS_GX,
+    GENESIS_PLUS_GX_WIDE,
+    PICODRIVE,
+    MEDNAFEN_PCE_FAST,
+    MEDNAFEN_SUPERGRAFX,
+    MEDNAFEN_NGP,
+    MEDNAFEN_WSWAN,
+    PCSX_REARMED,
+    STELLA2014,
+    PROSYSTEM,
+    ATARI800,
+    DOSBOX_PURE,
+    MAME2003_PLUS,
+    MAME2003,
+    VECX,
+    UAE4ARM,
+    FUSE,
+    NEOCD,
+    SUPAFAUST,
+    FBNEO_XTREME,
+    MAME2003_XTREME,
+    CHIMERASNES,
+    TGBDUAL,
+    NEKOP2,
+    FMSX,
+    BLUEMSX,
+    NEKOP2KAI,
+    VICE,
+    PX68K,
+    CORE_COUNT
+};
+
+struct CORE_STRUCT
+{
+    const char *name;
+    CORE core;
+    CONSOLE consle;
+};
+
+const CORE_STRUCT CORES[] = {
+    {"gpsp", GPSP, GBA},
+};
+
+void InitDefines(const char *core_name)
+{
+    const CORE_STRUCT *core = nullptr;
+    for (const auto &c : CORES)
+    {
+        if (strcmp(c.name, core_name) == 0)
+        {
+            core = &c;
+        }
+    }
+
+    if (core == nullptr)
+    {
+        return;
+    }
 }

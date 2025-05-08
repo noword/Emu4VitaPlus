@@ -26,6 +26,7 @@
 #ifdef TEXT
 #undef TEXT
 #endif
+using namespace Emu4VitaPlus;
 
 AppStatus gStatus;
 
@@ -67,7 +68,9 @@ App::App(int argc, char *const argv[])
 
     _IsSaveMode();
     // LogDebug("getVMBlock: %08x", getVMBlock());
-    gConfig = new Emu4Vita::Config();
+    gConfig = new Config();
+    _ParseParams(argc, argv);
+
     if (!gConfig->Load())
     {
         File::RemoveAllFiles(ARCADE_CACHE_DIR);
@@ -86,8 +89,6 @@ App::App(int argc, char *const argv[])
 
     gUi->AppendLog("Booting");
     gUi->AppendLog("Parse params");
-    _ParseParams(argc, argv);
-
     gUi->AppendLog("Initialize video");
     gUi->AppendLog("Initialize core spec settings");
 
@@ -257,10 +258,14 @@ void App::_ParseParams(int argc, char *const argv[])
 {
     for (int i = 0; i < argc; i++)
     {
-        LogDebug("argv[%d]: %s", i, argv[i]);
+        // LogDebug("argv[%d]: %s", i, argv[i]);
         if (strcmp(argv[i], "--arch") == 0)
         {
             gConfig->boot_from_arch = true;
+        }
+        else if (strcmp(argv[i], "--core") == 0)
+        {
+            i++;
         }
         else if (strcmp(argv[i], "--rom") == 0)
         {
