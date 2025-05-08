@@ -8,22 +8,34 @@
 #include "config.h"
 #include "defines.h"
 
-#define _APP_DATA_DIR ROOT_DIR "/" _APP_DIR_NAME
+// #define _APP_DATA_DIR ROOT_DIR "/" _APP_DIR_NAME
 
-const char APP_DATA_DIR[] = _APP_DATA_DIR;
-const char APP_LOG_PATH[] = _APP_DATA_DIR "/Emu4Vita++.log";
-const char APP_CONFIG_PATH[] = _APP_DATA_DIR "/config.ini";
-const char APP_INPUT_DESC_PATH[] = _APP_DATA_DIR "/input_desc.ini";
-const char APP_CORE_CONFIG_PATH[] = _APP_DATA_DIR "/core.ini";
-const char APP_FAVOURITE_PATH[] = _APP_DATA_DIR "/favourite.ini";
-const char CORE_SAVEFILES_DIR[] = _APP_DATA_DIR "/savefiles";
-const char CORE_CHEATS_DIR[] = _APP_DATA_DIR "/cheats";
-const char APP_TITLE_NAME[] = _APP_TITLE_NAME;
-const char CORE_FULL_NAME[] = _CORE_FULL_NAME;
-const char APP_VER_STR[] = _APP_VER_STR;
+// const char APP_DATA_DIR[] = _APP_DATA_DIR;
+// const char APP_LOG_PATH[] = _APP_DATA_DIR "/Emu4Vita++.log";
+// const char APP_CONFIG_PATH[] = _APP_DATA_DIR "/config.ini";
+// const char APP_INPUT_DESC_PATH[] = _APP_DATA_DIR "/input_desc.ini";
+// const char APP_CORE_CONFIG_PATH[] = _APP_DATA_DIR "/core.ini";
+// const char APP_FAVOURITE_PATH[] = _APP_DATA_DIR "/favourite.ini";
+// const char CORE_SAVEFILES_DIR[] = _APP_DATA_DIR "/savefiles";
+// const char CORE_CHEATS_DIR[] = _APP_DATA_DIR "/cheats";
+// const char APP_TITLE_NAME[] = _APP_TITLE_NAME;
+// const char CORE_FULL_NAME[] = _CORE_FULL_NAME;
+
 // const char CONSOLE[] = _CONSOLE;
-const char CONSOLE_DIR[] = "app0:data/" _CONSOLE;
-const char CORE_SHORT_NAME[] = _CORE_SHORT_NAME;
+// const char CONSOLE_DIR[] = "app0:data/" _CONSOLE;
+// const char CORE_SHORT_NAME[] = _CORE_SHORT_NAME;
+
+char CORE_NAME[DEFINE_STRING_LENGTH] = DEFAULT_CORE_NAME;
+char CORE_SHORT_NAME[DEFINE_STRING_LENGTH];
+char CORE_DATA_DIR[DEFINE_PATH_LENGTH];
+char CORE_SAVEFILES_DIR[DEFINE_PATH_LENGTH];
+char CORE_CHEATS_DIR[DEFINE_PATH_LENGTH];
+char CORE_LOG_PATH[DEFINE_PATH_LENGTH];
+char CORE_CONFIG_PATH[DEFINE_PATH_LENGTH];
+char CORE_INPUT_DESC_PATH[DEFINE_PATH_LENGTH];
+char CORE_FAVOURITE_PATH[DEFINE_PATH_LENGTH];
+
+char CONSOLE_DIR[DEFINE_PATH_LENGTH];
 
 #if defined(ARC_BUILD) || defined(DOS_BUILD) || defined(AMIGA_BUILD) || defined(ATARIST_BUILD) || defined(ZXS_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD)
 const bool DEFAULT_ENABLE_REWIND = false;
@@ -400,88 +412,6 @@ const std::vector<ControlMapConfig> CONTROL_MAPS = {
 // {
 //     return sceKernelGetSystemTimeWide();
 // }
-enum CONSOLE
-{
-    ATARI2600 = 0,
-    ATARI5200,
-    ATARI7800,
-    C64,
-    VECTREX,
-    ZXS,
-    DOS,
-    PC98,
-    MSX,
-    NES,
-    AMIGA,
-    X68000,
-    PCE,
-    MD,
-    GBC,
-    SNES,
-    NEOGEOCD,
-    PS1,
-    NGP,
-    WSC,
-    GBA,
-    ARC,
-    CONSOLE_COUNT
-};
-
-enum CORE
-{
-    GPSP = 0,
-    VBA_NEXT,
-    GAMBATTE,
-    FBA_LITE,
-    FBNEO,
-    FBALPHA2012,
-    SNES9X2002,
-    SNES9X2005,
-    SNES9X2010,
-    FCEUMM,
-    NESTOPIA,
-    GENESIS_PLUS_GX,
-    GENESIS_PLUS_GX_WIDE,
-    PICODRIVE,
-    MEDNAFEN_PCE_FAST,
-    MEDNAFEN_SUPERGRAFX,
-    MEDNAFEN_NGP,
-    MEDNAFEN_WSWAN,
-    PCSX_REARMED,
-    STELLA2014,
-    PROSYSTEM,
-    ATARI800,
-    DOSBOX_PURE,
-    MAME2003_PLUS,
-    MAME2003,
-    VECX,
-    UAE4ARM,
-    FUSE,
-    NEOCD,
-    SUPAFAUST,
-    FBNEO_XTREME,
-    MAME2003_XTREME,
-    CHIMERASNES,
-    TGBDUAL,
-    NEKOP2,
-    FMSX,
-    BLUEMSX,
-    NEKOP2KAI,
-    VICE,
-    PX68K,
-    CORE_COUNT
-};
-
-struct CORE_STRUCT
-{
-    const char *name;
-    CORE core;
-    CONSOLE consle;
-};
-
-const CORE_STRUCT CORES[] = {
-    {"gpsp", GPSP, GBA},
-};
 
 void InitDefines(const char *core_name)
 {

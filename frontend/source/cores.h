@@ -1,0 +1,82 @@
+#pragma once
+
+enum CONSOLE
+{
+    ATARI2600 = 0,
+    ATARI5200,
+    ATARI7800,
+    C64,
+    VECTREX,
+    ZXS,
+    DOS,
+    PC98,
+    MSX,
+    NES,
+    AMIGA,
+    X68000,
+    PCE,
+    MD,
+    GBC,
+    SNES,
+    NEOGEOCD,
+    PS1,
+    NGP,
+    WSC,
+    GBA,
+    ARC,
+    CONSOLE_COUNT
+};
+
+enum CORE
+{
+    GPSP = 0,
+    VBA_NEXT,
+    GAMBATTE,
+    FBA_LITE,
+    FBNEO,
+    FBALPHA2012,
+    SNES9X2002,
+    SNES9X2005,
+    SNES9X2010,
+    FCEUMM,
+    NESTOPIA,
+    GENESIS_PLUS_GX,
+    GENESIS_PLUS_GX_WIDE,
+    PICODRIVE,
+    MEDNAFEN_PCE_FAST,
+    MEDNAFEN_SUPERGRAFX,
+    MEDNAFEN_NGP,
+    MEDNAFEN_WSWAN,
+    PCSX_REARMED,
+    STELLA2014,
+    PROSYSTEM,
+    ATARI800,
+    DOSBOX_PURE,
+    MAME2003_PLUS,
+    MAME2003,
+    VECX,
+    UAE4ARM,
+    FUSE,
+    NEOCD,
+    SUPAFAUST,
+    FBNEO_XTREME,
+    MAME2003_XTREME,
+    CHIMERASNES,
+    TGBDUAL,
+    NEKOP2,
+    FMSX,
+    BLUEMSX,
+    NEKOP2KAI,
+    VICE,
+    PX68K,
+    CORE_COUNT
+};
+
+struct CORE_STRUCT
+{
+    const char *name;
+    CORE core;
+    CONSOLE consle;
+};
+
+extern const CORE_STRUCT CORES[];

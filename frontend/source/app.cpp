@@ -22,6 +22,7 @@
 #include "ra_lpl.h"
 #include "bios_checker.h"
 #include "language_string.h"
+#include "cores.h"
 
 #ifdef TEXT
 #undef TEXT
@@ -70,6 +71,7 @@ App::App(int argc, char *const argv[])
     // LogDebug("getVMBlock: %08x", getVMBlock());
     gConfig = new Config();
     _ParseParams(argc, argv);
+    _InitDefines();
 
     if (!gConfig->Load())
     {
@@ -266,6 +268,7 @@ void App::_ParseParams(int argc, char *const argv[])
         else if (strcmp(argv[i], "--core") == 0)
         {
             i++;
+            strcpy(CORE_NAME, argv[i]);
         }
         else if (strcmp(argv[i], "--rom") == 0)
         {
@@ -273,4 +276,24 @@ void App::_ParseParams(int argc, char *const argv[])
             _rom_path = argv[i];
         }
     }
+}
+
+void App::_InitDefines()
+{
+    const CORE_STRUCT *core = nullptr;
+    for (const auto &c : CORES)
+    {
+        if (strcmp(c.name, core_name) == 0)
+        {
+            core = &c;
+            break;
+        }
+    }
+
+    if (core == nullptr)
+    {
+        return;
+    }
+
+    return;
 }

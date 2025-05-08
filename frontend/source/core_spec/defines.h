@@ -15,19 +15,31 @@
 #define PREVIEW_DIR_NAME ".previews"
 #define CHEAT_DIR_NAME ".cheats"
 
-extern const char APP_DATA_DIR[];
-extern const char APP_LOG_PATH[];
-extern const char APP_CONFIG_PATH[];
-extern const char APP_INPUT_DESC_PATH[];
-extern const char APP_FAVOURITE_PATH[];
-extern const char CORE_SAVEFILES_DIR[];
-extern const char CORE_CHEATS_DIR[];
-extern const char APP_TITLE_NAME[];
-extern const char CORE_FULL_NAME[];
-extern const char APP_VER_STR[];
+#define DEFINE_STRING_LENGTH 0x20
+#define DEFINE_PATH_LENGTH 0x40
+
+extern char CORE_NAME[DEFINE_STRING_LENGTH];
+extern char CORE_SHORT_NAME[DEFINE_STRING_LENGTH];
+extern char CORE_DATA_DIR[DEFINE_PATH_LENGTH];
+extern char CORE_SAVEFILES_DIR[DEFINE_PATH_LENGTH];
+extern char CORE_CHEATS_DIR[DEFINE_PATH_LENGTH];
+extern char CORE_LOG_PATH[DEFINE_PATH_LENGTH];
+extern char CORE_CONFIG_PATH[DEFINE_PATH_LENGTH];
+extern char CORE_INPUT_DESC_PATH[DEFINE_PATH_LENGTH];
+extern char CORE_FAVOURITE_PATH[DEFINE_PATH_LENGTH];
+
+extern char CONSOLE_DIR[DEFINE_PATH_LENGTH];
+// extern const char APP_DATA_DIR[];
+// extern const char APP_LOG_PATH[];
+// extern const char APP_CONFIG_PATH[];
+// extern const char APP_INPUT_DESC_PATH[];
+// extern const char APP_FAVOURITE_PATH[];
+// extern const char CORE_SAVEFILES_DIR[];
+// extern const char CORE_CHEATS_DIR[];
+// extern const char APP_TITLE_NAME[];
+// extern const char CORE_FULL_NAME[];
+// extern const char APP_VER_STR[];
 // extern const char CONSOLE[];
-extern const char CONSOLE_DIR[];
-extern const char CORE_SHORT_NAME[];
 
 extern const uint8_t RETRO_KEYS[];
 extern const size_t RETRO_KEYS_SIZE;

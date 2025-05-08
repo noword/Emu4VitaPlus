@@ -49,6 +49,7 @@ public:
 private:
     bool _IsSaveMode();
     void _ParseParams(int argc, char *const argv[]);
+    void _InitDefines();
 
     std::string _rom_path;
 };
