@@ -79,4 +79,4 @@ struct CORE_STRUCT
     CONSOLE consle;
 };
 
-extern const CORE_STRUCT CORES[];
+extern const CORE_STRUCT CORES[CORE_COUNT];

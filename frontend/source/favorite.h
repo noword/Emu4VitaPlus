@@ -18,8 +18,8 @@ class Favorites : public std::map<std::string, Favorite>
 public:
     Favorites();
     virtual ~Favorites();
-    bool Load(const char *path = APP_FAVOURITE_PATH);
-    bool Save(const char *path = APP_FAVOURITE_PATH);
+    bool Load(const char *path = CORE_FAVOURITE_PATH);
+    bool Save(const char *path = CORE_FAVOURITE_PATH);
 
 private:
 };

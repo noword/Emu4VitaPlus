@@ -1,6 +1,6 @@
 #include "cores.h"
 
-const CORE_STRUCT CORES[] = {
+const CORE_STRUCT CORES[CORE_COUNT] = {
     {"gpsp", GPSP, GBA},
     {"vba_next", VBA_NEXT, GBA},
     {"gambatte", GAMBATTE, GBC},
@@ -25,7 +25,7 @@ const CORE_STRUCT CORES[] = {
     {"atari800", ATARI800, ATARI5200},
     {"dosbox_pure", DOSBOX_PURE, DOS},
     {"mame2003_plus", MAME2003_PLUS, ARC},
-    {"mame2003", MAME2003, , ARC},
+    {"mame2003", MAME2003, ARC},
     {"vecx", VECX, VECTREX},
     {"uae4arm", UAE4ARM, AMIGA},
     {"fuse", FUSE, ZXS},
@@ -35,10 +35,10 @@ const CORE_STRUCT CORES[] = {
     {"mame2003_xtreme", MAME2003_XTREME, ARC},
     {"chimerasnes", CHIMERASNES, SNES},
     {"tgbdual", TGBDUAL, GBC},
-    {"nekop2", NEKOP2, PC09},
+    {"nekop2", NEKOP2, PC98},
     {"fmsx", FMSX, MSX},
     {"bluemsx", BLUEMSX, MSX},
-    {"nekop2kai", NEKOP2KAI, PC08},
+    {"nekop2kai", NEKOP2KAI, PC98},
     {"vice", VICE, C64},
     {"px68k", PX68K, X68000},
 };

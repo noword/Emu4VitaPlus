@@ -412,20 +412,3 @@ const std::vector<ControlMapConfig> CONTROL_MAPS = {
 // {
 //     return sceKernelGetSystemTimeWide();
 // }
-
-void InitDefines(const char *core_name)
-{
-    const CORE_STRUCT *core = nullptr;
-    for (const auto &c : CORES)
-    {
-        if (strcmp(c.name, core_name) == 0)
-        {
-            core = &c;
-        }
-    }
-
-    if (core == nullptr)
-    {
-        return;
-    }
-}

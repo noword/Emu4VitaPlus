@@ -14,9 +14,9 @@ unsigned int sceLibcHeapSize __attribute__((used)) = SCE_LIBC_HEAP_SIZE_EXTENDED
 
 int main(int argc, char *const argv[])
 {
-    File::MakeDirs(APP_DATA_DIR);
+    File::MakeDirs(CORE_DATA_DIR);
     File::MakeDirs(CORE_SYSTEM_DIR);
-    gLog = new Log(APP_LOG_PATH);
+    gLog = new Log(CORE_LOG_PATH);
 #if LOG_LEVEL <= LOG_LEVEL_DEBUG
     gProfiler = new Profiler();
 #endif

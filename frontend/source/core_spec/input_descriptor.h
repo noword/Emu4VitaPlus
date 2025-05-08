@@ -36,9 +36,9 @@ public:
     void UpdateInputDescriptors(const retro_input_descriptor *descriptors);
     void Update();
     const char *Get(int index);
-    bool Load(const char *path = APP_INPUT_DESC_PATH);
+    bool Load(const char *path = CORE_INPUT_DESC_PATH);
     bool Load(CSimpleIniA &ini);
-    bool Save(const char *path = APP_INPUT_DESC_PATH);
+    bool Save(const char *path = CORE_INPUT_DESC_PATH);
     bool Save(CSimpleIniA &ini);
 
 private:

@@ -283,7 +283,7 @@ void App::_InitDefines()
     const CORE_STRUCT *core = nullptr;
     for (const auto &c : CORES)
     {
-        if (strcmp(c.name, core_name) == 0)
+        if (strcmp(c.name, CORE_NAME) == 0)
         {
             core = &c;
             break;

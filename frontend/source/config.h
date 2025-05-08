@@ -26,8 +26,8 @@ namespace Emu4VitaPlus
         Config();
         virtual ~Config();
 
-        bool Load(const char *path = APP_CONFIG_PATH);
-        bool Save(const char *path = APP_CONFIG_PATH);
+        bool Load(const char *path = CORE_CONFIG_PATH);
+        bool Save(const char *path = CORE_CONFIG_PATH);
 
         void Default();
         void DefaultControlMap();

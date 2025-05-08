@@ -39,7 +39,7 @@ Overlays::Overlays()
 {
     Load("app0:assets/" OVERLAYS_DIR_NAME);
     Load((std::string(CONSOLE_DIR) + "/" + OVERLAYS_DIR_NAME).c_str());
-    Load((std::string(APP_DATA_DIR) + "/" OVERLAYS_DIR_NAME).c_str());
+    Load((std::string(CORE_DATA_DIR) + "/" OVERLAYS_DIR_NAME).c_str());
     Load((std::string(ROOT_DIR) + "/" + OVERLAYS_DIR_NAME).c_str());
 }
 
