@@ -162,7 +162,7 @@ void Ui::CreateTables()
         new ItemBase(LANG_EXIT, "", ExitApp)};
 
     items[0]->SetVisable(gConfig->support_no_game);
-    items[4]->SetVisable(gConfig->boot_from_arch);
+    items[4]->SetVisable(gBootFromArch);
 
     _tabs[TAB_INDEX_SYSTEM] = new TabSeletable(LANG_SYSTEM, items);
 

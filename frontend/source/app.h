@@ -1,6 +1,11 @@
 #pragma once
 #include "video.h"
 #include "log.h"
+#include "cores.h"
+
+extern bool gBootFromArch;
+extern std::string gBootRomPath;
+extern const CORE_STRUCT *gCore;
 
 enum APP_STATUS
 {
@@ -48,8 +53,4 @@ public:
 
 private:
     bool _IsSaveMode();
-    void _ParseParams(int argc, char *const argv[]);
-    void _InitDefines();
-
-    std::string _rom_path;
 };

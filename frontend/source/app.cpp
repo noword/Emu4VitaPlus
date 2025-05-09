@@ -30,6 +30,9 @@
 using namespace Emu4VitaPlus;
 
 AppStatus gStatus;
+bool gBootFromArch = false;
+std::string gBootRomPath;
+const CORE_STRUCT *gCore = nullptr;
 
 void OnVersionChecked(bool has_new)
 {
@@ -70,8 +73,6 @@ App::App(int argc, char *const argv[])
     _IsSaveMode();
     // LogDebug("getVMBlock: %08x", getVMBlock());
     gConfig = new Config();
-    _ParseParams(argc, argv);
-    _InitDefines();
 
     if (!gConfig->Load())
     {
@@ -182,7 +183,7 @@ void App::Run()
     bool running = true;
     APP_STATUS last_status;
 
-    if (_rom_path.empty())
+    if (gBootRomPath.empty())
     {
         last_status = APP_STATUS_SHOW_UI;
         gStatus.Set(last_status);
@@ -190,7 +191,7 @@ void App::Run()
     else
     {
         last_status = APP_STATUS_BOOT;
-        gEmulator->LoadRom(_rom_path.c_str(), NULL, 0);
+        gEmulator->LoadRom(gBootRomPath.c_str(), NULL, 0);
     }
 
     while (running)
@@ -227,9 +228,10 @@ void App::Run()
         {
             char boot[SCE_FIOS_PATH_MAX];
             const char *argv[] = {"", "--rom", gEmulator->GetCurrentName(), NULL};
-            if (gConfig->boot_from_arch)
+            if (gBootFromArch)
             {
-                snprintf(boot, SCE_FIOS_PATH_MAX, "app0:eboot_%s.self", CORE_SHORT_NAME);
+                // snprintf(boot, SCE_FIOS_PATH_MAX, "app0:eboot_%s.self", CORE_SHORT_NAME);
+                strcpy(boot, "app0:frontend.self");
                 argv[0] = "--arch";
             }
             else
@@ -256,44 +258,45 @@ bool App::_IsSaveMode()
     return sceIoDevctl("ux0:", 0x3001, NULL, 0, NULL, 0) == 0x80010030;
 }
 
-void App::_ParseParams(int argc, char *const argv[])
-{
-    for (int i = 0; i < argc; i++)
-    {
-        // LogDebug("argv[%d]: %s", i, argv[i]);
-        if (strcmp(argv[i], "--arch") == 0)
-        {
-            gConfig->boot_from_arch = true;
-        }
-        else if (strcmp(argv[i], "--core") == 0)
-        {
-            i++;
-            strcpy(CORE_NAME, argv[i]);
-        }
-        else if (strcmp(argv[i], "--rom") == 0)
-        {
-            i++;
-            _rom_path = argv[i];
-        }
-    }
-}
+// void App::_ParseParams(int argc, char *const argv[])
+// {
+//     for (int i = 0; i < argc; i++)
+//     {
+//         // LogDebug("argv[%d]: %s", i, argv[i]);
+//         if (strcmp(argv[i], "--arch") == 0)
+//         {
+//             gBootFromArch = true;
+//             // gConfig->boot_from_arch = true;
+//         }
+//         else if (strcmp(argv[i], "--core") == 0)
+//         {
+//             i++;
+//             strcpy(CORE_NAME, argv[i]);
+//         }
+//         else if (strcmp(argv[i], "--rom") == 0)
+//         {
+//             i++;
+//             gBootRomPath = argv[i];
+//         }
+//     }
+// }
 
-void App::_InitDefines()
-{
-    const CORE_STRUCT *core = nullptr;
-    for (const auto &c : CORES)
-    {
-        if (strcmp(c.name, CORE_NAME) == 0)
-        {
-            core = &c;
-            break;
-        }
-    }
+// void App::_InitDefines()
+// {
+//     const CORE_STRUCT *core = nullptr;
+//     for (const auto &c : CORES)
+//     {
+//         if (strcmp(c.name, CORE_NAME) == 0)
+//         {
+//             core = &c;
+//             break;
+//         }
+//     }
 
-    if (core == nullptr)
-    {
-        return;
-    }
+//     if (core == nullptr)
+//     {
+//         return;
+//     }
 
-    return;
-}
+//     return;
+// }

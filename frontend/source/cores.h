@@ -74,7 +74,8 @@ enum CORE
 
 struct CORE_STRUCT
 {
-    const char *name;
+    const char *core_name;
+    const char *console_name;
     CORE core;
     CONSOLE consle;
 };
