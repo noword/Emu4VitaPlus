@@ -357,7 +357,7 @@ void App::_OnClick(Input *input)
     if (_in_choice)
     {
         size_t count = 0;
-        for (size_t i = 0; i < CONSOLE_COUNT && count < 1; i++)
+        for (size_t i = 0; i < CONSOLE_COUNT && count <= 1; i++)
         {
             if (gConfig->consoles[i])
             {
