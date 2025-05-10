@@ -70,8 +70,13 @@ const char *InputDescriptors::Get(int index)
 bool InputDescriptors::Load(const char *path)
 {
     LogFunctionName;
-#ifdef ARC_BUILD
+#if defined(ARC_BUILD)
     return true;
+#elif defined(ARCH_BUILD)
+    if (gCore->console == ARC)
+    {
+        return true;
+    }
 #else
 
     LogDebug("path: %s", path);
@@ -111,10 +116,14 @@ bool InputDescriptors::Save(const char *path)
 {
     LogFunctionName;
 
-#ifdef ARC_BUILD
+#if defined(ARC_BUILD)
     return true;
+#elif defined(ARCH_BUILD)
+    if (gCore->console == ARC)
+    {
+        return true;
+    }
 #else
-
     LogDebug("path: %s", path);
 
     CSimpleIniA ini;
@@ -136,8 +145,13 @@ bool InputDescriptors::Save(CSimpleIniA &ini)
 {
     LogFunctionName;
 
-#ifdef ARC_BUILD
+#if defined(ARC_BUILD)
     return true;
+#elif defined(ARCH_BUILD)
+    if (gCore->console == ARC)
+    {
+        return true;
+    }
 #else
     char num[8];
     bool need_save = false;

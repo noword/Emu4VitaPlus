@@ -9,18 +9,20 @@
 #include "emulator.h"
 #include "archive_reader_factory.h"
 #include "file.h"
+#include "global.h"
 
 #define DAT_BIN_PATH "app0:assets/arcade_dat.zbin"
 #define ARC_CACHE_MAX_SIZE 10
 
 void Emulator::_InitArcadeManager()
 {
-#ifdef ARC_BUILD
-    _arcade_manager = new ArcadeManager();
+#if defined(ARC_BUILD) || defined(ARCH_BUILD)
+    if (gCore->consle == ARC)
+        _arcade_manager = new ArcadeManager();
 #endif
 }
 
-#ifdef ARC_BUILD
+#if defined(ARC_BUILD) || defined(ARCH_BUILD)
 ArcadeManager::ArcadeManager() : CacheManager(ARCADE_CACHE_DIR, ARC_CACHE_MAX_SIZE), _names(nullptr)
 {
     _Load();

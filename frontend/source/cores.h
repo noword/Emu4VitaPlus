@@ -2,29 +2,30 @@
 
 enum CONSOLE
 {
-    ATARI2600 = 0,
-    ATARI5200,
-    ATARI7800,
-    C64,
-    VECTREX,
-    ZXS,
-    DOS,
-    PC98,
-    MSX,
-    NES,
-    AMIGA,
-    X68000,
-    PCE,
-    MD,
-    GBC,
-    SNES,
-    NEOGEOCD,
-    PS1,
-    NGP,
-    WSC,
-    GBA,
-    ARC,
-    CONSOLE_COUNT
+    ATARI2600 = 1,
+    ATARI5200 = 1 << 1,
+    ATARI7800 = 1 << 2,
+    C64 = 1 << 3,
+    VECTREX = 1 << 4,
+    ZXS = 1 << 5,
+    DOS = 1 << 6,
+    PC98 = 1 << 7,
+    MSX = 1 << 8,
+    NES = 1 << 9,
+    AMIGA = 1 << 10,
+    X68000 = 1 << 11,
+    PCE = 1 << 12,
+    MD = 1 << 13,
+    GBC = 1 << 14,
+    SNES = 1 << 15,
+    NEOGEOCD = 1 << 16,
+    PS1 = 1 << 17,
+    NGP = 1 << 18,
+    WSC = 1 << 19,
+    GBA = 1 << 20,
+    ARC = 1 << 21,
+    CONSOLE_LAST,
+    CONSOLE_COUNT = CONSOLE_LAST - 1,
 };
 
 enum CORE
@@ -77,7 +78,7 @@ struct CORE_STRUCT
     const char *core_name;
     const char *console_name;
     CORE core;
-    CONSOLE consle;
+    CONSOLE console;
 };
 
 extern const CORE_STRUCT CORES[CORE_COUNT];

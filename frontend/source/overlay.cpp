@@ -2,7 +2,7 @@
 #include "overlay.h"
 #include "log.h"
 #include "video.h"
-#include "defines.h"
+#include "global.h"
 #include "utils.h"
 
 Overlays *gOverlays;

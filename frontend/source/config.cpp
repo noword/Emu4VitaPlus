@@ -11,7 +11,6 @@
 #include "file.h"
 #include "log.h"
 #include "defines.h"
-#include "core_spec.h"
 #include "utils.h"
 
 #define MAIN_SECTION "MAIN"
@@ -162,7 +161,7 @@ namespace Emu4VitaPlus
         DefaultControlMap();
         DefaultHotKey();
         DefaultGraphics();
-        DefaultCoreOptions(&core_options);
+        DefaultCoreOptions();
     }
 
     void Config::DefaultControlMap()
@@ -204,6 +203,15 @@ namespace Emu4VitaPlus
         graphics[GRAPHICS_SMOOTH] = CONFIG_GRAPHICS_SMOOTHER_NO;
         graphics[GRAPHICS_OVERLAY_MODE] = CONFIG_GRAPHICS_OVERLAY_MODE_OVERLAY;
         graphics[GRAPHICS_OVERLAY] = 0;
+    }
+
+    void Config::DefaultCoreOptions()
+    {
+        LogFunctionName;
+        for (const auto &setting : DEFAULT_CORE_SETTINGS)
+        {
+            core_options.emplace(setting.first, CoreOption{setting.second});
+        }
     }
 
     bool Config::Save(const char *path)

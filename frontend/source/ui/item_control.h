@@ -32,7 +32,7 @@ public:
 private:
     virtual size_t _GetTotalCount() override
     {
-        return RETRO_KEYS_SIZE;
+        return RETRO_KEYS.size();
     };
 
     virtual const char *_GetOptionString(size_t index) override
@@ -42,7 +42,7 @@ private:
 
     virtual size_t _GetIndex() override
     {
-        for (uint32_t i = 0; i < RETRO_KEYS_SIZE; i++)
+        for (uint32_t i = 0; i < RETRO_KEYS.size(); i++)
         {
             if (RETRO_KEYS[i] == _control_map->retro)
             {

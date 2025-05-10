@@ -1,7 +1,7 @@
 #include "retro_module.h"
 #include "file.h"
 #include "state_manager.h"
-#include "defines.h"
+#include "global.h"
 #include "log.h"
 #include "emulator.h"
 #include "video.h"

@@ -38,53 +38,6 @@ static void ParseParams(int argc, char *const argv[])
     }
 }
 
-static bool InitDefines()
-{
-    for (const auto &c : CORES)
-    {
-        if (strcmp(c.core_name, CORE_NAME) == 0)
-        {
-            gCore = &c;
-            break;
-        }
-    }
-
-    if (gCore == nullptr)
-    {
-        return false;
-    }
-
-    snprintf(CONSOLE_DIR, DEFINE_PATH_LENGTH, "app0:data/", gCore->console_name);
-
-    snprintf(CORE_DATA_DIR, DEFINE_PATH_LENGTH, ROOT_DIR "/%s", CORE_NAME);
-    snprintf(CORE_SAVEFILES_DIR, DEFINE_PATH_LENGTH, "%s/savefiles", CORE_DATA_DIR);
-    snprintf(CORE_CHEATS_DIR, DEFINE_PATH_LENGTH, "%s/cheats", CORE_DATA_DIR);
-
-    snprintf(CORE_LOG_PATH, DEFINE_PATH_LENGTH, "%s//Emu4Vita++.log", CORE_DATA_DIR);
-    snprintf(CORE_CONFIG_PATH, DEFINE_PATH_LENGTH, "%s/config.ini", CORE_DATA_DIR);
-    snprintf(CORE_INPUT_DESC_PATH, DEFINE_PATH_LENGTH, "%s/input_desc.ini", CORE_DATA_DIR);
-    snprintf(CORE_FAVOURITE_PATH, DEFINE_PATH_LENGTH, "%s/favourite.ini", CORE_DATA_DIR);
-
-    return true;
-}
-
-#if LOG_LEVEL <= LOG_LEVEL_DEBUG
-#define LOG_DEFINE(X) LogDebug("%20s : %s", #X, X);
-static void LogDefines()
-{
-    LOG_DEFINE(CONSOLE_DIR);
-    LOG_DEFINE(CORE_DATA_DIR);
-    LOG_DEFINE(CORE_SAVEFILES_DIR);
-    LOG_DEFINE(CORE_CHEATS_DIR);
-    LOG_DEFINE(CORE_LOG_PATH);
-    LOG_DEFINE(CORE_CONFIG_PATH);
-    LOG_DEFINE(CORE_INPUT_DESC_PATH);
-    LOG_DEFINE(CORE_FAVOURITE_PATH);
-}
-#else
-#define LogDefines
-#endif
-
 int main(int argc, char *const argv[])
 {
     ParseParams(argc, argv);

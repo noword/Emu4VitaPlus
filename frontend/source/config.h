@@ -33,6 +33,8 @@ namespace Emu4VitaPlus
         void DefaultControlMap();
         void DefaultHotKey();
         void DefaultGraphics();
+        void DefaultCoreOptions();
+
         retro_language GetRetroLanguage();
         bool FrontEnabled();
         bool RearEnabled();

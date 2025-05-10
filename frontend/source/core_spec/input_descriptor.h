@@ -2,7 +2,7 @@
 #include <libretro.h>
 #include <SimpleIni.h>
 #include "language_string.h"
-#include "defines.h"
+#include "global.h"
 
 #define INPUT_DESC_COUNT 16
 

@@ -18,7 +18,6 @@
 #include "favorite.h"
 #include "archive_reader_factory.h"
 #include "input_descriptor.h"
-#include "core_spec.h"
 #include "ra_lpl.h"
 #include "bios_checker.h"
 #include "language_string.h"

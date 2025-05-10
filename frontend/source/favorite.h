@@ -2,7 +2,7 @@
 #include <map>
 #include <string>
 #include "directory.h"
-#include "defines.h"
+#include "global.h"
 
 struct Favorite
 {

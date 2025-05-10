@@ -6,7 +6,6 @@
 #include "emulator.h"
 #include "retro_module.h"
 #include "global.h"
-#include "defines.h"
 #include "core_options.h"
 #include "state_manager.h"
 #include "config.h"
@@ -14,7 +13,6 @@
 #include "log.h"
 #include "file.h"
 #include "profiler.h"
-#include "core_spec.h"
 #include "rzip.h"
 
 extern "C"

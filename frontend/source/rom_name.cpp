@@ -3,7 +3,7 @@
 #include "config.h"
 #include "language_string.h"
 #include "log.h"
-#include "defines.h"
+#include "global.h"
 
 RomNameMap::RomNameMap(const char *path) : _name_buf(nullptr)
 {
