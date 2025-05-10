@@ -5,7 +5,7 @@
 #include "log.h"
 #include "profiler.h"
 #include "emulator.h"
-#include "app.h"
+#include "global.h"
 
 #define AUDIO_SKIP_THRESHOLD 30
 

@@ -7,6 +7,7 @@
 #include "defines.h"
 #include "retro_module.h"
 #include "cores.h"
+#include "global.h"
 
 #define SCE_LIBC_HEAP_SIZE_EXTENDED_ALLOC_NO_LIMIT (0xffffffffU)
 
@@ -56,13 +57,13 @@ static bool InitDefines()
     snprintf(CONSOLE_DIR, DEFINE_PATH_LENGTH, "app0:data/", gCore->console_name);
 
     snprintf(CORE_DATA_DIR, DEFINE_PATH_LENGTH, ROOT_DIR "/%s", CORE_NAME);
-    snprintf(CORE_SAVEFILES_DIR, DEFINE_PATH_LENGTH, "%s/savefiles ", CORE_DATA_DIR);
-    snprintf(CORE_CHEATS_DIR, DEFINE_PATH_LENGTH, "%s/cheats ", CORE_DATA_DIR);
+    snprintf(CORE_SAVEFILES_DIR, DEFINE_PATH_LENGTH, "%s/savefiles", CORE_DATA_DIR);
+    snprintf(CORE_CHEATS_DIR, DEFINE_PATH_LENGTH, "%s/cheats", CORE_DATA_DIR);
 
-    snprintf(CORE_LOG_PATH, DEFINE_PATH_LENGTH, "%s//Emu4Vita++.log ", CORE_DATA_DIR);
-    snprintf(CORE_CONFIG_PATH, DEFINE_PATH_LENGTH, "%s/config.ini ", CORE_DATA_DIR);
-    snprintf(CORE_INPUT_DESC_PATH, DEFINE_PATH_LENGTH, "%s/input_desc.ini ", CORE_DATA_DIR);
-    snprintf(CORE_FAVOURITE_PATH, DEFINE_PATH_LENGTH, "%s/favourite.ini ", CORE_DATA_DIR);
+    snprintf(CORE_LOG_PATH, DEFINE_PATH_LENGTH, "%s//Emu4Vita++.log", CORE_DATA_DIR);
+    snprintf(CORE_CONFIG_PATH, DEFINE_PATH_LENGTH, "%s/config.ini", CORE_DATA_DIR);
+    snprintf(CORE_INPUT_DESC_PATH, DEFINE_PATH_LENGTH, "%s/input_desc.ini", CORE_DATA_DIR);
+    snprintf(CORE_FAVOURITE_PATH, DEFINE_PATH_LENGTH, "%s/favourite.ini", CORE_DATA_DIR);
 
     return true;
 }

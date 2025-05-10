@@ -1,7 +1,7 @@
 #include <psp2/kernel/clib.h>
 #include <psp2/kernel/modulemgr.h>
 #include <stdio.h>
-#include "core.h"
+#include <libretro.h>
 
 #define PRINT_VALUE(FUNC) printf(#FUNC " %08x\n", FUNC);
 #define SCE_LIBC_HEAP_SIZE_EXTENDED_ALLOC_NO_LIMIT (0xffffffffU)
@@ -39,38 +39,63 @@ extern "C"
         PRINT_VALUE(sceUserMainThreadStackSize);
         PRINT_VALUE(sceLibcHeapExtendedAlloc);
         PRINT_VALUE(sceLibcHeapSize);
+        PRINT_VALUE(retro_init);
+        PRINT_VALUE(retro_deinit);
+        PRINT_VALUE(retro_api_version);
+        PRINT_VALUE(retro_get_system_info);
+        PRINT_VALUE(retro_get_system_av_info);
+        PRINT_VALUE(retro_set_controller_port_device);
+        PRINT_VALUE(retro_reset);
+        PRINT_VALUE(retro_run);
+        PRINT_VALUE(retro_serialize_size);
+        PRINT_VALUE(retro_serialize);
+        PRINT_VALUE(retro_unserialize);
+        PRINT_VALUE(retro_cheat_reset);
+        PRINT_VALUE(retro_cheat_set);
+        PRINT_VALUE(retro_load_game);
+        PRINT_VALUE(retro_load_game_special);
+        PRINT_VALUE(retro_unload_game);
+        PRINT_VALUE(retro_get_region);
+        PRINT_VALUE(retro_get_memory_data);
+        PRINT_VALUE(retro_get_memory_size);
+        PRINT_VALUE(retro_set_environment);
+        PRINT_VALUE(retro_set_video_refresh);
+        PRINT_VALUE(retro_set_audio_sample);
+        PRINT_VALUE(retro_set_audio_sample_batch);
+        PRINT_VALUE(retro_set_input_poll);
+        PRINT_VALUE(retro_set_input_state);
 
         _init_vita_heap();
 
-        RetroCore *retro = *(RetroCore **)args;
+        //         RetroCore *retro = *(RetroCore **)args;
 
-#define ASSIGN_FUNC(FUNC) retro->FUNC = FUNC;
+        // #define ASSIGN_FUNC(FUNC) retro->FUNC = FUNC;
 
-        ASSIGN_FUNC(retro_init);
-        ASSIGN_FUNC(retro_deinit);
-        ASSIGN_FUNC(retro_api_version);
-        ASSIGN_FUNC(retro_get_system_info);
-        ASSIGN_FUNC(retro_get_system_av_info);
-        ASSIGN_FUNC(retro_set_controller_port_device);
-        ASSIGN_FUNC(retro_reset);
-        ASSIGN_FUNC(retro_run);
-        ASSIGN_FUNC(retro_serialize_size);
-        ASSIGN_FUNC(retro_serialize);
-        ASSIGN_FUNC(retro_unserialize);
-        ASSIGN_FUNC(retro_cheat_reset);
-        ASSIGN_FUNC(retro_cheat_set);
-        ASSIGN_FUNC(retro_load_game);
-        ASSIGN_FUNC(retro_load_game_special);
-        ASSIGN_FUNC(retro_unload_game);
-        ASSIGN_FUNC(retro_get_region);
-        ASSIGN_FUNC(retro_get_memory_data);
-        ASSIGN_FUNC(retro_get_memory_size);
-        ASSIGN_FUNC(retro_set_environment);
-        ASSIGN_FUNC(retro_set_video_refresh);
-        ASSIGN_FUNC(retro_set_audio_sample);
-        ASSIGN_FUNC(retro_set_audio_sample_batch);
-        ASSIGN_FUNC(retro_set_input_poll);
-        ASSIGN_FUNC(retro_set_input_state);
+        //         ASSIGN_FUNC(retro_init);
+        //         ASSIGN_FUNC(retro_deinit);
+        //         ASSIGN_FUNC(retro_api_version);
+        //         ASSIGN_FUNC(retro_get_system_info);
+        //         ASSIGN_FUNC(retro_get_system_av_info);
+        //         ASSIGN_FUNC(retro_set_controller_port_device);
+        //         ASSIGN_FUNC(retro_reset);
+        //         ASSIGN_FUNC(retro_run);
+        //         ASSIGN_FUNC(retro_serialize_size);
+        //         ASSIGN_FUNC(retro_serialize);
+        //         ASSIGN_FUNC(retro_unserialize);
+        //         ASSIGN_FUNC(retro_cheat_reset);
+        //         ASSIGN_FUNC(retro_cheat_set);
+        //         ASSIGN_FUNC(retro_load_game);
+        //         ASSIGN_FUNC(retro_load_game_special);
+        //         ASSIGN_FUNC(retro_unload_game);
+        //         ASSIGN_FUNC(retro_get_region);
+        //         ASSIGN_FUNC(retro_get_memory_data);
+        //         ASSIGN_FUNC(retro_get_memory_size);
+        //         ASSIGN_FUNC(retro_set_environment);
+        //         ASSIGN_FUNC(retro_set_video_refresh);
+        //         ASSIGN_FUNC(retro_set_audio_sample);
+        //         ASSIGN_FUNC(retro_set_audio_sample_batch);
+        //         ASSIGN_FUNC(retro_set_input_poll);
+        //         ASSIGN_FUNC(retro_set_input_state);
 
         return SCE_KERNEL_START_SUCCESS;
     }

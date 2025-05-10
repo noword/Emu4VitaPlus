@@ -3,7 +3,7 @@
 #include <shared.h>
 #include "emulator.h"
 #include "config.h"
-#include "app.h"
+#include "global.h"
 #include "overlay.h"
 #include "shader.h"
 #include "profiler.h"

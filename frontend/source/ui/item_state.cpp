@@ -1,6 +1,6 @@
 #include "item_state.h"
 #include "defines.h"
-#include "app.h"
+#include "global.h"
 #include "log.h"
 
 static const TEXT_ENUM MENU_TEXT[] = {LANG_SAVE, LANG_LOAD, LANG_DELETE, LANG_CANCEL};

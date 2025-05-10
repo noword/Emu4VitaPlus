@@ -1,7 +1,7 @@
 #include <vita2d.h>
 #include <vita2d_ext.h>
 #include "video.h"
-#include "app.h"
+#include "global.h"
 #include "ui.h"
 #include "log.h"
 #include "profiler.h"

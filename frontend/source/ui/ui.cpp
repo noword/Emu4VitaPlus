@@ -382,10 +382,10 @@ void Ui::OnStatusChanged(APP_STATUS status)
         _tabs[TAB_INDEX_FAVORITE]->SetVisable(status == APP_STATUS_SHOW_UI);
 
         TabSeletable *system_tab = (TabSeletable *)(_tabs[TAB_INDEX_SYSTEM]);
-        system_tab->SetItemVisable(0, status == APP_STATUS_SHOW_UI && gConfig->support_no_game);                   // LANG_START_CORE_NO_GAME
-        system_tab->SetItemVisable(1, status == APP_STATUS_SHOW_UI_IN_GAME);                                       // LANG_RESUME_GAME
-        system_tab->SetItemVisable(2, status == APP_STATUS_SHOW_UI_IN_GAME && gRetro->retro_serialize_size() > 0); // LANG_RESET_GAME
-        system_tab->SetItemVisable(3, status == APP_STATUS_SHOW_UI_IN_GAME);                                       // LANG_EXIT_GAME
+        system_tab->SetItemVisable(0, status == APP_STATUS_SHOW_UI && gConfig->support_no_game);           // LANG_START_CORE_NO_GAME
+        system_tab->SetItemVisable(1, status == APP_STATUS_SHOW_UI_IN_GAME);                               // LANG_RESUME_GAME
+        system_tab->SetItemVisable(2, status == APP_STATUS_SHOW_UI_IN_GAME && retro_serialize_size() > 0); // LANG_RESET_GAME
+        system_tab->SetItemVisable(3, status == APP_STATUS_SHOW_UI_IN_GAME);                               // LANG_EXIT_GAME
 
         if (status == APP_STATUS_SHOW_UI_IN_GAME)
         {

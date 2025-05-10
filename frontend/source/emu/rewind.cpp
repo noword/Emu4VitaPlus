@@ -6,7 +6,7 @@
 #include "rewind.h"
 #include "utils.h"
 #include "emulator.h"
-#include "app.h"
+#include "global.h"
 #include "file.h"
 #include "profiler.h"
 
@@ -41,7 +41,7 @@ bool RewindManager::Init()
 
     Deinit();
 
-    _state_size = gRetro->retro_serialize_size();
+    _state_size = retro_serialize_size();
     _full_content_size = ALIGN_UP_10H(sizeof(RewindFullContent) + _state_size);
 
     size_t buf_size = gConfig->rewind_buf_size << 20;
@@ -331,7 +331,7 @@ bool RewindManager::_SaveFullState(RewindBlock *block, bool from_tmp)
 bool RewindManager::_Serialize(void *data, size_t size)
 {
     gEmulator->Lock();
-    bool result = gRetro->retro_serialize(data, size);
+    bool result = retro_serialize(data, size);
     gEmulator->Unlock();
     return result;
 }
@@ -339,7 +339,7 @@ bool RewindManager::_Serialize(void *data, size_t size)
 bool RewindManager::_UnSerialize(void *data, size_t size)
 {
     gEmulator->Lock();
-    bool result = gRetro->retro_unserialize(data, size);
+    bool result = retro_unserialize(data, size);
     gEmulator->Unlock();
     return result;
 }

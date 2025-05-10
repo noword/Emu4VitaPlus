@@ -66,10 +66,10 @@ bool State::Save()
 
     FILE *fp;
 
-    size_t size = gRetro->retro_serialize_size();
+    size_t size = retro_serialize_size();
     char *buf = new char[size];
 
-    bool result = gRetro->retro_serialize(buf, size);
+    bool result = retro_serialize(buf, size);
     if (!result)
     {
         LogError("run retro_serialize failed");
@@ -118,7 +118,7 @@ bool State::Load()
         return false;
     }
 
-    bool result = gRetro->retro_unserialize(buf, size);
+    bool result = retro_unserialize(buf, size);
     if (result)
     {
         LogDebug("retro_unserialize successfully");

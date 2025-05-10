@@ -1,6 +1,6 @@
 #include <imgui_vita2d/imgui_impl_vita2d.h>
 #include "emulator.h"
-#include "app.h"
+#include "global.h"
 #include "video.h"
 #include "state_manager.h"
 #include "config.h"

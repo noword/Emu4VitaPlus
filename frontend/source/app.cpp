@@ -22,17 +22,13 @@
 #include "ra_lpl.h"
 #include "bios_checker.h"
 #include "language_string.h"
-#include "cores.h"
+#include "global.h"
 
 #ifdef TEXT
 #undef TEXT
 #endif
-using namespace Emu4VitaPlus;
 
-AppStatus gStatus;
-bool gBootFromArch = false;
-std::string gBootRomPath;
-const CORE_STRUCT *gCore = nullptr;
+using namespace Emu4VitaPlus;
 
 void OnVersionChecked(bool has_new)
 {

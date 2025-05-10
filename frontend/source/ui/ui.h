@@ -7,8 +7,8 @@
 #include "input.h"
 #include "tab_base.h"
 #include "dialog.h"
-#include "app.h"
 #include "boot.h"
+#include "global.h"
 
 class Ui
 {
