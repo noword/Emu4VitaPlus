@@ -1,38 +1,15 @@
 cmake_minimum_required(VERSION 3.12)
 
-# set(CORE_TAG ${CORE_NAME}_build)
-
-# add_custom_target(
-# ${CORE_TAG} ALL
-# COMMAND make -f ${CORE_MAKEFILE_NAME} ${CORE_ARGS} -j4
-# WORKING_DIRECTORY ${CORE_DIR})
-
-# add_library(${CORE_NAME} STATIC IMPORTED)
-# set_property(
-# TARGET ${CORE_NAME}
-# APPEND
-# PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
-
-# set(LIBRETRO_LIBRARY ${CORE_DIR}/${CORE_NAME}_libretro_vita.a)
-# set_target_properties(${CORE_NAME} PROPERTIES IMPORTED_LOCATION "${LIBRETRO_LIBRARY}")
-# add_dependencies(${CORE_NAME} ${CORE_TAG})
-# add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../cores ${CMAKE_CURRENT_BINARY_DIR}/cores)
 project(${CORE}_APP)
-
-if(CORE STREQUAL "gpsp")
-    set(SFO_TITLE_ID "GPSP4VITA")
-    set(CONSOLE "GBA")
-    add_compile_definitions(GPSP_BUILD GBA_BUILD)
-elseif(CORE STREQUAL "snes9x2002")
-else()
-    message(FATAL_ERROR "unknown core: " ${CORE})
-endif()
 
 set(APP_NAME "${CORE_SHORT}4VitaPlus")
 set(SFO_TITLE_NAME "Emu4Vita++ (${CORE_SHORT})")
-
 set(ELF_NAME ${CORE_SHORT}.elf)
 set(EBOOT_NAME eboot_${CORE_SHORT}.bin)
+
+if(CORE STREQUAL "fba_lite" OR CORE STREQUAL "fbneo" OR CORE STREQUAL "fbalpha2012" OR CORE STREQUAL "fbneo_xtreme" OR CORE STREQUAL "mame2003_xtreme")
+    add_compile_definitions(ARC_BUILD)
+endif()
 
 if(WITH_LOG)
     set(VPK_NAME ${APP_NAME}_${APP_VER}_log.vpk)
@@ -41,16 +18,6 @@ else()
 endif()
 
 add_compile_definitions(
-
-    # _APP_NAME_STR="${APP_NAME}"
-    # _APP_NAME_EXT_STR=${APP_NAME_EXT}
-    # _APP_VER_STR="${APP_VER}"
-    # _APP_TITLEID=${SFO_TITLE_ID}
-    # _APP_DIR_NAME="${CORE_NAME}"
-    # _APP_TITLE_NAME="${SFO_TITLE_NAME}"
-    # _CORE_FULL_NAME="${CORE_FULL_NAME}"
-    # _CORE_SHORT_NAME="${CORE_SHORT_NAME}"
-    # _CONSOLE="${CONSOLE}"
     DEFAULT_CORE_NAME="${CORE}"
     APP_VER_STR="${APP_VER}"
 
@@ -152,33 +119,3 @@ if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
 else()
     add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk ${ARC_TAG})
 endif()
-
-# add_executable(${LIBRETRO_ELF} core.cpp sbrk.c)
-# target_link_libraries(${LIBRETRO_ELF}
-# ${LIBRETRO_LIBRARY}
-# retro_comm
-# pthread
-# 7zip
-# zlibstatic
-# FLAC
-# ogg
-# SceLibKernel_stub
-# SceIofilemgr_stub
-# SceDisplay_stub
-# SceCtrl_stub
-# ScePower_stub
-# SceVideodec_stub
-# SceAppMgr_stub
-# SceSysmem_stub
-# SceSysmodule_stub
-# SceShellSvc_stub
-# SceThreadmgrForDriver_stub
-# SceKernelThreadMgr_stub
-# SceMotion_stub
-# SceFiber_stub
-# )
-
-# set_target_properties(${LIBRETRO_ELF} PROPERTIES COMPILE_FLAGS "-Wno-main")
-# vita_create_self(${LIBRETRO_SUPRX} ${LIBRETRO_ELF} UNSAFE CONFIG ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)
-
-# vita_create_stubs(${CORE_NAME}_stubs ${LIBRETRO_SUPRX} ${CMAKE_CURRENT_SOURCE_DIR}/core.yml GEN_EXPORTS)

@@ -792,7 +792,7 @@ bool InitDefines()
 
     snprintf(CONSOLE_DIR, DEFINE_PATH_LENGTH, "app0:data/", gCore->console_name);
 
-    snprintf(CORE_DATA_DIR, DEFINE_PATH_LENGTH, ROOT_DIR "/%s", CORE_NAME);
+    snprintf(CORE_DATA_DIR, DEFINE_PATH_LENGTH, ROOT_DIR "/%s", gCore->core_short_name);
     snprintf(CORE_SAVEFILES_DIR, DEFINE_PATH_LENGTH, "%s/savefiles", CORE_DATA_DIR);
     snprintf(CORE_CHEATS_DIR, DEFINE_PATH_LENGTH, "%s/cheats", CORE_DATA_DIR);
 
