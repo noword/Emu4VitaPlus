@@ -6,13 +6,9 @@ set(SFO_TITLE_NAME "Emu4Vita++")
 set(SFO_TITLE_ID "EMU4VPLUS")
 set(PKG_DIR ${CMAKE_CURRENT_SOURCE_DIR}/pkg)
 
-file(GLOB_RECURSE PKG_FILES ${PKG_DIR}/*)
 set(PRIVATE_PKG_FILES "")
-
-foreach(file ${PKG_FILES})
-    file(RELATIVE_PATH rel ${PKG_DIR} ${file})
-    list(APPEND PRIVATE_PKG_FILES FILE ${file} ${rel})
-endforeach()
+collect_files(PRIVATE_PKG_FILES ${PKG_DIR})
+list(APPEND PRIVATE_PKG_FILES ${CMAKE_CURRENT_BINARY_DIR}/../apps/arch/frontend.self frontend.self)
 
 project("Arch")
 
