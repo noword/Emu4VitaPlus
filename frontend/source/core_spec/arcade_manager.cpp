@@ -17,7 +17,7 @@
 void Emulator::_InitArcadeManager()
 {
 #if defined(ARC_BUILD) || defined(ARCH_BUILD)
-    if (gCore->consle == ARC)
+    if (gCore->console == ARC)
         _arcade_manager = new ArcadeManager();
 #endif
 }

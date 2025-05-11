@@ -9,7 +9,7 @@ set(EBOOT_NAME eboot_${CORE_SHORT}.bin)
 
 if(CORE STREQUAL "fba_lite" OR CORE STREQUAL "fbneo" OR CORE STREQUAL "fbalpha2012" OR CORE STREQUAL "fbneo_xtreme" OR CORE STREQUAL "mame2003_xtreme")
     add_compile_definitions(ARC_BUILD)
-elseif(CORE STREQUAL "arch")
+elseif(CORE STREQUAL "frontend")
     add_compile_definitions(ARCH_BUILD)
     set(EBOOT_NAME frontend.self)
 endif()
@@ -39,14 +39,13 @@ include_directories(
 
 file(GLOB SRC ../frontend/source/core_spec/*.cpp)
 
-link_directories(AFTER ${CMAKE_CURRENT_BINARY_DIR}/../cores)
+link_directories(AFTER ${CMAKE_CURRENT_BINARY_DIR}/../../cores)
 
 add_executable(${ELF_NAME} ${SRC})
 
-# add_dependencies(${ELF_NAME} ${CORE_TAG})
 target_link_libraries(
     ${ELF_NAME}
-    libretro_stub_weak
+    retro_stub_weak
     share
     frontend
     vita2d
@@ -92,10 +91,10 @@ set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
 
 vita_create_self(${EBOOT_NAME} ${ELF_NAME} STRIPPED)
 
-if(NOT CORE STREQUAL "arch")
+if(NOT CORE STREQUAL "frontend")
     set(PRIVATE_PKG_FILES "")
     collect_files(PRIVATE_PKG_FILES ${CMAKE_CURRENT_SOURCE_DIR}/${CORE}/pkg)
-    list(APPEND PRIVATE_PKG_FILES FILE ${CMAKE_CURRENT_BINARY_DIR}/../cores/${LIBRETRO_SUPRX} ${LIBRETRO_SUPRX})
+    list(APPEND PRIVATE_PKG_FILES FILE ${CMAKE_CURRENT_BINARY_DIR}/../cores/${CORE}/${LIBRETRO_SUPRX} ${LIBRETRO_SUPRX})
 
     set(VITA_MKSFOEX_FLAGS -d ATTRIBUTE2=12)
     vita_create_vpk(

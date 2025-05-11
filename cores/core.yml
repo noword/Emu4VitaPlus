@@ -1,4 +1,4 @@
-libretro:
+retro:
   attributes: 0
   process_image: false
   imagemodule: false

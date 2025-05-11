@@ -32,7 +32,7 @@ foreach(index RANGE ${length})
         list(APPEND CORE_EBOOTS "${core}_libretro.suprx-self")
     endif()
 
-    list(APPEND CORE_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../cores/${core}_libretro.suprx" "${core}_libretro.suprx")
+    list(APPEND CORE_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../cores/${core}/${core}_libretro.suprx" "${core}_libretro.suprx")
 endforeach()
 
 gen_arc_dat(${PKG_DIR})

@@ -25,7 +25,7 @@ set(CORES
     fbneo
     fbalpha2012
     snes9x2002
-    snes9x2005
+    snes9x2005_plus
     snes9x2010
     fceumm
     nestopia
@@ -49,17 +49,17 @@ set(CORES
     uae4arm
     fuse
     neocd
-    supafaust
+    mednafen_supafaust
 
     # hatari
-    fbneo_xtreme
-    mame2003_xtreme
+    km_fbneo_xtreme_amped
+    km_mame2003_xtreme_amped
     chimerasnes
     tgbdual
     nekop2
     fmsx
     bluemsx
-    nekop2kai
+    np2kai
     vice
     px68k
 )
@@ -72,7 +72,7 @@ set(CORE_SHORTS
     FBNeo
     FBA2012
     Snes9x2002
-    Snes9x2005
+    Snes9x2005Plus
     Snes9x2010
     FCEUmm
     Nestopia
@@ -222,14 +222,14 @@ foreach(index RANGE ${length})
 
     if((NOT BUILD STREQUAL "Arch") AND(BUILD STREQUAL "All" OR BUILD STREQUAL ${CORE}))
         # create standalone vpk
-        add_subdirectory(apps)
+        add_subdirectory(apps apps/${CORE})
     endif()
 endforeach()
 
 if(BUILD STREQUAL "All" OR BUILD STREQUAL "Arch")
     # create arch vpk
-    set(CORE arch)
-    set(CORE_SHORT arch)
+    set(CORE frontend)
+    set(CORE_SHORT frontend)
     add_subdirectory(apps apps/arch)
 
     # create arch vpk
