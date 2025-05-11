@@ -63,6 +63,7 @@ set(CORES
     vice
     px68k
 )
+
 set(CORE_SHORTS
     gpSP
     VBANext
@@ -206,7 +207,7 @@ foreach(index RANGE ${length})
 
     if(BUILD STREQUAL "All" OR BUILD STREQUAL "Arch" OR BUILD STREQUAL ${CORE})
         # create core suprx
-        add_subdirectory(cores)
+        add_subdirectory(cores cores/${CORE})
 
         if(CREATE_STUB)
             # only create once
@@ -226,6 +227,11 @@ foreach(index RANGE ${length})
 endforeach()
 
 if(BUILD STREQUAL "All" OR BUILD STREQUAL "Arch")
+    # create arch vpk
+    set(CORE arch)
+    set(CORE_SHORT arch)
+    add_subdirectory(apps apps/arch)
+
     # create arch vpk
     add_subdirectory(arch)
 endif()

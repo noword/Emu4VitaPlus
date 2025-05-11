@@ -9,6 +9,9 @@ set(EBOOT_NAME eboot_${CORE_SHORT}.bin)
 
 if(CORE STREQUAL "fba_lite" OR CORE STREQUAL "fbneo" OR CORE STREQUAL "fbalpha2012" OR CORE STREQUAL "fbneo_xtreme" OR CORE STREQUAL "mame2003_xtreme")
     add_compile_definitions(ARC_BUILD)
+elseif(CORE STREQUAL "arch")
+    add_compile_definitions(ARCH_BUILD)
+    set(EBOOT_NAME frontend.self)
 endif()
 
 if(WITH_LOG)
@@ -89,33 +92,35 @@ set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
 
 vita_create_self(${EBOOT_NAME} ${ELF_NAME} STRIPPED)
 
-set(PRIVATE_PKG_FILES "")
-collect_files(PRIVATE_PKG_FILES ${CMAKE_CURRENT_SOURCE_DIR}/${CORE}/pkg)
-list(APPEND PRIVATE_PKG_FILES FILE ${CMAKE_CURRENT_BINARY_DIR}/../cores/${LIBRETRO_SUPRX} ${LIBRETRO_SUPRX})
+if(NOT CORE STREQUAL "arch")
+    set(PRIVATE_PKG_FILES "")
+    collect_files(PRIVATE_PKG_FILES ${CMAKE_CURRENT_SOURCE_DIR}/${CORE}/pkg)
+    list(APPEND PRIVATE_PKG_FILES FILE ${CMAKE_CURRENT_BINARY_DIR}/../cores/${LIBRETRO_SUPRX} ${LIBRETRO_SUPRX})
 
-set(VITA_MKSFOEX_FLAGS -d ATTRIBUTE2=12)
-vita_create_vpk(
-    ${VPK_NAME}
-    ${SFO_TITLE_ID}
-    ${EBOOT_NAME}
-    VERSION
-    ${SFO_APP_VER}
-    NAME
-    "${SFO_TITLE_NAME}"
-    ${PRIVATE_PKG_FILES}
-    ${PUBLIC_PKG_FILES})
+    set(VITA_MKSFOEX_FLAGS -d ATTRIBUTE2=12)
+    vita_create_vpk(
+        ${VPK_NAME}
+        ${SFO_TITLE_ID}
+        ${EBOOT_NAME}
+        VERSION
+        ${SFO_APP_VER}
+        NAME
+        "${SFO_TITLE_NAME}"
+        ${PRIVATE_PKG_FILES}
+        ${PUBLIC_PKG_FILES})
 
-add_custom_target(VPK_${APP_NAME} ALL
-    COMMAND ${CMAKE_COMMAND} -E rename ${VPK_NAME} ${OUT_PATH}/${VPK_NAME})
+    add_custom_target(VPK_${APP_NAME} ALL
+        COMMAND ${CMAKE_COMMAND} -E rename ${VPK_NAME} ${OUT_PATH}/${VPK_NAME})
 
-get_directory_property(DEFINES COMPILE_DEFINITIONS)
+    get_directory_property(DEFINES COMPILE_DEFINITIONS)
 
-if("ARC_BUILD" IN_LIST DEFINES)
-    gen_arc_dat(${PRIVATE_PKG_DIR})
-endif()
+    if("ARC_BUILD" IN_LIST DEFINES)
+        gen_arc_dat(${PRIVATE_PKG_DIR})
+    endif()
 
-if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
-    add_dependencies(VPK_${APP_NAME} ${VPK_NAME} ${ARC_TAG})
-else()
-    add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk ${ARC_TAG})
+    if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
+        add_dependencies(VPK_${APP_NAME} ${VPK_NAME} ${ARC_TAG})
+    else()
+        add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk ${ARC_TAG})
+    endif()
 endif()

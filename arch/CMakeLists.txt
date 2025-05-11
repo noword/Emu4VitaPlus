@@ -16,98 +16,6 @@ endforeach()
 
 project("Arch")
 
-set(CORE_SHORTS
-    gpSP
-    VBANext
-    Gambatte
-    FBALite
-    FBNeo
-    FBA2012
-    Snes9x2002
-    Snes9x2005
-    Snes9x2010
-    FCEUmm
-    Nestopia
-    GenesisPlusGX
-    GenesisPlusGXWide
-    PicoDrive
-    MednafenPCEFast
-    MednafenPCESuperGrafx
-    MednafenNgp
-    MednafenWswan
-    PCSXReARMed
-    Stella2014
-    ProSystem
-    Atari800
-
-    # DOSBoxSVN
-    DOSBoxPure
-    MAME2003Plus
-    MAME2003
-    vecx
-    uae4arm
-    fuse
-    neocd
-    Supafaust
-
-    # Hatari
-    FBNeoXtreme
-    MAME2003Xtreme
-    ChimeraSNES
-    TGBDual
-    nekop2
-    fMSX
-    blueMSX
-    np2kai
-    vice
-    px68k)
-
-set(CORES
-    gpsp
-    vba_next
-    gambatte
-    fba_lite
-    fbneo
-    fbalpha2012
-    snes9x2002
-    snes9x2005
-    snes9x2010
-    fceumm
-    nestopia
-    genesis_plus_gx
-    genesis_plus_gx_wide
-    picodrive
-    mednafen_pce_fast
-    mednafen_supergrafx
-    mednafen_ngp
-    mednafen_wswan
-    pcsx_rearmed
-    stella2014
-    prosystem
-    atari800
-
-    # dosbox_svn
-    dosbox_pure
-    mame2003_plus
-    mame2003
-    vecx
-    uae4arm
-    fuse
-    neocd
-    supafaust
-
-    # hatari
-    fbneo_xtreme
-    mame2003_xtreme
-    chimerasnes
-    tgbdual
-    nekop2
-    fmsx
-    bluemsx
-    nekop2kai
-    vice
-    px68k)
-
 set(CORE_EBOOTS "")
 set(CORE_FILES "")
 
@@ -119,12 +27,12 @@ foreach(index RANGE ${length})
     list(GET CORES ${index} core)
 
     if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
-        list(APPEND CORE_EBOOTS "eboot_${core_short}.bin")
+        list(APPEND CORE_EBOOTS "${core}_libretro.suprx")
     else()
-        list(APPEND CORE_EBOOTS "eboot_${core_short}.bin-self")
+        list(APPEND CORE_EBOOTS "${core}_libretro.suprx-self")
     endif()
 
-    list(APPEND CORE_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../apps/${core}/app/eboot_${core_short}.bin" "eboot_${core_short}.self")
+    list(APPEND CORE_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../cores/${core}_libretro.suprx" "${core}_libretro.suprx")
 endforeach()
 
 gen_arc_dat(${PKG_DIR})
