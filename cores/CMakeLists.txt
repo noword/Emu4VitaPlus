@@ -115,7 +115,7 @@ else()
 endif()
 
 set(LIBRETRO_ELF libretro_${CORE}.elf)
-set(LIBRETRO_SUPRX ${CORE}_libretro.suprx CACHE INTERNAL "LIBRETRO_SUPRX")
+set(LIBRETRO_SUPRX ${CORE}.suprx CACHE INTERNAL "${CORE}_SUPRX")
 
 set(CORE_TAG ${CORE}_build)
 add_custom_target(
@@ -151,6 +151,12 @@ add_dependencies(${LIBRETRO_ELF} ${CORE_TAG})
 
 target_link_libraries(${LIBRETRO_ELF}
     ${LIBRETRO_LIBRARY}
+    k
+    c
+    m
+    gcc
+    ass
+    stdc++
     retro_comm
     pthread
     7zip
@@ -171,9 +177,13 @@ target_link_libraries(${LIBRETRO_ELF}
     SceKernelThreadMgr_stub
     SceMotion_stub
     SceFiber_stub
+    SceNet_stub
+    SceProcessmgr_stub
+    SceRtc_stub
 )
 
 set_target_properties(${LIBRETRO_ELF} PROPERTIES COMPILE_FLAGS "-Wno-main -DSCE_LIBC_SIZE=0xA00000")
+set_target_properties(${LIBRETRO_ELF} PROPERTIES LINK_FLAGS "-nostdlib")
 
 set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
 vita_create_self(${LIBRETRO_SUPRX} ${LIBRETRO_ELF} CONFIG ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)

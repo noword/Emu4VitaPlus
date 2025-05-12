@@ -12,7 +12,7 @@ RetroModule::RetroModule(const char *name)
     int status;
 
     char module[SCE_FIOS_PATH_MAX];
-    snprintf(module, SCE_FIOS_PATH_MAX, "app0:/modules/%s_libretro.suprx", name);
+    snprintf(module, SCE_FIOS_PATH_MAX, "app0:modules/%s.suprx", name);
     _id = sceKernelLoadStartModule(module, 0, NULL, 0, NULL, &status);
     if (_id < 0)
     {
