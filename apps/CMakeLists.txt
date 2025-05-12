@@ -42,6 +42,7 @@ file(GLOB SRC ../frontend/source/core_spec/*.cpp)
 link_directories(AFTER ${CMAKE_CURRENT_BINARY_DIR}/../../cores)
 
 add_executable(${ELF_NAME} ${SRC})
+add_dependencies(${ELF_NAME} libretro_stub_weak.a)
 
 target_link_libraries(
     ${ELF_NAME}
