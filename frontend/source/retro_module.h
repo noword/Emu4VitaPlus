@@ -1,5 +1,4 @@
 #pragma once
-// #include "core.h"
 
 class RetroModule
 {
@@ -10,5 +9,3 @@ public:
 private:
     int _id;
 };
-
-// extern RetroCore *gRetro;

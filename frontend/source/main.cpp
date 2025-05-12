@@ -57,7 +57,7 @@ int main(int argc, char *const argv[])
 
     LogDefines();
 
-    RetroModule *module = new RetroModule("app0:gpsp_libretro.suprx");
+    RetroModule *module = new RetroModule(gCore->core_name);
 
     // must use for keeping this variables
     LogInfo("%d", sceUserMainThreadStackSize);
