@@ -18,6 +18,7 @@ public:
 
     const char *const Get() const;
     const char *const GetOriginal() const;
+    TEXT_ENUM GetId() const { return _text_id; };
 
 private:
     TEXT_ENUM _text_id;

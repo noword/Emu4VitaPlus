@@ -21,28 +21,6 @@ ItemConfig::ItemConfig(LanguageString text,
     }
 }
 
-// ItemConfig::ItemConfig(LanguageString text,
-//                        LanguageString info,
-//                        uint32_t *config,
-//                        TEXT_ENUM start,
-//                        size_t count,
-//                        CallbackFunc active_callback,
-//                        CallbackFunc option_callback)
-//     : ItemSelectable(text, info, active_callback, option_callback),
-//       _config(config)
-// {
-//     _config_texts.reserve(count);
-//     for (size_t i = 0; i < count; i++)
-//     {
-//         _config_texts.emplace_back(LanguageString(start + i));
-//     }
-
-//     if (*_config >= _config_texts.size())
-//     {
-//         *_config = 0;
-//     }
-// }
-
 ItemConfig::~ItemConfig()
 {
 }
@@ -52,7 +30,14 @@ void ItemConfig::_OnClick(Input *input)
     LogFunctionName;
 
     ItemSelectable::_OnClick(input);
-    gConfig->Save();
+    if (_text.GetId() == LANG_INDEPENDENT_CONFIG)
+    {
+        gConfig->Save(CORE_CONFIG_PATH);
+    }
+    else
+    {
+        gConfig->Save();
+    }
 }
 
 ItemIntConfig::ItemIntConfig(LanguageString text,

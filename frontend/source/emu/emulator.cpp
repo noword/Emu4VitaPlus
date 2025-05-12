@@ -105,7 +105,7 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
     {
         gStatus.Set(APP_STATUS_BOOT);
         path = "";
-        _current_name = "";
+        _current_name.clear();
         result = retro_load_game(NULL);
         goto LOADED;
     }
@@ -134,20 +134,17 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
     const char *_path;
     if (entry_name && *entry_name && crc32)
     {
-        LogDebug("xxx");
         _path = _archive_manager.GetCachedPath(crc32, path, entry_name);
     }
     else if (_arcade_manager != nullptr && _arcade_manager->NeedReplace(path))
     {
-        LogDebug("111");
         _path = _arcade_manager->GetCachedPath(path);
-        LogDebug("222");
     }
     else
     {
         _path = path;
     }
-    LogDebug("333");
+
     if (_path == nullptr)
     {
         goto LOAD_END;
@@ -169,7 +166,10 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
         game_info.data = buf;
     }
 
-    gConfig->core_options.Load((std::string(CORE_SAVEFILES_DIR) + "/" + gEmulator->GetCurrentName() + "/core.ini").c_str());
+    if (gConfig->independent_config)
+    {
+        gConfig->Load();
+    }
 
     result = retro_load_game(&game_info);
 
@@ -242,6 +242,7 @@ void Emulator::UnloadGame()
             gStateManager->states[0]->Save();
         }
         Save();
+        _current_name.clear();
         retro_unload_game();
         retro_deinit();
         retro_init();

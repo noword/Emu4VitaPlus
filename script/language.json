@@ -1357,14 +1357,14 @@
     },
     {
         "No.": "114",
-        "Tag": "LANG_INDEPENDENT_CORE_CONFIG",
-        "English": "Independent core config",
-        "Chinese": "独立的核心设置",
-        "Japanese": "独立したコア設定",
-        "Italian": "Configurazione core indipendente",
-        "French": "Configuration de base indépendante",
-        "Spanish": "Configuración de núcleo independiente",
-        "Russian": "Независимая конфигурация ядра",
+        "Tag": "LANG_INDEPENDENT_CONFIG",
+        "English": "Independent config",
+        "Chinese": "独立的设置",
+        "Japanese": "独立した設定",
+        "Italian": "Configurazione indipendente",
+        "French": "Configuration indépendante",
+        "Spanish": "Configuración independiente",
+        "Russian": "Независимая конфигурация",
         "Comments": ""
     },
     {

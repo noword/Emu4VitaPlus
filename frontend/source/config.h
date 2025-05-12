@@ -26,8 +26,8 @@ namespace Emu4VitaPlus
         Config();
         virtual ~Config();
 
-        bool Load(const char *path = CORE_CONFIG_PATH);
-        bool Save(const char *path = CORE_CONFIG_PATH);
+        bool Load(const char *path = nullptr);
+        bool Save(const char *path = nullptr);
 
         void Default();
         void DefaultControlMap();
@@ -59,7 +59,7 @@ namespace Emu4VitaPlus
         uint32_t lightgun;
         uint32_t swap_enter;
         uint32_t sim_button;
-        uint32_t independent_core_config;
+        uint32_t independent_config;
         uint32_t speed_step;
         uint32_t support_no_game;
 
@@ -70,6 +70,7 @@ namespace Emu4VitaPlus
         static const std::unordered_map<uint8_t, LanguageString> RetroTextMap;
 
     private:
+        const char *_GetConfigFilePath();
     };
 }
 

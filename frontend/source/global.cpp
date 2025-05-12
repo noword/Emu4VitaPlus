@@ -25,7 +25,7 @@ size_t DEFAULT_REWIND_BUF_SIZE = 10;
 bool DEFAULT_AUTO_SAVE = true;
 bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = false;
 
-bool DEFAULT_INDEPENDENT_CORE_CONFIG = false;
+bool DEFAULT_INDEPENDENT_CONFIG = false;
 
 bool DEFAULT_LIGHTGUN = false;
 bool DEFAULT_MOUSE = CONFIG_MOUSE_DISABLE;
@@ -792,7 +792,7 @@ bool InitDefines()
         return false;
     }
 
-    snprintf(CONSOLE_DIR, DEFINE_PATH_LENGTH, "app0:data/", gCore->console_name);
+    snprintf(CONSOLE_DIR, DEFINE_PATH_LENGTH, "app0:data/%s", gCore->console_name);
 
     snprintf(CORE_DATA_DIR, DEFINE_PATH_LENGTH, ROOT_DIR "/%s", gCore->core_short_name);
     snprintf(CORE_SAVEFILES_DIR, DEFINE_PATH_LENGTH, "%s/savefiles", CORE_DATA_DIR);
@@ -813,7 +813,7 @@ bool InitDefines()
 
     if (gCore->console == ARC)
     {
-        DEFAULT_INDEPENDENT_CORE_CONFIG = true;
+        DEFAULT_INDEPENDENT_CONFIG = true;
     }
 
     if (gCore->console & (NES | MD | SNES))
@@ -861,7 +861,7 @@ void LogDefines()
     LOG_DEFINE(DEFAULT_AUTO_SAVE);
     LOG_DEFINE(DEFAULT_REBOOT_WHEN_LOADING_AGAIN);
 
-    LOG_DEFINE(DEFAULT_INDEPENDENT_CORE_CONFIG);
+    LOG_DEFINE(DEFAULT_INDEPENDENT_CONFIG);
     LOG_DEFINE(DEFAULT_LIGHTGUN);
     LOG_DEFINE(DEFAULT_MOUSE);
     LOG_DEFINE(ENABLE_KEYBOARD);

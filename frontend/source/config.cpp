@@ -12,6 +12,8 @@
 #include "log.h"
 #include "defines.h"
 #include "utils.h"
+#include "global.h"
+#include "emulator.h"
 
 #define MAIN_SECTION "MAIN"
 #define HOTKEY_SECTION "HOTKEY"
@@ -152,7 +154,7 @@ namespace Emu4VitaPlus
         auto_save = DEFAULT_AUTO_SAVE;
         swap_enter = false;
         sim_button = false;
-        independent_core_config = DEFAULT_INDEPENDENT_CORE_CONFIG;
+        independent_config = DEFAULT_INDEPENDENT_CONFIG;
         reboot_when_loading_again = DEFAULT_REBOOT_WHEN_LOADING_AGAIN;
         speed_step = 0;
         support_no_game = 0;
@@ -217,6 +219,12 @@ namespace Emu4VitaPlus
     bool Config::Save(const char *path)
     {
         LogFunctionName;
+
+        if (path == nullptr)
+        {
+            path = _GetConfigFilePath();
+        }
+
         LogDebug("path: %s", path);
 
         CSimpleIniA ini;
@@ -232,7 +240,7 @@ namespace Emu4VitaPlus
         ini.SetBoolValue(MAIN_SECTION, "lightgun", lightgun);
         ini.SetBoolValue(MAIN_SECTION, "swap_enter", swap_enter);
         ini.SetBoolValue(MAIN_SECTION, "sim_button", sim_button);
-        ini.SetBoolValue(MAIN_SECTION, "independent_core_config", independent_core_config);
+        ini.SetBoolValue(MAIN_SECTION, "independent_config", independent_config);
 
         for (const auto &control : control_maps)
         {
@@ -263,11 +271,18 @@ namespace Emu4VitaPlus
     bool Config::Load(const char *path)
     {
         LogFunctionName;
+
+        if (path == nullptr)
+        {
+            path = _GetConfigFilePath();
+        }
+
         LogDebug("path: %s", path);
 
         CSimpleIniA ini;
         if (ini.LoadFile(path) != SI_OK)
         {
+            LogWarn("Failed to open %s", path);
             return false;
         }
 
@@ -297,7 +312,7 @@ namespace Emu4VitaPlus
         lightgun = ini.GetBoolValue(MAIN_SECTION, "lightgun", DEFAULT_LIGHTGUN);
         swap_enter = ini.GetBoolValue(MAIN_SECTION, "swap_enter", false);
         sim_button = ini.GetBoolValue(MAIN_SECTION, "sim_button", false);
-        independent_core_config = ini.GetBoolValue(MAIN_SECTION, "independent_core_config", DEFAULT_INDEPENDENT_CORE_CONFIG);
+        independent_config = ini.GetBoolValue(MAIN_SECTION, "independent_config", DEFAULT_INDEPENDENT_CONFIG);
 
         tmp = ini.GetValue(MAIN_SECTION, "last_rom");
         if (tmp && File::Exist(tmp))
@@ -377,6 +392,21 @@ namespace Emu4VitaPlus
         else
         {
             return 0.1;
+        }
+    }
+
+    const char *Config::_GetConfigFilePath()
+    {
+        LogFunctionName;
+        static char path[SCE_FIOS_PATH_MAX];
+        if (independent_config && *gEmulator->GetCurrentName())
+        {
+            snprintf(path, SCE_FIOS_PATH_MAX, "%s/%s/config.ini", CORE_SAVEFILES_DIR, gEmulator->GetCurrentName());
+            return path;
+        }
+        else
+        {
+            return CORE_CONFIG_PATH;
         }
     }
 }
