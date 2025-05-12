@@ -40,9 +40,6 @@ Emulator::Emulator()
       _keyboard(nullptr)
 {
     LogFunctionName;
-    retro_get_system_info(&_info);
-    LogDebug("%s %s", _info.library_name, _info.library_version);
-
     memset(&_info, 0, sizeof(_info));
     retro_get_system_info(&_info);
     LogDebug("%s %s", _info.library_name, _info.library_version);

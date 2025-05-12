@@ -4,7 +4,7 @@
 #include "file.h"
 #include "log.h"
 
-#define LOG_DEBUG_FUNC_ADDR(FUNC) LogDebug("%08x " #FUNC, FUNC);
+#define LOG_DEBUG_FUNC_ADDR(FUNC) LogInfo("%08x " #FUNC, FUNC);
 
 RetroModule::RetroModule(const char *name)
 {
@@ -12,11 +12,11 @@ RetroModule::RetroModule(const char *name)
     int status;
 
     char module[SCE_FIOS_PATH_MAX];
-    snprintf(module, SCE_FIOS_PATH_MAX, "app0:%s_libretro.suprx", name);
+    snprintf(module, SCE_FIOS_PATH_MAX, "app0:/modules/%s_libretro.suprx", name);
     _id = sceKernelLoadStartModule(module, 0, NULL, 0, NULL, &status);
     if (_id < 0)
     {
-        LogError("Failed to load module %s", module);
+        LogError("Failed to load module %s: %d", module, _id);
         return;
     }
 
