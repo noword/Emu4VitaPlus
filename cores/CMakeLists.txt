@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 
 set(CORE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${CORE})
 set(CORE_MAKEFILE_NAME Makefile)
-set(CORE_ARGS platform=vita EXTERNAL_ZLIB=1)
+set(CORE_ARGS platform=vita EXTERNAL_ZLIB=1 CXXFLAGS="-fno-use-cxa-atexit -Wabi-tag -D_GLIBCXX_USE_CXX11_ABI=0")
 
 if(CORE STREQUAL "gpsp")
 elseif(CORE STREQUAL "vba_next")
@@ -160,32 +160,35 @@ target_link_libraries(${LIBRETRO_ELF}
     ogg
     stdc++
     c
+    g
     m
     gcc
     k
-    SceLibKernel_stub
-    SceIofilemgr_stub
-    SceDisplay_stub
-    SceCtrl_stub
-    ScePower_stub
-    SceVideodec_stub
-    SceAppMgr_stub
-    SceSysmem_stub
-    SceSysmodule_stub
-    SceShellSvc_stub
-    SceThreadmgrForDriver_stub
-    SceKernelThreadMgr_stub
-    SceMotion_stub
-    SceFiber_stub
-    SceNet_stub
-    SceProcessmgr_stub
-    SceRtc_stub
+    SceLibKernel_stub_weak
+    SceIofilemgr_stub_weak
+    SceDisplay_stub_weak
+    SceCtrl_stub_weak
+    ScePower_stub_weak
+    SceVideodec_stub_weak
+    SceAppMgr_stub_weak
+    SceSysmem_stub_weak
+    SceSysmodule_stub_weak
+    SceShellSvc_stub_weak
+    SceThreadmgrForDriver_stub_weak
+    SceKernelThreadMgr_stub_weak
+    SceMotion_stub_weak
+    SceFiber_stub_weak
+    SceNet_stub_weak
+    SceProcessmgr_stub_weak
+    SceRtc_stub_weak
+    SceAudio_stub_weak
 )
 
-set_target_properties(${LIBRETRO_ELF} PROPERTIES COMPILE_FLAGS "-DSCE_LIBC_SIZE=0xA00000")
-set_target_properties(${LIBRETRO_ELF} PROPERTIES LINK_FLAGS "-nostdlib")
+set_target_properties(${LIBRETRO_ELF} PROPERTIES
+    COMPILE_FLAGS "-DSCE_LIBC_SIZE=0xA00000 -D__PSP2_USER__"
+    LINK_FLAGS "-nostdlib")
 
-# set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
+set(VITA_MAKE_FSELF_FLAGS "-a 0x2F00000000000101")
 vita_create_self(${LIBRETRO_SUPRX} ${LIBRETRO_ELF} UNSAFE CONFIG ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)
 
 if(CREATE_STUB)

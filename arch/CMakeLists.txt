@@ -23,9 +23,9 @@ foreach(index RANGE ${length})
     list(GET CORES ${index} core)
 
     if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
-        list(APPEND CORE_EBOOTS "${core}_libretro.suprx")
+        list(APPEND CORE_EBOOTS "${core}.suprx")
     else()
-        list(APPEND CORE_EBOOTS "${core}_libretro.suprx-self")
+        list(APPEND CORE_EBOOTS "${core}.suprx-self")
     endif()
 
     list(APPEND CORE_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../cores/${core}/${core}_libretro.suprx" "modules/${core}_libretro.suprx")

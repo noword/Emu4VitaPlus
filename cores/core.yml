@@ -8,7 +8,8 @@ retro:
     stop: module_stop
     exit: module_exit
   libraries:
-    simple:
+    retro:
+      syscall: false
       functions:
         - retro_init
         - retro_deinit

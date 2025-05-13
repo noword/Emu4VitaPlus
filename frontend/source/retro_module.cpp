@@ -9,11 +9,22 @@
 RetroModule::RetroModule(const char *name)
 {
     LogFunctionName;
-    int status;
+
+    if (sceKernelLoadStartModule("vs0:sys/external/libfios2.suprx", 0, NULL, 0, NULL, NULL) < 0)
+    {
+        LogError("failed to load libfios2.suprx");
+        return;
+    }
+
+    if (sceKernelLoadStartModule("vs0:sys/external/libc.suprx", 0, NULL, 0, NULL, NULL) < 0)
+    {
+        LogError("failed to load libc.suprx");
+        return;
+    }
 
     char module[SCE_FIOS_PATH_MAX];
     snprintf(module, SCE_FIOS_PATH_MAX, "app0:modules/%s.suprx", name);
-    _id = sceKernelLoadStartModule(module, 0, NULL, 0, NULL, &status);
+    _id = sceKernelLoadStartModule(module, 0, NULL, 0, NULL, NULL);
     if (_id < 0)
     {
         LogError("Failed to load module %s: %d", module, _id);

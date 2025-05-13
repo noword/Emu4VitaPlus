@@ -7,8 +7,13 @@
 #define SCE_LIBC_HEAP_SIZE_EXTENDED_ALLOC_NO_LIMIT (0xffffffffU)
 
 unsigned int sceUserMainThreadStackSize __attribute__((used)) = 0x100000;
-unsigned int sceLibcHeapExtendedAlloc __attribute__((used)) = 1;
-unsigned int sceLibcHeapSize __attribute__((used)) = SCE_LIBC_HEAP_SIZE_EXTENDED_ALLOC_NO_LIMIT;
+// unsigned int sceLibcHeapExtendedAlloc __attribute__((used)) = 1;
+// unsigned int sceLibcHeapSize __attribute__((used)) = SCE_LIBC_HEAP_SIZE_EXTENDED_ALLOC_NO_LIMIT;
+const char sceUserMainThreadName[] = "retro";
+const int sceKernelPreloadModuleInhibit = SCE_KERNEL_PRELOAD_INHIBIT_LIBC |
+                                          SCE_KERNEL_PRELOAD_INHIBIT_LIBFIOS2 |
+                                          SCE_KERNEL_PRELOAD_INHIBIT_APPUTIL |
+                                          SCE_KERNEL_PRELOAD_INHIBIT_LIBSCEFT2;
 
 #ifdef __cplusplus
 extern "C"
@@ -35,9 +40,11 @@ extern "C"
     {
         PRINT_VALUE(module_stop);
         PRINT_VALUE(module_exit);
+        PRINT_VALUE(sceUserMainThreadName);
+        PRINT_VALUE(sceKernelPreloadModuleInhibit);
         PRINT_VALUE(sceUserMainThreadStackSize);
-        PRINT_VALUE(sceLibcHeapExtendedAlloc);
-        PRINT_VALUE(sceLibcHeapSize);
+        // PRINT_VALUE(sceLibcHeapExtendedAlloc);
+        // PRINT_VALUE(sceLibcHeapSize);
         PRINT_VALUE(retro_init);
         PRINT_VALUE(retro_deinit);
         PRINT_VALUE(retro_api_version);
