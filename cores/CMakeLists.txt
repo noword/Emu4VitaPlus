@@ -182,7 +182,7 @@ target_link_libraries(${LIBRETRO_ELF}
     SceRtc_stub
 )
 
-# set_target_properties(${LIBRETRO_ELF} PROPERTIES COMPILE_FLAGS "-DSCE_LIBC_SIZE=0xA00000")
+set_target_properties(${LIBRETRO_ELF} PROPERTIES COMPILE_FLAGS "-DSCE_LIBC_SIZE=0xA00000")
 set_target_properties(${LIBRETRO_ELF} PROPERTIES LINK_FLAGS "-nostdlib")
 
 # set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
