@@ -153,12 +153,12 @@ target_link_libraries(${LIBRETRO_ELF}
     ${LIBRETRO_LIBRARY}
     retro_comm
     ass
-    stdc++
     pthread
     7zip
     zlibstatic
     FLAC
     ogg
+    stdc++
     c
     m
     gcc

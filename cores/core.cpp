@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <libretro.h>
 
-#define PRINT_VALUE(FUNC) printf(#FUNC " %08x\n", FUNC);
+#define PRINT_VALUE(FUNC) sceClibPrintf(#FUNC " %08x\n", FUNC);
 #define SCE_LIBC_HEAP_SIZE_EXTENDED_ALLOC_NO_LIMIT (0xffffffffU)
 
 unsigned int sceUserMainThreadStackSize __attribute__((used)) = 0x100000;
