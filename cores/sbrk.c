@@ -129,8 +129,3 @@ void _free_vita_heap(void)
 	_newlib_heap_base = 0;
 	_newlib_heap_cur = 0;
 }
-
-void _free_vita_newlib(void)
-{
-	// _free_vita_heap();
-}

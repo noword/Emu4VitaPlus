@@ -12,7 +12,7 @@ list(APPEND PRIVATE_PKG_FILES ${CMAKE_CURRENT_BINARY_DIR}/../apps/arch/frontend.
 
 project("Arch")
 
-set(CORE_EBOOTS "")
+set(CORE_TAGS "")
 set(CORE_FILES "")
 
 list(LENGTH CORES length)
@@ -23,12 +23,12 @@ foreach(index RANGE ${length})
     list(GET CORES ${index} core)
 
     if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
-        list(APPEND CORE_EBOOTS "${core}.suprx")
+        list(APPEND CORE_TAGS ${core}.suprx)
     else()
-        list(APPEND CORE_EBOOTS "${core}.suprx-self")
+        list(APPEND CORE_TAGS ${core}.suprx-self)
     endif()
 
-    list(APPEND CORE_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../cores/${core}/${core}_libretro.suprx" "modules/${core}_libretro.suprx")
+    list(APPEND CORE_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../cores/${core}/${core}.suprx" "modules/${core}.suprx")
 endforeach()
 
 gen_arc_dat(${PKG_DIR})
@@ -134,9 +134,9 @@ add_custom_target(VPK_${APP_NAME} ALL
     COMMAND ${CMAKE_COMMAND} -E rename ${VPK_NAME} ${OUT_PATH}/${VPK_NAME})
 
 if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
-    add_dependencies(${VPK_NAME} ${CORE_EBOOTS})
+    add_dependencies(${VPK_NAME} ${CORE_TAGS})
     add_dependencies(VPK_${APP_NAME} ${VPK_NAME} ${ARC_TAG})
 else()
-    add_dependencies(${VPK_NAME}-vpk ${CORE_EBOOTS})
+    add_dependencies(${VPK_NAME}-vpk ${CORE_TAGS})
     add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk ${ARC_TAG})
 endif()

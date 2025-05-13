@@ -4,7 +4,7 @@
 #include "file.h"
 #include "log.h"
 
-#define LOG_DEBUG_FUNC_ADDR(FUNC) LogInfo("%08x " #FUNC, FUNC);
+#define LOG_DEBUG_FUNC_ADDR(FUNC) LogDebug("%08x " #FUNC, FUNC);
 
 RetroModule::RetroModule(const char *name)
 {

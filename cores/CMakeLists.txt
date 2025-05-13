@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.12)
 
 set(CORE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${CORE})
 set(CORE_MAKEFILE_NAME Makefile)
-set(CORE_ARGS platform=vita EXTERNAL_ZLIB=1 CXXFLAGS="-fno-use-cxa-atexit -Wabi-tag -D_GLIBCXX_USE_CXX11_ABI=0")
+set(CORE_ARGS platform=vita EXTERNAL_ZLIB=1)
 
 if(CORE STREQUAL "gpsp")
 elseif(CORE STREQUAL "vba_next")
@@ -158,12 +158,6 @@ target_link_libraries(${LIBRETRO_ELF}
     zlibstatic
     FLAC
     ogg
-    stdc++
-    c
-    g
-    m
-    gcc
-    k
     SceLibKernel_stub_weak
     SceIofilemgr_stub_weak
     SceDisplay_stub_weak
@@ -184,9 +178,7 @@ target_link_libraries(${LIBRETRO_ELF}
     SceAudio_stub_weak
 )
 
-set_target_properties(${LIBRETRO_ELF} PROPERTIES
-    COMPILE_FLAGS "-DSCE_LIBC_SIZE=0xA00000 -D__PSP2_USER__"
-    LINK_FLAGS "-nostdlib")
+set_target_properties(${LIBRETRO_ELF} PROPERTIES COMPILE_FLAGS "-Wno-main -DSCE_LIBC_SIZE=0xA00000 -D__PSP2_USER__")
 
 set(VITA_MAKE_FSELF_FLAGS "-a 0x2F00000000000101")
 vita_create_self(${LIBRETRO_SUPRX} ${LIBRETRO_ELF} UNSAFE CONFIG ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)
