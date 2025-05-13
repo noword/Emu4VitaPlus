@@ -798,7 +798,7 @@ bool InitDefines()
     snprintf(CORE_SAVEFILES_DIR, DEFINE_PATH_LENGTH, "%s/savefiles", CORE_DATA_DIR);
     snprintf(CORE_CHEATS_DIR, DEFINE_PATH_LENGTH, "%s/cheats", CORE_DATA_DIR);
 
-    snprintf(CORE_LOG_PATH, DEFINE_PATH_LENGTH, "%s//Emu4Vita++.log", CORE_DATA_DIR);
+    snprintf(CORE_LOG_PATH, DEFINE_PATH_LENGTH, "%s/Emu4Vita++.log", CORE_DATA_DIR);
     snprintf(CORE_CONFIG_PATH, DEFINE_PATH_LENGTH, "%s/config.ini", CORE_DATA_DIR);
     snprintf(CORE_INPUT_DESC_PATH, DEFINE_PATH_LENGTH, "%s/input_desc.ini", CORE_DATA_DIR);
     snprintf(CORE_FAVOURITE_PATH, DEFINE_PATH_LENGTH, "%s/favourite.ini", CORE_DATA_DIR);
