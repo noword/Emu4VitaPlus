@@ -29,10 +29,9 @@ extern "C"
         return SCE_KERNEL_STOP_SUCCESS;
     }
 
-    int main(SceSize, void *) __attribute__((weak, alias("module_start")));
     int _start(SceSize, void *) __attribute__((weak, alias("module_start")));
 
-    extern "C" int module_start(SceSize argc, void *args)
+    int module_start(SceSize argc, void *args)
     {
         PRINT_VALUE(module_stop);
         PRINT_VALUE(module_exit);

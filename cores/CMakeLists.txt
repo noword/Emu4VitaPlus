@@ -151,18 +151,18 @@ add_dependencies(${LIBRETRO_ELF} ${CORE_TAG})
 
 target_link_libraries(${LIBRETRO_ELF}
     ${LIBRETRO_LIBRARY}
-    k
-    c
-    m
-    gcc
+    retro_comm
     ass
     stdc++
-    retro_comm
     pthread
     7zip
     zlibstatic
     FLAC
     ogg
+    c
+    m
+    gcc
+    k
     SceLibKernel_stub
     SceIofilemgr_stub
     SceDisplay_stub
@@ -182,11 +182,11 @@ target_link_libraries(${LIBRETRO_ELF}
     SceRtc_stub
 )
 
-set_target_properties(${LIBRETRO_ELF} PROPERTIES COMPILE_FLAGS "-Wno-main -DSCE_LIBC_SIZE=0xA00000")
+# set_target_properties(${LIBRETRO_ELF} PROPERTIES COMPILE_FLAGS "-DSCE_LIBC_SIZE=0xA00000")
 set_target_properties(${LIBRETRO_ELF} PROPERTIES LINK_FLAGS "-nostdlib")
 
-set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
-vita_create_self(${LIBRETRO_SUPRX} ${LIBRETRO_ELF} CONFIG ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)
+# set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
+vita_create_self(${LIBRETRO_SUPRX} ${LIBRETRO_ELF} UNSAFE CONFIG ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)
 
 if(CREATE_STUB)
     vita_create_stubs(.. ${LIBRETRO_ELF} ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)
