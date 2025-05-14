@@ -329,25 +329,51 @@ void App::UnsetInputHooks(Input *input)
 
 void App::_OnKeyLeft(Input *input)
 {
-    LOOP_MINUS_ONE(_index_x, (_current_buttons->size() + 1) / ROW_COUNT);
+    size_t half = (_current_buttons->size() + 1) / ROW_COUNT;
+    if ((_current_buttons->size() & 1) && _index_y == ROW_COUNT - 1 && _index_x == 0)
+    {
+        _index_x = half - 2;
+    }
+    else
+    {
+        LOOP_MINUS_ONE(_index_x, half);
+    }
     _UpdateIntro();
 }
 
 void App::_OnKeyRight(Input *input)
 {
-    LOOP_PLUS_ONE(_index_x, (_current_buttons->size() + 1) / ROW_COUNT);
+    size_t half = (_current_buttons->size() + 1) / ROW_COUNT;
+
+    if ((_current_buttons->size() & 1) && _index_y == ROW_COUNT - 1 && _index_x == half - 2)
+    {
+        _index_x = 0;
+    }
+    else
+    {
+        LOOP_PLUS_ONE(_index_x, half);
+    }
+
     _UpdateIntro();
 }
 
 void App::_OnKeyUp(Input *input)
 {
     LOOP_MINUS_ONE(_index_y, ROW_COUNT);
+    if ((_current_buttons->size() & 1) && _index_y == ROW_COUNT - 1 && _index_x == _current_buttons->size() / ROW_COUNT)
+    {
+        _index_x--;
+    }
     _UpdateIntro();
 }
 
 void App::_OnKeyDown(Input *input)
 {
     LOOP_PLUS_ONE(_index_y, ROW_COUNT);
+    if ((_current_buttons->size() & 1) && _index_y == ROW_COUNT - 1 && _index_x == _current_buttons->size() / ROW_COUNT)
+    {
+        _index_x--;
+    }
     _UpdateIntro();
 }
 

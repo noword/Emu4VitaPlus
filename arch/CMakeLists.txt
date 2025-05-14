@@ -135,8 +135,8 @@ add_custom_target(VPK_${APP_NAME} ALL
 
 if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
     add_dependencies(${VPK_NAME} ${CORE_TAGS})
-    add_dependencies(VPK_${APP_NAME} ${VPK_NAME} ${ARC_TAG})
+    add_dependencies(VPK_${APP_NAME} ${VPK_NAME} frontend.self)
 else()
     add_dependencies(${VPK_NAME}-vpk ${CORE_TAGS})
-    add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk ${ARC_TAG})
+    add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk frontend.self-self)
 endif()
