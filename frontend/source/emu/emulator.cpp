@@ -316,9 +316,10 @@ void Emulator::Reset()
 void Emulator::SetSpeed(double speed)
 {
     LogFunctionName;
-    LogDebug("  fps: %f", _av_info.timing.fps);
+
     _speed = speed;
-    uint64_t interval = (uint64_t)(1000000.0 / (_av_info.timing.fps * speed));
+    double interval = 1000000.0 * speed / _av_info.timing.fps;
+    LogDebug("  fps: %f interval: %.4f", _av_info.timing.fps, interval);
     _delay.SetInterval(interval);
     _video_delay.SetInterval(interval);
     _audio.Init(_av_info.timing.sample_rate * speed);
