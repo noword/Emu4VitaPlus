@@ -20,7 +20,6 @@
 #include "overlay.h"
 #include "shader.h"
 #include "defines.h"
-#include "retro_module.h"
 
 #define MAIN_WINDOW_PADDING 10
 
@@ -112,7 +111,7 @@ Ui::Ui() : _tab_index(TAB_INDEX_BROWSER),
 {
     LogFunctionName;
     _boot_ui = new Boot();
-    _title = std::string("Emu4Vita++ v") + APP_VER_STR + " (" + gEmulator->GetCoreName() + " " + gEmulator->GetCoreVersion() + ")";
+    _title = std::string("Emu4Vita++ v" APP_VER_STR " (") + gEmulator->GetCoreName() + " " + gEmulator->GetCoreVersion() + ")";
     _InitImgui();
     _dialog = new Dialog("", {LANG_OK, LANG_CANCEL},
                          std::bind(&Ui::_OnDialog, this, std::placeholders::_1, std::placeholders::_2));

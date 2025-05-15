@@ -124,7 +124,7 @@ void CoreButton::_BootCore()
     }
 
     gConfig->last_core = _cores[_index].boot_name;
-    gCoreName = _cores[_index].boot_name.c_str();
+    snprintf(gCorePath, SCE_FIOS_PATH_MAX, "app0:eboot_%s.self", _cores[_index].boot_name.c_str());
     gRunning = false;
 }
 

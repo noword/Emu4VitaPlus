@@ -1,5 +1,4 @@
 #include <algorithm>
-#include "retro_module.h"
 #include "defines.h"
 #include "log.h"
 #include "config.h"

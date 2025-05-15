@@ -1,7 +1,10 @@
 cmake_minimum_required(VERSION 3.12)
 
 set(CMAKE_DEPENDS_USE_COMPILER FALSE)
-set(CMAKE_TOOLCHAIN_FILE "$ENV{VITASDK}/share/vita.toolchain.cmake" CACHE PATH "toolchain file")
+set(CMAKE_TOOLCHAIN_FILE
+    "$ENV{VITASDK}/share/vita.toolchain.cmake"
+    CACHE PATH "toolchain file")
+
 include("$ENV{VITASDK}/share/vita.cmake" REQUIRED)
 include("script/arcade_dat.cmake" REQUIRED)
 include("script/collect_files.cmake" REQUIRED)
@@ -110,53 +113,11 @@ set(CORE_SHORTS
     vice
     px68k)
 
-set(TITLE_IDS
-    GPSP4VITA
-    VBANEXT4V
-    GAMBATTEV
-    FBALITE4V
-    FBNEO4VIT
-    FBA20124V
-    SNES024VT
-    SNES054VT
-    SNES104VT
-    FCEUMM4VT
-    NESTP4VIT
-    GENESIS4V
-    GENWIDE4V
-    PICODR4VT
-    MPCEF4VIT
-    MPCESG4VT
-    MNGP4VITA
-    WSWAN4VIT
-    PCSX4V001
-    STELLA4VI
-    PROSYS4PV
-    A8004VITA
-    DOSPURE4V
-    MAME03P4V
-    MAME2K34V
-    VECX4VITA
-    UAE4VITAP
-    FUSE4VITA
-    NEOCD4VIT
-    SUPA4VITA
-    FBNEOX4VP
-    MAME2K3XV
-    CHIMERA4V
-    TGBD4VITA
-    NEKOP2VIT
-    FMSX4VITA
-    BLUEMSX4V
-    NP2KAIVIT
-    VICE4VITA
-    PX68K4VIT
-)
-
 set(BUILD_LIST "All" "Arch" ${CORES})
 string(REPLACE "|" " " BUILD_LIST_STR ${BUILD_LIST})
 set(BUILD "Arch" CACHE STRING ${BUILD_LIST_STR})
 set_property(CACHE BUILD PROPERTY STRINGS ${BUILD_LIST})
+
 string(STRIP ${BUILD} BUILD)
 
 if(NOT ${BUILD} IN_LIST BUILD_LIST)
@@ -195,43 +156,12 @@ add_subdirectory(deps)
 add_subdirectory(share)
 add_subdirectory(frontend)
 
-set(CREATE_STUB ON)
-
-list(LENGTH CORES length)
-math(EXPR length "${length} - 1")
-
-foreach(index RANGE ${length})
-    list(GET CORES ${index} CORE)
-    list(GET CORE_SHORTS ${index} CORE_SHORT)
-    list(GET TITLE_IDS ${index} SFO_TITLE_ID)
-
-    if(BUILD STREQUAL "All" OR BUILD STREQUAL "Arch" OR BUILD STREQUAL ${CORE})
-        # create core suprx
-        add_subdirectory(cores cores/${CORE})
-
-        if(CREATE_STUB)
-            # only create once
-            set(CREATE_STUB OFF)
-        endif()
-
-        # set(LIBRETRO_SUPRX ${CORE}_libretro.suprx)
-        # list(APPEND PRIVATE_PKG_FILES FILE ${CMAKE_CURRENT_BINARY_DIR}/cores/${LIBRETRO_SUPRX} ${LIBRETRO_SUPRX})
-
-        # add_subdirectory(apps/${CORE})
-    endif()
-
-    if((NOT BUILD STREQUAL "Arch") AND(BUILD STREQUAL "All" OR BUILD STREQUAL ${CORE}))
-        # create standalone vpk
-        add_subdirectory(apps apps/${CORE})
+foreach(core ${CORES})
+    if(BUILD STREQUAL "All" OR BUILD STREQUAL "Arch" OR BUILD STREQUAL ${core})
+        add_subdirectory(apps/${core})
     endif()
 endforeach()
 
 if(BUILD STREQUAL "All" OR BUILD STREQUAL "Arch")
-    # create arch vpk
-    set(CORE frontend)
-    set(CORE_SHORT frontend)
-    add_subdirectory(apps apps/arch)
-
-    # create arch vpk
     add_subdirectory(arch)
 endif()

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.10)
 
 set(CORE_NAME "snes9x2005_plus")
-set(CORE_SHORT_NAME "Snes9x2005")
+set(CORE_SHORT_NAME "Snes9x2005Plus")
 set(CORE_FULL_NAME "Snes9x 2005 Plus")
 set(CONSOLE "SNES")
 

@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include <jpeglib.h>
 #include "emulator.h"
-#include "retro_module.h"
 #include "global.h"
 #include "core_options.h"
 #include "state_manager.h"

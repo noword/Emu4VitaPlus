@@ -1,4 +1,3 @@
-#include "retro_module.h"
 #include "file.h"
 #include "state_manager.h"
 #include "global.h"

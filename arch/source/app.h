@@ -6,7 +6,7 @@
 #include "file.h"
 
 extern bool gRunning;
-extern const char *gCoreName;
+extern char gCorePath[SCE_FIOS_PATH_MAX];
 
 struct IntroMovingStatus : public TextMovingStatus
 {

@@ -6,13 +6,17 @@ set(SFO_TITLE_NAME "Emu4Vita++")
 set(SFO_TITLE_ID "EMU4VPLUS")
 set(PKG_DIR ${CMAKE_CURRENT_SOURCE_DIR}/pkg)
 
+file(GLOB_RECURSE PKG_FILES ${PKG_DIR}/*)
 set(PRIVATE_PKG_FILES "")
-collect_files(PRIVATE_PKG_FILES ${PKG_DIR})
-list(APPEND PRIVATE_PKG_FILES ${CMAKE_CURRENT_BINARY_DIR}/../apps/arch/frontend.self frontend.self)
+
+foreach(file ${PKG_FILES})
+    file(RELATIVE_PATH rel ${PKG_DIR} ${file})
+    list(APPEND PRIVATE_PKG_FILES FILE ${file} ${rel})
+endforeach()
 
 project("Arch")
 
-set(CORE_TAGS "")
+set(CORE_EBOOTS "")
 set(CORE_FILES "")
 
 list(LENGTH CORES length)
@@ -23,12 +27,12 @@ foreach(index RANGE ${length})
     list(GET CORES ${index} core)
 
     if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
-        list(APPEND CORE_TAGS ${core}.suprx)
+        list(APPEND CORE_EBOOTS "eboot_${core_short}.bin")
     else()
-        list(APPEND CORE_TAGS ${core}.suprx-self)
+        list(APPEND CORE_EBOOTS "eboot_${core_short}.bin-self")
     endif()
 
-    list(APPEND CORE_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../cores/${core}/${core}.suprx" "modules/${core}.suprx")
+    list(APPEND CORE_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../apps/${core}/app/eboot_${core_short}.bin" "eboot_${core_short}.self")
 endforeach()
 
 gen_arc_dat(${PKG_DIR})
@@ -134,9 +138,9 @@ add_custom_target(VPK_${APP_NAME} ALL
     COMMAND ${CMAKE_COMMAND} -E rename ${VPK_NAME} ${OUT_PATH}/${VPK_NAME})
 
 if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
-    add_dependencies(${VPK_NAME} ${CORE_TAGS})
-    add_dependencies(VPK_${APP_NAME} ${VPK_NAME} frontend.self)
+    add_dependencies(${VPK_NAME} ${CORE_EBOOTS})
+    add_dependencies(VPK_${APP_NAME} ${VPK_NAME} ${ARC_TAG})
 else()
-    add_dependencies(${VPK_NAME}-vpk ${CORE_TAGS})
-    add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk frontend.self-self)
+    add_dependencies(${VPK_NAME}-vpk ${CORE_EBOOTS})
+    add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk ${ARC_TAG})
 endif()

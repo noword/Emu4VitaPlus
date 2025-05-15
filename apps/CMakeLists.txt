@@ -1,18 +1,24 @@
 cmake_minimum_required(VERSION 3.12)
 
-project(${CORE}_APP)
+set(CORE_TAG ${CORE_NAME}_build)
 
-set(APP_NAME "${CORE_SHORT}4VitaPlus")
-set(SFO_TITLE_NAME "Emu4Vita++ (${CORE_SHORT})")
-set(ELF_NAME ${CORE_SHORT}.elf)
-set(EBOOT_NAME eboot_${CORE_SHORT}.bin)
+add_custom_target(
+    ${CORE_TAG} ALL
+    COMMAND make -f ${CORE_MAKEFILE_NAME} ${CORE_ARGS} -j4
+    WORKING_DIRECTORY ${CORE_DIR})
 
-if(CORE STREQUAL "fba_lite" OR CORE STREQUAL "fbneo" OR CORE STREQUAL "fbalpha2012" OR CORE STREQUAL "fbneo_xtreme" OR CORE STREQUAL "mame2003_xtreme")
-    add_compile_definitions(ARC_BUILD)
-elseif(CORE STREQUAL "frontend")
-    add_compile_definitions(ARCH_BUILD)
-    set(EBOOT_NAME frontend.self)
-endif()
+add_library(${CORE_NAME} STATIC IMPORTED)
+set_property(
+    TARGET ${CORE_NAME}
+    APPEND
+    PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
+
+set(LIBRETRO_LIBRARY ${CORE_DIR}/${CORE_NAME}_libretro_vita.a)
+set_target_properties(${CORE_NAME} PROPERTIES IMPORTED_LOCATION "${LIBRETRO_LIBRARY}")
+add_dependencies(${CORE_NAME} ${CORE_TAG})
+
+set(ELF_NAME ${CORE_SHORT_NAME}.elf)
+set(EBOOT_NAME eboot_${CORE_SHORT_NAME}.bin)
 
 if(WITH_LOG)
     set(VPK_NAME ${APP_NAME}_${APP_VER}_log.vpk)
@@ -21,8 +27,15 @@ else()
 endif()
 
 add_compile_definitions(
-    DEFAULT_CORE_NAME="${CORE}"
-    APP_VER_STR="${APP_VER}"
+    _APP_NAME_STR="${APP_NAME}"
+    _APP_NAME_EXT_STR=${APP_NAME_EXT}
+    _APP_VER_STR="${APP_VER}"
+    _APP_TITLEID=${SFO_TITLE_ID}
+    _APP_DIR_NAME="${CORE_NAME}"
+    _APP_TITLE_NAME="${SFO_TITLE_NAME}"
+    _CORE_FULL_NAME="${CORE_FULL_NAME}"
+    _CORE_SHORT_NAME="${CORE_SHORT_NAME}"
+    _CONSOLE="${CONSOLE}"
 
     # SCE_LIBC_SIZE=0x400000
 )
@@ -34,21 +47,18 @@ include_directories(
     ../frontend/source/core_spec
     ../deps/libretro-common/include
     ../deps/7-Zip/C
-    ../share/source
-    ../apps)
+    ../share/source)
 
 file(GLOB SRC ../frontend/source/core_spec/*.cpp)
 
-link_directories(AFTER ${CMAKE_CURRENT_BINARY_DIR}/../../cores)
-
 add_executable(${ELF_NAME} ${SRC})
-add_dependencies(${ELF_NAME} libretro_stub_weak.a)
-
+add_dependencies(${ELF_NAME} ${CORE_TAG})
 target_link_libraries(
     ${ELF_NAME}
-    retro_stub_weak
     share
     frontend
+    ${LIBRETRO_LIBRARY}
+    retro_comm
     vita2d
     vita2d_ext
     imgui_vita2d
@@ -85,19 +95,14 @@ target_link_libraries(
     SceMotion_stub
     SceHid_stub
     SceFiber_stub
-    SceHttp_stub_weak
-    SceSsl_stub_weak)
+    SceHttp_stub
+    SceSsl_stub)
 
 set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
 
 vita_create_self(${EBOOT_NAME} ${ELF_NAME} STRIPPED)
 
-if(NOT CORE STREQUAL "frontend")
-    set(PRIVATE_PKG_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${CORE}/pkg)
-    set(PRIVATE_PKG_FILES "")
-    collect_files(PRIVATE_PKG_FILES ${PRIVATE_PKG_DIR})
-    list(APPEND PRIVATE_PKG_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../../cores/${CORE}/${LIBRETRO_SUPRX}" "modules/${LIBRETRO_SUPRX}")
-
+if(NOT BUILD_SELF)
     set(VITA_MKSFOEX_FLAGS -d ATTRIBUTE2=12)
     vita_create_vpk(
         ${VPK_NAME}
@@ -120,8 +125,8 @@ if(NOT CORE STREQUAL "frontend")
     endif()
 
     if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
-        add_dependencies(VPK_${APP_NAME} ${VPK_NAME} ${CORE}.suprx-self)
+        add_dependencies(VPK_${APP_NAME} ${VPK_NAME} ${ARC_TAG})
     else()
-        add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk ${CORE}.suprx-self)
+        add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk ${ARC_TAG})
     endif()
 endif()

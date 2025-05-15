@@ -14,7 +14,7 @@
 #include "language_arch.h"
 
 bool gRunning = true;
-const char *gCoreName = nullptr;
+char gCorePath[SCE_FIOS_PATH_MAX] = {0};
 
 void IntroMovingStatus::Reset()
 {
@@ -87,11 +87,11 @@ App::App()
 
     _buttons = {
         new CoreButton(ATARI2600, // 1977
-                       {{"Stella 2014", "stella2014"}}),
+                       {{"Stella 2014", "Stella2014"}}),
         new CoreButton(ATARI5200, // 1982
-                       {{"Atari800", "atari800"}}),
+                       {{"Atari800", "Atari800"}}),
         new CoreButton(ATARI7800, // 1986
-                       {{"ProSystem", "prosystem"}}),
+                       {{"ProSystem", "ProSystem"}}),
         new CoreButton(C64, // 1982.1
                        {{"the Versatile Commodore Emulator", "vice"}}),
         new CoreButton(VECTREX, // 1982.4
@@ -99,55 +99,55 @@ App::App()
         new CoreButton(ZXS, // 1982.11
                        {{"fuse", "fuse"}}),
         new CoreButton(DOS, // 1981
-                       {{"DOS BOX Pure", "dosbox_pure"}}),
+                       {{"DOS BOX Pure", "DOSBoxPure"}}),
         new CoreButton(PC98, // 1982
                        {{"Neko Project II", "nekop2"},
                         {"Neko Project II kai", "np2kai"}}),
         new CoreButton(MSX, // 1983
-                       {{"blueMSX", "bluemsx"},
-                        {"Marat Fayzullin's fMSX", "fmsx"}}),
+                       {{"blueMSX", "blueMSX"},
+                        {"Marat Fayzullin's fMSX", "fMSX"}}),
         new CoreButton(NES, // 1983
-                       {{"FCEUmm " ICON_STAR, "fceumm"},
-                        {"Nestopia", "nestopia"}}),
+                       {{"FCEUmm " ICON_STAR, "FCEUmm"},
+                        {"Nestopia", "Nestopia"}}),
         new CoreButton(AMIGA, // 1985
                        {{"uae4arm", "uae4arm"}}),
         new CoreButton(X68000, // 1987
                        {{"Portable (x)keropi PRO-68K", "px68k"}}),
         new CoreButton(PCE, // 1987
-                       {{"Mednafen PCE Fast", "mednafen_pce_fast"},
-                        {"Mednafen SuperGrafx", "mednafen_supergrafx"}}),
+                       {{"Mednafen PCE Fast", "MednafenPCEFast"},
+                        {"Mednafen SuperGrafx", "MednafenPCESuperGrafx"}}),
         new CoreButton(MD, // 1988
-                       {{"Genesis Plus GX " ICON_STAR, "genesis_plus_gx"},
-                        {"Genesis Plus GX Wide", "genesis_plus_gx_wide"},
-                        {"PicoDrive", "picodrive"}}),
+                       {{"Genesis Plus GX " ICON_STAR, "GenesisPlusGX"},
+                        {"Genesis Plus GX Wide", "GenesisPlusGXWide"},
+                        {"PicoDrive", "PicoDrive"}}),
         new CoreButton(GBC, // 1989,1998
-                       {{"Gambatte", "gambatte"},
-                        {"TGB Dual", "tgbdual"}}),
+                       {{"Gambatte", "Gambatte"},
+                        {"TGB Dual", "TGBDual"}}),
         new CoreButton(SNES, // 1990
-                       {{"Snes9x 2002", "snes9x2002"},
-                        {"Snes9x 2005" ICON_STAR, "snes9x2005_plus"},
-                        {"Snes9x 2010", "snes9x2010"},
-                        {"Mednafen Supafaust", "mednafen_supafaust"},
-                        {"Chimera SNES" ICON_STAR, "chimerasnes"}}),
+                       {{"Snes9x 2002", "Snes9x2002"},
+                        {"Snes9x 2005" ICON_STAR, "Snes9x2005"},
+                        {"Snes9x 2010", "Snes9x2010"},
+                        {"Mednafen Supafaust", "Supafaust"},
+                        {"Chimera SNES" ICON_STAR, "ChimeraSNES"}}),
         new CoreButton(NEOCD, // 1994
                        {{"neocd", "neocd"}}),
         new CoreButton(PS1, // 1994.12
-                       {{"PCSX ReARMed", "pcsx_rearmed"}}),
+                       {{"PCSX ReARMed", "PCSXReARMed"}}),
         new CoreButton(NGP, // 1998
-                       {{"Mednafen NeoPop", "mednafen_ngp"}}),
+                       {{"Mednafen NeoPop", "MednafenNgp"}}),
         new CoreButton(WSC, // 1999
-                       {{"Mednafen Wswan", "mednafen_wswan"}}),
+                       {{"Mednafen Wswan", "MednafenWswan"}}),
         new CoreButton(GBA, // 2001
-                       {{"gpSP " ICON_STAR, "gpsp"},
-                        {"VBA Next", "vba_next"}}),
+                       {{"gpSP " ICON_STAR, "gpSP"},
+                        {"VBA Next", "VBANext"}}),
         new CoreButton(ARC,
-                       {{"FBA Lite", "fba_lite"},
-                        {"FBA 2012", "fbalpha2012"},
-                        {"FinalBurn Neo", "fbneo"},
-                        {"FinalBurn Neo Xtreme", "km_fbneo_xtreme_amped"},
-                        {"MAME 2003" ICON_STAR, "mame2003"},
-                        {"MAME 2003 Plus", "mame2003_plus"},
-                        {"MAME 2003 Xtreme" ICON_STAR, "km_mame2003_xtreme_amped"}}),
+                       {{"FBA Lite", "FBALite"},
+                        {"FBA 2012", "FBA2012"},
+                        {"FinalBurn Neo", "FBNeo"},
+                        {"FinalBurn Neo Xtreme", "FBNeoXtreme"},
+                        {"MAME 2003" ICON_STAR, "MAME2003"},
+                        {"MAME 2003 Plus", "MAME2003Plus"},
+                        {"MAME 2003 Xtreme" ICON_STAR, "MAME2003XTREME"}}),
     };
 
     _input.SetTurboInterval(DEFAULT_TURBO_START_TIME * 5);

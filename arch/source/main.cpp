@@ -21,12 +21,12 @@ int main(int argc, char *const argv[])
     delete app;
 
     LogDebug("Exit");
+    LogInfo("gCorePath: %s", gCorePath);
 
-    if (gCoreName)
+    if (*gCorePath)
     {
-        LogInfo("gCoreName: %s", gCoreName);
-        const char *const _argv[] = {"--arch", "--core", gCoreName, NULL};
-        SceInt32 result = sceAppMgrLoadExec("app0:frontend.self", (char *const *)_argv, NULL);
+        const char *const _argv[] = {"--arch", NULL};
+        SceInt32 result = sceAppMgrLoadExec(gCorePath, (char *const *)_argv, NULL);
         if (result != SCE_OK)
         {
             LogError("sceAppMgrLoadExec failed: %08x", result);
