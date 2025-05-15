@@ -48,7 +48,7 @@ void Log::log_v(int log_level, const char *format, va_list args)
 		SceDateTime time;
 		sceRtcGetCurrentClockLocalTime(&time);
 		fprintf(_fp, "[%c] %02d:%02d:%02d.%03d %s\n", LogLevelChars[log_level], time.hour, time.minute, time.second, time.microsecond / 1000, _buf);
-		// fflush(_fp);
+		fflush(_fp);
 	}
 	sceKernelUnlockLwMutex(&_mutex, 1);
 }

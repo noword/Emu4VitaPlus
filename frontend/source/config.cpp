@@ -402,7 +402,7 @@ namespace Emu4VitaPlus
     {
         LogFunctionName;
         static char path[SCE_FIOS_PATH_MAX];
-        if (independent_config && *gEmulator->GetCurrentName())
+        if (independent_config && gEmulator && *gEmulator->GetCurrentName())
         {
             snprintf(path, SCE_FIOS_PATH_MAX, "%s/%s/config.ini", CORE_SAVEFILES_DIR, gEmulator->GetCurrentName());
             return path;

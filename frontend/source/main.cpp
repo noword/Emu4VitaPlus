@@ -17,7 +17,6 @@ static void ParseParams(int argc, char *const argv[])
 {
     for (int i = 0; i < argc; i++)
     {
-        LogDebug("argv[%d]: %s", i, argv[i]);
         if (strcmp(argv[i], "--arch") == 0)
         {
             gBootFromArch = true;
