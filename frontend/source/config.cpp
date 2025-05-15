@@ -158,6 +158,7 @@ namespace Emu4VitaPlus
         reboot_when_loading_again = DEFAULT_REBOOT_WHEN_LOADING_AGAIN;
         speed_step = 0;
         support_no_game = 0;
+        auto_rotating = true;
         language = Utils::GetDefaultLanguage();
 
         DefaultControlMap();
@@ -241,6 +242,7 @@ namespace Emu4VitaPlus
         ini.SetBoolValue(MAIN_SECTION, "swap_enter", swap_enter);
         ini.SetBoolValue(MAIN_SECTION, "sim_button", sim_button);
         ini.SetBoolValue(MAIN_SECTION, "independent_config", independent_config);
+        ini.SetBoolValue(MAIN_SECTION, "auto_rotating", auto_rotating);
 
         for (const auto &control : control_maps)
         {
@@ -313,6 +315,7 @@ namespace Emu4VitaPlus
         swap_enter = ini.GetBoolValue(MAIN_SECTION, "swap_enter", false);
         sim_button = ini.GetBoolValue(MAIN_SECTION, "sim_button", false);
         independent_config = ini.GetBoolValue(MAIN_SECTION, "independent_config", DEFAULT_INDEPENDENT_CONFIG);
+        auto_rotating = ini.GetBoolValue(MAIN_SECTION, "auto_rotating", true);
 
         tmp = ini.GetValue(MAIN_SECTION, "last_rom");
         if (tmp && File::Exist(tmp))

@@ -62,6 +62,7 @@ namespace Emu4VitaPlus
         uint32_t independent_config;
         uint32_t speed_step;
         uint32_t support_no_game;
+        uint32_t auto_rotating;
 
         static const std::unordered_map<uint32_t, const char *> PsvKeyStr;
         static const std::unordered_map<uint32_t, const char *> HotkeyStr;

@@ -1570,5 +1570,17 @@
         "Spanish": "Traducción al ruso",
         "Russian": "Перевод на русский язык",
         "Comments": ""
+    },
+    {
+        "No.": "132",
+        "Tag": "LANG_AUTO_ROTATING",
+        "English": "Auto rotating for vertical games",
+        "Chinese": "遇到纵版游戏时自动旋转",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
 ]

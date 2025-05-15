@@ -256,7 +256,11 @@ void Emulator::_CreateTextureBuf(SceGxmTextureFormat format, size_t width, size_
 void Emulator::_SetVideoSize(uint32_t width, uint32_t height)
 {
     LogFunctionName;
-    LogDebug(" %d %d %f", _av_info.geometry.base_width, _av_info.geometry.base_height, _av_info.geometry.aspect_ratio);
+    LogDebug(" %d %d %f %d",
+             _av_info.geometry.base_width,
+             _av_info.geometry.base_height,
+             _av_info.geometry.aspect_ratio,
+             _video_rotation);
 
     if (gConfig->graphics[GRAPHICS_OVERLAY] > 0)
     {
