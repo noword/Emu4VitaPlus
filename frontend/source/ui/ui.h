@@ -25,7 +25,7 @@ public:
     void AppendLog(const char *log);
     void ClearLogs();
     void NotificationBootFailed();
-    void ChangeLanguage();
+
     void UpdateCoreOptions();
     void UpdateCheatOptions();
     void UpdateControllerOptions();
@@ -44,6 +44,9 @@ private:
     void _OnDialog(Input *input, int index);
     void _OnCleanCache(Input *input);
     void _OnStartCore(Input *input);
+
+    void _ChangeLanguage();
+    void _ChangeAutoRotating();
 
     void _ShowNormal();
     void _ShowHint();

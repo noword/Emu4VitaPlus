@@ -257,7 +257,7 @@ void Ui::CreateTables()
                                                                     LanguageString(gLanguageNames[LANGUAGE_SPANISH]),
                                                                     LanguageString(gLanguageNames[LANGUAGE_RUSSIAN]),
                                                                 },
-                                                                std::bind(&Ui::ChangeLanguage, gUi)),
+                                                                std::bind(&Ui::_ChangeLanguage, gUi)),
                                                  new ItemConfig(LANG_INDEPENDENT_CONFIG,
                                                                 "",
                                                                 &gConfig->independent_config,
@@ -267,7 +267,7 @@ void Ui::CreateTables()
                                                                 "",
                                                                 &gConfig->auto_rotating,
                                                                 {LANG_NO, LANG_YES},
-                                                                nullptr),
+                                                                std::bind(&Ui::_ChangeAutoRotating, gUi)),
                                                  new ItemConfig(LANG_REWIND,
                                                                 "",
                                                                 &gConfig->rewind,
@@ -657,7 +657,7 @@ void Ui::UpdateDiskOptions()
     gVideo->Unlock();
 }
 
-void Ui::ChangeLanguage()
+void Ui::_ChangeLanguage()
 {
     LogFunctionName;
     gVideo->Lock();
@@ -681,6 +681,21 @@ void Ui::ChangeLanguage()
         File::Remove(ARCH_CONFIG_PATH);
         ini.SaveFile(ARCH_CONFIG_PATH, false);
     }
+}
+
+void Ui::_ChangeAutoRotating()
+{
+    LogFunctionName;
+
+    if (gStatus.Get() == APP_STATUS_SHOW_UI_IN_GAME)
+    {
+        gVideo->Lock();
+        gEmulator->ChangeGraphicsConfig();
+        gEmulator->SetupKeys();
+        gVideo->Unlock();
+    }
+
+    gConfig->Save();
 }
 
 void Ui::_OnCleanCache(Input *input)

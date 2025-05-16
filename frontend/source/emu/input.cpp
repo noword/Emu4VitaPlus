@@ -263,7 +263,7 @@ void Emulator::SetupKeys()
             continue;
         }
 
-        if (_video_rotation == VIDEO_ROTATION_0 || _video_rotation == VIDEO_ROTATION_180)
+        if ((!gConfig->auto_rotating) || _video_rotation == VIDEO_ROTATION_0 || _video_rotation == VIDEO_ROTATION_180)
         {
             _keys[k.retro] |= k.psv;
         }

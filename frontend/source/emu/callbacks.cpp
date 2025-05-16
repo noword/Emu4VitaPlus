@@ -63,12 +63,6 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         {
             VIDEO_ROTATION *rotation = (VIDEO_ROTATION *)data;
             LogDebug("  *data: %d", *rotation);
-            if (!gConfig->auto_rotating)
-            {
-                LogDebug("  disable auto rotating");
-                return false;
-            }
-
             if (gEmulator->_video_rotation != *rotation)
             {
 

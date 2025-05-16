@@ -326,17 +326,31 @@ void Emulator::_SetVideoSize(uint32_t width, uint32_t height)
         break;
 
     case CONFIG_DISPLAY_SIZE_FULL:
-        width = VITA_HEIGHT * aspect_ratio;
-        if (width > VITA_WIDTH)
+    {
+        uint32_t screen_width, screen_height;
+        if ((!gConfig->auto_rotating) && (_video_rotation == VIDEO_ROTATION_90 || _video_rotation == VIDEO_ROTATION_270))
         {
-            width = VITA_WIDTH;
-            height = VITA_WIDTH / aspect_ratio;
+            screen_width = VITA_HEIGHT;
+            screen_height = VITA_WIDTH;
         }
         else
         {
-            height = VITA_HEIGHT;
+            screen_width = VITA_WIDTH;
+            screen_height = VITA_HEIGHT;
         }
-        break;
+
+        width = screen_height * aspect_ratio;
+        if (width > screen_width)
+        {
+            width = screen_width;
+            height = screen_width / aspect_ratio;
+        }
+        else
+        {
+            height = screen_height;
+        }
+    }
+    break;
 
     case CONFIG_DISPLAY_SIZE_1X:
     default:
@@ -405,12 +419,23 @@ void Emulator::_SetupVideoOutput(unsigned width, unsigned height)
 
     _CreateTextureBuf(_video_pixel_format, width, height);
     _SetVideoSize(width, height);
+
+    float rad;
+    if (gConfig->auto_rotating)
+    {
+        rad = _video_rotation == VIDEO_ROTATION_90 || _video_rotation == VIDEO_ROTATION_180 ? M_PI : 0;
+    }
+    else
+    {
+        static const float rads[] = {0, -M_PI / 2.f, M_PI, M_PI / 2.f};
+        rad = rads[_video_rotation];
+    }
     _SetVertices(_video_rect.displacement_x, _video_rect.displacement_y,
                  0, 0,
                  width, height,
                  (float)_video_rect.width / width,
                  (float)_video_rect.height / height,
-                 _video_rotation == VIDEO_ROTATION_90 || _video_rotation == VIDEO_ROTATION_180 ? M_PI : 0);
+                 rad);
 
     _graphics_config_changed = false;
     _last_texture = nullptr;
