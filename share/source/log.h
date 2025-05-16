@@ -111,7 +111,7 @@ public:
     void log_v(int log_level, const char *format, va_list args);
 
 private:
-    FILE *_fp;
+    std::string _name;
     char *_buf;
     int _buf_len;
     SceKernelLwMutexWork _mutex;

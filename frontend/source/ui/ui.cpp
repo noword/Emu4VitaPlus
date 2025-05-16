@@ -20,7 +20,6 @@
 #include "overlay.h"
 #include "shader.h"
 #include "defines.h"
-#include "retro_module.h"
 
 #define MAIN_WINDOW_PADDING 10
 
@@ -262,6 +261,11 @@ void Ui::CreateTables()
                                                  new ItemConfig(LANG_INDEPENDENT_CONFIG,
                                                                 "",
                                                                 &gConfig->independent_config,
+                                                                {LANG_NO, LANG_YES},
+                                                                nullptr),
+                                                 new ItemConfig(LANG_AUTO_ROTATING,
+                                                                "",
+                                                                &gConfig->auto_rotating,
                                                                 {LANG_NO, LANG_YES},
                                                                 nullptr),
                                                  new ItemConfig(LANG_REWIND,

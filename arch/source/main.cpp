@@ -22,10 +22,10 @@ int main(int argc, char *const argv[])
 
     LogDebug("Exit");
 
-    if (gCoreName)
+    if (gCoreName.size() > 0)
     {
-        LogInfo("gCoreName: %s", gCoreName);
-        const char *const _argv[] = {"--arch", "--core", gCoreName, NULL};
+        LogInfo("gCoreName: %s", gCoreName.c_str());
+        const char *const _argv[] = {"--arch", "--core", gCoreName.c_str(), NULL};
         SceInt32 result = sceAppMgrLoadExec("app0:frontend.self", (char *const *)_argv, NULL);
         if (result != SCE_OK)
         {

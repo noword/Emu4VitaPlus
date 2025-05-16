@@ -84,4 +84,3 @@ struct BIOS
 extern std::vector<BIOS> REQUIRED_BIOS;
 
 extern bool InitDefines();
-extern void LogDefines();

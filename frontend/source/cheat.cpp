@@ -4,7 +4,6 @@
 #include "utils.h"
 #include "log.h"
 #include "emulator.h"
-#include "retro_module.h"
 #include "global.h"
 
 #define KEY_BUF_SIZE 32

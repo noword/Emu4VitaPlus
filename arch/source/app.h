@@ -6,7 +6,7 @@
 #include "file.h"
 
 extern bool gRunning;
-extern const char *gCoreName;
+extern std::string gCoreName;
 
 struct IntroMovingStatus : public TextMovingStatus
 {

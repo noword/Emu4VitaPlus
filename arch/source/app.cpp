@@ -14,7 +14,7 @@
 #include "language_arch.h"
 
 bool gRunning = true;
-const char *gCoreName = nullptr;
+std::string gCoreName;
 
 void IntroMovingStatus::Reset()
 {

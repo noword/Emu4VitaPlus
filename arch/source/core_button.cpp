@@ -124,7 +124,7 @@ void CoreButton::_BootCore()
     }
 
     gConfig->last_core = _cores[_index].boot_name;
-    gCoreName = _cores[_index].boot_name.c_str();
+    gCoreName = _cores[_index].boot_name;
     gRunning = false;
 }
 

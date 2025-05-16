@@ -1,5 +1,4 @@
 #include "device_options.h"
-#include "retro_module.h"
 #include "icons.h"
 #include "log.h"
 
