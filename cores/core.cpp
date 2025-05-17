@@ -22,6 +22,8 @@ extern "C"
 
     extern void _init_vita_heap(void);
     extern void _free_vita_heap(void);
+    extern void __libc_init_array(void);
+    extern void __libc_fini_array();
 
     int module_stop(SceSize argc, const void *args)
     {
@@ -30,6 +32,7 @@ extern "C"
 
     int module_exit()
     {
+        __libc_fini_array();
         _free_vita_heap();
         return SCE_KERNEL_STOP_SUCCESS;
     }
@@ -39,6 +42,9 @@ extern "C"
 
     int module_start(SceSize argc, void *args)
     {
+        _init_vita_heap();
+        __libc_init_array();
+
         PRINT_VALUE(module_stop);
         PRINT_VALUE(module_exit);
         PRINT_VALUE(sceUserMainThreadName);
@@ -71,38 +77,6 @@ extern "C"
         PRINT_VALUE(retro_set_audio_sample_batch);
         PRINT_VALUE(retro_set_input_poll);
         PRINT_VALUE(retro_set_input_state);
-
-        _init_vita_heap();
-
-        //         RetroCore *retro = *(RetroCore **)args;
-
-        // #define ASSIGN_FUNC(FUNC) retro->FUNC = FUNC;
-
-        //         ASSIGN_FUNC(retro_init);
-        //         ASSIGN_FUNC(retro_deinit);
-        //         ASSIGN_FUNC(retro_api_version);
-        //         ASSIGN_FUNC(retro_get_system_info);
-        //         ASSIGN_FUNC(retro_get_system_av_info);
-        //         ASSIGN_FUNC(retro_set_controller_port_device);
-        //         ASSIGN_FUNC(retro_reset);
-        //         ASSIGN_FUNC(retro_run);
-        //         ASSIGN_FUNC(retro_serialize_size);
-        //         ASSIGN_FUNC(retro_serialize);
-        //         ASSIGN_FUNC(retro_unserialize);
-        //         ASSIGN_FUNC(retro_cheat_reset);
-        //         ASSIGN_FUNC(retro_cheat_set);
-        //         ASSIGN_FUNC(retro_load_game);
-        //         ASSIGN_FUNC(retro_load_game_special);
-        //         ASSIGN_FUNC(retro_unload_game);
-        //         ASSIGN_FUNC(retro_get_region);
-        //         ASSIGN_FUNC(retro_get_memory_data);
-        //         ASSIGN_FUNC(retro_get_memory_size);
-        //         ASSIGN_FUNC(retro_set_environment);
-        //         ASSIGN_FUNC(retro_set_video_refresh);
-        //         ASSIGN_FUNC(retro_set_audio_sample);
-        //         ASSIGN_FUNC(retro_set_audio_sample_batch);
-        //         ASSIGN_FUNC(retro_set_input_poll);
-        //         ASSIGN_FUNC(retro_set_input_state);
 
         return SCE_KERNEL_START_SUCCESS;
     }

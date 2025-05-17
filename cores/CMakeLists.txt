@@ -158,12 +158,6 @@ target_link_libraries(${LIBRETRO_ELF}
     zlibstatic
     FLAC
     ogg
-    stdc++
-    c
-    g
-    m
-    gcc
-    k
     SceLibKernel_stub_weak
     SceIofilemgr_stub_weak
     SceDisplay_stub_weak
