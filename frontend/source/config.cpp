@@ -226,7 +226,7 @@ namespace Emu4VitaPlus
             path = _GetConfigFilePath();
         }
 
-        LogDebug("path: %s", path);
+        LogDebug("save path: %s", path);
 
         CSimpleIniA ini;
 
@@ -276,10 +276,10 @@ namespace Emu4VitaPlus
 
         if (path == nullptr)
         {
-            path = _GetConfigFilePath();
+            path = _GetConfigFilePath(true);
         }
 
-        LogDebug("path: %s", path);
+        LogDebug("load path: %s", path);
 
         CSimpleIniA ini;
         if (ini.LoadFile(path) != SI_OK)
@@ -398,14 +398,21 @@ namespace Emu4VitaPlus
         }
     }
 
-    const char *Config::_GetConfigFilePath()
+    const char *Config::_GetConfigFilePath(bool must_exist)
     {
         LogFunctionName;
         static char path[SCE_FIOS_PATH_MAX];
         if (independent_config && gEmulator && *gEmulator->GetCurrentName())
         {
             snprintf(path, SCE_FIOS_PATH_MAX, "%s/%s/config.ini", CORE_SAVEFILES_DIR, gEmulator->GetCurrentName());
-            return path;
+            if (must_exist && File::Exist(path))
+            {
+                return path;
+            }
+            else
+            {
+                return CORE_CONFIG_PATH;
+            }
         }
         else
         {

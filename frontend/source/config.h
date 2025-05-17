@@ -71,7 +71,7 @@ namespace Emu4VitaPlus
         static const std::unordered_map<uint8_t, LanguageString> RetroTextMap;
 
     private:
-        const char *_GetConfigFilePath();
+        const char *_GetConfigFilePath(bool must_exist = false);
     };
 }
 

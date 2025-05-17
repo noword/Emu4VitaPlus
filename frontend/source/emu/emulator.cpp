@@ -181,8 +181,20 @@ LOADED:
         SetSpeed(1.0);
         gUi->ClearLogs();
         // _audio.Init(_av_info.timing.sample_rate);
-        gConfig->last_rom = path;
-        gConfig->Save();
+
+        if (gConfig->independent_config)
+        {
+            gConfig->Save();
+            gConfig->Load(CORE_CONFIG_PATH);
+            gConfig->last_rom = path;
+            gConfig->Save(CORE_CONFIG_PATH);
+            gConfig->Load();
+        }
+        else
+        {
+            gConfig->last_rom = path;
+            gConfig->Save();
+        }
 
         Load();
         LogDebug("stack free size: %d", sceKernelCheckThreadStack());

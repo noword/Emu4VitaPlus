@@ -267,7 +267,7 @@ bool RetroArchPlaylists::_LoadCache(uint32_t crc32, ItemMap &items)
     char *buf;
     if (File::ReadFile(name, (void **)&buf) == 0)
     {
-        LogError("failed to open %s for writing", name);
+        LogError("failed to open %s for reading", name);
         return false;
     }
 
