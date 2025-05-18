@@ -7,7 +7,13 @@ set(SFO_TITLE_NAME "Emu4Vita++ (${CORE_SHORT})")
 set(ELF_NAME ${CORE_SHORT}.elf)
 set(EBOOT_NAME eboot_${CORE_SHORT}.bin)
 
-if(CORE STREQUAL "fba_lite" OR CORE STREQUAL "fbneo" OR CORE STREQUAL "fbalpha2012" OR CORE STREQUAL "fbneo_xtreme" OR CORE STREQUAL "mame2003_xtreme")
+if(CORE STREQUAL "fba_lite"
+    OR CORE STREQUAL "fbneo"
+    OR CORE STREQUAL "fbalpha2012"
+    OR CORE STREQUAL "mame2003"
+    OR CORE STREQUAL "mame2003_plus"
+    OR CORE STREQUAL "km_fbneo_xtreme_amped"
+    OR CORE STREQUAL "km_mame2003_xtreme_amped")
     add_compile_definitions(ARC_BUILD)
 elseif(CORE STREQUAL "frontend")
     add_compile_definitions(ARCH_BUILD)

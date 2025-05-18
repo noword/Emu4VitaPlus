@@ -716,9 +716,10 @@ void TabBrowser::_UpdateName()
     if (arc_manager)
     {
         // arcade rom, calc the crc32 with rom name
-        const char *rom_name = arc_manager->GetRomName(_GetCurrentFullPath().c_str());
+        char path[SCE_FIOS_PATH_MAX];
+        strcpy(path, _GetCurrentFullPath().c_str());
+        const char *rom_name = arc_manager->GetRomName(path);
         std::string real_name = File::GetName(rom_name);
-
         gVideo->Lock();
         if (!_name_map.GetName(crc32(0, (Bytef *)real_name.c_str(), real_name.size()), &_name))
         {
