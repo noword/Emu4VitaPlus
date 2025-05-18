@@ -188,8 +188,8 @@ set(CMAKE_EXE_LINKER_FLAGS "-Wl,-q,-no-enum-size-warning,--as-needed,--gc-sectio
 set(OUT_PATH "${CMAKE_BINARY_DIR}/out")
 file(MAKE_DIRECTORY ${OUT_PATH})
 
-set(APP_VER "0.31")
-set(SFO_APP_VER "00.31")
+set(APP_VER "0.32")
+set(SFO_APP_VER "00.32")
 
 add_subdirectory(deps)
 add_subdirectory(share)
