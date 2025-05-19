@@ -13,7 +13,7 @@
 // unsigned int sceLibcHeapSize __attribute__((used)) = SCE_LIBC_HEAP_SIZE_EXTENDED_ALLOC_NO_LIMIT;
 
 unsigned int sceUserMainThreadStackSize __attribute__((used)) = 0x100000; // 1M
-int _newlib_heap_size_user __attribute__((used)) = 0x3000000;             // 50M
+int _newlib_heap_size_user __attribute__((used)) = 0x4000000;             // 64M
 
 static void ParseParams(int argc, char *const argv[])
 {
