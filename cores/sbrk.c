@@ -4,10 +4,14 @@
 #include <psp2/kernel/sysmem.h>
 #include <psp2/kernel/threadmgr.h>
 
+#ifdef RAM_THRESHOLD
+#undef RAM_THRESHOLD
+#endif
+
 #ifdef SCE_LIBC_SIZE
-#define RAM_THRESHOLD 0x2000000 + SCE_LIBC_SIZE
+#define RAM_THRESHOLD 0x1000000 + SCE_LIBC_SIZE
 #else
-#define RAM_THRESHOLD 0x2000000
+#define RAM_THRESHOLD 0x1000000
 #endif
 
 int _newlib_heap_memblock;
@@ -15,7 +19,8 @@ unsigned _newlib_heap_size;
 char *_newlib_heap_base, *_newlib_heap_end, *_newlib_heap_cur;
 static char _newlib_sbrk_mutex[32] __attribute__((aligned(8)));
 
-static int _newlib_vm_memblock;
+int _newlib_vm_memblock;
+int _newlib_vm_size;
 
 extern int _newlib_heap_size_user __attribute__((weak));
 extern int _newlib_vm_size_user __attribute__((weak));
@@ -43,8 +48,6 @@ void *_sbrk_r(struct _reent *reent, ptrdiff_t incr)
 
 void _init_vita_heap(void)
 {
-
-	int _newlib_vm_size = 0;
 	if (&_newlib_vm_size_user != NULL)
 	{
 		printf("_newlib_vm_size_user %x\n", _newlib_vm_size_user);
@@ -58,6 +61,7 @@ void _init_vita_heap(void)
 	}
 	else
 	{
+		_newlib_vm_size = 0;
 		_newlib_vm_memblock = 0;
 	}
 

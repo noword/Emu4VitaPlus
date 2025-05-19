@@ -22,6 +22,7 @@
 #include "bios_checker.h"
 #include "language_string.h"
 #include "global.h"
+#include "profiler.h"
 
 #ifdef TEXT
 #undef TEXT
@@ -64,6 +65,10 @@ App::App(int argc, char *const argv[])
 
     // sceTouchSetSamplingState(SCE_TOUCH_PORT_FRONT, SCE_TOUCH_SAMPLING_STATE_START);
     // sceTouchSetSamplingState(SCE_TOUCH_PORT_BACK, SCE_TOUCH_SAMPLING_STATE_START);
+
+#if LOG_LEVEL <= LOG_LEVEL_DEBUG
+    gProfiler = new Profiler();
+#endif
 
     _IsSaveMode();
     // LogDebug("getVMBlock: %08x", getVMBlock());
@@ -168,6 +173,10 @@ App::~App()
     delete gUi;
     delete gVideo;
     delete gConfig;
+
+#if LOG_LEVEL <= LOG_LEVEL_DEBUG
+    delete gProfiler;
+#endif
 
     sceAppUtilShutdown();
 }

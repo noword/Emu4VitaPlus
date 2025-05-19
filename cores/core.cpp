@@ -20,6 +20,11 @@ extern "C"
 {
 #endif
 
+    extern char *_newlib_heap_base;
+    extern unsigned _newlib_heap_size;
+    extern int _newlib_vm_memblock;
+    extern int _newlib_vm_size;
+
     extern void _init_vita_heap(void);
     extern void _free_vita_heap(void);
     extern void __libc_init_array(void);
@@ -44,6 +49,12 @@ extern "C"
     {
         _init_vita_heap();
         __libc_init_array();
+
+        int *meminfo = *(int **)args;
+        meminfo[0] = (int)_newlib_heap_base;
+        meminfo[1] = _newlib_heap_size;
+        meminfo[2] = _newlib_vm_memblock;
+        meminfo[3] = _newlib_vm_size;
 
         PRINT_VALUE(module_stop);
         PRINT_VALUE(module_exit);
