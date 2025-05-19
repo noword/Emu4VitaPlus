@@ -638,7 +638,7 @@ void TextMovingStatus::Reset()
 {
     pos = 0;
     delta = -1;
-    delay.SetInterval(DEFAULT_TEXT_MOVING_START);
+    delay.SetInterval(DEFAULT_TEXT_MOVING_INTERVAL, DEFAULT_TEXT_MOVING_START);
 }
 
 bool TextMovingStatus::Update(const char *text)
@@ -650,20 +650,22 @@ bool TextMovingStatus::Update(const char *text)
         return false;
     }
 
+    if (delay.TimeUp())
+    {
+        pos += delta;
+    }
+
     if (pos > 0)
     {
         delta = -1;
         pos = 0;
+        delay.SetInterval(DEFAULT_TEXT_MOVING_INTERVAL, DEFAULT_TEXT_MOVING_START);
     }
     else if (pos + text_width < item_width)
     {
         delta = 1;
         pos++;
-    }
-
-    if (delay.TimeUp())
-    {
-        pos += delta;
+        delay.SetInterval(DEFAULT_TEXT_MOVING_INTERVAL, DEFAULT_TEXT_MOVING_START);
     }
 
     return true;

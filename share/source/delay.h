@@ -6,13 +6,14 @@ class Delay
 {
 public:
     Delay() {};
-    Delay(T interval_ms) { SetInterval(interval_ms); };
+    Delay(T interval_ms, T start_ms = 0) { SetInterval(interval_ms, start_ms); };
+
     virtual ~Delay() {};
 
-    void SetInterval(T interval_ms)
+    void SetInterval(T interval_ms, T start_ms = 0)
     {
         _interval_ms = interval_ms;
-        _next_ms = sceKernelGetProcessTimeWide() + _interval_ms;
+        _next_ms = sceKernelGetProcessTimeWide() + _interval_ms + start_ms;
     };
 
     T GetInterval() { return _interval_ms; };
