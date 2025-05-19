@@ -1,5 +1,6 @@
 cmake_minimum_required(VERSION 3.12)
 
+# set_property(GLOBAL PROPERTY GLOBAL_DEPENDS_DEBUG_MODE 1)
 set(CMAKE_DEPENDS_USE_COMPILER FALSE)
 set(CMAKE_TOOLCHAIN_FILE "$ENV{VITASDK}/share/vita.toolchain.cmake" CACHE PATH "toolchain file")
 include("$ENV{VITASDK}/share/vita.cmake" REQUIRED)

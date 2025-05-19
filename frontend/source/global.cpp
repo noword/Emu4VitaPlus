@@ -631,6 +631,9 @@ static void InitDefaultCoreSettings()
     case MAME2003:
         DEFAULT_CORE_SETTINGS = {{"mame2003_rstick_to_btns", "disabled"}};
         break;
+    case MAME2003_XTREME:
+        DEFAULT_CORE_SETTINGS = {{"mame2003-xtreme-amped-rstick_to_btns", "disabled"}};
+        break;
     default:
         break;
     }
