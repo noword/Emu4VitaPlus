@@ -811,7 +811,7 @@ bool InitDefines()
         DEFAULT_ENABLE_REWIND = false;
         DEFAULT_REWIND_BUF_SIZE = 50;
         DEFAULT_AUTO_SAVE = false;
-        DEFAULT_REBOOT_WHEN_LOADING_AGAIN = true;
+        // DEFAULT_REBOOT_WHEN_LOADING_AGAIN = true;
     }
 
     if (gCore->console == ARC)
