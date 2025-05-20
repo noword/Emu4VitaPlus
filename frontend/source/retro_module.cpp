@@ -1,4 +1,5 @@
 #include <psp2/kernel/modulemgr.h>
+#include <psp2/kernel/threadmgr.h>
 #include <libretro.h>
 #include <string.h>
 #include "retro_module.h"
@@ -11,14 +12,16 @@ extern "C"
 {
     extern unsigned _newlib_heap_size;
     extern char *_newlib_heap_base, *_newlib_heap_end, *_newlib_heap_cur;
-    extern char _newlib_sbrk_mutex[32];
+    extern SceKernelLwMutexWork _newlib_sbrk_mutex;
 };
 
 struct Heap
 {
     unsigned _newlib_heap_size;
-    char *_newlib_heap_base, *_newlib_heap_end, *_newlib_heap_cur;
-    char _newlib_sbrk_mutex[32];
+    char *_newlib_heap_base;
+    char *_newlib_heap_end;
+    char *_newlib_heap_cur;
+    SceKernelLwMutexWork _newlib_sbrk_mutex;
 };
 
 RetroModule::RetroModule(const char *name)
@@ -30,9 +33,8 @@ RetroModule::RetroModule(const char *name)
     Heap heap{_newlib_heap_size,
               _newlib_heap_base,
               _newlib_heap_end,
-              _newlib_heap_cur};
-
-    memcpy(heap._newlib_sbrk_mutex, _newlib_sbrk_mutex, sizeof(_newlib_sbrk_mutex));
+              _newlib_heap_cur,
+              _newlib_sbrk_mutex};
 
     LOG_DEBUG_VALUE(_newlib_heap_size);
     LOG_DEBUG_VALUE(_newlib_heap_base);

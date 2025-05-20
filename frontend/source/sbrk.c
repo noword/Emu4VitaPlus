@@ -17,7 +17,7 @@
 int _newlib_heap_memblock;
 unsigned _newlib_heap_size;
 char *_newlib_heap_base, *_newlib_heap_end, *_newlib_heap_cur;
-char _newlib_sbrk_mutex[32] __attribute__((aligned(8)));
+SceKernelLwMutexWork _newlib_sbrk_mutex __attribute__((aligned(8)));
 
 extern int _newlib_heap_size_user __attribute__((weak));
 
@@ -25,11 +25,11 @@ extern int _newlib_heap_size_user __attribute__((weak));
 
 void *_sbrk_r(struct _reent *reent, ptrdiff_t incr)
 {
-	if (sceKernelLockLwMutex((struct SceKernelLwMutexWork *)_newlib_sbrk_mutex, 1, 0) < 0)
+	if (sceKernelLockLwMutex(&_newlib_sbrk_mutex, 1, 0) < 0)
 		goto fail;
 	if (!_newlib_heap_base || _newlib_heap_cur + incr >= _newlib_heap_end)
 	{
-		sceKernelUnlockLwMutex((struct SceKernelLwMutexWork *)_newlib_sbrk_mutex, 1);
+		sceKernelUnlockLwMutex(&_newlib_sbrk_mutex, 1);
 	fail:
 		reent->_errno = ENOMEM;
 		return (void *)-1;
@@ -38,14 +38,17 @@ void *_sbrk_r(struct _reent *reent, ptrdiff_t incr)
 	char *prev_heap_end = _newlib_heap_cur;
 	_newlib_heap_cur += incr;
 
-	sceKernelUnlockLwMutex((struct SceKernelLwMutexWork *)_newlib_sbrk_mutex, 1);
+	sceKernelUnlockLwMutex(&_newlib_sbrk_mutex, 1);
+
+	printf("frontend alloc at %08x, size: %08x", prev_heap_end, incr);
+
 	return (void *)prev_heap_end;
 }
 
 void _init_vita_heap(void)
 {
 	// Create a mutex to use inside _sbrk_r
-	if (sceKernelCreateLwMutex((struct SceKernelLwMutexWork *)_newlib_sbrk_mutex, "sbrk mutex", 0, 0, 0) < 0)
+	if (sceKernelCreateLwMutex(&_newlib_sbrk_mutex, "sbrk mutex", 0, 0, 0) < 0)
 	{
 		goto failure;
 	}
@@ -90,7 +93,7 @@ failure:
 void _free_vita_heap(void)
 {
 	// Destroy the sbrk mutex
-	sceKernelDeleteLwMutex((struct SceKernelLwMutexWork *)_newlib_sbrk_mutex);
+	sceKernelDeleteLwMutex(&_newlib_sbrk_mutex);
 
 	// Free the heap memblock to avoid memory leakage.
 	sceKernelFreeMemBlock(_newlib_heap_memblock);

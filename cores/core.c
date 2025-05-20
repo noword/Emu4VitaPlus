@@ -1,5 +1,6 @@
 #include <psp2/kernel/clib.h>
 #include <psp2/kernel/modulemgr.h>
+#include <psp2/kernel/threadmgr.h>
 #include <stdio.h>
 #include <libretro.h>
 #include <string.h>
@@ -18,7 +19,7 @@ const int sceKernelPreloadModuleInhibit = SCE_KERNEL_PRELOAD_INHIBIT_LIBC |
 
 extern unsigned _newlib_heap_size;
 extern char *_newlib_heap_base, *_newlib_heap_end, *_newlib_heap_cur;
-extern char _newlib_sbrk_mutex[32];
+extern SceKernelLwMutexWork _newlib_sbrk_mutex;
 
 extern int _newlib_vm_memblock;
 extern int _newlib_vm_size;
@@ -31,8 +32,10 @@ extern void __libc_fini_array();
 struct Heap
 {
     unsigned _newlib_heap_size;
-    char *_newlib_heap_base, *_newlib_heap_end, *_newlib_heap_cur;
-    char _newlib_sbrk_mutex[32];
+    char *_newlib_heap_base;
+    char *_newlib_heap_end;
+    char *_newlib_heap_cur;
+    SceKernelLwMutexWork _newlib_sbrk_mutex;
 };
 
 int module_stop(SceSize argc, const void *args)
@@ -58,7 +61,7 @@ int module_start(SceSize argc, void *args)
     _newlib_heap_base = heap->_newlib_heap_base;
     _newlib_heap_end = heap->_newlib_heap_end;
     _newlib_heap_cur = heap->_newlib_heap_cur;
-    memcpy(_newlib_sbrk_mutex, heap->_newlib_sbrk_mutex, sizeof(_newlib_sbrk_mutex));
+    _newlib_sbrk_mutex = heap->_newlib_sbrk_mutex;
 
     _init_vita_heap();
     __libc_init_array();
