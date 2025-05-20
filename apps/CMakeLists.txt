@@ -29,6 +29,7 @@ endif()
 add_compile_definitions(
     DEFAULT_CORE_NAME="${CORE}"
     APP_VER_STR="${APP_VER}"
+    SCE_LIBC_SIZE=0x400000
 )
 
 include_directories(

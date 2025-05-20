@@ -71,7 +71,6 @@ bool EnvironmentCallback(unsigned cmd, void *data)
                 gEmulator->SetupKeys();
             }
         }
-        // TODO: Support Rotation
         break;
 
     case RETRO_ENVIRONMENT_GET_CAN_DUPE:
