@@ -17,12 +17,8 @@ const int sceKernelPreloadModuleInhibit = SCE_KERNEL_PRELOAD_INHIBIT_LIBC |
                                           SCE_KERNEL_PRELOAD_INHIBIT_APPUTIL |
                                           SCE_KERNEL_PRELOAD_INHIBIT_LIBSCEFT2;
 
-extern unsigned _newlib_heap_size;
-extern char *_newlib_heap_base, *_newlib_heap_end, *_newlib_heap_cur;
-extern SceKernelLwMutexWork _newlib_sbrk_mutex;
-
-extern int _newlib_vm_memblock;
-extern int _newlib_vm_size;
+extern char **_newlib_heap_base, **_newlib_heap_end, **_newlib_heap_cur;
+extern SceKernelLwMutexWork *_newlib_sbrk_mutex;
 
 extern void _init_vita_heap(void);
 extern void _free_vita_heap(void);
@@ -31,11 +27,10 @@ extern void __libc_fini_array();
 
 struct Heap
 {
-    unsigned _newlib_heap_size;
-    char *_newlib_heap_base;
-    char *_newlib_heap_end;
-    char *_newlib_heap_cur;
-    SceKernelLwMutexWork _newlib_sbrk_mutex;
+    char **_newlib_heap_base;
+    char **_newlib_heap_end;
+    char **_newlib_heap_cur;
+    SceKernelLwMutexWork *_newlib_sbrk_mutex;
 };
 
 int module_stop(SceSize argc, const void *args)
@@ -57,7 +52,6 @@ int module_start(SceSize argc, void *args)
 {
     struct Heap *heap = *(struct Heap **)args;
 
-    _newlib_heap_size = heap->_newlib_heap_size;
     _newlib_heap_base = heap->_newlib_heap_base;
     _newlib_heap_end = heap->_newlib_heap_end;
     _newlib_heap_cur = heap->_newlib_heap_cur;
@@ -66,13 +60,9 @@ int module_start(SceSize argc, void *args)
     _init_vita_heap();
     __libc_init_array();
 
-    PRINT_VALUE(_newlib_heap_size);
-    PRINT_VALUE(_newlib_heap_base);
-    PRINT_VALUE(_newlib_heap_end);
-    PRINT_VALUE(_newlib_heap_cur);
-
-    PRINT_VALUE(_newlib_vm_memblock);
-    PRINT_VALUE(_newlib_vm_size);
+    PRINT_VALUE(*_newlib_heap_base);
+    PRINT_VALUE(*_newlib_heap_end);
+    PRINT_VALUE(*_newlib_heap_cur);
 
     PRINT_VALUE(module_stop);
     PRINT_VALUE(module_exit);

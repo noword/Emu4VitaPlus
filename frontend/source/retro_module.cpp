@@ -10,36 +10,32 @@
 
 extern "C"
 {
-    extern unsigned _newlib_heap_size;
     extern char *_newlib_heap_base, *_newlib_heap_end, *_newlib_heap_cur;
     extern SceKernelLwMutexWork _newlib_sbrk_mutex;
 };
 
 struct Heap
 {
-    unsigned _newlib_heap_size;
-    char *_newlib_heap_base;
-    char *_newlib_heap_end;
-    char *_newlib_heap_cur;
-    SceKernelLwMutexWork _newlib_sbrk_mutex;
+    char **_newlib_heap_base;
+    char **_newlib_heap_end;
+    char **_newlib_heap_cur;
+    SceKernelLwMutexWork *_newlib_sbrk_mutex;
 };
 
 RetroModule::RetroModule(const char *name)
 {
     LogFunctionName;
 
-    char module[SCE_FIOS_PATH_MAX];
-
-    Heap heap{_newlib_heap_size,
-              _newlib_heap_base,
-              _newlib_heap_end,
-              _newlib_heap_cur,
-              _newlib_sbrk_mutex};
-
-    LOG_DEBUG_VALUE(_newlib_heap_size);
     LOG_DEBUG_VALUE(_newlib_heap_base);
     LOG_DEBUG_VALUE(_newlib_heap_end);
     LOG_DEBUG_VALUE(_newlib_heap_cur);
+
+    char module[SCE_FIOS_PATH_MAX];
+
+    Heap heap{&_newlib_heap_base,
+              &_newlib_heap_end,
+              &_newlib_heap_cur,
+              &_newlib_sbrk_mutex};
 
     Heap *p = &heap;
     snprintf(module, SCE_FIOS_PATH_MAX, "app0:modules/%s.suprx", name);

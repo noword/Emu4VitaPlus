@@ -4,9 +4,9 @@
 #include <psp2/kernel/sysmem.h>
 #include <psp2/kernel/threadmgr.h>
 
-unsigned _newlib_heap_size;
-char *_newlib_heap_base, *_newlib_heap_end, *_newlib_heap_cur;
-SceKernelLwMutexWork _newlib_sbrk_mutex __attribute__((aligned(8)));
+unsigned *_newlib_heap_size;
+char **_newlib_heap_base, **_newlib_heap_end, **_newlib_heap_cur;
+SceKernelLwMutexWork *_newlib_sbrk_mutex;
 
 int _newlib_vm_memblock;
 int _newlib_vm_size;
@@ -17,20 +17,20 @@ extern int _newlib_vm_size_user __attribute__((weak));
 
 void *_sbrk_r(struct _reent *reent, ptrdiff_t incr)
 {
-	if (sceKernelLockLwMutex(&_newlib_sbrk_mutex, 1, 0) < 0)
+	if (sceKernelLockLwMutex(_newlib_sbrk_mutex, 1, 0) < 0)
 		goto fail;
-	if (!_newlib_heap_base || _newlib_heap_cur + incr >= _newlib_heap_end)
+	if (!*_newlib_heap_base || *_newlib_heap_cur + incr >= *_newlib_heap_end)
 	{
-		sceKernelUnlockLwMutex(&_newlib_sbrk_mutex, 1);
+		sceKernelUnlockLwMutex(_newlib_sbrk_mutex, 1);
 	fail:
 		reent->_errno = ENOMEM;
 		return (void *)-1;
 	}
 
-	char *prev_heap_end = _newlib_heap_cur;
-	_newlib_heap_cur += incr;
+	char *prev_heap_end = *_newlib_heap_cur;
+	*_newlib_heap_cur += incr;
 
-	sceKernelUnlockLwMutex(&_newlib_sbrk_mutex, 1);
+	sceKernelUnlockLwMutex(_newlib_sbrk_mutex, 1);
 
 	printf("core alloc at %08x, size: %08x", prev_heap_end, incr);
 
