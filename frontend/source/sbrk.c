@@ -9,10 +9,12 @@
 #endif
 
 #ifdef SCE_LIBC_SIZE
-#define RAM_THRESHOLD 0x2000000 + SCE_LIBC_SIZE
+#define RAM_THRESHOLD 0x7000000 + SCE_LIBC_SIZE
 #else
-#define RAM_THRESHOLD 0x2000000
+#define RAM_THRESHOLD 0x7000000
 #endif
+
+extern unsigned RESERVED_MEMORY;
 
 int _newlib_heap_memblock;
 unsigned _newlib_heap_size;
@@ -40,7 +42,7 @@ void *_sbrk_r(struct _reent *reent, ptrdiff_t incr)
 
 	sceKernelUnlockLwMutex(&_newlib_sbrk_mutex, 1);
 
-	printf("frontend alloc at %08x, size: %016lx: reent: %08x", prev_heap_end, incr, reent);
+	// printf("frontend alloc at %08x, size: %016lx: reent: %08x", prev_heap_end, incr, reent);
 
 	return (void *)prev_heap_end;
 }
@@ -66,7 +68,7 @@ void _init_vita_heap(void)
 	}
 	else
 	{
-		_newlib_heap_size = info.size_user - RAM_THRESHOLD;
+		_newlib_heap_size = info.size_user - RAM_THRESHOLD - RESERVED_MEMORY;
 	}
 
 	_newlib_heap_memblock = sceKernelAllocMemBlock("Newlib heap", 0x0c20d060, _newlib_heap_size, 0);

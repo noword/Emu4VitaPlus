@@ -13,7 +13,15 @@ unsigned int sceLibcHeapExtendedAlloc __attribute__((used)) = 1;
 unsigned int sceLibcHeapSize __attribute__((used)) = SCE_LIBC_HEAP_SIZE_EXTENDED_ALLOC_NO_LIMIT;
 
 unsigned int sceUserMainThreadStackSize __attribute__((used)) = 0x100000; // 1M
-// int _newlib_heap_size_user __attribute__((used)) = 0x4000000;             // 64M
+
+unsigned RESERVED_MEMORY = 0;
+extern "C"
+{
+    extern void _init_vita_newlib();
+    extern void _free_vita_newlib();
+    extern void __libc_init_array();
+    extern void __libc_fini_array();
+}
 
 static void ParseParams(int argc, char *const argv[])
 {
@@ -65,6 +73,18 @@ static void LogDefines()
 int main(int argc, char *const argv[])
 {
     ParseParams(argc, argv);
+    // if (strcmp(CORE_NAME, "fbneo") == 0 || strcmp(CORE_NAME, "km_fbneo_xtreme_amped") == 0)
+    // {
+    //     RESERVED_MEMORY = 10 * 1024 * 1024;
+
+    //     __libc_fini_array();
+    //     _free_vita_newlib();
+
+    //     _init_vita_newlib();
+    //     __libc_init_array();
+    //     ParseParams(argc, argv);
+    // }
+
     if (!InitDefines())
     {
         return -1;
