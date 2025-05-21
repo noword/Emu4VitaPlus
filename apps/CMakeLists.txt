@@ -39,8 +39,7 @@ include_directories(
     ../frontend/source/core_spec
     ../deps/libretro-common/include
     ../deps/7-Zip/C
-    ../share/source
-    ../apps)
+    ../share/source)
 
 file(GLOB SRC ../frontend/source/core_spec/*.cpp)
 

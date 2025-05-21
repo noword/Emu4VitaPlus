@@ -9,9 +9,9 @@
 #endif
 
 #ifdef SCE_LIBC_SIZE
-#define RAM_THRESHOLD 0x3000000 + SCE_LIBC_SIZE
+#define RAM_THRESHOLD 0x2000000 + SCE_LIBC_SIZE
 #else
-#define RAM_THRESHOLD 0x3000000
+#define RAM_THRESHOLD 0x2000000
 #endif
 
 int _newlib_heap_memblock;
@@ -40,7 +40,7 @@ void *_sbrk_r(struct _reent *reent, ptrdiff_t incr)
 
 	sceKernelUnlockLwMutex(&_newlib_sbrk_mutex, 1);
 
-	printf("frontend alloc at %08x, size: %08x", prev_heap_end, incr);
+	printf("frontend alloc at %08x, size: %016lx: reent: %08x", prev_heap_end, incr, reent);
 
 	return (void *)prev_heap_end;
 }

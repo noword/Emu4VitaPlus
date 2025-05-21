@@ -6,7 +6,7 @@
 #include "file.h"
 #include "log.h"
 
-#define LOG_DEBUG_VALUE(FUNC) LogDebug("%08x " #FUNC, FUNC);
+#define LOG_DEBUG_VALUE(FUNC) LogInfo("%08x " #FUNC, FUNC);
 
 extern "C"
 {
@@ -29,6 +29,7 @@ RetroModule::RetroModule(const char *name)
     LOG_DEBUG_VALUE(_newlib_heap_base);
     LOG_DEBUG_VALUE(_newlib_heap_end);
     LOG_DEBUG_VALUE(_newlib_heap_cur);
+    LogInfo("_newlib_heap_size: %d", _newlib_heap_end - _newlib_heap_base);
 
     char module[SCE_FIOS_PATH_MAX];
 

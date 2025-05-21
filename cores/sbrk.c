@@ -32,7 +32,7 @@ void *_sbrk_r(struct _reent *reent, ptrdiff_t incr)
 
 	sceKernelUnlockLwMutex(_newlib_sbrk_mutex, 1);
 
-	printf("core alloc at %08x, size: %08x", prev_heap_end, incr);
+	printf("core alloc at %08x, size: %016lx: reent: %08x", prev_heap_end, incr, reent);
 
 	return (void *)prev_heap_end;
 }
