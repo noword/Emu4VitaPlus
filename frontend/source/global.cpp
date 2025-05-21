@@ -806,7 +806,7 @@ bool InitDefines()
     snprintf(CORE_INPUT_DESC_PATH, DEFINE_PATH_LENGTH, "%s/input_desc.ini", CORE_DATA_DIR);
     snprintf(CORE_FAVOURITE_PATH, DEFINE_PATH_LENGTH, "%s/favourite.ini", CORE_DATA_DIR);
 
-    if (gCore->console & (ARC | AMIGA | ATARI2600 | ATARI5200 | ATARI7800 | ZXS | PC98 | MSX | C64 | X68000))
+    if (gCore->console & (ARC | DOS | AMIGA | ATARI2600 | ATARI5200 | ATARI7800 | ZXS | PC98 | MSX | C64 | X68000))
     {
         DEFAULT_ENABLE_REWIND = false;
         DEFAULT_REWIND_BUF_SIZE = 50;
