@@ -78,7 +78,7 @@ int main(int argc, char *const argv[])
     LogInfo("%d", sceLibcHeapExtendedAlloc);
     LogInfo("%d", sceLibcHeapSize);
 
-    LogDebug("stack free size: %d", sceKernelCheckThreadStack());
+    LogDebug("stack size: %d", sceKernelCheckThreadStack());
 
     {
         App app(argc, argv);

@@ -115,6 +115,7 @@ private:
     char *_buf;
     int _buf_len;
     SceKernelLwMutexWork _mutex;
+    FILE *_fp;
 };
 
 #if LOG_LEVEL != LOG_LEVEL_OFF

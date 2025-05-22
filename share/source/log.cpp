@@ -9,6 +9,10 @@
 
 #if LOG_LEVEL != LOG_LEVEL_OFF
 Log *gLog = NULL;
+#if LOG_LEVEL > LOG_LEVEL_DEBUG
+#define LOG_QUICK
+#endif
+
 #endif
 
 Log::Log(const char *name, int buf_len)
@@ -18,6 +22,9 @@ Log::Log(const char *name, int buf_len)
 	_buf = new char[buf_len];
 	_buf_len = buf_len;
 	sceKernelCreateLwMutex(&_mutex, "log_mutex", 0, 0, NULL);
+#ifdef LOG_QUICK
+	_fp = fopen(name, "w");
+#endif
 }
 
 Log::~Log()
@@ -25,6 +32,10 @@ Log::~Log()
 	sceKernelLockLwMutex(&_mutex, 1, NULL);
 	delete[] _buf;
 	sceKernelDeleteLwMutex(&_mutex);
+
+#ifdef LOG_QUICK
+	fclose(_fp);
+#endif
 }
 
 void Log::log(int log_level, const char *format, ...)
@@ -39,14 +50,20 @@ void Log::log(int log_level, const char *format, ...)
 void Log::log_v(int log_level, const char *format, va_list args)
 {
 	sceKernelLockLwMutex(&_mutex, 1, NULL);
-	FILE *fp = fopen(_name.c_str(), "a");
-	if (fp)
+#ifndef LOG_QUICK
+	_fp = fopen(_name.c_str(), "a");
+#endif
+	if (_fp)
 	{
 		vsnprintf(_buf, _buf_len, format, args);
 		SceDateTime time;
 		sceRtcGetCurrentClockLocalTime(&time);
-		fprintf(fp, "[%c] %02d:%02d:%02d.%03d %s\n", LogLevelChars[log_level], time.hour, time.minute, time.second, time.microsecond / 1000, _buf);
-		fclose(fp);
+		fprintf(_fp, "[%c] %02d:%02d:%02d.%03d %s\n", LogLevelChars[log_level], time.hour, time.minute, time.second, time.microsecond / 1000, _buf);
+#ifndef LOG_QUICK
+		fclose(_fp);
+#else
+		fflush(_fp);
+#endif
 	}
 	sceKernelUnlockLwMutex(&_mutex, 1);
 }
