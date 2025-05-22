@@ -4,23 +4,17 @@
 #include "app.h"
 #include "log.h"
 #include "defines.h"
-#include "retro_module.h"
-#include "cores.h"
 #include "global.h"
 
 #define SCE_LIBC_HEAP_SIZE_EXTENDED_ALLOC_NO_LIMIT (0xffffffffU)
 unsigned int sceLibcHeapExtendedAlloc __attribute__((used)) = 1;
 unsigned int sceLibcHeapSize __attribute__((used)) = SCE_LIBC_HEAP_SIZE_EXTENDED_ALLOC_NO_LIMIT;
-
 unsigned int sceUserMainThreadStackSize __attribute__((used)) = 0x100000; // 1M
 
-unsigned RESERVED_MEMORY = 0;
 extern "C"
 {
-    extern void _init_vita_newlib();
-    extern void _free_vita_newlib();
-    extern void __libc_init_array();
-    extern void __libc_fini_array();
+    extern unsigned _newlib_heap_size;
+    extern char *_newlib_heap_end, *_newlib_heap_cur;
 }
 
 static void ParseParams(int argc, char *const argv[])
@@ -30,11 +24,6 @@ static void ParseParams(int argc, char *const argv[])
         if (strcmp(argv[i], "--arch") == 0)
         {
             gBootFromArch = true;
-        }
-        else if (strcmp(argv[i], "--core") == 0)
-        {
-            i++;
-            strcpy(CORE_NAME, argv[i]);
         }
         else if (strcmp(argv[i], "--rom") == 0)
         {
@@ -73,22 +62,6 @@ static void LogDefines()
 int main(int argc, char *const argv[])
 {
     ParseParams(argc, argv);
-    // if (strcmp(CORE_NAME, "fbneo") == 0 || strcmp(CORE_NAME, "km_fbneo_xtreme_amped") == 0)
-    // {
-    //     RESERVED_MEMORY = 10 * 1024 * 1024;
-
-    //     __libc_fini_array();
-    //     _free_vita_newlib();
-
-    //     _init_vita_newlib();
-    //     __libc_init_array();
-    //     ParseParams(argc, argv);
-    // }
-
-    if (!InitDefines())
-    {
-        return -1;
-    }
 
     File::MakeDirs(CORE_DATA_DIR);
     File::MakeDirs(CORE_SYSTEM_DIR);
@@ -98,8 +71,6 @@ int main(int argc, char *const argv[])
     LogInfo("updated on " __DATE__ " " __TIME__);
 
     LogDefines();
-
-    RetroModule *module = new RetroModule(gCore->core_name);
 
     // must use for keeping this variables
     // LogInfo("%d", _newlib_heap_size_user);
@@ -111,10 +82,11 @@ int main(int argc, char *const argv[])
 
     {
         App app(argc, argv);
+        LogInfo("_newlib_heap_size: %d", _newlib_heap_size);
+        LogInfo("free heap: %d", _newlib_heap_end - _newlib_heap_cur);
         app.Run();
     }
 
-    delete module;
     LogInfo("Exit main()");
 
     delete gLog;

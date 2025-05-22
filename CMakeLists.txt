@@ -111,6 +111,48 @@ set(CORE_SHORTS
     vice
     px68k)
 
+set(CONSOLES
+    GBA
+    GBA
+    GBC
+    ARC
+    ARC
+    ARC
+    SNES
+    SNES
+    SNES
+    NES
+    NES
+    MD
+    MD
+    MD
+    PCE
+    PCE
+    NGP
+    WSC
+    PS
+    ATARI2600
+    ATARI7800
+    ATARI5200
+    DOS
+    ARC
+    ARC
+    VECTREX
+    AMIGA
+    ZXS
+    NEOGEOCD
+    SNES
+    ARC
+    ARC
+    SNES
+    GBC
+    PC98
+    MSX
+    MSX
+    PC98
+    C64
+    X68000)
+
 set(TITLE_IDS
     GPSP4VITA
     VBANEXT4V
@@ -202,37 +244,17 @@ list(LENGTH CORES length)
 math(EXPR length "${length} - 1")
 
 foreach(index RANGE ${length})
+    list(GET CONSOLES ${index} CONSOLE)
     list(GET CORES ${index} CORE)
     list(GET CORE_SHORTS ${index} CORE_SHORT)
     list(GET TITLE_IDS ${index} SFO_TITLE_ID)
 
     if(BUILD STREQUAL "All" OR BUILD STREQUAL "Arch" OR BUILD STREQUAL ${CORE})
-        # create core suprx
         add_subdirectory(cores cores/${CORE})
-
-        if(CREATE_STUB)
-            # only create once
-            set(CREATE_STUB OFF)
-        endif()
-
-        # set(LIBRETRO_SUPRX ${CORE}_libretro.suprx)
-        # list(APPEND PRIVATE_PKG_FILES FILE ${CMAKE_CURRENT_BINARY_DIR}/cores/${LIBRETRO_SUPRX} ${LIBRETRO_SUPRX})
-
-        # add_subdirectory(apps/${CORE})
-    endif()
-
-    if((NOT BUILD STREQUAL "Arch") AND(BUILD STREQUAL "All" OR BUILD STREQUAL ${CORE}))
-        # create standalone vpk
         add_subdirectory(apps apps/${CORE})
     endif()
 endforeach()
 
 if(BUILD STREQUAL "All" OR BUILD STREQUAL "Arch")
-    # create arch vpk
-    set(CORE frontend)
-    set(CORE_SHORT frontend)
-    add_subdirectory(apps apps/arch)
-
-    # create arch vpk
     add_subdirectory(arch)
 endif()

@@ -1,3 +1,512 @@
+#include <psp2common/ctrl.h>
+#include <libretro.h>
 #include "defines.h"
+#include "input.h"
 
-char CORE_NAME[DEFINE_STRING_LENGTH] = DEFAULT_CORE_NAME;
+const char CONSOLE_DIR[] = "app0:data/" CONSOLE;
+
+#define _CORE_DATA_DIR ROOT_DIR "/" _CORE_SHORT_NAME
+
+const char CORE_SHORT_NAME[] = _CORE_SHORT_NAME;
+const char CORE_DATA_DIR[] = _CORE_DATA_DIR;
+const char CORE_SAVEFILES_DIR[] = _CORE_DATA_DIR "/savefiles";
+const char CORE_CHEATS_DIR[] = _CORE_DATA_DIR "/cheats";
+const char CORE_LOG_PATH[] = _CORE_DATA_DIR "/Emu4Vita++.log";
+const char CORE_CONFIG_PATH[] = _CORE_DATA_DIR "/config.ini";
+const char CORE_INPUT_DESC_PATH[] = _CORE_DATA_DIR "/input_desc.ini";
+const char CORE_FAVOURITE_PATH[] = _CORE_DATA_DIR "/favourite.ini";
+
+#if defined(ARC_BUILD) || defined(DOS_BUILD) || defined(AMIGA_BUILD) || defined(ATARIST_BUILD) || defined(ZXS_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD)
+const bool DEFAULT_ENABLE_REWIND = false;
+const size_t DEFAULT_REWIND_BUF_SIZE = 50;
+#else
+const bool DEFAULT_ENABLE_REWIND = true;
+const size_t DEFAULT_REWIND_BUF_SIZE = 10;
+#endif
+
+#if defined(ARC_BUILD)
+const bool IS_ARCADE = true;
+const bool DEFAULT_INDEPENDENT_CORE_CONFIG = true;
+#else
+const bool IS_ARCADE = false;
+const bool DEFAULT_INDEPENDENT_CORE_CONFIG = false;
+#endif
+
+#if defined(NES_BUILD) || defined(GENESIS_PLUS_GX_BUILD) || defined(SNES9X2010_BUILD)
+const bool DEFAULT_LIGHTGUN = true;
+#else
+const bool DEFAULT_LIGHTGUN = false;
+#endif
+
+#if defined(SNES9X2010_BUILD) || defined(DOS_BUILD)
+const bool DEFAULT_MOUSE = CONFIG_MOUSE_REAR;
+#else
+const bool DEFAULT_MOUSE = CONFIG_MOUSE_DISABLE;
+#endif
+
+#if defined(DOS_BUILD) || defined(AMIGA_BUILD) || defined(ARC_BUILD) || defined(ZXS_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD)
+const bool DEFAULT_AUTO_SAVE = false;
+const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = true;
+#else
+const bool DEFAULT_AUTO_SAVE = true;
+const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = false;
+#endif
+
+#if defined(DOS_BUILD) || defined(AMIGA_BUILD) || defined(ZXS_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD) || defined(ATARI5200_BUILD)
+const bool ENABLE_KEYBOARD = true;
+#else
+const bool ENABLE_KEYBOARD = false;
+#endif
+
+#if defined(VBA_NEXT_BUILD)
+const bool CONTROL_SPEED_BY_VIDEO = true;
+#else
+const bool CONTROL_SPEED_BY_VIDEO = false;
+#endif
+
+#if defined(ARC_BUILD)
+const bool DEFAULT_INDEPENDENT_CONFIG = true;
+#else
+const bool DEFAULT_INDEPENDENT_CONFIG = false;
+#endif
+
+const std::vector<uint8_t>
+    RETRO_KEYS = {
+        RETRO_DEVICE_ID_NONE,
+        RETRO_DEVICE_ID_JOYPAD_UP,
+        RETRO_DEVICE_ID_JOYPAD_DOWN,
+        RETRO_DEVICE_ID_JOYPAD_LEFT,
+        RETRO_DEVICE_ID_JOYPAD_RIGHT,
+#if defined(GBA_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
+#elif defined(ARC_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_X,
+        RETRO_DEVICE_ID_JOYPAD_Y,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
+        RETRO_DEVICE_ID_JOYPAD_L2,
+        RETRO_DEVICE_ID_JOYPAD_R2,
+#elif defined(SNES_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_X,
+        RETRO_DEVICE_ID_JOYPAD_Y,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
+#elif defined(NES_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
+        RETRO_DEVICE_ID_JOYPAD_R2,
+#elif defined(GBC_BUILD) || defined(NGP_BUILD) || defined(WSC_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+#elif defined(MD_BUILD) || defined(PCE_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_X,
+        RETRO_DEVICE_ID_JOYPAD_Y,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
+#elif defined(PS_BUILD) || defined(DOS_BUILD) || defined(NEOCD_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_X,
+        RETRO_DEVICE_ID_JOYPAD_Y,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
+        RETRO_DEVICE_ID_JOYPAD_L2,
+        RETRO_DEVICE_ID_JOYPAD_R2,
+        RETRO_DEVICE_ID_JOYPAD_L3,
+        RETRO_DEVICE_ID_JOYPAD_R3,
+#elif defined(ATARI2600_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
+        RETRO_DEVICE_ID_JOYPAD_L2,
+        RETRO_DEVICE_ID_JOYPAD_R2,
+        RETRO_DEVICE_ID_JOYPAD_L3,
+        RETRO_DEVICE_ID_JOYPAD_R3,
+#elif defined(ATARI5200_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_X,
+        RETRO_DEVICE_ID_JOYPAD_Y,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
+        RETRO_DEVICE_ID_JOYPAD_L2,
+        RETRO_DEVICE_ID_JOYPAD_R2,
+        RETRO_DEVICE_ID_JOYPAD_L3,
+        RETRO_DEVICE_ID_JOYPAD_R3,
+#elif defined(ATARI7800_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_X,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
+#elif defined(ATARIST_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_Y,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
+        RETRO_DEVICE_ID_JOYPAD_L2,
+#elif defined(VECTREX_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_X,
+        RETRO_DEVICE_ID_JOYPAD_Y,
+#elif defined(AMIGA_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
+        RETRO_DEVICE_ID_JOYPAD_L2,
+        RETRO_DEVICE_ID_JOYPAD_R2,
+#elif defined(ZXS_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_X,
+        RETRO_DEVICE_ID_JOYPAD_Y,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
+#else
+#error "unknown build"
+#endif
+        RETRO_DEVICE_ID_JOYPAD_START,
+        RETRO_DEVICE_ID_JOYPAD_SELECT,
+};
+
+const std::vector<ControlMapConfig> CONTROL_MAPS = {
+    {SCE_CTRL_UP, RETRO_DEVICE_ID_JOYPAD_UP},
+    {SCE_CTRL_DOWN, RETRO_DEVICE_ID_JOYPAD_DOWN},
+    {SCE_CTRL_LEFT, RETRO_DEVICE_ID_JOYPAD_LEFT},
+    {SCE_CTRL_RIGHT, RETRO_DEVICE_ID_JOYPAD_RIGHT},
+#if defined(GBA_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_B, true},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_A, true},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2},
+    {SCE_CTRL_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
+#elif defined(ARC_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_X},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_Y},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2, RETRO_DEVICE_ID_JOYPAD_L2},
+    {SCE_CTRL_R2, RETRO_DEVICE_ID_JOYPAD_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
+#elif defined(SNES_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_X},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_Y},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2},
+    {SCE_CTRL_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
+#elif defined(NES_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_A, true},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_B, true},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2},
+    {SCE_CTRL_R2, RETRO_DEVICE_ID_JOYPAD_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
+#elif defined(GBC_BUILD) || defined(NGP_BUILD) || defined(WSC_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_A, true},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_B, true},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1},
+    {SCE_CTRL_R1},
+    {SCE_CTRL_L2},
+    {SCE_CTRL_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
+#elif defined(MD_BUILD) || defined(PCE_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_X},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_Y},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2},
+    {SCE_CTRL_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
+#elif defined(PS_BUILD) || defined(DOS_BUILD) || defined(NEOCD_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_X},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_Y},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2, RETRO_DEVICE_ID_JOYPAD_L2},
+    {SCE_CTRL_R2, RETRO_DEVICE_ID_JOYPAD_R2},
+    {SCE_CTRL_L3, RETRO_DEVICE_ID_JOYPAD_L3},
+    {SCE_CTRL_R3, RETRO_DEVICE_ID_JOYPAD_R3},
+#elif defined(ATARI2600_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2, RETRO_DEVICE_ID_JOYPAD_L2},
+    {SCE_CTRL_R2, RETRO_DEVICE_ID_JOYPAD_R2},
+    {SCE_CTRL_L3, RETRO_DEVICE_ID_JOYPAD_L3},
+    {SCE_CTRL_R3, RETRO_DEVICE_ID_JOYPAD_R3},
+#elif defined(ATARI5200_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_X},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_Y},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2, RETRO_DEVICE_ID_JOYPAD_L2},
+    {SCE_CTRL_R2, RETRO_DEVICE_ID_JOYPAD_R2},
+    {SCE_CTRL_L3, RETRO_DEVICE_ID_JOYPAD_L3},
+    {SCE_CTRL_R3, RETRO_DEVICE_ID_JOYPAD_R3},
+#elif defined(ATARI7800_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_X},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2},
+    {SCE_CTRL_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
+#elif defined(ATARIST_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_Y},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_Y},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2, RETRO_DEVICE_ID_JOYPAD_L2},
+    {SCE_CTRL_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
+#elif defined(VECTREX_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_X},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_Y},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1},
+    {SCE_CTRL_R1},
+    {SCE_CTRL_L2},
+    {SCE_CTRL_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
+#elif defined(AMIGA_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2, RETRO_DEVICE_ID_JOYPAD_L2},
+    {SCE_CTRL_R2, RETRO_DEVICE_ID_JOYPAD_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
+#elif defined(ZXS_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_X},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_Y},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2},
+    {SCE_CTRL_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
+#else
+#error "unknown build"
+#endif
+    {SCE_CTRL_LSTICK_UP, RETRO_DEVICE_ID_JOYPAD_UP},
+    {SCE_CTRL_LSTICK_DOWN, RETRO_DEVICE_ID_JOYPAD_DOWN},
+    {SCE_CTRL_LSTICK_LEFT, RETRO_DEVICE_ID_JOYPAD_LEFT},
+    {SCE_CTRL_LSTICK_RIGHT, RETRO_DEVICE_ID_JOYPAD_RIGHT},
+
+#if defined(ARC_BUILD)
+    {SCE_CTRL_RSTICK_UP, RETRO_DEVICE_ID_JOYPAD_UP},
+    {SCE_CTRL_RSTICK_DOWN, RETRO_DEVICE_ID_JOYPAD_DOWN},
+    {SCE_CTRL_RSTICK_LEFT, RETRO_DEVICE_ID_JOYPAD_LEFT},
+    {SCE_CTRL_RSTICK_RIGHT, RETRO_DEVICE_ID_JOYPAD_RIGHT},
+#else
+    {SCE_CTRL_RSTICK_UP},
+    {SCE_CTRL_RSTICK_DOWN},
+    {SCE_CTRL_RSTICK_LEFT},
+    {SCE_CTRL_RSTICK_RIGHT},
+#endif
+};
+
+const std::vector<std::pair<const char *, const char *>> DEFAULT_CORE_SETTINGS = {
+#if defined(DOSBOX_PURE_BUILD)
+    {"dosbox_pure_cycles", "max"},
+    {"dosbox_pure_force60fps", "true"}
+#elif defined(NEKOP2KAI_BUILD)
+    {"np2kai_clk_mult", "2"},
+    {"np2kai_joymode", "Keypad"}
+#elif defined(MAME2003_BUILD)
+    {"mame2003_rstick_to_btns", "disabled"}
+#elif defined(KM_MAME2003_XTREME_AMPED_BUILD)
+    {"mame2003-xtreme-amped-rstick_to_btns", "disabled"}
+#endif
+};
+
+const std::vector<BIOS> REQUIRED_BIOS = {
+#if defined(ATARI2600_BUILD)
+#elif defined(ATARI5200_BUILD)
+    {"5200.rom", 0x4248d3e3},
+    {"ATARIXL.ROM", 0x1f9cd270},
+    {"ATARIBAS.ROM", 0x7d684184},
+    {"ATARIOSA.ROM", 0x72b3fed4},
+    {"ATARIOSB.ROM", 0x3e28a1fe},
+#elif defined(ATARI7800_BUILD)
+    {"7800 BIOS (U).rom", 0x5d13730c},
+#elif defined(FUSE_BUILD)
+    {"fuse/128p-0.rom", 0},
+    {"fuse/128p-1.rom", 0},
+    {"fuse/trdos.rom", 0},
+    {"fuse/gluck.rom", 0},
+    {"fuse/256s-0.rom", 0},
+    {"fuse/256s-1.rom", 0},
+    {"fuse/256s-2.rom", 0},
+    {"fuse/256s-3.rom", 0},
+#elif defined(MSX_BUILD)
+    {"MSX.ROM", 0},
+    {"MSX2.ROM", 0},
+    {"MSX2EXT.ROM", 0},
+    {"MSX2P.ROM", 0},
+    {"MSX2PEXT.ROM", 0},
+    {"DISK.ROM", 0},
+    {"FMPAC.ROM", 0},
+    {"MSXDOS2.ROM", 0},
+    {"PAINTER.ROM", 0},
+    {"KANJI.ROM", 0},
+#elif defined(NES_BUILD)
+    {"disksys.rom", 0x5e607dcf},
+#elif defined(SNES_BUILD)
+#elif defined(MD_BUILD)
+#elif defined(NGP_BUILD)
+#elif defined(WSC_BUILD)
+#elif defined(PCE_BUILD)
+    {"syscard3.pce", 0},
+#elif defined(TGBDUAL_BUILD)
+#elif defined(GAMBATTE_BUILD)
+    {"gb_bios.bin", 0},
+    {"gbc_bios.bin", 0},
+#elif defined(GBA_BUILD)
+    {"gba_bios.bin", 0},
+#if defined(MGBA_BUILD)
+    {"gba_bios.bin", 0},
+    {"gb_bios.bin", 0},
+    {"gbc_bios.bin", 0},
+    {"sgb_bios.bin", 0},
+#endif
+#elif defined(NEOCD_BUILD)
+    {"neocd/neocd_f.rom", 0},
+    {"neocd/neocd_sf.rom", 0},
+    {"neocd/neocd_t.rom", 0},
+    {"neocd/neocd_st.rom", 0},
+    {"neocd/neocd_z.rom", 0},
+    {"neocd/neocd_sz.rom", 0},
+    {"neocd/front-sp1.bin", 0},
+    {"neocd/top-sp1.bin", 0},
+    {"neocd/neocd.bin", 0},
+    {"neocd/uni-bioscd.rom", 0},
+#elif defined(MAME2000_BUILD) || defined(MAME2003_BUILD) || defined(MAME2003PLUS_BUILD) || defined(MAME2000XTREME_BUILD)
+#elif defined(ARC_BUILD)
+#elif defined(DOS_BUILD)
+#elif defined(AMIGA_BUILD)
+#elif defined(VECTREX_BUILD)
+#elif defined(PS_BUILD)
+    {"PSXONPSP660.bin", 0},
+    {"scph101.bin", 0},
+    {"scph7001.bin", 0},
+    {"scph5501.bin", 0},
+    {"scph1001.bin", 0},
+#elif defined(PC98_BUILD)
+#if defined(NEKOP2_BUILD)
+#define NP2_PATH "np2/"
+#else // NEKOP2KAI_BUILD
+#define NP2_PATH "np2kai/"
+#endif
+    {NP2_PATH "font.bmp", 0},
+    {NP2_PATH "FONT.ROM", 0},
+    {NP2_PATH "bios.rom", 0},
+    {NP2_PATH "itf.rom", 0},
+    {NP2_PATH "sound.rom", 0},
+    {NP2_PATH "bios9821.rom", 0},
+    {NP2_PATH "d8000.rom", 0},
+    {NP2_PATH "2608_BD.WAV", 0},
+    {NP2_PATH "2608_SD.WAV", 0},
+    {NP2_PATH "2608_TOP.WAV", 0},
+    {NP2_PATH "2608_HH.WAV", 0},
+    {NP2_PATH "2608_TOM.WAV", 0},
+    {NP2_PATH "2608_RIM.WAV", 0},
+#elif defined(C64_BUILD)
+    {"vice/JiffyDOS_C64.bin", 0},
+    {"vice/JiffyDOS_1541-II.bin", 0},
+    {"vice/JiffyDOS_1571_repl310654.bin", 0},
+    {"vice/JiffyDOS_1581.bin", 0},
+    {"vice/scpu-dos-1.4.bin", 0},
+    {"vice/scpu-dos-2.04.bin", 0},
+    {"vice/SCPU64/JiffyDOS_C128.bin", 0},
+#elif defined(X68000_BUILD)
+    {"keropi/iplrom.dat", 0},
+    {"keropi/cgrom.dat", 0},
+#else
+#error "unknown build"
+#endif
+};

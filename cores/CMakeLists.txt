@@ -3,6 +3,7 @@ cmake_minimum_required(VERSION 3.12)
 set(CORE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${CORE})
 set(CORE_MAKEFILE_NAME Makefile)
 set(CORE_ARGS platform=vita EXTERNAL_ZLIB=1)
+set(LIBRETRO_LIBRARY "")
 
 if(CORE STREQUAL "gpsp")
 elseif(CORE STREQUAL "vba_next")
@@ -106,7 +107,7 @@ elseif(CORE STREQUAL "np2kai")
     set(CORE_MAKEFILE_NAME Makefile.libretro)
 elseif(CORE STREQUAL "vice")
     set(CORE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/vice-libretro)
-    set(LIBRETRO_LIBRARY ${CORE_DIR}/vice_x64_libretro_vita.a)
+    set(LIBRETRO_LIBRARY ${CORE_DIR}/vice_x64_libretro_vita.a CACHE INTERNAL "LIBRETRO_LIBRARY")
 elseif(CORE STREQUAL "px68k")
     set(CORE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/px68k-libretro)
     set(CORE_MAKEFILE_NAME Makefile.libretro)
@@ -114,10 +115,11 @@ else()
     message(FATAL_ERROR "unknown core: " ${CORE})
 endif()
 
-set(LIBRETRO_ELF libretro_${CORE}.elf)
-set(LIBRETRO_SUPRX ${CORE}.suprx CACHE INTERNAL "${CORE}_SUPRX")
+if(NOT LIBRETRO_LIBRARY)
+    set(LIBRETRO_LIBRARY ${CORE_DIR}/${CORE}_libretro_vita.a CACHE INTERNAL "LIBRETRO_LIBRARY")
+endif()
 
-set(CORE_TAG ${CORE}_build)
+set(CORE_TAG ${CORE}_build CACHE INTERNAL "CORE_TAG")
 add_custom_target(
     ${CORE_TAG} ALL
     COMMAND make -f ${CORE_MAKEFILE_NAME} ${CORE_ARGS} -j4
@@ -129,66 +131,62 @@ set_property(
     APPEND
     PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
 
-if(NOT LIBRETRO_LIBRARY)
-    set(LIBRETRO_LIBRARY ${CORE_DIR}/${CORE}_libretro_vita.a)
-endif()
-
-set_target_properties(${CORE} PROPERTIES IMPORTED_LOCATION "${LIBRETRO_LIBRARY}")
 add_dependencies(${CORE} ${CORE_TAG})
+set_target_properties(${CORE} PROPERTIES IMPORTED_LOCATION "${LIBRETRO_LIBRARY}")
 
-include_directories(
-    ../frontend/source
-    ../frontend/source/emu
-    ../frontend/source/audio
-    ../frontend/source/core_spec
-    ../deps/libretro-common/include
-    ../deps/7-Zip/C
-    ../share/source)
+# include_directories(
+# ../frontend/source
+# ../frontend/source/emu
+# ../frontend/source/audio
+# ../frontend/source/core_spec
+# ../deps/libretro-common/include
+# ../deps/7-Zip/C
+# ../share/source)
 
-add_executable(${LIBRETRO_ELF} core.c sbrk.c)
+# add_executable(${LIBRETRO_ELF} core.c sbrk.c)
 
-add_dependencies(${LIBRETRO_ELF} ${CORE_TAG})
+# add_dependencies(${LIBRETRO_ELF} ${CORE_TAG})
 
-target_link_libraries(${LIBRETRO_ELF}
-    ${LIBRETRO_LIBRARY}
-    retro_comm
-    ass
-    pthread
-    7zip
-    zlibstatic
-    FLAC
-    ogg
-    stdc++
-    c
-    g
-    m
-    gcc
-    k
-    SceLibKernel_stub_weak
-    SceIofilemgr_stub_weak
-    SceDisplay_stub_weak
-    SceCtrl_stub_weak
-    ScePower_stub_weak
-    SceVideodec_stub_weak
-    SceAppMgr_stub_weak
-    SceSysmem_stub_weak
-    SceSysmodule_stub_weak
-    SceShellSvc_stub_weak
-    SceThreadmgrForDriver_stub_weak
-    SceKernelThreadMgr_stub_weak
-    SceMotion_stub_weak
-    SceFiber_stub_weak
-    SceNet_stub_weak
-    SceProcessmgr_stub_weak
-    SceRtc_stub_weak
-    SceAudio_stub_weak
-)
+# target_link_libraries(${LIBRETRO_ELF}
+# ${LIBRETRO_LIBRARY}
+# retro_comm
+# ass
+# pthread
+# 7zip
+# zlibstatic
+# FLAC
+# ogg
+# stdc++
+# c
+# g
+# m
+# gcc
+# k
+# SceLibKernel_stub_weak
+# SceIofilemgr_stub_weak
+# SceDisplay_stub_weak
+# SceCtrl_stub_weak
+# ScePower_stub_weak
+# SceVideodec_stub_weak
+# SceAppMgr_stub_weak
+# SceSysmem_stub_weak
+# SceSysmodule_stub_weak
+# SceShellSvc_stub_weak
+# SceThreadmgrForDriver_stub_weak
+# SceKernelThreadMgr_stub_weak
+# SceMotion_stub_weak
+# SceFiber_stub_weak
+# SceNet_stub_weak
+# SceProcessmgr_stub_weak
+# SceRtc_stub_weak
+# SceAudio_stub_weak
+# )
 
-set_target_properties(${LIBRETRO_ELF} PROPERTIES COMPILE_FLAGS "-Wno-main -D__PSP2_USER__")
+# set_target_properties(${LIBRETRO_ELF} PROPERTIES COMPILE_FLAGS "-Wno-main -D__PSP2_USER__")
 
-set(VITA_MAKE_FSELF_FLAGS "-a 0x2F00000000000101")
-vita_create_self(${LIBRETRO_SUPRX} ${LIBRETRO_ELF} UNSAFE CONFIG ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)
+# set(VITA_MAKE_FSELF_FLAGS "-a 0x2F00000000000101")
+# vita_create_self(${LIBRETRO_SUPRX} ${LIBRETRO_ELF} UNSAFE CONFIG ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)
 
-if(CREATE_STUB)
-    vita_create_stubs(.. ${LIBRETRO_ELF} ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)
-endif()
+# if(CREATE_STUB)
+# vita_create_stubs(.. ${LIBRETRO_ELF} ${CMAKE_CURRENT_SOURCE_DIR}/core.yml)
+# endif()

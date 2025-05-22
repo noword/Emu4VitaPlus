@@ -1,7 +1,7 @@
 #include <string>
 #include <string.h>
 #include "misc.h"
-#include "global.h"
+#include "defines.h"
 #include "file.h"
 #include "state_manager.h"
 #include "log.h"

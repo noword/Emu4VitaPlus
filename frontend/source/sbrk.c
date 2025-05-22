@@ -9,19 +9,20 @@
 #endif
 
 #ifdef SCE_LIBC_SIZE
-#define RAM_THRESHOLD 0x7000000 + SCE_LIBC_SIZE
+#define RAM_THRESHOLD 0x2000000 + SCE_LIBC_SIZE
 #else
-#define RAM_THRESHOLD 0x7000000
+#define RAM_THRESHOLD 0x2000000
 #endif
-
-extern unsigned RESERVED_MEMORY;
 
 int _newlib_heap_memblock;
 unsigned _newlib_heap_size;
 char *_newlib_heap_base, *_newlib_heap_end, *_newlib_heap_cur;
 SceKernelLwMutexWork _newlib_sbrk_mutex __attribute__((aligned(8)));
 
+static int _newlib_vm_memblock;
+
 extern int _newlib_heap_size_user __attribute__((weak));
+extern int _newlib_vm_size_user __attribute__((weak));
 
 #define ALIGN(x, a) (((x) + ((a) - 1)) & ~((a) - 1))
 
@@ -49,6 +50,24 @@ void *_sbrk_r(struct _reent *reent, ptrdiff_t incr)
 
 void _init_vita_heap(void)
 {
+
+	int _newlib_vm_size = 0;
+	if (&_newlib_vm_size_user != NULL)
+	{
+		printf("_newlib_vm_size_user %x\n", _newlib_vm_size_user);
+		_newlib_vm_size = ALIGN(_newlib_vm_size_user, 0x100000);
+		_newlib_vm_memblock = sceKernelAllocMemBlockForVM("code", _newlib_vm_size);
+
+		if (_newlib_vm_memblock < 0)
+		{
+			// sceClibPrintf("sceKernelAllocMemBlockForVM failed\n");
+		}
+	}
+	else
+	{
+		_newlib_vm_memblock = 0;
+	}
+
 	// Create a mutex to use inside _sbrk_r
 	if (sceKernelCreateLwMutex(&_newlib_sbrk_mutex, "sbrk mutex", 0, 0, 0) < 0)
 	{
@@ -68,8 +87,10 @@ void _init_vita_heap(void)
 	}
 	else
 	{
-		_newlib_heap_size = info.size_user - RAM_THRESHOLD - RESERVED_MEMORY;
+		_newlib_heap_size = info.size_user - RAM_THRESHOLD;
 	}
+
+	_newlib_heap_size -= _newlib_vm_size;
 
 	_newlib_heap_memblock = sceKernelAllocMemBlock("Newlib heap", 0x0c20d060, _newlib_heap_size, 0);
 	if (_newlib_heap_memblock < 0)
@@ -87,9 +108,15 @@ void _init_vita_heap(void)
 	printf("_newlib_heap_size: %08x\n", _newlib_heap_size);
 	return;
 failure:
+	_newlib_vm_memblock = 0;
 	_newlib_heap_memblock = 0;
 	_newlib_heap_base = 0;
 	_newlib_heap_cur = 0;
+}
+
+int getVMBlock()
+{
+	return _newlib_vm_memblock;
 }
 
 void _free_vita_heap(void)
@@ -100,6 +127,10 @@ void _free_vita_heap(void)
 	// Free the heap memblock to avoid memory leakage.
 	sceKernelFreeMemBlock(_newlib_heap_memblock);
 
+	if (_newlib_vm_memblock > 0)
+		sceKernelFreeMemBlock(_newlib_vm_memblock);
+
+	_newlib_vm_memblock = 0;
 	_newlib_heap_memblock = 0;
 	_newlib_heap_base = 0;
 	_newlib_heap_cur = 0;

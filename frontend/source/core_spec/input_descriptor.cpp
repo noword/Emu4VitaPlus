@@ -2,7 +2,6 @@
 #include "input.h"
 #include "log.h"
 #include "file.h"
-#include "defines.h"
 
 #define INPUT_DESC_SECTION "INPUT_DESC"
 

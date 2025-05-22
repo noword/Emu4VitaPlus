@@ -7,18 +7,9 @@ set(SFO_TITLE_NAME "Emu4Vita++ (${CORE_SHORT})")
 set(ELF_NAME ${CORE_SHORT}.elf)
 set(EBOOT_NAME eboot_${CORE_SHORT}.bin)
 
-if(CORE STREQUAL "fba_lite"
-    OR CORE STREQUAL "fbneo"
-    OR CORE STREQUAL "fbalpha2012"
-    OR CORE STREQUAL "mame2003"
-    OR CORE STREQUAL "mame2003_plus"
-    OR CORE STREQUAL "km_fbneo_xtreme_amped"
-    OR CORE STREQUAL "km_mame2003_xtreme_amped")
-    add_compile_definitions(ARC_BUILD)
-elseif(CORE STREQUAL "frontend")
-    add_compile_definitions(ARCH_BUILD)
-    set(EBOOT_NAME frontend.self)
-endif()
+string(TOUPPER ${CORE} UPPER_CORE)
+add_compile_definitions(
+)
 
 if(WITH_LOG)
     set(VPK_NAME ${APP_NAME}_${APP_VER}_log.vpk)
@@ -27,10 +18,13 @@ else()
 endif()
 
 add_compile_definitions(
-    DEFAULT_CORE_NAME="${CORE}"
+    ${UPPER_CORE}_BUILD
+    ${CONSOLE}_BUILD
+    CORE_NAME="${CORE}"
+    _CORE_SHORT_NAME="${CORE_SHORT}"
+    CONSOLE="${CONSOLE}"
     APP_VER_STR="${APP_VER}"
-
-    # SCE_LIBC_SIZE=0x400000
+    SCE_LIBC_SIZE=0x400000
 )
 
 include_directories(
@@ -44,14 +38,13 @@ include_directories(
 
 file(GLOB SRC ../frontend/source/core_spec/*.cpp)
 
-link_directories(AFTER ${CMAKE_CURRENT_BINARY_DIR}/../../cores)
-
 add_executable(${ELF_NAME} ${SRC})
-add_dependencies(${ELF_NAME} libretro_stub_weak.a)
+add_dependencies(${ELF_NAME} ${CORE_TAG})
 
 target_link_libraries(
     ${ELF_NAME}
-    retro_stub_weak
+    ${LIBRETRO_LIBRARY}
+    retro_comm
     share
     frontend
     vita2d
@@ -97,11 +90,10 @@ set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
 
 vita_create_self(${EBOOT_NAME} ${ELF_NAME} STRIPPED)
 
-if(NOT CORE STREQUAL "frontend")
+if(NOT BUILD_SELF)
     set(PRIVATE_PKG_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${CORE}/pkg)
     set(PRIVATE_PKG_FILES "")
     collect_files(PRIVATE_PKG_FILES ${PRIVATE_PKG_DIR})
-    list(APPEND PRIVATE_PKG_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../../cores/${CORE}/${LIBRETRO_SUPRX}" "modules/${LIBRETRO_SUPRX}")
 
     set(VITA_MKSFOEX_FLAGS -d ATTRIBUTE2=12)
     vita_create_vpk(
@@ -125,10 +117,8 @@ if(NOT CORE STREQUAL "frontend")
     endif()
 
     if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
-        add_dependencies(${VPK_NAME} ${CORE}.suprx)
         add_dependencies(VPK_${APP_NAME} ${VPK_NAME})
     else()
-        add_dependencies(${VPK_NAME}-vpk ${CORE}.suprx-self)
         add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk)
     endif()
 endif()

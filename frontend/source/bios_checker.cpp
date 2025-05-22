@@ -2,7 +2,7 @@
 #include "bios_checker.h"
 #include "log.h"
 #include "file.h"
-#include "global.h"
+#include "defines.h"
 
 bool CheckBios(std::vector<const char *> &missing_bios_files)
 {

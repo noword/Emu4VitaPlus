@@ -230,16 +230,16 @@ void App::Run()
 
         case APP_STATUS_REBOOT_WITH_LOADING:
         {
-            const char *boot;
-            const char *argv[] = {"", "--core", gCore->core_name, "--rom", gEmulator->GetCurrentName(), NULL};
-            if (gBootFromArch)
+            char boot[SCE_FIOS_PATH_MAX];
+            const char *argv[] = {"", "--rom", gEmulator->GetCurrentName(), NULL};
+            if (gConfig->boot_from_arch)
             {
-                boot = "app0:frontend.self";
+                snprintf(boot, SCE_FIOS_PATH_MAX, "app0:cores/eboot_%s.self", CORE_SHORT_NAME);
                 argv[0] = "--arch";
             }
             else
             {
-                boot = "app0:eboot.bin";
+                strcpy(boot, "app0:eboot.bin");
             }
             sceAppMgrLoadExec(boot, (char *const *)argv, NULL);
             gStatus.Set(APP_STATUS_EXIT);
@@ -260,46 +260,3 @@ bool App::_IsSaveMode()
 {
     return sceIoDevctl("ux0:", 0x3001, NULL, 0, NULL, 0) == 0x80010030;
 }
-
-// void App::_ParseParams(int argc, char *const argv[])
-// {
-//     for (int i = 0; i < argc; i++)
-//     {
-//         // LogDebug("argv[%d]: %s", i, argv[i]);
-//         if (strcmp(argv[i], "--arch") == 0)
-//         {
-//             gBootFromArch = true;
-//             // gConfig->boot_from_arch = true;
-//         }
-//         else if (strcmp(argv[i], "--core") == 0)
-//         {
-//             i++;
-//             strcpy(CORE_NAME, argv[i]);
-//         }
-//         else if (strcmp(argv[i], "--rom") == 0)
-//         {
-//             i++;
-//             gBootRomPath = argv[i];
-//         }
-//     }
-// }
-
-// void App::_InitDefines()
-// {
-//     const CORE_STRUCT *core = nullptr;
-//     for (const auto &c : CORES)
-//     {
-//         if (strcmp(c.name, CORE_NAME) == 0)
-//         {
-//             core = &c;
-//             break;
-//         }
-//     }
-
-//     if (core == nullptr)
-//     {
-//         return;
-//     }
-
-//     return;
-// }

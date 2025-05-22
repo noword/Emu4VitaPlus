@@ -1,17 +1,15 @@
 #pragma once
-#include <string>
-#include <vector>
-#include <utility>
+// #include <string>
+// #include <vector>
+// #include <utility>
 #include <stdint.h>
 #include "config_types.h"
-#include "defines.h"
-#include "cores.h"
+// #include "defines.h"
 #include "video.h"
 #include "log.h"
 
 extern bool gBootFromArch;
 extern std::string gBootRomPath;
-extern const CORE_STRUCT *gCore;
 
 enum APP_STATUS
 {
@@ -48,39 +46,3 @@ private:
 };
 
 extern AppStatus gStatus;
-
-extern char CONSOLE_DIR[DEFINE_PATH_LENGTH];
-extern char CORE_DATA_DIR[DEFINE_PATH_LENGTH];
-extern char CORE_SAVEFILES_DIR[DEFINE_PATH_LENGTH];
-extern char CORE_CHEATS_DIR[DEFINE_PATH_LENGTH];
-extern char CORE_LOG_PATH[DEFINE_PATH_LENGTH];
-extern char CORE_CONFIG_PATH[DEFINE_PATH_LENGTH];
-extern char CORE_INPUT_DESC_PATH[DEFINE_PATH_LENGTH];
-extern char CORE_FAVOURITE_PATH[DEFINE_PATH_LENGTH];
-
-extern bool DEFAULT_ENABLE_REWIND;
-extern size_t DEFAULT_REWIND_BUF_SIZE;
-extern bool DEFAULT_AUTO_SAVE;
-extern bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN;
-
-extern bool DEFAULT_INDEPENDENT_CONFIG;
-
-extern bool DEFAULT_LIGHTGUN;
-extern bool DEFAULT_MOUSE;
-extern bool ENABLE_KEYBOARD;
-
-extern bool CONTROL_SPEED_BY_VIDEO;
-
-extern std::vector<uint8_t> RETRO_KEYS;
-extern std::vector<ControlMapConfig> CONTROL_MAPS;
-extern std::vector<std::pair<const char *, const char *>> DEFAULT_CORE_SETTINGS;
-
-struct BIOS
-{
-    const char *filename;
-    uint32_t crc32 = 0;
-};
-
-extern std::vector<BIOS> REQUIRED_BIOS;
-
-extern bool InitDefines();
