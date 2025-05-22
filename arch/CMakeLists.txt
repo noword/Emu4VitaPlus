@@ -27,7 +27,7 @@ foreach(index RANGE ${length})
         list(APPEND CORE_EBOOTS "eboot_${core_short}.bin-self")
     endif()
 
-    list(APPEND CORE_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../apps/${core}/eboot_${core_short}.bin" "cores/eboot_${core_short}.self")
+    list(APPEND CORE_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../apps/${core}/eboot_${core_short}.bin" "eboot_${core}.self")
 endforeach()
 
 gen_arc_dat(${PKG_DIR})
