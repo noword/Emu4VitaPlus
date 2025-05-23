@@ -129,8 +129,7 @@ namespace Emu4VitaPlus
 
     Config::Config()
         : language(LANGUAGE_ENGLISH),
-          hotkeys{0},
-          boot_from_arch(false)
+          hotkeys{0}
     {
         LogFunctionName;
         Default();

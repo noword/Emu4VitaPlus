@@ -232,9 +232,9 @@ void App::Run()
         {
             char boot[SCE_FIOS_PATH_MAX];
             const char *argv[] = {"", "--rom", gEmulator->GetCurrentName(), NULL};
-            if (gConfig->boot_from_arch)
+            if (gBootFromArch)
             {
-                snprintf(boot, SCE_FIOS_PATH_MAX, "app0:cores/eboot_%s.self", CORE_SHORT_NAME);
+                snprintf(boot, SCE_FIOS_PATH_MAX, "app0:eboot_%s.self", CORE_NAME);
                 argv[0] = "--arch";
             }
             else

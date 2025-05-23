@@ -7,6 +7,7 @@ const char CONSOLE_DIR[] = "app0:data/" CONSOLE;
 
 #define _CORE_DATA_DIR ROOT_DIR "/" _CORE_SHORT_NAME
 
+const char CORE_NAME[] = _CORE_NAME;
 const char CORE_SHORT_NAME[] = _CORE_SHORT_NAME;
 const char CORE_DATA_DIR[] = _CORE_DATA_DIR;
 const char CORE_SAVEFILES_DIR[] = _CORE_DATA_DIR "/savefiles";

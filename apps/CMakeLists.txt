@@ -20,7 +20,7 @@ endif()
 add_compile_definitions(
     ${UPPER_CORE}_BUILD
     ${CONSOLE}_BUILD
-    CORE_NAME="${CORE}"
+    _CORE_NAME="${CORE}"
     _CORE_SHORT_NAME="${CORE_SHORT}"
     CONSOLE="${CONSOLE}"
     APP_VER_STR="${APP_VER}"

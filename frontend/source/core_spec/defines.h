@@ -17,6 +17,7 @@
 
 extern const char CONSOLE_DIR[];
 
+extern const char CORE_NAME[];
 extern const char CORE_SHORT_NAME[];
 extern const char CORE_DATA_DIR[];
 extern const char CORE_SAVEFILES_DIR[];

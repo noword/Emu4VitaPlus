@@ -252,8 +252,6 @@ void Emulator::UnloadGame()
         Save();
         _current_name.clear();
         retro_unload_game();
-        retro_deinit();
-        retro_init();
         Unlock();
 
         _last_texture = nullptr;
