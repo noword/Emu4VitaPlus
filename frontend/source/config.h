@@ -41,7 +41,6 @@ namespace Emu4VitaPlus
         float GetSpeedStep();
 
         std::string version;
-        bool boot_from_arch;
         bool reboot_when_loading_again;
         std::string last_rom;
         uint32_t language;

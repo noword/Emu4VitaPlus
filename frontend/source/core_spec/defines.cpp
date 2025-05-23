@@ -402,6 +402,16 @@ const std::vector<std::pair<const char *, const char *>> DEFAULT_CORE_SETTINGS =
     {"mame2003_rstick_to_btns", "disabled"}
 #elif defined(KM_MAME2003_XTREME_AMPED_BUILD)
     {"mame2003-xtreme-amped-rstick_to_btns", "disabled"}
+#elif defined(PCSX_REARMED_BUILD)
+    {"pcsx_rearmed_bios", "HLE"},
+    {"pcsx_rearmed_cd_readahead", "1"},
+    {"pcsx_rearmed_exception_emulation", "enabled"},
+    {"pcsx_rearmed_gteregsunneeded", "enabled"},
+    {"pcsx_rearmed_neon_enhancement_tex_adj_v2", "disabled"},
+    {"pcsx_rearmed_nostalls", "enabled"},
+    {"pcsx_rearmed_noxadecoding", "disabled"},
+    {"pcsx_rearmed_spu_thread", "enabled"},
+    {"pcsx_rearmed_vibration", "disabled"},
 #endif
 };
 
