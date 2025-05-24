@@ -409,7 +409,7 @@ const std::vector<std::pair<const char *, const char *>> DEFAULT_CORE_SETTINGS =
     {"pcsx_rearmed_gteregsunneeded", "enabled"},
     {"pcsx_rearmed_neon_enhancement_tex_adj_v2", "disabled"},
     {"pcsx_rearmed_nostalls", "enabled"},
-    {"pcsx_rearmed_noxadecoding", "disabled"},
+    {"pcsx_rearmed_noxadecoding", "enabled"},
     {"pcsx_rearmed_spu_thread", "enabled"},
     {"pcsx_rearmed_vibration", "disabled"},
 #endif
