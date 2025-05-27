@@ -197,6 +197,13 @@ LOADED:
         }
 
         Load();
+
+        if (!_input.IsRunning())
+        {
+            LogDebug("_input: %08x %08x", _input, &_input);
+            _input.Start();
+        }
+
         LogDebug("stack free size: %d", sceKernelCheckThreadStack());
         LogDebug("run first frame");
         retro_run();
@@ -270,7 +277,7 @@ void Emulator::Run()
     LogFunctionNameLimited;
 
     uint64_t start = sceKernelGetProcessTimeWide();
-    _input.Poll();
+    _input.Signal();
 
     switch (gStatus.Get())
     {

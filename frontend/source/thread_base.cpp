@@ -6,7 +6,8 @@ ThreadBase::ThreadBase(SceKernelThreadEntry entry, int priority, int cpu_affinit
       _priority(priority),
       _cpu_affinity(cpu_affinity),
       _stack_size(stack_size),
-      _thread_id(-1)
+      _thread_id(-1),
+      _keep_running(false)
 {
     LogFunctionName;
     sceKernelCreateLwMutex(&_mutex, "thread_mutex", 0, 0, NULL);
@@ -27,22 +28,9 @@ ThreadBase::~ThreadBase()
 bool ThreadBase::Start()
 {
     LogFunctionName;
-    switch (sizeof(this))
-    {
-    case 4:
-    {
-        uint32_t p = (uint32_t)this;
-        return Start(&p, 4);
-    }
-    case 8:
-    {
-        uint64_t p = (uint64_t)this;
-        return Start(&p, 8);
-    }
-    default:
-        LogError("not the expected size");
-        return false;
-    }
+
+    uint32_t p = (uint32_t)this;
+    return Start(&p, 4);
 }
 
 bool ThreadBase::Start(void *data, SceSize size)

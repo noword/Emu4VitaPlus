@@ -6,7 +6,7 @@
 #include "texture_buf.h"
 #include "audio.h"
 #include "delay.h"
-#include "input.h"
+#include "input_thread.h"
 #include "archive_manager.h"
 #include "rewind.h"
 #include "cheat.h"
@@ -150,7 +150,7 @@ private:
     vita2d_texture *_last_texture;
 
     Audio _audio;
-    Input _input;
+    InputThread _input;
     uint32_t _keys[16];
     uint32_t _keys_mask;
     double _speed;

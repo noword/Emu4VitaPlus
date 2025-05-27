@@ -128,7 +128,7 @@ namespace Emu4VitaPlus
         Touch *GetFrontTouch() { return &_front_touch; };
         Touch *GetRearTouch() { return &_rear_touch; };
 
-    private:
+    protected:
         std::vector<KeyBinding> _key_up_callbacks;
         std::vector<KeyBinding> _key_down_callbacks;
 
@@ -152,6 +152,6 @@ namespace Emu4VitaPlus
         std::stack<std::vector<KeyBinding>> _callback_stack;
 
         uint32_t _ProcTurbo(uint32_t key);
-        void _ProcCallbacks(uint32_t key);
+        virtual void _ProcCallbacks(uint32_t key);
     };
 }
