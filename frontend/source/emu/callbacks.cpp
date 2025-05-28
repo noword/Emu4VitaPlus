@@ -133,6 +133,10 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         gUi->UpdateDiskOptions();
         break;
 
+    case RETRO_ENVIRONMENT_SET_HW_RENDER:
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_HW_RENDER");
+        return false;
+
     case RETRO_ENVIRONMENT_GET_VARIABLE:
         LogDebug("  cmd: RETRO_ENVIRONMENT_GET_VARIABLE");
         if (data)
@@ -299,6 +303,14 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         gConfig->core_options.SetVisable((const retro_core_option_display *)data);
         break;
 
+    case RETRO_ENVIRONMENT_GET_PREFERRED_HW_RENDER:
+        LogDebug("  cmd: RETRO_ENVIRONMENT_GET_PREFERRED_HW_RENDER");
+        if (data)
+        {
+            *(retro_hw_context_type *)data = RETRO_HW_CONTEXT_NONE;
+        }
+        break;
+
     case RETRO_ENVIRONMENT_GET_DISK_CONTROL_INTERFACE_VERSION:
         LogDebug("  cmd: RETRO_ENVIRONMENT_GET_DISK_CONTROL_INTERFACE_VERSION");
         if (data)
@@ -403,6 +415,10 @@ bool EnvironmentCallback(unsigned cmd, void *data)
             *(retro_savestate_context *)data = RETRO_SAVESTATE_CONTEXT_NORMAL;
         }
         break;
+
+    case RETRO_ENVIRONMENT_SET_NETPACKET_INTERFACE:
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_NETPACKET_INTERFACE");
+        return false;
 
     default:
         if (cmd > RETRO_ENVIRONMENT_EXPERIMENTAL)
