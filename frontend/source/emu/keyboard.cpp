@@ -224,7 +224,7 @@ void Keyboard::Show()
     ImGui::SetNextWindowSize({KEYBOARD_WIDTH, KEYBOARD_HEIGHT});
     ImGui::SetNextWindowBgAlpha(0.5);
 
-    if (ImGui::Begin("keyboard", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar))
+    if (ImGui::Begin("keyboard", NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar))
     {
         bool shift_mod = _mod & RETROKMOD_SHIFT;
         for (const auto button : _buttons)
