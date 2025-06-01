@@ -145,6 +145,7 @@ App::App()
                         {"FBA 2012", "fbalpha2012"},
                         {"FinalBurn Neo", "fbneo"},
                         {"FinalBurn Neo Xtreme", "km_fbneo_xtreme_amped"},
+                        {"MAME 2000", "mame2000"},
                         {"MAME 2003" ICON_STAR, "mame2003"},
                         {"MAME 2003 Plus", "mame2003_plus"},
                         {"MAME 2003 Xtreme" ICON_STAR, "km_mame2003_xtreme_amped"}}),

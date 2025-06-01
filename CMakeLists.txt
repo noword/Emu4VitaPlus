@@ -44,6 +44,7 @@ set(CORES
 
     # dosbox_svn
     dosbox_pure
+    mame2000
     mame2003_plus
     mame2003
     vecx
@@ -91,6 +92,7 @@ set(CORE_SHORTS
 
     # DOSBoxSVN
     DOSBoxPure
+    MAME2000
     MAME2003Plus
     MAME2003
     vecx
@@ -137,6 +139,7 @@ set(CONSOLES
     DOS
     ARC
     ARC
+    ARC
     VECTREX
     AMIGA
     ZXS
@@ -177,6 +180,7 @@ set(TITLE_IDS
     PROSYS4PV
     A8004VITA
     DOSPURE4V
+    MAME2K4VI
     MAME03P4V
     MAME2K34V
     VECX4VITA
@@ -231,8 +235,8 @@ set(CMAKE_EXE_LINKER_FLAGS "-Wl,-q,-no-enum-size-warning,--as-needed,--gc-sectio
 set(OUT_PATH "${CMAKE_BINARY_DIR}/out")
 file(MAKE_DIRECTORY ${OUT_PATH})
 
-set(APP_VER "0.34")
-set(SFO_APP_VER "00.34")
+set(APP_VER "0.35")
+set(SFO_APP_VER "00.35")
 
 add_subdirectory(deps)
 add_subdirectory(share)
