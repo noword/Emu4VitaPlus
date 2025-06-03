@@ -404,13 +404,13 @@ namespace Emu4VitaPlus
         if (independent_config && gEmulator && *gEmulator->GetCurrentName())
         {
             snprintf(path, SCE_FIOS_PATH_MAX, "%s/%s/config.ini", CORE_SAVEFILES_DIR, gEmulator->GetCurrentName());
-            if (must_exist && File::Exist(path))
+            if (must_exist)
             {
-                return path;
+                return File::Exist(path) ? path : CORE_CONFIG_PATH;
             }
             else
             {
-                return CORE_CONFIG_PATH;
+                return path;
             }
         }
         else
