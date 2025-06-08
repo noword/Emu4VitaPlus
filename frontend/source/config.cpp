@@ -225,6 +225,12 @@ namespace Emu4VitaPlus
             path = _GetConfigFilePath();
         }
 
+        std::string dir = File::GetDir(path);
+        if (!File::Exist(dir.c_str()))
+        {
+            File::MakeDirs(dir.c_str());
+        }
+
         LogDebug("save path: %s", path);
 
         CSimpleIniA ini;
