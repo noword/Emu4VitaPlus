@@ -1,9 +1,9 @@
 #pragma once
-#include "ui.h"
 #include "item_selectable.h"
 #include "core_options.h"
 #include "log.h"
 #include "file.h"
+#include "global.h"
 
 void ItemCoreOnClick()
 {

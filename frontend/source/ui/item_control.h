@@ -3,7 +3,7 @@
 #include "item_selectable.h"
 #include "config.h"
 #include "defines.h"
-#include "emulator.h"
+#include "global.h"
 #include "input_descriptor.h"
 
 using namespace Emu4VitaPlus;

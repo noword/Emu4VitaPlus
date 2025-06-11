@@ -4,7 +4,7 @@
 #include "file.h"
 #include "config.h"
 #include "emulator.h"
-#include "video.h"
+#include "global.h"
 #include "misc.h"
 #include "ra_lpl.h"
 

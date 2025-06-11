@@ -1,7 +1,7 @@
 #include <imgui_vita2d/imgui_vita.h>
 #include "item_config.h"
 #include "my_imgui.h"
-#include "config.h"
+#include "global.h"
 #include "log.h"
 #include "utils.h"
 

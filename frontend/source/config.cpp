@@ -19,8 +19,6 @@
 #define HOTKEY_SECTION "HOTKEY"
 #define GRAPHICS_SECTION "GRAPHICS"
 
-Emu4VitaPlus::Config *gConfig = nullptr;
-
 namespace Emu4VitaPlus
 {
     std::vector<LanguageString> SPEED_STEP_OPTIONS{"0.1", "0.2", "0.5", "1.0", LANG_MAX};

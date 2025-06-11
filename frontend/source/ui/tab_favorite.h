@@ -3,6 +3,7 @@
 #include "tab_selectable.h"
 #include "favorite.h"
 #include "dialog.h"
+#include "global.h"
 
 class TabFavorite : virtual public TabSeletable
 {

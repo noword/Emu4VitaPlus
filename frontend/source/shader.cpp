@@ -7,8 +7,6 @@
 #define SHADER_PATH "app0:assets/shaders/"
 #define SHADER_SECTION "SHADERS"
 
-Shaders *gShaders;
-
 bool Params::Init(const SceGxmProgram *program)
 {
     texture_size = sceGxmProgramFindParameterByName(program, "IN.texture_size");

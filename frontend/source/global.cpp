@@ -1,10 +1,15 @@
-#include <string.h>
-#include <libretro.h>
-#include <psp2common/ctrl.h>
-#include "input.h"
 #include "global.h"
-#include "config_types.h"
 
 AppStatus gStatus;
 bool gBootFromArch = false;
 std::string gBootRomPath;
+
+Emu4VitaPlus::Video *gVideo = nullptr;
+Overlays *gOverlays;
+RetroArchPlaylists *gPlaylists;
+Ui *gUi = nullptr;
+Emulator *gEmulator = nullptr;
+Emu4VitaPlus::Config *gConfig;
+Favorites *gFavorites = nullptr;
+CoreStateManager *gStateManager = nullptr;
+Shaders *gShaders = nullptr;

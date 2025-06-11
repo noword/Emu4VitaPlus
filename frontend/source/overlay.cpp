@@ -1,11 +1,9 @@
 #include "SimpleIni.h"
 #include "overlay.h"
 #include "log.h"
-#include "video.h"
 #include "defines.h"
 #include "utils.h"
-
-Overlays *gOverlays;
+#include "global.h"
 
 Overlay::Overlay() : _texture(nullptr)
 {

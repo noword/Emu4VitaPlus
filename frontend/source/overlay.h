@@ -31,5 +31,3 @@ public:
     bool Load(const char *path);
     std::vector<LanguageString> GetConfigs();
 };
-
-extern Overlays *gOverlays;

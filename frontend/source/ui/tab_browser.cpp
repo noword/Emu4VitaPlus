@@ -17,6 +17,7 @@
 #include "misc.h"
 #include "utils.h"
 #include "ra_lpl.h"
+#include "global.h"
 
 #define HISTROY_SIZE 10
 

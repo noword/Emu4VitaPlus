@@ -2,7 +2,7 @@
 #include "tab_selectable.h"
 #include "defines.h"
 #include "utils.h"
-#include "video.h"
+#include "global.h"
 
 TabSeletable::TabSeletable(TEXT_ENUM title_id, std::vector<ItemBase *> items, int columns, float column_ratio)
     : TabBase(title_id),

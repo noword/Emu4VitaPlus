@@ -1,5 +1,5 @@
 #include "language_string.h"
-#include "config.h"
+#include "global.h"
 
 const char *TEXT(size_t index)
 {

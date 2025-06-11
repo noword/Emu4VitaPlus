@@ -8,7 +8,7 @@
 #include "tab_base.h"
 #include "dialog.h"
 #include "boot.h"
-#include "global.h"
+#include "app_status.h"
 
 class Ui
 {
@@ -66,5 +66,3 @@ private:
     LanguageString _hint;
     int _hint_count;
 };
-
-extern Ui *gUi;

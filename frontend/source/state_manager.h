@@ -42,5 +42,3 @@ struct CoreStateManager
     State *GetNewest();
     State *states[MAX_STATES];
 };
-
-extern CoreStateManager *gStateManager;

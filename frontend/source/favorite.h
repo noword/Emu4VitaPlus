@@ -23,5 +23,3 @@ public:
 
 private:
 };
-
-extern Favorites *gFavorites;

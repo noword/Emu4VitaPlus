@@ -3,8 +3,6 @@
 #include "file.h"
 #include "log.h"
 
-Favorites *gFavorites = nullptr;
-
 Favorites::Favorites()
 {
     Load();

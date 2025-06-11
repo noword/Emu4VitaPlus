@@ -174,5 +174,3 @@ private:
     DiskControl *_disk_contorl;
     Keyboard *_keyboard;
 };
-
-extern Emulator *gEmulator;

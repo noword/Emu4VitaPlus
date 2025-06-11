@@ -7,8 +7,6 @@
 #include "log.h"
 #include "profiler.h"
 
-Emu4VitaPlus::Video *gVideo = nullptr;
-
 namespace Emu4VitaPlus
 {
     Video::Video() : ThreadBase(_DrawThread)

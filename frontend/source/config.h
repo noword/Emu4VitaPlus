@@ -73,5 +73,3 @@ namespace Emu4VitaPlus
         const char *_GetConfigFilePath(bool must_exist = false);
     };
 }
-
-extern Emu4VitaPlus::Config *gConfig;

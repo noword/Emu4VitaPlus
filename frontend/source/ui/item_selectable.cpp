@@ -4,7 +4,7 @@
 #include "utils.h"
 #include "icons.h"
 #include "log.h"
-#include "video.h"
+#include "global.h"
 
 ItemSelectable::ItemSelectable(const LanguageString text,
                                LanguageString info,

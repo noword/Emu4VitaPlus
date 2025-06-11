@@ -34,5 +34,3 @@ private:
     ItemMap _items;
     std::vector<std::string> _dbs;
 };
-
-extern RetroArchPlaylists *gPlaylists;

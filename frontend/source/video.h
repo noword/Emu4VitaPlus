@@ -14,5 +14,3 @@ namespace Emu4VitaPlus
         static int _DrawThread(SceSize args, void *argp);
     };
 }
-
-extern Emu4VitaPlus::Video *gVideo;

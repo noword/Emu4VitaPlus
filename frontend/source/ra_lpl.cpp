@@ -26,8 +26,6 @@
 #define RETRO_ARCH_TITLES "Named_Titles"
 #define LPL_EXT "lpl"
 
-RetroArchPlaylists *gPlaylists;
-
 static const std::string THUMBNAILS_PATHS[] = {RETRO_ARCH_BOXARTS, RETRO_ARCH_SNAPS, RETRO_ARCH_TITLES};
 
 RetroArchPlaylists::RetroArchPlaylists()

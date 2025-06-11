@@ -19,8 +19,6 @@ extern "C"
 #include <libswscale/swscale.h>
 }
 
-Emulator *gEmulator = nullptr;
-
 Emulator::Emulator()
     : _texture_buf(nullptr),
       _keys{0},

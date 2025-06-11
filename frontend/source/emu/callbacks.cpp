@@ -10,6 +10,7 @@
 #include "profiler.h"
 #include "input_descriptor.h"
 #include "performance.h"
+#include "global.h"
 
 #define CORE_OPTIONS_VERSION 2
 

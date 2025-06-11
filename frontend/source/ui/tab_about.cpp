@@ -5,7 +5,7 @@
 #include "my_imgui.h"
 #include "defines.h"
 #include "utils.h"
-#include "config.h"
+#include "global.h"
 
 #define TITLE_COUNT 7
 #define TITLE_WIDTH 940

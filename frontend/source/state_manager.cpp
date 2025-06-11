@@ -5,7 +5,6 @@
 #include "emulator.h"
 #include "video.h"
 
-CoreStateManager *gStateManager = nullptr;
 vita2d_texture *State::_empty_texture = nullptr;
 
 State::State(const char *slot_name)

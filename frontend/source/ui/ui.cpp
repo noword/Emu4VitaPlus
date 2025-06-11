@@ -20,10 +20,9 @@
 #include "overlay.h"
 #include "shader.h"
 #include "defines.h"
+#include "global.h"
 
 #define MAIN_WINDOW_PADDING 10
-
-Ui *gUi = nullptr;
 
 static void ResumeGame()
 {
