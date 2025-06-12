@@ -28,7 +28,7 @@ TabAbout::~TabAbout()
 {
 }
 
-void TabAbout::Show(bool selected)
+void TabAbout::_Show()
 {
     if (_last_lang != gConfig->language)
     {
@@ -46,32 +46,27 @@ void TabAbout::Show(bool selected)
         _title_index = index;
     }
 
-    std::string title = std::string(TAB_ICONS[_title_id]) + TEXT(_title_id);
-    if (ImGui::BeginTabItem(title.c_str(), NULL, selected ? ImGuiTabItemFlags_SetSelected : 0))
+    if (_title_texture != nullptr)
     {
-        if (_title_texture != nullptr)
-        {
-            ImGui::Image(_title_texture,
-                         {TITLE_WIDTH, TITLE_HEIGHT},
-                         {0, _title_index / TITLE_COUNT},
-                         {1, (_title_index + 1) / TITLE_COUNT});
-        }
+        ImGui::Image(_title_texture,
+                     {TITLE_WIDTH, TITLE_HEIGHT},
+                     {0, _title_index / TITLE_COUNT},
+                     {1, (_title_index + 1) / TITLE_COUNT});
+    }
 
-        if (ImGui::BeginChild("ChildAbout", {0, 0}, false, ImGuiWindowFlags_HorizontalScrollbar))
+    if (ImGui::BeginChild("ChildAbout", {0, 0}, false, ImGuiWindowFlags_HorizontalScrollbar))
+    {
+        for (size_t i = 0; i < _texts.size(); i++)
         {
-            for (size_t i = 0; i < _texts.size(); i++)
+            My_ImGui_CenteredText(_texts[i].c_str());
+            if (i == _index && ImGui::GetScrollMaxY() > 0.f)
             {
-                My_ImGui_CenteredText(_texts[i].c_str());
-                if (i == _index && ImGui::GetScrollMaxY() > 0.f)
-                {
-                    ImGui::SetScrollHereY((float)_index / _texts.size());
-                }
+                ImGui::SetScrollHereY((float)_index / _texts.size());
             }
         }
-
-        ImGui::EndChild();
-        ImGui::EndTabItem();
     }
+
+    ImGui::EndChild();
 }
 
 void TabAbout::SetInputHooks(Input *input)

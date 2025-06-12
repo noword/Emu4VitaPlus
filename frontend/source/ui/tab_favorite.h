@@ -10,12 +10,13 @@ class TabFavorite : virtual public TabSeletable
 public:
     TabFavorite();
     virtual ~TabFavorite();
-    void Show(bool selected);
+    virtual void Show(bool selected) override;
     void SetInputHooks(Input *input);
     void UnsetInputHooks(Input *input);
     virtual void ChangeLanguage(uint32_t language) override;
 
 private:
+    virtual void _Show() override;
     size_t _GetItemCount() override { return gFavorites->size(); };
     bool _ItemVisable(size_t index) override { return true; };
     void _OnActive(Input *input) override;

@@ -11,9 +11,8 @@ public:
     TabSeletable(TEXT_ENUM title_id, int columns = 2);
     virtual ~TabSeletable();
 
-    virtual void SetInputHooks(Input *input);
-    virtual void UnsetInputHooks(Input *input);
-    virtual void Show(bool selected);
+    virtual void SetInputHooks(Input *input) override;
+    virtual void UnsetInputHooks(Input *input) override;
     void SetStatusText(std::string text);
     void SetItemVisable(size_t index, bool visable);
     void SetColumns(int columns);
@@ -21,6 +20,8 @@ public:
     bool Visable() override { return _visable && _GetItemCount() > 0; };
 
 protected:
+    virtual void _Show() override;
+
     virtual void _OnKeyUp(Input *input);
     virtual void _OnKeyDown(Input *input);
     virtual void _OnKeyLeft(Input *input);

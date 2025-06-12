@@ -30,13 +30,14 @@ public:
     virtual ~TabBrowser();
     virtual void SetInputHooks(Input *input) override;
     virtual void UnsetInputHooks(Input *input) override;
-    void Show(bool selected);
+    virtual void Show(bool selected) override;
     virtual void ChangeLanguage(uint32_t language) override;
     bool Visable() override { return _visable; };
 
     friend int32_t GetNameThread(uint32_t args, void *argc);
 
 private:
+    virtual void _Show() override;
     size_t _GetItemCount() override { return _directory->GetSize(); };
     bool _ItemVisable(size_t index) override { return index < _directory->GetSize(); };
 

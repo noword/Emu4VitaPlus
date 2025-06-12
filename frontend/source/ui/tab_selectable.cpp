@@ -58,66 +58,60 @@ void TabSeletable::UnsetInputHooks(Input *input)
     input->UnsetKeyUpCallback(SCE_CTRL_TRIANGLE);
 }
 
-void TabSeletable::Show(bool selected)
+void TabSeletable::_Show()
 {
-    std::string title = std::string(TAB_ICONS[_title_id]) + TEXT(_title_id);
-    if (ImGui::BeginTabItem(title.c_str(), NULL, selected ? ImGuiTabItemFlags_SetSelected : 0))
+    ImVec2 size = {0.f, 0.f};
+    float avail_width = ImGui::GetContentRegionAvailWidth();
+    if (_status_text.size() > 0)
     {
-        ImVec2 size = {0.f, 0.f};
-        float avail_width = ImGui::GetContentRegionAvailWidth();
-        if (_status_text.size() > 0)
+        ImVec2 s = ImGui::CalcTextSize(_status_text.c_str(), NULL, false, avail_width);
+        size.y = -s.y;
+    }
+
+    if (ImGui::BeginChild(TEXT(_title_id), size))
+    {
+        ImGui::Columns(_columns, NULL, false);
+
+        if (_columns == 2 && _column_ratio > 0)
         {
-            ImVec2 s = ImGui::CalcTextSize(_status_text.c_str(), NULL, false, avail_width);
-            size.y = -s.y;
+            ImGui::SetColumnOffset(1, avail_width * _column_ratio);
         }
 
-        if (ImGui::BeginChild(TEXT(_title_id), size))
+        if (_in_refreshing)
         {
-            ImGui::Columns(_columns, NULL, false);
-
-            if (_columns == 2 && _column_ratio > 0)
+            _spin_text.Show();
+        }
+        else
+        {
+            size_t total = _GetItemCount();
+            ImGui::PushStyleColor(ImGuiCol_PopupBg, IM_COL32(36, 36, 36, 255));
+            for (size_t i = 0; i < total; i++)
             {
-                ImGui::SetColumnOffset(1, avail_width * _column_ratio);
-            }
-
-            if (_in_refreshing)
-            {
-                _spin_text.Show();
-            }
-            else
-            {
-                size_t total = _GetItemCount();
-                ImGui::PushStyleColor(ImGuiCol_PopupBg, IM_COL32(36, 36, 36, 255));
-                for (size_t i = 0; i < total; i++)
+                if (_ItemVisable(i))
                 {
-                    if (_ItemVisable(i))
+                    _ShowItem(i, i == _index);
+                    if (i == _index && ImGui::GetScrollMaxY() > 0.f)
                     {
-                        _ShowItem(i, i == _index);
-                        if (i == _index && ImGui::GetScrollMaxY() > 0.f)
-                        {
-                            ImGui::SetScrollHereY((float)_index / (float)total);
-                        }
-                        ImGui::NextColumn();
+                        ImGui::SetScrollHereY((float)_index / (float)total);
                     }
-                    else if (i == _index)
-                    {
-                        LOOP_PLUS_ONE(_index, total);
-                    }
+                    ImGui::NextColumn();
                 }
-                ImGui::PopStyleColor();
+                else if (i == _index)
+                {
+                    LOOP_PLUS_ONE(_index, total);
+                }
             }
-            ImGui::Columns(1);
-        }
-
-        ImGui::EndChild();
-        if (_status_text.size() > 0)
-        {
-            ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0, 255, 0, 255));
-            ImGui::TextWrapped("%s", _status_text.c_str());
             ImGui::PopStyleColor();
         }
+        ImGui::Columns(1);
+    }
 
-        ImGui::EndTabItem();
+    ImGui::EndChild();
+    if (_status_text.size() > 0)
+    {
+        ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0, 255, 0, 255));
+        ImGui::TextWrapped("%s", _status_text.c_str());
+        ImGui::PopStyleColor();
     }
 }
 

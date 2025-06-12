@@ -43,6 +43,8 @@ public:
     virtual bool Visable() { return _visable; };
 
 protected:
+    virtual void _Show() {};
+
     TEXT_ENUM _title_id;
     bool _visable;
 };

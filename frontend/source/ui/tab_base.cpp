@@ -35,6 +35,7 @@ void TabBase::Show(bool selected)
 
     if (ImGui::BeginTabItem(title.c_str(), NULL, selected ? ImGuiTabItemFlags_SetSelected : 0))
     {
+        _Show();
         ImGui::EndTabItem();
     }
 }

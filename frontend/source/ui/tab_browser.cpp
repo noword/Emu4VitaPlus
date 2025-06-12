@@ -90,6 +90,143 @@ void TabBrowser::UnsetInputHooks(Input *input)
     input->UnsetKeyUpCallback(SCE_CTRL_SELECT);
 }
 
+void TabBrowser::_Show()
+{
+    ImVec2 size = {0.f, 0.f};
+    if (_status_text.size() > 0)
+    {
+        ImVec2 s = ImGui::CalcTextSize(_status_text.c_str());
+        size.y = -s.y * (s.x / ImGui::GetContentRegionAvailWidth() + 1);
+    }
+
+    if (ImGui::BeginChild(TEXT(_title_id), size))
+    {
+        ImGui::Columns(2, NULL, false);
+
+        std::string current_path = _directory->GetCurrentPath();
+        if (_directory->GetSearchString().size() > 0 && _directory->GetSearchResults().size() > 0)
+        {
+            current_path += std::string(" " ICON_SERACH) + _directory->GetSearchString();
+        }
+
+        ImGui::TextUnformatted(current_path.c_str());
+        ImVec2 current_pos;
+        if (ImGui::ListBoxHeader("", ImGui::GetContentRegionAvail()))
+        {
+            if (_in_refreshing)
+            {
+                _spin_text.Show();
+            }
+            else
+            {
+                for (size_t i = 0; i < _directory->GetSize(); i++)
+                {
+                    const DirItem &item = _directory->GetItem(i);
+
+                    std::string name(item.name);
+
+                    if (!item.is_dir)
+                    {
+                        ImU32 color;
+                        if (_directory->BeFound(i))
+                            color = IM_COL32(255, 255, 33, 255);
+                        else
+                            color = IM_COL32(0, 255, 0, 255);
+
+                        ImGui::PushStyleColor(ImGuiCol_Text, color);
+                        if (gFavorites->find(name) != gFavorites->end())
+                            name.insert(0, ICON_EMPTY_STAR_SPACE);
+                    }
+
+                    if (i == _index)
+                    {
+                        current_pos = ImGui::GetCursorScreenPos();
+                        My_ImGui_Selectable(name.c_str(), true, &_moving_status);
+                    }
+                    else
+                        ImGui::Selectable(name.c_str());
+
+                    if (!item.is_dir)
+                        ImGui::PopStyleColor();
+
+                    if (i == _index && ImGui::GetScrollMaxY() > 0.f)
+                        ImGui::SetScrollHereY((float)_index / (float)_directory->GetSize());
+                }
+            }
+
+            ImGui::ListBoxFooter();
+        }
+        ImGui::NextColumn();
+        ImVec2 avail_size = ImGui::GetContentRegionAvail();
+        _texture_max_width = avail_size.x;
+        _texture_max_height = avail_size.y;
+        ImVec2 pos = ImGui::GetCursorScreenPos();
+
+        if (_texture != nullptr)
+        {
+            ImVec2 texture_pos = pos;
+            texture_pos.x += ceilf(fmax(0.0f, (avail_size.x - _texture_width) * 0.5f));
+            texture_pos.y += ceilf(fmax(0.0f, (avail_size.y - _texture_height) * 0.5f));
+            ImGui::SetCursorScreenPos(texture_pos);
+            ImGui::Image(_texture, {_texture_width, _texture_height});
+        }
+
+        if (_name != nullptr)
+        {
+            _name_moving_status.Update(_name);
+
+            ImVec2 text_size = ImGui::CalcTextSize(_name);
+            ImVec2 text_pos = pos;
+            text_pos.x += fmax(0, (avail_size.x - text_size.x) / 2) + _name_moving_status.pos;
+            text_pos.y += (_texture == nullptr ? (avail_size.y - text_size.y) / 2 : 10);
+            if (_texture)
+            {
+                My_ImGui_HighlightText(_name, text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
+            }
+            else
+            {
+                ImGui::SetCursorScreenPos(text_pos);
+                ImGui::TextUnformatted(_name);
+            }
+        }
+
+        if (_info.size() > 0)
+        {
+            ImVec2 text_size = ImGui::CalcTextSize(_info.c_str());
+            ImVec2 text_pos = pos;
+
+            if (_texture)
+            {
+                text_pos.y += avail_size.y - text_size.y - 10;
+                My_ImGui_HighlightText(_info.c_str(), text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
+            }
+            else
+            {
+                text_pos.y += (avail_size.y - text_size.y) / 2;
+                if (_name)
+                {
+                    text_pos.y += text_size.y;
+                }
+                ImGui::SetCursorScreenPos(text_pos);
+                ImGui::TextUnformatted(_info.c_str());
+            }
+        }
+
+        ImGui::NextColumn();
+
+        ImGui::Columns(1);
+    }
+
+    ImGui::EndChild();
+
+    if (_status_text.size() > 0)
+    {
+        ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0xcc, 0xcc, 0xcc, 255));
+        ImGui::TextWrapped(_status_text.c_str());
+        ImGui::PopStyleColor();
+    }
+}
+
 void TabBrowser::Show(bool selected)
 {
     if (_text_dialog != nullptr && _text_dialog->GetStatus())
@@ -116,145 +253,7 @@ void TabBrowser::Show(bool selected)
         SetInputHooks(_input);
     }
 
-    std::string title = std::string(TAB_ICONS[_title_id]) + TEXT(_title_id);
-    if (ImGui::BeginTabItem(title.c_str(), NULL, selected ? ImGuiTabItemFlags_SetSelected : 0))
-    {
-        ImVec2 size = {0.f, 0.f};
-        if (_status_text.size() > 0)
-        {
-            ImVec2 s = ImGui::CalcTextSize(_status_text.c_str());
-            size.y = -s.y * (s.x / ImGui::GetContentRegionAvailWidth() + 1);
-        }
-
-        if (ImGui::BeginChild(TEXT(_title_id), size))
-        {
-            ImGui::Columns(2, NULL, false);
-
-            std::string current_path = _directory->GetCurrentPath();
-            if (_directory->GetSearchString().size() > 0 && _directory->GetSearchResults().size() > 0)
-            {
-                current_path += std::string(" " ICON_SERACH) + _directory->GetSearchString();
-            }
-
-            ImGui::TextUnformatted(current_path.c_str());
-            ImVec2 current_pos;
-            if (ImGui::ListBoxHeader("", ImGui::GetContentRegionAvail()))
-            {
-                if (_in_refreshing)
-                {
-                    _spin_text.Show();
-                }
-                else
-                {
-                    for (size_t i = 0; i < _directory->GetSize(); i++)
-                    {
-                        const DirItem &item = _directory->GetItem(i);
-
-                        std::string name(item.name);
-
-                        if (!item.is_dir)
-                        {
-                            ImU32 color;
-                            if (_directory->BeFound(i))
-                                color = IM_COL32(255, 255, 33, 255);
-                            else
-                                color = IM_COL32(0, 255, 0, 255);
-
-                            ImGui::PushStyleColor(ImGuiCol_Text, color);
-                            if (gFavorites->find(name) != gFavorites->end())
-                                name.insert(0, ICON_EMPTY_STAR_SPACE);
-                        }
-
-                        if (i == _index)
-                        {
-                            current_pos = ImGui::GetCursorScreenPos();
-                            My_ImGui_Selectable(name.c_str(), true, &_moving_status);
-                        }
-                        else
-                            ImGui::Selectable(name.c_str());
-
-                        if (!item.is_dir)
-                            ImGui::PopStyleColor();
-
-                        if (i == _index && ImGui::GetScrollMaxY() > 0.f)
-                            ImGui::SetScrollHereY((float)_index / (float)_directory->GetSize());
-                    }
-                }
-
-                ImGui::ListBoxFooter();
-            }
-            ImGui::NextColumn();
-            ImVec2 avail_size = ImGui::GetContentRegionAvail();
-            _texture_max_width = avail_size.x;
-            _texture_max_height = avail_size.y;
-            ImVec2 pos = ImGui::GetCursorScreenPos();
-
-            if (_texture != nullptr)
-            {
-                ImVec2 texture_pos = pos;
-                texture_pos.x += ceilf(fmax(0.0f, (avail_size.x - _texture_width) * 0.5f));
-                texture_pos.y += ceilf(fmax(0.0f, (avail_size.y - _texture_height) * 0.5f));
-                ImGui::SetCursorScreenPos(texture_pos);
-                ImGui::Image(_texture, {_texture_width, _texture_height});
-            }
-
-            if (_name != nullptr)
-            {
-                _name_moving_status.Update(_name);
-
-                ImVec2 text_size = ImGui::CalcTextSize(_name);
-                ImVec2 text_pos = pos;
-                text_pos.x += fmax(0, (avail_size.x - text_size.x) / 2) + _name_moving_status.pos;
-                text_pos.y += (_texture == nullptr ? (avail_size.y - text_size.y) / 2 : 10);
-                if (_texture)
-                {
-                    My_ImGui_HighlightText(_name, text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
-                }
-                else
-                {
-                    ImGui::SetCursorScreenPos(text_pos);
-                    ImGui::TextUnformatted(_name);
-                }
-            }
-
-            if (_info.size() > 0)
-            {
-                ImVec2 text_size = ImGui::CalcTextSize(_info.c_str());
-                ImVec2 text_pos = pos;
-
-                if (_texture)
-                {
-                    text_pos.y += avail_size.y - text_size.y - 10;
-                    My_ImGui_HighlightText(_info.c_str(), text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
-                }
-                else
-                {
-                    text_pos.y += (avail_size.y - text_size.y) / 2;
-                    if (_name)
-                    {
-                        text_pos.y += text_size.y;
-                    }
-                    ImGui::SetCursorScreenPos(text_pos);
-                    ImGui::TextUnformatted(_info.c_str());
-                }
-            }
-
-            ImGui::NextColumn();
-
-            ImGui::Columns(1);
-        }
-
-        ImGui::EndChild();
-
-        if (_status_text.size() > 0)
-        {
-            ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0xcc, 0xcc, 0xcc, 255));
-            ImGui::TextWrapped(_status_text.c_str());
-            ImGui::PopStyleColor();
-        }
-
-        ImGui::EndTabItem();
-    }
+    TabBase::Show(selected);
 
     if (_dialog && _dialog->IsActived())
     {

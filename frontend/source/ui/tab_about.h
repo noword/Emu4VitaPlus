@@ -10,11 +10,11 @@ class TabAbout : public virtual TabBase
 public:
     TabAbout();
     virtual ~TabAbout();
-    virtual void Show(bool selected);
-    virtual void SetInputHooks(Input *input);
-    virtual void UnsetInputHooks(Input *input);
+    virtual void SetInputHooks(Input *input) override;
+    virtual void UnsetInputHooks(Input *input) override;
 
 private:
+    virtual void _Show() override;
     void _InitTexts();
     void _OnKeyUp(Input *input);
     void _OnKeyDown(Input *input);

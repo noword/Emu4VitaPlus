@@ -39,127 +39,126 @@ TabFavorite::~TabFavorite()
     delete _dialog;
 }
 
-void TabFavorite::Show(bool selected)
+void TabFavorite::_Show()
 {
-    std::string title = std::string(TAB_ICONS[_title_id]) + TEXT(_title_id);
-    if (ImGui::BeginTabItem(title.c_str(), NULL, selected ? ImGuiTabItemFlags_SetSelected : 0))
+    if (_index >= gFavorites->size())
     {
-        if (_index >= gFavorites->size())
-        {
-            _index = 0;
-        }
-
-        ImVec2 size = {0.f, 0.f};
-        ImVec2 s = ImGui::CalcTextSize(_status_text.c_str());
-        size.y = -s.y * (s.x / ImGui::GetContentRegionAvailWidth() + 1);
-
-        if (ImGui::BeginChild(TEXT(_title_id), size))
-        {
-            ImGui::Columns(2, NULL, false);
-
-            auto iter = gFavorites->begin();
-            std::advance(iter, _index);
-            ImGui::TextUnformatted(iter->second.path.c_str());
-
-            size_t count = 0;
-            const float total = gFavorites->size();
-            const std::string *rom_name = nullptr;
-            if (ImGui::ListBoxHeader("", ImGui::GetContentRegionAvail()))
-            {
-                ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0, 255, 0, 255));
-                for (const auto &fav : *gFavorites)
-                {
-                    if (count == _index)
-                    {
-                        My_ImGui_Selectable(fav.second.item.name.c_str(), true, &_moving_status);
-                    }
-                    else
-                    {
-                        ImGui::Selectable(fav.second.item.name.c_str());
-                    }
-
-                    if (count == _index)
-                    {
-                        rom_name = &fav.second.rom_name;
-
-                        if (ImGui::GetScrollMaxY() > 0.f)
-                            ImGui::SetScrollHereY((float)_index / total);
-                    }
-                    count++;
-                }
-                ImGui::PopStyleColor();
-                ImGui::ListBoxFooter();
-            }
-
-            ImGui::NextColumn();
-
-            ImVec2 avail_size = ImGui::GetContentRegionAvail();
-            _texture_max_width = avail_size.x;
-            _texture_max_height = avail_size.y;
-
-            ImVec2 pos = ImGui::GetCursorScreenPos();
-            if (_texture != nullptr)
-            {
-                ImVec2 texture_pos = pos;
-                texture_pos.x += ceilf(fmax(0.0f, (avail_size.x - _texture_width) * 0.5f));
-                texture_pos.y += ceilf(fmax(0.0f, (avail_size.y - _texture_height) * 0.5f));
-                ImGui::SetCursorScreenPos(texture_pos);
-                ImGui::Image(_texture, {_texture_width, _texture_height});
-            }
-
-            if (rom_name && rom_name->size() > 0)
-            {
-                _name_moving_status.Update(rom_name->c_str());
-                ImVec2 text_size = ImGui::CalcTextSize(rom_name->c_str());
-                ImVec2 text_pos = pos;
-                text_pos.x += fmax(0, (avail_size.x - text_size.x) / 2) + _name_moving_status.pos;
-                text_pos.y += (_texture == nullptr ? (avail_size.y - text_size.y) / 2 : 10);
-
-                if (_texture)
-                {
-                    My_ImGui_HighlightText(rom_name->c_str(), text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
-                }
-                else
-                {
-                    ImGui::SetCursorScreenPos(text_pos);
-                    ImGui::TextUnformatted(rom_name->c_str());
-                }
-            }
-
-            if (_info.size() > 0)
-            {
-                ImVec2 text_size = ImGui::CalcTextSize(_info.c_str());
-                ImVec2 text_pos = pos;
-
-                if (_texture)
-                {
-                    text_pos.y += avail_size.y - text_size.y - 10;
-                    My_ImGui_HighlightText(_info.c_str(), text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
-                }
-                else
-                {
-                    text_pos.y += (avail_size.y - text_size.y) / 2;
-                    if (rom_name && rom_name->size() > 0)
-                    {
-                        text_pos.y += text_size.y;
-                    }
-                    ImGui::SetCursorScreenPos(text_pos);
-                    ImGui::TextUnformatted(_info.c_str());
-                }
-            }
-
-            ImGui::NextColumn();
-        }
-
-        ImGui::EndChild();
-        ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0xcc, 0xcc, 0xcc, 255));
-        ImGui::TextWrapped(_status_text.c_str());
-        ImGui::PopStyleColor();
-
-        ImGui::EndTabItem();
+        _index = 0;
     }
 
-    if (_dialog->IsActived())
+    ImVec2 size = {0.f, 0.f};
+    ImVec2 s = ImGui::CalcTextSize(_status_text.c_str());
+    size.y = -s.y * (s.x / ImGui::GetContentRegionAvailWidth() + 1);
+
+    if (ImGui::BeginChild(TEXT(_title_id), size))
+    {
+        ImGui::Columns(2, NULL, false);
+
+        auto iter = gFavorites->begin();
+        std::advance(iter, _index);
+        ImGui::TextUnformatted(iter->second.path.c_str());
+
+        size_t count = 0;
+        const float total = gFavorites->size();
+        const std::string *rom_name = nullptr;
+        if (ImGui::ListBoxHeader("", ImGui::GetContentRegionAvail()))
+        {
+            ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0, 255, 0, 255));
+            for (const auto &fav : *gFavorites)
+            {
+                if (count == _index)
+                {
+                    My_ImGui_Selectable(fav.second.item.name.c_str(), true, &_moving_status);
+                }
+                else
+                {
+                    ImGui::Selectable(fav.second.item.name.c_str());
+                }
+
+                if (count == _index)
+                {
+                    rom_name = &fav.second.rom_name;
+
+                    if (ImGui::GetScrollMaxY() > 0.f)
+                        ImGui::SetScrollHereY((float)_index / total);
+                }
+                count++;
+            }
+            ImGui::PopStyleColor();
+            ImGui::ListBoxFooter();
+        }
+
+        ImGui::NextColumn();
+
+        ImVec2 avail_size = ImGui::GetContentRegionAvail();
+        _texture_max_width = avail_size.x;
+        _texture_max_height = avail_size.y;
+
+        ImVec2 pos = ImGui::GetCursorScreenPos();
+        if (_texture != nullptr)
+        {
+            ImVec2 texture_pos = pos;
+            texture_pos.x += ceilf(fmax(0.0f, (avail_size.x - _texture_width) * 0.5f));
+            texture_pos.y += ceilf(fmax(0.0f, (avail_size.y - _texture_height) * 0.5f));
+            ImGui::SetCursorScreenPos(texture_pos);
+            ImGui::Image(_texture, {_texture_width, _texture_height});
+        }
+
+        if (rom_name && rom_name->size() > 0)
+        {
+            _name_moving_status.Update(rom_name->c_str());
+            ImVec2 text_size = ImGui::CalcTextSize(rom_name->c_str());
+            ImVec2 text_pos = pos;
+            text_pos.x += fmax(0, (avail_size.x - text_size.x) / 2) + _name_moving_status.pos;
+            text_pos.y += (_texture == nullptr ? (avail_size.y - text_size.y) / 2 : 10);
+
+            if (_texture)
+            {
+                My_ImGui_HighlightText(rom_name->c_str(), text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
+            }
+            else
+            {
+                ImGui::SetCursorScreenPos(text_pos);
+                ImGui::TextUnformatted(rom_name->c_str());
+            }
+        }
+
+        if (_info.size() > 0)
+        {
+            ImVec2 text_size = ImGui::CalcTextSize(_info.c_str());
+            ImVec2 text_pos = pos;
+
+            if (_texture)
+            {
+                text_pos.y += avail_size.y - text_size.y - 10;
+                My_ImGui_HighlightText(_info.c_str(), text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
+            }
+            else
+            {
+                text_pos.y += (avail_size.y - text_size.y) / 2;
+                if (rom_name && rom_name->size() > 0)
+                {
+                    text_pos.y += text_size.y;
+                }
+                ImGui::SetCursorScreenPos(text_pos);
+                ImGui::TextUnformatted(_info.c_str());
+            }
+        }
+
+        ImGui::NextColumn();
+    }
+
+    ImGui::EndChild();
+    ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0xcc, 0xcc, 0xcc, 255));
+    ImGui::TextWrapped(_status_text.c_str());
+    ImGui::PopStyleColor();
+}
+
+void TabFavorite::Show(bool selected)
+{
+    TabBase::Show(selected);
+
+    if (selected && _dialog->IsActived())
     {
         _dialog->Show();
     }

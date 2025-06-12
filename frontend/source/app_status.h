@@ -18,7 +18,7 @@ enum APP_STATUS
 class AppStatus
 {
 public:
-    AppStatus() : _status(APP_STATUS_BOOT) {};
+    AppStatus(APP_STATUS status = APP_STATUS_BOOT) : _status(status) {};
     virtual ~AppStatus() {};
 
     APP_STATUS Get() { return _status; };
