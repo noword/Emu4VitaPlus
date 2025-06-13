@@ -83,7 +83,7 @@ const std::vector<uint8_t>
         RETRO_DEVICE_ID_JOYPAD_B,
         RETRO_DEVICE_ID_JOYPAD_L,
         RETRO_DEVICE_ID_JOYPAD_R,
-#elif defined(ARC_BUILD)
+#elif defined(ARC_BUILD) || defined(N64_BUILD)
         RETRO_DEVICE_ID_JOYPAD_A,
         RETRO_DEVICE_ID_JOYPAD_B,
         RETRO_DEVICE_ID_JOYPAD_X,
@@ -115,7 +115,7 @@ const std::vector<uint8_t>
         RETRO_DEVICE_ID_JOYPAD_Y,
         RETRO_DEVICE_ID_JOYPAD_L,
         RETRO_DEVICE_ID_JOYPAD_R,
-#elif defined(PS_BUILD) || defined(DOS_BUILD) || defined(NEOCD_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD)
+#elif defined(PS_BUILD) || defined(DOS_BUILD) || defined(NEOCD_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD) || defined(ATARI5200_BUILD)
         RETRO_DEVICE_ID_JOYPAD_A,
         RETRO_DEVICE_ID_JOYPAD_B,
         RETRO_DEVICE_ID_JOYPAD_X,
@@ -128,17 +128,6 @@ const std::vector<uint8_t>
         RETRO_DEVICE_ID_JOYPAD_R3,
 #elif defined(ATARI2600_BUILD)
         RETRO_DEVICE_ID_JOYPAD_B,
-        RETRO_DEVICE_ID_JOYPAD_L,
-        RETRO_DEVICE_ID_JOYPAD_R,
-        RETRO_DEVICE_ID_JOYPAD_L2,
-        RETRO_DEVICE_ID_JOYPAD_R2,
-        RETRO_DEVICE_ID_JOYPAD_L3,
-        RETRO_DEVICE_ID_JOYPAD_R3,
-#elif defined(ATARI5200_BUILD)
-        RETRO_DEVICE_ID_JOYPAD_A,
-        RETRO_DEVICE_ID_JOYPAD_B,
-        RETRO_DEVICE_ID_JOYPAD_X,
-        RETRO_DEVICE_ID_JOYPAD_Y,
         RETRO_DEVICE_ID_JOYPAD_L,
         RETRO_DEVICE_ID_JOYPAD_R,
         RETRO_DEVICE_ID_JOYPAD_L2,
@@ -370,6 +359,19 @@ const std::vector<ControlMapConfig> CONTROL_MAPS = {
     {SCE_CTRL_R2},
     {SCE_CTRL_L3},
     {SCE_CTRL_R3},
+#elif defined(N64_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_X},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_Y},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2},
+    {SCE_CTRL_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
 #else
 #error "unknown build"
 #endif
@@ -517,6 +519,7 @@ const std::vector<BIOS> REQUIRED_BIOS = {
 #elif defined(X68000_BUILD)
     {"keropi/iplrom.dat", 0},
     {"keropi/cgrom.dat", 0},
+#elif defined(N64_BUILD)
 #else
 #error "unknown build"
 #endif

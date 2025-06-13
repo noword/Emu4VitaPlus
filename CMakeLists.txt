@@ -64,6 +64,7 @@ set(CORES
     np2kai
     vice
     px68k
+    parallel_n64
 )
 
 set(CORE_SHORTS
@@ -111,7 +112,8 @@ set(CORE_SHORTS
     blueMSX
     np2kai
     vice
-    px68k)
+    px68k
+    ParallelN64)
 
 set(CONSOLES
     GBA
@@ -154,7 +156,8 @@ set(CONSOLES
     MSX
     PC98
     C64
-    X68000)
+    X68000
+    N64)
 
 set(TITLE_IDS
     GPSP4VITA
@@ -198,6 +201,7 @@ set(TITLE_IDS
     NP2KAIVIT
     VICE4VITA
     PX68K4VIT
+    PN644VITA
 )
 
 set(BUILD_LIST "All" "Arch" ${CORES})

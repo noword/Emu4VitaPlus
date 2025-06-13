@@ -175,6 +175,10 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_FRAME_TIME_CALLBACK");
         return false;
 
+    case RETRO_ENVIRONMENT_GET_RUMBLE_INTERFACE:
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_RUMBLE_INTERFACE");
+        return false;
+
     case RETRO_ENVIRONMENT_GET_LOG_INTERFACE:
         LogDebug("  cmd: RETRO_ENVIRONMENT_GET_LOG_INTERFACE");
         if (data)

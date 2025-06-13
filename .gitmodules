@@ -192,3 +192,7 @@
 	path = cores/px68k-libretro
 	url = https://github.com/libretro/px68k-libretro.git
 	branch = master
+[submodule "cores/parallel-n64"]
+	path = cores/parallel-n64
+	url = https://github.com/libretro/parallel-n64.git
+	branch = master
