@@ -131,25 +131,15 @@ add_subdirectory(simpleini)
 
 # minizip-ng
 # ----------------------
-option(MZ_ZLIB "" ON)
 option(MZ_BZIP2 "" OFF)
 option(MZ_LZMA "" OFF)
 option(MZ_ZSTD "" OFF)
 option(MZ_PKCRYPT "" OFF)
 option(MZ_WZAES "" OFF)
 option(MZ_DECOMPRESS_ONLY "" ON)
-set(MZ_ZLIB ON CACHE BOOL "" FORCE)
+option(MZ_FETCH_LIBS "" ON)
+option(MZ_FORCE_FETCH_LIBS "" ON)
 add_subdirectory(minizip-ng)
-
-# zlib-ng
-# ----------------------
-option(ZLIB_COMPAT "" ON)
-option(ZLIB_ENABLE_TESTS "" OFF)
-option(ZLIBNG_ENABLE_TESTS "" OFF)
-option(WITH_GZFILEOP "" OFF)
-option(WITH_GTEST "" OFF)
-option(ZLIBNG_ENABLE_TESTS "" OFF)
-add_subdirectory(zlib-ng)
 
 # lz4
 # ----------------------
