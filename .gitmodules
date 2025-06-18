@@ -188,3 +188,11 @@
 	path = cores/px68k-libretro
 	url = https://github.com/libretro/px68k-libretro.git
 	branch = master
+[submodule "cores/beetle-lynx-libretro"]
+	path = cores/beetle-lynx-libretro
+	url = https://github.com/libretro/beetle-lynx-libretro.git
+	branch = master
+[submodule "cores/libretro-handy"]
+	path = cores/libretro-handy
+	url = https://github.com/libretro/libretro-handy.git
+	branch = master

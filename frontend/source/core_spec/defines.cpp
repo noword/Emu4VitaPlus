@@ -176,6 +176,11 @@ const std::vector<uint8_t>
         RETRO_DEVICE_ID_JOYPAD_Y,
         RETRO_DEVICE_ID_JOYPAD_L,
         RETRO_DEVICE_ID_JOYPAD_R,
+#elif defined(LYNX_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
 #else
 #error "unknown build"
 #endif
@@ -370,6 +375,19 @@ const std::vector<ControlMapConfig> CONTROL_MAPS = {
     {SCE_CTRL_R2},
     {SCE_CTRL_L3},
     {SCE_CTRL_R3},
+#elif defined(LYNX_BUILD)
+    {SCE_CTRL_CROSS, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_TRIANGLE, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_CIRCLE, RETRO_DEVICE_ID_JOYPAD_A},
+    {SCE_CTRL_SQUARE, RETRO_DEVICE_ID_JOYPAD_B},
+    {SCE_CTRL_SELECT, RETRO_DEVICE_ID_JOYPAD_SELECT},
+    {SCE_CTRL_START, RETRO_DEVICE_ID_JOYPAD_START},
+    {SCE_CTRL_L1, RETRO_DEVICE_ID_JOYPAD_L},
+    {SCE_CTRL_R1, RETRO_DEVICE_ID_JOYPAD_R},
+    {SCE_CTRL_L2},
+    {SCE_CTRL_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
 #else
 #error "unknown build"
 #endif
@@ -517,6 +535,8 @@ const std::vector<BIOS> REQUIRED_BIOS = {
 #elif defined(X68000_BUILD)
     {"keropi/iplrom.dat", 0},
     {"keropi/cgrom.dat", 0},
+#elif defined(LYNX_BUILD)
+    {"lynxboot.img", 0x0d973c9d},
 #else
 #error "unknown build"
 #endif

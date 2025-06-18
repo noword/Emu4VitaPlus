@@ -64,6 +64,8 @@ set(CORES
     np2kai
     vice
     px68k
+    mednafen_lynx
+    handy
 )
 
 set(CORE_SHORTS
@@ -111,7 +113,9 @@ set(CORE_SHORTS
     blueMSX
     np2kai
     vice
-    px68k)
+    px68k
+    Lynx
+    Handy)
 
 set(CONSOLES
     GBA
@@ -154,7 +158,9 @@ set(CONSOLES
     MSX
     PC98
     C64
-    X68000)
+    X68000
+    LYNX
+    LYNX)
 
 set(TITLE_IDS
     GPSP4VITA
@@ -198,6 +204,8 @@ set(TITLE_IDS
     NP2KAIVIT
     VICE4VITA
     PX68K4VIT
+    LYNX4VITA
+    HANDY4VIT
 )
 
 set(BUILD_LIST "All" "Arch" ${CORES})

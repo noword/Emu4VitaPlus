@@ -31,6 +31,7 @@ CORES = {
     'MSX': ('fmsx', 'bluemsx'),
     'C64': ('vice',),
     'X68000': ('px68k',),
+    'LYNX': ('mednafen_lynx', 'handy'),
 }
 
 NAMES = {
@@ -78,4 +79,6 @@ NAMES = {
     'bluemsx': 'blueMSX',
     'vice': 'VICE',
     'px68k': 'Portable (x)keropi PRO-68K',
+    'mednafen_lynx': 'Beetle Lynx',
+    'handy': 'Handy',
 }
