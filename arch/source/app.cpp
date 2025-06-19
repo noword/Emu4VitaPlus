@@ -109,6 +109,9 @@ App::App()
         new CoreButton(NES, // 1983
                        {{"FCEUmm " ICON_STAR, "fceumm"},
                         {"Nestopia", "nestopia"}}),
+        new CoreButton(CPC, // 1984
+                       {{"cap32", "Caprice32"},
+                        {"crocods", "CrocoDS"}}),
         new CoreButton(AMIGA, // 1985
                        {{"uae4arm", "uae4arm"}}),
         new CoreButton(X68000, // 1987
@@ -120,6 +123,9 @@ App::App()
                        {{"Genesis Plus GX " ICON_STAR, "genesis_plus_gx"},
                         {"Genesis Plus GX Wide", "genesis_plus_gx_wide"},
                         {"PicoDrive", "picodrive"}}),
+        new CoreButton(LYNX, // 1989
+                       {{"Beetle Lynx", "mednafen_lynx"},
+                        {"Handy", "handy"}}, ),
         new CoreButton(GBC, // 1989,1998
                        {{"Gambatte", "gambatte"},
                         {"TGB Dual", "tgbdual"}}),

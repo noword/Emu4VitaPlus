@@ -66,6 +66,8 @@ set(CORES
     px68k
     mednafen_lynx
     handy
+    cap32
+    crocods
 )
 
 set(CORE_SHORTS
@@ -115,7 +117,9 @@ set(CORE_SHORTS
     vice
     px68k
     Lynx
-    Handy)
+    Handy
+    Caprice32
+    CrocoDS)
 
 set(CONSOLES
     GBA
@@ -160,7 +164,9 @@ set(CONSOLES
     C64
     X68000
     LYNX
-    LYNX)
+    LYNX
+    CPC
+    CPC)
 
 set(TITLE_IDS
     GPSP4VITA
@@ -206,6 +212,8 @@ set(TITLE_IDS
     PX68K4VIT
     LYNX4VITA
     HANDY4VIT
+    CAP324VIT
+    CROCODS4V
 )
 
 set(BUILD_LIST "All" "Arch" ${CORES})

@@ -352,6 +352,14 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         }
         break;
 
+    case RETRO_ENVIRONMENT_SET_CONTENT_INFO_OVERRIDE:
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_VFS_INTERFACE");
+        return false;
+
+    case RETRO_ENVIRONMENT_GET_GAME_INFO_EXT:
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_GAME_INFO_EXT");
+        return false;
+
     case RETRO_ENVIRONMENT_SET_CORE_OPTIONS_V2:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_CORE_OPTIONS_V2");
         gConfig->core_options.Load((retro_core_options_v2 *)data);

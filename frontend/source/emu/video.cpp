@@ -415,6 +415,8 @@ void Emulator::_SetupVideoOutput(unsigned width, unsigned height)
 {
     LogFunctionName;
 
+    LogDebug("  %d %d %d", width, height, _video_rotation);
+
     gVideo->Lock();
 
     _CreateTextureBuf(_video_pixel_format, width, height);
@@ -423,7 +425,7 @@ void Emulator::_SetupVideoOutput(unsigned width, unsigned height)
     float rad;
     if (gConfig->auto_rotating)
     {
-        rad = _video_rotation == VIDEO_ROTATION_90 || _video_rotation == VIDEO_ROTATION_180 ? M_PI : 0;
+        rad = (_video_rotation == VIDEO_ROTATION_90 || _video_rotation == VIDEO_ROTATION_180) ? M_PI : 0;
     }
     else
     {

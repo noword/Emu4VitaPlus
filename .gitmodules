@@ -196,3 +196,11 @@
 	path = cores/libretro-handy
 	url = https://github.com/libretro/libretro-handy.git
 	branch = master
+[submodule "cores/libretro-cap32"]
+	path = cores/libretro-cap32
+	url = https://github.com/libretro/libretro-cap32.git
+	branch = master
+[submodule "cores/libretro-crocods"]
+	path = cores/libretro-crocods
+	url = https://github.com/libretro/libretro-crocods.git
+	branch = master
