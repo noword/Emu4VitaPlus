@@ -114,9 +114,6 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         gEmulator->_SetPixelFormat(*(retro_pixel_format *)data);
         break;
 
-        // case RETRO_ENVIRONMENT_SET_INPUT_DESCRIPTORS:
-        //     break;
-
     case RETRO_ENVIRONMENT_SET_INPUT_DESCRIPTORS:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_INPUT_DESCRIPTORS");
         gConfig->input_descriptors.UpdateInputDescriptors((retro_input_descriptor *)data);
@@ -173,6 +170,10 @@ bool EnvironmentCallback(unsigned cmd, void *data)
 
     case RETRO_ENVIRONMENT_SET_FRAME_TIME_CALLBACK:
         LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_FRAME_TIME_CALLBACK");
+        return false;
+
+    case RETRO_ENVIRONMENT_GET_RUMBLE_INTERFACE:
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_RUMBLE_INTERFACE");
         return false;
 
     case RETRO_ENVIRONMENT_GET_LOG_INTERFACE:
@@ -351,14 +352,6 @@ bool EnvironmentCallback(unsigned cmd, void *data)
             gEmulator->SetSpeed(gEmulator->_speed); // will reset audio
         }
         break;
-
-    case RETRO_ENVIRONMENT_SET_CONTENT_INFO_OVERRIDE:
-        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_VFS_INTERFACE");
-        return false;
-
-    case RETRO_ENVIRONMENT_GET_GAME_INFO_EXT:
-        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_GAME_INFO_EXT");
-        return false;
 
     case RETRO_ENVIRONMENT_SET_CORE_OPTIONS_V2:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_CORE_OPTIONS_V2");
