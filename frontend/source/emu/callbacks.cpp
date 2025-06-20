@@ -122,7 +122,14 @@ bool EnvironmentCallback(unsigned cmd, void *data)
 
     case RETRO_ENVIRONMENT_SET_KEYBOARD_CALLBACK:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_KEYBOARD_CALLBACK");
-        gEmulator->_keyboard->SetCallback(data ? ((const retro_keyboard_callback *)data)->callback : nullptr);
+        if (gEmulator->_keyboard == nullptr)
+        {
+            LogWarn("gEmulator->_keyboard is NULL");
+        }
+        else
+        {
+            gEmulator->_keyboard->SetCallback(data ? ((const retro_keyboard_callback *)data)->callback : nullptr);
+        }
         break;
 
     case RETRO_ENVIRONMENT_SET_DISK_CONTROL_INTERFACE:
