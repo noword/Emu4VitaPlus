@@ -28,6 +28,9 @@ struct ControllerTypes : public std::vector<ControllerType>
 class DeviceOptions : public std::vector<ControllerTypes>
 {
 public:
+    DeviceOptions();
+    virtual ~DeviceOptions();
+
     bool Load(CSimpleIniA &ini);
     bool Save(CSimpleIniA &ini);
 

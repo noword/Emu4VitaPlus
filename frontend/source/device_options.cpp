@@ -80,6 +80,20 @@ void ControllerTypes::Apply(uint32_t port) const
     }
 }
 
+DeviceOptions::DeviceOptions()
+{
+    for (const auto &dd : DEFAULT_DEVICES)
+    {
+        ControllerTypes types;
+        types.value = dd;
+        this->push_back(types);
+    }
+}
+
+DeviceOptions::~DeviceOptions()
+{
+}
+
 void DeviceOptions::Load(retro_controller_info *info)
 {
     LogFunctionName;

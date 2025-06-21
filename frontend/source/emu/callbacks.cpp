@@ -125,6 +125,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         if (gEmulator->_keyboard == nullptr)
         {
             LogWarn("gEmulator->_keyboard is NULL");
+            return false;
         }
         else
         {

@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+#include <string>
 #include <utility>
 #include "config_types.h"
 
@@ -43,6 +44,7 @@ extern const bool CONTROL_SPEED_BY_VIDEO;
 extern const std::vector<uint8_t> RETRO_KEYS;
 extern const std::vector<ControlMapConfig> CONTROL_MAPS;
 extern const std::vector<std::pair<const char *, const char *>> DEFAULT_CORE_SETTINGS;
+extern const std::vector<std::string> DEFAULT_DEVICES;
 
 struct BIOS
 {
