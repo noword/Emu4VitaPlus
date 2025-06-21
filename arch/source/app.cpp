@@ -125,7 +125,7 @@ App::App()
                         {"PicoDrive", "picodrive"}}),
         new CoreButton(LYNX, // 1989
                        {{"Beetle Lynx", "mednafen_lynx"},
-                        {"Handy", "handy"}}, ),
+                        {"Handy", "handy"}}),
         new CoreButton(GBC, // 1989,1998
                        {{"Gambatte", "gambatte"},
                         {"TGB Dual", "tgbdual"}}),

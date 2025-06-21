@@ -57,7 +57,6 @@ target_link_libraries(
     SimpleIni
     png
     jpeg
-    zlibstatic
     lzma
     minizip
     7zip
