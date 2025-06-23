@@ -110,8 +110,8 @@ App::App()
                        {{"FCEUmm " ICON_STAR, "fceumm"},
                         {"Nestopia", "nestopia"}}),
         new CoreButton(CPC, // 1984
-                       {{"cap32", "Caprice32"},
-                        {"crocods", "CrocoDS"}}),
+                       {{"Caprice32", "cap32"},
+                        {"CrocoDS", "crocods"}}),
         new CoreButton(AMIGA, // 1985
                        {{"uae4arm", "uae4arm"}}),
         new CoreButton(X68000, // 1987
