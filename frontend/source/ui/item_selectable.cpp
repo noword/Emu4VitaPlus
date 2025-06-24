@@ -54,7 +54,7 @@ void ItemSelectable::_ShowCombo(const char *text)
         }
         for (size_t i = 0; i < _GetTotalCount(); i++)
         {
-            ImGui::Selectable(_GetOptionString(i), i == _GetIndex());
+            ImGui::Selectable(_GetOptionString(i), _IsHighlight(i));
             if (i == _GetIndex() && ImGui::GetScrollMaxY() > 0.f)
             {
                 ImGui::SetScrollHereY((float)i / (float)_GetTotalCount());

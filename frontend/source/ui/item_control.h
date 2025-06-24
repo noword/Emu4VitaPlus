@@ -1,10 +1,12 @@
 #pragma once
 #include <stdint.h>
+#include <algorithm>
 #include "item_selectable.h"
 #include "config.h"
 #include "defines.h"
 #include "global.h"
 #include "input_descriptor.h"
+#include "icons.h"
 
 using namespace Emu4VitaPlus;
 
@@ -37,25 +39,52 @@ private:
 
     virtual const char *_GetOptionString(size_t index) override
     {
-        return gConfig->input_descriptors.Get(RETRO_KEYS[index]);
-    };
-
-    virtual size_t _GetIndex() override
-    {
-        for (uint32_t i = 0; i < RETRO_KEYS.size(); i++)
+        static std::string s;
+        s = gConfig->input_descriptors.Get(RETRO_KEYS[index]);
+        if (std::find(_control_map->retros.begin(), _control_map->retros.end(), RETRO_KEYS[index]) != _control_map->retros.end())
         {
-            if (RETRO_KEYS[i] == _control_map->retro)
-            {
-                return i;
-            }
+            s += ICON_STAR_SPACE;
         }
-        return 0;
+
+        return s.c_str();
     };
 
-    virtual void _SetIndex(size_t index) override
+    virtual const char *_GetPreviewText() override
     {
-        _control_map->retro = RETRO_KEYS[index];
+        _preview.clear();
+        for (const auto &r : _control_map->retros)
+        {
+            if (_preview.size() > 0)
+            {
+                _preview += " + ";
+            }
+            _preview += gConfig->input_descriptors.Get(r);
+        }
+        return _preview.c_str();
     };
+
+    virtual void _OnClick(Input *input) override
+    {
+        ItemSelectable::_OnClick(input);
+        uint8_t r = RETRO_KEYS[_index];
+        std::vector<uint8_t> *retros = &_control_map->retros;
+        auto iter = std::find(retros->begin(), retros->end(), r);
+        if (iter == retros->end())
+        {
+            retros->push_back(r);
+        }
+        else if (retros->size() > 1)
+        {
+            retros->erase(iter);
+        }
+    };
+
+    virtual bool _IsHighlight(size_t index) override
+    {
+        return index == _index;
+        //|| std::find(_control_map->retros.begin(), _control_map->retros.end(), RETRO_KEYS[index]) != _control_map->retros.end();
+    }
 
     ControlMapConfig *_control_map;
+    std::string _preview;
 };

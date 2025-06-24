@@ -252,48 +252,51 @@ void Emulator::SetupKeys()
     _input.Reset();
     for (const auto &k : gConfig->control_maps)
     {
-        if (k.retro == 0xff)
+        for (const auto &retro : k.retros)
         {
-            continue;
-        }
-
-        if (k.retro >= 16)
-        {
-            LogError("  wrong key config: %d %08x", k.retro, k.psv);
-            continue;
-        }
-
-        if ((!gConfig->auto_rotating) || _video_rotation == VIDEO_ROTATION_0 || _video_rotation == VIDEO_ROTATION_180)
-        {
-            _keys[k.retro] |= k.psv;
-        }
-        else
-        {
-            switch (k.retro)
+            if (retro == 0xff)
             {
-            case RETRO_DEVICE_ID_JOYPAD_UP:
-                _keys[RETRO_DEVICE_ID_JOYPAD_RIGHT] |= k.psv;
-                break;
-            case RETRO_DEVICE_ID_JOYPAD_DOWN:
-                _keys[RETRO_DEVICE_ID_JOYPAD_LEFT] |= k.psv;
-                break;
-            case RETRO_DEVICE_ID_JOYPAD_LEFT:
-                _keys[RETRO_DEVICE_ID_JOYPAD_UP] |= k.psv;
-                break;
-            case RETRO_DEVICE_ID_JOYPAD_RIGHT:
-                _keys[RETRO_DEVICE_ID_JOYPAD_DOWN] |= k.psv;
-                break;
-            default:
-                _keys[k.retro] |= k.psv;
                 break;
             }
-        }
 
-        _keys_mask |= k.psv;
-        if (k.turbo)
-        {
-            _input.SetTurbo(k.psv);
-            LogDebug("_input.SetTurbo: %08x", k.psv);
+            if (retro >= 16)
+            {
+                LogError("  wrong key config: %d %08x", retro, k.psv);
+                continue;
+            }
+
+            if ((!gConfig->auto_rotating) || _video_rotation == VIDEO_ROTATION_0 || _video_rotation == VIDEO_ROTATION_180)
+            {
+                _keys[retro] |= k.psv;
+            }
+            else
+            {
+                switch (retro)
+                {
+                case RETRO_DEVICE_ID_JOYPAD_UP:
+                    _keys[RETRO_DEVICE_ID_JOYPAD_RIGHT] |= k.psv;
+                    break;
+                case RETRO_DEVICE_ID_JOYPAD_DOWN:
+                    _keys[RETRO_DEVICE_ID_JOYPAD_LEFT] |= k.psv;
+                    break;
+                case RETRO_DEVICE_ID_JOYPAD_LEFT:
+                    _keys[RETRO_DEVICE_ID_JOYPAD_UP] |= k.psv;
+                    break;
+                case RETRO_DEVICE_ID_JOYPAD_RIGHT:
+                    _keys[RETRO_DEVICE_ID_JOYPAD_DOWN] |= k.psv;
+                    break;
+                default:
+                    _keys[retro] |= k.psv;
+                    break;
+                }
+            }
+
+            _keys_mask |= k.psv;
+            if (k.turbo)
+            {
+                _input.SetTurbo(k.psv);
+                LogDebug("_input.SetTurbo: %08x", k.psv);
+            }
         }
     }
 

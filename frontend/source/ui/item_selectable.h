@@ -26,6 +26,7 @@ protected:
     virtual const char *_GetPreviewText() { return _GetOptionString(_GetIndex()); };
     virtual size_t _GetIndex() { return _index; };
     virtual void _SetIndex(size_t index) { _index = index; };
+    virtual bool _IsHighlight(size_t index) { return index == _GetIndex(); };
     bool _IsOnOff();
     void _ShowCombo(const char *text);
     void _ShowOnOff(bool on);

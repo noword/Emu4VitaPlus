@@ -1,11 +1,12 @@
 #pragma once
 #include <stdint.h>
+#include <vector>
 #define RETRO_DEVICE_ID_NONE 0xFF
 
 struct ControlMapConfig
 {
     uint32_t psv;
-    uint8_t retro = RETRO_DEVICE_ID_NONE;
+    std::vector<uint8_t> retros;
     bool turbo = false;
 };
 

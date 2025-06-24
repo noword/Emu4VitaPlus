@@ -249,7 +249,14 @@ namespace Emu4VitaPlus
 
         for (const auto &control : control_maps)
         {
-            ini.SetLongValue(PsvKeyStr.at(control.psv), "retro", control.retro);
+            int count = 0;
+            for (const auto &r : control.retros)
+            {
+                char tmp[16];
+                snprintf(tmp, 16, "retro%02d", count++);
+                ini.SetLongValue(PsvKeyStr.at(control.psv), tmp, r);
+            }
+
             ini.SetBoolValue(PsvKeyStr.at(control.psv), "turbo", control.turbo);
             // LogDebug("%d %s", control.psv, PsvKeyStr.at(control.psv));
         }
@@ -334,7 +341,17 @@ namespace Emu4VitaPlus
 
         for (auto &control : control_maps)
         {
-            control.retro = ini.GetLongValue(PsvKeyStr.at(control.psv), "retro", control.retro);
+            control.retros.clear();
+            int count = 0;
+            while (true)
+            {
+                char tmp[16];
+                snprintf(tmp, 16, "retro%02d", count++);
+                uint8_t r = ini.GetLongValue(PsvKeyStr.at(control.psv), tmp, RETRO_DEVICE_ID_NONE);
+                if (r == RETRO_DEVICE_ID_NONE)
+                    break;
+                control.retros.push_back(r);
+            }
             control.turbo = ini.GetBoolValue(PsvKeyStr.at(control.psv), "turbo", control.turbo);
         }
 
