@@ -2,8 +2,9 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 from zlib import crc32
 from io import BytesIO
-from struct import pack
+from struct import pack, unpack
 import lz4.block
+from arc_dat import *
 
 
 def AlignUp(offset, align):
@@ -18,13 +19,13 @@ def WritePadding(io, align, value=b'\x00'):
     io.write(value * size)
 
 
-def Grab(path):
+def Grab(path, pattern):
     data_io = BytesIO()
     name_offsets = {}
     names = set()
     roms = {}
 
-    for name in Path(path).glob('*.dat'):
+    for name in Path(path).glob(pattern):
         tree = ET.parse(name)
         root = tree.getroot()
         for game in root.iter('game'):
@@ -44,32 +45,18 @@ def Grab(path):
                         roms[crc] = {name_offsets[name]}
 
     WritePadding(data_io, 4)
-    return names, roms, data_io.getvalue()
+    arcdat = ZArcDat()
+    arcdat.name_buf = data_io.getvalue()
+    arcdat.name_crc = names
+    arcdat.roms = []
+    for crc, offsets in roms.items():
+        rom = Rom()
+        rom.crc32 = int(crc, 16)
+        rom.name_offsets = offsets
+        arcdat.roms.append(rom)
+
+    return arcdat
 
 
-names, roms, name_data = Grab('../cores/libretro-fbneo/dats/')
-names_crcs = ',\n'.join([f'0x{n:08x}' for n in names])
-data_array = ','.join([hex(d) for d in name_data])
-
-with open('roms.txt', 'w') as fp:
-    for crc, ns in roms.items():
-        fp.write(f'{int(crc, 16):08x} : ')
-        fp.write(', '.join([f'{n:08x}' for n in ns]))
-        fp.write('\n')
-
-with open('arcade_dat.bin', 'wb') as fp:
-    fp.write(pack('I', len(name_data)))
-    fp.write(name_data)
-    fp.write(pack('I', len(names)))
-    fp.write(pack(f'{len(names)}I', *names))
-    fp.write(pack('I', len(roms)))
-    for crc, names in roms.items():
-        fp.write(pack('II', len(names), int(crc, 16)))
-        fp.write(pack(f'{len(names)}I', *names))
-
-buf = open('arcade_dat.bin', 'rb').read()
-zbuf = lz4.block.compress(buf, mode='high_compression', store_size=False, compression=12)
-
-with open('arcade_dat.zbin', 'wb') as fp:
-    fp.write(pack('II', len(buf), len(zbuf)))
-    fp.write(zbuf)
+Grab('../cores/libretro-fbneo/dats/', '*.dat').save(MyFile('fba_dat.zbin', 'wb'))
+Grab('../cores/mame2003-plus-libretro/metadata', '*.xml').save(MyFile('mame_dat.zbin', 'wb'))

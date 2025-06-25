@@ -10,7 +10,12 @@
 #include "archive_reader_factory.h"
 #include "file.h"
 
-#define DAT_BIN_PATH "app0:assets/arcade_dat.zbin"
+#if defined(FBA_BUILD)
+#define DAT_BIN_PATH "app0:assets/fba_dat.zbin"
+#elif defined(MAME_BUILD)
+#define DAT_BIN_PATH "app0:assets/mame_dat.zbin"
+#endif
+
 #define ARC_CACHE_MAX_SIZE 10
 
 void Emulator::_InitArcadeManager()

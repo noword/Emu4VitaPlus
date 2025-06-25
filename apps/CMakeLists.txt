@@ -27,6 +27,26 @@ add_compile_definitions(
     SCE_LIBC_SIZE=0x400000
 )
 
+set(FBA
+    "fba_lite"
+    "fbneo"
+    "fbalpha2012"
+    "km_fbneo_xtreme_amped")
+
+set(MAME
+    "mame2000"
+    "mame2003_plus"
+    "mame2003"
+    "km_mame2003_xtreme_amped")
+
+if(CORE IN_LIST FBA)
+    add_compile_definitions(FBA_BUILD)
+    set(ARC_DAT_NAME fba_dat.zbin)
+elseif(CORE IN_LIST MAME)
+    add_compile_definitions(MAME_BUILD)
+    set(ARC_DAT_NAME mame_dat.zbin)
+endif()
+
 include_directories(
     ../frontend/source
     ../frontend/source/emu
@@ -112,7 +132,7 @@ if(NOT BUILD_SELF)
     get_directory_property(DEFINES COMPILE_DEFINITIONS)
 
     if("ARC_BUILD" IN_LIST DEFINES)
-        gen_arc_dat(${PRIVATE_PKG_DIR})
+        gen_arc_dat(${PRIVATE_PKG_DIR} ${ARC_DAT_NAME})
     endif()
 
     if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
