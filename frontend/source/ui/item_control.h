@@ -65,7 +65,7 @@ private:
 
     virtual void _OnClick(Input *input) override
     {
-        ItemSelectable::_OnClick(input);
+
         uint8_t r = RETRO_KEYS[_index];
         std::vector<uint8_t> *retros = &_control_map->retros;
         auto iter = std::find(retros->begin(), retros->end(), r);
@@ -73,10 +73,12 @@ private:
         {
             retros->push_back(r);
         }
-        else if (retros->size() > 1)
+        else
         {
             retros->erase(iter);
         }
+
+        ItemBase::OnActive(input);
     };
 
     virtual bool _IsHighlight(size_t index) override
