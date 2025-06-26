@@ -30,7 +30,8 @@ foreach(index RANGE ${length})
     list(APPEND CORE_FILES FILE "${CMAKE_CURRENT_BINARY_DIR}/../apps/${core}/eboot_${core_short}.bin" "eboot_${core}.self")
 endforeach()
 
-gen_arc_dat(${PKG_DIR})
+gen_arc_dat(${PKG_DIR} fba_dat.zbin)
+gen_arc_dat(${PKG_DIR} mame_dat.zbin)
 
 include_directories(
     source

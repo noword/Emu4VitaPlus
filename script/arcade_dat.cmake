@@ -7,7 +7,7 @@ macro(gen_arc_dat OUTPUT_PATH ARC_DAT_NAME)
     list(APPEND PRIVATE_PKG_FILES FILE ${ARC_DAT_PATH} ${rel})
 
     set(ARC_SCRIPT grab_arc_dat.py)
-    set(ARC_TAG ${APP_NAME}_ARC_DAT)
+    set(ARC_TAG ${APP_NAME}_${ARC_DAT_NAME}_ARC_DAT)
 
     add_custom_command(
         OUTPUT
