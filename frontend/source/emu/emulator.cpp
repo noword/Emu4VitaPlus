@@ -248,7 +248,10 @@ void Emulator::UnloadGame()
     if (status & (APP_STATUS_RUN_GAME | APP_STATUS_SHOW_UI_IN_GAME))
     {
         Lock();
-        _rewind_manager.Deinit();
+
+        if (gConfig->rewind)
+            _rewind_manager.Deinit();
+
         _cheats.Stop(true);
         if (gConfig->auto_save)
         {
