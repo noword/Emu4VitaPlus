@@ -5,7 +5,7 @@
 class App
 {
 public:
-    App(int argc, char *const argv[]);
+    App();
     virtual ~App();
 
     void Run();

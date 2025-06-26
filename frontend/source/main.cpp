@@ -28,7 +28,8 @@ static void ParseParams(int argc, char *const argv[])
         else if (strcmp(argv[i], "--rom") == 0)
         {
             i++;
-            gBootRomPath = argv[i];
+            if (File::Exist(argv[i]))
+                gBootRomPath = argv[i];
         }
     }
 }
@@ -81,7 +82,7 @@ int main(int argc, char *const argv[])
     LogDebug("stack size: %d", sceKernelCheckThreadStack());
 
     {
-        App app(argc, argv);
+        App app;
         LogInfo("_newlib_heap_size: %d", _newlib_heap_size);
         LogInfo("free heap: %d", _newlib_heap_end - _newlib_heap_cur);
         app.Run();

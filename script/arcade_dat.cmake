@@ -21,6 +21,7 @@ macro(gen_arc_dat OUTPUT_PATH ARC_DAT_NAME)
         DEPENDS
         ${CMAKE_SOURCE_DIR}/script/${ARC_SCRIPT}
         ${CMAKE_SOURCE_DIR}/cores/libretro-fbneo/dats/*
+        ${CMAKE_SOURCE_DIR}/cores/mame2003-plus-libretro/metadata/*
     )
 
     add_custom_target(${ARC_TAG}

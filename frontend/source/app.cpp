@@ -35,7 +35,7 @@ void OnVersionChecked(bool has_new)
     }
 }
 
-App::App(int argc, char *const argv[])
+App::App()
 {
     LogFunctionName;
 
