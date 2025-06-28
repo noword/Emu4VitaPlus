@@ -245,6 +245,8 @@ void Emulator::UnloadGame()
     APP_STATUS status = gStatus.Get();
     gStatus.Set(APP_STATUS_SHOW_UI);
 
+    sceKernelDelayThread(100000); // wait 0.1 second
+
     if (status & (APP_STATUS_RUN_GAME | APP_STATUS_SHOW_UI_IN_GAME))
     {
         Lock();
@@ -257,7 +259,8 @@ void Emulator::UnloadGame()
         {
             gStateManager->states[0]->Save();
         }
-        Save();
+
+        // Save();  // already run when switching to the menu
         _current_name.clear();
         retro_unload_game();
         Unlock();
