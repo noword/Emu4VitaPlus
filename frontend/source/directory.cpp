@@ -71,11 +71,14 @@ void Directory::SetExtensionFilter(const char *exts, char split)
     delete[] exts_string;
 }
 
+bool Directory::_SuffixTest(const char *name)
+{
+    return (_ext_filters.find(File::GetExt(name)) != _ext_filters.end());
+}
+
 bool Directory::_LeagleTest(const char *name, DirItem *item)
 {
-    std::string ext = File::GetExt(name);
-
-    if (_ext_filters.find(ext) != _ext_filters.end())
+    if (_SuffixTest(name))
     {
         return true;
     }
@@ -100,7 +103,7 @@ bool Directory::_LeagleTest(const char *name, DirItem *item)
     do
     {
         const char *entry_name = reader->GetCurrentName();
-        result = _LeagleTest(entry_name);
+        result = _SuffixTest(entry_name);
         if (result)
         {
             item->entry_name = entry_name;

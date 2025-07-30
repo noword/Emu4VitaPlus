@@ -49,5 +49,6 @@ private:
     std::string _search_str;
 
     bool _LeagleTest(const char *name, DirItem *item = nullptr);
+    inline bool _SuffixTest(const char *name);
     bool _ToRoot();
 };
