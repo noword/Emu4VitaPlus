@@ -24,4 +24,5 @@ namespace File
     std::string GetExt(const char *path, bool lower = true);
     std::string GetDir(const char *path);
     uint32_t GetCrc32(const char *name);
+    size_t GetFileCount(const char *path);
 }

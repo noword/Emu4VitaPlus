@@ -8,7 +8,7 @@
 #include "file.h"
 #include "archive_reader_factory.h"
 
-static const size_t INPUT_7Z_BUF_SIZE = 1 << 18;
+#define THRESHOLD_FILE_COUNT 200
 
 static void SortDirItemsByNameIgnoreCase(std::vector<DirItem> &items)
 {
@@ -76,8 +76,9 @@ bool Directory::_SuffixTest(const char *name)
     return (_ext_filters.find(File::GetExt(name)) != _ext_filters.end());
 }
 
-bool Directory::_LeagleTest(const char *name, DirItem *item)
+bool Directory::LegalTest(const char *name, DirItem *item)
 {
+    // LogDebug("  _LeagleTest: %s", name);
     if (_SuffixTest(name))
     {
         return true;
@@ -88,10 +89,10 @@ bool Directory::_LeagleTest(const char *name, DirItem *item)
         return false;
     }
 
-    if (File::GetSize(name) > 50000000)
-    {
-        return false;
-    }
+    // if (File::GetSize(name) > 50000000)
+    // {
+    //     return false;
+    // }
 
     ArchiveReader *reader = gArchiveReaderFactory->Get(name);
     if (reader == nullptr || !reader->Open((_current_path + "/" + name).c_str()))
@@ -137,6 +138,9 @@ bool Directory::SetCurrentPath(const std::string &path)
 
     _current_path = path;
     std::vector<DirItem> files;
+    size_t file_count = File::GetFileCount(path.c_str());
+    files.reserve(file_count);
+    _tested = file_count <= THRESHOLD_FILE_COUNT;
 
     SceIoDirent dir;
     while (sceIoDread(dfd, &dir) > 0)
@@ -149,12 +153,28 @@ bool Directory::SetCurrentPath(const std::string &path)
         {
             _items.push_back({dir.d_name, true});
         }
+        else if (_tested)
+        {
+            DirItem item{dir.d_name, false};
+            if (LegalTest(dir.d_name, &item))
+            {
+                files.emplace_back(item);
+            }
+        }
         else
         {
             DirItem item{dir.d_name, false};
-            if (_LeagleTest(dir.d_name, &item))
+            if (_SuffixTest(dir.d_name))
             {
-                files.push_back(item);
+                files.emplace_back(item);
+            }
+            else
+            {
+                std::string ext = File::GetExt(dir.d_name);
+                if (ext == "zip" || ext == "7z")
+                {
+                    files.emplace_back(item);
+                }
             }
         }
     }

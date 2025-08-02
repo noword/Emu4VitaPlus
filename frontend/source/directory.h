@@ -9,6 +9,7 @@ struct DirItem
     bool is_dir;
     uint32_t crc32 = 0;
     std::string entry_name = "";
+    bool legal = true;
 };
 
 struct InsensitiveCompare
@@ -31,7 +32,7 @@ public:
     bool SetCurrentPath(const std::string &path);
     bool Refresh() { return SetCurrentPath(_current_path.c_str()); };
     const std::string &GetCurrentPath() const { return _current_path; };
-    const DirItem &GetItem(int index) const { return _items[index]; };
+    DirItem &GetItem(int index) { return _items[index]; };
     const std::string &GetItemName(int index) const { return _items[index].name; };
     const bool IsDir(int index) const { return _items[index].is_dir; };
     size_t GetSize();
@@ -40,6 +41,8 @@ public:
     const std::string &GetSearchString() const { return _search_str; };
     const std::set<size_t> &GetSearchResults() const { return _search_results; };
     int GetIndex(const char *name);
+    bool LegalTest(const char *name, DirItem *item = nullptr);
+    bool IsTested() { return _tested; };
 
 private:
     std::vector<DirItem> _items;
@@ -47,8 +50,8 @@ private:
     std::set<size_t> _search_results;
     std::string _current_path;
     std::string _search_str;
+    bool _tested;
 
-    bool _LeagleTest(const char *name, DirItem *item = nullptr);
     inline bool _SuffixTest(const char *name);
     bool _ToRoot();
 };

@@ -328,4 +328,26 @@ namespace File
         delete[] buf;
         return crc;
     }
+
+    size_t GetFileCount(const char *path)
+    {
+        size_t count = 0;
+        SceIoDirent dir;
+        SceUID dfd = sceIoDopen(path);
+        if (dfd >= 0)
+        {
+            while (sceIoDread(dfd, &dir) > 0)
+            {
+                if (!SCE_S_ISDIR(dir.d_stat.st_mode))
+                {
+                    count++;
+                }
+            }
+            sceIoDclose(dfd);
+        }
+
+        LogDebug("GetFileCount: %s %d", path, count);
+
+        return count;
+    }
 }

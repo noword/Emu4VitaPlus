@@ -128,10 +128,17 @@ void TabBrowser::_Show()
                     if (!item.is_dir)
                     {
                         ImU32 color;
-                        if (_directory->BeFound(i))
-                            color = IM_COL32(255, 255, 33, 255);
+                        if (item.legal)
+                        {
+                            if (_directory->BeFound(i))
+                                color = IM_COL32(255, 255, 33, 255);
+                            else
+                                color = IM_COL32(0, 255, 0, 255);
+                        }
                         else
-                            color = IM_COL32(0, 255, 0, 255);
+                        {
+                            color = IM_COL32(200, 200, 200, 255);
+                        }
 
                         ImGui::PushStyleColor(ImGuiCol_Text, color);
                         if (gFavorites->find(name) != gFavorites->end())
@@ -320,7 +327,7 @@ void TabBrowser::_OnActive(Input *input)
         _SetIndexFromHistory();
         _Update();
     }
-    else
+    else if (item.legal)
     {
         if (gEmulator->LoadRom((_directory->GetCurrentPath() + "/" + item.name).c_str(), item.entry_name.c_str(), item.crc32) && gStatus.Get() == APP_STATUS_RUN_GAME)
         {
@@ -758,6 +765,14 @@ void TabBrowser::_UpdateInfo()
 
 void TabBrowser::_Update()
 {
+    if (!_directory->IsTested())
+    {
+        DirItem &item = _directory->GetItem(_index);
+        if (!_directory->LegalTest(item.name.c_str(), &item))
+        {
+            item.legal = false;
+        }
+    }
     _UpdateTexture();
     _UpdateStatus();
     _UpdateName();
