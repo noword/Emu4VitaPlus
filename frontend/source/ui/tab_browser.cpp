@@ -137,7 +137,7 @@ void TabBrowser::_Show()
                         }
                         else
                         {
-                            color = IM_COL32(200, 200, 200, 255);
+                            color = IM_COL32(0x66, 0x66, 0x66, 0x66);
                         }
 
                         ImGui::PushStyleColor(ImGuiCol_Text, color);
