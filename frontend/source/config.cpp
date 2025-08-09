@@ -246,6 +246,7 @@ namespace Emu4VitaPlus
         ini.SetBoolValue(MAIN_SECTION, "sim_button", sim_button);
         ini.SetBoolValue(MAIN_SECTION, "independent_config", independent_config);
         ini.SetBoolValue(MAIN_SECTION, "auto_rotating", auto_rotating);
+        ini.SetLongValue(MAIN_SECTION, "speed_step", speed_step);
 
         for (const auto &control : control_maps)
         {
@@ -326,6 +327,7 @@ namespace Emu4VitaPlus
         sim_button = ini.GetBoolValue(MAIN_SECTION, "sim_button", false);
         independent_config = ini.GetBoolValue(MAIN_SECTION, "independent_config", DEFAULT_INDEPENDENT_CONFIG);
         auto_rotating = ini.GetBoolValue(MAIN_SECTION, "auto_rotating", true);
+        speed_step = ini.GetLongValue(MAIN_SECTION, "speed_step", 0);
 
         tmp = ini.GetValue(MAIN_SECTION, "last_rom");
         if (tmp && File::Exist(tmp))
