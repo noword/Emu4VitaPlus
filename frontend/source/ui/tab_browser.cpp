@@ -858,7 +858,7 @@ void TabBrowser::_Search(const char *s)
     }
 
     _OnKeySquare(_input);
-    _UpdateStatus();
+    _Update();
 }
 
 const std::string TabBrowser::_GetCurrentFullPath(bool *is_dir)
