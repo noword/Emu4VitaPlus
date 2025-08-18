@@ -77,6 +77,13 @@ static void ResetHotkey()
     gConfig->Save();
 }
 
+static void ResetCoreOptions()
+{
+    LogFunctionName;
+    gConfig->core_options.Default();
+    gConfig->Save();
+}
+
 void Ui::_InitImgui()
 {
     LogFunctionName;
@@ -224,8 +231,7 @@ void Ui::CreateTables()
                                                                  std::bind(&Emulator::ChangeGraphicsConfig, gEmulator)),
                                                   new ItemBase(LANG_RESET_CONFIGS,
                                                                "",
-                                                               ResetGraphics,
-                                                               std::bind(&Emulator::ChangeGraphicsConfig, gEmulator))});
+                                                               ResetGraphics)});
 
     UpdateControllerOptions();
 
@@ -539,7 +545,7 @@ void Ui::UpdateCoreOptions()
     LogFunctionName;
 
     std::vector<ItemBase *> options;
-    options.reserve(gConfig->core_options.size());
+    options.reserve(gConfig->core_options.size() + 1);
     for (auto &iter : gConfig->core_options)
     {
         if (iter.second.values.size() > 0)
@@ -547,6 +553,9 @@ void Ui::UpdateCoreOptions()
             options.emplace_back(new ItemCore(&iter.second));
         }
     }
+    options.emplace_back(new ItemBase(LANG_RESET_CONFIGS,
+                                      "",
+                                      ResetCoreOptions));
 
     gVideo->Lock();
 

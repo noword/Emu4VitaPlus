@@ -47,6 +47,11 @@ private:
         _option->SetValueIndex(index);
     };
 
+    virtual size_t _GetIndex() override
+    {
+        return _option->GetValueIndex();
+    }
+
     CoreOption *_option;
     std::vector<LanguageString> _values;
 };
