@@ -222,6 +222,13 @@ void App::_Show()
         }
 
         pos.y = (ImGui::GetContentRegionMax().y - BUTTON_SIZE * 2) / 2 + 20;
+
+        float pos_x = pos.x;
+        if (_current_buttons->size() <= 10)
+        {
+            pos.x = pos_x = (VITA_WIDTH - (_current_buttons->size() + 1) / 2 * (BUTTON_SIZE + 8) - 8) / 2;
+        }
+
         ImGui::SetCursorPos(pos);
         size_t count = 0;
         size_t index = _GetIndex();
@@ -245,6 +252,7 @@ void App::_Show()
             }
             else
             {
+                pos.x = pos_x;
                 pos.y += BUTTON_SIZE + 8;
                 ImGui::SetCursorPos(pos);
             }

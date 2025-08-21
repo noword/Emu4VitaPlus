@@ -38,7 +38,7 @@ private:
 
     virtual const char *_GetOptionString(size_t index) override
     {
-        return _index < _values.size() ? _values[index].Get() : "Invalid";
+        return index < _values.size() ? _values[index].Get() : "Invalid";
     };
 
     virtual void _SetIndex(size_t index) override
