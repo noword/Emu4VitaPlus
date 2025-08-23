@@ -805,8 +805,6 @@ void TabBrowser::_OnKeyTriangle(Input *input)
         delete _text_dialog;
         _text_dialog = nullptr;
     }
-
-    _name_map.Load();
 }
 
 void TabBrowser::_OnKeySquare(Input *input)

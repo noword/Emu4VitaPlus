@@ -1,12 +1,20 @@
 # Emu4Vita++
 This is an emulator frontend for the PlayStation Vita, based on the [Libretro API](https://github.com/libretro/libretro-common).
 
-# Download
+* [Download](#Download)
+* [Screenshots](#Screenshots)
+* [Supported Cores](#Supported-Cores)
+* [Compilation](#Pre-Compilation-Preparation)
+* [Scripts](#Scripts)
+* [Problem Reporting](#Problem-Reporting)
+* [Special thanks](#Special-thanks)
+* 
+## Download
 [Release](https://github.com/noword/Emu4VitaPlus/releases)
 
 The version with log will output more logs in `ux0:data/EMU4VITAPLUS/[core]/Emu4Vita++.log`
 
-# Screenshots
+## Screenshots
 ![](screenshots/arch.jpg)
 ![](screenshots/arch_0.jpg)
 ![](screenshots/browser.jpg)
@@ -14,9 +22,9 @@ The version with log will output more logs in `ux0:data/EMU4VITAPLUS/[core]/Emu4
 ![](screenshots/hotkey.jpg)
 ![](screenshots/cheat.jpg)
 
-## [overlay and shaders](GRAPHICS.md)
+### [overlay and shaders](GRAPHICS.md)
 
-# Supported Cores
+## Supported Cores
 Arcade
   - [FinalBurn Lite](https://gitee.com/yizhigai/libretro-fba-lite)
   - [FinalBurn Alpha 2012](https://github.com/libretro/fbalpha2012)
@@ -102,10 +110,10 @@ Commodore 64
 Sharp X68000
  - [PX68k](https://github.com/libretro/px68k-libretro)
 
-# Pre-Compilation Preparation
-## Windows
+## Pre-Compilation Preparation
+### Windows
 * Install [msys2](https://www.msys2.org/) or [devkitPro](https://github.com/devkitPro/installer/releases)
-#### Enter msys
+##### Enter msys
 * Install [vitasdk](https://vitasdk.org/)
 * Install cmake, python, ccache
 
@@ -119,11 +127,11 @@ Sharp X68000
   pip install openpyxl lz4
   ```
 
-## Linux
+### Linux
 
 Refer to the steps for Windows. If you're using Linux, you should be capable of figuring it out yourself.
 
-# Compilation
+## Compilation
 ```bash
 mkdir build
 cd build
@@ -145,8 +153,8 @@ cmake ../ -DBUILD=gpsp
 make
 ```
 
-# Scripts
-## Translate
+## Scripts
+### Translate
 
 ```mermaid
 graph TD
@@ -154,27 +162,27 @@ A[./to_exce.py] --> B{{Edit language.xlsx and translation.xlsx}}
 B --> C[./to_json.py]
 ```
 
-## Generate shaders
+### Generate shaders
 ```bash
 ./compile_shaders.py  # Please search for psp2cgc.exe on the Internet
 ```
 
-# Paths
-## Previews
+## Paths
+### Previews
 The program will automatically search for a `jpg` or `png` image with the same name in the `.previews` directory under the rom directory. If not found, it will search for the screenshots saved in instant state.
 
-## Cheats
+### Cheats
 The program will find the .cht file of the same name as rom in the rom directory, the `.cheats` directory under the rom directory, and `ux0:/data/EMU4VITAPLUS/[core]/cheats` directory, whichever is found first.
 
-## Save
+### Save
 ux0:/data/EMU4VITAPLUS/[core]/savefiles/[rom]
 
-## BIOS
+### BIOS
 ux0:/data/EMU4VITAPLUS/system
 
 copy the corresponding BIOS file to this directory【IMPORTANT】
 
-# Compatible with [RetroArch romset](https://docs.libretro.com/guides/roms-playlists-thumbnails/)
+### Compatible with [RetroArch romset](https://docs.libretro.com/guides/roms-playlists-thumbnails/)
 
 Emu4Vita++ will try to read .lpl files in the following directories:
 * ux0:data/EMU4VITAPLUS/playlists
@@ -183,14 +191,14 @@ Emu4Vita++ will try to read .lpl files in the following directories:
   
 Use the label and path information in lpl to display the rom name and thumbnail.
 
-# About Problem Reporting
+## Problem Reporting
 If you wish to report a problem, please indicate the version and core used and the operation before the problem occurred; 
 
 If the problem occurs during the game, please upload the ROM; 
 
 If the program crashes, please find the psp2dmp file under ux0:/data/ and upload it.
 
-# Special thanks
+## Special thanks
 [yizhigai](https://gitee.com/yizhigai/Emu4Vita)
 
 [KyleBing](https://github.com/KyleBing/retro-game-console-icons)
