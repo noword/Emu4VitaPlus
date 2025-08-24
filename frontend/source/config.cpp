@@ -303,8 +303,12 @@ namespace Emu4VitaPlus
 
         if (!(tmp && strcmp(tmp, APP_VER_STR) == 0))
         {
-            LogDebug("ignore config of old version");
-            return false;
+            float version = strtof(tmp, NULL);
+            if (version < 0.31)
+            {
+                LogDebug("ignore config of old version");
+                return false;
+            }
         }
 
         tmp = ini.GetValue(MAIN_SECTION, "language", "ENGLISH");
