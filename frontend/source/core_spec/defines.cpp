@@ -17,6 +17,29 @@ const char CORE_CONFIG_PATH[] = _CORE_DATA_DIR "/config.ini";
 const char CORE_INPUT_DESC_PATH[] = _CORE_DATA_DIR "/input_desc.ini";
 const char CORE_FAVOURITE_PATH[] = _CORE_DATA_DIR "/favourite.ini";
 
+const char *THUMBNAILS_PATH[] = {
+#if defined(NES_BUILD)
+    "Nintendo - Nintendo Entertainment System",
+#elif defined(SNES_BUILD)
+    "Nintendo - Super Nintendo Entertainment System",
+#elif defined(GBC_BUILD)
+    "Nintendo - Game Boy Color",
+    "Nintendo - Game Boy",
+#elif defined(GBA_BUILD)
+    "Nintendo - Game Boy Advance",
+#elif defined(MD_BUILD)
+    "Sega - Mega Drive - Genesis"
+#elif defined(PCE_BUILD)
+    "NEC - PC Engine - TurboGrafx 16",
+#elif defined(WSC_BUILD)
+    "Bandai - WonderSwan Color",
+    "Bandai - WonderSwan",
+#elif defined(NGP_BUILD)
+    "SNK - Neo Geo Pocket Color",
+    "SNK - Neo Geo Pocket",
+#endif
+    nullptr};
+
 #if defined(ARC_BUILD) || defined(DOS_BUILD) || defined(AMIGA_BUILD) || defined(ATARIST_BUILD) || defined(ZXS_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD)
 const bool DEFAULT_ENABLE_REWIND = false;
 const size_t DEFAULT_REWIND_BUF_SIZE = 50;

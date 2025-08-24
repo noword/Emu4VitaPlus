@@ -27,6 +27,7 @@ extern const char CORE_LOG_PATH[];
 extern const char CORE_CONFIG_PATH[];
 extern const char CORE_INPUT_DESC_PATH[];
 extern const char CORE_FAVOURITE_PATH[];
+extern const char *THUMBNAILS_PATH[];
 
 extern const bool DEFAULT_ENABLE_REWIND;
 extern const size_t DEFAULT_REWIND_BUF_SIZE;
