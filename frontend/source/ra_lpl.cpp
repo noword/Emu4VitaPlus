@@ -204,6 +204,7 @@ bool RetroArchPlaylists::_LoadLpl(const char *lpl_path, ItemMap &items)
     {
         uint8_t db_index = _GetDbIndex(lpl_path);
         Json::Value array = root["items"];
+        items.reserve(array.size());
         for (Json::Value::ArrayIndex i = 0; i != array.size(); i++)
         {
             const char *path = array[i]["path"].asCString();

@@ -1,6 +1,5 @@
 #include <imgui_vita2d/imgui_vita.h>
 #include <psp2/power.h>
-#include <psp2/net/http.h>
 #include <algorithm>
 #include <stdio.h>
 #include <zlib.h>
@@ -8,6 +7,7 @@
 #include "my_imgui.h"
 #include "utils.h"
 #include "log.h"
+#include "network.h"
 
 namespace Utils
 {
@@ -248,8 +248,6 @@ namespace Utils
     }
 
 #define RELEASE_URL "https://api.github.com/repos/noword/Emu4VitaPlus/releases/latest"
-// #define USER_AGENT "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
-#define USER_AGENT "libhttp/3.65 (PS Vita)"
 
     bool _HasNewVersion(const char *buf, size_t size)
     {
@@ -271,101 +269,14 @@ namespace Utils
         LogFunctionName;
         // LogDebug("%d %08x", args, *(uint32_t *)argp);
         CheckVersionCallback *callback = (CheckVersionCallback *)argp;
-
-        int template_id = 0;
-        int connection_id = 0;
-        int request_id = 0;
-        int ret, status_code;
-        uint64_t length = 0;
-        char *buf = nullptr;
-        uint8_t *netmem = new uint8_t[1024 * 1024];
-        SceNetInitParam net{netmem, 1024 * 1024, 0};
-
-        sceSysmoduleLoadModule(SCE_SYSMODULE_NET);
-        sceSysmoduleLoadModule(SCE_SYSMODULE_HTTP);
-        sceSysmoduleLoadModule(SCE_SYSMODULE_SSL);
-
-        sceNetInit(&net);
-        sceNetCtlInit();
-        sceSslInit(1024 * 1024);
-        sceHttpInit(1024 * 1024);
-        sceHttpsDisableOption(SCE_HTTPS_FLAG_SERVER_VERIFY);
-
-        if ((template_id = sceHttpCreateTemplate(USER_AGENT, SCE_HTTP_VERSION_1_1, SCE_TRUE)) < 0)
+        Network network;
+        uint64_t size;
+        uint8_t *data = network.Download(RELEASE_URL, &size);
+        if (data)
         {
-            LogWarn("sceHttpCreateTemplate failed: %08x", template_id);
-            goto END;
+            (*callback)(_HasNewVersion((char *)data, size));
+            delete[] data;
         }
-
-        if ((connection_id = sceHttpCreateConnectionWithURL(template_id, RELEASE_URL, SCE_TRUE)) < 0)
-        {
-            LogWarn("sceHttpCreateConnectionWithURL failed: %08x", connection_id);
-            goto END;
-        }
-
-        if ((request_id = sceHttpCreateRequestWithURL(connection_id, SCE_HTTP_METHOD_GET, RELEASE_URL, 0)) < 0)
-        {
-            LogWarn("sceHttpCreateRequestWithURL failed: %08x", request_id);
-            goto END;
-        }
-
-        // if ((ret = sceHttpAddRequestHeader(request_id, "Accept", "application/vnd.github+json", SCE_HTTP_HEADER_OVERWRITE)) < 0)
-        // {
-        //     LogWarn("sceHttpAddRequestHeader failed: %08x", ret);
-        //     goto END;
-        // }
-
-        if ((ret = sceHttpSendRequest(request_id, NULL, 0)) < 0)
-        {
-            LogWarn("sceHttpSendRequest failed: %08x", ret);
-            goto END;
-        }
-
-        if (((ret = sceHttpGetStatusCode(request_id, &status_code)) < 0) || (status_code != 200))
-        {
-            LogWarn("sceHttpGetStatusCode failed: %08x %d", ret, status_code);
-            goto END;
-        }
-
-        if ((ret = sceHttpGetResponseContentLength(request_id, &length)) < 0)
-        {
-            LogWarn("sceHttpGetResponseContentLength failed: %08x", ret);
-            goto END;
-        }
-
-        buf = new char[length + 1];
-        if ((ret = sceHttpReadData(request_id, buf, length + 1)) != length)
-        {
-            LogWarn("sceHttpReadData failed: %08x", ret);
-            goto END;
-        }
-
-        buf[length] = '\x00';
-        (*callback)(_HasNewVersion(buf, length));
-
-    END:
-        if (buf)
-            delete[] buf;
-
-        if (request_id > 0)
-            sceHttpDeleteRequest(request_id);
-
-        if (connection_id > 0)
-            sceHttpDeleteConnection(connection_id);
-
-        if (template_id > 0)
-            sceHttpDeleteTemplate(template_id);
-
-        sceHttpTerm();
-        sceSslTerm();
-        sceNetCtlTerm();
-        sceNetTerm();
-
-        sceSysmoduleUnloadModule(SCE_SYSMODULE_SSL);
-        sceSysmoduleUnloadModule(SCE_SYSMODULE_HTTP);
-        sceSysmoduleUnloadModule(SCE_SYSMODULE_NET);
-
-        delete[] netmem;
 
         return 0;
     }
