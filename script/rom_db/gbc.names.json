@@ -5916,7 +5916,7 @@
     },
     {
         "CRC32": "B3FEAD85",
-        "English": "Madden NFL 2000 (THQ) (USA) (Proto)",
+        "English": "Madden NFL 2000 (USA, Europe) (Beta) (SGB Enhanced) (GB Compatible)",
         "Chinese": ""
     },
     {
@@ -17121,7 +17121,7 @@
     },
     {
         "CRC32": "F7C59F5C",
-        "English": "Legend of Zelda, The - Link's Awakening DX (Germany) (Proto)",
+        "English": "Legend of Zelda, The - Link's Awakening DX (Nintendo) (Germany) (Proto)",
         "Chinese": ""
     },
     {
@@ -22400,11 +22400,6 @@
         "Chinese": ""
     },
     {
-        "CRC32": "B3FEAD85",
-        "English": "Madden NFL 2000 (USA, Europe) (Beta) (SGB Enhanced) (GB Compatible)",
-        "Chinese": ""
-    },
-    {
         "CRC32": "F55A9D95",
         "English": "Machine, The (World) (v1.1) (Demo) (GB Compatible) (Aftermarket) (Unl)",
         "Chinese": ""
@@ -23687,11 +23682,6 @@
     {
         "CRC32": "799E2020",
         "English": "Magical Drop (Europe) (En,Fr,De) (Beta)",
-        "Chinese": ""
-    },
-    {
-        "CRC32": "F7C59F5C",
-        "English": "Legend of Zelda, The - Link's Awakening DX (Nintendo) (Germany) (Proto)",
         "Chinese": ""
     },
     {
@@ -33028,5 +33018,1900 @@
         "CRC32": "DC60F0C7",
         "English": "",
         "Chinese": "钻子先生(简)(幻想)"
+    },
+    {
+        "CRC32": "8FA2539D",
+        "English": "e'Fighter HOT (Taiwan) (En) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "38282614",
+        "English": "Zork + Harris (World) (v0.0.1.0) (Proto) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D1854D92",
+        "English": "Zippy The Pinecone (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E6748D1F",
+        "English": "Zhihuan Wang 2 (China) (Zh) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "439B087F",
+        "English": "Yurivania III - Circle of the Polycule (World) (v1.4) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B80D7525",
+        "English": "Yurivania II - Josette's Quest (World) (v1.3) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C3A76413",
+        "English": "Yurivania II - Josette's Quest (World) (v1.2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8CDF4B90",
+        "English": "Yurivania 0 - Soul Night Prelude (World) (v1.3) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C5447011",
+        "English": "Yurivania - Uhaul of the Night (World) (v1.5) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B8A3ECDD",
+        "English": "Xtreme Sports (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "626DFADB",
+        "English": "Worms Armageddon (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "AE35B80B",
+        "English": "Wolf Pack (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "6C1D4498",
+        "English": "Wink & the Broken Robot (World) (Beta 6) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "80E43CEC",
+        "English": "Wicked Plague (World) (v0.1.2) (Proto) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4029708F",
+        "English": "Wicked Plague (World) (v0.1.1) (Proto) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2E7C7D39",
+        "English": "Wicked Plague (World) (Modretro Chromatic) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D12EA4BD",
+        "English": "Who Dares Wins II (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "903D1B1A",
+        "English": "Wayfarer Boo - Pushing Through (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B5D0AB10",
+        "English": "Wayfarer Boo - Pushing Through (World) (v1.0) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "254875AC",
+        "English": "Walaki (World) (Hu) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0C347734",
+        "English": "Vixen (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FC94DBF3",
+        "English": "Usurper Ghoul (World) (v1.9) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FF854161",
+        "English": "Unearthed Zero (World) (2021 Jam Version) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "77BEE0C7",
+        "English": "Tyrannosaurus Tex (World) (Piko Interactive)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "89B2F7DA",
+        "English": "Trouballs (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "AF17B3EB",
+        "English": "Trip World DX (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "232C0F9D",
+        "English": "Tools of Nexaura (World) (Beta 4) (SGB Enhanced) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2E1CA159",
+        "English": "To The Stars (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "678383D3",
+        "English": "Tiledentity (World) (v1.1) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A9A24479",
+        "English": "Tiledentity (World) (v1.0) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "31A6B0FF",
+        "English": "Take Your Medicine (World) (En,Pt) (v1.1) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "255F67DE",
+        "English": "Take Your Medicine (World) (En,Pt) (v1.0) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "09FEDECC",
+        "English": "Taikong Zhanshi X - Fantasy War (Taiwan) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4A733A47",
+        "English": "Swordsman on the Eternal Journey (World) (It) (v1.01) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F2762FB0",
+        "English": "Swordsman on the Eternal Journey (World) (En,Ja) (v1.01) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BC3A78DE",
+        "English": "Swordsman on the Eternal Journey (World) (En,Ja) (v1.00) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "07354EC8",
+        "English": "Super Dassalo Land (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "71E9A5D9",
+        "English": "Super Color 26-in-1 (Taiwan) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FF118DB9",
+        "English": "Stratagem Hero (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "43C70A69",
+        "English": "Stratacombo (World) (v1.2) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "06575DA1",
+        "English": "Stratacombo (World) (v1.0) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DD4528D2",
+        "English": "Starseed 2 (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E21FF9E0",
+        "English": "Starseed (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C54F07E1",
+        "English": "Space War (World) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D9244730",
+        "English": "Space Fleet (World) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "02BB005E",
+        "English": "Smickeonn - The Game Deluxe (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "96EFBFB9",
+        "English": "Smickeonn - The Game Boy Adventure (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "71ED0DB8",
+        "English": "Smickeonn - The Game 2 - Virtual Boy Edition (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "61B14549",
+        "English": "Slime's Adventure (World) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3967FB31",
+        "English": "Slime Dungeon (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C36941D3",
+        "English": "Skull Nightmare (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8C31C136",
+        "English": "Sir Knight (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "54AFA0FF",
+        "English": "Shoot It (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "96D2774E",
+        "English": "Shantae (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E23BC705",
+        "English": "Sergio Kidd (World) (En,Es) (v2.013) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1D871322",
+        "English": "Sergio Kidd (World) (En,Es) (v1.995) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "48D2607F",
+        "English": "Sanguozhi - Aoshi Tianxia (Taiwan) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1FCDC59E",
+        "English": "Rootin' Tootin' Cowboy Wizard Lizards (World) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EAAE6F3E",
+        "English": "Rockets Vs Cars (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "218B54EC",
+        "English": "Ripjack (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DF445C4A",
+        "English": "Return of the Ninja (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F7A4FCFB",
+        "English": "Remi's Pizzaria (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "94CB3DF7",
+        "English": "Project S-11 (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "AD31B512",
+        "English": "Postman Pat's Trail Game (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2556B00F",
+        "English": "Porklike (World) (v1.0.13) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9350C71D",
+        "English": "Pomape Castle (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F3C1C00C",
+        "English": "Pokemon Sapphire (Taiwan) (Zh) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8077DD95",
+        "English": "Pokemon Sapphire (Taiwan) (En) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7A2FC378",
+        "English": "Pokemon Ruby (Taiwan) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B9FFD78C",
+        "English": "Pokemon Jade (Taiwan) (Zh) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7309551A",
+        "English": "Pokemon Diamond (Taiwan) (Zh) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2930FA45",
+        "English": "Pokemon - Mewtwo Strikes Back (Taiwan) (Zh) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0D009399",
+        "English": "Pokemon - La Version Esmeralda - Special Pikachu Edition (Spain) (Pirate)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "419D4565",
+        "English": "Pocket Music (World) (Proto) (Riff Sampler Test)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E6DDA84F",
+        "English": "Pocket Music (USA) (En,Es) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A4E1AAC6",
+        "English": "Pandora's Blocks (World) (v1.8) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D32D46C5",
+        "English": "Pancho (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "62B5A15F",
+        "English": "Paku Paku GB (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B05CA61F",
+        "English": "POWA! (World) (Eu) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C554BF64",
+        "English": "Outward (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "18522BA7",
+        "English": "Outta Time (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "574BF5B6",
+        "English": "Nightmare Hamlet (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "394CE9CB",
+        "English": "Neonsomnia (World) (v0.1) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3D7CE6C7",
+        "English": "Munch It (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1292ECFB",
+        "English": "Mount Vesuvius (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5D644D24",
+        "English": "Mommy (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E138C5A5",
+        "English": "Mob Creche Parallel Game (World) (En,Ja) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "56905954",
+        "English": "Meiji Jingu (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "6D8126B4",
+        "English": "Mage and the Grimoire of Beast (World) (Ja) (v1.01) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4197BFD5",
+        "English": "Mage and the Grimoire of Beast (World) (En) (v1.01) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "6EDACBB3",
+        "English": "Lunatic Tower (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BD0E7C73",
+        "English": "Luke Yingxiong Chuan 3 (Taiwan) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DD537A3B",
+        "English": "Love is Dead (World) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E8F402E2",
+        "English": "Lee Carvallo's Putting Challenge II (World) (v1.2) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "67F5A155",
+        "English": "Lee Carvallo's Putting Challenge II (World) (v1.1) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "915B7710",
+        "English": "Lee Carvallo's Putting Challenge II (World) (v1.0) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FE421365",
+        "English": "Larion's Tinker Toys (World) (Proto 2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "317D6E20",
+        "English": "Larion's Tinker Toys (World) (Proto 1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A96E26C4",
+        "English": "Koudai Guaishou - Da Jihe (Taiwan) (Ja) (Pirate)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FBED99BC",
+        "English": "Konchuu Hakase 3 (Japan) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A060E59F",
+        "English": "KnockOut (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "72C67D63",
+        "English": "Junior Maths 2 (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8A4C58FA",
+        "English": "Jet Set Willy II - The Final Frontier (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "AE0A1C16",
+        "English": "Inscryption (World) (v0.5) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EE633B7B",
+        "English": "Hunter in the Lost Forest (World) (Ja) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FEAC2611",
+        "English": "Hunter in the Lost Forest (World) (En) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "956F1E5D",
+        "English": "Hunt the Gwumbus (World) (v2.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "675FBAE3",
+        "English": "Hopp It (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F199C768",
+        "English": "Hightail (World) (Demo 4F) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8F01EFCB",
+        "English": "Hightail (World) (Demo 4A) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "81D24D61",
+        "English": "Hat Boy (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5A5453F6",
+        "English": "Gridtrap (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "46E09641",
+        "English": "Gravitorque DX (World) (Modretro Chromatic) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "22802C30",
+        "English": "Gopher (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "910E6FDE",
+        "English": "Get!! Loto Club (Japan) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "190702B3",
+        "English": "Gedou Jian Shen KF (Taiwan) (En) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7AFAE089",
+        "English": "Gedou Jian Shen - Soul Falchion (Taiwan) (En) (Unl) (Alt 2)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "ABA1F99A",
+        "English": "Game Boy Camera Gallery - Mystery Show (World) (v1.4) (Digital) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B3629B4A",
+        "English": "Game Boy Camera Gallery - Mystery Show (World) (v1.2) (Digital) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2ED2487C",
+        "English": "GPC Rally (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3B15BDB8",
+        "English": "GPC Rally (World) (v1.0) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "40027DE8",
+        "English": "Foal's Creek (World) (v1.06) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C0DB789E",
+        "English": "Foal's Creek (World) (v1.05) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "AAE310ED",
+        "English": "Fishing for Asteroids (World) (v1.1) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EFBEFB4B",
+        "English": "Fishing for Asteroids (World) (v1.0) (Mini Jam 153) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E77BE766",
+        "English": "First Contact Protocol (World) (Modretro Chromatic) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "38F208F3",
+        "English": "Fighter on the Path of Glory (World) (En,Ja) (v1.00) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "759F07BD",
+        "English": "Fellowship of the Rings (China) (En) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E45F6923",
+        "English": "Everlasting Summer (World) (Proto) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5D19BBCB",
+        "English": "Escape from Vostok (World) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "50A1E9A9",
+        "English": "Elang 2003 - Mark of the Wolfs (Taiwan) (En) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A0E904FC",
+        "English": "Egbert (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EA6C4527",
+        "English": "Dream Shark - Part 1 (World) (Beta 2) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4AAF9F58",
+        "English": "Dragonmaster (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "039079BD",
+        "English": "Dragon Ball - Final Bout (Taiwan) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "6D39574E",
+        "English": "Digimon Pocket (Taiwan) (Zh) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0BCBE728",
+        "English": "Digimon 02 5 (USA) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B7F0A85F",
+        "English": "Dicee! (World) (v1.4) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "08B37AD8",
+        "English": "Dicee! (World) (v1.1) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "98A264A8",
+        "English": "Darklite (World) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C64000F3",
+        "English": "Cuthbert in Space (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "149A2951",
+        "English": "Cuthbert Enters the Tombs of Doom (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5064AA20",
+        "English": "Cult of Blood, The (World) (Demo 4) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9015C454",
+        "English": "Cult of Blood, The (World) (Demo 1) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3C185ECA",
+        "English": "Cops and Robbers (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "59D4A387",
+        "English": "Cool Bricks (Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9754006E",
+        "English": "Cool Bricks (Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "420DB35C",
+        "English": "Cookie Monster Munch (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CDCA8A46",
+        "English": "Cold Nights (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "57B5D189",
+        "English": "Closet Monsters (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0FF2779C",
+        "English": "Chumbles Bumbles (World) (v1.2) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5C3F27D7",
+        "English": "Chrome and Blood (World) (v1.02) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "15CB5C58",
+        "English": "Chrome and Blood (World) (v1.00) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "05D5D28F",
+        "English": "Chromanoids (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "50C4585F",
+        "English": "Chromanoids (World) (v1.0) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9FDD01F6",
+        "English": "Cavelon (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CDE77E9D",
+        "English": "Cat Jumper (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B761BAC5",
+        "English": "Capybara Village (World) (v1.1) (Proto) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "44DEEAB3",
+        "English": "Capybara Village (World) (v1.0) (Proto) (Cozy Spring Jam) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "10854C85",
+        "English": "Capybara Quest (World) (v1.1) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0795DE60",
+        "English": "Capybara Quest (World) (v1.0) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2F8AC081",
+        "English": "Capcom Fight 2003 (Hong Kong) (En) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "38CE9E68",
+        "English": "Canoe Slalom (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DBAEC8EC",
+        "English": "Bygone Choices (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EE41D61B",
+        "English": "Bug Byte (World) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0FD51F93",
+        "English": "Bubble Frog (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D1FC5295",
+        "English": "Boxing Master (World) (Proto) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7FA7FE54",
+        "English": "Booga-Boo (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7E8EC278",
+        "English": "Block Droppin' (World) (v1.1) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5A0F9578",
+        "English": "Block Droppin' (World) (v1.0) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3DA834F2",
+        "English": "Basketbrawl - Deluxe Edition (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "51EFCD7B",
+        "English": "Basketbrawl (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D2FEE5F1",
+        "English": "Autobahn (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "788043B5",
+        "English": "Astral Possession (World) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BD1E0CD7",
+        "English": "Android Nim (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "6ECFD234",
+        "English": "Airwolf 16 (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2F758976",
+        "English": "Adventures in Carnal Hell, The (World) (Es) (v1.02) (GB Compatible) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C23D33C9",
+        "English": "Adventure (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "66442E7D",
+        "English": "Zhizhu Xia III - Dianying Ban (Sintax) (Taiwan)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "49E77DD9",
+        "English": "Zhihuan Wang - Shoubu Qu (Sintax) (Taiwan)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8DE5F8D5",
+        "English": "Zhen Sanguo Wushuang 2 - Shin Sangokumusou (Sintax) (Taiwan)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "019D51E1",
+        "English": "Yuenan Zhanyi X - Shenru Dihou (Sintax) (Taiwan)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F4E99056",
+        "English": "Yuenan Zhanyi 3 (Sintax) (Taiwan)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3A35118C",
+        "English": "Yongzhe Dou E Long VIII (Sintax) (Taiwan)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EF55F44D",
+        "English": "Yixing VS Tiexue Zhanshi (Sintax) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DB8C4C3D",
+        "English": "Yixing VS Tiexue Zhanshi (Sintax) (Taiwan)[cr taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D20B75EA",
+        "English": "Yingxiong Tianxia (Li Cheng) (Taiwan)[f taizou][p][CBA079]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "33670BC2",
+        "English": "Yingxiong Jian 2 (Li Cheng) (Taiwan)[f taizou][p][CBA075]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "552715DC",
+        "English": "Xiyou Ji (Vast Fame) (Taiwan)[f taizou][p][CBA076]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E8FD000F",
+        "English": "Xingqiu Dazhan II - Kelong Ren Zhanyi (Sintax) (Taiwan)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C8CBB920",
+        "English": "Xin Shediao Yingxiong Chuan (Li Cheng) (Taiwan)[f taizou][p][CBA090]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3E6213A0",
+        "English": "Xin Guangming Yu Hei'an 2 - Zhushen de Yichan (Li Cheng) (Taiwan)[f taizou][p][CBA095]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8C66647D",
+        "English": "Xin Fengshenbang (Vast Fame) (Taiwan)[f header taizou][p][Multicart Rip]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FAB140AB",
+        "English": "Xiao Taiji - Shenhua Lixian (Sintax) (Taiwan)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1EF8D5D6",
+        "English": "Xian Dan Chaoren - Ultraman (Sintax) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FDA80268",
+        "English": "Xian Dan Chaoren - Ultraman (Sintax) (Taiwan)[cr taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F3E25FA3",
+        "English": "Wangzu Tiantang (Sintax) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "ED67ADAC",
+        "English": "Wangzu Tiantang (Sintax) (Taiwan)[cr taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "083C583B",
+        "English": "Wai Xing Tanxian Zhi Xingqiu Dazhan (Sintax) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "21F84BF8",
+        "English": "Wai Xing Tanxian Zhi Xingqiu Dazhan (Sintax) (Taiwan)[cr taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0D17E940",
+        "English": "Tezhong Budui 2 - Jidi (Li Cheng) (Taiwan)[f taizou][p][CBA146]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C88E25A6",
+        "English": "Tezhong Budui (Li Cheng) (Taiwan)[f header taizou][p][CBA100]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B28A34D2",
+        "English": "Taikong Zhanshi DX3 - Zuizhong Huanxiang (Li Cheng) (Taiwan)[f taizou][p][CBA145]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7C6AE6DA",
+        "English": "Taikong Zhanshi - Jingdian Ban (Li Cheng) (Taiwan)[f taizou][p][CBA063]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5B49AF92",
+        "English": "Taikong Baobei (Sintax) (Taiwan)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F0034568",
+        "English": "Taikong Baobei (Li Cheng) (Taiwan)[f header taizou][p][CBA083]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2C0A6C90",
+        "English": "Super Marrio Sunshine (Sintax) (Taiwan)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "64EEF4E9",
+        "English": "Super Donkey Kong 5 (Makon) (Taiwan)[h MBC5 taizou][rumble]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "04A52E0C",
+        "English": "Super Donkey Kong 5 (Makon) (Taiwan)[h MBC5 taizou](Alt 1)[rumble]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B26703D0",
+        "English": "Spider-Man 3 - Movie Version (Sintax) (USA)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "66539153",
+        "English": "Space Baby (Sintax) (USA)[f][p][AKA The Firmament Baby]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0AA22226",
+        "English": "Sonic Adventure 8 (Makon - NT) (Taiwan)[h MBC5][p][rumble]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EC449679",
+        "English": "Shuma Baolong 02 4 (Makon) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5F2472AD",
+        "English": "Shuma Baolong - Shuijing Ban II (Sintax) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BE72CDEF",
+        "English": "Shuma Baolong - Shuijing Ban (Li Cheng) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F1EECA60",
+        "English": "Shuma Baolong - Koudai Ban (Vast Fame) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3C1D7AD8",
+        "English": "Shuma Baolong - Koudai Ban (Vast Fame) (Taiwan)[f header][p][multicart rip]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E34EDD08",
+        "English": "Shuma Baolong - Diannao Pian (Li Cheng) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "59DAD4C9",
+        "English": "Shuma Baobei DX6 (Li Cheng) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F4D16E93",
+        "English": "Shuma Baobei - Huojian Bingtuan (Li Cheng) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C465D53C",
+        "English": "Shuma Baobei - Hai Zhi Shen (Li Cheng) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F6DC0C54",
+        "English": "Shuma Baobei - Chao Mengmeng Fanji Zhan (Li Cheng) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "33BF192C",
+        "English": "Shuihu Zhuan - Jingdian Ban (Li Cheng) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "88E3F911",
+        "English": "Shuihu Shenshou (Li Cheng) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "549ED08C",
+        "English": "Shuihu Shenshou (Li Cheng) (Taiwan)[f header][p][multicart rip]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CA02413B",
+        "English": "Shikong Xing Shou (Vast Fame) (Taiwan)[f header][p][multicart rip]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7CDF4636",
+        "English": "Shi Mian Maifu - Fengyun Pian (Li Cheng) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "77481493",
+        "English": "Shengui Diguo Zhi Emo Cheng (Sintax) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "516DD4F8",
+        "English": "Shengui Diguo Zhi Emo Cheng (Sintax) (Taiwan)[cr taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "10CB82A3",
+        "English": "Sheng Shou Wuyu - Shenlong Chuanshuo (Vast Fame) (Taiwan)[f][p][multicart rip]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "88BA4490",
+        "English": "Shaoling Legend - Hero, the Saver (Sintax) (Taiwan)[f][p][AKA Fantasic ShaoLin Kungfu]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "91160598",
+        "English": "Shaolin Shisan Gun - Ying Xiong Jiu Zhu (Sintax) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9DC18A00",
+        "English": "Second Edition Harry Boy, The - The Secret of the Chamber of Secrets (Sintax) (USA)[f][p][AKA Harry Boy and the Chamber of Secrets]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8F533E07",
+        "English": "Sanguozhi Wudai (Li Cheng) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9EDADBA8",
+        "English": "Sanguozhi - Aoshi Tianxia (Vast Fame) (Taiwan)[f header][p][multicart rip]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9D332731",
+        "English": "San Guo Wushang 5 (Sintax) (Taiwan)[f][p][AKA Bynasty Warriors Advance 5]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5BCF90FA",
+        "English": "Quan Ba Tianxia (Sintax) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "994B5E99",
+        "English": "Qilongzhu Z3 (Sintax) (Taiwan)[f][p][AKA Dragon Ball - Advance Adventure]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2255EC33",
+        "English": "Pokemon Jade Version - Special Pikachu Edition (Makon) (USA)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E52AEEEA",
+        "English": "Pokemon Jade (-) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "48B921B9",
+        "English": "Pokemon Jade (-) (Taiwan) (de)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A1C1183A",
+        "English": "Pokemon Jade (-) (Taiwan) (de)[f header][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0888F330",
+        "English": "Pokemon Diamond (Makon) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "81D1E6FF",
+        "English": "Pokemon - Sapphire Version (Sintax) (USA)[f][p][AKA Pocket Monster Saphire]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "10D85F8B",
+        "English": "Pokemon - Mewtwo Strikes Back (Makon) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FB9594A1",
+        "English": "Pocket Cooking (Japan) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BE02AAC9",
+        "English": "Pian Wai Zhang - Huangjin Taiyang - Fengyin de Yuangu Lianjin Shu (Sintax) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D325E8D2",
+        "English": "Nu Wang Ge Dou 2000 (Vast Fame) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8EF22535",
+        "English": "New Super Color 145 in 1 (JY Company) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "62A9F308",
+        "English": "Mythri (Team XKalibur) (USA) (Proto)[f modern emulators]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B8743DB2",
+        "English": "Muchang Wuyu GB 6 (Vast Fame) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4D2BF2EE",
+        "English": "Moshou Shiji - Zhanshen (Sintax) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "07A51031",
+        "English": "Mojie Chuanshuo (Vast Fame) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D827D37E",
+        "English": "Mo Jie 3-bu Wanme de Shijie (Li Cheng) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5D2DCB3C",
+        "English": "Mingzhu Koudai Guaishou 3 (Li Cheng) (Taiwan) (M3)[f header taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F1F794DA",
+        "English": "Mingzhu Koudai Guaishou 2 (Li Cheng) (Taiwan)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4783006F",
+        "English": "Menghuan Moni Zhan II (Sintax) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D8EBEE7E",
+        "English": "Megaman X4 (NT) (Taiwan)[h MBC5 taizou][p][AKA Rockman X4]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3285B0C2",
+        "English": "Matel Gear II (Sintax) (Taiwan)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "89AE4102",
+        "English": "Matel Gear II (Sintax) (Taiwan)[cr taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FF5B985B",
+        "English": "Luoke Yingxiong EXE5 (Sintax) (Taiwan)[f][p][AKA Luo Ke Ren X5]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2011D94C",
+        "English": "Luoke Ren DX6 (Vast Fame) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "31F9E371",
+        "English": "Luke Yingxiong 2 - Zook Hero 2 (Vast Fame) (Taiwan)[f header][p][multicart rip]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5FDED510",
+        "English": "Lord of the Rings, The - The Fellowship of the Ring (Sintax) (Taiwan)[f][p][AKA King of Ring]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0E732071",
+        "English": "Laofuzi Chuanqi (Sintax) (Taiwan)[f][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "37D6B056",
+        "English": "Langrsr II (Sintax) (Taiwan)[p][AKA Fantastic Simulated Battle]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "936682E2",
+        "English": "Koudai Yaoguai - Baijin Ban (Sintax) (Taiwan)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3A08C8EB",
+        "English": "Kou Dai Guai Shou - Lan Bao Shi (-) (Taiwan)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E6B3D907",
+        "English": "King Lion Advance III, The (Sintax) (USA)[f taizou][p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9410B9A1",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_2508]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5251CD50",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_2208]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "716BEE6C",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_2108]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "882FE248",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_2108C]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A4A36459",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_2108B]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A565FEB3",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_2108A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0FFA77E9",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_2008]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "AA65C38C",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1908]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F611842A",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1908A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "22D49267",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1808]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A554268D",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1808A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "75E32F18",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1708]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "97ADE1D7",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1708A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "07C829AD",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1608]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9A814E4A",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1508]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B698E9D8",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1408]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8FA8FC0F",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1408B]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5D51E2A8",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1408A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5CB1509E",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_TEST1]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FA704F78",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1008]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "77064542",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1008B]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2221616C",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1008A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A9A7EDE8",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_0908]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4FE6BFC2",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_0708]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E547A1A6",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_0308]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BEAA11A5",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_0108]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1D8018BF",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_3107]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BF41C46F",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_2707]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "630A13D0",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_2607]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FD2F387C",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_2407]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "AAC7A3B1",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CHICKEN]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "ED38C060",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_2007]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3DF2F4D6",
+        "English": "Chicken Run (THQ) (M5) (Proto)[Cr_1707]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5997E105",
+        "English": "Chicken Run (THQ) (M5) (Proto)[CR_1407]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0462BF0B",
+        "English": "Chicken Run (THQ) (Proto)[CH_TEST]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D5C17366",
+        "English": "Chicken Run (THQ) (Proto)[CR_1007]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A2C4C0F5",
+        "English": "Chicken Run (THQ) (Proto)[CHICKEN]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D71A98E7",
+        "English": "Chicken Run (THQ) (Proto)[CR_1506]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "348C5D93",
+        "English": "Chicken Run (THQ) (Proto)[Cr_rowdy]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1ADA8D74",
+        "English": "Chicken Run (THQ) (Proto)[Cr_calm]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DF529927",
+        "English": "Chicken Run (THQ) (Proto)[CHICKEN]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EBB9EAE9",
+        "English": "Chicken Run (THQ) (Proto)[CHICKEN]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "257969BE",
+        "English": "Chicken Run (THQ) (Proto)[PIEFAST]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B81D1392",
+        "English": "Chicken Run (THQ) (Proto)[PIE1705]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EFF09BFE",
+        "English": "Chicken Run (THQ) (Proto)[COOPFAST]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D45E1AE4",
+        "English": "Chicken Run (THQ) (Proto)[COOP1705]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "795FB7F6",
+        "English": "Chicken Run (THQ) (Proto)[CR_0805A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0EB58BED",
+        "English": "Chicken Run (THQ) (Proto)[CR_0405A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7347CFC1",
+        "English": "Chicken Run (THQ) (Proto)[CR_2404A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DA72736B",
+        "English": "Chicken Run (THQ) (Proto)[Cr_1004a]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0E855935",
+        "English": "Chicken Run (THQ) (Proto)[CR2003A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E1B17E76",
+        "English": "All Star Tennis '99 (USA) (Proto) (GB Compatible)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FFB432B9",
+        "English": "illuminated (Unknown) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EFA345CD",
+        "English": "Wishing Sarah (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "AB6CF21E",
+        "English": "Wishing Sarah (World) (Pt-BR) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "526A4D25",
+        "English": "Turn 'Em Off (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E9140A3B",
+        "English": "Tuff (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EC67F1E6",
+        "English": "Trip World (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C85947EF",
+        "English": "Tower of Hanoi (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EBBB6E14",
+        "English": "Tekkyu Fight! - The Great Battle Gaiden (Japan) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E35CD748",
+        "English": "Tail 'Gator (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "011F675A",
+        "English": "Sword of Hope, The (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5F717AFA",
+        "English": "Sword of Hope II, The (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "00DA50E2",
+        "English": "StarHawk (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "799E4AE8",
+        "English": "Star Wars - The Empire Strikes Back (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "08838397",
+        "English": "Star Wars (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EF26A3DC",
+        "English": "Small Town Emo (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "813E588A",
+        "English": "Small Town Emo (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BE7887B5",
+        "English": "Rolan's Curse II (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D9B226DB",
+        "English": "Rolan's Curse (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4C157387",
+        "English": "Rodland (Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A5F649F8",
+        "English": "Rod Land (World) (Retro-Bit)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EBF49AFB",
+        "English": "Porklike (World) (v1.0.13) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D3819A3B",
+        "English": "Oni (World) (Digital) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9E7C919F",
+        "English": "Ninja Twins (World) (Digital) (SGB Enhanced) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "57B3E6C3",
+        "English": "Mysterium (USA) (v1.00AI) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0010B680",
+        "English": "My Dinner with Andre (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7DE862FA",
+        "English": "Metal Masters (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "20D562B2",
+        "English": "Mai Nurse (World) (v1.01) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EEB5F705",
+        "English": "Lion King, The (USA, Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "03BD0D82",
+        "English": "Lion King, The (USA, Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BA4993BE",
+        "English": "Lion King, The (USA, Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4267AAC1",
+        "English": "Lion King, The (USA, Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "45689C8B",
+        "English": "Kuru Kuru Pixel Logic (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "89AC8948",
+        "English": "In The Dark (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "37627030",
+        "English": "Hit the Ice - VHL - The Official Video Hockey League (USA, Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "AF58A3B0",
+        "English": "Guns&Riders (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A9B982BD",
+        "English": "Genesis 2 (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "250D665A",
+        "English": "GB Pixel Jam 2023 Gallery (World) (Digital) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "10697CE3",
+        "English": "Friend of the Void (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "05650804",
+        "English": "Die And Retry (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C9E34CA0",
+        "English": "Dexterity (USA, Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F0F79077",
+        "English": "Decline (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "956D9497",
+        "English": "Death Planet (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0C24923E",
+        "English": "David Crane's The Rescue of Princess Blobette (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DA5411D5",
+        "English": "David Crane's The Rescue of Princess Blobette (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "52773BF6",
+        "English": "Cryohazard (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "75F4B99E",
+        "English": "Conefuse (World) (Rev 1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F4F55D48",
+        "English": "Conefuse (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A49A2EC5",
+        "English": "Commodore 16+4 Pack (World) (Demo 2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D969ED61",
+        "English": "Bubblemania (World) (v0.7) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FDB7E8DA",
+        "English": "Bubble Bobble (USA, Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F8405FF2",
+        "English": "Beta Soul (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "82D4664C",
+        "English": "Amazing Penguin (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0B0041FB",
+        "English": "Alien Invasion (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "84EC7E22",
+        "English": "A Fairy Without Wings (World) (v1.3.0) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CB5D02FD",
+        "English": "Yar's Revenge - The Qotile Ultimatum (Genetic Fantasia)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D25F3B3C",
+        "English": "Duck Adventures (Commin)[p]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B8D5D1B2",
+        "English": "Alien 3 (Japan)[tr de Sephiroth]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "563EE36C",
+        "English": "Yakuza GB",
+        "Chinese": ""
     }
 ]

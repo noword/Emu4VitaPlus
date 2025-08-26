@@ -23696,7 +23696,7 @@
     },
     {
         "CRC32": "B3FEAD85",
-        "English": "Madden NFL 2000 (THQ) (USA) (Proto)",
+        "English": "Madden NFL 2000 (USA, Europe) (Beta) (SGB Enhanced) (GB Compatible)",
         "Chinese": ""
     },
     {
@@ -34901,7 +34901,7 @@
     },
     {
         "CRC32": "F7C59F5C",
-        "English": "Legend of Zelda, The - Link's Awakening DX (Germany) (Proto)",
+        "English": "Legend of Zelda, The - Link's Awakening DX (Nintendo) (Germany) (Proto)",
         "Chinese": ""
     },
     {
@@ -40180,11 +40180,6 @@
         "Chinese": ""
     },
     {
-        "CRC32": "B3FEAD85",
-        "English": "Madden NFL 2000 (USA, Europe) (Beta) (SGB Enhanced) (GB Compatible)",
-        "Chinese": ""
-    },
-    {
         "CRC32": "F55A9D95",
         "English": "Machine, The (World) (v1.1) (Demo) (GB Compatible) (Aftermarket) (Unl)",
         "Chinese": ""
@@ -41467,11 +41462,6 @@
     {
         "CRC32": "799E2020",
         "English": "Magical Drop (Europe) (En,Fr,De) (Beta)",
-        "Chinese": ""
-    },
-    {
-        "CRC32": "F7C59F5C",
-        "English": "Legend of Zelda, The - Link's Awakening DX (Nintendo) (Germany) (Proto)",
         "Chinese": ""
     },
     {
@@ -50761,7 +50751,7 @@
     },
     {
         "CRC32": "A4A932B1",
-        "English": "",
+        "English": "Goodboy Galaxy (World) (En,Ja,Fr,De,Es,Pt-BR,Zh,Ar) (v1.2) (Aftermarket) (Unl).gba",
         "Chinese": "好狗狗星系(星际好狗)(官中)(简)(256Mb)"
     },
     {
@@ -51543,5 +51533,1565 @@
         "CRC32": "3FDBCEEB",
         "English": "",
         "Chinese": "龙珠Z 舞空斗剧[PGCG](简)(JP)(128Mb)"
+    },
+    {
+        "CRC32": "DDB5205D",
+        "English": "xniq (World) (Proto) (GBA Jam 2021) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "534A0F4D",
+        "English": "uCity Advance (World) (v1.0.2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A6E47443",
+        "English": "uCity Advance (World) (v1.0.1) (GBA Jam 2021) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9CC88417",
+        "English": "uCity Advance (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "28108D5E",
+        "English": "notenogram (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3B936E97",
+        "English": "notenogram (World) (GBA Jam 2022) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "297D664B",
+        "English": "Zipline Zapper (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4EE84F31",
+        "English": "ZenF (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F32A27C3",
+        "English": "ZenF (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A155DF23",
+        "English": "Wreckage (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "55C25C4A",
+        "English": "Worms Blast (World) (En,Fr,De,Es,It) (Evercade)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8C3B3702",
+        "English": "World of Zoink (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9923C8DF",
+        "English": "Work Life (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FA1A22D3",
+        "English": "Werewolf Tale, A (World) (Proto) (NEO Coding Compo 2012) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3F127891",
+        "English": "Varooom 3D (World) (GBA Jam 2021) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1B463C9E",
+        "English": "Uranus Zero EV (World) (En,Fr) (v1.1) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "ADBCBA92",
+        "English": "Uranus Zero EV (World) (En,Fr) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "117183CC",
+        "English": "Uranus Zero - Sun Tear (World) (En,Fr) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F1C63552",
+        "English": "Uranus 2 - Sun Tear (World) (En,Fr) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8152384D",
+        "English": "Uranus (World) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D3E36338",
+        "English": "Unfabulous (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "77A0663D",
+        "English": "Unfabulous (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1C85D06E",
+        "English": "Unfabulous (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E0C3E150",
+        "English": "Unfabulous (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "76589323",
+        "English": "Unfabulous (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D4EA1AF8",
+        "English": "Unfabulous (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F52E65E2",
+        "English": "Unfabulous (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "057E4BBC",
+        "English": "Unfabulous (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "662F11D0",
+        "English": "Unfabulous (USA) (Beta) (2006-03-24T1206)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0845BE78",
+        "English": "Unfabulous (USA) (Beta) (2006-03-24T1132)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BC86EEC8",
+        "English": "Unfabulous (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CBBE4A57",
+        "English": "Unfabulous (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1822F291",
+        "English": "Trials of Chaos (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "059DF363",
+        "English": "Toll Runner (World) (Demo 2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C91E6762",
+        "English": "Toll Runner (World) (Demo 1) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "11044EB3",
+        "English": "Toadally Awesome (World) (GBA Jam 2021) (Unlocked) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FA6F976C",
+        "English": "Toadally Awesome (World) (GBA Jam 2021) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F2254660",
+        "English": "Titei Senki Advance (World) (v1.03) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CA987B79",
+        "English": "Titei Senki Advance (World) (v1.02) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C8457637",
+        "English": "Titei Senki Advance (World) (v1.01) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2F843CBB",
+        "English": "Titei Senki Advance (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8FF9915B",
+        "English": "Time for The Chickens to Go to Sleep (World) (Auto Demo) (GBA Jam 2021) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7D7B8695",
+        "English": "Tigermoth (World) (Proto) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "34E118E5",
+        "English": "Tiger Rescue (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E9D9B245",
+        "English": "Sys Crusher (World) (v1.2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E83E5696",
+        "English": "Sys Crusher (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DACCD9A1",
+        "English": "Sys Crusher (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C2311462",
+        "English": "Survivors (World) (Proto) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "940F385E",
+        "English": "Super Bubble Pop (World) (Evercade)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "AB42F086",
+        "English": "Spout GBA (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A39248A2",
+        "English": "SpongeBob's Atlantis SquarePantis (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0EDC97D9",
+        "English": "Space Twins (World) (Proto) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "07A021A5",
+        "English": "Space Evangelion (World) (Proto) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B254769D",
+        "English": "Smickeonn the Game - 2024's Greatest Hits! (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DA47E4DE",
+        "English": "Sleep Paradox (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4CFB40D2",
+        "English": "Skyland (World) (v2024.5.24.0) (Proto) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F3BD4F90",
+        "English": "Shoot for the Moon (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "31265C5D",
+        "English": "Shantae Advance - Risky Revolution (World) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C3C28363",
+        "English": "Shantae 2 - Risky Revolution (USA) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3178488F",
+        "English": "Shadow - A Parable (World) (Audio) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D7046500",
+        "English": "Sekhmet's Playground (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "730A5DD6",
+        "English": "Rushed Hack Job, A (World) (GBA Jam 2022) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A340BB33",
+        "English": "Rushed Adventure (World) (Proto) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "69687F2B",
+        "English": "Ring Dash (World) (v1.0c) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3AC16D5C",
+        "English": "Ring Dash (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "65A8D986",
+        "English": "Rick Dangerous 2 (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7EDB6E6E",
+        "English": "Rick Dangerous (World) (NEO Coding Compo 2013) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "53D4F7C5",
+        "English": "Rick Dangerous (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CD43F4D3",
+        "English": "Rezal (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DBD09923",
+        "English": "Racing Fever (World) (En,De,Es,It) (Evercade)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "97BE09CE",
+        "English": "Quokka Wokka (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2AFD6FF9",
+        "English": "Punch King - Arcade Boxing (World) (Evercade)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8496BC19",
+        "English": "Prehistorik Kart (USA, Europe) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "318F1504",
+        "English": "Powerpig (World) (NEO Coding Compo 2013) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "44EA10FA",
+        "English": "Powder (World) (v1.18) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "09D723E2",
+        "English": "Pipe Spin (World) (GBA Jam 2021) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "01AFB2F7",
+        "English": "Oggo Boggo (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CC110502",
+        "English": "Notebook Adventure (World) (v1.3) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "15C693C2",
+        "English": "Ninja Tower (World) (Proto) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5AF43420",
+        "English": "Ninja Five-O (USA) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5935D29A",
+        "English": "Ninja Cop (Europe) (Limited Run Games)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9AB229B1",
+        "English": "Necropolis (World) (GBA Jam 2021) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "77E2D5F0",
+        "English": "Nebulus (World) (v1.2) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FB414CCC",
+        "English": "Nebulus (World) (GBAX 2004) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "34220044",
+        "English": "NEONnoir (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CC48E03A",
+        "English": "Minicraft (World) (v1.3) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5BE69B8D",
+        "English": "Metal Warrior 4 - Agents of Metal (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F7BC9DB0",
+        "English": "MazezaM (World) (v1.1) (NEO Coding Compo 2013) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7C200ED5",
+        "English": "MazezaM (World) (v1.0) (NEO Coding Compo 2013) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3E1705E2",
+        "English": "Master System 106-in-1 (World) (Pirate)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "31AC3BD3",
+        "English": "Mario Kart - Super Circuit (China) (En) (Proto) (Netcard)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CC2CB6A8",
+        "English": "Mandarin 2, The - Limoncello's Revenge (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "17AF9E42",
+        "English": "Magic & Legend - Time Knights (World) (Beta) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CDC54313",
+        "English": "Luma (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E6FADD1A",
+        "English": "Lindsi Luna Blast (World) (v1.01) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "490125DB",
+        "English": "Life and Adventures of Buscon de Tormes (World) (En,Es) (Proto) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CD3D8F80",
+        "English": "Legends of Aereven Advance - Sleeping Azure (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5A64B473",
+        "English": "Kien (World) (Incub8 Games) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4861F9A6",
+        "English": "Justice League - Chronicles (USA) (Tech Demo)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FDBD4BD0",
+        "English": "Justice League - Chronicles (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1DFFB414",
+        "English": "Jurl (World) (v1.0c) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "97D3C875",
+        "English": "Join 4 Together (World) (Proto) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "36F8BA9C",
+        "English": "Inky and the Alien Aquarium (World) (Demo 2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8F31E9C6",
+        "English": "I-Ninja (USA) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "09E21865",
+        "English": "Holy Hell (World) (Proto) (NEO Coding Compo 2012) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D8D17420",
+        "English": "Hexes (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "92243509",
+        "English": "Hexa Virus (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8DBE63B7",
+        "English": "Hex Advance (World) (v0.3) (Proto) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0A3FCAD6",
+        "English": "Hero Core (World) (v0.1.2) (Beta) (GBA Jam 2022) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A58BFA21",
+        "English": "Hero Core (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A217374F",
+        "English": "Healz (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F7267006",
+        "English": "Happy Dawn (World) (Demo 2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F8AAE830",
+        "English": "Happy Dawn (World) (Demo 1) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "67A51C79",
+        "English": "Grim Adventures of Billy & Mandy, The (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F5757128",
+        "English": "Gren's GBA Game Pack (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7E8C875C",
+        "English": "Green Memories (World) (v1.4.8) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "67AB8688",
+        "English": "Green Memories (World) (v1.4.7) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "702B46C6",
+        "English": "Green Memories (World) (v1.4.4) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "6534185E",
+        "English": "Google Dino Advance (World) (v1.0.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "53F4CAC1",
+        "English": "Goldrunner (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "55CCD78C",
+        "English": "Globlins (World) (Demo 2) (MAGFest 2025) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "57106DBC",
+        "English": "Globlins (World) (Demo 1) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CD007DBD",
+        "English": "Getting Around It with Pheasant Birdy (World) (Proto) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "93F2E51E",
+        "English": "Get's!! Loto Club (Japan) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2AF2DA4E",
+        "English": "Gematrix (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "05E327D1",
+        "English": "Gap-Man (World) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F13F3FBD",
+        "English": "Galactic Quest (World) (Proto) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "46D31560",
+        "English": "Galacard Advance (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "81B449A6",
+        "English": "GBA Tactics (World) (Proto) (NEO Coding Compo 2006) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3FC91D4F",
+        "English": "GBA Movie Player - 2nd Version (World) (V2.00) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BF97BC21",
+        "English": "GBA Grand Prix (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D52AA1CF",
+        "English": "GBA Asteroids (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "833D052A",
+        "English": "Frost Princess (World) (GBA Winter Jam 2021) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "211DFD7F",
+        "English": "Freekstyle (Europe) (En,Fr,De,Es,It) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C85B392B",
+        "English": "Forever RPG (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "46AD658A",
+        "English": "Flood (World) (v0.9) (Proto) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4D099541",
+        "English": "Flappy Bird (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "09B777EA",
+        "English": "Feline (World) (GBA Jam 2021) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "28985872",
+        "English": "Elite AGB (World) (v1.4.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F00C939F",
+        "English": "Elite AGB (World) (v0.5.2) (Beta) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5F9B4211",
+        "English": "Elite - The New Kind (World) (v1.7.1) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "637DC1AA",
+        "English": "Eliminator GBA (World) (v0.91) (Proto) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B86CC21C",
+        "English": "Dungeon Tactics Advance (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C8385702",
+        "English": "Dungeon Tactics Advance (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2B077058",
+        "English": "Duke Nukem Advance (World) (En,Fr,De,It) (Evercade)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1EB0F64D",
+        "English": "Drawing a Leviathan (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E91E21F8",
+        "English": "Drake & Josh (USA) (En,Fr) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "185F34F5",
+        "English": "Dora the Explorer Double Pack (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D5275F91",
+        "English": "Discrete Orange (World) (v0.1b) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8515069C",
+        "English": "Discrete Orange (World) (v0.1) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BF7F144D",
+        "English": "Detective Monroe - Murder at Sea (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5EC91001",
+        "English": "Deflektor (World) (v1.1) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D0739B28",
+        "English": "Cronela's Mansion (World) (Demo 2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3F3025DC",
+        "English": "Cronela's Mansion (World) (Demo 1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C07C1BAF",
+        "English": "Cornucopia (World) (Proto) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BB3A4566",
+        "English": "Coin Adventure (World) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1CCFBE29",
+        "English": "Codename Hacker (World) (En,Fr) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "234A42A5",
+        "English": "City Connection (World) (Fr) (v1.7) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "586C4345",
+        "English": "Chip Advance (World) (En,Fr) (v2.1) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "91D29E6F",
+        "English": "Cat-Venture (World) (Demo 2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B4155816",
+        "English": "Cat-Venture (World) (Demo 1) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "307F7D77",
+        "English": "Castle Master (World) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5CFAC364",
+        "English": "Cartoon Network Block Party (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E37400B5",
+        "English": "COVID Adventure (World) (GBA Jam 2021) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "6F0D43B0",
+        "English": "CHEESYchords (World) (v1.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7FFB6699",
+        "English": "CHEESYchords (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "AD634C54",
+        "English": "CCCP (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3C31501C",
+        "English": "Butano Fighter (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D492DE63",
+        "English": "Building Bomber (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "AFDF2C03",
+        "English": "Brush Rush (World) (Proto) (GBA WinterJam 2023) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4431021A",
+        "English": "BoulderCrash GBA (World) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3444A7AE",
+        "English": "Blood Drive (World) (GBA Jam Week) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2342E91E",
+        "English": "Blind Jump (World) (En,Ja,Fr,It,Ru) (v2021.11.20.0) (Proto) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1821DA49",
+        "English": "BeatBeast (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "178CAE0D",
+        "English": "Barnyard (USA) (En,Fr,De,Es,It,Nl) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5D162F27",
+        "English": "Barbarian (USA, Europe) (En,Fr) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "20FB4537",
+        "English": "Barbarian (USA, Europe) (En,Fr) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3F7108EC",
+        "English": "Ayu Ayu Panic Advance (World) (v1.02) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FC610889",
+        "English": "Atomix (World) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9B777CBA",
+        "English": "Apotris (World) (v4.1.0) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "107F69E0",
+        "English": "Apotris (World) (v4.0.2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8904B833",
+        "English": "Animaniacs - Hollywood Hypnotics (Europe) (En,Fr,De,Es,It) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7D8C00D3",
+        "English": "Anguna - Warriors of Virtue (World) (Evercade) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BDCC074A",
+        "English": "American Dragon - Jake Long - Rise of the Huntsclan (USA, Europe) (En,Fr,De,Es,It) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B96C5A0B",
+        "English": "American Dragon - Jake Long - Rise of the Huntsclan (USA, Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8F9253BB",
+        "English": "American Dragon - Jake Long - Rise of the Huntsclan (USA, Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "29AFE447",
+        "English": "American Dragon - Jake Long - Rise of the Huntsclan (USA, Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DA9D458F",
+        "English": "American Dragon - Jake Long - Rise of the Huntsclan (USA, Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A9384458",
+        "English": "American Dragon - Jake Long - Rise of the Huntsclan (USA, Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8DF1B63B",
+        "English": "American Dragon - Jake Long - Rise of the Huntsclan (USA, Europe) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1EBDDDED",
+        "English": "Alice Sisters (World) (En,Ja,Fr) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "52DAC8C6",
+        "English": "Airball (World) (v1.3) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "82D431A4",
+        "English": "2048 (World) (GBA Jam 2024) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BBAB69BA",
+        "English": "Yu Yu Hakusho - Ghost Files - Tournament Tactics (Atari) (Proto)[f]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2E10C9AF",
+        "English": "SpongeBob's Atlantis SquarePantis (THQ) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4549F9B3",
+        "English": "Rayman 3 (Ubi Soft) (USA) (M3) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3B4B0E5E",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3320DEE5",
+        "English": "Rayman 3 (Ubi Soft) (USA) (M3) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C4C939F3",
+        "English": "Rayman 3 (Ubi Soft) (USA) (M3) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A2BC18CD",
+        "English": "Rayman 3 (Ubi Soft) (USA) (M3) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E3CB054D",
+        "English": "Rayman 3 (Ubi Soft) (USA) (M3) (Proto)[Proto C]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F1197150",
+        "English": "Rayman 3 (Ubi Soft) (USA) (M3) (Proto)[Proto B]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "17297B26",
+        "English": "Rayman 3 (Ubi Soft) (USA) (M3) (Proto)[Proto A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C43DE78C",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)[Proto C]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DFCF79F0",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)[Proto B]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C26277C4",
+        "English": "Rayman 3 (Ubi Soft) (USA) (M3) (Proto)[Proto D]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EC40FAFD",
+        "English": "Rayman 3 (Ubi Soft) (USA) (M3) (Proto)[Proto C]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BE52305B",
+        "English": "Rayman 3 (Ubi Soft) (USA) (M3) (Proto)[Proto B]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BB2AA4F0",
+        "English": "Rayman 3 (Ubi Soft) (USA) (M3) (Proto)[Proto A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1F7ED346",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)[Proto D]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B23C8536",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)[Proto C]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4CA5CCA0",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)[Proto B]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C74FD053",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)[Proto A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "861734CF",
+        "English": "Rayman 3 (Ubi Soft) (USA) (M3) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B8F3225E",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "10BC8496",
+        "English": "Rayman 3 (Ubi Soft) (USA) (M3) (Proto)[Proto B]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EE11D090",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)[Proto B]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "25603F1D",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)[Proto A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E4BBDE62",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8FBB2B7B",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "6CA24576",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0D4C83D5",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "6D7A87BB",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FCA14AA4",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CC487994",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "AA4970E8",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "555E24D8",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2DD7D9B6",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CD9C50AF",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E02F58ED",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C42D9D65",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M10) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B51D09F3",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BC5BFE20",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FB69B9E7",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E24AAE9E",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9DB472E8",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E0FDEB74",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "168103BE",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8BA4A981",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "84F0792C",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "58502E44",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D0BBBBF1",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DF94398E",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BECBB918",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A990A556",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B4AF172E",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3A60A163",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1D42C307",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DC675323",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)[Proto B]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "996113F9",
+        "English": "Rayman 3 (Ubi Soft) (Europe) (M6) (Proto)[Proto A]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F8E4E55C",
+        "English": "Rayman 3 (Ubi Soft) (Proto)[ECTS]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "87C722D2",
+        "English": "Rayman 3 (Ubi Soft) (Proto)[La Ronde]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "96FBFC3B",
+        "English": "Rayman 3 (Ubi Soft) (Proto)[E3]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A1270577",
+        "English": "Rayman 3 (Ubi Soft) (Proto)[E3 GameCube]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0A75F859",
+        "English": "Rayman 3 (Ubi Soft) (Proto)[Nintendo E3 Approval]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "ACC69290",
+        "English": "Rayman 3 (Ubi Soft) (alpha)[FocusGroup]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "06E5BF87",
+        "English": "Rayman 3 (Ubi Soft) (alpha)[PreAlpha]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A1E4F8C1",
+        "English": "Rayman 3 (Ubi Soft) (alpha)[PreAlpha]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D82490B3",
+        "English": "Rayman 3 (Ubi Soft) (Proto)[France Committee Presentation]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E0CF48D9",
+        "English": "I-Ninja! (Namco) (M5) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D048EC49",
+        "English": "Hi Hi Puffy AmiYumi - Puffy Ami Yumi and the Manga Madman! (USA) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FD239437",
+        "English": "Fuzz & Rocket (USA) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "25F34DBC",
+        "English": "Dragon Ball Z - The Legacy of Goku II (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3C30F5B3",
+        "English": "Dragon Ball Z - The Legacy of Goku II (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DB52BDBB",
+        "English": "Dragon Ball Z - Buu's Fury (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C35BBC5D",
+        "English": "Dragon Ball Z - Buu's Fury (Proto)[f][Prototype D]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B4F2FEF8",
+        "English": "Dragon Ball Z - Buu's Fury (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "431BC807",
+        "English": "Dragon Ball GT - Transformation (USA) (Beta)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "010035A8",
+        "English": "Black Sigil - Blade of the Exiled (USA) (Proto)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7D8F0FBA",
+        "English": "Goodboy Galaxy (Demo) (Zh) (v1.0.5) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9D6A4DF7",
+        "English": "Goodboy Galaxy (Demo) (Pt) (v1.0.5) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FDF93820",
+        "English": "Goodboy Galaxy (Demo) (Ja) (v1.0.5) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "383F827C",
+        "English": "Goodboy Galaxy (Demo) (Fr) (v1.0.5) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "38FFEA0F",
+        "English": "Goodboy Galaxy (Demo) (Es) (v1.0.5) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C2503B3A",
+        "English": "Goodboy Galaxy (Demo) (En) (v1.0.5) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "23CAC079",
+        "English": "Goodboy Galaxy (Demo) (Ar) (v1.0.5) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "96CDF3D8",
+        "English": "Goodboy Galaxy (Demo) (Zh) (v1.0.4) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7E05233E",
+        "English": "Goodboy Galaxy (Demo) (Pt) (v1.0.4) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "6D272DB1",
+        "English": "Goodboy Galaxy (Demo) (Ja) (v1.0.4) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EDD62480",
+        "English": "Goodboy Galaxy (Demo) (Fr) (v1.0.4) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2A239A71",
+        "English": "Goodboy Galaxy (Demo) (Es) (v1.0.4) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D2F7C7BD",
+        "English": "Goodboy Galaxy (Demo) (En) (v1.0.4) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1614286F",
+        "English": "Goodboy Galaxy (Demo) (Ar) (v1.0.4) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DA63B419",
+        "English": "Goodboy Galaxy (Demo) (Zh) (v1.0.3) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "7A55496D",
+        "English": "Goodboy Galaxy (Demo) (Pt) (v1.0.3) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "77AB6612",
+        "English": "Goodboy Galaxy (Demo) (Ja) (v1.0.3) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FAB46336",
+        "English": "Goodboy Galaxy (Demo) (Fr) (v1.0.3) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "741A5086",
+        "English": "Goodboy Galaxy (Demo) (Es) (v1.0.3) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "F0AD0365",
+        "English": "Goodboy Galaxy (Demo) (En) (v1.0.3) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A3C23F31",
+        "English": "Goodboy Galaxy (Demo) (Zh) (v1.0.2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "98D13C7E",
+        "English": "Goodboy Galaxy (Demo) (Ja) (v1.0.2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "43FF0540",
+        "English": "Goodboy Galaxy (Demo) (Fr) (v1.0.2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "332EAB59",
+        "English": "Goodboy Galaxy (Demo) (Es) (v1.0.2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "83A0C5A7",
+        "English": "Goodboy Galaxy (Demo) (En) (v1.0.2) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "84203678",
+        "English": "Goodboy Galaxy (Demo) (Zh) (v1.0.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "67C1075D",
+        "English": "Goodboy Galaxy (Demo) (Ja) (v1.0.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E6952F81",
+        "English": "Goodboy Galaxy (Demo) (Fr) (v1.0.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1A259F4B",
+        "English": "Goodboy Galaxy (Demo) (Es) (v1.0.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8207414A",
+        "English": "Goodboy Galaxy (Demo) (En) (v1.0.1) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "797C15CF",
+        "English": "Goodboy Galaxy (Demo) (Zh) (v1.0.0) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9E72C50C",
+        "English": "Goodboy Galaxy (Demo) (Ja) (v1.0.0) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "66A4967A",
+        "English": "Goodboy Galaxy (Demo) (Fr) (v1.0.0) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C7C21D3D",
+        "English": "Goodboy Galaxy (Demo) (Es) (v1.0.0) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "960F10BD",
+        "English": "Goodboy Galaxy (Demo) (En) (v1.0.0) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "159FF629",
+        "English": "Goodboy Galaxy (World) (En,Ja,Fr,De,Es,Pt-BR,Zh,Ar) (v1.3) (Aftermarket) (Unl).gba",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EBB81069",
+        "English": "Goodboy Galaxy (World) (En,Ja,Fr,De,Es,Pt-BR,Zh,Ar) (Evercade) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "069607D0",
+        "English": "Celeste Classic 2 (World) (v1.0) (Aftermarket) (Unl)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "E73B0F7D",
+        "English": "Mother 3 (Japan) [T-En by Chewy, Jeffman and Tomato 1.3a)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0E013B7B",
+        "English": "Mother 3 (Japan) [T-En by Chewy, Jeffman and Tomato 1.3+fix)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A323C029",
+        "English": "Mother 3 (Japan) [T-En by Chewy, Jeffman and Tomato 1.2)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EDE46930",
+        "English": "Mother 3 (Japan) [T-En by Chewy, Jeffman and Tomato 1.1)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D7A5322D",
+        "English": "Mother 3 (Japan) [T-En by Chewy, Jeffman and Tomato 1.0]",
+        "Chinese": ""
     }
 ]

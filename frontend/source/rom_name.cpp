@@ -5,29 +5,31 @@
 #include "log.h"
 #include "global.h"
 
-RomNameMap::RomNameMap(const char *path) : _name_buf(nullptr)
+RomNameMap::RomNameMap()
+    : _name_buf{nullptr}
 {
-    if (path != nullptr)
-    {
-        Load(path);
-    }
 }
 
 RomNameMap::~RomNameMap()
 {
-    if (_name_buf != nullptr)
-        delete[] _name_buf;
+    _ReleaseNameBuf();
 }
 
-bool RomNameMap::Load(const char *path)
+void RomNameMap::_ReleaseNameBuf()
+{
+    for (int i = 0; i < 2; i++)
+    {
+        if (_name_buf[i] != nullptr)
+        {
+            delete[] _name_buf[i];
+            _name_buf[i] = nullptr;
+        }
+    }
+}
+
+bool RomNameMap::_Load(const char *path, NAME_LANG lang)
 {
     LogFunctionName;
-    _map.clear();
-    if (_name_buf != nullptr)
-    {
-        delete[] _name_buf;
-        _name_buf = nullptr;
-    }
 
     char *buf;
     if (File::ReadCompressedFile(path, (void **)&buf) == 0)
@@ -39,17 +41,31 @@ bool RomNameMap::Load(const char *path)
     uint32_t *p = (uint32_t *)buf;
 
     uint32_t size = *p++;
-    _map.reserve(size);
+
+    if (_map.size() < size)
+        _map.reserve(size);
+
     for (size_t i = 0; i < size; i++)
     {
         uint32_t key = *p++;
-        uint32_t value = *p++;
-        _map.emplace(key, value);
+        uint32_t offset = *p++;
+        auto iter = _map.find(key);
+        if (iter == _map.end())
+        {
+            std::array<uint32_t, 2> value{0, 0};
+            value[lang] = offset;
+            _map.emplace(key, value);
+        }
+        else
+        {
+            iter->second[lang] = offset;
+        }
     }
 
     size = *p++;
-    _name_buf = new char[size];
-    memcpy(_name_buf, p, size);
+    char *name_buf = _name_buf[lang];
+    name_buf = new char[size];
+    memcpy(name_buf, p, size);
 
     delete[] buf;
 
@@ -59,25 +75,26 @@ bool RomNameMap::Load(const char *path)
     return true;
 }
 
-bool RomNameMap::Load(const std::string &path)
+bool RomNameMap::_Load(const std::string &path, NAME_LANG lang)
 {
-    return Load(path.c_str());
+    return _Load(path.c_str(), lang);
 }
 
-bool RomNameMap::GetName(uint32_t crc, const char **name) const
+bool RomNameMap::GetName(uint32_t crc, const char **name, NAME_LANG lang) const
 {
     LogFunctionName;
 
-    if (_name_buf == nullptr)
+    const char *name_buf = _name_buf[lang];
+    if (name_buf == nullptr)
         return false;
 
     const auto &iter = _map.find(crc);
-    if (iter == _map.end())
+    if (iter == _map.end() || iter->second[lang] == 0)
     {
         return false;
     }
 
-    *name = _name_buf + iter->second;
+    *name = name_buf + iter->second[lang];
 
     if (*name)
     {
@@ -89,9 +106,10 @@ bool RomNameMap::GetName(uint32_t crc, const char **name) const
 
 void RomNameMap::Load()
 {
-    bool result = Load(std::string("app0:assets/names.") + TEXT(CODE) + ".zdb") || Load(std::string(CONSOLE_DIR) + "/names." + TEXT(CODE) + ".zdb");
-    if (!result && gConfig->language != LANGUAGE_ENGLISH)
-    {
-        Load("app0:assets/names.en.zdb") || Load((std::string(CONSOLE_DIR) + "/names.en.zdb").c_str());
-    }
+    _map.clear();
+
+    _ReleaseNameBuf();
+
+    _Load("app0:assets/names.en.zdb", NAME_ENGLISH) || _Load((std::string(CONSOLE_DIR) + "/names.en.zdb").c_str(), NAME_ENGLISH);
+    _Load(std::string("app0:assets/names.") + TEXT(CODE) + ".zdb", NAME_LOCAL) | _Load(std::string(CONSOLE_DIR) + "/names." + TEXT(CODE) + ".zdb", NAME_LOCAL);
 }

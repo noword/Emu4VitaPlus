@@ -5483,5 +5483,50 @@
         "CRC32": "C99E5601",
         "English": "1942 (Japan)",
         "Chinese": "1942 (日版)"
+    },
+    {
+        "CRC32": "C208AB3C",
+        "English": "Ultraman (Korea) (Ja) (Pirate)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FC57504A",
+        "English": "Metal Gear 2 - Solid Snake (Japan) (Demo) [T-En by Maarten ter Huurne & Takamichi Suzukawa v1.2] [Add by BiFi v1.4]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "09A5BBC6",
+        "English": "Metal Gear 2 - Solid Snake (Japan) [T-En by Maarten ter Huurne & Takamichi Suzukawa v1.2] [Add by BiFi v1.4]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5C4F98D9",
+        "English": "Metal Gear 2 - Solid Snake (Japan) [T-En by Maarten ter Huurne & Takamichi Suzukawa v1.2]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "0694B93D",
+        "English": "Metal Gear (Japan) [T-En by Nekura_Hoka & Jon Taylor & Takamichi Suzukawa v1.995] [Add by FRS v2]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1F5803D5",
+        "English": "Metal Gear (Japan) [T-En by Nekura_Hoka & Jon Taylor & Takamichi Suzukawa v1.995]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CA7F257D",
+        "English": "Metal Gear (Japan) [T-En by TyrannoRanger & Mr. Dude v1.0a] [Add by FRS v2]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8477C6F3",
+        "English": "Metal Gear (Japan) [T-En by TyrannoRanger & Mr. Dude v1.0a]",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5B22D999",
+        "English": "Metal Gear (T-En by Nekura_Hoka v1.995c)",
+        "Chinese": ""
     }
 ]
