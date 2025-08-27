@@ -701,6 +701,7 @@ void TabBrowser::_UpdateName()
         {
             gVideo->Lock();
             _name = label;
+            LogDebug("  get name from playlist: %s", _name);
             gVideo->Unlock();
             return;
         }
@@ -708,6 +709,7 @@ void TabBrowser::_UpdateName()
 
     if (!_name_map.Valid())
     {
+        LogDebug("  _name_map in invalid");
         return;
     }
 
@@ -882,7 +884,7 @@ int32_t GetNameThread(uint32_t args, void *argp)
     CLASS_POINTER(TabBrowser, browser, argp);
     bool is_dir;
     const std::string full_path = browser->_GetCurrentFullPath(&is_dir);
-    if (is_dir || full_path.size() == 0 || File::GetSize(full_path.c_str()) > 5000000)
+    if (is_dir || full_path.size() == 0 || File::GetSize(full_path.c_str()) > 20000000)
     {
         sceKernelExitDeleteThread(0);
         return 0;
