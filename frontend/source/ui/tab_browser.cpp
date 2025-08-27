@@ -709,7 +709,7 @@ void TabBrowser::_UpdateName()
 
     if (!_name_map.Valid())
     {
-        LogDebug("  _name_map in invalid");
+        LogDebug("  _name_map is invalid");
         return;
     }
 

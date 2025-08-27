@@ -82,25 +82,27 @@ bool RomNameMap::_Load(const std::string &path, NAME_LANG lang)
 bool RomNameMap::GetName(uint32_t crc, const char **name, NAME_LANG lang) const
 {
     LogFunctionName;
-    LogDebug("  crc32: %08x", crc);
+    LogDebug("  crc32: %08x lang: %d", crc, lang);
+    bool result = false;
     const char *name_buf = _name_buf[lang];
-    if (name_buf == nullptr)
-        return false;
-
-    const auto &iter = _map.find(crc);
-    if (iter == _map.end() || iter->second[lang] == 0)
+    if (name_buf != nullptr)
     {
-        return false;
+
+        const auto &iter = _map.find(crc);
+        if (iter != _map.end())
+        {
+            *name = name_buf + iter->second[lang];
+            result = (**name != '\x00');
+        }
     }
 
-    *name = name_buf + iter->second[lang];
+    if ((!result) && lang == NAME_LOCAL)
+        result = GetName(crc, name, NAME_ENGLISH);
 
-    if (**name == '\x00' && lang == NAME_LOCAL && _name_buf[NAME_ENGLISH])
-    {
-        *name = _name_buf[NAME_ENGLISH] + iter->second[NAME_ENGLISH];
-    }
-    LogDebug("rom name: %s", *name);
-    return true;
+    if (result)
+        LogDebug("rom name: %s", *name);
+
+    return result;
 }
 
 void RomNameMap::Load()

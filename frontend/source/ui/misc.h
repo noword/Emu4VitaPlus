@@ -8,3 +8,4 @@
 vita2d_texture *GetRomPreviewImage(const char *path, const char *name);
 void CalcFitSize(float width, float height, float max_width, float max_height, float *out_width, float *out_height);
 std::string GetFileInfoString(const char *path);
+uint32_t GetRomCrc32(const char *full_path);

@@ -1,10 +1,13 @@
 #include <string>
 #include <string.h>
+#include <zlib.h>
 #include "misc.h"
 #include "defines.h"
 #include "file.h"
 #include "state_manager.h"
 #include "log.h"
+#include "arcade_manager.h"
+#include "global.h"
 
 vita2d_texture *GetRomPreviewImage(const char *path, const char *name)
 {
@@ -131,4 +134,22 @@ std::string GetFileInfoString(const char *path)
     snprintf(s, 64, "  %d/%02d/%02d  %02d:%02d %20s", time.year < 100 ? time.year + 1969 : time.year, time.month, time.day, time.hour, time.minute, num);
 
     return s;
+}
+
+uint32_t GetRomCrc32(const char *full_path)
+{
+    uint32_t crc = 0;
+
+    const ArcadeManager *arc_manager = gEmulator->GetArcadeManager();
+    if (arc_manager)
+    {
+        const char *rom_name = arc_manager->GetRomName(path);
+        crc = crc32(0, (Bytef *)rom_name, strlen(rom_name));
+    }
+    else
+    {
+        crc = File::GetCrc32(full_path);
+    }
+
+    return crc;
 }
