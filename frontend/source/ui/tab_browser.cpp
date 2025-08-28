@@ -36,7 +36,7 @@ TabBrowser::TabBrowser() : TabSeletable(LANG_BROWSER),
     std::string name = File::GetName(path);
     for (size_t i = 0; i < _directory->GetSize(); i++)
     {
-        if (_directory->GetItemName(i) == name)
+        if (_directory->GetItemPath(i) == name)
         {
             _index = i;
             break;
@@ -123,7 +123,7 @@ void TabBrowser::_Show()
                 {
                     const DirItem &item = _directory->GetItem(i);
 
-                    std::string name(item.name);
+                    std::string name(item.path);
 
                     if (!item.is_dir)
                     {
@@ -313,14 +313,14 @@ void TabBrowser::_OnActive(Input *input)
     {
         _in_refreshing = true;
 
-        LogDebug("%d %s", _directory->GetCurrentPath().size(), item.name.c_str());
+        LogDebug("%d %s", _directory->GetCurrentPath().size(), item.path.c_str());
         if (_directory->GetCurrentPath().size() == 0)
         {
-            _directory->SetCurrentPath(item.name);
+            _directory->SetCurrentPath(item.path);
         }
         else
         {
-            _directory->SetCurrentPath(_directory->GetCurrentPath() + "/" + item.name);
+            _directory->SetCurrentPath(_directory->GetCurrentPath() + "/" + item.path);
         }
         _in_refreshing = false;
 
@@ -329,7 +329,7 @@ void TabBrowser::_OnActive(Input *input)
     }
     else if (item.legal)
     {
-        if (gEmulator->LoadRom((_directory->GetCurrentPath() + "/" + item.name).c_str(), item.entry_name.c_str(), item.crc32) && gStatus.Get() == APP_STATUS_RUN_GAME)
+        if (gEmulator->LoadRom((_directory->GetCurrentPath() + "/" + item.path).c_str(), item.entry_name.c_str(), item.crc32) && gStatus.Get() == APP_STATUS_RUN_GAME)
         {
             UnsetInputHooks(input);
         }
@@ -377,14 +377,14 @@ void TabBrowser::_OnKeyStart(Input *input)
         return;
     }
 
-    const auto &iter = gFavorites->find(item.name);
+    const auto &iter = gFavorites->find(item.path);
     if (iter == gFavorites->end())
     {
-        gFavorites->emplace(item.name, Favorite{item, _directory->GetCurrentPath(), _name ? _name : ""});
+        gFavorites->emplace(item.path, Favorite{item, _directory->GetCurrentPath(), _name ? _name : ""});
     }
     else
     {
-        gFavorites->erase(item.name);
+        gFavorites->erase(item.path);
     }
 
     gFavorites->Save();
@@ -471,7 +471,7 @@ void TabBrowser::_OnDialog(Input *input, int index)
             delete _text_dialog;
         }
 
-        _text_dialog = new InputTextDialog(TEXT(LANG_SEARCH), _directory->GetItemName(_index).c_str());
+        _text_dialog = new InputTextDialog(TEXT(LANG_SEARCH), _directory->GetItemPath(_index).c_str());
         if (_text_dialog->Init())
         {
             _input = input;
@@ -604,7 +604,7 @@ void TabBrowser::_UpdateTexture()
 
     if (_texture == nullptr)
     {
-        _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item.name.c_str());
+        _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item.path.c_str());
     }
 
     if (_texture)
@@ -651,7 +651,7 @@ void TabBrowser::_UpdateStatus()
     if (!item.is_dir)
     {
         _status_text += BUTTON_START;
-        if (gFavorites->find(item.name) == gFavorites->end())
+        if (gFavorites->find(item.path) == gFavorites->end())
         {
             _status_text += TEXT(LANG_ADD_FAVORITE);
         }
@@ -770,7 +770,7 @@ void TabBrowser::_Update()
     if (!_directory->IsTested())
     {
         DirItem &item = _directory->GetItem(_index);
-        if (!_directory->LegalTest(item.name.c_str(), &item))
+        if (!_directory->LegalTest(item.path.c_str(), &item))
         {
             item.legal = false;
         }
@@ -871,7 +871,7 @@ const std::string TabBrowser::_GetCurrentFullPath(bool *is_dir)
     const DirItem &item = _directory->GetItem(_index);
     if (is_dir)
         *is_dir = item.is_dir;
-    return _directory->GetCurrentPath() + "/" + item.name;
+    return _directory->GetCurrentPath() + "/" + item.path;
 }
 
 static std::map<std::string, std::string> NameCache;

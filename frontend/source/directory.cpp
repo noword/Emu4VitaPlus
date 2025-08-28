@@ -14,7 +14,7 @@ static void SortDirItemsByNameIgnoreCase(std::vector<DirItem> &items)
 {
     std::sort(items.begin(), items.end(), [](const DirItem &a, const DirItem &b)
               { return std::lexicographical_compare(
-                    a.name.begin(), a.name.end(), b.name.begin(), b.name.end(),
+                    a.path.begin(), a.path.end(), b.path.begin(), b.path.end(),
                     [](unsigned char ch1, unsigned char ch2)
                     { return std::tolower(ch1) < std::tolower(ch2); }); });
 }
@@ -76,10 +76,10 @@ bool Directory::_SuffixTest(const char *name)
     return (_ext_filters.find(File::GetExt(name)) != _ext_filters.end());
 }
 
-bool Directory::LegalTest(const char *name, DirItem *item)
+bool Directory::LegalTest(const char *path, DirItem *item)
 {
     // LogDebug("  _LeagleTest: %s", name);
-    if (_SuffixTest(name))
+    if (_SuffixTest(path))
     {
         return true;
     }
@@ -94,8 +94,8 @@ bool Directory::LegalTest(const char *name, DirItem *item)
     //     return false;
     // }
 
-    ArchiveReader *reader = gArchiveReaderFactory->Get(name);
-    if (reader == nullptr || !reader->Open((_current_path + "/" + name).c_str()))
+    ArchiveReader *reader = gArchiveReaderFactory->Get(path);
+    if (reader == nullptr || !reader->Open((_current_path + "/" + path).c_str()))
     {
         return false;
     }
@@ -228,7 +228,7 @@ size_t Directory::Search(const char *s)
     size_t count = 0;
     for (const auto &item : _items)
     {
-        if ((!item.is_dir) && (item.name.find(s) != std::string::npos || item.entry_name.find(s) != std::string::npos))
+        if ((!item.is_dir) && (item.path.find(s) != std::string::npos || item.entry_name.find(s) != std::string::npos))
         {
             _search_results.insert(count);
         }
@@ -243,12 +243,12 @@ bool Directory::BeFound(size_t index)
     return _search_results.find(index) != _search_results.end();
 }
 
-int Directory::GetIndex(const char *name)
+int Directory::GetIndex(const char *path)
 {
     int count = 0;
     for (const auto &item : _items)
     {
-        if (item.name == name)
+        if (item.path == path)
         {
             return count;
         }

@@ -10,7 +10,7 @@ struct Favorite
     std::string path;
     std::string rom_name;
 
-    bool operator<(const Favorite &other) const { return item.name < other.item.name; };
+    bool operator<(const Favorite &other) const { return item.path < other.item.path; };
 };
 
 class Favorites : public std::map<std::string, Favorite>

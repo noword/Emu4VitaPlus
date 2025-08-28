@@ -68,11 +68,11 @@ void TabFavorite::_Show()
             {
                 if (count == _index)
                 {
-                    My_ImGui_Selectable(fav.second.item.name.c_str(), true, &_moving_status);
+                    My_ImGui_Selectable(fav.second.item.path.c_str(), true, &_moving_status);
                 }
                 else
                 {
-                    ImGui::Selectable(fav.second.item.name.c_str());
+                    ImGui::Selectable(fav.second.item.path.c_str());
                 }
 
                 if (count == _index)
@@ -185,7 +185,7 @@ void TabFavorite::_OnActive(Input *input)
     std::advance(iter, _index);
     const Favorite &fav = iter->second;
 
-    if (gEmulator->LoadRom((fav.path + "/" + fav.item.name).c_str(), fav.item.entry_name.c_str(), fav.item.crc32))
+    if (gEmulator->LoadRom((fav.path + "/" + fav.item.path).c_str(), fav.item.entry_name.c_str(), fav.item.crc32))
     {
         UnsetInputHooks(input);
     }
@@ -248,12 +248,12 @@ void TabFavorite::_UpdateTexture()
 
     if (gPlaylists->IsValid())
     {
-        _texture = gPlaylists->GetPreviewImage((fav.path + "/" + fav.item.name).c_str());
+        _texture = gPlaylists->GetPreviewImage((fav.path + "/" + fav.item.path).c_str());
     }
 
     if (_texture == nullptr)
     {
-        _texture = GetRomPreviewImage(fav.path.c_str(), fav.item.name.c_str());
+        _texture = GetRomPreviewImage(fav.path.c_str(), fav.item.path.c_str());
     }
 
     if (_texture)
@@ -279,7 +279,7 @@ void TabFavorite::_UpdateInfo()
     auto iter = gFavorites->begin();
     std::advance(iter, _index);
     const Favorite &fav = iter->second;
-    std::string full_path = fav.path + "/" + fav.item.name;
+    std::string full_path = fav.path + "/" + fav.item.path;
     gVideo->Lock();
     _info = GetFileInfoString(full_path.c_str());
     gVideo->Unlock();

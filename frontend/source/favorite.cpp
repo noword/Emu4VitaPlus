@@ -31,12 +31,12 @@ bool Favorites::Load(const char *path)
         const char *sec = section.pItem;
         fav.path = ini.GetValue(sec, "path", "");
         fav.rom_name = ini.GetValue(sec, "rom_name", "");
-        fav.item.name = ini.GetValue(sec, "name", "");
+        fav.item.path = ini.GetValue(sec, "name", "");
         fav.item.entry_name = ini.GetValue(sec, "entry", "");
         fav.item.crc32 = ini.GetLongValue(sec, "crc32");
-        if (File::Exist((fav.path + '/' + fav.item.name).c_str()))
+        if (File::Exist((fav.path + '/' + fav.item.path).c_str()))
         {
-            this->emplace(fav.item.name, fav);
+            this->emplace(fav.item.path, fav);
         }
     }
 
@@ -57,7 +57,7 @@ bool Favorites::Save(const char *path)
 
         ini.SetValue(section, "path", fav.second.path.c_str());
         ini.SetValue(section, "rom_name", fav.second.rom_name.c_str());
-        ini.SetValue(section, "name", fav.second.item.name.c_str());
+        ini.SetValue(section, "name", fav.second.item.path.c_str());
         ini.SetValue(section, "entry", fav.second.item.entry_name.c_str());
         ini.SetLongValue(section, "crc32", fav.second.item.crc32);
 
