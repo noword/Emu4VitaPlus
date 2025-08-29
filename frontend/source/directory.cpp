@@ -2,11 +2,14 @@
 #include <algorithm>
 #include <cctype>
 #include <string.h>
+#include <zlib.h>
 #include "directory.h"
+#include "global.h"
 #include "utils.h"
 #include "log.h"
 #include "file.h"
 #include "archive_reader_factory.h"
+#include "thread_base.h"
 
 #define THRESHOLD_FILE_COUNT 200
 
@@ -17,6 +20,83 @@ static void SortDirItemsByNameIgnoreCase(std::vector<DirItem> &items)
                     a.path.begin(), a.path.end(), b.path.begin(), b.path.end(),
                     [](unsigned char ch1, unsigned char ch2)
                     { return std::tolower(ch1) < std::tolower(ch2); }); });
+}
+
+struct UpdateDetialsArgument
+{
+    DirItem *item;
+    DirItemUpdateCallbackFunc callback;
+};
+
+uint32_t GetRomCrc32(const char *full_path)
+{
+    uint32_t crc = 0;
+
+    const ArcadeManager *arc_manager = gEmulator->GetArcadeManager();
+    if (arc_manager)
+    {
+        const char *rom_name = arc_manager->GetRomName(full_path);
+        crc = crc32(0, (Bytef *)rom_name, strlen(rom_name));
+    }
+    else
+    {
+        crc = File::GetCrc32(full_path);
+    }
+
+    return crc;
+}
+
+int32_t UpdateDetialsThread(uint32_t args, void *argp)
+{
+    CLASS_POINTER(UpdateDetialsArgument, argument, argp);
+    DirItem *item = argument->item;
+    const std::string full_path = item->GetFullPath();
+
+    if (gPlaylists->IsValid())
+    {
+        const char *label = gPlaylists->GetLabel(full_path.c_str());
+        if (label)
+        {
+            item->display_name = label;
+            LogDebug("  get name from playlist: %s", label);
+        }
+    }
+
+    if (item->crc32 == 0)
+    {
+        item->crc32 = GetRomCrc32(full_path.c_str());
+    }
+
+    if (gRomNameMap->Valid() && item->crc32)
+    {
+        const char *local_name;
+        const char *english_name;
+        gRomNameMap->GetName(item->crc32, &local_name, &english_name);
+        if (local_name && *local_name && item->display_name.size() == 0)
+        {
+            item->display_name = local_name;
+        }
+
+        if (english_name && *english_name)
+        {
+            item->english_name = english_name;
+            if (item->display_name.size() == 0)
+            {
+                item->display_name = english_name;
+            }
+        }
+    }
+
+    argument->callback(item);
+
+    return sceKernelExitDeleteThread(0);
+}
+
+void DirItem::UpdateDetials(DirItemUpdateCallbackFunc callback)
+{
+    LogFunctionName;
+    UpdateDetialsArgument argument{this, callback};
+    StartThread(UpdateDetialsThread, sizeof(UpdateDetialsArgument), &argument);
 }
 
 Directory::Directory(const char *path, const char *ext_filters, char split)
@@ -151,11 +231,11 @@ bool Directory::SetCurrentPath(const std::string &path)
         }
         else if (SCE_S_ISDIR(dir.d_stat.st_mode))
         {
-            _items.push_back({dir.d_name, true});
+            _items.push_back({&_current_path, dir.d_name, true});
         }
         else if (_tested)
         {
-            DirItem item{dir.d_name, false};
+            DirItem item{&_current_path, dir.d_name, false};
             if (LegalTest(dir.d_name, &item))
             {
                 files.emplace_back(item);
@@ -163,7 +243,7 @@ bool Directory::SetCurrentPath(const std::string &path)
         }
         else
         {
-            DirItem item{dir.d_name, false};
+            DirItem item{&_current_path, dir.d_name, false};
             if (_SuffixTest(dir.d_name))
             {
                 files.emplace_back(item);
@@ -208,7 +288,7 @@ bool Directory::_ToRoot()
     {
         if (File::Exist(device))
         {
-            _items.push_back({device, true});
+            _items.push_back({&_current_path, device, true});
         }
     }
 

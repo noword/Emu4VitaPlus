@@ -12,6 +12,7 @@
 #include "favorite.h"
 #include "state_manager.h"
 #include "shader.h"
+#include "rom_name.h"
 
 extern bool gBootFromArch;
 extern std::string gBootRomPath;
@@ -26,3 +27,4 @@ extern Emu4VitaPlus::Config *gConfig;
 extern Favorites *gFavorites;
 extern CoreStateManager *gStateManager;
 extern Shaders *gShaders;
+extern RomNameMap *gRomNameMap;

@@ -109,8 +109,12 @@ App::App()
     gFavorites = new Favorites;
 
     gUi->AppendLog("Load RetroArch Playlists");
-    gPlaylists = new RetroArchPlaylists();
+    gPlaylists = new RetroArchPlaylists;
     gPlaylists->LoadAll();
+
+    gUi->AppendLog("Load Rom names DB");
+    gRomNameMap = new RomNameMap;
+    gRomNameMap->Load();
 
     gUi->AppendLog("Create tables of UI");
     gUi->CreateTables();
@@ -160,6 +164,7 @@ App::~App()
     gVideo->Stop();
     vita2d_wait_rendering_done();
 
+    delete gRomNameMap;
     delete gStateManager;
     delete gShaders;
     delete gOverlays;

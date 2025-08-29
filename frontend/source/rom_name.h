@@ -20,6 +20,7 @@ public:
     void Load();
 
     bool GetName(uint32_t crc, const char **name, NAME_LANG lang) const;
+    bool GetName(uint32_t crc, const char **local_name, const char **english_name);
     bool Valid() { return _map.size() > 0; };
 
 private:

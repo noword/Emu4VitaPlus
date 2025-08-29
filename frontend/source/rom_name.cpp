@@ -105,6 +105,32 @@ bool RomNameMap::GetName(uint32_t crc, const char **name, NAME_LANG lang) const
     return result;
 }
 
+bool RomNameMap::GetName(uint32_t crc, const char **local_name, const char **english_name)
+{
+    LogFunctionName;
+    LogDebug("  crc32: %08x", crc);
+
+    *local_name = *english_name = nullptr;
+
+    const auto &iter = _map.find(crc);
+    if (iter != _map.end())
+    {
+        return false;
+    }
+
+    if (_name_buf[NAME_ENGLISH])
+    {
+        *english_name = _name_buf[NAME_ENGLISH] + iter->second[NAME_ENGLISH];
+    }
+
+    if (_name_buf[NAME_LOCAL])
+    {
+        *local_name = _name_buf[NAME_LOCAL] + iter->second[NAME_LOCAL];
+    }
+
+    return true;
+}
+
 void RomNameMap::Load()
 {
     _map.clear();

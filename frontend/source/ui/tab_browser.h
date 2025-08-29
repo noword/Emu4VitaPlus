@@ -72,7 +72,6 @@ private:
 
     InputTextDialog *_text_dialog;
     Input *_input;
-    RomNameMap _name_map;
     const char *_name;
     std::string _info;
     TextMovingStatus _name_moving_status;

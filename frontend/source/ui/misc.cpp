@@ -135,21 +135,3 @@ std::string GetFileInfoString(const char *path)
 
     return s;
 }
-
-uint32_t GetRomCrc32(const char *full_path)
-{
-    uint32_t crc = 0;
-
-    const ArcadeManager *arc_manager = gEmulator->GetArcadeManager();
-    if (arc_manager)
-    {
-        const char *rom_name = arc_manager->GetRomName(full_path);
-        crc = crc32(0, (Bytef *)rom_name, strlen(rom_name));
-    }
-    else
-    {
-        crc = File::GetCrc32(full_path);
-    }
-
-    return crc;
-}

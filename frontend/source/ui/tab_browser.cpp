@@ -47,7 +47,6 @@ TabBrowser::TabBrowser() : TabSeletable(LANG_BROWSER),
                                  {LANG_OK, LANG_CANCEL},
                                  std::bind(&TabBrowser::_OnConfirmDialog, this, std::placeholders::_1, std::placeholders::_2)};
 
-    _name_map.Load();
     _Update();
 }
 
@@ -707,16 +706,16 @@ void TabBrowser::_UpdateName()
         }
     }
 
-    if (!_name_map.Valid())
+    if (!gRomNameMap->Valid())
     {
-        LogDebug("  _name_map is invalid");
+        LogDebug("  gRomNameMap is invalid");
         return;
     }
 
     if (item.crc32 != 0) // It's a zip or 7z package, we have crc32
     {
         gVideo->Lock();
-        _name_map.GetName(item.crc32, &_name, NAME_LOCAL);
+        gRomNameMap->GetName(item.crc32, &_name, NAME_LOCAL);
         gVideo->Unlock();
         return;
     }
@@ -730,10 +729,10 @@ void TabBrowser::_UpdateName()
         const char *rom_name = arc_manager->GetRomName(path);
         std::string real_name = File::GetName(rom_name);
         gVideo->Lock();
-        if (!_name_map.GetName(crc32(0, (Bytef *)real_name.c_str(), real_name.size()), &_name, NAME_LOCAL))
+        if (!gRomNameMap->GetName(crc32(0, (Bytef *)real_name.c_str(), real_name.size()), &_name, NAME_LOCAL))
         {
             real_name += ".zip";
-            _name_map.GetName(crc32(0, (Bytef *)real_name.c_str(), real_name.size()), &_name, NAME_LOCAL);
+            gRomNameMap->GetName(crc32(0, (Bytef *)real_name.c_str(), real_name.size()), &_name, NAME_LOCAL);
         }
         gVideo->Unlock();
     }
@@ -896,7 +895,7 @@ int32_t GetNameThread(uint32_t args, void *argp)
     {
         name = iter->second.c_str();
     }
-    else if (browser->_name_map.GetName(File::GetCrc32(full_path.c_str()), &name, NAME_LOCAL))
+    else if (gRomNameMap->GetName(File::GetCrc32(full_path.c_str()), &name, NAME_LOCAL))
     {
         if (NameCache.size() >= MAX_NAME_CACHE)
         {

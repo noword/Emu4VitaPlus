@@ -2,9 +2,14 @@
 #include <vector>
 #include <set>
 #include <string>
+#include <psp2common/kernel/threadmgr.h>
+
+struct DirItem;
+typedef std::function<void(DirItem *)> DirItemUpdateCallbackFunc;
 
 struct DirItem
 {
+    const std::string *parent_path;
     std::string path;
     bool is_dir;
     uint32_t crc32 = 0;
@@ -12,14 +17,10 @@ struct DirItem
     std::string entry_name = "";
     std::string display_name = "";
     std::string english_name = "";
-};
 
-struct InsensitiveCompare
-{
-    bool operator()(const std::string &a, const std::string &b) const
-    {
-        return strcasecmp(a.c_str(), b.c_str()) < 0;
-    }
+    const std::string GetFullPath() { return (*parent_path) + '/' + path; }
+    // update crc32, display_name and english_name
+    void UpdateDetials(DirItemUpdateCallbackFunc callback);
 };
 
 class Directory
@@ -48,7 +49,7 @@ public:
 
 private:
     std::vector<DirItem> _items;
-    std::set<std::string, InsensitiveCompare> _ext_filters;
+    std::set<std::string> _ext_filters;
     std::set<size_t> _search_results;
     std::string _current_path;
     std::string _search_str;
