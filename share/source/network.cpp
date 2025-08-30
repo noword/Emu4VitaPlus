@@ -152,6 +152,12 @@ std::string Network::Escape(std::string in)
         printf("sceHttpUriEscape() returns %x.\n", ret);
     }
 
+    for (size_t i = 0; i < esc_size; i++)
+    {
+        if (esc[i] == '&')
+            esc[i] = '_';
+    }
+
     std::string out{esc};
     delete[] esc;
     return out;
