@@ -2,6 +2,7 @@
 #include <vector>
 #include <set>
 #include <string>
+#include <functional>
 #include <psp2common/kernel/threadmgr.h>
 
 struct DirItem;

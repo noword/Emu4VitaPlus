@@ -270,9 +270,10 @@ namespace Utils
         // LogDebug("%d %08x", args, *(uint32_t *)argp);
         CheckVersionCallback *callback = (CheckVersionCallback *)argp;
         Network network;
+        uint8_t *data;
         uint64_t size;
-        uint8_t *data = network.Download(RELEASE_URL, &size);
-        if (data)
+
+        if (network.Download(RELEASE_URL, &data, &size))
         {
             (*callback)(_HasNewVersion((char *)data, size));
             delete[] data;

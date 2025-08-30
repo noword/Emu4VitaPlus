@@ -4,6 +4,7 @@
 #include <psp2/apputil.h>
 #include <psp2/display.h>
 #include <vita2d.h>
+#include <jsoncpp/json/json.h>
 #include "my_imgui.h"
 #include "app.h"
 #include "config.h"
@@ -116,6 +117,13 @@ App::App()
     gRomNameMap = new RomNameMap;
     gRomNameMap->Load();
 
+    if (gConfig->auto_download_thumbnail)
+    {
+        gUi->AppendLog("Init network");
+        gNetwork = new Network;
+        File::MakeDirs(THUMBNAILS_DIR);
+    }
+
     gUi->AppendLog("Create tables of UI");
     gUi->CreateTables();
 
@@ -164,6 +172,7 @@ App::~App()
     gVideo->Stop();
     vita2d_wait_rendering_done();
 
+    delete gNetwork;
     delete gRomNameMap;
     delete gStateManager;
     delete gShaders;

@@ -9,48 +9,63 @@
 // #define USER_AGENT "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
 #define USER_AGENT "libhttp/3.65 (PS Vita)"
 
+SceNetInitParam Network::_init_param;
+int Network::_template_id;
+int Network::_count = 0;
+
 Network::Network(int size)
 {
-    _init_param = {new uint8_t[size], size, 0};
-
-    sceSysmoduleLoadModule(SCE_SYSMODULE_NET);
-    sceSysmoduleLoadModule(SCE_SYSMODULE_HTTP);
-    sceSysmoduleLoadModule(SCE_SYSMODULE_SSL);
-
-    sceNetInit(&_init_param);
-    sceNetCtlInit();
-    sceSslInit(size);
-    sceHttpInit(size);
-    sceHttpsDisableOption(SCE_HTTPS_FLAG_SERVER_VERIFY);
-
-    if ((_template_id = sceHttpCreateTemplate(USER_AGENT, SCE_HTTP_VERSION_1_1, SCE_TRUE)) < 0)
+    if (_count == 0)
     {
-        LogError("sceHttpCreateTemplate failed: %08x", _template_id);
+        _init_param = {new uint8_t[size], size, 0};
+
+        sceSysmoduleLoadModule(SCE_SYSMODULE_NET);
+        sceSysmoduleLoadModule(SCE_SYSMODULE_HTTP);
+        sceSysmoduleLoadModule(SCE_SYSMODULE_SSL);
+
+        sceNetInit(&_init_param);
+        sceNetCtlInit();
+        sceSslInit(size);
+        sceHttpInit(size);
+        sceHttpsDisableOption(SCE_HTTPS_FLAG_SERVER_VERIFY);
+
+        if ((_template_id = sceHttpCreateTemplate(USER_AGENT, SCE_HTTP_VERSION_1_1, SCE_TRUE)) < 0)
+        {
+            LogError("sceHttpCreateTemplate failed: %08x", _template_id);
+        }
     }
+    _count++;
 }
 
 Network::~Network()
 {
-    if (_template_id > 0)
-        sceHttpDeleteTemplate(_template_id);
+    _count--;
+    if (_count == 0)
+    {
+        if (_template_id > 0)
+            sceHttpDeleteTemplate(_template_id);
 
-    sceHttpTerm();
-    sceSslTerm();
-    sceNetCtlTerm();
-    sceNetTerm();
+        sceHttpTerm();
+        sceSslTerm();
+        sceNetCtlTerm();
+        sceNetTerm();
 
-    sceSysmoduleUnloadModule(SCE_SYSMODULE_SSL);
-    sceSysmoduleUnloadModule(SCE_SYSMODULE_HTTP);
-    sceSysmoduleUnloadModule(SCE_SYSMODULE_NET);
-    delete[] (uint8_t *)_init_param.memory;
+        sceSysmoduleUnloadModule(SCE_SYSMODULE_SSL);
+        sceSysmoduleUnloadModule(SCE_SYSMODULE_HTTP);
+        sceSysmoduleUnloadModule(SCE_SYSMODULE_NET);
+        delete[] (uint8_t *)_init_param.memory;
+    }
 }
 
-uint8_t *Network::Download(const char *url, uint64_t *size)
+bool Network::Download(const char *url, uint8_t **data, uint64_t *size)
 {
+    LogFunctionName;
+    LogDebug("  url: %s", url);
     int connection_id = 0;
     int request_id = 0;
     int ret, status_code;
-    uint8_t *data = nullptr;
+
+    *data = nullptr;
     *size = 0;
 
     if ((connection_id = sceHttpCreateConnectionWithURL(_template_id, url, SCE_TRUE)) < 0)
@@ -83,17 +98,17 @@ uint8_t *Network::Download(const char *url, uint64_t *size)
         goto END;
     }
 
-    data = new uint8_t[*size + 1];
-    if ((ret = sceHttpReadData(request_id, data, *size + 1)) != *size)
+    *data = new uint8_t[*size + 1];
+    if ((ret = sceHttpReadData(request_id, *data, *size + 1)) != *size)
     {
         LogWarn("sceHttpReadData failed: %08x", ret);
-        delete[] data;
-        data = nullptr;
+        delete[] *data;
+        *data = nullptr;
         *size = 0;
         goto END;
     }
 
-    data[*size] = '\x00';
+    (*data)[*size] = '\x00';
 
 END:
     if (request_id > 0)
@@ -102,7 +117,7 @@ END:
     if (connection_id > 0)
         sceHttpDeleteConnection(connection_id);
 
-    return data;
+    return *data != nullptr;
 }
 
 bool Network::Download(const char *url, const char *dest_path)
@@ -110,12 +125,34 @@ bool Network::Download(const char *url, const char *dest_path)
     LogFunctionName;
 
     bool result = false;
+    uint8_t *data;
     uint64_t size;
-    uint8_t *data = Download(url, &size);
-    if (data != nullptr)
+    if (Download(url, &data, &size))
     {
         result = File::WriteFile(dest_path, data, size);
         delete[] data;
     }
     return result;
+}
+
+std::string Network::Escape(std::string in)
+{
+    int ret;
+    size_t esc_size;
+
+    if ((ret = sceHttpUriEscape(NULL, &esc_size, 0, in.c_str())) < 0)
+    {
+        printf("sceHttpUriEscape() returns %x.\n", ret);
+        return "";
+    }
+
+    char *esc = new char[esc_size];
+    if ((ret = sceHttpUriEscape(esc, &esc_size, esc_size, in.c_str())) < 0)
+    {
+        printf("sceHttpUriEscape() returns %x.\n", ret);
+    }
+
+    std::string out{esc};
+    delete[] esc;
+    return out;
 }

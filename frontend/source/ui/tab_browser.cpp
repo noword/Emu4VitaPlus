@@ -785,7 +785,16 @@ void TabBrowser::_OnItemUpdated(DirItem *item)
 
     if (_texture == nullptr)
     {
-        _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item->path.c_str());
+        vita2d_texture *texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item->path.c_str(), item->english_name.c_str());
+        if (item == &_directory->GetItem(_index))
+        {
+            _texture = texture;
+        }
+        else
+        {
+            vita2d_wait_rendering_done();
+            vita2d_free_texture(texture);
+        }
     }
 
     if (_texture)

@@ -49,9 +49,9 @@ uint32_t GetRomCrc32(const char *full_path)
 int32_t UpdateDetialsThread(uint32_t args, void *argp)
 {
     LogFunctionName;
+
     CLASS_POINTER(UpdateDetialsArgument, argument, argp);
-    LogDebug("  %08x %x", argp, args);
-    LogDebug("  %08x %08x", argument->item, argument->callback);
+
     DirItem *item = argument->item;
     const std::string full_path = item->GetFullPath();
 
@@ -61,9 +61,10 @@ int32_t UpdateDetialsThread(uint32_t args, void *argp)
     if (item->crc32 == 0)
     {
         item->crc32 = GetRomCrc32(full_path.c_str());
+        LogDebug("crc32: %08x", item->crc32);
     }
 
-    if (!(item->english_name.empty() || item->display_name.empty()))
+    if (item->english_name.empty() && item->display_name.empty())
     {
         if (gPlaylists->IsValid())
         {

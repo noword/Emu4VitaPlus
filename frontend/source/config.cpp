@@ -157,7 +157,7 @@ namespace Emu4VitaPlus
         support_no_game = 0;
         auto_rotating = true;
         language = Utils::GetDefaultLanguage();
-        auto_download_thumbnail = (THUMBNAILS_PATH[0] != nullptr);
+        auto_download_thumbnail = (THUMBNAILS_NAME[0] != nullptr);
 
         DefaultControlMap();
         DefaultHotKey();
@@ -249,7 +249,7 @@ namespace Emu4VitaPlus
         ini.SetBoolValue(MAIN_SECTION, "auto_rotating", auto_rotating);
         ini.SetLongValue(MAIN_SECTION, "speed_step", speed_step);
 
-        if (THUMBNAILS_PATH[0] != nullptr)
+        if (THUMBNAILS_NAME[0] != nullptr)
         {
             ini.SetBoolValue(MAIN_SECTION, "auto_download_thumbnail", auto_download_thumbnail);
         }
@@ -338,7 +338,7 @@ namespace Emu4VitaPlus
         independent_config = ini.GetBoolValue(MAIN_SECTION, "independent_config", DEFAULT_INDEPENDENT_CONFIG);
         auto_rotating = ini.GetBoolValue(MAIN_SECTION, "auto_rotating", true);
         speed_step = ini.GetLongValue(MAIN_SECTION, "speed_step", 0);
-        if (THUMBNAILS_PATH[0] != nullptr)
+        if (THUMBNAILS_NAME[0] != nullptr)
         {
             auto_download_thumbnail = ini.GetBoolValue(MAIN_SECTION, "auto_download_thumbnail", true);
         }

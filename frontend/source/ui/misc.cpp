@@ -8,8 +8,12 @@
 #include "log.h"
 #include "arcade_manager.h"
 #include "global.h"
+#include "network.h"
 
-vita2d_texture *GetRomPreviewImage(const char *path, const char *name)
+#define LIBRETRO_THUMBNAILS "https://thumbnails.libretro.com/"
+#define THUMBNAILS_SUBDIR "Named_Boxarts"
+
+vita2d_texture *GetRomPreviewImage(const char *path, const char *name, const char *english_name)
 {
     LogFunctionName;
     LogDebug("%s %s", path, name);
@@ -26,7 +30,29 @@ vita2d_texture *GetRomPreviewImage(const char *path, const char *name)
     if (texture)
         goto END;
 
-    img_path = std::string(CORE_SAVEFILES_DIR) + "/" + stem + "/";
+    if (english_name && *english_name && gConfig->auto_download_thumbnail)
+    {
+
+        img_path = std::string(THUMBNAILS_PATH) + '/' + english_name + ".png";
+        texture = vita2d_load_PNG_file((img_path).c_str());
+        if (texture)
+            goto END;
+
+        int count = 0;
+        std::string english = gNetwork->Escape(english_name);
+        while (THUMBNAILS_NAME[count] != nullptr)
+        {
+            std::string url = std::string(LIBRETRO_THUMBNAILS) + THUMBNAILS_NAME[count++] + "/" THUMBNAILS_SUBDIR "/" + english + ".png";
+            if (gNetwork->Download(url.c_str(), img_path.c_str()))
+            {
+                texture = vita2d_load_PNG_file((img_path).c_str());
+                if (texture)
+                    goto END;
+            }
+        }
+    }
+
+    img_path = std::string(CORE_SAVEFILES_DIR) + '/' + stem + '/';
     time_t newest;
     for (int i = 0; i < MAX_STATES; i++)
     {

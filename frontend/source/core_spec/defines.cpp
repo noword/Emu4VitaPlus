@@ -17,7 +17,7 @@ const char CORE_CONFIG_PATH[] = _CORE_DATA_DIR "/config.ini";
 const char CORE_INPUT_DESC_PATH[] = _CORE_DATA_DIR "/input_desc.ini";
 const char CORE_FAVOURITE_PATH[] = _CORE_DATA_DIR "/favourite.ini";
 
-const char *THUMBNAILS_PATH[] = {
+const char *THUMBNAILS_NAME[] = {
 #if defined(NES_BUILD)
     "Nintendo - Nintendo Entertainment System",
 #elif defined(SNES_BUILD)
@@ -26,7 +26,7 @@ const char *THUMBNAILS_PATH[] = {
     "Nintendo - Game Boy Color",
     "Nintendo - Game Boy",
 #elif defined(GBA_BUILD)
-    "Nintendo - Game Boy Advance",
+    "Nintendo%20-%20Game%20Boy%20Advance",
 #elif defined(MD_BUILD)
     "Sega - Mega Drive - Genesis"
 #elif defined(PCE_BUILD)
@@ -39,6 +39,12 @@ const char *THUMBNAILS_PATH[] = {
     "SNK - Neo Geo Pocket",
 #endif
     nullptr};
+
+#if defined(NES_BUILD) || defined(GBC_BUILD) || defined(GBA_BUILD) || defined(MD_BUILD) || defined(PCE_BUILD) || defined(WSC_BUILD) || defined(NGP_BUILD)
+const char THUMBNAILS_PATH[] = THUMBNAILS_DIR "/" CONSOLE;
+#else
+const char THUMBNAILS_PATH[] = "";
+#endif
 
 #if defined(ARC_BUILD) || defined(DOS_BUILD) || defined(AMIGA_BUILD) || defined(ATARIST_BUILD) || defined(ZXS_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD)
 const bool DEFAULT_ENABLE_REWIND = false;

@@ -253,7 +253,7 @@ void TabFavorite::_UpdateTexture()
 
     if (_texture == nullptr)
     {
-        _texture = GetRomPreviewImage(fav.path.c_str(), fav.item.path.c_str());
+        _texture = GetRomPreviewImage(fav.path.c_str(), fav.item.path.c_str(), nullptr);
     }
 
     if (_texture)

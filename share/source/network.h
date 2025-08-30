@@ -1,4 +1,5 @@
 #pragma once
+#include <string>
 #include <stdint.h>
 #include <psp2/net/net.h>
 
@@ -8,11 +9,13 @@ public:
     Network(int size = 1024 * 1024);
     virtual ~Network();
 
-    // must delete the return pointer, if it's not nullpr
-    uint8_t *Download(const char *url, uint64_t *size);
+    // must delete the data pointer, if return value is true
+    bool Download(const char *url, uint8_t **data, uint64_t *size);
     bool Download(const char *url, const char *dest_path);
+    std::string Escape(std::string in);
 
 private:
-    SceNetInitParam _init_param;
-    int _template_id;
+    static SceNetInitParam _init_param;
+    static int _template_id;
+    static int _count;
 };
