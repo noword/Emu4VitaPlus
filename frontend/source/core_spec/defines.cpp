@@ -19,24 +19,24 @@ const char CORE_FAVOURITE_PATH[] = _CORE_DATA_DIR "/favourite.ini";
 
 const char *THUMBNAILS_NAME[] = {
 #if defined(NES_BUILD)
-    "Nintendo - Nintendo Entertainment System",
+    "Nintendo%20-%20Nintendo%20Entertainment%20System",
 #elif defined(SNES_BUILD)
-    "Nintendo - Super Nintendo Entertainment System",
+    "Nintendo%20-%20Super%20Nintendo%20Entertainment%20System",
 #elif defined(GBC_BUILD)
-    "Nintendo - Game Boy Color",
-    "Nintendo - Game Boy",
+    "Nintendo%20-%20Game%20Boy%20Color",
+    "Nintendo%20-%20Game%20Boy",
 #elif defined(GBA_BUILD)
     "Nintendo%20-%20Game%20Boy%20Advance",
 #elif defined(MD_BUILD)
-    "Sega - Mega Drive - Genesis"
+    "Sega%20-%20Mega%20Drive%20-%20Genesis"
 #elif defined(PCE_BUILD)
-    "NEC - PC Engine - TurboGrafx 16",
+    "NEC%20-%20PC%20Engine%20-%20TurboGrafx%2016",
 #elif defined(WSC_BUILD)
-    "Bandai - WonderSwan Color",
-    "Bandai - WonderSwan",
+    "Bandai%20-%20WonderSwan%20Color",
+    "Bandai%20-%20WonderSwan",
 #elif defined(NGP_BUILD)
-    "SNK - Neo Geo Pocket Color",
-    "SNK - Neo Geo Pocket",
+    "SNK%20-%20Neo%20Geo%20Pocket%20Color",
+    "SNK%20-%20Neo%20Geo%20Pocket",
 #endif
     nullptr};
 
