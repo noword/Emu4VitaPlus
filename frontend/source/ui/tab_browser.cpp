@@ -573,49 +573,49 @@ void TabBrowser::_PasteFile(bool overwrite)
     _Update();
 }
 
-void TabBrowser::_UpdateTexture()
-{
-    if (_texture != nullptr)
-    {
-        gVideo->Lock();
-        vita2d_wait_rendering_done();
-        vita2d_free_texture(_texture);
-        _texture = nullptr;
-        gVideo->Unlock();
-    }
+// void TabBrowser::_UpdateTexture()
+// {
+//     if (_texture != nullptr)
+//     {
+//         gVideo->Lock();
+//         vita2d_wait_rendering_done();
+//         vita2d_free_texture(_texture);
+//         _texture = nullptr;
+//         gVideo->Unlock();
+//     }
 
-    if (_index >= _directory->GetSize())
-    {
-        return;
-    }
+//     if (_index >= _directory->GetSize())
+//     {
+//         return;
+//     }
 
-    const DirItem &item = _directory->GetItem(_index);
-    if (item.is_dir)
-    {
-        return;
-    }
+//     const DirItem &item = _directory->GetItem(_index);
+//     if (item.is_dir)
+//     {
+//         return;
+//     }
 
-    const std::string full_path = _GetCurrentFullPath();
-    if (gPlaylists->IsValid())
-    {
-        _texture = gPlaylists->GetPreviewImage(full_path.c_str());
-    }
+//     const std::string full_path = _GetCurrentFullPath();
+//     if (gPlaylists->IsValid())
+//     {
+//         _texture = gPlaylists->GetPreviewImage(full_path.c_str());
+//     }
 
-    if (_texture == nullptr)
-    {
-        _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item.path.c_str());
-    }
+//     if (_texture == nullptr)
+//     {
+//         _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item.path.c_str());
+//     }
 
-    if (_texture)
-    {
-        CalcFitSize(vita2d_texture_get_width(_texture),
-                    vita2d_texture_get_height(_texture),
-                    _texture_max_width,
-                    _texture_max_height,
-                    &_texture_width,
-                    &_texture_height);
-    }
-}
+//     if (_texture)
+//     {
+//         CalcFitSize(vita2d_texture_get_width(_texture),
+//                     vita2d_texture_get_height(_texture),
+//                     _texture_max_width,
+//                     _texture_max_height,
+//                     &_texture_width,
+//                     &_texture_height);
+//     }
+// }
 
 void TabBrowser::_UpdateStatus()
 {
@@ -670,80 +670,80 @@ void TabBrowser::_UpdateStatus()
     gVideo->Unlock();
 }
 
-void TabBrowser::_UpdateName()
-{
-    // LogFunctionName;
-    if (_name)
-    {
-        gVideo->Lock();
-        _name = nullptr;
-        _name_moving_status.Reset();
-        gVideo->Unlock();
-    }
+// void TabBrowser::_UpdateName()
+// {
+//     // LogFunctionName;
+//     if (_name)
+//     {
+//         gVideo->Lock();
+//         _name = nullptr;
+//         _name_moving_status.Reset();
+//         gVideo->Unlock();
+//     }
 
-    if (_index >= _directory->GetSize())
-    {
-        return;
-    }
+//     if (_index >= _directory->GetSize())
+//     {
+//         return;
+//     }
 
-    const DirItem &item = _directory->GetItem(_index);
-    if (item.is_dir)
-    {
-        return;
-    }
+//     const DirItem &item = _directory->GetItem(_index);
+//     if (item.is_dir)
+//     {
+//         return;
+//     }
 
-    if (gPlaylists->IsValid())
-    {
-        const std::string full_path = _GetCurrentFullPath();
-        const char *label = gPlaylists->GetLabel(full_path.c_str());
-        if (label)
-        {
-            gVideo->Lock();
-            _name = label;
-            LogDebug("  get name from playlist: %s", _name);
-            gVideo->Unlock();
-            return;
-        }
-    }
+//     if (gPlaylists->IsValid())
+//     {
+//         const std::string full_path = _GetCurrentFullPath();
+//         const char *label = gPlaylists->GetLabel(full_path.c_str());
+//         if (label)
+//         {
+//             gVideo->Lock();
+//             _name = label;
+//             LogDebug("  get name from playlist: %s", _name);
+//             gVideo->Unlock();
+//             return;
+//         }
+//     }
 
-    if (!gRomNameMap->Valid())
-    {
-        LogDebug("  gRomNameMap is invalid");
-        return;
-    }
+//     if (!gRomNameMap->Valid())
+//     {
+//         LogDebug("  gRomNameMap is invalid");
+//         return;
+//     }
 
-    if (item.crc32 != 0) // It's a zip or 7z package, we have crc32
-    {
-        gVideo->Lock();
-        gRomNameMap->GetName(item.crc32, &_name, NAME_LOCAL);
-        gVideo->Unlock();
-        return;
-    }
+//     if (item.crc32 != 0) // It's a zip or 7z package, we have crc32
+//     {
+//         gVideo->Lock();
+//         gRomNameMap->GetName(item.crc32, &_name, NAME_LOCAL);
+//         gVideo->Unlock();
+//         return;
+//     }
 
-    const ArcadeManager *arc_manager = gEmulator->GetArcadeManager();
-    if (arc_manager)
-    {
-        // arcade rom, calc the crc32 with rom name
-        char path[SCE_FIOS_PATH_MAX];
-        strcpy(path, _GetCurrentFullPath().c_str());
-        const char *rom_name = arc_manager->GetRomName(path);
-        std::string real_name = File::GetName(rom_name);
-        gVideo->Lock();
-        if (!gRomNameMap->GetName(crc32(0, (Bytef *)real_name.c_str(), real_name.size()), &_name, NAME_LOCAL))
-        {
-            real_name += ".zip";
-            gRomNameMap->GetName(crc32(0, (Bytef *)real_name.c_str(), real_name.size()), &_name, NAME_LOCAL);
-        }
-        gVideo->Unlock();
-    }
-    else
-    {
-        // calc the crc32 with read file
-        SceUID thread_id = sceKernelCreateThread(__PRETTY_FUNCTION__, GetNameThread, SCE_KERNEL_DEFAULT_PRIORITY_USER, 0x4000, 0, SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT, NULL);
-        uint32_t p = (uint32_t)this;
-        sceKernelStartThread(thread_id, sizeof(this), (void *)&p);
-    }
-}
+//     const ArcadeManager *arc_manager = gEmulator->GetArcadeManager();
+//     if (arc_manager)
+//     {
+//         // arcade rom, calc the crc32 with rom name
+//         char path[SCE_FIOS_PATH_MAX];
+//         strcpy(path, _GetCurrentFullPath().c_str());
+//         const char *rom_name = arc_manager->GetRomName(path);
+//         std::string real_name = File::GetName(rom_name);
+//         gVideo->Lock();
+//         if (!gRomNameMap->GetName(crc32(0, (Bytef *)real_name.c_str(), real_name.size()), &_name, NAME_LOCAL))
+//         {
+//             real_name += ".zip";
+//             gRomNameMap->GetName(crc32(0, (Bytef *)real_name.c_str(), real_name.size()), &_name, NAME_LOCAL);
+//         }
+//         gVideo->Unlock();
+//     }
+//     else
+//     {
+//         // calc the crc32 with read file
+//         SceUID thread_id = sceKernelCreateThread(__PRETTY_FUNCTION__, GetNameThread, SCE_KERNEL_DEFAULT_PRIORITY_USER, 0x4000, 0, SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT, NULL);
+//         uint32_t p = (uint32_t)this;
+//         sceKernelStartThread(thread_id, sizeof(this), (void *)&p);
+//     }
+// }
 
 void TabBrowser::_UpdateInfo()
 {
@@ -764,6 +764,44 @@ void TabBrowser::_UpdateInfo()
     }
 }
 
+void TabBrowser::_OnItemUpdated(DirItem *item)
+{
+    LogFunctionName;
+    if (item != &_directory->GetItem(_index))
+        return;
+
+    if (!item->display_name.empty())
+    {
+        gVideo->Lock();
+        _name = item->display_name.c_str();
+        gVideo->Unlock();
+    }
+
+    const std::string full_path = _GetCurrentFullPath();
+    if (gPlaylists->IsValid())
+    {
+        _texture = gPlaylists->GetPreviewImage(full_path.c_str());
+    }
+
+    if (_texture == nullptr)
+    {
+        _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item->path.c_str());
+    }
+
+    if (_texture)
+    {
+        CalcFitSize(vita2d_texture_get_width(_texture),
+                    vita2d_texture_get_height(_texture),
+                    _texture_max_width,
+                    _texture_max_height,
+                    &_texture_width,
+                    &_texture_height);
+    }
+    else
+    {
+    }
+}
+
 void TabBrowser::_Update()
 {
     if (!_directory->IsTested())
@@ -774,10 +812,31 @@ void TabBrowser::_Update()
             item.legal = false;
         }
     }
-    _UpdateTexture();
+
+    if (_name != nullptr)
+    {
+        gVideo->Lock();
+        _name = nullptr;
+        _name_moving_status.Reset();
+        gVideo->Unlock();
+    }
+
+    if (_texture != nullptr)
+    {
+        gVideo->Lock();
+        vita2d_wait_rendering_done();
+        vita2d_free_texture(_texture);
+        _texture = nullptr;
+        gVideo->Unlock();
+    }
+
+    // _UpdateTexture();
     _UpdateStatus();
-    _UpdateName();
+    // _UpdateName();
     _UpdateInfo();
+
+    _directory->GetItem(_index).UpdateDetials(std::bind(&TabBrowser::_OnItemUpdated, this, &_directory->GetItem(_index)));
+
     _moving_status.Reset();
     _name_moving_status.Reset();
 }

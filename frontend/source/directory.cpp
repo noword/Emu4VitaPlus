@@ -48,46 +48,58 @@ uint32_t GetRomCrc32(const char *full_path)
 
 int32_t UpdateDetialsThread(uint32_t args, void *argp)
 {
+    LogFunctionName;
     CLASS_POINTER(UpdateDetialsArgument, argument, argp);
+    LogDebug("  %08x %x", argp, args);
+    LogDebug("  %08x %08x", argument->item, argument->callback);
     DirItem *item = argument->item;
     const std::string full_path = item->GetFullPath();
 
-    if (gPlaylists->IsValid())
-    {
-        const char *label = gPlaylists->GetLabel(full_path.c_str());
-        if (label)
-        {
-            item->display_name = label;
-            LogDebug("  get name from playlist: %s", label);
-        }
-    }
+    if (item->is_dir)
+        goto END;
 
     if (item->crc32 == 0)
     {
         item->crc32 = GetRomCrc32(full_path.c_str());
     }
 
-    if (gRomNameMap->Valid() && item->crc32)
+    if (!(item->english_name.empty() || item->display_name.empty()))
     {
-        const char *local_name;
-        const char *english_name;
-        gRomNameMap->GetName(item->crc32, &local_name, &english_name);
-        if (local_name && *local_name && item->display_name.size() == 0)
+        if (gPlaylists->IsValid())
         {
-            item->display_name = local_name;
+            const char *label = gPlaylists->GetLabel(full_path.c_str());
+            if (label)
+            {
+                item->display_name = label;
+            }
         }
 
-        if (english_name && *english_name)
+        if (gRomNameMap->Valid() && item->crc32)
         {
-            item->english_name = english_name;
-            if (item->display_name.size() == 0)
+            const char *local_name;
+            const char *english_name;
+            gRomNameMap->GetName(item->crc32, &local_name, &english_name);
+            if (local_name && *local_name && !item->display_name.empty())
             {
-                item->display_name = english_name;
+                item->display_name = local_name;
+            }
+
+            if (english_name && *english_name)
+            {
+                item->english_name = english_name;
+                if (item->display_name.empty())
+                {
+                    item->display_name = english_name;
+                }
             }
         }
     }
 
+    LogDebug("  english_name: %s  display_name: %s", item->english_name.c_str(), item->display_name.c_str());
+
+END:
     argument->callback(item);
+    delete argument;
 
     return sceKernelExitDeleteThread(0);
 }
@@ -95,7 +107,7 @@ int32_t UpdateDetialsThread(uint32_t args, void *argp)
 void DirItem::UpdateDetials(DirItemUpdateCallbackFunc callback)
 {
     LogFunctionName;
-    UpdateDetialsArgument argument{this, callback};
+    UpdateDetialsArgument *argument = new UpdateDetialsArgument{this, callback};
     StartThread(UpdateDetialsThread, sizeof(UpdateDetialsArgument), &argument);
 }
 

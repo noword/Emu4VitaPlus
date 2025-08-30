@@ -10,6 +10,7 @@ public:
 
     // must delete the return pointer, if it's not nullpr
     uint8_t *Download(const char *url, uint64_t *size);
+    bool Download(const char *url, const char *dest_path);
 
 private:
     SceNetInitParam _init_param;

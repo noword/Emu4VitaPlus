@@ -113,7 +113,7 @@ bool RomNameMap::GetName(uint32_t crc, const char **local_name, const char **eng
     *local_name = *english_name = nullptr;
 
     const auto &iter = _map.find(crc);
-    if (iter != _map.end())
+    if (iter == _map.end())
     {
         return false;
     }
@@ -138,5 +138,5 @@ void RomNameMap::Load()
     _ReleaseNameBuf();
 
     _Load("app0:assets/names.en.zdb", NAME_ENGLISH) || _Load((std::string(CONSOLE_DIR) + "/names.en.zdb").c_str(), NAME_ENGLISH);
-    _Load(std::string("app0:assets/names.") + TEXT(CODE) + ".zdb", NAME_LOCAL) | _Load(std::string(CONSOLE_DIR) + "/names." + TEXT(CODE) + ".zdb", NAME_LOCAL);
+    _Load(std::string("app0:assets/names.") + TEXT(CODE) + ".zdb", NAME_LOCAL) || _Load(std::string(CONSOLE_DIR) + "/names." + TEXT(CODE) + ".zdb", NAME_LOCAL);
 }

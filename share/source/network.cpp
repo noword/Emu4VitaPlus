@@ -3,6 +3,7 @@
 #include <psp2/net/netctl.h>
 #include <psp2/libssl.h>
 #include "network.h"
+#include "file.h"
 #include "log.h"
 
 // #define USER_AGENT "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
@@ -102,4 +103,19 @@ END:
         sceHttpDeleteConnection(connection_id);
 
     return data;
+}
+
+bool Network::Download(const char *url, const char *dest_path)
+{
+    LogFunctionName;
+
+    bool result = false;
+    uint64_t size;
+    uint8_t *data = Download(url, &size);
+    if (data != nullptr)
+    {
+        result = File::WriteFile(dest_path, data, size);
+        delete[] data;
+    }
+    return result;
 }

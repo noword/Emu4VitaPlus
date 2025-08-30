@@ -52,9 +52,9 @@ private:
     void _OnConfirmDialog(Input *input, int index);
     void _PasteFile(bool overwrite);
 
-    void _UpdateTexture();
+    // void _UpdateTexture();
     void _UpdateStatus();
-    void _UpdateName();
+    // void _UpdateName();
     void _UpdateInfo();
     void _Update() override;
 
@@ -62,6 +62,8 @@ private:
     const std::string _GetCurrentFullPath(bool *is_dir = nullptr);
     void _SaveIndexHistory();
     void _SetIndexFromHistory();
+
+    void _OnItemUpdated(DirItem *item);
 
     Directory *_directory;
     vita2d_texture *_texture;

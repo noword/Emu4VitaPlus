@@ -668,7 +668,9 @@ void Ui::UpdateDiskOptions()
 void Ui::_ChangeLanguage()
 {
     LogFunctionName;
+
     gVideo->Lock();
+
     My_Imgui_Destroy_Font();
     My_Imgui_Create_Font(gConfig->language, CACHE_DIR);
     for (auto tab : _tabs)
@@ -677,7 +679,10 @@ void Ui::_ChangeLanguage()
             tab->ChangeLanguage(gConfig->language);
     }
     gConfig->input_descriptors.Update();
+    gRomNameMap->Load();
+
     gVideo->Unlock();
+
     gConfig->Save();
 
     const char ARCH_CONFIG_PATH[] = ROOT_DIR "/Arch/config.ini";
