@@ -140,6 +140,12 @@ std::string Network::Escape(std::string in)
     int ret;
     size_t esc_size;
 
+    for (size_t i = 0; i < in.size(); i++)
+    {
+        if (in[i] == '&')
+            in[i] = '_';
+    }
+
     if ((ret = sceHttpUriEscape(NULL, &esc_size, 0, in.c_str())) < 0)
     {
         printf("sceHttpUriEscape() returns %x.\n", ret);
@@ -150,12 +156,6 @@ std::string Network::Escape(std::string in)
     if ((ret = sceHttpUriEscape(esc, &esc_size, esc_size, in.c_str())) < 0)
     {
         printf("sceHttpUriEscape() returns %x.\n", ret);
-    }
-
-    for (size_t i = 0; i < esc_size; i++)
-    {
-        if (esc[i] == '&')
-            esc[i] = '_';
     }
 
     std::string out{esc};

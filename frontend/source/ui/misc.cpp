@@ -32,7 +32,6 @@ vita2d_texture *GetRomPreviewImage(const char *path, const char *name, const cha
 
     if (english_name && *english_name && gConfig->auto_download_thumbnail)
     {
-
         img_path = std::string(THUMBNAILS_PATH) + '/' + english_name + ".png";
         texture = vita2d_load_PNG_file((img_path).c_str());
         if (texture)
