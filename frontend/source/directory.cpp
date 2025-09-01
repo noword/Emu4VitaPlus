@@ -35,8 +35,8 @@ uint32_t GetRomCrc32(const char *full_path)
     const ArcadeManager *arc_manager = gEmulator->GetArcadeManager();
     if (arc_manager)
     {
-        const char *rom_name = arc_manager->GetRomName(full_path);
-        crc = crc32(0, (Bytef *)rom_name, strlen(rom_name));
+        std::string rom_name = File::GetName(arc_manager->GetRomName(full_path));
+        crc = crc32(0, (Bytef *)rom_name.c_str(), rom_name.size());
     }
     else
     {

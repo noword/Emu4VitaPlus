@@ -76,7 +76,7 @@ void TabBrowser::SetInputHooks(Input *input)
     input->SetKeyUpCallback(SCE_CTRL_SQUARE, std::bind(&TabBrowser::_OnKeySquare, this, input));
     input->SetKeyUpCallback(SCE_CTRL_START, std::bind(&TabBrowser::_OnKeyStart, this, input));
     input->SetKeyUpCallback(SCE_CTRL_SELECT, std::bind(&TabBrowser::_OnKeySelect, this, input));
-    input->SetKeyUpCallback(SCE_CTRL_PSBUTTON | EnterButton, std::bind(&TabBrowser::_OnKeyPsEnter, this, input));
+    // input->SetKeyUpCallback(SCE_CTRL_PSBUTTON | EnterButton, std::bind(&TabBrowser::_OnKeyPsEnter, this, input));
     _input = input;
 }
 
@@ -88,7 +88,7 @@ void TabBrowser::UnsetInputHooks(Input *input)
     input->UnsetKeyUpCallback(SCE_CTRL_SQUARE);
     input->UnsetKeyUpCallback(SCE_CTRL_START);
     input->UnsetKeyUpCallback(SCE_CTRL_SELECT);
-    input->UnsetKeyUpCallback(SCE_CTRL_PSBUTTON | EnterButton);
+    // input->UnsetKeyUpCallback(SCE_CTRL_PSBUTTON | EnterButton);
 }
 
 void TabBrowser::_Show()
@@ -426,15 +426,22 @@ void TabBrowser::_OnKeySelect(Input *input)
     _dialog->OnActive(input);
 }
 
-void TabBrowser::_OnKeyPsEnter(Input *input)
-{
-    LogFunctionName;
-    for (size_t i = 0; i < _directory->GetSize(); i++)
-    {
-        DirItem &item = _directory->GetItem(i);
-        item.UpdateDetails();
-    }
-}
+// void DownloadThumbnailsThread(uint32_t args, void *argp)
+// {
+//     LogFunctionName;
+//     CLASS_POINTER(Directory, directory, argp);
+//     for (size_t i = 0; i < directory->GetSize(); i++)
+//     {
+//         DirItem &item = directory->GetItem(i);
+//         item.UpdateDetails();
+//     }
+// }
+
+// void TabBrowser::_OnKeyPsEnter(Input *input)
+// {
+//     LogFunctionName;
+//     StartThread(DownloadThumbnailsThread, sizeof(_directory), &_directory);
+// }
 
 void TabBrowser::_OnDialog(Input *input, int index)
 {

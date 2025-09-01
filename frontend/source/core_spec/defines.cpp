@@ -28,7 +28,7 @@ const char *THUMBNAILS_NAME[] = {
 #elif defined(GBA_BUILD)
     "Nintendo%20-%20Game%20Boy%20Advance",
 #elif defined(MD_BUILD)
-    "Sega%20-%20Mega%20Drive%20-%20Genesis"
+    "Sega%20-%20Mega%20Drive%20-%20Genesis",
 #elif defined(PCE_BUILD)
     "NEC%20-%20PC%20Engine%20-%20TurboGrafx%2016",
 #elif defined(WSC_BUILD)
@@ -37,16 +37,48 @@ const char *THUMBNAILS_NAME[] = {
 #elif defined(NGP_BUILD)
     "SNK%20-%20Neo%20Geo%20Pocket%20Color",
     "SNK%20-%20Neo%20Geo%20Pocket",
+#elif defined(ATARI2600_BUILD)
+    "Atari%20-%202600",
+#elif defined(ATARI5200_BUILD)
+    "Atari%20-%205200",
+#elif defined(ATARI7800_BUILD)
+    "Atari%20-%207800",
+#elif defined(FBA_BUILD)
+    "FBNeo%20-%20Arcade%20Games",
+#elif defined(MAME_BUILD)
+    "MAME",
 #endif
     nullptr};
 
-#if defined(NES_BUILD) || defined(GBC_BUILD) || defined(GBA_BUILD) || defined(MD_BUILD) || defined(PCE_BUILD) || defined(WSC_BUILD) || defined(NGP_BUILD)
-const char THUMBNAILS_PATH[] = THUMBNAILS_DIR "/" CONSOLE;
+const char THUMBNAILS_PATH[] =
+#if defined(NES_BUILD) ||       \
+    defined(GBC_BUILD) ||       \
+    defined(GBA_BUILD) ||       \
+    defined(MD_BUILD) ||        \
+    defined(PCE_BUILD) ||       \
+    defined(WSC_BUILD) ||       \
+    defined(NGP_BUILD) ||       \
+    defined(ATARI2600_BUILD) || \
+    defined(ATARI5200_BUILD) || \
+    defined(ATARI7800_BUILD)
+    THUMBNAILS_DIR "/" CONSOLE;
+#elif defined(FBA_BUILD)
+    THUMBNAILS_DIR "/FBA";
+#elif defined(MAME_BUILD)
+    THUMBNAILS_DIR "/MAME";
 #else
-const char THUMBNAILS_PATH[] = "";
+    "";
 #endif
 
-#if defined(ARC_BUILD) || defined(DOS_BUILD) || defined(AMIGA_BUILD) || defined(ATARIST_BUILD) || defined(ZXS_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD)
+#if defined(ARC_BUILD) ||     \
+    defined(DOS_BUILD) ||     \
+    defined(AMIGA_BUILD) ||   \
+    defined(ATARIST_BUILD) || \
+    defined(ZXS_BUILD) ||     \
+    defined(PC98_BUILD) ||    \
+    defined(MSX_BUILD) ||     \
+    defined(C64_BUILD) ||     \
+    defined(X68000_BUILD)
 const bool DEFAULT_ENABLE_REWIND = false;
 const size_t DEFAULT_REWIND_BUF_SIZE = 50;
 #else
@@ -74,7 +106,16 @@ const bool DEFAULT_MOUSE = CONFIG_MOUSE_REAR;
 const bool DEFAULT_MOUSE = CONFIG_MOUSE_DISABLE;
 #endif
 
-#if defined(DOS_BUILD) || defined(AMIGA_BUILD) || defined(ARC_BUILD) || defined(ZXS_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD) || defined(MEDNAFEN_LYNX_BUILD) || defined(CPC_BUILD)
+#if defined(DOS_BUILD) ||           \
+    defined(AMIGA_BUILD) ||         \
+    defined(ARC_BUILD) ||           \
+    defined(ZXS_BUILD) ||           \
+    defined(PC98_BUILD) ||          \
+    defined(MSX_BUILD) ||           \
+    defined(C64_BUILD) ||           \
+    defined(X68000_BUILD) ||        \
+    defined(MEDNAFEN_LYNX_BUILD) || \
+    defined(CPC_BUILD)
 const bool DEFAULT_AUTO_SAVE = false;
 const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = true;
 #else
@@ -82,7 +123,15 @@ const bool DEFAULT_AUTO_SAVE = true;
 const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = false;
 #endif
 
-#if defined(DOS_BUILD) || defined(AMIGA_BUILD) || defined(ZXS_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD) || defined(ATARI5200_BUILD) || defined(CAP32_BUILD)
+#if defined(DOS_BUILD) ||       \
+    defined(AMIGA_BUILD) ||     \
+    defined(ZXS_BUILD) ||       \
+    defined(PC98_BUILD) ||      \
+    defined(MSX_BUILD) ||       \
+    defined(C64_BUILD) ||       \
+    defined(X68000_BUILD) ||    \
+    defined(ATARI5200_BUILD) || \
+    defined(CAP32_BUILD)
 const bool ENABLE_KEYBOARD = true;
 #else
 const bool ENABLE_KEYBOARD = false;
@@ -100,40 +149,39 @@ const bool DEFAULT_INDEPENDENT_CONFIG = true;
 const bool DEFAULT_INDEPENDENT_CONFIG = false;
 #endif
 
-const std::vector<uint8_t>
-    RETRO_KEYS = {
-        RETRO_DEVICE_ID_NONE,
-        RETRO_DEVICE_ID_JOYPAD_UP,
-        RETRO_DEVICE_ID_JOYPAD_DOWN,
-        RETRO_DEVICE_ID_JOYPAD_LEFT,
-        RETRO_DEVICE_ID_JOYPAD_RIGHT,
+const std::vector<uint8_t> RETRO_KEYS = {
+    RETRO_DEVICE_ID_NONE,
+    RETRO_DEVICE_ID_JOYPAD_UP,
+    RETRO_DEVICE_ID_JOYPAD_DOWN,
+    RETRO_DEVICE_ID_JOYPAD_LEFT,
+    RETRO_DEVICE_ID_JOYPAD_RIGHT,
 #if defined(GBA_BUILD)
-        RETRO_DEVICE_ID_JOYPAD_A,
-        RETRO_DEVICE_ID_JOYPAD_B,
-        RETRO_DEVICE_ID_JOYPAD_L,
-        RETRO_DEVICE_ID_JOYPAD_R,
+    RETRO_DEVICE_ID_JOYPAD_A,
+    RETRO_DEVICE_ID_JOYPAD_B,
+    RETRO_DEVICE_ID_JOYPAD_L,
+    RETRO_DEVICE_ID_JOYPAD_R,
 #elif defined(ARC_BUILD)
-        RETRO_DEVICE_ID_JOYPAD_A,
-        RETRO_DEVICE_ID_JOYPAD_B,
-        RETRO_DEVICE_ID_JOYPAD_X,
-        RETRO_DEVICE_ID_JOYPAD_Y,
-        RETRO_DEVICE_ID_JOYPAD_L,
-        RETRO_DEVICE_ID_JOYPAD_R,
-        RETRO_DEVICE_ID_JOYPAD_L2,
-        RETRO_DEVICE_ID_JOYPAD_R2,
+    RETRO_DEVICE_ID_JOYPAD_A,
+    RETRO_DEVICE_ID_JOYPAD_B,
+    RETRO_DEVICE_ID_JOYPAD_X,
+    RETRO_DEVICE_ID_JOYPAD_Y,
+    RETRO_DEVICE_ID_JOYPAD_L,
+    RETRO_DEVICE_ID_JOYPAD_R,
+    RETRO_DEVICE_ID_JOYPAD_L2,
+    RETRO_DEVICE_ID_JOYPAD_R2,
 #elif defined(SNES_BUILD)
-        RETRO_DEVICE_ID_JOYPAD_A,
-        RETRO_DEVICE_ID_JOYPAD_B,
-        RETRO_DEVICE_ID_JOYPAD_X,
-        RETRO_DEVICE_ID_JOYPAD_Y,
-        RETRO_DEVICE_ID_JOYPAD_L,
-        RETRO_DEVICE_ID_JOYPAD_R,
+    RETRO_DEVICE_ID_JOYPAD_A,
+    RETRO_DEVICE_ID_JOYPAD_B,
+    RETRO_DEVICE_ID_JOYPAD_X,
+    RETRO_DEVICE_ID_JOYPAD_Y,
+    RETRO_DEVICE_ID_JOYPAD_L,
+    RETRO_DEVICE_ID_JOYPAD_R,
 #elif defined(NES_BUILD)
-        RETRO_DEVICE_ID_JOYPAD_A,
-        RETRO_DEVICE_ID_JOYPAD_B,
-        RETRO_DEVICE_ID_JOYPAD_L,
-        RETRO_DEVICE_ID_JOYPAD_R,
-        RETRO_DEVICE_ID_JOYPAD_R2,
+    RETRO_DEVICE_ID_JOYPAD_A,
+    RETRO_DEVICE_ID_JOYPAD_B,
+    RETRO_DEVICE_ID_JOYPAD_L,
+    RETRO_DEVICE_ID_JOYPAD_R,
+    RETRO_DEVICE_ID_JOYPAD_R2,
 #elif defined(GBC_BUILD) || defined(NGP_BUILD) || defined(WSC_BUILD)
         RETRO_DEVICE_ID_JOYPAD_A,
         RETRO_DEVICE_ID_JOYPAD_B,
@@ -144,7 +192,13 @@ const std::vector<uint8_t>
         RETRO_DEVICE_ID_JOYPAD_Y,
         RETRO_DEVICE_ID_JOYPAD_L,
         RETRO_DEVICE_ID_JOYPAD_R,
-#elif defined(PS_BUILD) || defined(DOS_BUILD) || defined(NEOCD_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD)
+#elif defined(PS_BUILD) ||  \
+    defined(DOS_BUILD) ||   \
+    defined(NEOCD_BUILD) || \
+    defined(PC98_BUILD) ||  \
+    defined(MSX_BUILD) ||   \
+    defined(C64_BUILD) ||   \
+    defined(X68000_BUILD)
         RETRO_DEVICE_ID_JOYPAD_A,
         RETRO_DEVICE_ID_JOYPAD_B,
         RETRO_DEVICE_ID_JOYPAD_X,
@@ -224,8 +278,8 @@ const std::vector<uint8_t>
 #else
 #error "unknown build"
 #endif
-        RETRO_DEVICE_ID_JOYPAD_START,
-        RETRO_DEVICE_ID_JOYPAD_SELECT,
+    RETRO_DEVICE_ID_JOYPAD_START,
+    RETRO_DEVICE_ID_JOYPAD_SELECT,
 };
 
 const std::vector<ControlMapConfig> CONTROL_MAPS = {
@@ -311,7 +365,13 @@ const std::vector<ControlMapConfig> CONTROL_MAPS = {
     {SCE_CTRL_R2},
     {SCE_CTRL_L3},
     {SCE_CTRL_R3},
-#elif defined(PS_BUILD) || defined(DOS_BUILD) || defined(NEOCD_BUILD) || defined(PC98_BUILD) || defined(MSX_BUILD) || defined(C64_BUILD) || defined(X68000_BUILD)
+#elif defined(PS_BUILD) ||  \
+    defined(DOS_BUILD) ||   \
+    defined(NEOCD_BUILD) || \
+    defined(PC98_BUILD) ||  \
+    defined(MSX_BUILD) ||   \
+    defined(C64_BUILD) ||   \
+    defined(X68000_BUILD)
     {SCE_CTRL_CROSS, {RETRO_DEVICE_ID_JOYPAD_B}},
     {SCE_CTRL_TRIANGLE, {RETRO_DEVICE_ID_JOYPAD_X}},
     {SCE_CTRL_CIRCLE, {RETRO_DEVICE_ID_JOYPAD_A}},
@@ -547,7 +607,10 @@ const std::vector<BIOS> REQUIRED_BIOS = {
     {"neocd/top-sp1.bin", 0},
     {"neocd/neocd.bin", 0},
     {"neocd/uni-bioscd.rom", 0},
-#elif defined(MAME2000_BUILD) || defined(MAME2003_BUILD) || defined(MAME2003PLUS_BUILD) || defined(MAME2000XTREME_BUILD)
+#elif defined(MAME2000_BUILD) ||   \
+    defined(MAME2003_BUILD) ||     \
+    defined(MAME2003PLUS_BUILD) || \
+    defined(MAME2000XTREME_BUILD)
 #elif defined(ARC_BUILD)
 #elif defined(DOS_BUILD)
 #elif defined(AMIGA_BUILD)

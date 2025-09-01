@@ -45,6 +45,9 @@ for json_name, core_name in (
     ('ngp', 'NGP'),
     ('wsc', 'WSC'),
     ('pce', 'PCE'),
+    ('atari2600', 'ATARI2600'),
+    ('atari5200', 'ATARI5200'),
+    ('atari7800', 'ATARI7800'),
 ):
     print(json_name)
     names = json.load(open(f'rom_db/{json_name}.names.json', encoding='utf-8'))

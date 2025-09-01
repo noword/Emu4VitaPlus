@@ -43,15 +43,13 @@ private:
     void _OnKeySquare(Input *input);
     void _OnKeyStart(Input *input);
     void _OnKeySelect(Input *input);
-    void _OnKeyPsEnter(Input *input);
+    // void _OnKeyPsEnter(Input *input);
 
     void _OnDialog(Input *input, int index);
     void _OnConfirmDialog(Input *input, int index);
     void _PasteFile(bool overwrite);
 
-    // void _UpdateTexture();
     void _UpdateStatus();
-    // void _UpdateName();
     void _UpdateInfo();
     void _Update() override;
 
