@@ -76,6 +76,7 @@ void TabBrowser::SetInputHooks(Input *input)
     input->SetKeyUpCallback(SCE_CTRL_SQUARE, std::bind(&TabBrowser::_OnKeySquare, this, input));
     input->SetKeyUpCallback(SCE_CTRL_START, std::bind(&TabBrowser::_OnKeyStart, this, input));
     input->SetKeyUpCallback(SCE_CTRL_SELECT, std::bind(&TabBrowser::_OnKeySelect, this, input));
+    input->SetKeyUpCallback(SCE_CTRL_PSBUTTON | EnterButton, std::bind(&TabBrowser::_OnKeyPsEnter, this, input));
     _input = input;
 }
 
@@ -87,6 +88,7 @@ void TabBrowser::UnsetInputHooks(Input *input)
     input->UnsetKeyUpCallback(SCE_CTRL_SQUARE);
     input->UnsetKeyUpCallback(SCE_CTRL_START);
     input->UnsetKeyUpCallback(SCE_CTRL_SELECT);
+    input->UnsetKeyUpCallback(SCE_CTRL_PSBUTTON | EnterButton);
 }
 
 void TabBrowser::_Show()
@@ -424,6 +426,16 @@ void TabBrowser::_OnKeySelect(Input *input)
     _dialog->OnActive(input);
 }
 
+void TabBrowser::_OnKeyPsEnter(Input *input)
+{
+    LogFunctionName;
+    for (size_t i = 0; i < _directory->GetSize(); i++)
+    {
+        DirItem &item = _directory->GetItem(i);
+        item.UpdateDetails();
+    }
+}
+
 void TabBrowser::_OnDialog(Input *input, int index)
 {
     LogFunctionName;
@@ -573,50 +585,6 @@ void TabBrowser::_PasteFile(bool overwrite)
     _Update();
 }
 
-// void TabBrowser::_UpdateTexture()
-// {
-//     if (_texture != nullptr)
-//     {
-//         gVideo->Lock();
-//         vita2d_wait_rendering_done();
-//         vita2d_free_texture(_texture);
-//         _texture = nullptr;
-//         gVideo->Unlock();
-//     }
-
-//     if (_index >= _directory->GetSize())
-//     {
-//         return;
-//     }
-
-//     const DirItem &item = _directory->GetItem(_index);
-//     if (item.is_dir)
-//     {
-//         return;
-//     }
-
-//     const std::string full_path = _GetCurrentFullPath();
-//     if (gPlaylists->IsValid())
-//     {
-//         _texture = gPlaylists->GetPreviewImage(full_path.c_str());
-//     }
-
-//     if (_texture == nullptr)
-//     {
-//         _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item.path.c_str());
-//     }
-
-//     if (_texture)
-//     {
-//         CalcFitSize(vita2d_texture_get_width(_texture),
-//                     vita2d_texture_get_height(_texture),
-//                     _texture_max_width,
-//                     _texture_max_height,
-//                     &_texture_width,
-//                     &_texture_height);
-//     }
-// }
-
 void TabBrowser::_UpdateStatus()
 {
     if (_index >= _directory->GetSize())
@@ -669,81 +637,6 @@ void TabBrowser::_UpdateStatus()
 
     gVideo->Unlock();
 }
-
-// void TabBrowser::_UpdateName()
-// {
-//     // LogFunctionName;
-//     if (_name)
-//     {
-//         gVideo->Lock();
-//         _name = nullptr;
-//         _name_moving_status.Reset();
-//         gVideo->Unlock();
-//     }
-
-//     if (_index >= _directory->GetSize())
-//     {
-//         return;
-//     }
-
-//     const DirItem &item = _directory->GetItem(_index);
-//     if (item.is_dir)
-//     {
-//         return;
-//     }
-
-//     if (gPlaylists->IsValid())
-//     {
-//         const std::string full_path = _GetCurrentFullPath();
-//         const char *label = gPlaylists->GetLabel(full_path.c_str());
-//         if (label)
-//         {
-//             gVideo->Lock();
-//             _name = label;
-//             LogDebug("  get name from playlist: %s", _name);
-//             gVideo->Unlock();
-//             return;
-//         }
-//     }
-
-//     if (!gRomNameMap->Valid())
-//     {
-//         LogDebug("  gRomNameMap is invalid");
-//         return;
-//     }
-
-//     if (item.crc32 != 0) // It's a zip or 7z package, we have crc32
-//     {
-//         gVideo->Lock();
-//         gRomNameMap->GetName(item.crc32, &_name, NAME_LOCAL);
-//         gVideo->Unlock();
-//         return;
-//     }
-
-//     const ArcadeManager *arc_manager = gEmulator->GetArcadeManager();
-//     if (arc_manager)
-//     {
-//         // arcade rom, calc the crc32 with rom name
-//         char path[SCE_FIOS_PATH_MAX];
-//         strcpy(path, _GetCurrentFullPath().c_str());
-//         const char *rom_name = arc_manager->GetRomName(path);
-//         std::string real_name = File::GetName(rom_name);
-//         gVideo->Lock();
-//         if (!gRomNameMap->GetName(crc32(0, (Bytef *)real_name.c_str(), real_name.size()), &_name, NAME_LOCAL))
-//         {
-//             real_name += ".zip";
-//             gRomNameMap->GetName(crc32(0, (Bytef *)real_name.c_str(), real_name.size()), &_name, NAME_LOCAL);
-//         }
-//         gVideo->Unlock();
-//     }
-//     else
-//     {
-//         // calc the crc32 with read file
-//         SceUID thread_id = sceKernelCreateThread(__PRETTY_FUNCTION__, GetNameThread, SCE_KERNEL_DEFAULT_PRIORITY_USER, 0x4000, 0, SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT, NULL);
-//         uint32_t p = (uint32_t)this;
-//         sceKernelStartThread(thread_id, sizeof(this), (void *)&p);
-//     }
-// }
 
 void TabBrowser::_UpdateInfo()
 {
@@ -826,7 +719,6 @@ void TabBrowser::_Update()
     {
         gVideo->Lock();
         _name = nullptr;
-        _name_moving_status.Reset();
         gVideo->Unlock();
     }
 
@@ -839,15 +731,13 @@ void TabBrowser::_Update()
         gVideo->Unlock();
     }
 
-    // _UpdateTexture();
+    _moving_status.Reset();
+    _name_moving_status.Reset();
+
     _UpdateStatus();
-    // _UpdateName();
     _UpdateInfo();
 
     _directory->GetItem(_index).UpdateDetials(std::bind(&TabBrowser::_OnItemUpdated, this, &_directory->GetItem(_index)));
-
-    _moving_status.Reset();
-    _name_moving_status.Reset();
 }
 
 void TabBrowser::ChangeLanguage(uint32_t language)
@@ -939,46 +829,4 @@ const std::string TabBrowser::_GetCurrentFullPath(bool *is_dir)
     if (is_dir)
         *is_dir = item.is_dir;
     return _directory->GetCurrentPath() + "/" + item.path;
-}
-
-static std::map<std::string, std::string> NameCache;
-#define MAX_NAME_CACHE 64
-
-int32_t GetNameThread(uint32_t args, void *argp)
-{
-    LogFunctionName;
-
-    CLASS_POINTER(TabBrowser, browser, argp);
-    bool is_dir;
-    const std::string full_path = browser->_GetCurrentFullPath(&is_dir);
-    if (is_dir || full_path.size() == 0 || File::GetSize(full_path.c_str()) > 20000000)
-    {
-        sceKernelExitDeleteThread(0);
-        return 0;
-    }
-
-    const char *name = nullptr;
-    const auto iter = NameCache.find(full_path);
-    if (iter != NameCache.end())
-    {
-        name = iter->second.c_str();
-    }
-    else if (gRomNameMap->GetName(File::GetCrc32(full_path.c_str()), &name, NAME_LOCAL))
-    {
-        if (NameCache.size() >= MAX_NAME_CACHE)
-        {
-            NameCache.erase(NameCache.begin());
-        }
-        NameCache[full_path] = name;
-    }
-
-    if (name != nullptr && full_path == browser->_GetCurrentFullPath())
-    {
-        gVideo->Lock();
-        browser->_name = name;
-        gVideo->Unlock();
-    }
-
-    sceKernelExitDeleteThread(0);
-    return 0;
 }

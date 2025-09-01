@@ -21,7 +21,8 @@ struct DirItem
 
     const std::string GetFullPath() { return (*parent_path) + '/' + path; }
     // update crc32, display_name and english_name
-    void UpdateDetials(DirItemUpdateCallbackFunc callback);
+    void UpdateDetials(DirItemUpdateCallbackFunc callback); // asynchronous
+    void UpdateDetails();                                   // synchronous
 };
 
 class Directory

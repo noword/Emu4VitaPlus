@@ -4,8 +4,6 @@
 #include "dialog.h"
 #include "rom_name.h"
 
-int32_t GetNameThread(uint32_t args, void *argc);
-
 enum
 {
     CMD_PASTE = -1,
@@ -34,8 +32,6 @@ public:
     virtual void ChangeLanguage(uint32_t language) override;
     bool Visable() override { return _visable; };
 
-    friend int32_t GetNameThread(uint32_t args, void *argc);
-
 private:
     virtual void _Show() override;
     size_t _GetItemCount() override { return _directory->GetSize(); };
@@ -47,6 +43,7 @@ private:
     void _OnKeySquare(Input *input);
     void _OnKeyStart(Input *input);
     void _OnKeySelect(Input *input);
+    void _OnKeyPsEnter(Input *input);
 
     void _OnDialog(Input *input, int index);
     void _OnConfirmDialog(Input *input, int index);

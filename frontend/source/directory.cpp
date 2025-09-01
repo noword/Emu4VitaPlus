@@ -55,9 +55,6 @@ int32_t UpdateDetialsThread(uint32_t args, void *argp)
     DirItem *item = argument->item;
     const std::string full_path = item->GetFullPath();
 
-    if (item->is_dir)
-        goto END;
-
     if (item->crc32 == 0)
     {
         item->crc32 = GetRomCrc32(full_path.c_str());
@@ -80,7 +77,7 @@ int32_t UpdateDetialsThread(uint32_t args, void *argp)
             const char *local_name;
             const char *english_name;
             gRomNameMap->GetName(item->crc32, &local_name, &english_name);
-            if (local_name && *local_name && !item->display_name.empty())
+            if (local_name && *local_name && item->display_name.empty())
             {
                 item->display_name = local_name;
             }
@@ -98,8 +95,9 @@ int32_t UpdateDetialsThread(uint32_t args, void *argp)
 
     LogDebug("  english_name: %s  display_name: %s", item->english_name.c_str(), item->display_name.c_str());
 
-END:
-    argument->callback(item);
+    if (argument->callback)
+        argument->callback(item);
+
     delete argument;
 
     return sceKernelExitDeleteThread(0);
@@ -108,8 +106,21 @@ END:
 void DirItem::UpdateDetials(DirItemUpdateCallbackFunc callback)
 {
     LogFunctionName;
-    UpdateDetialsArgument *argument = new UpdateDetialsArgument{this, callback};
-    StartThread(UpdateDetialsThread, sizeof(UpdateDetialsArgument), &argument);
+    if (!is_dir)
+    {
+        UpdateDetialsArgument *argument = new UpdateDetialsArgument{this, callback};
+        StartThread(UpdateDetialsThread, sizeof(UpdateDetialsArgument), &argument);
+    }
+}
+
+void DirItem::UpdateDetails()
+{
+    LogFunctionName;
+    if (!is_dir)
+    {
+        UpdateDetialsArgument *argument = new UpdateDetialsArgument{this, nullptr};
+        UpdateDetialsThread(sizeof(UpdateDetialsArgument), &argument);
+    }
 }
 
 Directory::Directory(const char *path, const char *ext_filters, char split)
