@@ -10,9 +10,6 @@
 #include "global.h"
 #include "network.h"
 
-#define LIBRETRO_THUMBNAILS "https://thumbnails.libretro.com/"
-#define THUMBNAILS_SUBDIR "Named_Boxarts"
-
 vita2d_texture *GetRomPreviewImage(const char *path, const char *name, const char *english_name)
 {
     LogFunctionName;

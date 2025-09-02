@@ -95,31 +95,30 @@ int32_t UpdateDetialsThread(uint32_t args, void *argp)
 
     LogDebug("  english_name: %s  display_name: %s", item->english_name.c_str(), item->display_name.c_str());
 
-    if (argument->callback)
-        argument->callback(item);
-
+    DirItemUpdateCallbackFunc callback = argument->callback;
     delete argument;
 
-    return sceKernelExitDeleteThread(0);
+    if (callback)
+    {
+        callback(item);
+        return sceKernelExitDeleteThread(0);
+    }
+    else
+    {
+        return 0;
+    }
 }
 
-void DirItem::UpdateDetials(DirItemUpdateCallbackFunc callback)
+void DirItem::UpdateDetails(DirItemUpdateCallbackFunc callback)
 {
     LogFunctionName;
     if (!is_dir)
     {
         UpdateDetialsArgument *argument = new UpdateDetialsArgument{this, callback};
-        StartThread(UpdateDetialsThread, sizeof(UpdateDetialsArgument), &argument);
-    }
-}
-
-void DirItem::UpdateDetails()
-{
-    LogFunctionName;
-    if (!is_dir)
-    {
-        UpdateDetialsArgument *argument = new UpdateDetialsArgument{this, nullptr};
-        UpdateDetialsThread(sizeof(UpdateDetialsArgument), &argument);
+        if (callback)
+            StartThread(UpdateDetialsThread, sizeof(UpdateDetialsArgument), &argument);
+        else
+            UpdateDetialsThread(sizeof(UpdateDetialsArgument), &argument);
     }
 }
 

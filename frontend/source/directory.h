@@ -20,9 +20,9 @@ struct DirItem
     std::string english_name = "";
 
     const std::string GetFullPath() { return (*parent_path) + '/' + path; }
+
     // update crc32, display_name and english_name
-    void UpdateDetials(DirItemUpdateCallbackFunc callback = nullptr); // asynchronous
-    void UpdateDetails();                                             // synchronous
+    void UpdateDetails(DirItemUpdateCallbackFunc callback = nullptr); // asynchronous if callback is not nullptr
 };
 
 class Directory

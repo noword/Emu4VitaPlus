@@ -16,6 +16,9 @@
 #define PREVIEW_DIR_NAME ".previews"
 #define CHEAT_DIR_NAME ".cheats"
 
+#define LIBRETRO_THUMBNAILS "https://thumbnails.libretro.com/"
+#define THUMBNAILS_SUBDIR "Named_Boxarts"
+
 extern const char CONSOLE_DIR[];
 
 extern const char CORE_NAME[];

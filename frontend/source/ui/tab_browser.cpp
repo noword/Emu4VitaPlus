@@ -27,7 +27,8 @@ TabBrowser::TabBrowser() : TabSeletable(LANG_BROWSER),
                            _texture_max_height(BROWSER_TEXTURE_MAX_HEIGHT),
                            _text_dialog(nullptr),
                            _name(nullptr),
-                           _dialog(nullptr)
+                           _dialog(nullptr),
+                           _updating_thumbnails(false)
 {
     LogFunctionName;
 
@@ -76,7 +77,9 @@ void TabBrowser::SetInputHooks(Input *input)
     input->SetKeyUpCallback(SCE_CTRL_SQUARE, std::bind(&TabBrowser::_OnKeySquare, this, input));
     input->SetKeyUpCallback(SCE_CTRL_START, std::bind(&TabBrowser::_OnKeyStart, this, input));
     input->SetKeyUpCallback(SCE_CTRL_SELECT, std::bind(&TabBrowser::_OnKeySelect, this, input));
-    // input->SetKeyUpCallback(SCE_CTRL_PSBUTTON | EnterButton, std::bind(&TabBrowser::_OnKeyPsEnter, this, input));
+    if (gConfig->auto_download_thumbnail)
+        input->SetKeyUpCallback(SCE_CTRL_PSBUTTON | EnterButton, std::bind(&TabBrowser::_OnDownloadThumbnails, this, input));
+
     _input = input;
 }
 
@@ -88,7 +91,8 @@ void TabBrowser::UnsetInputHooks(Input *input)
     input->UnsetKeyUpCallback(SCE_CTRL_SQUARE);
     input->UnsetKeyUpCallback(SCE_CTRL_START);
     input->UnsetKeyUpCallback(SCE_CTRL_SELECT);
-    // input->UnsetKeyUpCallback(SCE_CTRL_PSBUTTON | EnterButton);
+    if (gConfig->auto_download_thumbnail)
+        input->UnsetKeyUpCallback(SCE_CTRL_PSBUTTON | EnterButton);
 }
 
 void TabBrowser::_Show()
@@ -426,22 +430,82 @@ void TabBrowser::_OnKeySelect(Input *input)
     _dialog->OnActive(input);
 }
 
-// void DownloadThumbnailsThread(uint32_t args, void *argp)
-// {
-//     LogFunctionName;
-//     CLASS_POINTER(Directory, directory, argp);
-//     for (size_t i = 0; i < directory->GetSize(); i++)
-//     {
-//         DirItem &item = directory->GetItem(i);
-//         item.UpdateDetails();
-//     }
-// }
+int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
+{
+    LogFunctionName;
+    CLASS_POINTER(TabBrowser, tab, argp);
+    char hint[0x40];
+    int downloaded = 0;
+    for (size_t i = 0; i < tab->_directory->GetSize() && tab->_updating_thumbnails; i++)
+    {
+        snprintf(hint, 0x40, "Download progress %d/%d\nPress %s to cancel", i, tab->_directory->GetSize(), EnterButton == SCE_CTRL_CIRCLE ? BUTTON_CROSS : BUTTON_CIRCLE);
+        gUi->SetHint(hint, 10 * 60);
 
-// void TabBrowser::_OnKeyPsEnter(Input *input)
-// {
-//     LogFunctionName;
-//     StartThread(DownloadThumbnailsThread, sizeof(_directory), &_directory);
-// }
+        DirItem &item = tab->_directory->GetItem(i);
+        if (item.is_dir)
+            continue;
+
+        if (item.english_name.empty())
+            item.UpdateDetails();
+
+        if (!item.english_name.empty())
+        {
+            std::string img_path = std::string(THUMBNAILS_PATH) + '/' + item.english_name + ".png";
+            if (File::Exist(img_path.c_str()))
+                continue;
+
+            int count = 0;
+            std::string english = gNetwork->Escape(item.english_name);
+            while (THUMBNAILS_NAME[count] != nullptr)
+            {
+                std::string url = std::string(LIBRETRO_THUMBNAILS) + THUMBNAILS_NAME[count++] + "/" THUMBNAILS_SUBDIR "/" + english + ".png";
+                if (gNetwork->Download(url.c_str(), img_path.c_str()))
+                {
+                    downloaded++;
+                    break;
+                }
+            }
+        }
+    }
+    tab->_updating_thumbnails = false;
+
+    switch (downloaded)
+    {
+    case 0:
+        strcpy(hint, "No images were downloaded");
+        break;
+    case 1:
+        strcpy(hint, "Downloaded one image");
+        break;
+    default:
+        snprintf(hint, 0x40, "Downloaded %d images", downloaded);
+        break;
+    }
+
+    gUi->SetHint(hint);
+
+    return 0;
+}
+
+void TabBrowser::_OnDownloadThumbnails(Input *input)
+{
+    LogFunctionName;
+
+    input->PushCallbacks();
+    input->SetKeyUpCallback(CancelButton, std::bind(&TabBrowser::_OnCancelDownloadThumbnails, this, input));
+
+    _updating_thumbnails = true;
+
+    uint32_t p = (uint32_t)this;
+    return StartThread(_DownloadThumbnailsThread, 4, &p);
+}
+
+void TabBrowser::_OnCancelDownloadThumbnails(Input *input)
+{
+    LogFunctionName;
+    _updating_thumbnails = false;
+    input->PopCallbacks();
+}
 
 void TabBrowser::_OnDialog(Input *input, int index)
 {
@@ -744,7 +808,7 @@ void TabBrowser::_Update()
     _UpdateStatus();
     _UpdateInfo();
 
-    _directory->GetItem(_index).UpdateDetials(std::bind(&TabBrowser::_OnItemUpdated, this, &_directory->GetItem(_index)));
+    _directory->GetItem(_index).UpdateDetails(std::bind(&TabBrowser::_OnItemUpdated, this, &_directory->GetItem(_index)));
 }
 
 void TabBrowser::ChangeLanguage(uint32_t language)
