@@ -15,6 +15,7 @@ int Network::_count = 0;
 
 Network::Network(int size)
 {
+    LogFunctionName;
     if (_count == 0)
     {
         _init_param = {new uint8_t[size], size, 0};
@@ -39,6 +40,8 @@ Network::Network(int size)
 
 Network::~Network()
 {
+    LogFunctionName;
+
     _count--;
     if (_count == 0)
     {
@@ -53,7 +56,7 @@ Network::~Network()
         sceSysmoduleUnloadModule(SCE_SYSMODULE_SSL);
         sceSysmoduleUnloadModule(SCE_SYSMODULE_HTTP);
         sceSysmoduleUnloadModule(SCE_SYSMODULE_NET);
-        delete[] (uint8_t *)_init_param.memory;
+        // delete[] (uint8_t *)_init_param.memory;
     }
 }
 

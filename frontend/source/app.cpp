@@ -121,7 +121,7 @@ App::App()
     {
         gUi->AppendLog("Init network");
         gNetwork = new Network;
-        File::MakeDirs(THUMBNAILS_DIR);
+        File::MakeDirs(THUMBNAILS_PATH);
     }
 
     gUi->AppendLog("Create tables of UI");
