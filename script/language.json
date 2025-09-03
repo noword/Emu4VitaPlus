@@ -1592,7 +1592,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Скачать миниатюры",
         "Comments": ""
     },
     {
@@ -1604,7 +1604,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Ход скачивания",
         "Comments": ""
     },
     {
@@ -1616,7 +1616,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Нажмите %s для отмены",
         "Comments": ""
     },
     {
@@ -1628,7 +1628,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Не удалось скачать миниатюры",
         "Comments": ""
     },
     {
@@ -1640,7 +1640,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Скачана одна миниатюра",
         "Comments": ""
     },
     {
@@ -1652,7 +1652,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Скачано миниатюр: %d",
         "Comments": ""
     }
 ]
