@@ -247,7 +247,7 @@ namespace Utils
         return lang;
     }
 
-#define RELEASE_URL "https://api.github.com/repos/noword/Emu4VitaPlus/releases/latest"
+#define RELEASE_URL "http://api.github.com/repos/noword/Emu4VitaPlus/releases/latest"
 
     bool _HasNewVersion(const char *buf, size_t size)
     {
