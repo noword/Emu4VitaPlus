@@ -758,14 +758,17 @@ void TabBrowser::_OnItemUpdated(DirItem *item)
     if (_texture == nullptr)
     {
         vita2d_texture *texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item->path.c_str(), item->english_name.c_str());
-        if (item == &_directory->GetItem(_index))
+        if (texture)
         {
-            _texture = texture;
-        }
-        else
-        {
-            vita2d_wait_rendering_done();
-            vita2d_free_texture(texture);
+            if (item == &_directory->GetItem(_index))
+            {
+                _texture = texture;
+            }
+            else
+            {
+                vita2d_wait_rendering_done();
+                vita2d_free_texture(texture);
+            }
         }
     }
 
@@ -785,9 +788,9 @@ void TabBrowser::_OnItemUpdated(DirItem *item)
 
 void TabBrowser::_Update()
 {
+    DirItem &item = _directory->GetItem(_index);
     if (!_directory->IsTested())
     {
-        DirItem &item = _directory->GetItem(_index);
         if (!_directory->LegalTest(item.path.c_str(), &item))
         {
             item.legal = false;
@@ -815,6 +818,7 @@ void TabBrowser::_Update()
 
     _UpdateStatus();
     _UpdateInfo();
+    _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item.path.c_str(), nullptr, false);
 
     _directory->GetItem(_index).UpdateDetails(std::bind(&TabBrowser::_OnItemUpdated, this, &_directory->GetItem(_index)));
 }

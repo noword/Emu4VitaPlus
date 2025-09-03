@@ -10,7 +10,7 @@
 #include "global.h"
 #include "network.h"
 
-vita2d_texture *GetRomPreviewImage(const char *path, const char *name, const char *english_name)
+vita2d_texture *GetRomPreviewImage(const char *path, const char *name, const char *english_name, bool include_state)
 {
     LogFunctionName;
     LogDebug("%s %s", path, name);
@@ -48,36 +48,39 @@ vita2d_texture *GetRomPreviewImage(const char *path, const char *name, const cha
         }
     }
 
-    img_path = std::string(CORE_SAVEFILES_DIR) + '/' + stem + '/';
-    time_t newest;
-    for (int i = 0; i < MAX_STATES; i++)
+    if (include_state)
     {
-        char tmp[8];
-        if (i == 0)
+        img_path = std::string(CORE_SAVEFILES_DIR) + '/' + stem + '/';
+        time_t newest;
+        for (int i = 0; i < MAX_STATES; i++)
         {
-            strcpy(tmp, "auto");
-        }
-        else
-        {
-            snprintf(tmp, 8, "%02d", i);
-        }
-        std::string jpg_path = img_path + "state_" + tmp + ".jpg";
-        if (File::Exist(jpg_path.c_str()))
-        {
-            if (texture == nullptr)
+            char tmp[8];
+            if (i == 0)
             {
-                texture = vita2d_load_JPEG_file(jpg_path.c_str());
-                File::GetCreateTime(jpg_path.c_str(), &newest);
+                strcpy(tmp, "auto");
             }
             else
             {
-                time_t time;
-                File::GetCreateTime(jpg_path.c_str(), &time);
-                if (time > newest)
+                snprintf(tmp, 8, "%02d", i);
+            }
+            std::string jpg_path = img_path + "state_" + tmp + ".jpg";
+            if (File::Exist(jpg_path.c_str()))
+            {
+                if (texture == nullptr)
                 {
-                    vita2d_free_texture(texture);
                     texture = vita2d_load_JPEG_file(jpg_path.c_str());
-                    newest = time;
+                    File::GetCreateTime(jpg_path.c_str(), &newest);
+                }
+                else
+                {
+                    time_t time;
+                    File::GetCreateTime(jpg_path.c_str(), &time);
+                    if (time > newest)
+                    {
+                        vita2d_free_texture(texture);
+                        texture = vita2d_load_JPEG_file(jpg_path.c_str());
+                        newest = time;
+                    }
                 }
             }
         }
