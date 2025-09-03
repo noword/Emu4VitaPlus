@@ -77,8 +77,6 @@ void TabBrowser::SetInputHooks(Input *input)
     input->SetKeyUpCallback(SCE_CTRL_SQUARE, std::bind(&TabBrowser::_OnKeySquare, this, input));
     input->SetKeyUpCallback(SCE_CTRL_START, std::bind(&TabBrowser::_OnKeyStart, this, input));
     input->SetKeyUpCallback(SCE_CTRL_SELECT, std::bind(&TabBrowser::_OnKeySelect, this, input));
-    if (gConfig->auto_download_thumbnail)
-        input->SetKeyUpCallback(SCE_CTRL_PSBUTTON | EnterButton, std::bind(&TabBrowser::_OnDownloadThumbnails, this, input));
 
     _input = input;
 }
@@ -91,8 +89,6 @@ void TabBrowser::UnsetInputHooks(Input *input)
     input->UnsetKeyUpCallback(SCE_CTRL_SQUARE);
     input->UnsetKeyUpCallback(SCE_CTRL_START);
     input->UnsetKeyUpCallback(SCE_CTRL_SELECT);
-    if (gConfig->auto_download_thumbnail)
-        input->UnsetKeyUpCallback(SCE_CTRL_PSBUTTON | EnterButton);
 }
 
 void TabBrowser::_Show()
@@ -418,6 +414,11 @@ void TabBrowser::_OnKeySelect(Input *input)
         options.push_back(LANG_RENAME);
     }
 
+    if (gConfig->auto_download_thumbnail)
+    {
+        options.push_back(LANG_DOWNLOAD_THUMBNAILS);
+    }
+
     if (options.size() == 0)
     {
         return;
@@ -434,11 +435,13 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
 {
     LogFunctionName;
     CLASS_POINTER(TabBrowser, tab, argp);
-    char hint[0x40];
+    char hint[0x80];
     int downloaded = 0;
     for (size_t i = 0; i < tab->_directory->GetSize() && tab->_updating_thumbnails; i++)
     {
-        snprintf(hint, 0x40, "Download progress %d/%d\nPress %s to cancel", i, tab->_directory->GetSize(), EnterButton == SCE_CTRL_CIRCLE ? BUTTON_CROSS : BUTTON_CIRCLE);
+        strcpy(hint, TEXT(LANG_DOWNLOAD_PROGRESS));
+        sprintf(hint + strlen(hint), " %d/%d\n", i, tab->_directory->GetSize());
+        sprintf(hint + strlen(hint), TEXT(LANG_PRESS_CANCEL), EnterButton == SCE_CTRL_CIRCLE ? BUTTON_CROSS : BUTTON_CIRCLE);
         gUi->SetHint(hint, 10 * 60);
 
         DirItem &item = tab->_directory->GetItem(i);
@@ -472,13 +475,13 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
     switch (downloaded)
     {
     case 0:
-        strcpy(hint, "No images were downloaded");
+        strcpy(hint, TEXT(LANG_ZERO_DOWNLOAD));
         break;
     case 1:
-        strcpy(hint, "Downloaded one image");
+        strcpy(hint, TEXT(LANG_ONE_DOWNLOAD));
         break;
     default:
-        snprintf(hint, 0x40, "Downloaded %d images", downloaded);
+        snprintf(hint, 0x40, TEXT(LANG_MANY_DOWNLOAD), downloaded);
         break;
     }
 
@@ -565,6 +568,11 @@ void TabBrowser::_OnDialog(Input *input, int index)
             _text_dialog = nullptr;
         }
 
+        break;
+
+    case CMD_DOWNLOAD_THUMBNAILS:
+        LogDebug("Download thumbnails");
+        _OnDownloadThumbnails(input);
         break;
 
     default:

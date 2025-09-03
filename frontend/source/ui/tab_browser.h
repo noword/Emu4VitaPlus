@@ -11,6 +11,7 @@ enum
     CMD_CUT,
     CMD_DELETE,
     CMD_RENAME,
+    CMD_DOWNLOAD_THUMBNAILS
 };
 
 struct Clipboard

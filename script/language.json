@@ -1582,5 +1582,77 @@
         "Spanish": "",
         "Russian": "Автоповорот для вертикальных игр",
         "Comments": ""
+    },
+    {
+        "No.": "133",
+        "Tag": "LANG_DOWNLOAD_THUMBNAILS",
+        "English": "Download Thumbnails",
+        "Chinese": "下载缩略图",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "134",
+        "Tag": "LANG_DOWNLOAD_PROGRESS",
+        "English": "Download progress",
+        "Chinese": "下载进度",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "135",
+        "Tag": "LANG_PRESS_CANCEL",
+        "English": "Press %s to cancel",
+        "Chinese": "按 %s 以取消",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "136",
+        "Tag": "LANG_ZERO_DOWNLOAD",
+        "English": "No images were downloaded",
+        "Chinese": "没有下载到缩略图",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "137",
+        "Tag": "LANG_ONE_DOWNLOAD",
+        "English": "Downloaded one image",
+        "Chinese": "下载了一幅缩略图",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "138",
+        "Tag": "LANG_MANY_DOWNLOAD",
+        "English": "Downloaded %d images",
+        "Chinese": "下载了 %d 幅缩略图",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
 ]
