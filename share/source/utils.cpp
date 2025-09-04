@@ -247,7 +247,7 @@ namespace Utils
         return lang;
     }
 
-#define RELEASE_URL "http://api.github.com/repos/noword/Emu4VitaPlus/releases/latest"
+#define RELEASE_URL "https://api.github.com/repos/noword/Emu4VitaPlus/releases/latest"
 
     bool _HasNewVersion(const char *buf, size_t size)
     {
@@ -258,6 +258,7 @@ namespace Utils
         if (reader->parse(buf, buf + size + 1, &root, nullptr) && root.isMember("tag_name"))
         {
             const char *tag_name = root["tag_name"].asCString();
+            LogDebug("  version: %s", tag_name);
             result = !(*tag_name == 'v' && strcmp(tag_name + 1, _APP_VER_STR) == 0);
             // LogDebug("%s %s %d", tag_name, _APP_VER_STR, result);
         }
@@ -269,11 +270,10 @@ namespace Utils
         LogFunctionName;
         // LogDebug("%d %08x", args, *(uint32_t *)argp);
         CheckVersionCallback *callback = (CheckVersionCallback *)argp;
-        Network network;
         uint8_t *data;
         uint64_t size;
 
-        if (network.Download(RELEASE_URL, &data, &size))
+        if (Network::GetInstance()->Download(RELEASE_URL, &data, &size))
         {
             (*callback)(_HasNewVersion((char *)data, size));
             delete[] data;

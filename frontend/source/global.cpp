@@ -14,4 +14,3 @@ Favorites *gFavorites = nullptr;
 CoreStateManager *gStateManager = nullptr;
 Shaders *gShaders = nullptr;
 RomNameMap *gRomNameMap = nullptr;
-Network *gNetwork = nullptr;

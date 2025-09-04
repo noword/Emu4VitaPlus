@@ -85,6 +85,9 @@ target_link_libraries(
     FLAC
     ogg
     jsoncpp
+    curl
+    ssl
+    crypto
     ScePvf_stub
     ScePgf_stub
     SceDisplay_stub
@@ -102,8 +105,9 @@ target_link_libraries(
     SceMotion_stub
     SceHid_stub
     SceFiber_stub
-    SceHttp_stub_weak
-    SceSsl_stub_weak)
+    SceSsl_stub
+    SceHttp_stub
+)
 
 set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
 

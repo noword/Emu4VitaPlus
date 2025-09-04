@@ -18,6 +18,7 @@
 #include "utils.h"
 #include "ra_lpl.h"
 #include "global.h"
+#include "network.h"
 
 #define HISTROY_SIZE 10
 
@@ -458,11 +459,11 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
                 continue;
 
             int count = 0;
-            std::string english = gNetwork->Escape(item.english_name);
+            std::string english = Network::GetInstance()->Escape(item.english_name);
             while (THUMBNAILS_NAME[count] != nullptr)
             {
                 std::string url = std::string(LIBRETRO_THUMBNAILS) + THUMBNAILS_NAME[count++] + "/" THUMBNAILS_SUBDIR "/" + english + ".png";
-                if (gNetwork->Download(url.c_str(), img_path.c_str()))
+                if (Network::GetInstance()->Download(url.c_str(), img_path.c_str()))
                 {
                     downloaded++;
                     break;

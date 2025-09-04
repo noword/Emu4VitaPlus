@@ -19,6 +19,7 @@
 #include "language_string.h"
 #include "global.h"
 #include "profiler.h"
+#include "Network.h"
 
 #ifdef TEXT
 #undef TEXT
@@ -117,13 +118,6 @@ App::App()
     gRomNameMap = new RomNameMap;
     gRomNameMap->Load();
 
-    if (gConfig->auto_download_thumbnail)
-    {
-        gUi->AppendLog("Init network");
-        gNetwork = new Network;
-        File::MakeDirs(THUMBNAILS_PATH);
-    }
-
     gUi->AppendLog("Create tables of UI");
     gUi->CreateTables();
 
@@ -172,7 +166,8 @@ App::~App()
     gVideo->Stop();
     vita2d_wait_rendering_done();
 
-    delete gNetwork;
+    Network::Clean();
+
     delete gRomNameMap;
     delete gStateManager;
     delete gShaders;
