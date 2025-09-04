@@ -33,7 +33,7 @@ Network::Network()
 
     sceHttpInit(POOL_SIZE);
 
-    // curl_global_init(CURL_GLOBAL_ALL);
+    curl_global_init(CURL_GLOBAL_ALL);
     _curl = curl_easy_init();
     if (_curl)
     {
@@ -52,7 +52,7 @@ Network::~Network()
     LogFunctionName;
     if (_curl)
         curl_easy_cleanup(_curl);
-    // curl_global_cleanup();
+    curl_global_cleanup();
 
     sceHttpTerm();
 
@@ -74,7 +74,9 @@ bool Network::Download(const char *url, uint8_t **data, uint64_t *size)
     *size = 0;
 
     curl_easy_setopt(_curl, CURLOPT_URL, url);
+    curl_easy_setopt(_curl, CURLOPT_NOBODY, 1);
     CURLcode res = curl_easy_perform(_curl);
+
     if (res != CURLE_OK)
     {
         LogWarn("  curl_easy_perform error:%d", res);
@@ -83,6 +85,7 @@ bool Network::Download(const char *url, uint8_t **data, uint64_t *size)
 
     double content_length = -1.0;
     res = curl_easy_getinfo(_curl, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &content_length);
+
     if (res != CURLE_OK || content_length <= 0)
     {
         LogWarn("  curl_easy_getinfo error:%d", res);
@@ -90,13 +93,17 @@ bool Network::Download(const char *url, uint8_t **data, uint64_t *size)
     }
 
     *size = content_length;
+    LogDebug("  size: %f %d", content_length, *size);
     *data = new uint8_t[*size + 1];
 
     DownloadBuffer dl{*data, 0};
-    curl_easy_setopt(_curl, CURLOPT_NOBODY, 0L);
+
     curl_easy_setopt(_curl, CURLOPT_WRITEFUNCTION, _WriteCallback);
     curl_easy_setopt(_curl, CURLOPT_WRITEDATA, &dl);
+    curl_easy_setopt(_curl, CURLOPT_NOBODY, 0);
+
     res = curl_easy_perform(_curl);
+
     if (res != CURLE_OK || dl.size != *size)
     {
         LogWarn("  2nd curl_easy_perform error: %d", res);
