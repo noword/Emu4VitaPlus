@@ -1,7 +1,7 @@
 #include <psp2/net/http.h>
 #include <psp2/sysmodule.h>
 #include <psp2/net/netctl.h>
-#include <psp2/libssl.h>
+#include <psp2/io/fcntl.h>
 #include <string.h>
 #include "network.h"
 #include "file.h"
@@ -9,10 +9,9 @@
 
 // #define USER_AGENT "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
 #define USER_AGENT "libhttp/3.65 (PS Vita)"
-#define POOL_SIZE (4 * 1024 * 1024)
+#define POOL_SIZE (1 * 1024 * 1024)
 
 Network *Network::_instance = nullptr;
-CURL *Network::_curl = nullptr;
 
 struct DownloadBuffer
 {
@@ -20,7 +19,8 @@ struct DownloadBuffer
     uint64_t size;
 };
 
-Network::Network()
+Network::Network() : _curl(nullptr),
+                     _connected(false)
 {
     LogFunctionName;
 
@@ -32,6 +32,11 @@ Network::Network()
     sceNetCtlInit();
 
     sceHttpInit(POOL_SIZE);
+
+    int state;
+    sceNetCtlInetGetState(&state);
+    LogDebug("  sceNetCtlInetGetState: %d", state);
+    _connected = (state == SCE_NETCTL_STATE_CONNECTED);
 
     curl_global_init(CURL_GLOBAL_ALL);
     _curl = curl_easy_init();
@@ -98,7 +103,7 @@ bool Network::Download(const char *url, uint8_t **data, uint64_t *size)
 
     DownloadBuffer dl{*data, 0};
 
-    curl_easy_setopt(_curl, CURLOPT_WRITEFUNCTION, _WriteCallback);
+    curl_easy_setopt(_curl, CURLOPT_WRITEFUNCTION, _MemroyWriteCallback);
     curl_easy_setopt(_curl, CURLOPT_WRITEDATA, &dl);
     curl_easy_setopt(_curl, CURLOPT_NOBODY, 0);
 
@@ -120,15 +125,29 @@ bool Network::Download(const char *url, const char *dest_path)
 {
     LogFunctionName;
 
-    bool result = false;
-    uint8_t *data;
-    uint64_t size;
-    if (Download(url, &data, &size))
+    SceUID fp = sceIoOpen(dest_path, SCE_O_WRONLY | SCE_O_CREAT, 0777);
+    if (!fp)
     {
-        result = File::WriteFile(dest_path, data, size);
-        delete[] data;
+        LogError("failed to create file: %s", dest_path);
+        return false;
     }
-    return result;
+
+    curl_easy_setopt(_curl, CURLOPT_URL, url);
+    curl_easy_setopt(_curl, CURLOPT_WRITEFUNCTION, _FileWriteCallback);
+    curl_easy_setopt(_curl, CURLOPT_WRITEDATA, &fp);
+    CURLcode res = curl_easy_perform(_curl);
+
+    sceIoClose(fp);
+
+    if (res == CURLE_OK)
+    {
+        return true;
+    }
+    else
+    {
+        File::Remove(dest_path);
+        return false;
+    }
 }
 
 std::string Network::Escape(std::string in)
@@ -153,11 +172,16 @@ std::string Network::Escape(std::string in)
     return out;
 }
 
-size_t Network::_WriteCallback(void *ptr, size_t size, size_t nmemb, void *userdata)
+size_t Network::_MemroyWriteCallback(void *ptr, size_t size, size_t nmemb, void *userdata)
 {
     size_t total_size = size * nmemb;
     DownloadBuffer *buf = (DownloadBuffer *)userdata;
     memcpy(buf->data + buf->size, ptr, total_size);
     buf->size += total_size;
     return total_size;
+}
+
+size_t Network::_FileWriteCallback(void *ptr, size_t size, size_t nmemb, void *userdata)
+{
+    return sceIoWrite(*(SceUID *)userdata, ptr, size * nmemb);
 }

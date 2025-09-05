@@ -11,6 +11,7 @@
 #include "cyrillic.i"
 #include "icons.h"
 #include "utils.h"
+#include "network.h"
 
 #define APP_ASSETS_DIR "app0:assets"
 #define TEXT_FONT_NAME "AlibabaPuHuiTi-2-65-Medium.ttf"
@@ -21,6 +22,7 @@
 #define TIME_X (VITA_WIDTH - 320)
 #define BATTERY_X (VITA_WIDTH - 100)
 #define BATTERY_PERCENT_X (BATTERY_X + 30)
+#define WIFI_X (BATTERY_X - 30)
 #define TOP_RIGHT_Y 13
 
 const char *BATTERY_ICONS[] = {ICON_BATTERY_25, ICON_BATTERY_50, ICON_BATTERY_75, ICON_BATTERY_100};
@@ -54,6 +56,8 @@ const static ImWchar IconCharset[] = {0xe800, 0xe80f,
                                       0xf1de, 0xf1de,
                                       0xf204, 0xf205,
                                       0x0000};
+
+const static ImWchar SmallIconCharset[] = {0xe810, 0xe810, 0x0000};
 
 const static ImWchar RomanNumCharset[] = {0x2160, 0x216c, 0x0000};
 
@@ -309,6 +313,11 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
                                  24.0f,
                                  &font_config,
                                  IconCharset);
+    io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" ICON_FONT_NAME,
+                                 18.0f,
+                                 &font_config,
+                                 SmallIconCharset);
+
     GenFontTexture(io.Fonts);
 
     if (cache_path)
@@ -711,10 +720,15 @@ IMGUI_API void My_ImGui_ShowTimePower()
              time_local.year, time_local.month, time_local.day,
              time_local.hour, time_local.minute, time_local.second);
 
+    bool show_wifi = Network::GetInstance()->Connected();
+
     ImDrawList *draw_list = ImGui::GetWindowDrawList();
+    float time_x = show_wifi ? TIME_X - 20 : TIME_X;
 
     draw_list->PushClipRectFullScreen();
-    draw_list->AddText({TIME_X, TOP_RIGHT_Y}, IM_COL32_WHITE, time_str);
+    draw_list->AddText({time_x, TOP_RIGHT_Y}, IM_COL32_WHITE, time_str);
+    if (show_wifi)
+        draw_list->AddText({WIFI_X, TOP_RIGHT_Y}, IM_COL32_GREEN, ICON_WIFI);
     draw_list->AddText({BATTERY_X, TOP_RIGHT_Y}, IM_COL32_GREEN, battery);
     draw_list->AddText({BATTERY_PERCENT_X, TOP_RIGHT_Y}, color, percent_str);
 

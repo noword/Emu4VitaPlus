@@ -7,7 +7,6 @@
 class Network
 {
 public:
-public:
     static Network *GetInstance()
     {
         if (_instance == nullptr)
@@ -28,6 +27,7 @@ public:
     bool Download(const char *url, uint8_t **data, uint64_t *size);
     bool Download(const char *url, const char *dest_path);
     std::string Escape(std::string in);
+    bool Connected() const { return _connected; };
 
 private:
     Network();
@@ -36,8 +36,10 @@ private:
     Network(Network const &) = delete;
     void operator=(Network const &) = delete;
 
-    static size_t _WriteCallback(void *ptr, size_t size, size_t nmemb, void *userdata);
+    static size_t _MemroyWriteCallback(void *ptr, size_t size, size_t nmemb, void *userdata);
+    static size_t _FileWriteCallback(void *ptr, size_t size, size_t nmemb, void *userdata);
 
     static Network *_instance;
-    static CURL *_curl;
+    CURL *_curl;
+    bool _connected;
 };
