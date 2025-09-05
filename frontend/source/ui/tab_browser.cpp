@@ -819,9 +819,12 @@ void TabBrowser::_Update()
 
     _UpdateStatus();
     _UpdateInfo();
-    _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item.path.c_str(), nullptr, false);
 
-    _directory->GetItem(_index).UpdateDetails(std::bind(&TabBrowser::_OnItemUpdated, this, &_directory->GetItem(_index)));
+    if (!item.is_dir)
+    {
+        _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item.path.c_str(), nullptr, false);
+        _directory->GetItem(_index).UpdateDetails(std::bind(&TabBrowser::_OnItemUpdated, this, &_directory->GetItem(_index)));
+    }
 }
 
 void TabBrowser::ChangeLanguage(uint32_t language)

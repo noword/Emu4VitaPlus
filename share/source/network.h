@@ -36,10 +36,11 @@ private:
     Network(Network const &) = delete;
     void operator=(Network const &) = delete;
 
+    void _SetOptions(CURL *curl);
+
     static size_t _MemroyWriteCallback(void *ptr, size_t size, size_t nmemb, void *userdata);
     static size_t _FileWriteCallback(void *ptr, size_t size, size_t nmemb, void *userdata);
 
     static Network *_instance;
-    CURL *_curl;
     bool _connected;
 };
