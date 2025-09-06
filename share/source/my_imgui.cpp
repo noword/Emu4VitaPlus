@@ -720,7 +720,7 @@ IMGUI_API void My_ImGui_ShowTimePower()
              time_local.year, time_local.month, time_local.day,
              time_local.hour, time_local.minute, time_local.second);
 
-    bool show_wifi = Network::GetInstance()->Connected();
+    bool show_wifi = Network::Connected();
 
     ImDrawList *draw_list = ImGui::GetWindowDrawList();
     float time_x = show_wifi ? TIME_X - 20 : TIME_X;

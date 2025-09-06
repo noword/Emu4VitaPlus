@@ -118,6 +118,9 @@ App::App()
     gRomNameMap = new RomNameMap;
     gRomNameMap->Load();
 
+    gUi->AppendLog("Initialize network");
+    Network::Init();
+
     gUi->AppendLog("Create tables of UI");
     gUi->CreateTables();
 
@@ -166,7 +169,7 @@ App::~App()
     gVideo->Stop();
     vita2d_wait_rendering_done();
 
-    Network::Clean();
+    Network::Deinit();
 
     delete gRomNameMap;
     delete gStateManager;

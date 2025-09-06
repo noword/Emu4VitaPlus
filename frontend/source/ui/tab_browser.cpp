@@ -436,12 +436,19 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
 {
     LogFunctionName;
     CLASS_POINTER(TabBrowser, tab, argp);
+
     char hint[0x80];
     int downloaded = 0;
+    Network::MultiDownloader downloader;
+    if (!downloader.Inited())
+    {
+        return 0;
+    }
+
     for (size_t i = 0; i < tab->_directory->GetSize() && tab->_updating_thumbnails; i++)
     {
         strcpy(hint, TEXT(LANG_DOWNLOAD_PROGRESS));
-        sprintf(hint + strlen(hint), " %d/%d\n", i, tab->_directory->GetSize());
+        sprintf(hint + strlen(hint), " %d/%d\n", downloaded, i);
         sprintf(hint + strlen(hint), TEXT(LANG_PRESS_CANCEL), EnterButton == SCE_CTRL_CIRCLE ? BUTTON_CROSS : BUTTON_CIRCLE);
         gUi->SetHint(hint, 10 * 60);
 
@@ -459,18 +466,22 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
                 continue;
 
             int count = 0;
-            std::string english = Network::GetInstance()->Escape(item.english_name);
+            std::string english = Network::Escape(item.english_name);
             while (THUMBNAILS_NAME[count] != nullptr)
             {
                 std::string url = std::string(LIBRETRO_THUMBNAILS) + THUMBNAILS_NAME[count++] + "/" THUMBNAILS_SUBDIR "/" + english + ".png";
-                if (Network::GetInstance()->Download(url.c_str(), img_path.c_str()))
-                {
-                    downloaded++;
-                    break;
-                }
+                downloader.AddTask(url, img_path);
             }
         }
+        downloaded += downloader.Perform();
     }
+
+    while (!downloader.AllCompleted())
+    {
+        downloaded += downloader.Perform();
+        sceKernelDelayThread(50);
+    }
+
     tab->_updating_thumbnails = false;
 
     switch (downloaded)

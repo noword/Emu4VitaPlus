@@ -1,46 +1,54 @@
 #pragma once
 #include <string>
+#include <queue>
+#include <unordered_map>
 #include <stdint.h>
 #include <psp2/net/net.h>
 #include <curl/curl.h>
 
-class Network
+namespace Network
 {
-public:
-    static Network *GetInstance()
-    {
-        if (_instance == nullptr)
-            _instance = new Network;
-        return _instance;
-    }
 
-    static void Clean()
-    {
-        if (_instance)
-        {
-            delete _instance;
-            _instance = nullptr;
-        }
-    }
+    void Init();
+    void Deinit();
 
-    // must delete the data pointer, if return value is true
-    bool Download(const char *url, uint8_t **data, uint64_t *size);
-    bool Download(const char *url, const char *dest_path);
+    bool Connected();
     std::string Escape(std::string in);
-    bool Connected() const { return _connected; };
 
-private:
-    Network();
-    virtual ~Network();
+    bool Download(const char *url, uint8_t **data, uint64_t *size); // must delete the data pointer, if return value is true
+    bool Download(const char *url, const char *dest_path);
 
-    Network(Network const &) = delete;
-    void operator=(Network const &) = delete;
+    class MultiDownloader
+    {
+    public:
+        MultiDownloader(size_t max_concurrent = 4);
+        ~MultiDownloader();
 
-    void _SetOptions(CURL *curl);
+        bool Inited() { return _multi_handle != NULL; };
+        void SetMaxConcurrent(size_t n);
+        void AddTask(const std::string &url, const std::string &file_name);
+        int Perform();
+        bool AllCompleted() const;
 
-    static size_t _MemroyWriteCallback(void *ptr, size_t size, size_t nmemb, void *userdata);
-    static size_t _FileWriteCallback(void *ptr, size_t size, size_t nmemb, void *userdata);
+    private:
+        struct TaskInfo
+        {
+            std::string url;
+            std::string file_name;
+        };
 
-    static Network *_instance;
-    bool _connected;
+        struct DownloadTask
+        {
+            std::string file_name;
+            SceUID file;
+            CURL *easy_handle;
+        };
+
+        CURLM *_multi_handle;
+        size_t _max_concurrent;
+
+        std::queue<TaskInfo> _pending_tasks;
+        std::unordered_map<CURL *, DownloadTask> _active_tasks;
+    };
+
 };

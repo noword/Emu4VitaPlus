@@ -273,7 +273,7 @@ namespace Utils
         uint8_t *data;
         uint64_t size;
 
-        if (Network::GetInstance()->Download(RELEASE_URL, &data, &size))
+        if (Network::Download(RELEASE_URL, &data, &size))
         {
             (*callback)(_HasNewVersion((char *)data, size));
             delete[] data;
