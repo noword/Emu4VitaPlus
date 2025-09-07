@@ -17,6 +17,7 @@ namespace Network
 
     bool Download(const char *url, uint8_t **data, uint64_t *size); // must delete the data pointer, if return value is true
     bool Download(const char *url, const char *dest_path);
+    size_t GetSize(const char *url);
 
     class MultiDownloader
     {

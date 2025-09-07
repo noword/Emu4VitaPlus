@@ -15,7 +15,6 @@ namespace Network
 {
     void Init()
     {
-
         sceSysmoduleLoadModule(SCE_SYSMODULE_NET);
         sceSysmoduleLoadModule(SCE_SYSMODULE_HTTP);
 
@@ -46,29 +45,27 @@ namespace Network
 
     std::string Escape(std::string in)
     {
-        int ret;
-        size_t esc_size;
+        std::string out;
 
-        for (size_t i = 0; i < in.size(); i++)
+        CURL *curl;
+        if ((!in.empty()) && (curl = curl_easy_init()) != NULL)
         {
-            if (in[i] == '&')
-                in[i] = '_';
+            for (size_t i = 0; i < in.size(); i++)
+            {
+                if (in[i] == '&')
+                    in[i] = '_';
+            }
+
+            char *esc = curl_easy_escape(curl, in.c_str(), in.size());
+            if (esc)
+            {
+                out = esc;
+                curl_free(esc);
+            }
+
+            curl_easy_cleanup(curl);
         }
 
-        if ((ret = sceHttpUriEscape(NULL, &esc_size, 0, in.c_str())) < 0)
-        {
-            printf("sceHttpUriEscape() returns %x.\n", ret);
-            return "";
-        }
-
-        char *esc = new char[esc_size];
-        if ((ret = sceHttpUriEscape(esc, &esc_size, esc_size, in.c_str())) < 0)
-        {
-            printf("sceHttpUriEscape() returns %x.\n", ret);
-        }
-
-        std::string out{esc};
-        delete[] esc;
         return out;
     }
 
@@ -105,7 +102,7 @@ namespace Network
         LogFunctionName;
         LogDebug("  url: %s", url);
 
-        if (Connected())
+        if (!Connected())
             return false;
 
         CURL *curl = curl_easy_init();
@@ -171,6 +168,9 @@ namespace Network
         LogDebug("  url: %s", url);
         LogDebug("  urdest_pathl: %s", dest_path);
 
+        if (!Connected())
+            return 0;
+
         CURL *curl = curl_easy_init();
         if (!curl)
         {
@@ -206,6 +206,45 @@ namespace Network
             File::Remove(dest_path);
             return false;
         }
+    }
+
+    size_t GetSize(const char *url)
+    {
+        LogFunctionName;
+        LogDebug("  url: %s", url);
+
+        if (!Connected())
+            return 0;
+
+        CURL *curl = curl_easy_init();
+        if (!curl)
+            return 0;
+
+        double content_length = 0.;
+
+        SetOptions(curl);
+        curl_easy_setopt(curl, CURLOPT_URL, url);
+        curl_easy_setopt(curl, CURLOPT_NOBODY, 1);
+        CURLcode res = curl_easy_perform(curl);
+
+        if (res != CURLE_OK)
+        {
+            LogWarn("  curl_easy_perform error:%d", res);
+            goto END;
+        }
+
+        res = curl_easy_getinfo(curl, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &content_length);
+
+        if (res != CURLE_OK)
+        {
+            LogWarn("  curl_easy_getinfo error:%d", res);
+            goto END;
+        }
+
+    END:
+        curl_easy_cleanup(curl);
+
+        return (size_t)content_length;
     }
 
     MultiDownloader::MultiDownloader(size_t max_concurrent) : _max_concurrent(max_concurrent)
@@ -267,23 +306,23 @@ namespace Network
                 LogWarn("Failed to open file: %s", task.file_name.c_str());
             }
 
+            LogDebug("  open: %08x", fp);
+            DownloadTask active_task{task.file_name, fp, easy};
+            _active_tasks[easy] = active_task;
+
             SetOptions(easy);
             curl_easy_setopt(easy, CURLOPT_URL, task.url.c_str());
             curl_easy_setopt(easy, CURLOPT_WRITEFUNCTION, FileWriteCallback);
-            curl_easy_setopt(easy, CURLOPT_WRITEDATA, &fp);
+            curl_easy_setopt(easy, CURLOPT_WRITEDATA, &(_active_tasks[easy].file));
 
             curl_multi_add_handle(_multi_handle, easy);
-
-            DownloadTask active_task{task.file_name, fp, easy};
-
-            _active_tasks[easy] = active_task;
         }
 
         int still_running = 0;
         curl_multi_perform(_multi_handle, &still_running);
 
         int numfds;
-        curl_multi_wait(_multi_handle, NULL, 0, 100, &numfds);
+        curl_multi_wait(_multi_handle, NULL, 0, 50, &numfds);
 
         CURLMsg *msg;
         int msgs_left;
@@ -299,21 +338,23 @@ namespace Network
                     if (it->second.file >= 0)
                     {
                         sceIoClose(it->second.file);
-                        it->second.file = -1;
                     }
-                    curl_multi_remove_handle(_multi_handle, easy);
-                    curl_easy_cleanup(easy);
 
                     if (msg->data.result == CURLE_OK)
                     {
+                        LogDebug("  download: %s", it->second.file_name.c_str());
                         done++;
                     }
                     else
                     {
+                        LogWarn("  download failed: %s", it->second.file_name.c_str());
+                        LogWarn("  result: %d", msg->data.result);
                         File::Remove(it->second.file_name.c_str());
                     }
 
                     _active_tasks.erase(it);
+                    curl_multi_remove_handle(_multi_handle, easy);
+                    curl_easy_cleanup(easy);
                 }
             }
         }

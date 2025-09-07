@@ -438,6 +438,7 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
     CLASS_POINTER(TabBrowser, tab, argp);
 
     char hint[0x80];
+    int total = 0;
     int downloaded = 0;
     Network::MultiDownloader downloader;
     if (!downloader.Inited())
@@ -448,7 +449,7 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
     for (size_t i = 0; i < tab->_directory->GetSize() && tab->_updating_thumbnails; i++)
     {
         strcpy(hint, TEXT(LANG_DOWNLOAD_PROGRESS));
-        sprintf(hint + strlen(hint), " %d/%d\n", downloaded, i);
+        sprintf(hint + strlen(hint), " %d/%d\n", downloaded, total);
         sprintf(hint + strlen(hint), TEXT(LANG_PRESS_CANCEL), EnterButton == SCE_CTRL_CIRCLE ? BUTTON_CROSS : BUTTON_CIRCLE);
         gUi->SetHint(hint, 10 * 60);
 
@@ -462,7 +463,7 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
         if (!item.english_name.empty())
         {
             std::string img_path = std::string(THUMBNAILS_PATH) + '/' + item.english_name + ".png";
-            if (File::Exist(img_path.c_str()))
+            if (File::Exist(img_path.c_str()) && File::GetSize(img_path.c_str()) > 0)
                 continue;
 
             int count = 0;
@@ -470,15 +471,26 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
             while (THUMBNAILS_NAME[count] != nullptr)
             {
                 std::string url = std::string(LIBRETRO_THUMBNAILS) + THUMBNAILS_NAME[count++] + "/" THUMBNAILS_SUBDIR "/" + english + ".png";
-                downloader.AddTask(url, img_path);
+                if (Network::GetSize(url.c_str()) > 0)
+                {
+                    downloader.AddTask(url, img_path);
+                    total++;
+                }
             }
         }
         downloaded += downloader.Perform();
+        if (total > downloaded)
+            sceKernelDelayThread(500);
     }
 
     while (!downloader.AllCompleted())
     {
         downloaded += downloader.Perform();
+
+        strcpy(hint, TEXT(LANG_DOWNLOAD_PROGRESS));
+        sprintf(hint + strlen(hint), " %d/%d\n", downloaded, total);
+        gUi->SetHint(hint, 10 * 60);
+
         sceKernelDelayThread(50);
     }
 
@@ -496,8 +508,9 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
         snprintf(hint, 0x40, TEXT(LANG_MANY_DOWNLOAD), downloaded);
         break;
     }
-
     gUi->SetHint(hint);
+
+    tab->_input->PopCallbacks();
 
     return 0;
 }
@@ -519,7 +532,6 @@ void TabBrowser::_OnCancelDownloadThumbnails(Input *input)
 {
     LogFunctionName;
     _updating_thumbnails = false;
-    input->PopCallbacks();
 }
 
 void TabBrowser::_OnDialog(Input *input, int index)

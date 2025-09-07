@@ -82,6 +82,8 @@ App::App()
 
     SwapEnterButton(gConfig->swap_enter);
 
+    Network::Init();
+
     gEmulator = new Emulator();
     gVideo = new Video();
     gUi = new Ui();
@@ -91,6 +93,7 @@ App::App()
     gUi->AppendLog("Parse params");
     gUi->AppendLog("Initialize video");
     gUi->AppendLog("Initialize core spec settings");
+    gUi->AppendLog("Initialize network");
 
     gUi->AppendLog("Initialize emulator");
     gEmulator->Init();
@@ -117,9 +120,6 @@ App::App()
     gUi->AppendLog("Load Rom names DB");
     gRomNameMap = new RomNameMap;
     gRomNameMap->Load();
-
-    gUi->AppendLog("Initialize network");
-    Network::Init();
 
     gUi->AppendLog("Create tables of UI");
     gUi->CreateTables();
@@ -169,8 +169,6 @@ App::~App()
     gVideo->Stop();
     vita2d_wait_rendering_done();
 
-    Network::Deinit();
-
     delete gRomNameMap;
     delete gStateManager;
     delete gShaders;
@@ -180,6 +178,8 @@ App::~App()
     delete gUi;
     delete gVideo;
     delete gConfig;
+
+    Network::Deinit();
 
 #if LOG_LEVEL <= LOG_LEVEL_DEBUG
     delete gProfiler;
