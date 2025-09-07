@@ -33,7 +33,6 @@ set(RETRO_SRC
     "libretro-common/file/config_file.c"
     "libretro-common/file/config_file_userdata.c"
     "libretro-common/rthreads/rthreads.c"
-    "libretro-common/utils/md5.c"
     "libretro-common/audio/resampler/audio_resampler.c"
     "libretro-common/audio/resampler/drivers/sinc_resampler.c"
     "libretro-common/audio/resampler/drivers/nearest_resampler.c"
