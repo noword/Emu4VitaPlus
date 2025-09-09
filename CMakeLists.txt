@@ -10,6 +10,7 @@ set(CMAKE_AR "$ENV{VITASDK}/bin/arm-vita-eabi-gcc-ar${TOOL_OS_SUFFIX}" CACHE PAT
 set(CMAKE_RANLIB "$ENV{VITASDK}/bin/arm-vita-eabi-gcc-ranlib${TOOL_OS_SUFFIX}" CACHE PATH "ranlib")
 
 option(WITH_LOG "log ouputting" OFF)
+option(LTO "enable gcc lto optimzatior" OFF)
 
 find_program(CCACHE_PROGRAM ccache)
 
@@ -254,11 +255,21 @@ file(MAKE_DIRECTORY ${OUT_PATH})
 set(APP_VER "0.42")
 set(SFO_APP_VER "00.42")
 
+if(LTO)
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -flto -fno-fat-lto-objects")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -flto -fno-fat-lto-objects")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -flto")
+
+    if(EXISTS $ENV{VITASDK}/lib/gcc/arm-vita-eabi/10.3.0/liblto_plugin-0.dll)
+        set(CMAKE_STATIC_LINKER_FLAGS "--plugin=$ENV{VITASDK}/lib/gcc/arm-vita-eabi/10.3.0/liblto_plugin-0.dll")
+    else()
+        set(CMAKE_STATIC_LINKER_FLAGS "--plugin=$ENV{VITASDK}/lib/gcc/arm-vita-eabi/10.3.0/liblto_plugin-0.so")
+    endif()
+endif()
+
 add_subdirectory(deps)
 add_subdirectory(share)
 add_subdirectory(frontend)
-
-set(CREATE_STUB ON)
 
 list(LENGTH CORES length)
 math(EXPR length "${length} - 1")
