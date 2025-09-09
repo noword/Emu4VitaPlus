@@ -13,6 +13,8 @@
 
 namespace Network
 {
+    static bool NetworkInited = false;
+
     void Init()
     {
         sceSysmoduleLoadModule(SCE_SYSMODULE_NET);
@@ -23,6 +25,7 @@ namespace Network
         sceNetCtlInit();
 
         sceHttpInit(POOL_SIZE);
+        NetworkInited = true;
     }
 
     void Deinit()
@@ -34,13 +37,22 @@ namespace Network
 
         sceSysmoduleUnloadModule(SCE_SYSMODULE_HTTP);
         sceSysmoduleUnloadModule(SCE_SYSMODULE_NET);
+
+        NetworkInited = false;
     }
 
     bool Connected()
     {
-        int state;
-        sceNetCtlInetGetState(&state);
-        return state == SCE_NETCTL_STATE_CONNECTED;
+        if (NetworkInited)
+        {
+            int state;
+            sceNetCtlInetGetState(&state);
+            return state == SCE_NETCTL_STATE_CONNECTED;
+        }
+        else
+        {
+            return false;
+        }
     }
 
     std::string Escape(std::string in)
