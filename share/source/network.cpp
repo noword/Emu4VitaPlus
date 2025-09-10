@@ -297,6 +297,18 @@ namespace Network
         _pending_tasks.push({url, file_name});
     }
 
+    int MultiDownloader::ClearTask()
+    {
+        LogFunctionName;
+        int count = 0;
+        while (!_pending_tasks.empty())
+        {
+            count++;
+            _pending_tasks.pop();
+        }
+        return count;
+    }
+
     int MultiDownloader::Perform()
     {
         while (!_pending_tasks.empty() && _active_tasks.size() < _max_concurrent)

@@ -483,6 +483,11 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
             sceKernelDelayThread(500);
     }
 
+    if (!tab->_updating_thumbnails)
+    {
+        total -= downloader.ClearTask();
+    }
+
     while (!downloader.AllCompleted())
     {
         downloaded += downloader.Perform();

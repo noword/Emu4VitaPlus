@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <queue>
-#include <unordered_map>
+#include <map>
 #include <stdint.h>
 #include <psp2/net/net.h>
 #include <curl/curl.h>
@@ -28,6 +28,7 @@ namespace Network
         bool Inited() { return _multi_handle != NULL; };
         void SetMaxConcurrent(size_t n);
         void AddTask(const std::string &url, const std::string &file_name);
+        int ClearTask();
         int Perform();
         bool AllCompleted() const;
 
@@ -49,7 +50,7 @@ namespace Network
         size_t _max_concurrent;
 
         std::queue<TaskInfo> _pending_tasks;
-        std::unordered_map<CURL *, DownloadTask> _active_tasks;
+        std::map<CURL *, DownloadTask> _active_tasks;
     };
 
 };
