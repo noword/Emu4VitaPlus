@@ -38,7 +38,7 @@ uint32_t GetRomCrc32(const char *full_path)
         std::string rom_name = File::GetName(arc_manager->GetRomName(full_path));
         crc = crc32(0, (Bytef *)rom_name.c_str(), rom_name.size());
     }
-    else
+    else if (File::GetSize(full_path) < 50 * 1024 * 1024)
     {
         crc = File::GetCrc32(full_path);
     }
@@ -101,12 +101,9 @@ int32_t UpdateDetialsThread(uint32_t args, void *argp)
     if (callback)
     {
         callback(item);
-        return sceKernelExitDeleteThread(0);
     }
-    else
-    {
-        return 0;
-    }
+
+    return sceKernelExitDeleteThread(0);
 }
 
 void DirItem::UpdateDetails(DirItemUpdateCallbackFunc callback)
