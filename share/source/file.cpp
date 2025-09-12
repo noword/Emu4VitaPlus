@@ -53,8 +53,12 @@ namespace File
             return 0;
         }
 
-        *buf = new uint8_t[size];
-        if (ReadFile(name, *buf, size))
+        *buf = new (std::nothrow) uint8_t[size];
+        if (!buf)
+        {
+            return 0;
+        }
+        else if (ReadFile(name, *buf, size))
         {
             return size;
         }
