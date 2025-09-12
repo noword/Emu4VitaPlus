@@ -19,7 +19,8 @@ def str_crc32(s):
 
 def gen_db(infos, db_name, core_name):
     map_io = BytesIO()
-    name_io = BytesIO(b'\x00')
+    name_io = BytesIO()
+    name_io.write(b'\x00')
     map_io.write(pack('I', len(infos)))
     for key, name in infos.items():
         map_io.write(pack('II', key, name_io.tell()))
