@@ -33,6 +33,7 @@ void State::Init(const char *game_name)
     if (!File::Exist(path))
     {
         File::MakeDirs(path);
+        _valid = false;
         return;
     }
 
@@ -193,10 +194,9 @@ CoreStateManager::~CoreStateManager()
 
 void CoreStateManager::Init(const char *name)
 {
-    states[0]->Init(name);
-    for (int i = 1; i < MAX_STATES; i++)
+    for (auto state : states)
     {
-        states[i]->Init(name);
+        state->Init(name);
     }
 }
 

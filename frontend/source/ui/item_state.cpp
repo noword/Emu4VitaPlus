@@ -34,12 +34,16 @@ ItemState::~ItemState()
 void ItemState::Show(bool selected)
 {
   ImVec2 size = ImGui::GetContentRegionAvail();
-
-  vita2d_texture *texture = _state->Texture();
+  float w = 0;
   float h = STATE_SCREENSHOT_HEIGHT;
-  float w = vita2d_texture_get_width(texture) * h / vita2d_texture_get_height(texture);
-  ImGui::Image(texture, {w, h});
-  ImGui::SameLine();
+  if (_state->Valid())
+  {
+    vita2d_texture *texture = _state->Texture();
+    w = vita2d_texture_get_width(texture) * h / vita2d_texture_get_height(texture);
+    ImGui::Image(texture, {w, h});
+    ImGui::SameLine();
+  }
+
   if (selected)
   {
     ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered));
