@@ -52,6 +52,7 @@ const char *THUMBNAILS_NAME[] = {
 
 const char THUMBNAILS_PATH[] =
 #if defined(NES_BUILD) ||       \
+    defined(SNES_BUILD) ||      \
     defined(GBC_BUILD) ||       \
     defined(GBA_BUILD) ||       \
     defined(MD_BUILD) ||        \
