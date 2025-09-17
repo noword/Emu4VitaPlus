@@ -410,9 +410,24 @@ void Ui::OnStatusChanged(APP_STATUS status)
         gVideo->Unlock();
 
         SetInputHooks();
-
-        LogDebug("OnStatusChanged end");
     }
+
+    if (status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME))
+    {
+        sceShellUtilLock((SceShellUtilLockType)(SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN |
+                                                SCE_SHELL_UTIL_LOCK_TYPE_QUICK_MENU |
+                                                SCE_SHELL_UTIL_LOCK_TYPE_USB_CONNECTION |
+                                                SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN_2));
+    }
+    else
+    {
+        sceShellUtilUnlock((SceShellUtilLockType)(SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN |
+                                                  SCE_SHELL_UTIL_LOCK_TYPE_QUICK_MENU |
+                                                  SCE_SHELL_UTIL_LOCK_TYPE_USB_CONNECTION |
+                                                  SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN_2));
+    }
+
+    LogDebug("OnStatusChanged end");
 }
 
 void Ui::SetHint(const char *s, int frame_count)
