@@ -412,7 +412,7 @@ void Ui::OnStatusChanged(APP_STATUS status)
         SetInputHooks();
     }
 
-    if (status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME))
+    if (status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME | APP_STATUS_SHOW_UI_IN_GAME))
     {
         sceShellUtilLock((SceShellUtilLockType)(SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN |
                                                 SCE_SHELL_UTIL_LOCK_TYPE_QUICK_MENU |
