@@ -52,6 +52,8 @@ private:
     void _ShowHint();
 
     void _ClearTabs();
+    void _LockPsButton();
+    void _UnlockPsButton();
 
     std::string _title;
 
@@ -65,4 +67,5 @@ private:
 
     LanguageString _hint;
     int _hint_count;
+    bool _ps_locked;
 };

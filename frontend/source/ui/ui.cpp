@@ -113,7 +113,8 @@ void Ui::_DeinitImgui()
 Ui::Ui() : _tab_index(TAB_INDEX_BROWSER),
            _tabs{nullptr},
            _hint(""),
-           _hint_count(0)
+           _hint_count(0),
+           _ps_locked(false)
 {
     LogFunctionName;
     _boot_ui = new Boot();
@@ -367,9 +368,10 @@ void Ui::Run()
 void Ui::OnStatusChanged(APP_STATUS status)
 {
     LogFunctionName;
+    LogDebug("  status changed: to %d", status);
+
     if (status & (APP_STATUS_SHOW_UI_IN_GAME | APP_STATUS_SHOW_UI))
     {
-        LogDebug("  status changed: to %d", status);
         LogDebug("  _tab_index: %d", _tab_index);
         LogDebug("  IsMultiDisc: %d", gEmulator->IsMultiDisc());
         gVideo->Lock();
@@ -419,20 +421,39 @@ void Ui::OnStatusChanged(APP_STATUS status)
 
     if (status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME | APP_STATUS_SHOW_UI_IN_GAME))
     {
+        _LockPsButton();
+    }
+    else
+    {
+        _UnlockPsButton();
+    }
+
+    LogDebug("OnStatusChanged end");
+}
+
+void Ui::_LockPsButton()
+{
+    if (!_ps_locked)
+    {
+        LogDebug("  Lock PS button");
         sceShellUtilLock((SceShellUtilLockType)(SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN |
                                                 SCE_SHELL_UTIL_LOCK_TYPE_QUICK_MENU |
                                                 SCE_SHELL_UTIL_LOCK_TYPE_USB_CONNECTION |
                                                 SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN_2));
+        _ps_locked = true;
     }
-    else
+}
+void Ui::_UnlockPsButton()
+{
+    if (_ps_locked)
     {
+        LogDebug("  Unlock PS button");
         sceShellUtilUnlock((SceShellUtilLockType)(SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN |
                                                   SCE_SHELL_UTIL_LOCK_TYPE_QUICK_MENU |
                                                   SCE_SHELL_UTIL_LOCK_TYPE_USB_CONNECTION |
                                                   SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN_2));
+        _ps_locked = false;
     }
-
-    LogDebug("OnStatusChanged end");
 }
 
 void Ui::SetHint(const char *s, int frame_count)

@@ -277,6 +277,7 @@ void Emulator::UnloadGame()
 
         // Save();  // already run when switching to the menu
         _current_name.clear();
+        _input.Stop();
         retro_unload_game();
         Unlock();
 
