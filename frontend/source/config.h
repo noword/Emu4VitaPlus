@@ -54,6 +54,7 @@ namespace Emu4VitaPlus
         DeviceOptions device_options;
         uint32_t mute;
         uint32_t auto_save;
+        uint32_t auto_load;
         uint32_t mouse;
         uint32_t lightgun;
         uint32_t swap_enter;

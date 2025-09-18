@@ -26,6 +26,12 @@ State::~State()
 void State::Init(const char *game_name)
 {
     LogFunctionName;
+    _valid = false;
+    if (_texture)
+    {
+        vita2d_free_texture(_texture);
+        _texture = nullptr;
+    }
 
     char path[SCE_FIOS_PATH_MAX];
     char name[SCE_FIOS_PATH_MAX];
@@ -33,7 +39,6 @@ void State::Init(const char *game_name)
     if (!File::Exist(path))
     {
         File::MakeDirs(path);
-        _valid = false;
         return;
     }
 
@@ -48,10 +53,7 @@ void State::Init(const char *game_name)
 
     snprintf(name, SCE_FIOS_PATH_MAX, "%s/state_%s.jpg", path, _slot_name.c_str());
     _image_path = name;
-    if (_texture)
-    {
-        vita2d_free_texture(_texture);
-    }
+
     _texture = vita2d_load_JPEG_file(name);
 }
 

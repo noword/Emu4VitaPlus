@@ -124,6 +124,22 @@ const bool DEFAULT_AUTO_SAVE = true;
 const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = false;
 #endif
 
+#if defined(DOS_BUILD) ||           \
+    defined(AMIGA_BUILD) ||         \
+    defined(ARC_BUILD) ||           \
+    defined(ZXS_BUILD) ||           \
+    defined(PC98_BUILD) ||          \
+    defined(MSX_BUILD) ||           \
+    defined(C64_BUILD) ||           \
+    defined(X68000_BUILD) ||        \
+    defined(MEDNAFEN_LYNX_BUILD) || \
+    defined(CPC_BUILD) ||           \
+    defined(ARC_BUILD)
+const bool DEFAULT_AUTO_LOAD = false;
+#else
+const bool DEFAULT_AUTO_LOAD = true;
+#endif
+
 #if defined(DOS_BUILD) ||       \
     defined(AMIGA_BUILD) ||     \
     defined(ZXS_BUILD) ||       \

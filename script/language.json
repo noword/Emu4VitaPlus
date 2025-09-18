@@ -1654,5 +1654,17 @@
         "Spanish": "",
         "Russian": "Скачано миниатюр: %d",
         "Comments": ""
+    },
+    {
+        "No.": "139",
+        "Tag": "LANG_AUTO_LOAD",
+        "English": "Auto Load",
+        "Chinese": "自动载入存档",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
 ]

@@ -194,7 +194,22 @@ LOADED:
             gConfig->Save();
         }
 
-        Load();
+        if (gConfig->auto_load)
+        {
+            State *state = gStateManager->GetNewest();
+            if (state)
+            {
+                state->Load();
+            }
+            else
+            {
+                Load();
+            }
+        }
+        else
+        {
+            Load();
+        }
 
         if (!_input.IsRunning())
         {

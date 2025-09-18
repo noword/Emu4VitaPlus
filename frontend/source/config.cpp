@@ -149,6 +149,7 @@ namespace Emu4VitaPlus
         last_rom = "ux0:";
         mute = DEFAULT_MUTE;
         auto_save = DEFAULT_AUTO_SAVE;
+        auto_load = DEFAULT_AUTO_LOAD;
         swap_enter = false;
         sim_button = false;
         independent_config = DEFAULT_INDEPENDENT_CONFIG;
@@ -241,6 +242,7 @@ namespace Emu4VitaPlus
         ini.SetValue(MAIN_SECTION, "last_rom", last_rom.c_str());
         ini.SetBoolValue(MAIN_SECTION, "mute", mute);
         ini.SetBoolValue(MAIN_SECTION, "auto_save", auto_save);
+        ini.SetBoolValue(MAIN_SECTION, "auto_load", auto_load);
         ini.SetLongValue(MAIN_SECTION, "mouse", mouse);
         ini.SetBoolValue(MAIN_SECTION, "lightgun", lightgun);
         ini.SetBoolValue(MAIN_SECTION, "swap_enter", swap_enter);
@@ -331,6 +333,7 @@ namespace Emu4VitaPlus
         rewind_buf_size = ini.GetLongValue(MAIN_SECTION, "rewind_buf_size", DEFAULT_REWIND_BUF_SIZE);
         mute = ini.GetBoolValue(MAIN_SECTION, "mute", DEFAULT_MUTE);
         auto_save = ini.GetBoolValue(MAIN_SECTION, "auto_save", DEFAULT_AUTO_SAVE);
+        auto_load = ini.GetBoolValue(MAIN_SECTION, "auto_load", DEFAULT_AUTO_LOAD);
         mouse = ini.GetLongValue(MAIN_SECTION, "mouse", DEFAULT_MOUSE);
         lightgun = ini.GetBoolValue(MAIN_SECTION, "lightgun", DEFAULT_LIGHTGUN);
         swap_enter = ini.GetBoolValue(MAIN_SECTION, "swap_enter", false);

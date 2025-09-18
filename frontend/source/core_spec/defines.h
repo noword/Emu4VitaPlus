@@ -37,6 +37,7 @@ extern const char THUMBNAILS_PATH[];
 extern const bool DEFAULT_ENABLE_REWIND;
 extern const size_t DEFAULT_REWIND_BUF_SIZE;
 extern const bool DEFAULT_AUTO_SAVE;
+extern const bool DEFAULT_AUTO_LOAD;
 extern const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN;
 
 extern const bool DEFAULT_INDEPENDENT_CONFIG;
