@@ -101,9 +101,13 @@ int32_t UpdateDetialsThread(uint32_t args, void *argp)
     if (callback)
     {
         callback(item);
+        return sceKernelExitDeleteThread(0);
     }
-
-    return sceKernelExitDeleteThread(0);
+    else
+    {
+        // not in a new thread
+        return 0;
+    }
 }
 
 void DirItem::UpdateDetails(DirItemUpdateCallbackFunc callback)

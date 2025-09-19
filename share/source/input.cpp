@@ -304,6 +304,7 @@ namespace Emu4VitaPlus
 
     void Input::PushCallbacks()
     {
+        LogDebug("PushCallbacks %08x", this);
         _callback_stack.push(_key_up_callbacks);
         _callback_stack.push(_key_down_callbacks);
         _key_down_callbacks.clear();
@@ -312,6 +313,7 @@ namespace Emu4VitaPlus
 
     void Input::PopCallbacks()
     {
+        LogDebug("PopCallbacks %08x", this);
         _key_down_callbacks.clear();
         _key_up_callbacks.clear();
         if (_callback_stack.size() > 0)
