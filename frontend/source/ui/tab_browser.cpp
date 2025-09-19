@@ -547,6 +547,11 @@ void TabBrowser::_OnDialog(Input *input, int index)
         index--;
     }
 
+    if (_directory->GetItem(_index).is_dir)
+    {
+        index += 4;
+    }
+
     _cmd = index;
     switch (index)
     {
