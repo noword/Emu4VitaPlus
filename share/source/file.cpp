@@ -159,7 +159,7 @@ namespace File
         return sceIoRename(src_path, dst_path) == SCE_OK;
     }
 
-    bool GetCreateTime(const char *name, SceDateTime *time)
+    bool GetModifyTime(const char *name, SceDateTime *time)
     {
         SceIoStat stat;
         if (sceIoGetstat(name, &stat) != SCE_OK)
@@ -169,17 +169,17 @@ namespace File
         }
 
         SceRtcTick tick;
-        sceRtcGetTick(&stat.st_ctime, &tick);
+        sceRtcGetTick(&stat.st_mtime, &tick);
         sceRtcConvertUtcToLocalTime(&tick, &tick);
         sceRtcSetTick(time, &tick);
 
         return true;
     }
 
-    bool GetCreateTime(const char *name, time_t *time)
+    bool GetModifyTime(const char *name, time_t *time)
     {
         SceDateTime t;
-        if (GetCreateTime(name, &t))
+        if (GetModifyTime(name, &t))
         {
             sceRtcGetTime_t(&t, time);
             return true;

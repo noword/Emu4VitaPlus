@@ -151,7 +151,7 @@ uint32_t RetroArchPlaylists::_GetLplCrc32(const char *path)
 {
     char tmp[SCE_FIOS_PATH_MAX];
     time_t time;
-    if (!File::GetCreateTime(path, &time))
+    if (!File::GetModifyTime(path, &time))
     {
         time = 0;
     }

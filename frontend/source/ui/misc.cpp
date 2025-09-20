@@ -69,12 +69,12 @@ vita2d_texture *GetRomPreviewImage(const char *path, const char *name, const cha
                 if (texture == nullptr)
                 {
                     texture = vita2d_load_JPEG_file(jpg_path.c_str());
-                    File::GetCreateTime(jpg_path.c_str(), &newest);
+                    File::GetModifyTime(jpg_path.c_str(), &newest);
                 }
                 else
                 {
                     time_t time;
-                    File::GetCreateTime(jpg_path.c_str(), &time);
+                    File::GetModifyTime(jpg_path.c_str(), &time);
                     if (time > newest)
                     {
                         vita2d_free_texture(texture);
@@ -149,7 +149,7 @@ std::string GetFileInfoString(const char *path)
     char s[64];
     SceDateTime time;
     size_t size = File::GetSize(path);
-    if (size == 0 || !File::GetCreateTime(path, &time))
+    if (size == 0 || !File::GetModifyTime(path, &time))
     {
         return "";
     }

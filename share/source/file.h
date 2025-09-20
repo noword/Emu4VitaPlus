@@ -7,8 +7,8 @@
 namespace File
 {
     bool Exist(const char *path);
-    bool GetCreateTime(const char *name, SceDateTime *time);
-    bool GetCreateTime(const char *name, time_t *time);
+    bool GetModifyTime(const char *name, SceDateTime *time);
+    bool GetModifyTime(const char *name, time_t *time);
     size_t GetSize(const char *name);
     bool ReadFile(const char *name, void *buf, SceSSize size);
     size_t ReadFile(const char *name, void **buf);

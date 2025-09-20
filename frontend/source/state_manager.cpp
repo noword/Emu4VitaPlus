@@ -48,7 +48,7 @@ void State::Init(const char *game_name)
     _valid = File::Exist(name);
     if (_valid)
     {
-        File::GetCreateTime(name, &_create_time);
+        File::GetModifyTime(name, &_create_time);
     }
 
     snprintf(name, SCE_FIOS_PATH_MAX, "%s/state_%s.jpg", path, _slot_name.c_str());
@@ -88,7 +88,7 @@ bool State::Save()
     fclose(fp);
 
     _valid = true;
-    File::GetCreateTime(state_path.c_str(), &_create_time);
+    File::GetModifyTime(state_path.c_str(), &_create_time);
 
 END:
     delete[] buf;

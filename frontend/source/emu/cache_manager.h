@@ -23,7 +23,7 @@ public:
                 {
                     time_t time;
                     std::string name = _dir_path + "/" + dir.d_name;
-                    File::GetCreateTime(name.c_str(), &time);
+                    File::GetModifyTime(name.c_str(), &time);
                     _cache[dir.d_name] = time;
                     LogDebug("  cached: %s %u", name.c_str(), time);
                 }
