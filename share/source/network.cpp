@@ -25,6 +25,12 @@ namespace Network
         sceNetCtlInit();
 
         sceHttpInit(POOL_SIZE);
+        int res = curl_global_init(CURL_GLOBAL_DEFAULT);
+        if (res != CURLE_OK)
+        {
+            LogError("curl_global_init: %08x", res);
+        }
+
         NetworkInited = true;
     }
 
@@ -37,7 +43,7 @@ namespace Network
 
         sceSysmoduleUnloadModule(SCE_SYSMODULE_HTTP);
         sceSysmoduleUnloadModule(SCE_SYSMODULE_NET);
-
+        curl_global_cleanup();
         NetworkInited = false;
     }
 
