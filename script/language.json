@@ -198,7 +198,7 @@
         "Chinese": "清理缓存",
         "Japanese": "キャッシュ削除",
         "Italian": "Pulisci cache",
-        "French": "",
+        "French": "Nettoyer le cache",
         "Spanish": "Limpiar cache",
         "Russian": "Очистить кэш",
         "Comments": ""
@@ -1578,7 +1578,7 @@
         "Chinese": "遇到纵版游戏时自动旋转",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Rotation automatique pour les jeux verticaux",
         "Spanish": "",
         "Russian": "Автоповорот для вертикальных игр",
         "Comments": ""
@@ -1590,7 +1590,7 @@
         "Chinese": "下载缩略图",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Télécharger les vignettes",
         "Spanish": "",
         "Russian": "Скачать миниатюры",
         "Comments": ""
@@ -1602,7 +1602,7 @@
         "Chinese": "下载进度",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Progession du téléchargement ",
         "Spanish": "",
         "Russian": "Ход скачивания",
         "Comments": ""
@@ -1614,7 +1614,7 @@
         "Chinese": "按 %s 以取消",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Appuyez sur %s pour annuler",
         "Spanish": "",
         "Russian": "Нажмите %s для отмены",
         "Comments": ""
@@ -1626,7 +1626,7 @@
         "Chinese": "没有下载到缩略图",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Aucune image n'a été téléchargée",
         "Spanish": "",
         "Russian": "Не удалось скачать миниатюры",
         "Comments": ""
@@ -1638,7 +1638,7 @@
         "Chinese": "下载了一幅缩略图",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Télécharger une image",
         "Spanish": "",
         "Russian": "Скачана одна миниатюра",
         "Comments": ""
@@ -1650,7 +1650,7 @@
         "Chinese": "下载了 %d 幅缩略图",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Images %d téléchargées",
         "Spanish": "",
         "Russian": "Скачано миниатюр: %d",
         "Comments": ""
@@ -1662,9 +1662,10 @@
         "Chinese": "自动载入存档",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Chargement automatique",
         "Spanish": "",
         "Russian": "",
         "Comments": ""
     }
+
 ]
