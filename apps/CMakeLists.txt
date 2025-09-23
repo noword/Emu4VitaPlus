@@ -67,6 +67,7 @@ target_link_libraries(
     retro_comm
     share
     frontend
+    ${LIB_TINY_CURL}
     vita2d
     vita2d_ext
     imgui_vita2d
@@ -85,14 +86,6 @@ target_link_libraries(
     FLAC
     ogg
     jsoncpp
-
-    # curl
-    # ssl
-    # crypto
-    ${CMAKE_CURRENT_SOURCE_DIR}/../deps/tiny-curl/libcurl.a
-    ${CMAKE_CURRENT_SOURCE_DIR}/../deps/tiny-cur/libssl.a
-    ${CMAKE_CURRENT_SOURCE_DIR}/../deps/tiny-cur/libcrypto.a
-
     ScePvf_stub
     ScePgf_stub
     SceDisplay_stub

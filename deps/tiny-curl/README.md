@@ -9,6 +9,8 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=$VITASDK/share/vita.toolchain.cmake \
 -DBUILD_CURL_EXE=OFF \
 -DBUILD_SHARED_LIBS=OFF \
 -DBUILD_STATIC_LIBS=ON \
+-DBUILD_TESTING=OFF \
+-DENABLE_MANUAL=OFF \
 -DHTTP_ONLY=ON \
 -DENABLE_IPV6=OFF \
 -DCURL_DISABLE_SOCKETPAIR=ON \
@@ -23,8 +25,10 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=$VITASDK/share/vita.toolchain.cmake \
 -DCURL_DISABLE_KERBEROS_AUTH=ON \
 -DCURL_DISABLE_NEGOTIATE_AUTH=ON \
 -DCURL_DISABLE_SRP=ON \
+-DCURL_DISABLE_VERBOSE_STRINGS=ON \
+-DCURL_DISABLE_HTTP_AUTH=ON \
 -DCURL_CA_BUNDLE="vs0:data/external/cert/CA_LIST.cer" \
--DCMAKE_C_FLAGS=" -DNO_WRITEV -DSOMAXCONN=128 -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -O3"
+-DCMAKE_C_FLAGS=" -DNO_WRITEV -DSOMAXCONN=128 -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -Os"
 ```
 
 # openssl
@@ -40,6 +44,7 @@ no-ec2m no-gost no-http no-idea no-legacy no-md4 \
 no-mdc2 no-multiblock no-ocb no-quic no-rc2 no-rc4 \
 no-rmd160 no-scrypt no-seed no-siphash no-siv no-sm2 \
 no-sm3 no-sm4 no-srp no-srtp no-ts no-whirlpool \
+no-ssl2 no-ssl3 no-hw \
 -DOPENSSL_USE_IPV6=0 -DNO_FORK \
--O3 --prefix=$VITASDK/arm-vita-eabi/ vita-cross
+-Os --prefix=$VITASDK/arm-vita-eabi/ vita-cross
 ```
