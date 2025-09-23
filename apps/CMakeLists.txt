@@ -2,14 +2,12 @@ cmake_minimum_required(VERSION 3.12)
 
 project(${CORE}_APP)
 
-set(APP_NAME "${CORE_SHORT}4VitaPlus")
+set(APP_NAME "${CORE_SHORT}_Emu4VitaPlus")
 set(SFO_TITLE_NAME "Emu4Vita++ (${CORE_SHORT})")
 set(ELF_NAME ${CORE_SHORT}.elf)
 set(EBOOT_NAME eboot_${CORE_SHORT}.bin)
 
 string(TOUPPER ${CORE} UPPER_CORE)
-add_compile_definitions(
-)
 
 if(WITH_LOG)
     set(VPK_NAME ${APP_NAME}_${APP_VER}_log.vpk)
