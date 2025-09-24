@@ -65,13 +65,14 @@ target_link_libraries(
     retro_comm
     share
     frontend
-    ${LIB_TINY_CURL}
+    curl
+    ssl
+    crypto
     vita2d
     vita2d_ext
     imgui_vita2d
     swresample
     swscale
-    speexdsp
     avutil
     SimpleIni
     png

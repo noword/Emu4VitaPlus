@@ -267,6 +267,8 @@ if(LTO)
     endif()
 endif()
 
+link_directories(${CMAKE_CURRENT_SOURCE_DIR}/deps/libs)
+
 add_subdirectory(deps)
 add_subdirectory(share)
 add_subdirectory(frontend)
