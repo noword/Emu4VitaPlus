@@ -139,8 +139,6 @@ if(n GREATER 2)
     set(MAKE_FLAG "-j${n}")
 endif()
 
-message(${MAKE_FLAG})
-
 set(CORE_TAG ${CORE}_build CACHE INTERNAL "CORE_TAG")
 add_custom_target(
     ${CORE_TAG} ALL
