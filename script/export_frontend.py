@@ -31,17 +31,19 @@ for lang in LANGS:
     )
 
 for k, v in trans_trans.items():
-    t = []
+    k = k.replace('"', '\\"')
+    t = [f'     "{k}"']
     for language in LANGS[1:]:
         lang = v[language].replace('"', '\\"')
         t.append(f'"{lang}"')
     t = ',\n     '.join(t)
     TRANS.append(
-        f'''    {{"{k}", 
-    {{{t}}},
-    }}'''
+        f'''{{
+{t},
+}}'''
     )
 
+TRANS_COUNT = len(TRANS)
 TEXT_ENUM = '\n'.join(TEXT_ENUM)
 TEXTS = '\n'.join(TEXTS)
 TRANS = ',\n'.join(TRANS)
@@ -49,18 +51,16 @@ TRANS = ',\n'.join(TRANS)
 # Generate language_frontend.h
 open('language_frontend.h', 'w', encoding='utf-8').write(
     f'''#pragma once
-#include <unordered_map>
-#include <array>
-#include <string>
 #include "language_define.h"
 
 enum TEXT_ENUM{{
 {TEXT_ENUM}
 }};
 
+#define TRANSLATION_COUNT {TRANS_COUNT}
+
 extern const char *gTexts[][TEXT_ENUM::TEXT_COUNT];
-typedef std::array<const char *, LANGUAGE::LANGUAGE_COUNT - 1> TRANS;
-extern std::unordered_map<std::string, TRANS> gTrans;
+extern const char *gTrans[][LANGUAGE_COUNT];
 '''
 )
 
@@ -72,7 +72,7 @@ const char *gTexts[][TEXT_ENUM::TEXT_COUNT] = {{
 {TEXTS}
 }};
 
-std::unordered_map<std::string, TRANS> gTrans = {{
+const char *gTrans[][LANGUAGE_COUNT] = {{
 {TRANS}
 }};
 '''

@@ -92,16 +92,6 @@ target_include_directories(vita2d_ext PRIVATE
     ${VITA2D_EXT_PATH}/include
     ${VITA2D_PATH}/include)
 
-# imgui-vita2d
-# ----------------------
-set(IMGUI_PATH ${CMAKE_CURRENT_SOURCE_DIR}/imgui-vita2d)
-file(GLOB IMGUI_SRC
-    ${IMGUI_PATH}/*.cpp
-    ${IMGUI_PATH}/*.S)
-enable_language(ASM)
-add_library(imgui_vita2d STATIC ${IMGUI_SRC})
-target_include_directories(imgui_vita2d PRIVATE ${IMGUI_PATH})
-
 # 7zip
 # ----------------------
 set(SEVENZIP_PATH ${CMAKE_CURRENT_SOURCE_DIR}/7-Zip/C)
