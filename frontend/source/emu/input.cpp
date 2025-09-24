@@ -380,14 +380,25 @@ void Emulator::_OnHotkeySpeedUp(Input *input)
     if (_speed < MAX_SPEED)
     {
         float step = gConfig->GetSpeedStep();
+        double new_speed;
         if (step > 0.)
         {
-            SetSpeed(_speed + step);
+            new_speed = _speed + step;
+            if (new_speed > MAX_SPEED)
+            {
+                new_speed = MAX_SPEED;
+            }
+            else if (_speed < 1.0 && new_speed > 1.0)
+            {
+                new_speed = 1.0;
+            }
         }
         else
         {
-            SetSpeed(_speed >= 1.0 ? MAX_SPEED : 1.0);
+            new_speed = (_speed >= 1.0 ? MAX_SPEED : 1.0);
         }
+
+        SetSpeed(new_speed);
 
         _ShowSpeedHint();
     }
@@ -399,14 +410,25 @@ void Emulator::_OnHotkeySpeedDown(Input *input)
     if (_speed > MIN_SPEED)
     {
         float step = gConfig->GetSpeedStep();
+        double new_speed;
         if (step > 0.)
         {
-            SetSpeed(_speed - step);
+            new_speed = _speed - step;
+            if (new_speed < MIN_SPEED)
+            {
+                new_speed = MIN_SPEED;
+            }
+            else if (_speed > 1.0 && new_speed < 1.0)
+            {
+                new_speed = 1.0;
+            }
         }
         else
         {
-            SetSpeed(_speed <= 1.0 ? MIN_SPEED : 1.0);
+            new_speed = (_speed <= 1.0 ? MIN_SPEED : 1.0);
         }
+
+        SetSpeed(new_speed);
 
         _ShowSpeedHint();
     }
