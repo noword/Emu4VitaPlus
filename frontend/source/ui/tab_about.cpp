@@ -85,6 +85,64 @@ void TabAbout::UnsetInputHooks(Input *input)
     input->UnsetKeyDownCallback(SCE_CTRL_LSTICK_DOWN);
 }
 
+static const char *LIBRARIES_URL[] = {
+    "7-Zip (GPL v2.1) https://github.com/mcmilk/7-Zip",
+    "zlib-ng (zlib) https://github.com/zlib-ng/zlib-ng",
+    "minizip-ng (zlib) https://github.com/zlib-ng/minizip-ng",
+    "simpleini (MIT) https://github.com/brofield/simpleini",
+    "libretro-common (?) https://github.com/libretro/libretro-common",
+    "libvita2d (MIT) https://github.com/xerpi/libvita2d",
+    "libvita2d_ext (MIT) https://github.com/frangarcj/libvita2d_ext",
+    "imgui-vita2d (MIT) https://github.com/cy33hc/imgui-vita2d",
+    "lz4 (BSD 2-Clause) https://github.com/lz4/lz4",
+    ""};
+
+static const char *CORES_URL[] = {
+    "https://gitee.com/yizhigai/libretro-fba-lite",
+    "https://github.com/libretro/FBNeo",
+    "https://github.com/libretro/fbalpha2012",
+    "https://github.com/libretro/mame2000-libretro",
+    "https://github.com/libretro/mame2003-libretro",
+    "https://github.com/libretro/mame2003-plus-libretro",
+    "https://github.com/libretro/gpsp",
+    "https://github.com/libretro/libretro-fceumm",
+    "https://github.com/libretro/gambatte-libretro",
+    "https://github.com/libretro/beetle-ngp-libretro",
+    "https://github.com/libretro/beetle-pce-fast-libretro",
+    "https://github.com/libretro/Genesis-Plus-GX",
+    "https://github.com/libretro/Genesis-Plus-GX-Wide",
+    "https://github.com/libretro/beetle-supergrafx-libretro",
+    "https://github.com/libretro/beetle-wswan-libretro",
+    "https://github.com/libretro/nestopia",
+    "https://github.com/libretro/pcsx_rearmed",
+    "https://github.com/libretro/picodrive",
+    "https://github.com/libretro/snes9x2002",
+    "https://github.com/libretro/snes9x2005",
+    "https://github.com/libretro/snes9x2010",
+    "https://github.com/libretro/vba-next",
+    "https://github.com/libretro/mgba",
+    "https://github.com/libretro/dosbox-pure",
+    "https://github.com/KMFDManic/FBNeo-Xtreme-Amped",
+    "https://github.com/KMFDManic/mame2003-xtreme",
+    "https://github.com/Rinnegatamante/supafaust",
+    "https://github.com/jamsilva/chimerasnes",
+    "https://github.com/libretro/neocd_libretro",
+    "https://github.com/libretro/stella2014-libretro",
+    "https://github.com/libretro/libretro-atari800",
+    "https://github.com/libretro/prosystem-libretro",
+    "https://github.com/libretro/fuse-libretro",
+    "https://github.com/libretro/neocd_libretro",
+    "https://github.com/KMFDManic/mame2003-xtreme",
+    "https://github.com/KMFDManic/FBNeo-Xtreme-Amped",
+    "https://github.com/Rinnegatamante/supafaust",
+    "https://github.com/jamsilva/chimerasnes",
+    "https://github.com/libretro/tgbdual-libretro",
+    "https://github.com/libretro/libretro-meowPC98",
+    "https://github.com/libretro/blueMSX-libretro",
+    "https://github.com/libretro/fmsx-libretro",
+    "https://github.com/libretro/vice-libretro",
+    "https://github.com/libretro/px68k-libretro"};
+
 void TabAbout::_InitTexts()
 {
     _last_lang = gConfig->language;
@@ -98,63 +156,22 @@ void TabAbout::_InitTexts()
               std::string(TEXT(LANG_RUSSIAN_TRANS)) + ": MayanKoyote",
               std::string(TEXT(LANG_SITE)) + ": https://github.com/noword/Emu4VitaPlus",
               "",
-              TEXT(LANG_EXTERNAL_COMPONENTS),
-              "7-Zip (GPL v2.1) https://github.com/mcmilk/7-Zip",
-              "zlib-ng (zlib) https://github.com/zlib-ng/zlib-ng",
-              "minizip-ng (zlib) https://github.com/zlib-ng/minizip-ng",
-              "simpleini (MIT) https://github.com/brofield/simpleini",
-              "libretro-common (?) https://github.com/libretro/libretro-common",
-              "libvita2d (MIT) https://github.com/xerpi/libvita2d",
-              "libvita2d_ext (MIT) https://github.com/frangarcj/libvita2d_ext",
-              "imgui-vita2d (MIT) https://github.com/cy33hc/imgui-vita2d",
-              "lz4 (BSD 2-Clause) https://github.com/lz4/lz4",
-              "",
-              TEXT(LANG_CORE),
-              "https://gitee.com/yizhigai/libretro-fba-lite",
-              "https://github.com/libretro/FBNeo",
-              "https://github.com/libretro/fbalpha2012",
-              "https://github.com/libretro/mame2000-libretro",
-              "https://github.com/libretro/mame2003-libretro",
-              "https://github.com/libretro/mame2003-plus-libretro",
-              "https://github.com/libretro/gpsp",
-              "https://github.com/libretro/libretro-fceumm",
-              "https://github.com/libretro/gambatte-libretro",
-              "https://github.com/libretro/beetle-ngp-libretro",
-              "https://github.com/libretro/beetle-pce-fast-libretro",
-              "https://github.com/libretro/Genesis-Plus-GX",
-              "https://github.com/libretro/Genesis-Plus-GX-Wide",
-              "https://github.com/libretro/beetle-supergrafx-libretro",
-              "https://github.com/libretro/beetle-wswan-libretro",
-              "https://github.com/libretro/nestopia",
-              "https://github.com/libretro/pcsx_rearmed",
-              "https://github.com/libretro/picodrive",
-              "https://github.com/libretro/snes9x2002",
-              "https://github.com/libretro/snes9x2005",
-              "https://github.com/libretro/snes9x2010",
-              "https://github.com/libretro/vba-next",
-              "https://github.com/libretro/mgba",
-              "https://github.com/libretro/dosbox-pure",
-              "https://github.com/KMFDManic/FBNeo-Xtreme-Amped",
-              "https://github.com/KMFDManic/mame2003-xtreme",
-              "https://github.com/Rinnegatamante/supafaust",
-              "https://github.com/jamsilva/chimerasnes",
-              "https://github.com/libretro/neocd_libretro",
-              "https://github.com/libretro/stella2014-libretro",
-              "https://github.com/libretro/libretro-atari800",
-              "https://github.com/libretro/prosystem-libretro",
-              "https://github.com/libretro/fuse-libretro",
-              "https://github.com/libretro/neocd_libretro",
-              "https://github.com/KMFDManic/mame2003-xtreme",
-              "https://github.com/KMFDManic/FBNeo-Xtreme-Amped",
-              "https://github.com/Rinnegatamante/supafaust",
-              "https://github.com/jamsilva/chimerasnes",
-              "https://github.com/libretro/tgbdual-libretro",
-              "https://github.com/libretro/libretro-meowPC98",
-              "https://github.com/libretro/blueMSX-libretro",
-              "https://github.com/libretro/fmsx-libretro",
-              "https://github.com/libretro/vice-libretro",
-              "https://github.com/libretro/px68k-libretro"};
-}
+              TEXT(LANG_EXTERNAL_COMPONENTS)};
+
+    _texts.reserve(_texts.size() + sizeof(LIBRARIES_URL) / sizeof(LIBRARIES_URL[0]) + sizeof(CORES_URL) / sizeof(CORES_URL[0]));
+
+    for (const auto &lib : LIBRARIES_URL)
+    {
+        _texts.emplace_back(lib);
+    }
+
+    _texts.push_back(TEXT(LANG_CORE));
+
+    for (const auto &core : CORES_URL)
+    {
+        _texts.emplace_back(core);
+    }
+};
 
 void TabAbout::_OnKeyUp(Input *input)
 {

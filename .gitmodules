@@ -204,6 +204,3 @@
 	path = cores/libretro-crocods
 	url = https://github.com/libretro/libretro-crocods.git
 	branch = master
-[submodule "deps/imgui-vita2d"]
-	path = deps/imgui-vita2d
-	url = https://github.com/cy33hc/imgui-vita2d.git

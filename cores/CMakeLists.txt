@@ -131,6 +131,16 @@ if(NOT LIBRETRO_LIBRARY)
     set(LIBRETRO_LIBRARY ${CORE_DIR}/${CORE}_libretro_vita.a CACHE INTERNAL "LIBRETRO_LIBRARY")
 endif()
 
+include(ProcessorCount)
+ProcessorCount(n)
+
+if(n GREATER 2)
+    math(EXPR n "${n}-1")
+    set(MAKE_FLAG "-j${n}")
+endif()
+
+message(${MAKE_FLAG})
+
 set(CORE_TAG ${CORE}_build CACHE INTERNAL "CORE_TAG")
 add_custom_target(
     ${CORE_TAG} ALL
