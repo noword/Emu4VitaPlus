@@ -43,7 +43,7 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=$VITASDK/share/vita.toolchain.cmake \
 
 ```bash
 ./Configure -DOPENSSL_SMALL_FOOTPRINT \
-no-err no-ssl3 no-dtls no-dtls1 no-shared no-threads \
+no-err no-dtls no-dtls1 no-shared no-threads \
 no-psk no-srp no-weak-ssl-ciphers no-argon2 no-aria no-async \
 no-bf no-blake2 no-camellia no-cast no-cmp no-cms \
 no-comp no-deprecated no-des no-dgram no-dh no-dsa \
