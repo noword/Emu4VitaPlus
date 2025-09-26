@@ -19,6 +19,8 @@
 #define LIBRETRO_THUMBNAILS "https://thumbnails.libretro.com/"
 #define THUMBNAILS_SUBDIR "Named_Boxarts"
 
+#define DEFAULT_SPEED_STEP 1
+
 extern const char CONSOLE_DIR[];
 
 extern const char CORE_NAME[];

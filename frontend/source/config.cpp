@@ -19,6 +19,8 @@
 #define HOTKEY_SECTION "HOTKEY"
 #define GRAPHICS_SECTION "GRAPHICS"
 
+static const float SPEED_STEP[] = {0.1, 0.2, 0.5, 1.0, -1};
+
 namespace Emu4VitaPlus
 {
     std::vector<LanguageString> SPEED_STEP_OPTIONS{"0.1", "0.2", "0.5", "1.0", LANG_MAX};
@@ -154,7 +156,7 @@ namespace Emu4VitaPlus
         sim_button = false;
         independent_config = DEFAULT_INDEPENDENT_CONFIG;
         reboot_when_loading_again = DEFAULT_REBOOT_WHEN_LOADING_AGAIN;
-        speed_step = 0;
+        speed_step = DEFAULT_SPEED_STEP;
         support_no_game = 0;
         auto_rotating = true;
         language = Utils::GetDefaultLanguage();
@@ -426,7 +428,6 @@ namespace Emu4VitaPlus
 
     float Config::GetSpeedStep()
     {
-        const float SPEED_STEP[] = {0.1, 0.2, 0.5, 1.0, -1};
         if (speed_step >= 0 && speed_step <= 4)
         {
             return SPEED_STEP[speed_step];
