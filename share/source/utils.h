@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <functional>
+#include <psp2/json.h>
 #include "language_define.h"
 
 #define ALIGN_UP(x, a) ((x) + ((a) - 1)) & ~((a) - 1)
@@ -11,6 +12,23 @@
 
 namespace Utils
 {
+    class JsonAllocator : public sce::Json::MemAllocator
+    {
+    public:
+        JsonAllocator() {};
+        virtual ~JsonAllocator() {};
+
+        virtual void *allocateMemory(size_t size, void *user_data) override
+        {
+            return new uint8_t[size];
+        }
+
+        virtual void freeMemory(void *ptr, void *user_data) override
+        {
+            delete[] (uint8_t *)ptr;
+        }
+    };
+
     using CheckVersionCallback = std::function<void(bool)>;
 
     void Lower(std::string *s);

@@ -1,7 +1,8 @@
 #include <psp2/io/dirent.h>
+#include <psp2/sysmodule.h>
 #include <zlib.h>
 #include <string.h>
-#include <jsoncpp/json/json.h>
+#include <psp2/json.h>
 #include <vita2d.h>
 #include <SimpleIni.h>
 #include "ra_lpl.h"
@@ -76,6 +77,8 @@ void RetroArchPlaylists::Load(const char *dir_path)
         return;
     }
 
+    sceSysmoduleLoadModule(SCE_SYSMODULE_JSON);
+
     SceIoDirent dir;
     while (sceIoDread(dfd, &dir) > 0)
     {
@@ -101,6 +104,8 @@ void RetroArchPlaylists::Load(const char *dir_path)
             }
         }
     }
+
+    sceSysmoduleUnloadModule(SCE_SYSMODULE_JSON);
 
     sceIoDclose(dfd);
 }
@@ -192,45 +197,55 @@ bool RetroArchPlaylists::_LoadLpl(const char *lpl_path, ItemMap &items)
     }
 
     bool result = false;
-    Json::Value root;
-    Json::CharReaderBuilder builder;
-    Json::CharReader *reader = builder.newCharReader();
-    if (!reader->parse(buf, buf + size, &root, nullptr) && !root.isMember("items"))
+    Utils::JsonAllocator allc;
+    sce::Json::InitParameter params{&allc, nullptr, 0x400};
+    sce::Json::Initializer init;
+    sce::Json::Value root;
+
+    if (init.initialize(&params) != SCE_OK)
     {
-        LogWarn("failed to loading %s", lpl_path);
+        LogWarn("failed to init json: %s", lpl_path);
         goto END;
     }
 
+    if (sce::Json::Parser::parse(root, buf, size) != SCE_OK)
+    {
+        LogWarn("failed to parse json: %s", lpl_path);
+        init.terminate();
+        goto END;
+    }
     {
         uint8_t db_index = _GetDbIndex(lpl_path);
-        Json::Value array = root["items"];
+        sce::Json::Array array = root.getValue("items").getArray();
         items.reserve(array.size());
-        for (Json::Value::ArrayIndex i = 0; i != array.size(); i++)
+        for (const auto &value : array)
         {
-            const char *path = array[i]["path"].asCString();
-            const char *label = array[i]["label"].asCString();
-            size_t size = strlen(path);
-            if (path && label && size > 5)
+            sce::Json::String path_string = value.getValue("path").getString().c_str();
+            sce::Json::String label_string = value.getValue("label").getString().c_str();
+            const char *path = path_string.c_str();
+            if (path_string.size() > 5 && label_string.size() > 0)
             {
                 uint32_t crc;
                 if (path[4] == '/')
                 {
-                    crc = crc32(0, (uint8_t *)path, size);
+                    crc = crc32(0, (uint8_t *)path, path_string.size());
                 }
                 else
                 {
                     std::string s = std::string(path, 4) + "/" + (path + 4);
                     crc = crc32(0, (uint8_t *)s.c_str(), s.size());
                 }
-                items[crc] = {db_index, label};
+                items[crc] = {db_index, label_string.c_str()};
             }
         }
 
         result = true;
     }
 
+    init.terminate();
+
 END:
-    delete reader;
+
     delete[] buf;
     return result;
 }

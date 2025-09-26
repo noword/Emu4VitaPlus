@@ -3,7 +3,6 @@
 #include <algorithm>
 #include <stdio.h>
 #include <zlib.h>
-#include <jsoncpp/json/json.h>
 #include "my_imgui.h"
 #include "utils.h"
 #include "log.h"
@@ -251,17 +250,26 @@ namespace Utils
 
     bool _HasNewVersion(const char *buf, size_t size)
     {
-        Json::Value root;
-        Json::CharReaderBuilder builder;
-        Json::CharReader *reader = builder.newCharReader();
+        sceSysmoduleLoadModule(SCE_SYSMODULE_JSON);
+
+        Utils::JsonAllocator allc;
+        sce::Json::InitParameter params{&allc, nullptr, 0x400};
+        sce::Json::Initializer init;
+        sce::Json::Value root;
         bool result = false;
-        if (reader->parse(buf, buf + size + 1, &root, nullptr) && root.isMember("tag_name"))
+
+        init.initialize(&params);
+
+        if (sce::Json::Parser::parse(root, buf, size) == SCE_OK)
         {
-            const char *tag_name = root["tag_name"].asCString();
+            const char *tag_name = root.getValue("tag_name").getString().c_str();
             LogDebug("  version: %s", tag_name);
             result = !(*tag_name == 'v' && strcmp(tag_name + 1, _APP_VER_STR) == 0);
-            // LogDebug("%s %s %d", tag_name, _APP_VER_STR, result);
         }
+
+        init.terminate();
+
+        sceSysmoduleUnloadModule(SCE_SYSMODULE_JSON);
         return result;
     }
 
