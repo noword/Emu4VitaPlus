@@ -7,11 +7,7 @@ AudioResampler::AudioResampler(uint32_t in_rate, uint32_t out_rate, AudioOutput 
     : ThreadBase(_ResampleThread),
       _output(output),
       _out_buf(out_buf),
-#if RESAMPLER == SWR
       _swr_ctx(nullptr)
-#elif RESAMPLER == SPEEX
-      _speex(nullptr)
-#endif
 {
     LogFunctionName;
     SetRate(in_rate, out_rate);
@@ -20,17 +16,10 @@ AudioResampler::AudioResampler(uint32_t in_rate, uint32_t out_rate, AudioOutput 
 AudioResampler::~AudioResampler()
 {
     LogFunctionName;
-#if RESAMPLER == SWR
     if (_swr_ctx != nullptr)
     {
         swr_free(&_swr_ctx);
     }
-#elif RESAMPLER == SPEEX
-    if (_speex != nullptr)
-    {
-        speex_resampler_destroy(_speex);
-    }
-#endif
 }
 
 uint32_t AudioResampler::GetOutSize(uint32_t in_size)
@@ -45,7 +34,6 @@ void AudioResampler::SetRate(uint32_t in_rate, uint32_t out_rate)
     _in_rate = in_rate;
     _out_rate = out_rate;
 
-#if RESAMPLER == SWR
     if (_swr_ctx != nullptr)
     {
         swr_free(&_swr_ctx);
@@ -56,14 +44,6 @@ void AudioResampler::SetRate(uint32_t in_rate, uint32_t out_rate)
                         &channel, AV_SAMPLE_FMT_S16, _in_rate,
                         0, NULL);
     swr_init(_swr_ctx);
-#elif RESAMPLER == SPEEX
-    if (_speex != nullptr)
-    {
-        speex_resampler_destroy(_speex);
-    }
-
-    _speex = speex_resampler_init(1, _in_rate, _out_rate, SOUND_QUALITY, nullptr);
-#endif
 }
 
 void AudioResampler::Process(const int16_t *in, uint32_t in_size)
@@ -76,10 +56,6 @@ void AudioResampler::Process(const int16_t *in, uint32_t in_size)
         _in_buf.WriteEnd(size);
         Signal();
     }
-    // else
-    // {
-    //     LogError("_in_buf.WriteBegin return nullptr");
-    // }
 }
 
 int AudioResampler::_ResampleThread(SceSize args, void *argp)
@@ -106,18 +82,13 @@ int AudioResampler::_ResampleThread(SceSize args, void *argp)
 
         BeginProfile("AudioResampler");
 
-#if RESAMPLER == SWR
         size_t out_size = swr_get_out_samples(resampler->_swr_ctx, in_size / 2);
         int16_t *out = resampler->_out_buf->WriteBegin(out_size * 2);
         if (out != nullptr)
         {
             out_size = swr_convert(resampler->_swr_ctx, (uint8_t **)&out, out_size, (const uint8_t **)&in, in_size / 2);
             out_size *= 2;
-#elif RESAMPLER == SPEEX
-        size_t out_size = resampler->GetOutSize(in_size);
-        int16_t *out = resampler->_out_buf->WriteBegin(out_size);
-        speex_resampler_process_int(resampler->_speex, 0, in, &in_size, out, &out_size);
-#endif
+
             resampler->_in_buf.ReadEnd(in_size & 0xfffffffe);
             resampler->_out_buf->WriteEnd(out_size);
             resampler->_output->Signal();

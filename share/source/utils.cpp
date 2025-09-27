@@ -289,6 +289,7 @@ namespace Utils
             delete[] data;
         }
 
+        sceKernelExitThread(0);
         return 0;
     }
 

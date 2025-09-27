@@ -10,18 +10,10 @@
 #define SWR 0
 #define SPEEX 1
 
-#define RESAMPLER SWR
-// #define RESAMPLER SPEEX
-
-#if RESAMPLER == SWR
 extern "C"
 {
 #include <libswresample/swresample.h>
 }
-#elif RESAMPLER == SPEEX
-#include <speex/speex_resampler.h>
-#define SOUND_QUALITY 5
-#endif
 
 class AudioResampler : public ThreadBase
 {
