@@ -336,7 +336,6 @@ void My_Imgui_Destroy_Font()
         vita2d_free_texture(gFontTexture);
         gFontTexture = nullptr;
         ImGui::GetIO().Fonts->TexID = nullptr;
-        ImGui::GetIO().Fonts->Clear();
     }
 }
 
