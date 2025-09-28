@@ -252,8 +252,8 @@ set(CMAKE_EXE_LINKER_FLAGS "-Wl,-q,-no-enum-size-warning,--as-needed,--gc-sectio
 set(OUT_PATH "${CMAKE_BINARY_DIR}/out")
 file(MAKE_DIRECTORY ${OUT_PATH})
 
-set(APP_VER "0.46")
-set(SFO_APP_VER "00.46")
+set(APP_VER "0.47")
+set(SFO_APP_VER "00.47")
 
 if(LTO)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -flto -fno-fat-lto-objects")
