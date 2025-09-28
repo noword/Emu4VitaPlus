@@ -2,25 +2,54 @@
 This is an emulator frontend for the PlayStation Vita, based on the [Libretro API](https://github.com/libretro/libretro-common).
 
 * [Download](#Download)
-* [Screenshots](#Screenshots)
+* [Function Description](#Function-Description)
 * [Supported Cores](#Supported-Cores)
 * [Compilation](#Pre-Compilation-Preparation)
 * [Scripts](#Scripts)
 * [Problem Reporting](#Problem-Reporting)
 * [Special thanks](#Special-thanks)
-* 
+
 ## Download
 [Release](https://github.com/noword/Emu4VitaPlus/releases)
 
-The version with log will output more logs in `ux0:data/EMU4VITAPLUS/[core]/Emu4Vita++.log`
 
-## Screenshots
-![](screenshots/arch.jpg)
-![](screenshots/arch_0.jpg)
-![](screenshots/browser.jpg)
-![](screenshots/control.jpg)
-![](screenshots/hotkey.jpg)
-![](screenshots/cheat.jpg)
+## Function Description
+### Select the core
+<img src="screenshots/arch.jpg" alt="drawing" width="720"/>
+
+|             |                                               |
+|-------------|-----------------------------------------------|
+| start       | on/off console icon                           |
+| right stick | control the scrolling of the instruction text |
+| ○/X         | boot the core                                 |
+
+### ROM Browser
+<img src="screenshots/browser_en.jpg" alt="drawing" width="720"/>
+
+|        |                                                                         |
+|--------|-------------------------------------------------------------------------|
+| start  | add to/remove from favorite                                             |
+| select | popup the file manage menu                                              |
+| ○/X    | enter the directory / Return to the previous directory / start the game |
+| △      | search                                                                  |
+| □      | the next match file                                                     |
+
+### In game
+<img src="screenshots/game.jpg" alt="drawing" width="720"/>
+
+|                        |                   |
+|------------------------|-------------------|
+| ps + right stick(left) | rewind            |
+| ps + r1                | speed up          |
+| ps + l1                | speed down        |
+| ps                     | back to main menu |
+
+### State
+<img src="screenshots/state_en.jpg" alt="drawing" width="720"/>
+
+### Cheat
+<img src="screenshots/cheat.jpg" alt="drawing" width="720"/>
+
 
 ### [overlay and shaders](GRAPHICS.md)
 

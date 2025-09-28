@@ -80,7 +80,7 @@ void ItemState::_ShowPopup()
 
   ImVec2 pos = ImGui::GetCursorScreenPos();
   ImGui::SetNextWindowPos({250.f, pos.y - 50.f});
-  if (ImGui::BeginPopupModal("popup_menu", NULL, ImGuiWindowFlags_NoTitleBar))
+  if (ImGui::BeginPopupModal("popup_menu", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_AlwaysAutoResize))
   {
     if (!_actived && is_popup)
     {
