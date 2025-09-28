@@ -4,7 +4,7 @@
 这是一个在 PlayStation Vita 使用的, 基于 [Libretro API](https://github.com/libretro/libretro-common) 的模拟器前端。
 
 * [下载](#下载)
-* [截屏](#截屏)
+* [功能说明](#功能说明)
 * [支持的内核](#支持的内核)
 * [编译](#编译前准备)
 * [相关脚本](#相关脚本)
@@ -18,14 +18,42 @@
 
 带log的版本会在 `ux0:data/EMU4VITAPLUS/[core]/Emu4Vita++.log` 中输出更多日志，但是会影响执行效率。
 
+## 功能说明
+### 内核选择
+<img src="screenshots/arch.jpg" alt="drawing" width="480"/>
 
-## 截屏
-![](screenshots/arch.jpg)
-![](screenshots/arch_0.jpg)
-![](screenshots/browser.jpg)
-![](screenshots/control.jpg)
-![](screenshots/hotkey.jpg)
-![](screenshots/cheat.jpg)
+|        |                        |
+|--------|------------------------|
+| start  | 开启/关闭 console 图标 |
+| 右摇杆 | 控制说明文本滚动       |
+| ○/X    | 启动内核               |
+
+### ROM 浏览
+<img src="screenshots/browser.jpg" alt="drawing" width="480"/>
+
+|        |                                |
+|--------|--------------------------------|
+| start  | 添加/移出收藏夹                |
+| select | 呼出文件管理菜单               |
+| ○/X    | 进入目录/返回上层目录/启动游戏 |
+| △      | 搜索                           |
+| □键    | 下一个搜索匹配文件             |
+
+### 游戏
+<img src="screenshots/game.jpg" alt="drawing" width="480"/>
+
+|               |            |
+|---------------|------------|
+| PS+右摇杆向左 | 回溯       |
+| PS+R1         | 加速       |
+| PS+L1         | 减速       |
+| PS            | 切换回菜单 |
+
+### 即时存档
+<img src="screenshots/state.jpg" alt="drawing" width="480"/>
+
+### 金手指
+<img src="screenshots/cheat.jpg" alt="drawing" width="480"/>
 
 ### [遮罩和着色器](GRAPHICS.md)
 
