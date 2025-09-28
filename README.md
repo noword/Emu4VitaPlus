@@ -20,7 +20,7 @@
 
 ## 功能说明
 ### 内核选择
-<img src="screenshots/arch.jpg" alt="drawing" width="480"/>
+<img src="screenshots/arch.jpg" alt="drawing" width="720"/>
 
 |        |                        |
 |--------|------------------------|
@@ -29,7 +29,7 @@
 | ○/X    | 启动内核               |
 
 ### ROM 浏览
-<img src="screenshots/browser.jpg" alt="drawing" width="480"/>
+<img src="screenshots/browser.jpg" alt="drawing" width="720"/>
 
 |        |                                |
 |--------|--------------------------------|
@@ -40,7 +40,7 @@
 | □键    | 下一个搜索匹配文件             |
 
 ### 游戏
-<img src="screenshots/game.jpg" alt="drawing" width="480"/>
+<img src="screenshots/game.jpg" alt="drawing" width="720"/>
 
 |               |            |
 |---------------|------------|
@@ -50,10 +50,10 @@
 | PS            | 切换回菜单 |
 
 ### 即时存档
-<img src="screenshots/state.jpg" alt="drawing" width="480"/>
+<img src="screenshots/state.jpg" alt="drawing" width="720"/>
 
 ### 金手指
-<img src="screenshots/cheat.jpg" alt="drawing" width="480"/>
+<img src="screenshots/cheat.jpg" alt="drawing" width="720"/>
 
 ### [遮罩和着色器](GRAPHICS.md)
 
