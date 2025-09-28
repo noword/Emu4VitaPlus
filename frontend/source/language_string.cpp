@@ -54,7 +54,7 @@ void LanguageString::InitTrans()
         TRANS t;
         for (int j = 0; j < LANGUAGE_COUNT - 1; j++)
         {
-            t[j] = gTrans[i][j];
+            t[j] = gTrans[i][j + 1];
         }
         _trans.emplace(std::make_pair(gTrans[i][0], t));
     }

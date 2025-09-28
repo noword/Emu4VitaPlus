@@ -23,7 +23,7 @@ IMGUI_API void My_ImGui_ImplVita2D_Init(uint32_t language, const char *cache_pat
 IMGUI_API void My_ImGui_ImplVita2D_Shutdown();
 IMGUI_API void My_ImGui_ImplVita2D_RenderDrawData(ImDrawData *draw_data);
 IMGUI_API void My_Imgui_Create_Font(uint32_t language, const char *cache_path = NULL);
-IMGUI_API void My_Imgui_Destroy_Font();
+IMGUI_API void My_Imgui_Destroy_Font(bool clean_fonts = true);
 
 IMGUI_API bool My_ImGui_BeginCombo(const char *label, const char *preview_value, ImGuiComboFlags flags);
 IMGUI_API void My_ImGui_CenteredText(const char *text, ...);

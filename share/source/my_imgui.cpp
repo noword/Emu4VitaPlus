@@ -327,7 +327,7 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
     return;
 }
 
-void My_Imgui_Destroy_Font()
+void My_Imgui_Destroy_Font(bool clean_fonts)
 {
     LogFunctionName;
     if (gFontTexture)
@@ -336,6 +336,11 @@ void My_Imgui_Destroy_Font()
         vita2d_free_texture(gFontTexture);
         gFontTexture = nullptr;
         ImGui::GetIO().Fonts->TexID = nullptr;
+
+        if (clean_fonts)
+        {
+            ImGui::GetIO().Fonts->Clear();
+        }
     }
 }
 
@@ -438,7 +443,7 @@ IMGUI_API void My_ImGui_ImplVita2D_Init(uint32_t language, const char *cache_pat
 IMGUI_API void My_ImGui_ImplVita2D_Shutdown()
 {
     LogFunctionName;
-    My_Imgui_Destroy_Font();
+    My_Imgui_Destroy_Font(false);
 }
 
 IMGUI_API void My_ImGui_ImplVita2D_RenderDrawData(ImDrawData *draw_data)
