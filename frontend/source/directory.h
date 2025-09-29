@@ -17,11 +17,11 @@ struct DirItem
     bool legal = true;
     std::string entry_name = "";
     std::string display_name = "";
-    std::string english_name = "";
+    std::string rom_name = "";
 
     const std::string GetFullPath() { return (*parent_path) + '/' + path; }
 
-    // update crc32, display_name and english_name
+    // update crc32, display_name and rom_name
     void UpdateDetails(DirItemUpdateCallbackFunc callback = nullptr); // asynchronous if callback is not nullptr
 };
 

@@ -17,17 +17,15 @@ RomNameMap::~RomNameMap()
 
 void RomNameMap::_ReleaseNameBuf()
 {
-    for (int i = 0; i < 2; i++)
+
+    if (_name_buf)
     {
-        if (_name_buf[i] != nullptr)
-        {
-            delete[] _name_buf[i];
-            _name_buf[i] = nullptr;
-        }
+        delete[] _name_buf;
+        _name_buf = nullptr;
     }
 }
 
-bool RomNameMap::_Load(const char *path, NAME_LANG lang)
+bool RomNameMap::_Load(const char *path)
 {
     LogFunctionName;
 
@@ -48,25 +46,28 @@ bool RomNameMap::_Load(const char *path, NAME_LANG lang)
     for (size_t i = 0; i < size; i++)
     {
         uint32_t key = *p++;
-        uint32_t offset = *p++;
-        auto iter = _map.find(key);
-        if (iter == _map.end())
+        std::array<char *, LANGUAGE_COUNT + 1> offsets;
+        for (size_t j = 0; j < LANGUAGE_COUNT + 1; j++)
         {
-            std::array<uint32_t, 2> value{0, 0};
-            value[lang] = offset;
-            _map.emplace(key, value);
+            offsets[j] = (char *)*p++;
         }
-        else
-        {
-            iter->second[lang] = offset;
-        }
+        _map[key] = offsets;
     }
 
     size = *p++;
-    _name_buf[lang] = new char[size];
-    memcpy(_name_buf[lang], p, size);
+    _name_buf = new char[size];
+    memcpy(_name_buf, p, size);
 
     delete[] buf;
+
+    for (auto &iter : _map)
+    {
+        auto &offsets = iter.second;
+        for (size_t j = 0; j < LANGUAGE_COUNT + 1; j++)
+        {
+            offsets[j] = _name_buf + (uint32_t)offsets[j];
+        }
+    }
 
     LogDebug("  Load %d names from %s", _map.size(), path);
     LogDebug("  name buf size: 0x%x", size);
@@ -74,61 +75,39 @@ bool RomNameMap::_Load(const char *path, NAME_LANG lang)
     return true;
 }
 
-bool RomNameMap::_Load(const std::string &path, NAME_LANG lang)
+bool RomNameMap::GetName(uint32_t crc, const char **name, int lang) const
 {
-    return _Load(path.c_str(), lang);
+    return _GetName(crc, name, lang + 1);
 }
 
-bool RomNameMap::GetName(uint32_t crc, const char **name, NAME_LANG lang) const
+bool RomNameMap::GetRom(uint32_t crc, const char **name) const
+{
+    return _GetName(crc, name, 0);
+}
+
+bool RomNameMap::_GetName(uint32_t crc, const char **name, int index) const
 {
     LogFunctionName;
-    LogDebug("  crc32: %08x lang: %d", crc, lang);
+    LogDebug("  crc32: %08x index: %d", crc, index);
     bool result = false;
-    const char *name_buf = _name_buf[lang];
-    if (name_buf != nullptr)
-    {
 
+    if (_name_buf != nullptr)
+    {
         const auto &iter = _map.find(crc);
         if (iter != _map.end())
         {
-            *name = name_buf + iter->second[lang];
+            *name = iter->second[index];
             result = (**name != '\x00');
         }
     }
 
-    if ((!result) && lang == NAME_LOCAL)
-        result = GetName(crc, name, NAME_ENGLISH);
+    if ((!result) && index != 1) // failed to get rom name or local name
+        result = _GetName(crc, name, 1);
 
     if (result)
         LogDebug("rom name: %s", *name);
 
     return result;
-}
-
-bool RomNameMap::GetName(uint32_t crc, const char **local_name, const char **english_name)
-{
-    LogFunctionName;
-    LogDebug("  crc32: %08x", crc);
-
-    *local_name = *english_name = nullptr;
-
-    const auto &iter = _map.find(crc);
-    if (iter == _map.end())
-    {
-        return false;
-    }
-
-    if (_name_buf[NAME_ENGLISH])
-    {
-        *english_name = _name_buf[NAME_ENGLISH] + iter->second[NAME_ENGLISH];
-    }
-
-    if (_name_buf[NAME_LOCAL])
-    {
-        *local_name = _name_buf[NAME_LOCAL] + iter->second[NAME_LOCAL];
-    }
-
-    return true;
 }
 
 void RomNameMap::Load()
@@ -137,6 +116,5 @@ void RomNameMap::Load()
 
     _ReleaseNameBuf();
 
-    _Load("app0:assets/names.en.zdb", NAME_ENGLISH) || _Load((std::string(CONSOLE_DIR) + "/names.en.zdb").c_str(), NAME_ENGLISH);
-    _Load(std::string("app0:assets/names.") + TEXT(CODE) + ".zdb", NAME_LOCAL) || _Load(std::string(CONSOLE_DIR) + "/names." + TEXT(CODE) + ".zdb", NAME_LOCAL);
+    _Load("app0:assets/names.zdb") || _Load((std::string(CONSOLE_DIR) + "/names.zdb").c_str());
 }

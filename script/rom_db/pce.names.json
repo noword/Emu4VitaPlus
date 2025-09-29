@@ -2,7 +2,8 @@
     {
         "CRC32": "8C4588E2",
         "English": "1941 - Counter Attack (Japan)",
-        "Chinese": "1941 - Counter Attack (Japan)"
+        "Chinese": "1941 - Counter Attack (Japan)",
+        "ROM": "1941 - Counter Attack (Japan)"
     },
     {
         "CRC32": "79362389",
@@ -12,87 +13,104 @@
     {
         "CRC32": "4C2126B0",
         "English": "Aldynes - The Misson Code for Rage Crisis (Japan) (En)",
-        "Chinese": "霹雳风云"
+        "Chinese": "霹雳风云",
+        "ROM": "Aldynes - The Misson Code for Rage Crisis (Japan) (En)"
     },
     {
         "CRC32": "3B13AF61",
         "English": "Battle Ace (Japan) (En)",
-        "Chinese": "Battle Ace (Japan)"
+        "Chinese": "Battle Ace (Japan)",
+        "ROM": "Battle Ace (Japan) (En)"
     },
     {
         "CRC32": "B486A8ED",
         "English": "Daimakaimura (Japan) (En)",
-        "Chinese": "大魔界村"
+        "Chinese": "大魔界村",
+        "ROM": "Daimakaimura (Japan) (En)"
     },
     {
         "CRC32": "13BF0409",
         "English": "F1 Triple Battle (Japan)",
-        "Chinese": "F1大赛车"
+        "Chinese": "F1大赛车",
+        "ROM": "F1 Triple Battle (Japan)"
     },
     {
         "CRC32": "B268F2A2",
         "English": "F1 Circus '92 - The Speed of Sound (Japan)",
-        "Chinese": "F1竞技场92 音速"
+        "Chinese": "F1竞技场92 音速",
+        "ROM": "F1 Circus '92 - The Speed of Sound (Japan)"
     },
     {
         "CRC32": "1F041166",
         "English": "Madou King Granzort (Japan) (En)",
-        "Chinese": "Madou King Granzort (Japan)"
+        "Chinese": "Madou King Granzort (Japan)",
+        "ROM": "Madou King Granzort (Japan) (En)"
     },
     {
         "CRC32": "740491C2",
         "English": "PC Denjin - Punkic Cyborgs (Japan)",
-        "Chinese": "PC电人"
+        "Chinese": "PC电人",
+        "ROM": "PC Denjin - Punkic Cyborgs (Japan)"
     },
     {
         "CRC32": "2CB5CD55",
         "English": "PC Genjin - Pithecanthropus Computerurus (Japan)",
-        "Chinese": "PC原人1"
+        "Chinese": "PC原人1",
+        "ROM": "PC Genjin - Pithecanthropus Computerurus (Japan)"
     },
     {
         "CRC32": "3028F7CA",
         "English": "PC Genjin 2 - Pithecanthropus Computerurus (Japan)",
-        "Chinese": "PC原人2"
+        "Chinese": "PC原人2",
+        "ROM": "PC Genjin 2 - Pithecanthropus Computerurus (Japan)"
     },
     {
         "CRC32": "A170B60E",
         "English": "PC Genjin 3 - Pithecanthropus Computerurus (Japan)",
-        "Chinese": "PC原人3"
+        "Chinese": "PC原人3",
+        "ROM": "PC Genjin 3 - Pithecanthropus Computerurus (Japan)"
     },
     {
         "CRC32": "647718F9",
         "English": "Parodius Da! - Shinwa kara Owarai e (Japan)",
-        "Chinese": "Q版沙罗曼蛇"
+        "Chinese": "Q版沙罗曼蛇",
+        "ROM": "Parodius Da! - Shinwa kara Owarai e (Japan)"
     },
     {
         "CRC32": "6069C5E7",
         "English": "Kato-chan Ken-chan (Japan)",
-        "Chinese": "爆笑人"
+        "Chinese": "爆笑人",
+        "ROM": "Kato-chan Ken-chan (Japan)"
     },
     {
         "CRC32": "5CF59D80",
         "English": "Detana!! TwinBee (Japan)",
-        "Chinese": "兵蜂"
+        "Chinese": "兵蜂",
+        "ROM": "Detana!! TwinBee (Japan)"
     },
     {
         "CRC32": "8DEF5AA1",
         "English": "Power Tennis (Japan)",
-        "Chinese": "超级网球"
+        "Chinese": "超级网球",
+        "ROM": "Power Tennis (Japan)"
     },
     {
         "CRC32": "5D0E3105",
         "English": "Super Star Soldier (Japan)",
-        "Chinese": "超级星际战士"
+        "Chinese": "超级星际战士",
+        "ROM": "Super Star Soldier (Japan)"
     },
     {
         "CRC32": "C6FA6373",
         "English": "Jackie Chan (Japan)",
-        "Chinese": "成龙之龙"
+        "Chinese": "成龙之龙",
+        "ROM": "Jackie Chan (Japan)"
     },
     {
         "CRC32": "F91B055F",
         "English": "City Hunter (Japan)",
-        "Chinese": "城市猎人"
+        "Chinese": "城市猎人",
+        "ROM": "City Hunter (Japan)"
     },
     {
         "CRC32": "1D972E69",
@@ -102,92 +120,110 @@
     {
         "CRC32": "CA72A828",
         "English": "After Burner II (Japan)",
-        "Chinese": "冲破火网2"
+        "Chinese": "冲破火网2",
+        "ROM": "After Burner II (Japan)"
     },
     {
         "CRC32": "6FD6827C",
         "English": "Gaia no Monshou (Japan)",
-        "Chinese": "大地纹章"
+        "Chinese": "大地纹章",
+        "ROM": "Gaia no Monshou (Japan)"
     },
     {
         "CRC32": "9107BCC8",
         "English": "Daisenpuu (Japan)",
-        "Chinese": "大旋风"
+        "Chinese": "大旋风",
+        "ROM": "Daisenpuu (Japan)"
     },
     {
         "CRC32": "CC7D3EEB",
         "English": "Jigoku Meguri (Japan)",
-        "Chinese": "地狱之旅"
+        "Chinese": "地狱之旅",
+        "ROM": "Jigoku Meguri (Japan)"
     },
     {
         "CRC32": "AD450DFC",
         "English": "Genji Tsuushin Agedama (Japan)",
-        "Chinese": "电脑小奇侠"
+        "Chinese": "电脑小奇侠",
+        "ROM": "Genji Tsuushin Agedama (Japan)"
     },
     {
         "CRC32": "B18D102D",
         "English": "Eternal City - Toshi Tensou Keikaku (Japan)",
-        "Chinese": "都市计划"
+        "Chinese": "都市计划",
+        "ROM": "Eternal City - Toshi Tensou Keikaku (Japan)"
     },
     {
         "CRC32": "D6FC51CE",
         "English": "Strip Fighter II (Japan) (Unl)",
-        "Chinese": "夺命战士2"
+        "Chinese": "夺命战士2",
+        "ROM": "Strip Fighter II (Japan) (Unl)"
     },
     {
         "CRC32": "1CAB1EE6",
         "English": "Hisou Kihei X-SERD (Japan)",
-        "Chinese": "飞装骑兵"
+        "Chinese": "飞装骑兵",
+        "ROM": "Hisou Kihei X-SERD (Japan)"
     },
     {
         "CRC32": "D00CA74F",
         "English": "Splatterhouse (USA)",
-        "Chinese": "腐尸之屋"
+        "Chinese": "腐尸之屋",
+        "ROM": "Splatterhouse (USA)"
     },
     {
         "CRC32": "A9084D6E",
         "English": "Kaizou Choujin Shubibinman (Japan)",
-        "Chinese": "改造超人1"
+        "Chinese": "改造超人1",
+        "ROM": "Kaizou Choujin Shubibinman (Japan)"
     },
     {
         "CRC32": "109BA474",
         "English": "Kaizou Choujin Shubibinman 2 - Aratanaru Teki (Japan)",
-        "Chinese": "改造超人2"
+        "Chinese": "改造超人2",
+        "ROM": "Kaizou Choujin Shubibinman 2 - Aratanaru Teki (Japan)"
     },
     {
         "CRC32": "F42AA73E",
         "English": "Don Doko Don! (Japan)",
-        "Chinese": "工人战记"
+        "Chinese": "工人战记",
+        "ROM": "Don Doko Don! (Japan)"
     },
     {
         "CRC32": "B552C906",
         "English": "Kung Fu, The (Japan)",
-        "Chinese": "功夫"
+        "Chinese": "功夫",
+        "ROM": "Kung Fu, The (Japan)"
     },
     {
         "CRC32": "985D492D",
         "English": "Tiger Road (USA)",
-        "Chinese": "虎之路"
+        "Chinese": "虎之路",
+        "ROM": "Tiger Road (USA)"
     },
     {
         "CRC32": "E203F223",
         "English": "Out Run (Japan)",
-        "Chinese": "户外大飙车"
+        "Chinese": "户外大飙车",
+        "ROM": "Out Run (Japan)"
     },
     {
         "CRC32": "A17D4D7E",
         "English": "Gunhed (Japan)",
-        "Chinese": "机战兵团"
+        "Chinese": "机战兵团",
+        "ROM": "Gunhed (Japan)"
     },
     {
         "CRC32": "D15CB6BB",
         "English": "Street Fighter II' - Champion Edition (Japan)",
-        "Chinese": "街头霸王2 冠军版"
+        "Chinese": "街头霸王2 冠军版",
+        "ROM": "Street Fighter II' - Champion Edition (Japan)"
     },
     {
         "CRC32": "09509315",
         "English": "Kyuukyoku Tiger (Japan)",
-        "Chinese": "究极虎"
+        "Chinese": "究极虎",
+        "ROM": "Kyuukyoku Tiger (Japan)"
     },
     {
         "CRC32": "75705DF1",
@@ -197,12 +233,14 @@
     {
         "CRC32": "850829F2",
         "English": "Raiden (Japan)",
-        "Chinese": "雷电"
+        "Chinese": "雷电",
+        "ROM": "Raiden (Japan)"
     },
     {
         "CRC32": "01A76935",
         "English": "Dragon Spirit (Japan)",
-        "Chinese": "龙魂"
+        "Chinese": "龙魂",
+        "ROM": "Dragon Spirit (Japan)"
     },
     {
         "CRC32": "C89CE75A",
@@ -212,22 +250,26 @@
     {
         "CRC32": "8E71D4F3",
         "English": "Adventure Island (Japan)",
-        "Chinese": "冒险岛"
+        "Chinese": "冒险岛",
+        "ROM": "Adventure Island (Japan)"
     },
     {
         "CRC32": "1CAD4B7F",
         "English": "USA Pro Basketball (Japan)",
-        "Chinese": "美国职业篮球"
+        "Chinese": "美国职业篮球",
+        "ROM": "USA Pro Basketball (Japan)"
     },
     {
         "CRC32": "A80C565F",
         "English": "Image Fight (Japan)",
-        "Chinese": "梦幻战机"
+        "Chinese": "梦幻战机",
+        "ROM": "Image Fight (Japan)"
     },
     {
         "CRC32": "72E00BC4",
         "English": "Tower of Druaga, The (Japan)",
-        "Chinese": "迷宫塔"
+        "Chinese": "迷宫塔",
+        "ROM": "Tower of Druaga, The (Japan)"
     },
     {
         "CRC32": "0D812F3B",
@@ -237,157 +279,188 @@
     {
         "CRC32": "1B1A80A2",
         "English": "Dungeon Explorer (Japan)",
-        "Chinese": "魔洞战记"
+        "Chinese": "魔洞战记",
+        "ROM": "Dungeon Explorer (Japan)"
     },
     {
         "CRC32": "DD0EBF8C",
         "English": "Magical Chase (Japan)",
-        "Chinese": "魔法大追击"
+        "Chinese": "魔法大追击",
+        "ROM": "Magical Chase (Japan)"
     },
     {
         "CRC32": "2D211007",
         "English": "Legendary Axe, The (USA)",
-        "Chinese": "魔境传说1"
+        "Chinese": "魔境传说1",
+        "ROM": "Legendary Axe, The (USA)"
     },
     {
         "CRC32": "220EBF91",
         "English": "Legendary Axe II (USA)",
-        "Chinese": "魔境传说2"
+        "Chinese": "魔境传说2",
+        "ROM": "Legendary Axe II (USA)"
     },
     {
         "CRC32": "2F8935AA",
         "English": "Mashin Eiyuuden Wataru (Japan)",
-        "Chinese": "魔神英雄传"
+        "Chinese": "魔神英雄传",
+        "ROM": "Mashin Eiyuuden Wataru (Japan)"
     },
     {
         "CRC32": "A3303978",
         "English": "Valkyrie no Densetsu (Japan)",
-        "Chinese": "女武神传说"
+        "Chinese": "女武神传说",
+        "ROM": "Valkyrie no Densetsu (Japan)"
     },
     {
         "CRC32": "E7BF2A74",
         "English": "Ordyne (USA)",
-        "Chinese": "欧坦救美"
+        "Chinese": "欧坦救美",
+        "ROM": "Ordyne (USA)"
     },
     {
         "CRC32": "C614116C",
         "English": "Knight Rider Special (Japan)",
-        "Chinese": "霹雳游侠"
+        "Chinese": "霹雳游侠",
+        "ROM": "Knight Rider Special (Japan)"
     },
     {
         "CRC32": "CF73D8FC",
         "English": "Susanoou Densetsu (Japan)",
-        "Chinese": "凄狂传说"
+        "Chinese": "凄狂传说",
+        "ROM": "Susanoou Densetsu (Japan)"
     },
     {
         "CRC32": "C0CB5ADD",
         "English": "Kiki Kaikai (Japan)",
-        "Chinese": "奇奇怪界"
+        "Chinese": "奇奇怪界",
+        "ROM": "Kiki Kaikai (Japan)"
     },
     {
         "CRC32": "08A09B9A",
         "English": "Aoi Blink (Japan)",
-        "Chinese": "青色杜马"
+        "Chinese": "青色杜马",
+        "ROM": "Aoi Blink (Japan)"
     },
     {
         "CRC32": "D233C05A",
         "English": "Burning Angels (Japan)",
-        "Chinese": "燃烧天使"
+        "Chinese": "燃烧天使",
+        "ROM": "Burning Angels (Japan)"
     },
     {
         "CRC32": "65FDB863",
         "English": "Nekketsu Koukou Dodgeball-bu - PC Bangai Hen (Japan)",
-        "Chinese": "热血高校躲避球部 PC番外篇"
+        "Chinese": "热血高校躲避球部 PC番外篇",
+        "ROM": "Nekketsu Koukou Dodgeball-bu - PC Bangai Hen (Japan)"
     },
     {
         "CRC32": "F2285C6D",
         "English": "Nekketsu Koukou Dodgeball-bu - PC Soccer Hen (Japan)",
-        "Chinese": "热血高校躲避球部 PC足球篇"
+        "Chinese": "热血高校躲避球部 PC足球篇",
+        "ROM": "Nekketsu Koukou Dodgeball-bu - PC Soccer Hen (Japan)"
     },
     {
         "CRC32": "67573BAC",
         "English": "Ninja Ryuukenden (Japan)",
-        "Chinese": "忍者龙剑传"
+        "Chinese": "忍者龙剑传",
+        "ROM": "Ninja Ryuukenden (Japan)"
     },
     {
         "CRC32": "FAECCE20",
         "English": "Salamander (Japan)",
-        "Chinese": "沙罗曼蛇"
+        "Chinese": "沙罗曼蛇",
+        "ROM": "Salamander (Japan)"
     },
     {
         "CRC32": "BA4D0DD4",
         "English": "Hana Taaka Daka! (Japan)",
-        "Chinese": "射击天狗"
+        "Chinese": "射击天狗",
+        "ROM": "Hana Taaka Daka! (Japan)"
     },
     {
         "CRC32": "59D07314",
         "English": "Wonder Momo (Japan)",
-        "Chinese": "神奇女孩"
+        "Chinese": "神奇女孩",
+        "ROM": "Wonder Momo (Japan)"
     },
     {
         "CRC32": "9C49EF11",
         "English": "Neutopia (Japan)",
-        "Chinese": "世界冒险记1"
+        "Chinese": "世界冒险记1",
+        "ROM": "Neutopia (Japan)"
     },
     {
         "CRC32": "2B94AEDC",
         "English": "Neutopia II (Japan)",
-        "Chinese": "世界冒险记2"
+        "Chinese": "世界冒险记2",
+        "ROM": "Neutopia II (Japan)"
     },
     {
         "CRC32": "C8C7D63E",
         "English": "Juuouki (Japan)",
-        "Chinese": "兽王记"
+        "Chinese": "兽王记",
+        "ROM": "Juuouki (Japan)"
     },
     {
         "CRC32": "8CD13E9A",
         "English": "Chew-Man-Fu (USA)",
-        "Chinese": "太极球"
+        "Chinese": "太极球",
+        "ROM": "Chew-Man-Fu (USA)"
     },
     {
         "CRC32": "43B05EB8",
         "English": "Space Harrier (USA)",
-        "Chinese": "太空哈利"
+        "Chinese": "太空哈利",
+        "ROM": "Space Harrier (USA)"
     },
     {
         "CRC32": "99496DB3",
         "English": "Space Invaders - Fukkatsu no Hi (Japan)",
-        "Chinese": "太空侵略者 复活之日"
+        "Chinese": "太空侵略者 复活之日",
+        "ROM": "Space Invaders - Fukkatsu no Hi (Japan)"
     },
     {
         "CRC32": "BEBFE042",
         "English": "Darius Plus (Japan) (SG Enhanced)",
-        "Chinese": "太空战斗机Plus"
+        "Chinese": "太空战斗机Plus",
+        "ROM": "Darius Plus (Japan) (SG Enhanced)"
     },
     {
         "CRC32": "3C131486",
         "English": "Legend of Hero Tonma (USA)",
-        "Chinese": "汤姆历险记"
+        "Chinese": "汤姆历险记",
+        "ROM": "Legend of Hero Tonma (USA)"
     },
     {
         "CRC32": "625221A6",
         "English": "Momotarou Densetsu Turbo (Japan)",
-        "Chinese": "桃太郎传说1 加强版"
+        "Chinese": "桃太郎传说1 加强版",
+        "ROM": "Momotarou Densetsu Turbo (Japan)"
     },
     {
         "CRC32": "D9E1549A",
         "English": "Momotarou Densetsu II (Japan)",
-        "Chinese": "桃太郎传说2"
+        "Chinese": "桃太郎传说2",
+        "ROM": "Momotarou Densetsu II (Japan)"
     },
     {
         "CRC32": "D7921DF2",
         "English": "Son Son II (Japan)",
-        "Chinese": "西游记2"
+        "Chinese": "西游记2",
+        "ROM": "Son Son II (Japan)"
     },
     {
         "CRC32": "1A8393C6",
         "English": "Galaga '88 (Japan)",
-        "Chinese": "小蜜蜂88"
+        "Chinese": "小蜜蜂88",
+        "ROM": "Galaga '88 (Japan)"
     },
     {
         "CRC32": "53109AE6",
         "English": "Jaseiken Necromancer (Japan)",
-        "Chinese": "邪圣剑"
+        "Chinese": "邪圣剑",
+        "ROM": "Jaseiken Necromancer (Japan)"
     },
     {
         "CRC32": "22C40E67",
@@ -397,7 +470,8 @@
     {
         "CRC32": "B01F70C2",
         "English": "Narazumono Sentou Butai - Bloody Wolf (Japan)",
-        "Chinese": "血狼"
+        "Chinese": "血狼",
+        "ROM": "Narazumono Sentou Butai - Bloody Wolf (Japan)"
     },
     {
         "CRC32": "F131B706",
@@ -407,2006 +481,2407 @@
     {
         "CRC32": "BE990010",
         "English": "W-Ring - The Double Rings (Japan)",
-        "Chinese": "宇宙双鹰"
+        "Chinese": "宇宙双鹰",
+        "ROM": "W-Ring - The Double Rings (Japan)"
     },
     {
         "CRC32": "0517DA65",
         "English": "Gradius (Japan)",
-        "Chinese": "宇宙巡航机"
+        "Chinese": "宇宙巡航机",
+        "ROM": "Gradius (Japan)"
     },
     {
         "CRC32": "77A924B7",
         "English": "Samurai-Ghost (USA)",
-        "Chinese": "源平讨魔传系列卷二"
+        "Chinese": "源平讨魔传系列卷二",
+        "ROM": "Samurai-Ghost (USA)"
     },
     {
         "CRC32": "9ABB4D1F",
         "English": "Bomberman (Japan)",
-        "Chinese": "炸弹人"
+        "Chinese": "炸弹人",
+        "ROM": "Bomberman (Japan)"
     },
     {
         "CRC32": "B300C5D0",
         "English": "Bomberman '93 (Japan)",
-        "Chinese": "炸弹人93"
+        "Chinese": "炸弹人93",
+        "ROM": "Bomberman '93 (Japan)"
     },
     {
         "CRC32": "05362516",
         "English": "Bomberman '94 (Japan)",
-        "Chinese": "炸弹人94"
+        "Chinese": "炸弹人94",
+        "ROM": "Bomberman '94 (Japan)"
     },
     {
         "CRC32": "99D14FB7",
         "English": "Veigues - Tactical Gladiator (USA)",
-        "Chinese": "战斗神兵"
+        "Chinese": "战斗神兵",
+        "ROM": "Veigues - Tactical Gladiator (USA)"
     },
     {
         "CRC32": "51E86451",
         "English": "Parasol Stars - The Story of Bubble Bobble III (Japan)",
-        "Chinese": "遮阳伞之星"
+        "Chinese": "遮阳伞之星",
+        "ROM": "Parasol Stars - The Story of Bubble Bobble III (Japan)"
     },
     {
         "CRC32": "C8C084E3",
         "English": "Final Lap Twin (Japan)",
-        "Chinese": "终级赛车"
+        "Chinese": "终级赛车",
+        "ROM": "Final Lap Twin (Japan)"
     },
     {
         "CRC32": "9298254C",
         "English": "Chase H.Q. (USA)",
-        "Chinese": "追踪H.Q"
+        "Chinese": "追踪H.Q",
+        "ROM": "Chase H.Q. (USA)"
     },
     {
         "CRC32": "0590A156",
         "English": "Saigo no Nindou - Ninja Spirit (Japan)",
-        "Chinese": "最后的忍道"
+        "Chinese": "最后的忍道",
+        "ROM": "Saigo no Nindou - Ninja Spirit (Japan)"
     },
     {
         "CRC32": "AF2DD2AF",
         "English": "Final Soldier (Japan) (En)",
-        "Chinese": "最终战机"
+        "Chinese": "最终战机",
+        "ROM": "Final Soldier (Japan) (En)"
     },
     {
         "CRC32": "9AEB5D26",
         "English": "World Sports Competition (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "World Sports Competition (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "7D023B19",
         "English": "Wallaby!! - Usagi no Kuni no Kangaroo Race (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Wallaby!! - Usagi no Kuni no Kangaroo Race (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "2CEBDBD5",
         "English": "Victory Run - Eikou no 13,000km (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Victory Run - Eikou no 13,000km (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "AAC2876F",
         "English": "Victory Run (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Victory Run (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "FE451C22",
         "English": "Tongueman's Logic (World) (Aftermarket) (Homebrew)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Tongueman's Logic (World) (Aftermarket) (Homebrew)"
     },
     {
         "CRC32": "3B3808BD",
         "English": "Ten no Koe Bank (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Ten no Koe Bank (Japan)"
     },
     {
         "CRC32": "B0A4EF0B",
         "English": "Takahashi Meijin no Shin Bouken-jima (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Takahashi Meijin no Shin Bouken-jima (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "B6B38D61",
         "English": "TV Sports Baseball (USA) (Proto)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "TV Sports Baseball (USA) (Proto)"
     },
     {
         "CRC32": "0FCA781A",
         "English": "Super Star Soldier (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Super Star Soldier (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "71A5A90B",
         "English": "Super Star Soldier (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Super Star Soldier (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "D2113BF1",
         "English": "Soldier Blade (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Soldier Blade (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "1D8701C9",
         "English": "Soldier Blade (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Soldier Blade (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "F436B4AC",
         "English": "Santatlantean (World) (Aftermarket) (Homebrew)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Santatlantean (World) (Aftermarket) (Homebrew)"
     },
     {
         "CRC32": "A869A0B4",
         "English": "Salamander (World) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Salamander (World) (Wii U Virtual Console)"
     },
     {
         "CRC32": "5ECBB3AC",
         "English": "Saigo no Nindou - Ninja Spirit (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Saigo no Nindou - Ninja Spirit (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "95830103",
         "English": "Power Sports (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Power Sports (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "E42AD101",
         "English": "PC Genjin 3 - Pithecanthropus Computerurus (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "PC Genjin 3 - Pithecanthropus Computerurus (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "34190272",
         "English": "PC Genjin 2 - Pithecanthropus Computerurus (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "PC Genjin 2 - Pithecanthropus Computerurus (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "9C1F39DB",
         "English": "PC Genjin - Pithecanthropus Computerurus (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "PC Genjin - Pithecanthropus Computerurus (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "51982CE2",
         "English": "PC Denjin - Punkic Cyborgs (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "PC Denjin - Punkic Cyborgs (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "85D1E33B",
         "English": "Ninja Spirit (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Ninja Spirit (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "21DB1D10",
         "English": "New Adventure Island (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "New Adventure Island (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "2602EDA2",
         "English": "Neutopia II (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Neutopia II (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "769AABC3",
         "English": "Neutopia II (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Neutopia II (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "811259E5",
         "English": "Neutopia (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Neutopia (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "C8072F2D",
         "English": "Neutopia (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Neutopia (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "9AA5295C",
         "English": "Jaseiken Necromancer (World) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Jaseiken Necromancer (World) (Wii U Virtual Console)"
     },
     {
         "CRC32": "A5273CC4",
         "English": "Gradius (World) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Gradius (World) (Wii U Virtual Console)"
     },
     {
         "CRC32": "9182C639",
         "English": "Gai Flame (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Gai Flame (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "06835D94",
         "English": "Final Soldier (World) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Final Soldier (World) (Wii U Virtual Console)"
     },
     {
         "CRC32": "D189B4AD",
         "English": "Double Dungeons (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Double Dungeons (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "D7BF80CC",
         "English": "Double Dungeons (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Double Dungeons (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "6308EB07",
         "English": "Devil's Crush (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Devil's Crush (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "38BBB515",
         "English": "Devil Crash - Naxat Pinball (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Devil Crash - Naxat Pinball (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "2020817A",
         "English": "Bonk's Revenge (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bonk's Revenge (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "704C801E",
         "English": "Bonk's Adventure (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bonk's Adventure (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "1F6511D7",
         "English": "Bonk 3 - Bonk's Big Adventure (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bonk 3 - Bonk's Big Adventure (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "1AAB222E",
         "English": "Bomberman '94 (World) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bomberman '94 (World) (Wii U Virtual Console)"
     },
     {
         "CRC32": "37C9114F",
         "English": "Bomberman '93 (Japan) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bomberman '93 (Japan) (Wii U Virtual Console)"
     },
     {
         "CRC32": "E52BE33E",
         "English": "Blazing Lazers (World) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Blazing Lazers (World) (Wii U Virtual Console)"
     },
     {
         "CRC32": "FDDC5814",
         "English": "Atlantean (World) (Aftermarket) (Homebrew)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Atlantean (World) (Aftermarket) (Homebrew)"
     },
     {
         "CRC32": "D76C4169",
         "English": "Air Zonk (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Air Zonk (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "23F3DF33",
         "English": "City Hunter (Japan) [T-En by cabbage and filler]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "City Hunter (Japan)"
     },
     {
         "CRC32": "FE2C2C5E",
         "English": "Youkai Douchuuki (Japan) [T-En by cabbage]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Youkai Douchuuki (Japan)"
     },
     {
         "CRC32": "B9032DC3",
         "English": "Druaga no Tou (Japan) [T-En by Procyon]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Druaga no Tou (Japan)"
     },
     {
         "CRC32": "017DE16D",
         "English": "Makai Hakkenden Shada (Japan) [T-En by cabbage and Shubibiman]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Makai Hakkenden Shada (Japan)"
     },
     {
         "CRC32": "8C4F4941",
         "English": "Final Match Tennis (Japan) [T-En by tAz-07]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Final Match Tennis (Japan)"
     },
     {
         "CRC32": "2F1CEE20",
         "English": "Out Live (Japan) [T-En by Nebulous Translations]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Out Live (Japan)"
     },
     {
         "CRC32": "B7166358",
         "English": "Maerchen Maze (Japan) [T-En by MooZ and Shubibiman]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Maerchen Maze (Japan)"
     },
     {
         "CRC32": "3E5CE025",
         "English": "Hisou Kihei - Xserd (Japan) [T-En by Nebulous Translations]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Hisou Kihei - Xserd (Japan)"
     },
     {
         "CRC32": "1A0599B4",
         "English": "Son Son II (Japan) [T-En by someitalian123]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Son Son II (Japan)"
     },
     {
         "CRC32": "B3096880",
         "English": "Formation Soccer Human Cup '92 [Hack by MooZ]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Formation Soccer Human Cup 92"
     },
     {
         "CRC32": "73C5ADF1",
         "English": "Maison Ikkoku (Japan) [T-En by Dave Shadoff and filler]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Maison Ikkoku (Japan)"
     },
     {
         "CRC32": "9CFE7E17",
         "English": "Gekisha Boy (Japan) [T-En by Zatos Hacks]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Gekisha Boy (Japan)"
     },
     {
         "CRC32": "97A62BD1",
         "English": "Valkyrie no Densetsu (Japan) [T-En by cabbage and Shawn Cox]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Valkyrie no Densetsu (Japan)"
     },
     {
         "CRC32": "1109D8E3",
         "English": "Knight Rider Special (Japan) [T-En by Psyklax]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Knight Rider Special (Japan)"
     },
     {
         "CRC32": "370FA62C",
         "English": "Energy (Japan) [T-En by cabbage and onionzoo]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Energy (Japan)"
     },
     {
         "CRC32": "25D34A20",
         "English": "Aoi Blink (Japan) [T-En by Gaijin Productions and Zatos Hacks]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Aoi Blink (Japan)"
     },
     {
         "CRC32": "704B6916",
         "English": "Bubblegum Crash! - Knight Sabers 2034 (Japan) [T-En by Dave Shadoff, filler and Tomaitheous]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bubblegum Crash! - Knight Sabers 2034 (Japan)"
     },
     {
         "CRC32": "FF461DCD",
         "English": "Lady Sword (Japan) [T-En by EsperKnight, filler, Grant Laughlin and Tomaitheous]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Lady Sword (Japan)"
     },
     {
         "CRC32": "9CCFBB7A",
         "English": "Shiryou Sensen - War of the Dead (Japan) [T-En by Nebulous Translations]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Shiryou Sensen - War of the Dead (Japan)"
     },
     {
         "CRC32": "02DB6FE5",
         "English": "Bikkuriman World (Japan) [T-En by Demiforce]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bikkuriman World (Japan)"
     },
     {
         "CRC32": "91BE0DEC",
         "English": "Die Hard (Japan) [T-En by Spinner 8 and friends]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Die Hard (Japan)"
     },
     {
         "CRC32": "E92D1290",
         "English": "Final Match Tennis Ladies [T-En by tAz-07 + 2 hacks]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Final Match Tennis Ladies"
     },
     {
         "CRC32": "F93670FF",
         "English": "Gaia no Monshou (Japan) [T-En by D]",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Gaia no Monshou (Japan)"
     },
     {
         "CRC32": "2E278CCB",
         "English": "Tenseiryuu - Saint Dragon (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Tenseiryuu - Saint Dragon (Japan)"
     },
     {
         "CRC32": "534E8808",
         "English": "Fire Pro Wrestling 3 - Legend Bout (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Fire Pro Wrestling 3 - Legend Bout (Japan)"
     },
     {
         "CRC32": "E88987BB",
         "English": "Fire Pro Wrestling 2 - 2nd Bout (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Fire Pro Wrestling 2 - 2nd Bout (Japan)"
     },
     {
         "CRC32": "67AAB7A1",
         "English": "Zipang (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Zipang (Japan)"
     },
     {
         "CRC32": "B77F2E2F",
         "English": "Zero4 Champ (Japan) (Alt)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Zero4 Champ (Japan) (Alt)"
     },
     {
         "CRC32": "80C3F824",
         "English": "Youkai Douchuuki (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Youkai Douchuuki (Japan)"
     },
     {
         "CRC32": "EE156721",
         "English": "Zero4 Champ (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Zero4 Champ (Japan)"
     },
     {
         "CRC32": "C0905CA9",
         "English": "You-You Jinsei (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "You-You Jinsei (Japan)"
     },
     {
         "CRC32": "3CA7DB48",
         "English": "Yo, Bro (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Yo, Bro (USA)"
     },
     {
         "CRC32": "A9AB2954",
         "English": "World Jockey (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "World Jockey (Japan)"
     },
     {
         "CRC32": "F8F85EEC",
         "English": "Xevious - Fardraut Saga (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Xevious - Fardraut Saga (Japan)"
     },
     {
         "CRC32": "4B93F0AC",
         "English": "World Sports Competition (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "World Sports Competition (USA)"
     },
     {
         "CRC32": "A4457DF0",
         "English": "World Court Tennis (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "World Court Tennis (USA)"
     },
     {
         "CRC32": "4186D0C0",
         "English": "World Class Baseball (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "World Class Baseball (USA)"
     },
     {
         "CRC32": "61B3C8C8",
         "English": "World Class Baseball (USA, Europe) (Wii Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "World Class Baseball (USA, Europe) (Wii Virtual Console)"
     },
     {
         "CRC32": "B3EEEA2E",
         "English": "World Circuit (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "World Circuit (Japan)"
     },
     {
         "CRC32": "BE850530",
         "English": "World Beach Volley (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "World Beach Volley (Japan)"
     },
     {
         "CRC32": "9B5EBC58",
         "English": "Winning Shot (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Winning Shot (Japan)"
     },
     {
         "CRC32": "0112D0C7",
         "English": "Wallaby!! - Usagi no Kuni no Kangaroo Race (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Wallaby!! - Usagi no Kuni no Kangaroo Race (Japan)"
     },
     {
         "CRC32": "A2A0776E",
         "English": "Wai Wai Mahjong - Yukai na Janyuu-tachi (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Wai Wai Mahjong - Yukai na Janyuu-tachi (Japan)"
     },
     {
         "CRC32": "AD226F30",
         "English": "Volfied (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Volfied (Japan)"
     },
     {
         "CRC32": "1BC36B36",
         "English": "Violent Soldier (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Violent Soldier (Japan)"
     },
     {
         "CRC32": "79D49A0D",
         "English": "Vigilante (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Vigilante (USA)"
     },
     {
         "CRC32": "E4124FE0",
         "English": "Vigilante (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Vigilante (Japan)"
     },
     {
         "CRC32": "03E28CFF",
         "English": "Victory Run - Eikou no 13,000km (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Victory Run - Eikou no 13,000km (Japan)"
     },
     {
         "CRC32": "85CBD045",
         "English": "Victory Run (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Victory Run (USA)"
     },
     {
         "CRC32": "04188C5C",
         "English": "Veigues - Tactical Gladiator (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Veigues - Tactical Gladiator (Japan)"
     },
     {
         "CRC32": "E7529890",
         "English": "TV Sports Hockey (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "TV Sports Hockey (Japan)"
     },
     {
         "CRC32": "968D908A",
         "English": "TV Sports Football (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "TV Sports Football (Japan)"
     },
     {
         "CRC32": "97FE5BCF",
         "English": "TV Sports Hockey (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "TV Sports Hockey (USA)"
     },
     {
         "CRC32": "5E25B557",
         "English": "TV Sports Football (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "TV Sports Football (USA)"
     },
     {
         "CRC32": "10B60601",
         "English": "TV Sports Basketball (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "TV Sports Basketball (Japan)"
     },
     {
         "CRC32": "EA54D653",
         "English": "TV Sports Basketball (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "TV Sports Basketball (USA)"
     },
     {
         "CRC32": "EB045EDF",
         "English": "Turrican (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Turrican (USA)"
     },
     {
         "CRC32": "F70112E5",
         "English": "Tsuru Teruhito no Jissen Kabushiki Bai Bai Game (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Tsuru Teruhito no Jissen Kabushiki Bai Bai Game (Japan)"
     },
     {
         "CRC32": "61A6E210",
         "English": "Tsuppari Oozumou - Heisei Ban (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Tsuppari Oozumou - Heisei Ban (Japan)"
     },
     {
         "CRC32": "48E6FD34",
         "English": "Tricky Kick (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Tricky Kick (USA)"
     },
     {
         "CRC32": "3AEA2F8F",
         "English": "Tricky (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Tricky (Japan)"
     },
     {
         "CRC32": "97C5EE9A",
         "English": "Toy Shop Boys (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Toy Shop Boys (Japan)"
     },
     {
         "CRC32": "82AE3B16",
         "English": "Tora e no Michi (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Tora e no Michi (Japan)"
     },
     {
         "CRC32": "53B7784B",
         "English": "Toilet Kids (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Toilet Kids (Japan)"
     },
     {
         "CRC32": "D20F382F",
         "English": "Titan (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Titan (Japan)"
     },
     {
         "CRC32": "5D395019",
         "English": "Timeball (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Timeball (USA)"
     },
     {
         "CRC32": "CFEC1D6A",
         "English": "Time Cruise II (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Time Cruise II (Japan)"
     },
     {
         "CRC32": "02C39660",
         "English": "Time Cruise (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Time Cruise (USA)"
     },
     {
         "CRC32": "DDC3E809",
         "English": "Thunder Blade (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Thunder Blade (Japan)"
     },
     {
         "CRC32": "1B2D0077",
         "English": "Terra Cresta II - Mandoler no Gyakushuu (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Terra Cresta II - Mandoler no Gyakushuu (Japan)"
     },
     {
         "CRC32": "EEB6DD43",
         "English": "Tatsunoko Fighter (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Tatsunoko Fighter (Japan)"
     },
     {
         "CRC32": "C1B26659",
         "English": "Tatsujin (Japan) (Beta)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Tatsujin (Japan) (Beta)"
     },
     {
         "CRC32": "A6088275",
         "English": "Tatsujin (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Tatsujin (Japan)"
     },
     {
         "CRC32": "BAE9CECC",
         "English": "TaleSpin (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "TaleSpin (USA)"
     },
     {
         "CRC32": "E9D51797",
         "English": "Takin' It to the Hoop (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Takin' It to the Hoop (USA)"
     },
     {
         "CRC32": "F022BE13",
         "English": "Takeda Shingen (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Takeda Shingen (Japan)"
     },
     {
         "CRC32": "E415EA19",
         "English": "Takahashi Meijin no Shin Bouken-jima (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Takahashi Meijin no Shin Bouken-jima (Japan)"
     },
     {
         "CRC32": "6F4FD790",
         "English": "Taito Chase H.Q. (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Taito Chase H.Q. (Japan)"
     },
     {
         "CRC32": "245040B3",
         "English": "Super Volleyball (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Super Volleyball (USA)"
     },
     {
         "CRC32": "CE2E4F9F",
         "English": "Super Volley Ball (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Super Volley Ball (Japan)"
     },
     {
         "CRC32": "DB29486F",
         "English": "Super Star Soldier (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Super Star Soldier (USA)"
     },
     {
         "CRC32": "3EB5304A",
         "English": "Super Momotarou Dentetsu (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Super Momotarou Dentetsu (Japan)"
     },
     {
         "CRC32": "2BC023FC",
         "English": "Super Momotarou Dentetsu II (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Super Momotarou Dentetsu II (Japan)"
     },
     {
         "CRC32": "69D52E7A",
         "English": "Super Momotarou Dentetsu (Japan) (Alt)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Super Momotarou Dentetsu (Japan) (Alt)"
     },
     {
         "CRC32": "56488B36",
         "English": "Super Metal Crusher (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Super Metal Crusher (Japan)"
     },
     {
         "CRC32": "727F4656",
         "English": "Stratego (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Stratego (Japan)"
     },
     {
         "CRC32": "6B319457",
         "English": "Splatterhouse (Japan) (En)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Splatterhouse (Japan) (En)"
     },
     {
         "CRC32": "A5290DD0",
         "English": "Spiral Wave (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Spiral Wave (Japan)"
     },
     {
         "CRC32": "1C6FF459",
         "English": "Spin Pair (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Spin Pair (Japan)"
     },
     {
         "CRC32": "64580427",
         "English": "Space Harrier (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Space Harrier (Japan)"
     },
     {
         "CRC32": "F74E5EB3",
         "English": "Sonic Spike - World Championship Beach Volleyball (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Sonic Spike - World Championship Beach Volleyball (USA)"
     },
     {
         "CRC32": "FB37DDC4",
         "English": "Soukoban World (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Soukoban World (Japan)"
     },
     {
         "CRC32": "8FCAF2E9",
         "English": "Somer Assault (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Somer Assault (USA)"
     },
     {
         "CRC32": "F39F38ED",
         "English": "Soldier Blade - Special Version (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Soldier Blade - Special Version (Japan)"
     },
     {
         "CRC32": "4BB68B13",
         "English": "Soldier Blade (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Soldier Blade (USA)"
     },
     {
         "CRC32": "8420B12B",
         "English": "Soldier Blade (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Soldier Blade (Japan)"
     },
     {
         "CRC32": "4D539C9F",
         "English": "Skweek (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Skweek (Japan)"
     },
     {
         "CRC32": "4F6E2DBD",
         "English": "Sinistron (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Sinistron (USA)"
     },
     {
         "CRC32": "B5C4EEBD",
         "English": "Sindibad - Chitei no Daimakyuu (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Sindibad - Chitei no Daimakyuu (Japan)"
     },
     {
         "CRC32": "FA7E5D66",
         "English": "Silent Debuggers (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Silent Debuggers (USA)"
     },
     {
         "CRC32": "616EA179",
         "English": "Silent Debuggers (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Silent Debuggers (Japan)"
     },
     {
         "CRC32": "E5E7B8B7",
         "English": "SideArms - Hyper Dyne (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "SideArms - Hyper Dyne (Japan)"
     },
     {
         "CRC32": "D1993C9F",
         "English": "SideArms (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "SideArms (USA)"
     },
     {
         "CRC32": "457F2BC4",
         "English": "Shougi Shoshinsha Muyou (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Shougi Shoshinsha Muyou (Japan)"
     },
     {
         "CRC32": "23EC8970",
         "English": "Shougi Shodan Icchokusen (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Shougi Shodan Icchokusen (Japan)"
     },
     {
         "CRC32": "2774462C",
         "English": "Shockman (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Shockman (USA)"
     },
     {
         "CRC32": "469A0FDF",
         "English": "Shiryou Sensen - War of the Dead (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Shiryou Sensen - War of the Dead (Japan)"
     },
     {
         "CRC32": "BC655CF3",
         "English": "Shinobi (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Shinobi (Japan)"
     },
     {
         "CRC32": "6923D736",
         "English": "Shanghai (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Shanghai (Japan)"
     },
     {
         "CRC32": "90E6BF49",
         "English": "Sengoku Mahjong (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Sengoku Mahjong (Japan)"
     },
     {
         "CRC32": "2E955051",
         "English": "Sekigahara (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Sekigahara (Japan)"
     },
     {
         "CRC32": "F999356F",
         "English": "Sadakichi Seven - Hideyoshi no Ougon (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Sadakichi Seven - Hideyoshi no Ougon (Japan)"
     },
     {
         "CRC32": "09A0BFCC",
         "English": "S.C.I. - Special Criminal Investigation (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "S.C.I. - Special Criminal Investigation (Japan)"
     },
     {
         "CRC32": "91E6896F",
         "English": "Ryuukyuu (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Ryuukyuu (Japan)"
     },
     {
         "CRC32": "2FD65312",
         "English": "Rock-On (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Rock-On (Japan)"
     },
     {
         "CRC32": "00C38E69",
         "English": "Rastan Saga II (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Rastan Saga II (Japan)"
     },
     {
         "CRC32": "BC59C31E",
         "English": "Raiden (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Raiden (USA)"
     },
     {
         "CRC32": "3E79734C",
         "English": "Racing Damashii (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Racing Damashii (Japan)"
     },
     {
         "CRC32": "D8373DE6",
         "English": "Rabio Lepus Special (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Rabio Lepus Special (Japan)"
     },
     {
         "CRC32": "F207ECAE",
         "English": "R-Type II (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "R-Type II (Japan)"
     },
     {
         "CRC32": "417B961D",
         "English": "R-Type II (Japan) (v1.1)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "R-Type II (Japan) (v1.1)"
     },
     {
         "CRC32": "CEC3D28A",
         "English": "R-Type I (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "R-Type I (Japan)"
     },
     {
         "CRC32": "91CE5156",
         "English": "R-Type (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "R-Type (USA)"
     },
     {
         "CRC32": "F2E6856D",
         "English": "Quiz Toukou Shashin (Japan) (Unl)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Quiz Toukou Shashin (Japan) (Unl)"
     },
     {
         "CRC32": "965C95B3",
         "English": "Puzznic (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Puzznic (Japan)"
     },
     {
         "CRC32": "FAA6E187",
         "English": "Puzzle Boy (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Puzzle Boy (Japan)"
     },
     {
         "CRC32": "6CC10824",
         "English": "Psychosis (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Psychosis (USA)"
     },
     {
         "CRC32": "03883EE8",
         "English": "Psycho Chaser (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Psycho Chaser (Japan)"
     },
     {
         "CRC32": "66B167A9",
         "English": "Pro Yakyuu World Stadium '91 (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Pro Yakyuu World Stadium '91 (Japan)"
     },
     {
         "CRC32": "34E089A9",
         "English": "Pro Yakyuu World Stadium (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Pro Yakyuu World Stadium (Japan)"
     },
     {
         "CRC32": "11A36745",
         "English": "Pro Tennis - World Court (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Pro Tennis - World Court (Japan)"
     },
     {
         "CRC32": "29EEC024",
         "English": "Power Sports (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Power Sports (Japan)"
     },
     {
         "CRC32": "8AA4B220",
         "English": "Power League III (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Power League III (Japan)"
     },
     {
         "CRC32": "C5FDFA89",
         "English": "Power League II (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Power League II (Japan)"
     },
     {
         "CRC32": "8B61E029",
         "English": "Power League 5 (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Power League 5 (Japan)"
     },
     {
         "CRC32": "30CC3563",
         "English": "Power League 4 (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Power League 4 (Japan)"
     },
     {
         "CRC32": "7D3E6F33",
         "English": "Power League '93 (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Power League '93 (Japan)"
     },
     {
         "CRC32": "69180984",
         "English": "Power League (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Power League (Japan)"
     },
     {
         "CRC32": "EA324F07",
         "English": "Power Golf (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Power Golf (Japan)"
     },
     {
         "CRC32": "ED1D3843",
         "English": "Power Golf (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Power Golf (USA)"
     },
     {
         "CRC32": "BE8B6E3B",
         "English": "Power Gate (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Power Gate (Japan)"
     },
     {
         "CRC32": "3E647D8B",
         "English": "Power Eleven (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Power Eleven (Japan)"
     },
     {
         "CRC32": "25E0F6E9",
         "English": "Power Drift (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Power Drift (Japan)"
     },
     {
         "CRC32": "0AA88F33",
         "English": "PC Pachi-Slot - Idol Gambler (Japan) (Unl)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "PC Pachi-Slot - Idol Gambler (Japan) (Unl)"
     },
     {
         "CRC32": "083C956A",
         "English": "Populous (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Populous (Japan)"
     },
     {
         "CRC32": "6F6ED301",
         "English": "PC Genjin 3 - Pithecanthropus Computerurus (Japan) (Sample)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "PC Genjin 3 - Pithecanthropus Computerurus (Japan) (Sample)"
     },
     {
         "CRC32": "D4CE3572",
         "English": "PC Genjin 2 - Pithecanthropus Computerurus (Japan) (Wii Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "PC Genjin 2 - Pithecanthropus Computerurus (Japan) (Wii Virtual Console)"
     },
     {
         "CRC32": "4F8299C8",
         "English": "PC Denjin - Punkic Cyborgs (Japan) (Beta)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "PC Denjin - Punkic Cyborgs (Japan) (Beta)"
     },
     {
         "CRC32": "9893E0E6",
         "English": "Paranoia (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Paranoia (Japan)"
     },
     {
         "CRC32": "E6458212",
         "English": "Parasol Stars - The Story of Bubble Bobble III (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Parasol Stars - The Story of Bubble Bobble III (USA)"
     },
     {
         "CRC32": "4148FD7C",
         "English": "Pachio-kun - Juuban Shoubu (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Pachio-kun - Juuban Shoubu (Japan)"
     },
     {
         "CRC32": "14FAD3BA",
         "English": "Pac-Land (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Pac-Land (Japan)"
     },
     {
         "CRC32": "D6E30CCD",
         "English": "Pac-Land (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Pac-Land (USA)"
     },
     {
         "CRC32": "7632DB90",
         "English": "P-47 - The Freedom Fighter (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "P-47 - The Freedom Fighter (Japan)"
     },
     {
         "CRC32": "B74EC562",
         "English": "Override (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Override (Japan)"
     },
     {
         "CRC32": "5CDB3F5B",
         "English": "Out Live (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Out Live (Japan)"
     },
     {
         "CRC32": "8C565CB6",
         "English": "Ordyne (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Ordyne (Japan)"
     },
     {
         "CRC32": "FF898F87",
         "English": "Operation Wolf (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Operation Wolf (Japan)"
     },
     {
         "CRC32": "4D3B0BC9",
         "English": "Obocchama-kun (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Obocchama-kun (Japan)"
     },
     {
         "CRC32": "8621AE02",
         "English": "Off the Wall (USA) (Proto)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Off the Wall (USA) (Proto)"
     },
     {
         "CRC32": "96E0CD9D",
         "English": "Ninja Warriors, The (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Ninja Warriors, The (Japan)"
     },
     {
         "CRC32": "DE8AF1C1",
         "English": "Ninja Spirit (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Ninja Spirit (USA)"
     },
     {
         "CRC32": "82DEF9EE",
         "English": "Niko Niko Pun (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Niko Niko Pun (Japan)"
     },
     {
         "CRC32": "A32430D5",
         "English": "NHK Taiga Drama - Taiheiki (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "NHK Taiga Drama - Taiheiki (Japan)"
     },
     {
         "CRC32": "C159761B",
         "English": "Night Creatures (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Night Creatures (USA)"
     },
     {
         "CRC32": "8E4D75A8",
         "English": "NewZealand Story, The (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "NewZealand Story, The (Japan)"
     },
     {
         "CRC32": "756A1802",
         "English": "New Adventure Island (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "New Adventure Island (USA)"
     },
     {
         "CRC32": "C4ED4307",
         "English": "Neutopia II (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Neutopia II (USA)"
     },
     {
         "CRC32": "A9A94E1B",
         "English": "Neutopia (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Neutopia (USA)"
     },
     {
         "CRC32": "0243453B",
         "English": "Nectaris (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Nectaris (Japan)"
     },
     {
         "CRC32": "FB0FDCFE",
         "English": "Necros no Yousai (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Necros no Yousai (Japan)"
     },
     {
         "CRC32": "0441D85A",
         "English": "Nazo no Mascarade (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Nazo no Mascarade (Japan)"
     },
     {
         "CRC32": "20A7D128",
         "English": "Naxat Stadium (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Naxat Stadium (Japan)"
     },
     {
         "CRC32": "60ECAE22",
         "English": "Naxat Open (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Naxat Open (Japan)"
     },
     {
         "CRC32": "0B7F6E5F",
         "English": "Moto Roader II (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Moto Roader II (Japan)"
     },
     {
         "CRC32": "428F36CD",
         "English": "Moto Roader (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Moto Roader (Japan)"
     },
     {
         "CRC32": "E2B0D544",
         "English": "Moto Roader (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Moto Roader (USA)"
     },
     {
         "CRC32": "2546EFE0",
         "English": "Morita Shougi PC (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Morita Shougi PC (Japan)"
     },
     {
         "CRC32": "F2E46D25",
         "English": "Monster Pro Wres (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Monster Pro Wres (Japan)"
     },
     {
         "CRC32": "345F43E9",
         "English": "Momotarou Katsugeki (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Momotarou Katsugeki (Japan)"
     },
     {
         "CRC32": "B2EF558D",
         "English": "Mizubaku Daibouken (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Mizubaku Daibouken (Japan)"
     },
     {
         "CRC32": "F860455C",
         "English": "Momotarou Densetsu Gaiden - Dai-1-shuu (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Momotarou Densetsu Gaiden - Dai-1-shuu (Japan)"
     },
     {
         "CRC32": "93F316F7",
         "English": "Military Madness (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Military Madness (USA)"
     },
     {
         "CRC32": "25A02BEE",
         "English": "Metal Stoker (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Metal Stoker (Japan)"
     },
     {
         "CRC32": "E87190F1",
         "English": "Mesopotamia (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Mesopotamia (Japan)"
     },
     {
         "CRC32": "99F2865C",
         "English": "Maniac Pro Wres - Asu e no Tatakai (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Maniac Pro Wres - Asu e no Tatakai (Japan)"
     },
     {
         "CRC32": "D4C5AF46",
         "English": "Makyou Densetsu (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Makyou Densetsu (Japan)"
     },
     {
         "CRC32": "B101B333",
         "English": "Makai Prince Dorabocchan (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Makai Prince Dorabocchan (Japan)"
     },
     {
         "CRC32": "BE62EEF5",
         "English": "Makai Hakkenden Shada (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Makai Hakkenden Shada (Japan)"
     },
     {
         "CRC32": "5C78FEE1",
         "English": "Maison Ikkoku (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Maison Ikkoku (Japan)"
     },
     {
         "CRC32": "DF10C895",
         "English": "Mahjong Haouden - Kaiser's Quest (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Mahjong Haouden - Kaiser's Quest (Japan)"
     },
     {
         "CRC32": "6C34AAEA",
         "English": "Mahjong Shikaku Retsuden - Mahjong Wars (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Mahjong Shikaku Retsuden - Mahjong Wars (Japan)"
     },
     {
         "CRC32": "F8861456",
         "English": "Mahjong Gokuu Special (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Mahjong Gokuu Special (Japan)"
     },
     {
         "CRC32": "F4148600",
         "English": "Mahjong Gakuen Mild - Touma Soushirou Toujou (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Mahjong Gakuen Mild - Touma Soushirou Toujou (Japan)"
     },
     {
         "CRC32": "F5B90D55",
         "English": "Mahjong Gakuen - Touma Soushirou Toujou (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Mahjong Gakuen - Touma Soushirou Toujou (Japan)"
     },
     {
         "CRC32": "95CD2979",
         "English": "Magical Chase (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Magical Chase (USA)"
     },
     {
         "CRC32": "A15A1F37",
         "English": "Maerchen Maze (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Maerchen Maze (Japan)"
     },
     {
         "CRC32": "E6EE1468",
         "English": "Lode Runner - Lost Labyrinth (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Lode Runner - Lost Labyrinth (Japan)"
     },
     {
         "CRC32": "C28B0D8A",
         "English": "Legend of Hero Tonma (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Legend of Hero Tonma (Japan)"
     },
     {
         "CRC32": "C6F764EC",
         "English": "Lady Sword - Ryakudatsu Sareta 10-nin no Otome (Japan) (Unl)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Lady Sword - Ryakudatsu Sareta 10-nin no Otome (Japan) (Unl)"
     },
     {
         "CRC32": "02DDE03E",
         "English": "Kyuukyoku Mahjong - Idol Graphics (Japan) (Unl)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Kyuukyoku Mahjong - Idol Graphics (Japan) (Unl)"
     },
     {
         "CRC32": "E5B6B3E5",
         "English": "Kyuukyoku Mahjong II (Japan) (Unl)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Kyuukyoku Mahjong II (Japan) (Unl)"
     },
     {
         "CRC32": "3872C2B3",
         "English": "Kung Fu, The (Japan) (Wii Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Kung Fu, The (Japan) (Wii Virtual Console)"
     },
     {
         "CRC32": "1772B229",
         "English": "Kore ga Pro Yakyuu '90 (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Kore ga Pro Yakyuu '90 (Japan)"
     },
     {
         "CRC32": "44F60137",
         "English": "Kore ga Pro Yakyuu '89 (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Kore ga Pro Yakyuu '89 (Japan)"
     },
     {
         "CRC32": "0F1B59B4",
         "English": "Klax (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Klax (USA)"
     },
     {
         "CRC32": "C74FFBC9",
         "English": "Klax (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Klax (Japan)"
     },
     {
         "CRC32": "BF52788E",
         "English": "King of Casino (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "King of Casino (Japan)"
     },
     {
         "CRC32": "2F2E2240",
         "English": "King of Casino (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "King of Casino (USA)"
     },
     {
         "CRC32": "7E3C367B",
         "English": "KickBall (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "KickBall (Japan)"
     },
     {
         "CRC32": "4F2844B0",
         "English": "Kattobi! Takuhai-kun (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Kattobi! Takuhai-kun (Japan)"
     },
     {
         "CRC32": "474D7A72",
         "English": "Keith Courage in Alpha Zones (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Keith Courage in Alpha Zones (USA)"
     },
     {
         "CRC32": "C150637A",
         "English": "Jinmu Denshou (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Jinmu Denshou (Japan)"
     },
     {
         "CRC32": "32C950BE",
         "English": "Jaseiken Necromancer (Japan) (Wii Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Jaseiken Necromancer (Japan) (Wii Virtual Console)"
     },
     {
         "CRC32": "9D2F6193",
         "English": "Jackie Chan's Action Kung Fu (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Jackie Chan's Action Kung Fu (USA)"
     },
     {
         "CRC32": "83384572",
         "English": "Jack Nicklaus' Turbo Golf (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Jack Nicklaus' Turbo Golf (USA)"
     },
     {
         "CRC32": "EA751E82",
         "English": "Jack Nicklaus - Championship Golf (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Jack Nicklaus - Championship Golf (Japan)"
     },
     {
         "CRC32": "0AD97B04",
         "English": "J.League Greatest Eleven (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "J.League Greatest Eleven (Japan)"
     },
     {
         "CRC32": "E01C5127",
         "English": "J.J. & Jeff (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "J.J. & Jeff (USA)"
     },
     {
         "CRC32": "E2470F5F",
         "English": "Impossamole (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Impossamole (USA)"
     },
     {
         "CRC32": "9EC6FC6C",
         "English": "Idol Hanafuda Fan Club (Japan) (Unl)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Idol Hanafuda Fan Club (Japan) (Unl)"
     },
     {
         "CRC32": "B01EE703",
         "English": "Honoo no Toukyuuji - Dodge Danpei (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Honoo no Toukyuuji - Dodge Danpei (Japan)"
     },
     {
         "CRC32": "8B29C3AA",
         "English": "Hit the Ice - VHL - The Official Video Hockey League (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Hit the Ice - VHL - The Official Video Hockey League (USA)"
     },
     {
         "CRC32": "7ACB60C8",
         "English": "Hit the Ice - VHL - The Video Hockey League (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Hit the Ice - VHL - The Video Hockey League (Japan)"
     },
     {
         "CRC32": "44E7DF53",
         "English": "Hatris (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Hatris (Japan)"
     },
     {
         "CRC32": "EB923DE5",
         "English": "Heavy Unit (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Heavy Unit (Japan)"
     },
     {
         "CRC32": "9897FA86",
         "English": "Hanii on the Road (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Hanii on the Road (Japan)"
     },
     {
         "CRC32": "BF3E2CC7",
         "English": "Hanii in the Sky (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Hanii in the Sky (Japan)"
     },
     {
         "CRC32": "57F183AE",
         "English": "Gunhed - Special Version (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Gunhed - Special Version (Japan)"
     },
     {
         "CRC32": "F370B58E",
         "English": "Gunboat (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Gunboat (USA)"
     },
     {
         "CRC32": "4BD38F17",
         "English": "Gomola Speed (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Gomola Speed (Japan)"
     },
     {
         "CRC32": "E749A22C",
         "English": "Gokuraku! Chuuka Taisen (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Gokuraku! Chuuka Taisen (Japan)"
     },
     {
         "CRC32": "2DB4C1FD",
         "English": "Ghost Manor (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Ghost Manor (USA)"
     },
     {
         "CRC32": "8793758C",
         "English": "Genpei Toumaden - Kan no Ni (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Genpei Toumaden - Kan no Ni (Japan)"
     },
     {
         "CRC32": "B926C682",
         "English": "Genpei Toumaden (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Genpei Toumaden (Japan)"
     },
     {
         "CRC32": "E8702D51",
         "English": "Gekisha Boy (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Gekisha Boy (Japan)"
     },
     {
         "CRC32": "2909DEC6",
         "English": "Galaga '90 (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Galaga '90 (USA)"
     },
     {
         "CRC32": "27A4D11A",
         "English": "Ganbare! Golf Boys (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Ganbare! Golf Boys (Japan)"
     },
     {
         "CRC32": "95F90DEC",
         "English": "Gai Flame (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Gai Flame (Japan)"
     },
     {
         "CRC32": "12C4E6FD",
         "English": "Fushigi no Yume no Alice (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Fushigi no Yume no Alice (Japan)"
     },
     {
         "CRC32": "7146027C",
         "English": "Formation Soccer - On J League (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Formation Soccer - On J League (Japan)"
     },
     {
         "CRC32": "85A1E7B6",
         "English": "Formation Soccer - Human Cup '90 (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Formation Soccer - Human Cup '90 (Japan)"
     },
     {
         "CRC32": "90ED6575",
         "English": "Fire Pro Wrestling - Combination Tag (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Fire Pro Wrestling - Combination Tag (Japan)"
     },
     {
         "CRC32": "02A578C5",
         "English": "Final Soldier - Special Version (Japan) (En)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Final Soldier - Special Version (Japan) (En)"
     },
     {
         "CRC32": "560D2305",
         "English": "Final Match Tennis (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Final Match Tennis (Japan)"
     },
     {
         "CRC32": "26408EA3",
         "English": "Final Lap Twin (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Final Lap Twin (USA)"
     },
     {
         "CRC32": "C90971BA",
         "English": "Final Blaster (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Final Blaster (Japan)"
     },
     {
         "CRC32": "1828D2E5",
         "English": "Fighting Run (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Fighting Run (Japan)"
     },
     {
         "CRC32": "72CB0F9D",
         "English": "Fantasy Zone (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Fantasy Zone (Japan)"
     },
     {
         "CRC32": "E8C3573D",
         "English": "Fantasy Zone (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Fantasy Zone (USA)"
     },
     {
         "CRC32": "0BC0A12B",
         "English": "Falcon (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Falcon (USA)"
     },
     {
         "CRC32": "D7CFD70F",
         "English": "F1 Circus '91 (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "F1 Circus '91 (Japan)"
     },
     {
         "CRC32": "E14DEE08",
         "English": "F1 Circus (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "F1 Circus (Japan)"
     },
     {
         "CRC32": "09048174",
         "English": "F-1 Pilot - You're King of Kings (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "F-1 Pilot - You're King of Kings (Japan)"
     },
     {
         "CRC32": "D50FF730",
         "English": "F-1 Dream (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "F-1 Dream (Japan)"
     },
     {
         "CRC32": "FAE0FC60",
         "English": "Dungeons & Dragons - Order of the Griffon (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Dungeons & Dragons - Order of the Griffon (USA)"
     },
     {
         "CRC32": "CA68FF21",
         "English": "Energy (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Energy (Japan)"
     },
     {
         "CRC32": "4FF01515",
         "English": "Dungeon Explorer (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Dungeon Explorer (USA)"
     },
     {
         "CRC32": "67EC5EC4",
         "English": "Drop Rock Hora Hora (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Drop Rock Hora Hora (Japan)"
     },
     {
         "CRC32": "7D2C4B09",
         "English": "Dragon's Curse (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Dragon's Curse (USA)"
     },
     {
         "CRC32": "FEA27B32",
         "English": "Drop Off (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Drop Off (USA)"
     },
     {
         "CRC32": "086F148C",
         "English": "Dragon Spirit (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Dragon Spirit (USA)"
     },
     {
         "CRC32": "3219849C",
         "English": "Dragon Saber (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Dragon Saber (Japan)"
     },
     {
         "CRC32": "442405D5",
         "English": "Dragon Egg! (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Dragon Egg! (Japan)"
     },
     {
         "CRC32": "85101C20",
         "English": "Download (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Download (Japan)"
     },
     {
         "CRC32": "86087B39",
         "English": "Double Dungeons (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Double Dungeons (Japan)"
     },
     {
         "CRC32": "4A1A8C60",
         "English": "Double Dungeons (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Double Dungeons (USA)"
     },
     {
         "CRC32": "013A747F",
         "English": "Doraemon - Nobita no Dorabian Night (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Doraemon - Nobita no Dorabian Night (Japan)"
     },
     {
         "CRC32": "DC760A07",
         "English": "Doraemon - Meikyuu Daisakusen (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Doraemon - Meikyuu Daisakusen (Japan)"
     },
     {
         "CRC32": "157B4492",
         "English": "Devil's Crush (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Devil's Crush (USA)"
     },
     {
         "CRC32": "17BA3032",
         "English": "Digital Champ (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Digital Champ (Japan)"
     },
     {
         "CRC32": "1B5B1CB1",
         "English": "Die Hard (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Die Hard (Japan)"
     },
     {
         "CRC32": "4EC81A80",
         "English": "Devil Crash - Naxat Pinball (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Devil Crash - Naxat Pinball (Japan)"
     },
     {
         "CRC32": "053A0F83",
         "English": "Deep Blue - Kaitei Shinwa (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Deep Blue - Kaitei Shinwa (Japan)"
     },
     {
         "CRC32": "16B40B44",
         "English": "Deep Blue (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Deep Blue (USA)"
     },
     {
         "CRC32": "F5D98B0B",
         "English": "Dead Moon (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Dead Moon (USA)"
     },
     {
         "CRC32": "56739BC7",
         "English": "Dead Moon - Getsu Sekai no Akumu (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Dead Moon - Getsu Sekai no Akumu (Japan)"
     },
     {
         "CRC32": "9EDAB596",
         "English": "Davis Cup Tennis (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Davis Cup Tennis (USA)"
     },
     {
         "CRC32": "4AC97606",
         "English": "Darkwing Duck (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Darkwing Duck (USA)"
     },
     {
         "CRC32": "B0BA689F",
         "English": "Darius Alpha (Japan) (SG Enhanced)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Darius Alpha (Japan) (SG Enhanced)"
     },
     {
         "CRC32": "EB2466F9",
         "English": "Darius Alpha (World) (SG Enhanced) (Darius Cozmic Collection)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Darius Alpha (World) (SG Enhanced) (Darius Cozmic Collection)"
     },
     {
         "CRC32": "61A2935F",
         "English": "Daichi-kun Crisis - Do Natural (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Daichi-kun Crisis - Do Natural (Japan)"
     },
     {
         "CRC32": "A594FAC0",
         "English": "Cyber Knight (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Cyber Knight (Japan)"
     },
     {
         "CRC32": "B5326B16",
         "English": "Cyber Dodge (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Cyber Dodge (Japan)"
     },
     {
         "CRC32": "2DF97BD0",
         "English": "Cross Wiber - Cyber Combat Police (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Cross Wiber - Cyber Combat Police (Japan)"
     },
     {
         "CRC32": "4CFB6E3E",
         "English": "Cyber Core (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Cyber Core (USA)"
     },
     {
         "CRC32": "A98D276A",
         "English": "Cyber Core (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Cyber Core (Japan)"
     },
     {
         "CRC32": "9033E83A",
         "English": "Cratermaze (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Cratermaze (USA)"
     },
     {
         "CRC32": "B4D29E3B",
         "English": "Coryoon - Child of Dragon (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Coryoon - Child of Dragon (Japan)"
     },
     {
         "CRC32": "99F7A572",
         "English": "Columns (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Columns (Japan)"
     },
     {
         "CRC32": "0DF57C90",
         "English": "Chouzetsurinjin Bravoman (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Chouzetsurinjin Bravoman (Japan)"
     },
     {
         "CRC32": "C3212C24",
         "English": "Circus Lido (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Circus Lido (Japan)"
     },
     {
         "CRC32": "A2EE361D",
         "English": "China Warrior (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "China Warrior (USA)"
     },
     {
         "CRC32": "CAB21B2E",
         "English": "Chikudenya Toubei - Kubikiri Yakata Yori (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Chikudenya Toubei - Kubikiri Yakata Yori (Japan)"
     },
     {
         "CRC32": "951ED380",
         "English": "Chibi Maruko-chan - Quiz de Piihyara (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Chibi Maruko-chan - Quiz de Piihyara (Japan)"
     },
     {
         "CRC32": "15EE889A",
         "English": "Champions Forever Boxing (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Champions Forever Boxing (USA)"
     },
     {
         "CRC32": "BB0B3AEF",
         "English": "Cadash (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Cadash (USA)"
     },
     {
         "CRC32": "9EDC0AEA",
         "English": "Champion Wrestler (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Champion Wrestler (Japan)"
     },
     {
         "CRC32": "8DC0D85F",
         "English": "Cadash (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Cadash (Japan)"
     },
     {
         "CRC32": "D0C250CA",
         "English": "Busou Keiji - Cyber Cross (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Busou Keiji - Cyber Cross (Japan)"
     },
     {
         "CRC32": "5C4D1991",
         "English": "Bull Fight - Ring no Hasha (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bull Fight - Ring no Hasha (Japan)"
     },
     {
         "CRC32": "CCA08B02",
         "English": "Bravoman (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bravoman (USA)"
     },
     {
         "CRC32": "8F4D9F94",
         "English": "Bouken Danshaku Don - The Lost Sunheart (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bouken Danshaku Don - The Lost Sunheart (Japan)"
     },
     {
         "CRC32": "C9D7426A",
         "English": "Break In (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Break In (Japan)"
     },
     {
         "CRC32": "0D766139",
         "English": "Bubblegum Crash! - Knight Sabers 2034 (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bubblegum Crash! - Knight Sabers 2034 (Japan)"
     },
     {
         "CRC32": "605BE213",
         "English": "Boxyboy (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Boxyboy (USA)"
     },
     {
         "CRC32": "14250F9A",
         "English": "Bonk's Revenge (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bonk's Revenge (USA)"
     },
     {
         "CRC32": "599EAD9B",
         "English": "Bonk's Adventure (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bonk's Adventure (USA)"
     },
     {
         "CRC32": "F36FFEE1",
         "English": "Bonk's Revenge (USA, Europe) (Wii Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bonk's Revenge (USA, Europe) (Wii Virtual Console)"
     },
     {
         "CRC32": "5A3F76D8",
         "English": "Bonk 3 - Bonk's Big Adventure (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bonk 3 - Bonk's Big Adventure (USA)"
     },
     {
         "CRC32": "4C7BA73B",
         "English": "Bomberman '93 (USA, Europe) (Wii U Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bomberman '93 (USA, Europe) (Wii U Virtual Console)"
     },
     {
         "CRC32": "56171C1C",
         "English": "Bomberman '93 (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bomberman '93 (USA)"
     },
     {
         "CRC32": "02309AA0",
         "English": "Bomberman '93 - Special Version (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bomberman '93 - Special Version (Japan)"
     },
     {
         "CRC32": "3D1F8ECE",
         "English": "Bomberman (USA) (Bomberman Collection)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bomberman (USA) (Bomberman Collection)"
     },
     {
         "CRC32": "1489FA51",
         "English": "Bomberman - Users Battle (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bomberman - Users Battle (Japan)"
     },
     {
         "CRC32": "5F6F3C2A",
         "English": "Bomberman (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bomberman (USA)"
     },
     {
         "CRC32": "37BAF6BC",
         "English": "Bloody Wolf (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bloody Wolf (USA)"
     },
     {
         "CRC32": "FFD92458",
         "English": "Bodycon Quest II (Japan) (Unl)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bodycon Quest II (Japan) (Unl)"
     },
     {
         "CRC32": "958BCD09",
         "English": "Blodia (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Blodia (Japan)"
     },
     {
         "CRC32": "B4A1B0F6",
         "English": "Blazing Lazers (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Blazing Lazers (USA)"
     },
     {
         "CRC32": "C9626A43",
         "English": "Benkei Gaiden (Japan) (Wii Virtual Console)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Benkei Gaiden (Japan) (Wii Virtual Console)"
     },
     {
         "CRC32": "2841FD1E",
         "English": "Bikkuriman World (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bikkuriman World (Japan)"
     },
     {
         "CRC32": "261F1013",
         "English": "Be Ball (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Be Ball (Japan)"
     },
     {
         "CRC32": "E1A73797",
         "English": "Benkei Gaiden (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Benkei Gaiden (Japan)"
     },
     {
         "CRC32": "E70B01AF",
         "English": "Battle Royale (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Battle Royale (USA)"
     },
     {
         "CRC32": "2CB92290",
         "English": "Battle Chopper (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Battle Chopper (Japan)"
     },
     {
         "CRC32": "C267E25D",
         "English": "Bari Bari Densetsu (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Bari Bari Densetsu (Japan)"
     },
     {
         "CRC32": "59E44F45",
         "English": "Battle Lode Runner (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Battle Lode Runner (Japan)"
     },
     {
         "CRC32": "106BB7B2",
         "English": "Batman (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Batman (Japan)"
     },
     {
         "CRC32": "4A3DF3CA",
         "English": "Barunba (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Barunba (Japan)"
     },
     {
         "CRC32": "8ACFC8AA",
         "English": "Ballistix (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Ballistix (Japan)"
     },
     {
         "CRC32": "420FA189",
         "English": "Ballistix (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Ballistix (USA)"
     },
     {
         "CRC32": "B866D282",
         "English": "AV Poker - World Gambler (Japan) (Unl)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "AV Poker - World Gambler (Japan) (Unl)"
     },
     {
         "CRC32": "5E4FA713",
         "English": "Artist Tool (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Artist Tool (Japan)"
     },
     {
         "CRC32": "20EF87FD",
         "English": "Armed F (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Armed F (Japan)"
     },
     {
         "CRC32": "DD175EFD",
         "English": "Atomic Robo-Kid Special (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Atomic Robo-Kid Special (Japan)"
     },
     {
         "CRC32": "2B54CBA2",
         "English": "Appare! Gateball (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Appare! Gateball (Japan)"
     },
     {
         "CRC32": "CACC06FB",
         "English": "Ankoku Densetsu (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Ankoku Densetsu (Japan)"
     },
     {
         "CRC32": "04A85769",
         "English": "All Star Power League (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "All Star Power League (Japan)"
     },
     {
         "CRC32": "933D5BCC",
         "English": "Air Zonk (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Air Zonk (USA)"
     },
     {
         "CRC32": "A980E0E9",
         "English": "Andre Panza Kick Boxing (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Andre Panza Kick Boxing (USA)"
     },
     {
         "CRC32": "60EDF4E1",
         "English": "Alien Crush (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Alien Crush (Japan)"
     },
     {
         "CRC32": "EA488494",
         "English": "Alien Crush (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Alien Crush (USA)"
     },
     {
         "CRC32": "FDE08D6D",
         "English": "1943 Kai (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "1943 Kai (Japan)"
     },
     {
         "CRC32": "B03E0B32",
         "English": "Aero Blasters (USA)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Aero Blasters (USA)"
     },
     {
         "CRC32": "25BE2B81",
         "English": "Aero Blasters (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "Aero Blasters (Japan)"
     },
     {
         "CRC32": "73614660",
         "English": "21 Emon - Mezase Hotel Ou!! (Japan)",
-        "Chinese": ""
+        "Chinese": "",
+        "ROM": "21 Emon - Mezase Hotel Ou!! (Japan)"
     }
 ]

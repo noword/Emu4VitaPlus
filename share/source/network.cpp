@@ -201,6 +201,7 @@ namespace Network
         if (fp < 0)
         {
             LogError("failed to create file: %s", dest_path);
+            curl_easy_cleanup(curl);
             return false;
         }
 

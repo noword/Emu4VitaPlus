@@ -457,17 +457,17 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
         if (item.is_dir)
             continue;
 
-        if (item.english_name.empty())
+        if (item.rom_name.empty())
             item.UpdateDetails();
 
-        if (!item.english_name.empty())
+        if (!item.rom_name.empty())
         {
-            std::string img_path = std::string(THUMBNAILS_PATH) + '/' + item.english_name + ".png";
+            std::string img_path = std::string(THUMBNAILS_PATH) + '/' + item.rom_name + ".png";
             if (File::Exist(img_path.c_str()) && File::GetSize(img_path.c_str()) > 0)
                 continue;
 
             int count = 0;
-            std::string english = Network::Escape(item.english_name);
+            std::string english = Network::Escape(item.rom_name);
             while (THUMBNAILS_NAME[count] != nullptr)
             {
                 std::string url = std::string(LIBRETRO_THUMBNAILS) + THUMBNAILS_NAME[count++] + "/" THUMBNAILS_SUBDIR "/" + english + ".png";
@@ -791,7 +791,7 @@ void TabBrowser::_OnItemUpdated(DirItem *item)
 
     if (_texture == nullptr)
     {
-        vita2d_texture *texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item->path.c_str(), item->english_name.c_str());
+        vita2d_texture *texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item->path.c_str(), item->rom_name.c_str());
         if (texture)
         {
             if (item == &_directory->GetItem(_index))

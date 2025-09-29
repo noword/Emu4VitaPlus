@@ -5,12 +5,6 @@
 #include <string>
 #include "language_define.h"
 
-enum NAME_LANG
-{
-    NAME_ENGLISH = 0,
-    NAME_LOCAL
-};
-
 class RomNameMap
 {
 public:
@@ -19,15 +13,15 @@ public:
 
     void Load();
 
-    bool GetName(uint32_t crc, const char **name, NAME_LANG lang) const;
-    bool GetName(uint32_t crc, const char **local_name, const char **english_name);
+    bool GetName(uint32_t crc, const char **name, int lang) const;
+    bool GetRom(uint32_t crc, const char **name) const;
     bool Valid() { return _map.size() > 0; };
 
 private:
-    bool _Load(const char *path, NAME_LANG lang);
-    bool _Load(const std::string &path, NAME_LANG lang);
+    bool _Load(const char *path);
     void _ReleaseNameBuf();
+    bool _GetName(uint32_t crc, const char **name, int index) const;
 
-    std::unordered_map<uint32_t, std::array<uint32_t, 2>> _map;
-    char *_name_buf[2];
+    std::unordered_map<uint32_t, std::array<char *, LANGUAGE_COUNT + 1>> _map;
+    char *_name_buf;
 };

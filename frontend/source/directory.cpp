@@ -9,6 +9,7 @@
 #include "log.h"
 #include "file.h"
 #include "archive_reader_factory.h"
+#include "config.h"
 #include "thread_base.h"
 
 #define THRESHOLD_FILE_COUNT 200
@@ -61,7 +62,7 @@ int32_t UpdateDetialsThread(uint32_t args, void *argp)
         LogDebug("crc32: %08x", item->crc32);
     }
 
-    if (item->english_name.empty() && item->display_name.empty())
+    if (item->rom_name.empty() && item->display_name.empty())
     {
         if (gPlaylists->IsValid())
         {
@@ -75,25 +76,22 @@ int32_t UpdateDetialsThread(uint32_t args, void *argp)
         if (gRomNameMap->Valid() && item->crc32)
         {
             const char *local_name;
-            const char *english_name;
-            gRomNameMap->GetName(item->crc32, &local_name, &english_name);
+            const char *rom_name;
+            gRomNameMap->GetName(item->crc32, &local_name, gConfig->language);
+            gRomNameMap->GetRom(item->crc32, &rom_name);
             if (local_name && *local_name && item->display_name.empty())
             {
                 item->display_name = local_name;
             }
 
-            if (english_name && *english_name)
+            if (rom_name && *rom_name)
             {
-                item->english_name = english_name;
-                if (item->display_name.empty())
-                {
-                    item->display_name = english_name;
-                }
+                item->rom_name = rom_name;
             }
         }
     }
 
-    LogDebug("  english_name: %s  display_name: %s", item->english_name.c_str(), item->display_name.c_str());
+    LogDebug("  rom_name: %s  display_name: %s", item->rom_name.c_str(), item->display_name.c_str());
 
     DirItemUpdateCallbackFunc callback = argument->callback;
     delete argument;
