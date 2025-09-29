@@ -289,8 +289,7 @@ namespace Utils
             delete[] data;
         }
 
-        sceKernelExitThread(0);
-        return 0;
+        return sceKernelExitDeleteThread(0);
     }
 
     void CheckVersion(CheckVersionCallback callback)
