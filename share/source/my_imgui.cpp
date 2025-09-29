@@ -17,7 +17,7 @@
 #define TEXT_FONT_NAME "AlibabaPuHuiTi-2-65-Medium.ttf"
 #define GAMEPAD_FONT_NAME "promptfont.ttf"
 #define ICON_FONT_NAME "fontello.ttf"
-#define FONT_CACHE_VERSION 1
+#define FONT_CACHE_VERSION 2
 
 #define TIME_X (VITA_WIDTH - 320)
 #define BATTERY_X (VITA_WIDTH - 100)
