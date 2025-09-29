@@ -335,7 +335,8 @@ namespace Network
             if (fp < 0)
             {
                 curl_easy_cleanup(easy);
-                LogWarn("Failed to open file: %s", task.file_name.c_str());
+                LogWarn("Failed to open file: %s error: %08x", task.file_name.c_str(), fp);
+                continue;
             }
 
             LogDebug("  open: %08x", fp);
