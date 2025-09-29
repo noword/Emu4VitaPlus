@@ -98,11 +98,13 @@ bool RomNameMap::_GetName(uint32_t crc, const char **name, int index) const
         {
             *name = iter->second[index];
             result = (**name != '\x00');
+            if ((!result) && index != 1) // failed to get rom name or local name
+            {
+                *name = iter->second[1];
+                result = (**name != '\x00');
+            }
         }
     }
-
-    if ((!result) && index != 1) // failed to get rom name or local name
-        result = _GetName(crc, name, 1);
 
     if (result)
         LogDebug("rom name: %s", *name);

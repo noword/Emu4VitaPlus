@@ -22,6 +22,6 @@ private:
     void _ReleaseNameBuf();
     bool _GetName(uint32_t crc, const char **name, int index) const;
 
-    std::unordered_map<uint32_t, std::array<char *, LANGUAGE_COUNT + 1>> _map;
+    std::unordered_map<uint32_t, std::array<char *, LANGUAGE_COUNT + 1>> _map; // key is crc32, the first is rom name
     char *_name_buf;
 };
