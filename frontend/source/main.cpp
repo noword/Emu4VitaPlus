@@ -66,6 +66,11 @@ int main(int argc, char *const argv[])
 
     File::MakeDirs(CORE_DATA_DIR);
     File::MakeDirs(CORE_SYSTEM_DIR);
+    if (THUMBNAILS_PATH[0])
+    {
+        File::MakeDirs(THUMBNAILS_PATH);
+    }
+
     gLog = new Log(CORE_LOG_PATH);
 
     LogInfo("Emu4Vita++ v%s", APP_VER_STR);
