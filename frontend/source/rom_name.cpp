@@ -37,8 +37,12 @@ bool RomNameMap::_Load(const char *path)
     }
 
     uint32_t *p = (uint32_t *)buf;
-
     uint32_t size = *p++;
+    uint32_t *pp = p + size * (LANGUAGE_COUNT + 2); // LANGUAGE_COUNT + CRC32 + ROM
+    uint32_t buf_size = *pp++;
+    _name_buf = new char[buf_size];
+    memcpy(_name_buf, pp, buf_size);
+    LogDebug("_name_buf %08x", _name_buf);
 
     if (_map.size() < size)
         _map.reserve(size);
@@ -49,28 +53,13 @@ bool RomNameMap::_Load(const char *path)
         std::array<char *, LANGUAGE_COUNT + 1> offsets;
         for (size_t j = 0; j < LANGUAGE_COUNT + 1; j++)
         {
-            offsets[j] = (char *)*p++;
+            offsets[j] = _name_buf + *p++;
         }
         _map[key] = offsets;
     }
 
-    size = *p++;
-    _name_buf = new char[size];
-    memcpy(_name_buf, p, size);
-
-    delete[] buf;
-
-    for (auto &iter : _map)
-    {
-        auto &offsets = iter.second;
-        for (size_t j = 0; j < LANGUAGE_COUNT + 1; j++)
-        {
-            offsets[j] = _name_buf + (uint32_t)offsets[j];
-        }
-    }
-
     LogDebug("  Load %d names from %s", _map.size(), path);
-    LogDebug("  name buf size: 0x%x", size);
+    LogDebug("  name buf size: 0x%x", buf_size);
 
     return true;
 }

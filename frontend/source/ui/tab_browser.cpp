@@ -457,6 +457,12 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
         if (item.is_dir)
             continue;
 
+        if (!tab->_directory->IsTested())
+        {
+            if (!tab->_directory->LegalTest(item.path.c_str(), &item))
+                continue;
+        }
+
         if (item.rom_name.empty())
             item.UpdateDetails();
 

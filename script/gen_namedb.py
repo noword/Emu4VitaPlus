@@ -38,6 +38,7 @@ for json_name, core_name in (
     ('arcade', 'ARC'),
     ('nes', 'NES'),
     ('snes', 'SNES'),
+    ('md', 'MD'),
     ('gba', 'GBA'),
     ('gbc', 'GBC'),
     ('msx', 'MSX'),

@@ -38,10 +38,10 @@ set(MAME
     "km_mame2003_xtreme_amped")
 
 if(CORE IN_LIST FBA)
-    add_compile_definitions(FBA_BUILD)
+    add_compile_definitions(FBA_BUILD ARC_BUILD)
     set(ARC_DAT_NAME fba_dat.zbin)
 elseif(CORE IN_LIST MAME)
-    add_compile_definitions(MAME_BUILD)
+    add_compile_definitions(MAME_BUILD ARC_BUILD)
     set(ARC_DAT_NAME mame_dat.zbin)
 endif()
 
