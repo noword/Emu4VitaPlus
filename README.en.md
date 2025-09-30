@@ -17,32 +17,32 @@ This is an emulator frontend for the PlayStation Vita, based on the [Libretro AP
 ### Select the core
 <img src="screenshots/arch.jpg" alt="drawing" width="720"/>
 
-|             |                                               |
-|-------------|-----------------------------------------------|
-| start       | on/off console icon                           |
-| right stick | control the scrolling of the instruction text |
-| ○/X         | boot the core                                 |
+|                                                                                                             |                                               |
+|-------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
+| <img src="screenshots/start.svg" width="30">                                                                | on/off console icon                           |
+| <img src="screenshots/analog-r-lr.svg" width="30">                                                          | control the scrolling of the instruction text |
+| <img src="screenshots/button-circle.svg" width="30"> or <img src="screenshots/button-cross.svg" width="30"> | boot the core                                 |
 
 ### ROM Browser
 <img src="screenshots/browser_en.jpg" alt="drawing" width="720"/>
 
-|        |                                                                         |
-|--------|-------------------------------------------------------------------------|
-| start  | add to/remove from favorite                                             |
-| select | popup the file manage menu                                              |
-| ○/X    | enter the directory / Return to the previous directory / start the game |
-| △      | search                                                                  |
-| □      | the next match file                                                     |
+|                                                                                                             |                                                                         |
+|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|
+| <img src="screenshots/start.svg" width="30">                                                                | add to/remove from favorite                                             |
+| <img src="screenshots/select.svg" width="30">                                                               | popup the file manage menu                                              |
+| <img src="screenshots/button-circle.svg" width="30"> or <img src="screenshots/button-cross.svg" width="30"> | enter the directory / Return to the previous directory / start the game |
+| <img src="screenshots/button-triangle.svg" width="30">                                                      | search                                                                  |
+| <img src="screenshots/button-square.svg" width="30">                                                        | the next match file                                                     |
 
 ### In game
 <img src="screenshots/game.jpg" alt="drawing" width="720"/>
 
-|                        |                   |
-|------------------------|-------------------|
-| ps + right stick(left) | rewind            |
-| ps + r1                | speed up          |
-| ps + l1                | speed down        |
-| ps                     | back to main menu |
+|                                                                                                       |                   |
+|-------------------------------------------------------------------------------------------------------|-------------------|
+| <img src="screenshots/playstation.svg" width="30">+ <img src="screenshots/analog-r-l.svg" width="30"> | rewind            |
+| <img src="screenshots/playstation.svg" width="30">+ <img src="screenshots/R.svg" width="30">          | speed up          |
+| <img src="screenshots/playstation.svg" width="30">+ <img src="screenshots/L.svg" width="30">          | speed down        |
+| <img src="screenshots/playstation.svg" width="30">                                                    | back to main menu |
 
 ### State
 <img src="screenshots/state_en.jpg" alt="drawing" width="720"/>
