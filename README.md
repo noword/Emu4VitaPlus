@@ -20,40 +20,40 @@
 
 ## 功能说明
 ### 内核选择
-<img src="screenshots/arch.jpg" alt="drawing" width="720"/>
+<img src="screenshots/arch.jpg" width="720"/>
 
-|        |                        |
-|--------|------------------------|
-| start  | 开启/关闭 console 图标 |
-| 右摇杆 | 控制说明文本滚动       |
-| ○/X    | 启动内核               |
+|                                                                                                             |                        |
+|-------------------------------------------------------------------------------------------------------------|------------------------|
+| <img src="screenshots/start.svg" width="30">                                                                | 开启/关闭 console 图标 |
+| <img src="screenshots/analog-r-lr.svg" width="30">                                                          | 控制说明文本滚动       |
+| <img src="screenshots/button-circle.svg" width="30"> 或 <img src="screenshots/button-cross.svg" width="30"> | 启动内核               |
 
 ### ROM 浏览
-<img src="screenshots/browser.jpg" alt="drawing" width="720"/>
+<img src="screenshots/browser.jpg" width="720"/>
 
-|        |                                |
-|--------|--------------------------------|
-| start  | 添加/移出收藏夹                |
-| select | 呼出文件管理菜单               |
-| ○/X    | 进入目录/返回上层目录/启动游戏 |
-| △      | 搜索                           |
-| □键    | 下一个搜索匹配文件             |
+|                                                                                                             |                                |
+|-------------------------------------------------------------------------------------------------------------|--------------------------------|
+| <img src="screenshots/start.svg" width="30">                                                                | 添加/移出收藏夹                |
+| <img src="screenshots/select.svg" width="30">                                                               | 呼出文件管理菜单               |
+| <img src="screenshots/button-circle.svg" width="30"> 或 <img src="screenshots/button-cross.svg" width="30"> | 进入目录/返回上层目录/启动游戏 |
+| <img src="screenshots/button-triangle.svg" width="30">                                                      | 搜索                           |
+| <img src="screenshots/button-square.svg" width="30">                                                        | 下一个搜索匹配文件             |
 
 ### 游戏
-<img src="screenshots/game.jpg" alt="drawing" width="720"/>
+<img src="screenshots/game.jpg" width="720"/>
 
-|               |            |
-|---------------|------------|
-| PS+右摇杆向左 | 回溯       |
-| PS+R1         | 加速       |
-| PS+L1         | 减速       |
-| PS            | 切换回菜单 |
+|                                                                                                       |            |
+|-------------------------------------------------------------------------------------------------------|------------|
+| <img src="screenshots/playstation.svg" width="30">+ <img src="screenshots/analog-r-l.svg" width="30"> | 回溯       |
+| <img src="screenshots/playstation.svg" width="30">+ <img src="screenshots/R.svg" width="30">          | 加速       |
+| <img src="screenshots/playstation.svg" width="30">+ <img src="screenshots/L.svg" width="30">          | 减速       |
+| <img src="screenshots/playstation.svg" width="30">                                                    | 切换回菜单 |
 
 ### 即时存档
-<img src="screenshots/state.jpg" alt="drawing" width="720"/>
+<img src="screenshots/state.jpg" width="720"/>
 
 ### 金手指
-<img src="screenshots/cheat.jpg" alt="drawing" width="720"/>
+<img src="screenshots/cheat.jpg" width="720"/>
 
 ### [遮罩和着色器](GRAPHICS.md)
 
