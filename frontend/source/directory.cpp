@@ -75,8 +75,8 @@ int32_t UpdateDetialsThread(uint32_t args, void *argp)
 
         if (gRomNameMap->Valid() && item->crc32)
         {
-            const char *local_name;
-            const char *rom_name;
+            const char *local_name = nullptr;
+            const char *rom_name = nullptr;
             gRomNameMap->GetName(item->crc32, &local_name, gConfig->language);
             gRomNameMap->GetRom(item->crc32, &rom_name);
             if (local_name && *local_name && item->display_name.empty())
