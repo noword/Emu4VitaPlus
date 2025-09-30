@@ -91,6 +91,11 @@ namespace Emu4VitaPlus
                 _resampler->Start();
             }
         }
+        else
+        {
+            delete _resampler;
+            _resampler = nullptr;
+        }
     }
 
     void Audio::Deinit()
@@ -128,9 +133,10 @@ namespace Emu4VitaPlus
 
         return false;
     }
-    // #define SAVE_AUDIO
+
     size_t Audio::SendAudioSample(const int16_t *data, size_t frames)
     {
+        // #define SAVE_AUDIO
 #ifdef SAVE_AUDIO
         static FILE *fp = nullptr;
         if (fp == nullptr)
