@@ -49,11 +49,11 @@ This is an emulator frontend for the PlayStation Vita, based on the [Libretro AP
 
 <img src="screenshots/keyboard.jpg" width="720"/>
 
-|                                                                                                           |          |
-|-----------------------------------------------------------------------------------------------------------|----------|
-| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/button-circle.svg" width="30"> | 切换键盘 |
-| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-u.svg" width="30">    | 键盘上移 |
-| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-d.svg" width="30">    | 键盘下移 |
+|                                                                                                           |                            |
+|-----------------------------------------------------------------------------------------------------------|----------------------------|
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/button-circle.svg" width="30"> | Switch Keyboard            |
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-u.svg" width="30">    | Move keyboard up           |
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-d.svg" width="30">    | 键盘Move keyboard down下移 |
 
 
 ### State
