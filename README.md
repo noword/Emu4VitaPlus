@@ -42,18 +42,36 @@
 ### 游戏
 <img src="screenshots/game.jpg" width="720"/>
 
-|                                                                                                       |            |
-|-------------------------------------------------------------------------------------------------------|------------|
-| <img src="screenshots/playstation.svg" width="30">+ <img src="screenshots/analog-r-l.svg" width="30"> | 回溯       |
-| <img src="screenshots/playstation.svg" width="30">+ <img src="screenshots/R.svg" width="30">          | 加速       |
-| <img src="screenshots/playstation.svg" width="30">+ <img src="screenshots/L.svg" width="30">          | 减速       |
-| <img src="screenshots/playstation.svg" width="30">                                                    | 切换回菜单 |
+|                                                                                                        |            |
+|--------------------------------------------------------------------------------------------------------|------------|
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-l.svg" width="30"> | 回溯       |
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/R.svg" width="30">          | 加速       |
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/L.svg" width="30">          | 减速       |
+| <img src="screenshots/playstation.svg" width="30">                                                     | 切换回菜单 |
+
+### PC OS 模拟器中，例如 DOS, PC98 等，呼出键盘
+
+<img src="screenshots/keyboard.jpg" width="720"/>
+
+|                                                                                                           |          |
+|-----------------------------------------------------------------------------------------------------------|----------|
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/button-circle.svg" width="30"> | 切换键盘 |
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-u.svg" width="30">    | 键盘上移 |
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-d.svg" width="30">    | 键盘下移 |
 
 ### 即时存档
 <img src="screenshots/state.jpg" width="720"/>
 
 ### 金手指
 <img src="screenshots/cheat.jpg" width="720"/>
+
+
+### 使用触控屏在 FCEumm 中打鸭子
+<img src="screenshots/duck_hunter.jpg" width="720"/>
+
+* 控制 ==> 设备端口2，设置为 Zapper
+
+
 
 ### [遮罩和着色器](GRAPHICS.md)
 

@@ -50,6 +50,9 @@ This is an emulator frontend for the PlayStation Vita, based on the [Libretro AP
 ### Cheat
 <img src="screenshots/cheat.jpg" alt="drawing" width="720"/>
 
+### Play Duck Hunt in FCEumm Using the Touchscreen
+<img src="screenshots/duck_hunter.jpg" width="720"/>
+Control ==> Device port 1, set to "Zapper"
 
 ### [overlay and shaders](GRAPHICS.md)
 
