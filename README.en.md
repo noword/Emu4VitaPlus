@@ -44,6 +44,18 @@ This is an emulator frontend for the PlayStation Vita, based on the [Libretro AP
 | <img src="screenshots/playstation.svg" width="30">+ <img src="screenshots/L.svg" width="30">          | speed down        |
 | <img src="screenshots/playstation.svg" width="30">                                                    | back to main menu |
 
+
+### In PC OS emulators, such as DOS, PC98, etc., call out the keyboard
+
+<img src="screenshots/keyboard.jpg" width="720"/>
+
+|                                                                                                           |          |
+|-----------------------------------------------------------------------------------------------------------|----------|
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/button-circle.svg" width="30"> | 切换键盘 |
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-u.svg" width="30">    | 键盘上移 |
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-d.svg" width="30">    | 键盘下移 |
+
+
 ### State
 <img src="screenshots/state_en.jpg" alt="drawing" width="720"/>
 
