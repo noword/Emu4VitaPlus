@@ -37,12 +37,13 @@ bool RomNameMap::_Load(const char *path)
     }
 
     uint32_t *p = (uint32_t *)buf;
-    uint32_t size = *p++;
-    uint32_t *pp = p + size * (LANGUAGE_COUNT + 2); // LANGUAGE_COUNT + CRC32 + ROM
-    uint32_t buf_size = *pp++;
+    uint32_t buf_size = *p++;
     _name_buf = new char[buf_size];
-    memcpy(_name_buf, pp, buf_size);
+    memcpy(_name_buf, p, buf_size);
     LogDebug("_name_buf %08x", _name_buf);
+
+    p += buf_size / sizeof(uint32_t);
+    uint32_t size = *p++;
 
     if (_map.size() < size)
         _map.reserve(size);

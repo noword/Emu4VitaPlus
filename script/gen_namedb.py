@@ -15,23 +15,11 @@ def str_crc32(s):
     return crc32(str(s).encode('utf-8')) & 0xFFFFFFFF
 
 
-def gen_db(infos, db_name, core_name):
-    map_io = BytesIO()
-    name_io = BytesIO()
-    name_io.write(b'\x00')
-    map_io.write(pack('I', len(infos)))
-    for key, name in infos.items():
-        map_io.write(pack('II', key, name_io.tell()))
-        name_io.write(name.encode('utf-8') + b'\x00')
-
-    buf = map_io.getvalue() + pack('I', name_io.tell()) + name_io.getvalue()
-    zbuf = lz4.block.compress(buf, mode='high_compression', store_size=False, compression=12)
-
-    open(f'{db_name}.{core_name}.bin', 'wb').write(buf)
-
-    with open(db_name + '.zdb', 'wb') as fp:
-        fp.write(pack('II', len(buf), len(zbuf)))
-        fp.write(zbuf)
+def write_padding(io, align, value=b'\x00'):
+    align -= 1
+    offset = io.tell()
+    size = ((offset + align) & ~align) - offset
+    io.write(value * size)
 
 
 for json_name, core_name in (
@@ -66,6 +54,7 @@ for json_name, core_name in (
             if n not in name_dict:
                 name_dict[n] = name_io.tell()
                 name_io.write(n.encode('utf-8') + b'\x00')
+    write_padding(name_io, 4)
 
     map_io = BytesIO()
     map_io.write(pack('I', len(names)))
@@ -85,7 +74,7 @@ for json_name, core_name in (
             d.append(name_dict[name.get(lang, '')])
         map_io.write(pack(f'{len(d)}I', *d))
 
-    buf = map_io.getvalue() + pack('I', name_io.tell()) + name_io.getvalue()
+    buf = pack('I', name_io.tell()) + name_io.getvalue() + map_io.getvalue()
     zbuf = lz4.block.compress(buf, mode='high_compression', store_size=False, compression=12)
     open(f'{core_name}.bin', 'wb').write(buf)
     db_name = f'{core_name}.zdb'
