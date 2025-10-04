@@ -1,26 +1,13 @@
 import xml.etree.ElementTree as ET
 from pathlib import Path
 from zlib import crc32
-from io import BytesIO
 from struct import pack, unpack
 import lz4.block
 from arc_dat import *
 
 
-def AlignUp(offset, align):
-    align -= 1
-    return (offset + align) & ~align
-
-
-def WritePadding(io, align, value=b'\x00'):
-    align -= 1
-    offset = io.tell()
-    size = ((offset + align) & ~align) - offset
-    io.write(value * size)
-
-
 def Grab(path, pattern):
-    data_io = BytesIO()
+    data_io = MyBytesIO()
     name_offsets = {}
     names = set()
     roms = {}
@@ -44,7 +31,7 @@ def Grab(path, pattern):
                     else:
                         roms[crc] = {name_offsets[name]}
 
-    WritePadding(data_io, 4)
+    data_io.write_padding(4)
     arcdat = ZArcDat()
     arcdat.name_buf = data_io.getvalue()
     arcdat.name_crc = names

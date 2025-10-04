@@ -1,25 +1,58 @@
-import json
+from baseio import *
 import lz4.block
+import json
 from zlib import crc32
-from io import BytesIO
-from struct import pack
 from cores import CORES
 import shutil
 import os
 
 
-LANGS = ('English', "Chinese", "Japanese", "Italian", "French", "Spanish", "Russian")
+KEYS = ('Rom', 'English', "Chinese", "Japanese", "Italian", "French", "Spanish", "Russian")
+
+
+class NameDB(Base, list):
+    def load(self, io):
+        size = io.read_uint32()
+        str_io = MyBytesIO(io.read(size))
+        num = io.read_uint32()
+        for _ in range(num):
+            item = {}
+            item['Crc32'] = io.read_uint32()
+            offsets = io.read_uint32(len(KEYS))
+            for i, offset in enumerate(offsets):
+                str_io.seek(offset, os.SEEK_SET)
+                item[KEYS[i]] = str_io.read_cstr()
+            self.append(item)
+
+    def save(self, io):
+        cache = {}
+        str_io = MyBytesIO()
+        cache[''] = 0
+        str_io.write_cstr('')
+        offsets = []
+        for item in self:
+            offsets.append(item['Crc32'])
+            for key in KEYS:
+                if item[key] in cache:
+                    offset = cache[item[key]]
+                else:
+                    cache[item[key]] = offset = str_io.tell()
+                    str_io.write_cstr(item[key])
+                offsets.append(offset)
+        str_io.write_padding(4)
+
+        io.write_uint32(str_io.tell())
+        io.write(str_io.getvalue())
+        io.write_uint32(len(self))
+        io.write_uint32(offsets)
+
+
+class ZNameDB(ZBase, NameDB):
+    pass
 
 
 def str_crc32(s):
     return crc32(str(s).encode('utf-8')) & 0xFFFFFFFF
-
-
-def write_padding(io, align, value=b'\x00'):
-    align -= 1
-    offset = io.tell()
-    size = ((offset + align) & ~align) - offset
-    io.write(value * size)
 
 
 for json_name, core_name in (
@@ -40,47 +73,25 @@ for json_name, core_name in (
     print(json_name)
     names = json.load(open(f'rom_db/{json_name}.names.json', encoding='utf-8'))
 
-    name_io = BytesIO()
-    name_io.write(b'\x00')
-    name_dict = {'': 0}
+    db = ZNameDB()
     for name in names:
-        rom = name.get('ROM', '')
-        if rom not in name_dict:
-            name_dict[rom] = name_io.tell()
-            name_io.write(rom.encode('utf-8') + b'\x00')
-
-        for lang in LANGS:
-            n = name.get(lang, '')
-            if n not in name_dict:
-                name_dict[n] = name_io.tell()
-                name_io.write(n.encode('utf-8') + b'\x00')
-    write_padding(name_io, 4)
-
-    map_io = BytesIO()
-    map_io.write(pack('I', len(names)))
-    for name in names:
+        item = {}
         if 'CRC32' in name:
-            crc = int(name['CRC32'], 16)
+            item['Crc32'] = int(name['CRC32'], 16)
         else:
-            crc = str_crc32(name['File'])
+            item['Crc32'] = str_crc32(name['File'])
 
         if 'ROM' in name:
-            rom = name['ROM']
+            item['Rom'] = name['ROM']
         else:
-            rom = name['English']
+            item['Rom'] = name['English']
 
-        d = [crc, name_dict[rom]]
-        for lang in LANGS:
-            d.append(name_dict[name.get(lang, '')])
-        map_io.write(pack(f'{len(d)}I', *d))
+        for key in KEYS[1:]:
+            item[key] = name.get(key, '')
+        db.append(item)
 
-    buf = pack('I', name_io.tell()) + name_io.getvalue() + map_io.getvalue()
-    zbuf = lz4.block.compress(buf, mode='high_compression', store_size=False, compression=12)
-    open(f'{core_name}.bin', 'wb').write(buf)
     db_name = f'{core_name}.zdb'
-    with open(db_name, 'wb') as fp:
-        fp.write(pack('II', len(buf), len(zbuf)))
-        fp.write(zbuf)
+    db.save(MyFile(db_name, 'wb'))
 
     shutil.copy(db_name, f'../arch/pkg/data/{core_name}/names.zdb')
     for core in CORES[core_name]:
