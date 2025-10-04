@@ -19,7 +19,9 @@ State::~State()
     LogFunctionName;
     if (_texture)
     {
+        gVideo->Lock();
         vita2d_free_texture(_texture);
+        gVideo->Unlock();
     }
 }
 
@@ -61,17 +63,30 @@ bool State::Save()
 {
     LogFunctionName;
 
+    if (_texture)
+    {
+        gVideo->Lock();
+        vita2d_free_texture(_texture);
+        _texture = nullptr;
+        gVideo->Unlock();
+    }
+
     // backup the path immediately
     std::string state_path = _state_path;
     std::string image_path = _image_path;
 
     FILE *fp;
-
+    bool result = false;
     size_t size = retro_serialize_size();
-    char *buf = new char[size];
+    LogDebug("  retro_serialize_size: %08x", size);
+    char *buf = new (std::nothrow) char[size];
+    if (buf == nullptr)
+    {
+        LogError("failed to malloc memory. size: %08x", size);
+        goto END;
+    }
 
-    bool result = retro_serialize(buf, size);
-    if (!result)
+    if (!retro_serialize(buf, size))
     {
         LogError("run retro_serialize failed");
         goto END;
@@ -87,22 +102,20 @@ bool State::Save()
     fwrite(buf, size, 1, fp);
     fclose(fp);
 
-    _valid = true;
+    if (!gEmulator->SaveScreenShot(image_path.c_str()))
+    {
+        LogError("failed to save screen shot: %s", image_path.c_str());
+        File::Remove(state_path.c_str());
+        goto END;
+    }
+
+    _texture = vita2d_load_JPEG_file(image_path.c_str());
     File::GetModifyTime(state_path.c_str(), &_create_time);
+    result = _valid = true;
 
 END:
-    delete[] buf;
-
-    result &= gEmulator->SaveScreenShot(image_path.c_str());
-
-    if (result)
-    {
-        if (_texture)
-        {
-            vita2d_free_texture(_texture);
-        }
-        _texture = vita2d_load_JPEG_file(image_path.c_str());
-    }
+    if (buf)
+        delete[] buf;
 
     return result;
 }

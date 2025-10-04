@@ -402,7 +402,7 @@ static void ConvertTextureToRGB888(vita2d_texture *texture, uint8_t *dst, size_t
     LogDebug("  texture format: %d", tex_format);
     switch (tex_format)
     {
-    case SCE_GXM_TEXTURE_FORMAT_X1U5U5U5_1RGB:
+    case SCE_GXM_TEXTURE_FORMAT_A1R5G5B5:
         src_format = AV_PIX_FMT_RGB555LE;
         break;
 
@@ -422,8 +422,15 @@ static void ConvertTextureToRGB888(vita2d_texture *texture, uint8_t *dst, size_t
     SwsContext *sws_ctx = sws_getContext(src_width, src_height, src_format,
                                          width, height, AV_PIX_FMT_RGB24,
                                          SWS_BILINEAR, NULL, NULL, NULL);
-    sws_scale(sws_ctx, &src, &src_stride, 0, src_height, &dst, &dst_stride);
-    sws_freeContext(sws_ctx);
+    if (!sws_ctx)
+    {
+        LogError("  run sws_getContext failed");
+    }
+    else
+    {
+        sws_scale(sws_ctx, &src, &src_stride, 0, src_height, &dst, &dst_stride);
+        sws_freeContext(sws_ctx);
+    }
 }
 
 static void RotateImage(uint8_t *buf, size_t width, size_t height, VIDEO_ROTATION rotation)

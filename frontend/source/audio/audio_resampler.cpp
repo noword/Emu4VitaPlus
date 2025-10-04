@@ -37,6 +37,7 @@ void AudioResampler::SetRate(uint32_t in_rate, uint32_t out_rate)
     if (_swr_ctx != nullptr)
     {
         swr_free(&_swr_ctx);
+        _swr_ctx = nullptr;
     }
     const AVChannelLayout channel = AV_CHANNEL_LAYOUT_STEREO;
     swr_alloc_set_opts2(&_swr_ctx,
