@@ -79,7 +79,7 @@ bool State::Save()
     bool result = false;
     size_t size = retro_serialize_size();
     LogDebug("  retro_serialize_size: %08x", size);
-    char *buf = new (std::nothrow) char[size];
+    char *buf = new (std::nothrow) char[size * 2]; // in some cores like vecx, retro_serialize_size return value is smaller
     if (buf == nullptr)
     {
         LogError("failed to malloc memory. size: %08x", size);
