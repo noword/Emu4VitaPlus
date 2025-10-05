@@ -357,7 +357,8 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         if (data && *(const unsigned *)data != 0)
         {
             LogDebug("  data: %d", *(const unsigned *)data);
-            gEmulator->SetSpeed(gEmulator->_speed); // will reset audio
+            // gEmulator->SetSpeed(gEmulator->_speed); // will reset audio
+            // gEmulator->_audio.SetLatency(*(const unsigned *)data);
         }
         break;
 

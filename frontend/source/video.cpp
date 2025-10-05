@@ -65,10 +65,10 @@ namespace Emu4VitaPlus
             case APP_STATUS_RUN_GAME:
             case APP_STATUS_REWIND_GAME:
             case APP_STATUS_SHOW_UI_IN_GAME:
-                BeginProfile("Video");
+                // BeginProfile("Video");
                 gEmulator->Show();
                 gUi->Show();
-                EndProfile("Video");
+                // EndProfile("Video");
                 break;
 
             default:

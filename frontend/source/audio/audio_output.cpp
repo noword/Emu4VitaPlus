@@ -58,3 +58,9 @@ unsigned AudioOutput::GetOccupancy()
 
     return 0;
 }
+
+int AudioOutput::GetRemain()
+{
+    int rest = sceAudioOutGetRestSample(_port);
+    return rest > 0 ? rest : 0;
+}

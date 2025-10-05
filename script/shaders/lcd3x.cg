@@ -37,8 +37,8 @@ void main (
 
 /* configuration (higher values mean brighter image but reduced effect depth) */
 /* TODO: Implement this using parameter uniforms */
-static const int brighten_scanlines = 32;
-static const int brighten_lcd = 12;
+static const int brighten_scanlines = 16;
+static const int brighten_lcd = 4;
 
 static const float3 offsets = 3.141592654 * float3(
   1.0 / 2,

@@ -712,6 +712,8 @@ void Ui::_ChangeLanguage()
 
     gVideo->Lock();
 
+    LanguageString::Init();
+
     My_Imgui_Destroy_Font();
     My_Imgui_Create_Font(gConfig->language, CACHE_DIR);
     for (auto tab : _tabs)

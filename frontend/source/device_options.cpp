@@ -3,7 +3,6 @@
 #include "log.h"
 
 #define DEVCIE_SECTION "DEVICE"
-static const char *Unset = gTexts[LANGUAGE_ENGLISH][LANG_UNSET];
 
 // the order is RETRO_DEVICE_xxx
 static const char *DEVICE_ICON[] = {
@@ -50,7 +49,7 @@ void ControllerTypes::SetValueIndex(size_t index)
 {
     if (index == 0 || index > this->size())
     {
-        value = Unset;
+        value = LanguageString(LANG_UNSET).GetOriginal();
     }
     else
     {
@@ -62,7 +61,7 @@ void ControllerTypes::SetValueIndex(size_t index)
 
 void ControllerTypes::Default()
 {
-    value = Unset;
+    value = LanguageString(LANG_UNSET).GetOriginal();
 }
 
 void ControllerTypes::Apply(uint32_t port) const
@@ -119,7 +118,7 @@ void DeviceOptions::Load(retro_controller_info *info)
             }
         }
         if (!found)
-            types->value = Unset;
+            types->value = LanguageString(LANG_UNSET).GetOriginal();
 
         info++;
         count++;
@@ -140,7 +139,7 @@ bool DeviceOptions::Load(CSimpleIniA &ini)
     {
         snprintf(tmp, 32, "device_%02d", i);
         ControllerTypes types;
-        types.value = ini.GetValue(DEVCIE_SECTION, tmp, Unset);
+        types.value = ini.GetValue(DEVCIE_SECTION, tmp, LanguageString(LANG_UNSET).GetOriginal());
         this->emplace_back(types);
     }
 
@@ -153,7 +152,7 @@ bool DeviceOptions::Save(CSimpleIniA &ini)
     int count = 0;
     for (auto const &iter : *this)
     {
-        if (iter.value != Unset)
+        if (iter.value != LanguageString(LANG_UNSET).GetOriginal())
         {
             snprintf(tmp, 32, "device_%02d", count);
             ini.SetValue(DEVCIE_SECTION, tmp, iter.value.c_str());

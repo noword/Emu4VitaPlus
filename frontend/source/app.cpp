@@ -83,7 +83,7 @@ App::App()
     SwapEnterButton(gConfig->swap_enter);
 
     Network::Init();
-    LanguageString::InitTrans();
+    LanguageString::Init();
 
     gEmulator = new Emulator();
     gVideo = new Video();

@@ -14,7 +14,8 @@ extern const char *TEXT(size_t index);
 class LanguageString
 {
 public:
-    static void InitTrans();
+    static void Init();
+    static const std::array<std::string, TEXT_COUNT> &Texts() { return _texts; };
 
     LanguageString(TEXT_ENUM text_id) : _text_id(text_id) {};
     LanguageString(const char *str) : _string(str), _text_id(INVALID_TEXT_ENUM) {};
@@ -29,8 +30,13 @@ public:
     TEXT_ENUM GetId() const { return _text_id; };
 
 private:
+    static void _InitTexts();
+    static void _InitTrans();
+
     TEXT_ENUM _text_id;
     std::string _string;
 
-    static std::unordered_map<std::string, TRANS> _trans;
+    static std::array<std::string, TEXT_COUNT> _english_texts;
+    static std::array<std::string, TEXT_COUNT> _texts;
+    static std::unordered_map<std::string, std::string> _trans;
 };

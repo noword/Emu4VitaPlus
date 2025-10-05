@@ -33,7 +33,7 @@ class Texts(Base, list):
         io.write_uint32(offsets)
 
 
-class Langauges(Base, dict):
+class Languages(Base, dict):
     def load(self, io):
         offsets = io.read_uint32(len(LANGS))
         for i, offset in enumerate(offsets):
@@ -52,19 +52,5 @@ class Langauges(Base, dict):
         io.write_uint32(offsets)
 
 
-class ZLanguages(ZBase, Langauges):
+class ZLanguages(ZBase, Languages):
     pass
-
-
-from trans import Translation
-
-for NAME, TAG in (('language', 'Tag'), ('translation', 'English')):
-    trans = Translation(f'{NAME}.json').get_trans(index=TAG)
-    zlangauges = ZLanguages()
-    for lang in LANGS:
-        zlangauges[lang] = Texts()
-
-    for k, v in trans.items():
-        for lang in LANGS:
-            zlangauges[lang].append(v[lang])
-    zlangauges.save(MyFile(f'{NAME}.zbin', 'wb'))

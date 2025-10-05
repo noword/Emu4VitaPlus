@@ -167,11 +167,11 @@ namespace Emu4VitaPlus
     {
         if (_buf_status_callback && _output)
         {
-            unsigned occupancy = _output->GetOccupancy();
-            _buf_status_callback(gConfig->mute, occupancy, occupancy < AUDIO_SKIP_THRESHOLD);
-            // if (occupancy < AUDIO_SKIP_THRESHOLD)
+            int remain = _output->GetRemain();
+            _buf_status_callback(gConfig->mute, remain * 100 / AUDIO_OUTPUT_COUNT, remain < AUDIO_OUTPUT_COUNT);
+            // if (remain < AUDIO_OUTPUT_COUNT)
             // {
-            //     LogDebug("skip audio: %d", occupancy);
+            //     LogDebug("skip audio: %d ", remain);
             // }
         }
     }

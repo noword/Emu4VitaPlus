@@ -11,6 +11,7 @@ public:
     virtual ~AudioOutput();
     void SetRate(uint32_t sample_size, uint32_t sample_rate);
     unsigned GetOccupancy();
+    int GetRemain();
 
 private:
     static int

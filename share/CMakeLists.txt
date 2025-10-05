@@ -8,23 +8,32 @@ add_custom_command(
     OUTPUT
     ${CMAKE_CURRENT_SOURCE_DIR}/source/language_define.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/source/language_define.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/pkg/assets/language.zbin
+    ${CMAKE_CURRENT_SOURCE_DIR}/pkg/assets/translation.zbin
 
     COMMAND python export_share.py
     COMMAND mv language_define.h ${CMAKE_CURRENT_SOURCE_DIR}/source
     COMMAND mv language_define.cpp ${CMAKE_CURRENT_SOURCE_DIR}/source
+    COMMAND mv language.zbin ${CMAKE_CURRENT_SOURCE_DIR}/pkg/assets
+    COMMAND mv translation.zbin ${CMAKE_CURRENT_SOURCE_DIR}/pkg/assets
 
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../script
 
     DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/../script/language.json
+    ${CMAKE_CURRENT_SOURCE_DIR}/../script/translation.json
     ${CMAKE_CURRENT_SOURCE_DIR}/../script/export_share.py
+    ${CMAKE_CURRENT_SOURCE_DIR}/../script/language.py
 )
 
 add_custom_target(
     LANG_SHARE
     DEPENDS
     ${CMAKE_CURRENT_SOURCE_DIR}/source/language_define.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/source/language_define.h)
+    ${CMAKE_CURRENT_SOURCE_DIR}/source/language_define.h
+    ${CMAKE_CURRENT_SOURCE_DIR}/pkg/assets/language.zbin
+    ${CMAKE_CURRENT_SOURCE_DIR}/pkg/assets/translation.zbin
+)
 
 add_compile_definitions(_APP_VER_STR="${APP_VER}")
 
