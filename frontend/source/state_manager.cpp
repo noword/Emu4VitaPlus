@@ -63,13 +63,7 @@ bool State::Save()
 {
     LogFunctionName;
 
-    if (_texture)
-    {
-        gVideo->Lock();
-        vita2d_free_texture(_texture);
-        _texture = nullptr;
-        gVideo->Unlock();
-    }
+    _valid = false;
 
     // backup the path immediately
     std::string state_path = _state_path;
@@ -79,7 +73,7 @@ bool State::Save()
     bool result = false;
     size_t size = retro_serialize_size();
     LogDebug("  retro_serialize_size: %08x", size);
-    char *buf = new (std::nothrow) char[size * 2]; // in some cores like vecx, retro_serialize_size return value is smaller
+    char *buf = new (std::nothrow) char[size];
     if (buf == nullptr)
     {
         LogError("failed to malloc memory. size: %08x", size);
@@ -109,8 +103,17 @@ bool State::Save()
         goto END;
     }
 
+    if (_texture)
+    {
+        gVideo->Lock();
+        vita2d_free_texture(_texture);
+        gVideo->Unlock();
+    }
+
     _texture = vita2d_load_JPEG_file(image_path.c_str());
+
     File::GetModifyTime(state_path.c_str(), &_create_time);
+
     result = _valid = true;
 
 END:

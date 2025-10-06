@@ -39,9 +39,12 @@ void ItemState::Show(bool selected)
   if (_state->Valid())
   {
     vita2d_texture *texture = _state->Texture();
-    w = vita2d_texture_get_width(texture) * h / vita2d_texture_get_height(texture);
-    ImGui::Image(texture, {w, h});
-    ImGui::SameLine();
+    if (texture)
+    {
+      w = vita2d_texture_get_width(texture) * h / vita2d_texture_get_height(texture);
+      ImGui::Image(texture, {w, h});
+      ImGui::SameLine();
+    }
   }
 
   if (selected)
