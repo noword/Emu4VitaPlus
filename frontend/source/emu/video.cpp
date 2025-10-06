@@ -214,7 +214,7 @@ void Emulator::_SetPixelFormat(retro_pixel_format format)
     switch (format)
     {
     case RETRO_PIXEL_FORMAT_0RGB1555:
-        _video_pixel_format = SCE_GXM_TEXTURE_FORMAT_A1R5G5B5;
+        _video_pixel_format = SCE_GXM_TEXTURE_FORMAT_X1U5U5U5_1RGB;
         break;
 
     case RETRO_PIXEL_FORMAT_XRGB8888:

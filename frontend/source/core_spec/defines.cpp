@@ -79,7 +79,8 @@ const char THUMBNAILS_PATH[] =
     defined(PC98_BUILD) ||    \
     defined(MSX_BUILD) ||     \
     defined(C64_BUILD) ||     \
-    defined(X68000_BUILD)
+    defined(X68000_BUILD) ||  \
+    defined(VECTREX_BUILD)
 const bool DEFAULT_ENABLE_REWIND = false;
 const size_t DEFAULT_REWIND_BUF_SIZE = 50;
 #else
