@@ -362,7 +362,7 @@ namespace Emu4VitaPlus
 
         for (auto &control : control_maps)
         {
-            control.retros.clear();
+            std::vector<uint8_t> retros;
             int count = 0;
             while (true)
             {
@@ -371,9 +371,14 @@ namespace Emu4VitaPlus
                 uint8_t r = ini.GetLongValue(PsvKeyStr.at(control.psv), tmp, RETRO_DEVICE_ID_NONE);
                 if (r == RETRO_DEVICE_ID_NONE)
                     break;
-                control.retros.push_back(r);
+                retros.push_back(r);
             }
-            control.turbo = ini.GetBoolValue(PsvKeyStr.at(control.psv), "turbo", control.turbo);
+
+            if (retros.size() > 0)
+            {
+                control.retros = retros;
+                control.turbo = ini.GetBoolValue(PsvKeyStr.at(control.psv), "turbo", control.turbo);
+            }
         }
 
         for (size_t i = 0; i < HOT_KEY_COUNT; i++)
