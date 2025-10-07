@@ -142,7 +142,7 @@ if(NOT BUILD_SELF)
         add_dependencies(${VPK_NAME} ${VPK_NAME}-vpk ${ARC_TAG})
     endif()
 
-    if(DEFINED ENV{PSVITAIP})
+    if(DEFINED ENV{PSVITAIP} AND NOT BUILD STREQUAL "All")
         add_custom_target(send COMMAND curl -T ${EBOOT_NAME} "ftp://$ENV{PSVITAIP}:1337/ux0:/app/${SFO_TITLE_ID}/eboot.bin")
         add_dependencies(send ${VPK_NAME})
 

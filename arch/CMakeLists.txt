@@ -109,7 +109,8 @@ target_link_libraries(
     SceSsl_stub)
 
 set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
-vita_create_self(eboot_${APP_NAME}.bin ${APP_NAME}.elf STRIPPED REL_OPTIMIZE)
+set(EBOOT_NAME "eboot_${APP_NAME}.bin")
+vita_create_self(${EBOOT_NAME} ${APP_NAME}.elf STRIPPED REL_OPTIMIZE)
 
 if(WITH_LOG)
     set(VPK_NAME ${APP_NAME}_v${APP_VER}_log.vpk)
@@ -121,11 +122,11 @@ set(VITA_MKSFOEX_FLAGS -d ATTRIBUTE2=12)
 vita_create_vpk(
     ${VPK_NAME}
     ${SFO_TITLE_ID}
-    eboot_${APP_NAME}.bin
+    ${EBOOT_NAME}
     VERSION
     ${SFO_APP_VER}
     NAME
-    "${SFO_TITLE_NAME}"
+    " ${SFO_TITLE_NAME} "
     ${PRIVATE_PKG_FILES}
     ${PUBLIC_PKG_FILES}
     ${CORE_FILES})
@@ -140,3 +141,9 @@ else()
     add_dependencies(${VPK_NAME}-vpk ${CORE_EBOOTS})
     add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk ${ARC_TAG})
 endif()
+
+add_custom_target(send COMMAND curl -T ${EBOOT_NAME} " ftp://$ENV{PSVITAIP}:1337/ux0:/app/${SFO_TITLE_ID}/eboot.bin ")
+add_dependencies(send VPK_${APP_NAME})
+
+add_custom_target(sendvpk COMMAND curl -T ${OUT_PATH}/${VPK_NAME} " ftp://$ENV{PSVITAIP}:1337/ux0: ")
+add_dependencies(sendvpk VPK_${APP_NAME})
