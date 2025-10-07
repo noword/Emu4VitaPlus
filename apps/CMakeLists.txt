@@ -127,7 +127,7 @@ if(NOT BUILD_SELF)
         ${PRIVATE_PKG_FILES}
         ${PUBLIC_PKG_FILES})
 
-    add_custom_target(VPK_${APP_NAME} ALL
+    add_custom_target(${VPK_NAME} ALL
         COMMAND ${CMAKE_COMMAND} -E rename ${VPK_NAME} ${OUT_PATH}/${VPK_NAME})
 
     get_directory_property(DEFINES COMPILE_DEFINITIONS)
@@ -137,8 +137,16 @@ if(NOT BUILD_SELF)
     endif()
 
     if(${CMAKE_VERSION} VERSION_LESS "3.20.0")
-        add_dependencies(VPK_${APP_NAME} ${VPK_NAME} ${ARC_TAG})
+        add_dependencies(${VPK_NAME} ${VPK_NAME} ${ARC_TAG})
     else()
-        add_dependencies(VPK_${APP_NAME} ${VPK_NAME}-vpk ${ARC_TAG})
+        add_dependencies(${VPK_NAME} ${VPK_NAME}-vpk ${ARC_TAG})
+    endif()
+
+    if(DEFINED ENV{PSVITAIP})
+        add_custom_target(send COMMAND curl -T ${EBOOT_NAME} "ftp://$ENV{PSVITAIP}:1337/ux0:/app/${SFO_TITLE_ID}/eboot.bin")
+        add_dependencies(send ${VPK_NAME})
+
+        add_custom_target(sendvpk COMMAND curl -T ${OUT_PATH}/${VPK_NAME} "ftp://$ENV{PSVITAIP}:1337/ux0:")
+        add_dependencies(sendvpk ${VPK_NAME})
     endif()
 endif()
