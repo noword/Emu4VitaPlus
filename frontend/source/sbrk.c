@@ -92,7 +92,7 @@ void _init_vita_heap(void)
 
 	_newlib_heap_size -= _newlib_vm_size;
 
-	_newlib_heap_memblock = sceKernelAllocMemBlock("Newlib heap", 0x0c20d060, _newlib_heap_size, 0);
+	_newlib_heap_memblock = sceKernelAllocMemBlock("Newlib heap", SCE_KERNEL_MEMBLOCK_TYPE_USER_RW, _newlib_heap_size, 0);
 	if (_newlib_heap_memblock < 0)
 	{
 		printf("sceKernelAllocMemBlock failed\n");
