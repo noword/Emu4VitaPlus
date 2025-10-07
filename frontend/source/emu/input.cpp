@@ -16,14 +16,6 @@ int16_t InputStateCallback(unsigned port, unsigned device, unsigned index, unsig
     LogFunctionNameLimited;
 
     // LogDebug("port:%d device:%d index:%d id:%d", port, device, index, id);
-    if (ENABLE_KEYBOARD && gEmulator->_keyboard->Visable())
-    {
-        if (device == RETRO_DEVICE_KEYBOARD)
-        {
-            gEmulator->_GetKeybaordState(index, id);
-        }
-        return 0;
-    }
 
     if ((device == RETRO_DEVICE_JOYPAD || device == RETRO_DEVICE_ANALOG) && port != 0)
         return 0;
@@ -35,6 +27,13 @@ int16_t InputStateCallback(unsigned port, unsigned device, unsigned index, unsig
 
     case RETRO_DEVICE_MOUSE:
         return gEmulator->_GetMouseState(index, id);
+
+    case RETRO_DEVICE_KEYBOARD:
+        if (ENABLE_KEYBOARD && gEmulator->_keyboard->Visable())
+        {
+            return gEmulator->_GetKeybaordState(index, id);
+        }
+        return 0;
 
     case RETRO_DEVICE_ANALOG:
         return gEmulator->_GetAnalogState(index, id);
