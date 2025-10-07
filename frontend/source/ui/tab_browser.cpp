@@ -468,15 +468,18 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
 
         if (!item.rom_name.empty())
         {
-            std::string img_path = std::string(THUMBNAILS_PATH) + '/' + item.rom_name + ".png";
+            std::string rom_name = item.rom_name;
+            std::replace(rom_name.begin(), rom_name.end(), '/', '_');
+
+            std::string img_path = std::string(THUMBNAILS_PATH) + '/' + rom_name + ".png";
             if (File::Exist(img_path.c_str()) && File::GetSize(img_path.c_str()) > 0)
                 continue;
 
             int count = 0;
-            std::string english = Network::Escape(item.rom_name);
+            rom_name = Network::Escape(rom_name);
             while (THUMBNAILS_NAME[count] != nullptr)
             {
-                std::string url = std::string(LIBRETRO_THUMBNAILS) + THUMBNAILS_NAME[count++] + "/" THUMBNAILS_SUBDIR "/" + english + ".png";
+                std::string url = std::string(LIBRETRO_THUMBNAILS) + THUMBNAILS_NAME[count++] + "/" THUMBNAILS_SUBDIR "/" + rom_name + ".png";
                 if (Network::GetSize(url.c_str()) > 0)
                 {
                     downloader.AddTask(url, img_path);

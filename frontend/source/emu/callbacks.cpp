@@ -1,6 +1,8 @@
+#define VFS_FRONTEND
 #include <stdlib.h>
 #include <stdint.h>
 #include <math.h>
+#include <vfs/vfs_implementation.h>
 #include "app.h"
 #include "emulator.h"
 #include "video.h"
@@ -268,11 +270,43 @@ bool EnvironmentCallback(unsigned cmd, void *data)
 
     case RETRO_ENVIRONMENT_SET_SERIALIZATION_QUIRKS:
         LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_SERIALIZATION_QUIRKS");
+        LogDebug("  quirks: 0x%llx", *(uint64_t *)data);
         return false;
 
     case RETRO_ENVIRONMENT_GET_VFS_INTERFACE:
-        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_VFS_INTERFACE");
-        return false;
+        LogDebug("  cmd: RETRO_ENVIRONMENT_GET_VFS_INTERFACE");
+        {
+            retro_vfs_interface_info *vfs_iface_info = (retro_vfs_interface_info *)data;
+            LogDebug("  requested version:", vfs_iface_info->required_interface_version);
+            static retro_vfs_interface vfs_iface =
+                {
+                    /* VFS API v1 */
+                    retro_vfs_file_get_path_impl,
+                    retro_vfs_file_open_impl,
+                    retro_vfs_file_close_impl,
+                    retro_vfs_file_size_impl,
+                    retro_vfs_file_tell_impl,
+                    retro_vfs_file_seek_impl,
+                    retro_vfs_file_read_impl,
+                    retro_vfs_file_write_impl,
+                    retro_vfs_file_flush_impl,
+                    retro_vfs_file_remove_impl,
+                    retro_vfs_file_rename_impl,
+                    /* VFS API v2 */
+                    retro_vfs_file_truncate_impl,
+                    /* VFS API v3 */
+                    retro_vfs_stat_impl,
+                    retro_vfs_mkdir_impl,
+                    retro_vfs_opendir_impl,
+                    retro_vfs_readdir_impl,
+                    retro_vfs_dirent_get_name_impl,
+                    retro_vfs_dirent_is_dir_impl,
+                    retro_vfs_closedir_impl};
+
+            vfs_iface_info->required_interface_version = 3;
+            vfs_iface_info->iface = &vfs_iface;
+        }
+        break;
 
     case RETRO_ENVIRONMENT_GET_LED_INTERFACE:
         LogDebug("  cmd: RETRO_ENVIRONMENT_GET_LED_INTERFACE");

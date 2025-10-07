@@ -10,7 +10,7 @@
 #include "global.h"
 #include "network.h"
 
-vita2d_texture *GetRomPreviewImage(const char *path, const char *name, const char *english_name, bool include_state)
+vita2d_texture *GetRomPreviewImage(const char *path, const char *name, const char *rom_name, bool include_state)
 {
     LogFunctionName;
     LogDebug("%s %s", path, name);
@@ -27,18 +27,20 @@ vita2d_texture *GetRomPreviewImage(const char *path, const char *name, const cha
     if (texture)
         goto END;
 
-    if (english_name && *english_name && gConfig->auto_download_thumbnail)
+    if (rom_name && *rom_name && gConfig->auto_download_thumbnail)
     {
-        img_path = std::string(THUMBNAILS_PATH) + '/' + english_name + ".png";
+        std::string rom{rom_name};
+        std::replace(rom.begin(), rom.end(), '/', '_');
+        img_path = std::string(THUMBNAILS_PATH) + '/' + rom + ".png";
         texture = vita2d_load_PNG_file((img_path).c_str());
         if (texture)
             goto END;
 
         int count = 0;
-        std::string english = Network::Escape(english_name);
+        rom = Network::Escape(rom);
         while (THUMBNAILS_NAME[count] != nullptr)
         {
-            std::string url = std::string(LIBRETRO_THUMBNAILS) + THUMBNAILS_NAME[count++] + "/" THUMBNAILS_SUBDIR "/" + english + ".png";
+            std::string url = std::string(LIBRETRO_THUMBNAILS) + THUMBNAILS_NAME[count++] + "/" THUMBNAILS_SUBDIR "/" + rom + ".png";
             if (Network::Download(url.c_str(), img_path.c_str()))
             {
                 texture = vita2d_load_PNG_file((img_path).c_str());

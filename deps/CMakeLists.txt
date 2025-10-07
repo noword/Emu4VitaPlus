@@ -2,44 +2,45 @@ cmake_minimum_required(VERSION 3.12)
 
 # retro_comm
 # ----------------------
+set(LIBRETRO_PATH "libretro-common")
 set(RETRO_SRC
-    "libretro-common/string/stdstring.c"
-    "libretro-common/encodings/encoding_utf.c"
-    "libretro-common/encodings/encoding_crc32.c"
-    "libretro-common/compat/fopen_utf8.c"
-    "libretro-common/compat/compat_strl.c"
-    "libretro-common/compat/compat_snprintf.c"
-    "libretro-common/compat/compat_strcasestr.c"
-    "libretro-common/compat/compat_posix_string.c"
-    "libretro-common/file/file_path.c"
-    "libretro-common/file/file_path_io.c"
-    "libretro-common/streams/file_stream.c"
-    "libretro-common/streams/file_stream_transforms.c"
-    "libretro-common/streams/memory_stream.c"
-    "libretro-common/lists/string_list.c"
-    "libretro-common/lists/file_list.c"
-    "libretro-common/lists/dir_list.c"
-    "libretro-common/file/retro_dirent.c"
-    "libretro-common/memmap/memalign.c"
-    "libretro-common/vfs/vfs_implementation.c"
-    "libretro-common/time/rtime.c"
-    "libretro-common/streams/interface_stream.c"
-    "libretro-common/streams/rzip_stream.c"
-    "libretro-common/streams/stdin_stream.c"
-    "libretro-common/streams/trans_stream.c"
-    "libretro-common/streams/trans_stream_pipe.c"
-    "libretro-common/streams/trans_stream_zlib.c"
-    "libretro-common/features/features_cpu.c"
-    "libretro-common/file/config_file.c"
-    "libretro-common/file/config_file_userdata.c"
-    "libretro-common/rthreads/rthreads.c"
-    "libretro-common/audio/resampler/audio_resampler.c"
-    "libretro-common/audio/resampler/drivers/sinc_resampler.c"
-    "libretro-common/audio/resampler/drivers/nearest_resampler.c"
-    "libretro-common/audio/conversion/s16_to_float.c"
-    "libretro-common/audio/conversion/float_to_s16.c")
+    "${LIBRETRO_PATH}/string/stdstring.c"
+    "${LIBRETRO_PATH}/encodings/encoding_utf.c"
+    "${LIBRETRO_PATH}/encodings/encoding_crc32.c"
+    "${LIBRETRO_PATH}/compat/fopen_utf8.c"
+    "${LIBRETRO_PATH}/compat/compat_strl.c"
+    "${LIBRETRO_PATH}/compat/compat_snprintf.c"
+    "${LIBRETRO_PATH}/compat/compat_strcasestr.c"
+    "${LIBRETRO_PATH}/compat/compat_posix_string.c"
+    "${LIBRETRO_PATH}/file/file_path.c"
+    "${LIBRETRO_PATH}/file/file_path_io.c"
+    "${LIBRETRO_PATH}/streams/file_stream.c"
+    "${LIBRETRO_PATH}/streams/file_stream_transforms.c"
+    "${LIBRETRO_PATH}/streams/memory_stream.c"
+    "${LIBRETRO_PATH}/lists/string_list.c"
+    "${LIBRETRO_PATH}/lists/file_list.c"
+    "${LIBRETRO_PATH}/lists/dir_list.c"
+    "${LIBRETRO_PATH}/file/retro_dirent.c"
+    "${LIBRETRO_PATH}/memmap/memalign.c"
+    "${LIBRETRO_PATH}/vfs/vfs_implementation.c"
+    "${LIBRETRO_PATH}/time/rtime.c"
+    "${LIBRETRO_PATH}/streams/interface_stream.c"
+    "${LIBRETRO_PATH}/streams/rzip_stream.c"
+    "${LIBRETRO_PATH}/streams/stdin_stream.c"
+    "${LIBRETRO_PATH}/streams/trans_stream.c"
+    "${LIBRETRO_PATH}/streams/trans_stream_pipe.c"
+    "${LIBRETRO_PATH}/streams/trans_stream_zlib.c"
+    "${LIBRETRO_PATH}/features/features_cpu.c"
+    "${LIBRETRO_PATH}/file/config_file.c"
+    "${LIBRETRO_PATH}/file/config_file_userdata.c"
+    "${LIBRETRO_PATH}/rthreads/rthreads.c"
+    "${LIBRETRO_PATH}/audio/resampler/audio_resampler.c"
+    "${LIBRETRO_PATH}/audio/resampler/drivers/sinc_resampler.c"
+    "${LIBRETRO_PATH}/audio/resampler/drivers/nearest_resampler.c"
+    "${LIBRETRO_PATH}/audio/conversion/s16_to_float.c"
+    "${LIBRETRO_PATH}/audio/conversion/float_to_s16.c")
 
-include_directories(" libretro-common/include ")
+include_directories(" ${LIBRETRO_PATH}/include ")
 
 add_compile_definitions(VITA HAVE_NEON HAVE_THREADS HAVE_COMPRESSION HAVE_ZLIB HAVE_7ZIP __ARM_NEON__)
 add_library(retro_comm STATIC ${RETRO_SRC})
@@ -130,21 +131,21 @@ add_subdirectory(simpleini)
 
 # minizip-ng
 # ----------------------
-option(MZ_BZIP2 "" OFF)
-option(MZ_LZMA "" OFF)
-option(MZ_ZSTD "" OFF)
-option(MZ_PKCRYPT "" OFF)
-option(MZ_WZAES "" OFF)
-option(MZ_DECOMPRESS_ONLY "" ON)
-option(MZ_FETCH_LIBS "" ON)
-option(MZ_FORCE_FETCH_LIBS "" ON)
+option(MZ_BZIP2 " " OFF)
+option(MZ_LZMA " " OFF)
+option(MZ_ZSTD " " OFF)
+option(MZ_PKCRYPT " " OFF)
+option(MZ_WZAES " " OFF)
+option(MZ_DECOMPRESS_ONLY " " ON)
+option(MZ_FETCH_LIBS " " ON)
+option(MZ_FORCE_FETCH_LIBS " " ON)
 
-option(ZLIB_COMPAT "" ON)
-option(ZLIB_ENABLE_TESTS "" OFF)
-option(ZLIBNG_ENABLE_TESTS "" OFF)
-option(WITH_GZFILEOP "" OFF)
-option(WITH_GTEST "" OFF)
-option(ZLIBNG_ENABLE_TESTS "" OFF)
+option(ZLIB_COMPAT " " ON)
+option(ZLIB_ENABLE_TESTS " " OFF)
+option(ZLIBNG_ENABLE_TESTS " " OFF)
+option(WITH_GZFILEOP " " OFF)
+option(WITH_GTEST " " OFF)
+option(ZLIBNG_ENABLE_TESTS " " OFF)
 add_subdirectory(minizip-ng)
 
 # lz4
