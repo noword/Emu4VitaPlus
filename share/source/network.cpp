@@ -10,9 +10,22 @@
 // #define USER_AGENT "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36"
 #define USER_AGENT "libhttp/3.65 (PS Vita)"
 #define POOL_SIZE (1 * 1024 * 1024)
+#define MAX_URL_LENGTH 1024
 
 namespace Network
 {
+    struct DownloadBuffer
+    {
+        uint8_t *data;
+        uint64_t size;
+    };
+
+    struct FetchThreadData
+    {
+        FetchCallbackFunc callback;
+        char url[MAX_URL_LENGTH];
+    };
+
     static bool NetworkInited = false;
 
     void Init()
@@ -96,12 +109,6 @@ namespace Network
         curl_easy_setopt(curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
     }
 
-    struct DownloadBuffer
-    {
-        uint8_t *data;
-        uint64_t size;
-    };
-
     static size_t MemroyWriteCallback(void *ptr, size_t size, size_t nmemb, void *userdata)
     {
         size_t total_size = size * nmemb;
@@ -116,7 +123,7 @@ namespace Network
         return sceIoWrite(*(SceUID *)userdata, ptr, size * nmemb);
     }
 
-    bool Download(const char *url, uint8_t **data, uint64_t *size)
+    bool Fetch(const char *url, uint8_t **data, uint64_t *size)
     {
         LogFunctionName;
         LogDebug("  url: %s", url);
@@ -226,6 +233,36 @@ namespace Network
             File::Remove(dest_path);
             return false;
         }
+    }
+
+    int32_t FetchThread(uint32_t args, void *argp)
+    {
+        LogFunctionName;
+        FetchThreadData *data = (FetchThreadData *)argp;
+        uint8_t *buf;
+        uint64_t size;
+        if (Fetch(data->url, &buf, &size))
+        {
+            data->callback(buf, size);
+            delete[] buf;
+        }
+        else
+        {
+            data->callback(nullptr, 0);
+        }
+
+        return sceKernelExitDeleteThread(0);
+    }
+
+    void Fetch(const char *url, FetchCallbackFunc callback)
+    {
+        LogFunctionName;
+        FetchThreadData data;
+        data.callback = callback;
+        strncpy(data.url, url, MAX_URL_LENGTH);
+
+        SceUID thread_id = sceKernelCreateThread(__PRETTY_FUNCTION__, FetchThread, 0x10000100, 0x10000, 0, SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT, NULL);
+        sceKernelStartThread(thread_id, sizeof(FetchThreadData), (void *)&data);
     }
 
     size_t GetSize(const char *url)

@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <queue>
+#include <functional>
 #include <map>
 #include <stdint.h>
 #include <psp2/net/net.h>
@@ -8,6 +9,7 @@
 
 namespace Network
 {
+    using FetchCallbackFunc = std::function<void(uint8_t *data, uint64_t size)>;
 
     void Init();
     void Deinit();
@@ -15,7 +17,8 @@ namespace Network
     bool Connected();
     std::string Escape(std::string in);
 
-    bool Download(const char *url, uint8_t **data, uint64_t *size); // must delete the data pointer, if return value is true
+    void Fetch(const char *url, FetchCallbackFunc callback);
+    bool Fetch(const char *url, uint8_t **data, uint64_t *size); // must delete the data pointer, if return value is true
     bool Download(const char *url, const char *dest_path);
     size_t GetSize(const char *url);
 
