@@ -5,7 +5,7 @@
 #include "defines.h"
 #include "utils.h"
 
-#define DEFAULT_TEXTURE_BUF_COUNT 10
+#define DEFAULT_TEXTURE_BUF_COUNT 4
 
 class TextureBuf : public std::array<vita2d_texture *, DEFAULT_TEXTURE_BUF_COUNT>
 {
