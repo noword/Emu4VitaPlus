@@ -4,46 +4,64 @@ cmake_minimum_required(VERSION 3.12)
 # ----------------------
 set(LIBRETRO_PATH "libretro-common")
 set(RETRO_SRC
-    "${LIBRETRO_PATH}/string/stdstring.c"
-    "${LIBRETRO_PATH}/encodings/encoding_utf.c"
-    "${LIBRETRO_PATH}/encodings/encoding_crc32.c"
-    "${LIBRETRO_PATH}/compat/fopen_utf8.c"
-    "${LIBRETRO_PATH}/compat/compat_strl.c"
-    "${LIBRETRO_PATH}/compat/compat_snprintf.c"
-    "${LIBRETRO_PATH}/compat/compat_strcasestr.c"
-    "${LIBRETRO_PATH}/compat/compat_posix_string.c"
-    "${LIBRETRO_PATH}/file/file_path.c"
-    "${LIBRETRO_PATH}/file/file_path_io.c"
-    "${LIBRETRO_PATH}/streams/file_stream.c"
-    "${LIBRETRO_PATH}/streams/file_stream_transforms.c"
-    "${LIBRETRO_PATH}/streams/memory_stream.c"
-    "${LIBRETRO_PATH}/lists/string_list.c"
-    "${LIBRETRO_PATH}/lists/file_list.c"
-    "${LIBRETRO_PATH}/lists/dir_list.c"
-    "${LIBRETRO_PATH}/file/retro_dirent.c"
-    "${LIBRETRO_PATH}/memmap/memalign.c"
-    "${LIBRETRO_PATH}/vfs/vfs_implementation.c"
-    "${LIBRETRO_PATH}/time/rtime.c"
-    "${LIBRETRO_PATH}/streams/interface_stream.c"
-    "${LIBRETRO_PATH}/streams/rzip_stream.c"
-    "${LIBRETRO_PATH}/streams/stdin_stream.c"
-    "${LIBRETRO_PATH}/streams/trans_stream.c"
-    "${LIBRETRO_PATH}/streams/trans_stream_pipe.c"
-    "${LIBRETRO_PATH}/streams/trans_stream_zlib.c"
-    "${LIBRETRO_PATH}/features/features_cpu.c"
-    "${LIBRETRO_PATH}/file/config_file.c"
-    "${LIBRETRO_PATH}/file/config_file_userdata.c"
-    "${LIBRETRO_PATH}/rthreads/rthreads.c"
-    "${LIBRETRO_PATH}/audio/resampler/audio_resampler.c"
-    "${LIBRETRO_PATH}/audio/resampler/drivers/sinc_resampler.c"
-    "${LIBRETRO_PATH}/audio/resampler/drivers/nearest_resampler.c"
-    "${LIBRETRO_PATH}/audio/conversion/s16_to_float.c"
-    "${LIBRETRO_PATH}/audio/conversion/float_to_s16.c")
-
-include_directories(" ${LIBRETRO_PATH}/include ")
+    ${LIBRETRO_PATH}/string/stdstring.c
+    ${LIBRETRO_PATH}/encodings/encoding_utf.c
+    ${LIBRETRO_PATH}/encodings/encoding_crc32.c
+    ${LIBRETRO_PATH}/compat/fopen_utf8.c
+    ${LIBRETRO_PATH}/compat/compat_strl.c
+    ${LIBRETRO_PATH}/compat/compat_snprintf.c
+    ${LIBRETRO_PATH}/compat/compat_strcasestr.c
+    ${LIBRETRO_PATH}/compat/compat_posix_string.c
+    ${LIBRETRO_PATH}/file/file_path.c
+    ${LIBRETRO_PATH}/file/file_path_io.c
+    ${LIBRETRO_PATH}/streams/file_stream.c
+    ${LIBRETRO_PATH}/streams/file_stream_transforms.c
+    ${LIBRETRO_PATH}/streams/memory_stream.c
+    ${LIBRETRO_PATH}/lists/string_list.c
+    ${LIBRETRO_PATH}/lists/file_list.c
+    ${LIBRETRO_PATH}/lists/dir_list.c
+    ${LIBRETRO_PATH}/file/retro_dirent.c
+    ${LIBRETRO_PATH}/memmap/memalign.c
+    ${LIBRETRO_PATH}/vfs/vfs_implementation.c
+    ${LIBRETRO_PATH}/time/rtime.c
+    ${LIBRETRO_PATH}/streams/interface_stream.c
+    ${LIBRETRO_PATH}/streams/rzip_stream.c
+    ${LIBRETRO_PATH}/streams/stdin_stream.c
+    ${LIBRETRO_PATH}/streams/trans_stream.c
+    ${LIBRETRO_PATH}/streams/trans_stream_pipe.c
+    ${LIBRETRO_PATH}/streams/trans_stream_zlib.c
+    ${LIBRETRO_PATH}/features/features_cpu.c
+    ${LIBRETRO_PATH}/file/config_file.c
+    ${LIBRETRO_PATH}/file/config_file_userdata.c
+    ${LIBRETRO_PATH}/rthreads/rthreads.c
+    ${LIBRETRO_PATH}/audio/resampler/audio_resampler.c
+    ${LIBRETRO_PATH}/audio/resampler/drivers/sinc_resampler.c
+    ${LIBRETRO_PATH}/audio/resampler/drivers/nearest_resampler.c
+    ${LIBRETRO_PATH}/audio/conversion/s16_to_float.c
+    ${LIBRETRO_PATH}/audio/conversion/float_to_s16.c)
 
 add_compile_definitions(VITA HAVE_NEON HAVE_THREADS HAVE_COMPRESSION HAVE_ZLIB HAVE_7ZIP __ARM_NEON__)
 add_library(retro_comm STATIC ${RETRO_SRC})
+target_include_directories(retro_comm PRIVATE ${LIBRETRO_PATH}/include)
+
+# rcheevos
+# ----------------------
+set(RCHEEVOS_PATH rcheevos)
+file(GLOB RCHEEVOS_SRC
+    ${RCHEEVOS_PATH}/src/*.c
+    ${RCHEEVOS_PATH}/src/rapi/*.c
+    ${RCHEEVOS_PATH}/src/rcheevos/*.c
+    ${RCHEEVOS_PATH}/src/rhash/*.c)
+add_library(rcheevos STATIC ${RCHEEVOS_SRC})
+target_include_directories(rcheevos PRIVATE
+    ${RCHEEVOS_PATH}/include
+    ${RCHEEVOS_PATH}/src
+    ${RCHEEVOS_PATH}/src/rapi
+    ${RCHEEVOS_PATH}/src/rcheevos
+    ${RCHEEVOS_PATH}/src/rhash
+    ${LIBRETRO_PATH}/include
+)
+target_compile_definitions(rcheevos PRIVATE RC_CLIENT_SUPPORTS_EXTERNAL RC_CLIENT_SUPPORTS_RAINTEGRATION)
 
 # vita2d
 # ----------------------

@@ -204,3 +204,7 @@
 	path = cores/libretro-crocods
 	url = https://github.com/libretro/libretro-crocods.git
 	branch = master
+[submodule "deps/rcheevos"]
+	path = deps/rcheevos
+	url = https://github.com/RetroAchievements/rcheevos.git
+	branch = master

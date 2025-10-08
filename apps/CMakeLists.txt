@@ -63,6 +63,7 @@ target_link_libraries(
     ${ELF_NAME}
     ${LIBRETRO_LIBRARY}
     retro_comm
+    rcheevos
     share
     frontend
     curl
