@@ -26,15 +26,8 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=$VITASDK/share/vita.toolchain.cmake \
 -DHAVE_FCNTL_O_NONBLOCK=OFF \
 -DCURL_DISABLE_NTLM=ON \
 -DCURL_DISABLE_HSTS=ON \
--DCURL_DISABLE_COOKIES=ON \
--DCURL_DISABLE_BASIC_AUTH=ON \
--DCURL_DISABLE_BEARER_AUTH=ON \
--DCURL_DISABLE_DIGEST_AUTH=ON \
--DCURL_DISABLE_KERBEROS_AUTH=ON \
--DCURL_DISABLE_NEGOTIATE_AUTH=ON \
 -DCURL_DISABLE_SRP=ON \
 -DCURL_DISABLE_VERBOSE_STRINGS=ON \
--DCURL_DISABLE_HTTP_AUTH=ON \
 -DCURL_CA_BUNDLE="vs0:data/external/cert/CA_LIST.cer" \
 -DCMAKE_C_FLAGS=" -DNO_WRITEV -DSOMAXCONN=128 -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fdata-sections -ffunction-sections -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -Os"
 ```
