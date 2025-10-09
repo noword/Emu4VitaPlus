@@ -18,7 +18,9 @@ namespace Network
     std::string Escape(std::string in);
 
     void Fetch(const char *url, FetchCallbackFunc callback);
-    bool Fetch(const char *url, uint8_t **data, uint64_t *size); // must delete the data pointer, if return value is true
+    void Fetch(const char *url, char *post_data, size_t post_size, FetchCallbackFunc callback);
+    bool Fetch(const char *url, char *post_data, size_t post_size, uint8_t **data, uint64_t *size); // must delete the data pointer, if return value is true
+    bool Fetch(const char *url, uint8_t **data, uint64_t *size);                                    // must delete the data pointer, if return value is true
     bool Download(const char *url, const char *dest_path);
     size_t GetSize(const char *url);
 

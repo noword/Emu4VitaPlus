@@ -20,10 +20,12 @@ namespace Network
         uint64_t size;
     };
 
-    struct FetchThreadData
+    struct FetchThreadArg
     {
         FetchCallbackFunc callback;
-        char url[MAX_URL_LENGTH];
+        char *url;
+        char *post_data;
+        size_t post_size;
     };
 
     static bool NetworkInited = false;
@@ -125,6 +127,11 @@ namespace Network
 
     bool Fetch(const char *url, uint8_t **data, uint64_t *size)
     {
+        return Fetch(url, nullptr, 0, data, size);
+    }
+
+    bool Fetch(const char *url, char *post_data, size_t post_size, uint8_t **data, uint64_t *size)
+    {
         LogFunctionName;
         LogDebug("  url: %s", url);
 
@@ -146,6 +153,15 @@ namespace Network
 
         curl_easy_setopt(curl, CURLOPT_URL, url);
         curl_easy_setopt(curl, CURLOPT_NOBODY, 1);
+        if (post_data)
+        {
+            curl_easy_setopt(curl, CURLOPT_POSTFIELDS, post_data);
+            if (post_size > 0)
+            {
+                curl_easy_setopt(curl, CURLOPT_POSTFIELDSIZE, post_size);
+            }
+        }
+
         CURLcode res = curl_easy_perform(curl);
 
         if (res != CURLE_OK)
@@ -238,13 +254,19 @@ namespace Network
     int32_t FetchThread(uint32_t args, void *argp)
     {
         LogFunctionName;
-        FetchThreadData *data = (FetchThreadData *)argp;
+        FetchThreadArg *arg = (FetchThreadArg *)argp;
         uint8_t *buf;
         uint64_t size;
-        if (Fetch(data->url, &buf, &size))
+        if (Fetch(arg->url, &buf, &size))
         {
-            data->callback(buf, size);
+            arg->callback(buf, size);
             delete[] buf;
+        }
+
+        delete[] arg->url;
+        if (arg->post_data)
+        {
+            delete[] arg->post_data;
         }
 
         return sceKernelExitDeleteThread(0);
@@ -252,13 +274,31 @@ namespace Network
 
     void Fetch(const char *url, FetchCallbackFunc callback)
     {
+        Fetch(url, nullptr, 0, callback);
+    }
+
+    void Fetch(const char *url, char *post_data, size_t post_size, FetchCallbackFunc callback)
+    {
         LogFunctionName;
-        FetchThreadData data;
-        data.callback = callback;
-        strncpy(data.url, url, MAX_URL_LENGTH);
+        FetchThreadArg arg{0};
+        arg.callback = callback;
+
+        arg.url = new char[strlen(url) + 1];
+        strcpy(arg.url, url);
+
+        if (post_data)
+        {
+            if (post_size <= 0)
+            {
+                post_size = strlen(post_data);
+            }
+            arg.post_data = new char[post_size + 1];
+            memcpy(arg.post_data, post_data, post_size);
+            arg.post_data[post_size] = '\x00';
+        }
 
         SceUID thread_id = sceKernelCreateThread(__PRETTY_FUNCTION__, FetchThread, 0x10000100, 0x10000, 0, SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT, NULL);
-        sceKernelStartThread(thread_id, sizeof(FetchThreadData), (void *)&data);
+        sceKernelStartThread(thread_id, sizeof(FetchThreadArg), (void *)&arg);
     }
 
     size_t GetSize(const char *url)
