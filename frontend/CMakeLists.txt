@@ -12,7 +12,8 @@ include_directories(
     ../deps/libvita2d_ext/libvita2d_ext/include
     ../deps/simpleini
     ../deps/minizip-ng
-    ../deps/7-Zip/C)
+    ../deps/7-Zip/C
+    ../deps/rcheevos/include)
 
 file(GLOB SRC
     source/*.c
