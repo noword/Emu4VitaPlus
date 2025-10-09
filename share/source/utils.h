@@ -40,6 +40,4 @@ namespace Utils
     int Utf8ToUtf16(const char *utf8, uint16_t *utf16, size_t size);
 
     LANGUAGE GetDefaultLanguage();
-
-    void CheckVersion(CheckVersionCallback callback);
 };

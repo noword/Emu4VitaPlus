@@ -4,7 +4,6 @@
 #include <psp2/apputil.h>
 #include <psp2/display.h>
 #include <vita2d.h>
-#include <jsoncpp/json/json.h>
 #include "my_imgui.h"
 #include "app.h"
 #include "config.h"
@@ -153,7 +152,7 @@ App::App()
 
     gUi->ClearLogs();
 
-    Utils::CheckVersion(OnVersionChecked);
+    _CheckVersion();
 }
 
 App::~App()
@@ -260,4 +259,63 @@ void App::Run()
 bool App::_IsSaveMode()
 {
     return sceIoDevctl("ux0:", 0x3001, NULL, 0, NULL, 0) == 0x80010030;
+}
+
+#define RELEASE_URL "https://api.github.com/repos/noword/Emu4VitaPlus/releases/latest"
+
+class JsonAllocator : public sce::Json::MemAllocator
+{
+public:
+    JsonAllocator() {};
+    virtual ~JsonAllocator() {};
+
+    virtual void *allocateMemory(size_t size, void *user_data) override
+    {
+        return new uint8_t[size];
+    }
+
+    virtual void freeMemory(void *ptr, void *user_data) override
+    {
+        delete[] (uint8_t *)ptr;
+    }
+};
+
+static void _VersionCallback(uint8_t *data, uint64_t size)
+{
+    LogFunctionName;
+    if (data == nullptr || size == 0)
+    {
+        return;
+    }
+
+    sceSysmoduleLoadModule(SCE_SYSMODULE_JSON);
+
+    {
+        Utils::JsonAllocator allc;
+        sce::Json::InitParameter params{&allc, nullptr, 0x400};
+        sce::Json::Initializer init;
+        sce::Json::Value root;
+
+        init.initialize(&params);
+
+        if (sce::Json::Parser::parse(root, (char *)data, size) == SCE_OK)
+        {
+            const char *tag_name = root.getValue("tag_name").getString().c_str();
+            LogDebug("  version: %s", tag_name);
+            if (!(*tag_name == 'v' && strcmp(tag_name + 1, APP_VER_STR) == 0))
+            {
+                gUi->SetHint(TEXT(LANG_NEW_VERSION_AVAILABLE), 3 * 60);
+            }
+        }
+
+        init.terminate();
+    }
+
+    sceSysmoduleUnloadModule(SCE_SYSMODULE_JSON);
+}
+
+void App::_CheckVersion()
+{
+    LogFunctionName;
+    Network::Fetch(RELEASE_URL, _VersionCallback);
 }

@@ -11,5 +11,6 @@ public:
     void Run();
 
 private:
+    void _CheckVersion();
     bool _IsSaveMode();
 };
