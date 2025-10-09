@@ -246,10 +246,6 @@ namespace Network
             data->callback(buf, size);
             delete[] buf;
         }
-        else
-        {
-            data->callback(nullptr, 0);
-        }
 
         return sceKernelExitDeleteThread(0);
     }

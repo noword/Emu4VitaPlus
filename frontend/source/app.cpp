@@ -280,13 +280,9 @@ public:
     }
 };
 
-static void _VersionCallback(uint8_t *data, uint64_t size)
+void _VersionCallback(uint8_t *data, uint64_t size)
 {
     LogFunctionName;
-    if (data == nullptr || size == 0)
-    {
-        return;
-    }
 
     sceSysmoduleLoadModule(SCE_SYSMODULE_JSON);
 
