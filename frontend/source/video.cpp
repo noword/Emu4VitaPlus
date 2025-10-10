@@ -1,4 +1,5 @@
 #include <functional>
+#include <psp2/kernel/threadmgr.h>
 #include <vita2d.h>
 #include <vita2d_ext.h>
 #include "video.h"

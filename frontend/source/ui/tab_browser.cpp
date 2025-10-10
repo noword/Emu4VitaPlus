@@ -437,94 +437,94 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
     LogFunctionName;
     CLASS_POINTER(TabBrowser, tab, argp);
 
-    char hint[0x80];
-    int total = 0;
-    int downloaded = 0;
-    Network::MultiDownloader downloader;
-    if (!downloader.Inited())
-    {
-        return 0;
-    }
+    // char hint[0x80];
+    // int total = 0;
+    // int downloaded = 0;
+    // Network::MultiDownloader downloader;
+    // if (!downloader.Inited())
+    // {
+    //     return 0;
+    // }
 
-    for (size_t i = 0; i < tab->_directory->GetSize() && tab->_updating_thumbnails; i++)
-    {
-        strcpy(hint, TEXT(LANG_DOWNLOAD_PROGRESS));
-        sprintf(hint + strlen(hint), " %d/%d\n", downloaded, total);
-        sprintf(hint + strlen(hint), TEXT(LANG_PRESS_CANCEL), EnterButton == SCE_CTRL_CIRCLE ? BUTTON_CROSS : BUTTON_CIRCLE);
-        gUi->SetHint(hint, 10 * 60);
+    // for (size_t i = 0; i < tab->_directory->GetSize() && tab->_updating_thumbnails; i++)
+    // {
+    //     strcpy(hint, TEXT(LANG_DOWNLOAD_PROGRESS));
+    //     sprintf(hint + strlen(hint), " %d/%d\n", downloaded, total);
+    //     sprintf(hint + strlen(hint), TEXT(LANG_PRESS_CANCEL), EnterButton == SCE_CTRL_CIRCLE ? BUTTON_CROSS : BUTTON_CIRCLE);
+    //     gUi->SetHint(hint, 10 * 60);
 
-        DirItem &item = tab->_directory->GetItem(i);
-        if (item.is_dir)
-            continue;
+    //     DirItem &item = tab->_directory->GetItem(i);
+    //     if (item.is_dir)
+    //         continue;
 
-        if (!tab->_directory->IsTested())
-        {
-            if (!tab->_directory->LegalTest(item.path.c_str(), &item))
-                continue;
-        }
+    //     if (!tab->_directory->IsTested())
+    //     {
+    //         if (!tab->_directory->LegalTest(item.path.c_str(), &item))
+    //             continue;
+    //     }
 
-        if (item.rom_name.empty())
-            item.UpdateDetails();
+    //     if (item.rom_name.empty())
+    //         item.UpdateDetails();
 
-        if (!item.rom_name.empty())
-        {
-            std::string rom_name = item.rom_name;
-            std::replace(rom_name.begin(), rom_name.end(), '/', '_');
+    //     if (!item.rom_name.empty())
+    //     {
+    //         std::string rom_name = item.rom_name;
+    //         std::replace(rom_name.begin(), rom_name.end(), '/', '_');
 
-            std::string img_path = std::string(THUMBNAILS_PATH) + '/' + rom_name + ".png";
-            if (File::Exist(img_path.c_str()) && File::GetSize(img_path.c_str()) > 0)
-                continue;
+    //         std::string img_path = std::string(THUMBNAILS_PATH) + '/' + rom_name + ".png";
+    //         if (File::Exist(img_path.c_str()) && File::GetSize(img_path.c_str()) > 0)
+    //             continue;
 
-            int count = 0;
-            rom_name = Network::Escape(rom_name);
-            while (THUMBNAILS_NAME[count] != nullptr)
-            {
-                std::string url = std::string(LIBRETRO_THUMBNAILS) + THUMBNAILS_NAME[count++] + "/" THUMBNAILS_SUBDIR "/" + rom_name + ".png";
-                if (Network::GetSize(url.c_str()) > 0)
-                {
-                    downloader.AddTask(url, img_path);
-                    total++;
-                }
-            }
-        }
-        downloaded += downloader.Perform();
-        if (total > downloaded)
-            sceKernelDelayThread(500);
-    }
+    //         int count = 0;
+    //         rom_name = UrlEscape(rom_name);
+    //         while (THUMBNAILS_NAME[count] != nullptr)
+    //         {
+    //             std::string url = std::string(LIBRETRO_THUMBNAILS) + THUMBNAILS_NAME[count++] + "/" THUMBNAILS_SUBDIR "/" + rom_name + ".png";
+    //             if (Network::GetSize(url.c_str()) > 0)
+    //             {
+    //                 downloader.AddTask(url, img_path);
+    //                 total++;
+    //             }
+    //         }
+    //     }
+    //     downloaded += downloader.Perform();
+    //     if (total > downloaded)
+    //         sceKernelDelayThread(500);
+    // }
 
-    if (!tab->_updating_thumbnails)
-    {
-        total -= downloader.ClearTask();
-    }
+    // if (!tab->_updating_thumbnails)
+    // {
+    //     total -= downloader.ClearTask();
+    // }
 
-    while (!downloader.AllCompleted())
-    {
-        downloaded += downloader.Perform();
+    // while (!downloader.AllCompleted())
+    // {
+    //     downloaded += downloader.Perform();
 
-        strcpy(hint, TEXT(LANG_DOWNLOAD_PROGRESS));
-        sprintf(hint + strlen(hint), " %d/%d\n", downloaded, total);
-        gUi->SetHint(hint, 10 * 60);
+    //     strcpy(hint, TEXT(LANG_DOWNLOAD_PROGRESS));
+    //     sprintf(hint + strlen(hint), " %d/%d\n", downloaded, total);
+    //     gUi->SetHint(hint, 10 * 60);
 
-        sceKernelDelayThread(50);
-    }
+    //     sceKernelDelayThread(50);
+    // }
 
-    tab->_updating_thumbnails = false;
+    // tab->_updating_thumbnails = false;
 
-    switch (downloaded)
-    {
-    case 0:
-        strcpy(hint, TEXT(LANG_ZERO_DOWNLOAD));
-        break;
-    case 1:
-        strcpy(hint, TEXT(LANG_ONE_DOWNLOAD));
-        break;
-    default:
-        snprintf(hint, 0x40, TEXT(LANG_MANY_DOWNLOAD), downloaded);
-        break;
-    }
-    gUi->SetHint(hint);
+    // switch (downloaded)
+    // {
+    // case 0:
+    //     strcpy(hint, TEXT(LANG_ZERO_DOWNLOAD));
+    //     break;
+    // case 1:
+    //     strcpy(hint, TEXT(LANG_ONE_DOWNLOAD));
+    //     break;
+    // default:
+    //     snprintf(hint, 0x40, TEXT(LANG_MANY_DOWNLOAD), downloaded);
+    //     break;
+    // }
+    // gUi->SetHint(hint);
 
-    tab->_input->PopCallbacks();
+    // tab->_input->PopCallbacks();
 
     return 0;
 }

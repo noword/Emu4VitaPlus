@@ -1,5 +1,4 @@
 #pragma once
-#include <psp2/kernel/threadmgr.h>
 #include "thread_base.h"
 
 namespace Emu4VitaPlus

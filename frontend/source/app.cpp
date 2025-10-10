@@ -81,9 +81,9 @@ App::App()
 
     SwapEnterButton(gConfig->swap_enter);
 
-    Network::Init();
     LanguageString::Init();
 
+    gNetwork = new Network();
     gEmulator = new Emulator();
     gVideo = new Video();
     gUi = new Ui();
@@ -169,10 +169,9 @@ App::~App()
     delete gArchiveReaderFactory;
     delete gEmulator;
     delete gUi;
+    delete gNetwork;
     delete gVideo;
     delete gConfig;
-
-    Network::Deinit();
 
 #if LOG_LEVEL <= LOG_LEVEL_DEBUG
     delete gProfiler;
@@ -313,5 +312,5 @@ void _VersionCallback(uint8_t *data, uint64_t size)
 void App::_CheckVersion()
 {
     LogFunctionName;
-    Network::Fetch(RELEASE_URL, _VersionCallback);
+    // Network::Fetch(RELEASE_URL, _VersionCallback);
 }

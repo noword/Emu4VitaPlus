@@ -37,11 +37,11 @@ vita2d_texture *GetRomPreviewImage(const char *path, const char *name, const cha
             goto END;
 
         int count = 0;
-        rom = Network::Escape(rom);
+        rom = UrlEscape(rom);
         while (THUMBNAILS_NAME[count] != nullptr)
         {
             std::string url = std::string(LIBRETRO_THUMBNAILS) + THUMBNAILS_NAME[count++] + "/" THUMBNAILS_SUBDIR "/" + rom + ".png";
-            if (Network::Download(url.c_str(), img_path.c_str()))
+            if (gNetwork->Download(url.c_str(), img_path.c_str()))
             {
                 texture = vita2d_load_PNG_file((img_path).c_str());
                 if (texture)

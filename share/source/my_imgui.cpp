@@ -11,7 +11,6 @@
 #include "cyrillic.i"
 #include "icons.h"
 #include "utils.h"
-#include "network.h"
 
 #define APP_ASSETS_DIR "app0:assets"
 #define TEXT_FONT_NAME "AlibabaPuHuiTi-2-65-Medium.ttf"
@@ -694,7 +693,7 @@ IMGUI_API bool My_ImGui_Selectable(const char *label, bool selected, TextMovingS
     return ImGui::Selectable(label, selected);
 }
 
-IMGUI_API void My_ImGui_ShowTimePower()
+IMGUI_API void My_ImGui_ShowTimePower(bool show_wifi)
 {
     int percent = scePowerGetBatteryLifePercent();
     ImU32 color = percent <= 25 ? IM_COL32_RED : IM_COL32_GREEN;
@@ -723,8 +722,6 @@ IMGUI_API void My_ImGui_ShowTimePower()
     snprintf(time_str, 64, "%04d/%02d/%02d %02d:%02d:%02d",
              time_local.year, time_local.month, time_local.day,
              time_local.hour, time_local.minute, time_local.second);
-
-    bool show_wifi = Network::Connected();
 
     ImDrawList *draw_list = ImGui::GetWindowDrawList();
     float time_x = show_wifi ? TIME_X - 20 : TIME_X;

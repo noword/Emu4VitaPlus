@@ -532,7 +532,7 @@ void Ui::Show()
 
         if (ImGui::Begin(_title.c_str(), NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
         {
-            My_ImGui_ShowTimePower();
+            My_ImGui_ShowTimePower(gNetwork->Connected());
             (status == APP_STATUS_BOOT) ? _boot_ui->Show() : _ShowNormal();
         }
 
