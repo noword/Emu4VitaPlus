@@ -7,6 +7,7 @@
 #include "global.h"
 #include "file.h"
 #include "log.h"
+#include "utils.h"
 
 #define USER_AGENT "Emu4Vita++/" APP_VER_STR
 #define POOL_SIZE (1 * 1024 * 1024)
@@ -42,6 +43,19 @@ std::string UrlEscape(std::string in)
 static size_t FileWriteCallback(void *ptr, size_t size, size_t nmemb, void *userdata)
 {
     return sceIoWrite(*(SceUID *)userdata, ptr, size * nmemb);
+}
+
+static size_t MemoryWriteCallback(void *ptr, size_t size, size_t nmemb, void *userdata)
+{
+    std::string *s = (std::string *)userdata;
+    size_t capacity = s->capacity();
+    size *= nmemb;
+    *s += std::string{(char *)ptr, size};
+    if (s->size() >= capacity)
+    {
+        s->reserve(ALIGN_UP(s->size(), 0x200));
+    }
+    return size;
 }
 
 Network::Network(size_t max_concurrent)
@@ -143,8 +157,10 @@ void Network::_ThreadLoop()
 
         while (!_task_queue.empty() && _active_tasks.size() < _max_concurrent)
         {
+            Lock();
             auto task = _task_queue.front();
             _task_queue.pop();
+            Unlock();
 
             CURL *easy = curl_easy_init();
             if (!easy)
@@ -174,7 +190,17 @@ void Network::_ThreadLoop()
             break;
 
             case CALLBACK_TASK:
-                break;
+            {
+                TaskCallback *callback_task = (TaskCallback *)task;
+                curl_easy_setopt(easy, CURLOPT_WRITEFUNCTION, MemoryWriteCallback);
+                curl_easy_setopt(easy, CURLOPT_WRITEDATA, &callback_task->buf);
+                if (task->post_data.size() > 0)
+                {
+                    curl_easy_setopt(easy, CURLOPT_POSTFIELDSIZE, task->post_data.size());
+                    curl_easy_setopt(easy, CURLOPT_POSTFIELDS, task->post_data.c_str());
+                }
+            }
+            break;
 
             default:
                 LogWarn("unknown task type: %d", task->type);
@@ -241,14 +267,26 @@ void Network::_ThreadLoop()
                 break;
 
                 case CALLBACK_TASK:
-                    break;
+                {
+                    TaskCallback *callback_task = (TaskCallback *)task;
+                    Response response;
+                    response.data = callback_task->buf.c_str();
+                    response.size = callback_task->buf.size();
+                    curl_easy_getinfo(easy, CURLINFO_RESPONSE_CODE, &response.code);
+                    callback_task->callback(&response, callback_task->callback_data);
+                }
+                break;
 
                 default:
                     LogWarn("unknown active task type: %d", task->type);
                     break;
                 }
 
+                Lock();
+                delete task;
                 _active_tasks.erase(it);
+                Unlock();
+
                 curl_multi_remove_handle(_multi_handle, easy);
                 curl_easy_cleanup(easy);
             }
@@ -271,13 +309,14 @@ void Network::AddTask(const char *url, const char *file_name)
     Signal();
 }
 
-void Network::AddTask(const char *url, const char *post_data, ClientCallBackFunc callback)
+void Network::AddTask(const char *url, const char *post_data, size_t post_size, ClientCallBackFunc callback, void *callback_data = nullptr)
 {
     LogFunctionName;
 
     TaskCallback *task = new TaskCallback;
     task->callback = callback;
-    task->post_data = post_data;
+    task->callback_data = callback_data;
+    task->post_data = std::string{post_data, post_size};
 
     Lock();
     _task_queue.push(task);

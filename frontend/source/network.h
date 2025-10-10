@@ -34,19 +34,21 @@ struct TaskBase
 
 struct TaskDownload : public TaskBase
 {
-    TaskDownload() : TaskBase(DOWNLOAD_TASK) {};
+    TaskDownload() : TaskBase(DOWNLOAD_TASK), file_handle(-1) {};
     virtual ~TaskDownload() {};
 
     std::string file_name;
-    SceUID file_handle = -1;
+    SceUID file_handle;
 };
 
 struct TaskCallback : public TaskBase
 {
-    TaskCallback() : TaskBase(CALLBACK_TASK) {};
+    TaskCallback() : TaskBase(CALLBACK_TASK) { buf.reserve(0x200); };
     virtual ~TaskCallback() {};
 
-    ClientCallBackFunc callback = nullptr;
+    ClientCallBackFunc callback;
+    void *callback_data;
+    std::string buf;
 };
 
 std::string UrlEscape(std::string in);
@@ -62,7 +64,7 @@ public:
     size_t GetSize(const char *url);
     bool Download(const char *url, const char *file_name);
     void AddTask(const char *url, const char *file_name);
-    void AddTask(const char *url, const char *post_data, ClientCallBackFunc callback);
+    void AddTask(const char *url, const char *post_data, size_t post_size, ClientCallBackFunc callback, void *callback_data = nullptr);
     size_t GetFinishedCount() { return _finished_task_count; };
 
 private:
