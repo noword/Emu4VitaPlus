@@ -94,18 +94,9 @@ Network::~Network()
 {
     LogFunctionName;
 
+    CleanAllTask();
+
     Stop();
-
-    while (!_task_queue.empty())
-    {
-        delete _task_queue.front();
-        _task_queue.pop();
-    }
-
-    for (auto task : _active_tasks)
-    {
-        delete task.second;
-    }
 
     curl_multi_cleanup(_multi_handle);
 
@@ -146,80 +137,17 @@ void Network::_ThreadLoop()
 {
     while (IsRunning() && (gStatus.Get() & (APP_STATUS_EXIT | APP_STATUS_RETURN_ARCH | APP_STATUS_REBOOT_WITH_LOADING)) == 0)
     {
-        if (_task_queue.empty() && _active_tasks.empty())
+        if (AllCompleted())
         {
-            uint32_t timeout = 10000;
-            if (Wait(&timeout) == SCE_KERNEL_ERROR_WAIT_TIMEOUT)
-            {
-                continue;
-            }
+            Wait();
+            // uint32_t timeout = 10000;
+            // if (Wait(&timeout) == SCE_KERNEL_ERROR_WAIT_TIMEOUT)
+            // {
+            //     continue;
+            // }
         }
 
-        while (!_task_queue.empty() && _active_tasks.size() < _max_concurrent)
-        {
-            Lock();
-            auto task = _task_queue.front();
-            _task_queue.pop();
-            Unlock();
-
-            CURL *easy = curl_easy_init();
-            if (!easy)
-            {
-                LogWarn("Failed to create CURL easy handle");
-                goto TASK_ERROR;
-            }
-
-            _SetOptions(easy);
-            curl_easy_setopt(easy, CURLOPT_URL, task->url.c_str());
-
-            switch (task->type)
-            {
-            case DOWNLOAD_TASK:
-            {
-                TaskDownload *download_task = (TaskDownload *)task;
-                download_task->file_handle = sceIoOpen(download_task->file_name.c_str(), SCE_O_WRONLY | SCE_O_CREAT, 0777);
-                if (download_task->file_handle < 0)
-                {
-                    LogWarn("Failed to open file: %s error: %08x", download_task->file_name.c_str(), download_task->file_handle);
-                    goto TASK_ERROR;
-                }
-
-                curl_easy_setopt(easy, CURLOPT_WRITEFUNCTION, FileWriteCallback);
-                curl_easy_setopt(easy, CURLOPT_WRITEDATA, &download_task->file_handle);
-            }
-            break;
-
-            case CALLBACK_TASK:
-            {
-                TaskCallback *callback_task = (TaskCallback *)task;
-                curl_easy_setopt(easy, CURLOPT_WRITEFUNCTION, MemoryWriteCallback);
-                curl_easy_setopt(easy, CURLOPT_WRITEDATA, &callback_task->buf);
-                if (task->post_data.size() > 0)
-                {
-                    curl_easy_setopt(easy, CURLOPT_POSTFIELDSIZE, task->post_data.size());
-                    curl_easy_setopt(easy, CURLOPT_POSTFIELDS, task->post_data.c_str());
-                }
-            }
-            break;
-
-            default:
-                LogWarn("unknown task type: %d", task->type);
-                goto TASK_ERROR;
-                break;
-            }
-
-            curl_multi_add_handle(_multi_handle, easy);
-            _active_tasks[easy] = task;
-            continue;
-
-        TASK_ERROR:
-            if (easy)
-            {
-                curl_easy_cleanup(easy);
-            }
-
-            delete task;
-        }
+        _SubmitTaskLoop();
 
         int still_running = 0;
         curl_multi_perform(_multi_handle, &still_running);
@@ -227,46 +155,126 @@ void Network::_ThreadLoop()
         int numfds;
         curl_multi_wait(_multi_handle, NULL, 0, 50, &numfds);
 
-        CURLMsg *msg;
-        int msgs_left;
-        while ((msg = curl_multi_info_read(_multi_handle, &msgs_left)))
+        _ActiveTaskLoop();
+    }
+}
+
+void Network::_SubmitTaskLoop()
+{
+    while (!_task_queue.empty() && _active_tasks.size() < _max_concurrent)
+    {
+        Lock();
+        auto task = _task_queue.front();
+        _task_queue.pop();
+        Unlock();
+
+        LogDebug("  task url: %s", task->url.c_str());
+
+        CURL *easy = curl_easy_init();
+        if (!easy)
         {
-            if (msg->msg == CURLMSG_DONE)
+            LogWarn("Failed to create CURL easy handle");
+            goto TASK_ERROR;
+        }
+
+        _SetOptions(easy);
+        curl_easy_setopt(easy, CURLOPT_URL, task->url.c_str());
+
+        switch (task->type)
+        {
+        case DOWNLOAD_TASK:
+        {
+            TaskDownload *download_task = (TaskDownload *)task;
+            download_task->file_handle = sceIoOpen(download_task->file_name.c_str(), SCE_O_WRONLY | SCE_O_CREAT, 0777);
+            if (download_task->file_handle < 0)
             {
-                CURL *easy = msg->easy_handle;
-                auto it = _active_tasks.find(easy);
-                if (it == _active_tasks.end())
+                LogWarn("Failed to open file: %s error: %08x", download_task->file_name.c_str(), download_task->file_handle);
+                goto TASK_ERROR;
+            }
+
+            curl_easy_setopt(easy, CURLOPT_WRITEFUNCTION, FileWriteCallback);
+            curl_easy_setopt(easy, CURLOPT_WRITEDATA, &download_task->file_handle);
+        }
+        break;
+
+        case CALLBACK_TASK:
+        {
+            TaskCallback *callback_task = (TaskCallback *)task;
+            curl_easy_setopt(easy, CURLOPT_WRITEFUNCTION, MemoryWriteCallback);
+            curl_easy_setopt(easy, CURLOPT_WRITEDATA, &callback_task->buf);
+            if (task->post_data.size() > 0)
+            {
+                curl_easy_setopt(easy, CURLOPT_POSTFIELDSIZE, task->post_data.size());
+                curl_easy_setopt(easy, CURLOPT_POSTFIELDS, task->post_data.c_str());
+            }
+        }
+        break;
+
+        default:
+            LogWarn("unknown task type: %d", task->type);
+            goto TASK_ERROR;
+            break;
+        }
+
+        curl_multi_add_handle(_multi_handle, easy);
+        _active_tasks[easy] = task;
+        _actived_task_count++;
+        continue;
+
+    TASK_ERROR:
+        if (easy)
+        {
+            curl_easy_cleanup(easy);
+        }
+
+        delete task;
+    }
+}
+
+void Network::_ActiveTaskLoop()
+{
+    CURLMsg *msg;
+    int msgs_left;
+    while ((msg = curl_multi_info_read(_multi_handle, &msgs_left)))
+    {
+        if (msg->msg == CURLMSG_DONE)
+        {
+            CURL *easy = msg->easy_handle;
+            auto it = _active_tasks.find(easy);
+            if (it == _active_tasks.end())
+            {
+                LogWarn("incorrect easy handle: %08x", easy);
+                continue;
+            }
+
+            auto *task = it->second;
+            switch (task->type)
+            {
+            case DOWNLOAD_TASK:
+            {
+                TaskDownload *download_task = (TaskDownload *)task;
+                if (download_task->file_handle > 0)
                 {
-                    LogWarn("incorrect easy handle: %08x", easy);
-                    continue;
+                    sceIoClose(download_task->file_handle);
                 }
 
-                auto *task = it->second;
-                switch (task->type)
+                if (msg->data.result == CURLE_OK)
                 {
-                case DOWNLOAD_TASK:
-                {
-                    TaskDownload *download_task = (TaskDownload *)task;
-                    if (download_task->file_handle > 0)
-                    {
-                        sceIoClose(download_task->file_handle);
-                    }
-
-                    if (msg->data.result == CURLE_OK)
-                    {
-                        LogDebug("  download: %s", download_task->file_name.c_str());
-                        _finished_task_count++;
-                    }
-                    else
-                    {
-                        LogWarn("  download failed: %s", download_task->file_name.c_str());
-                        LogWarn("  result: %d", msg->data.result);
-                        File::Remove(download_task->file_name.c_str());
-                    }
+                    LogDebug("  download: %s", download_task->file_name.c_str());
+                    _finished_task_count++;
                 }
-                break;
+                else
+                {
+                    LogWarn("  download failed: %s", download_task->file_name.c_str());
+                    LogWarn("  result: %d", msg->data.result);
+                    File::Remove(download_task->file_name.c_str());
+                }
+            }
+            break;
 
-                case CALLBACK_TASK:
+            case CALLBACK_TASK:
+            {
+                if (msg->data.result == CURLE_OK)
                 {
                     TaskCallback *callback_task = (TaskCallback *)task;
                     Response response;
@@ -274,22 +282,23 @@ void Network::_ThreadLoop()
                     response.size = callback_task->buf.size();
                     curl_easy_getinfo(easy, CURLINFO_RESPONSE_CODE, &response.code);
                     callback_task->callback(&response, callback_task->callback_data);
+                    _finished_task_count++;
                 }
-                break;
-
-                default:
-                    LogWarn("unknown active task type: %d", task->type);
-                    break;
-                }
-
-                Lock();
-                delete task;
-                _active_tasks.erase(it);
-                Unlock();
-
-                curl_multi_remove_handle(_multi_handle, easy);
-                curl_easy_cleanup(easy);
             }
+            break;
+
+            default:
+                LogWarn("unknown active task type: %d", task->type);
+                break;
+            }
+
+            Lock();
+            delete task;
+            _active_tasks.erase(it);
+            Unlock();
+
+            curl_multi_remove_handle(_multi_handle, easy);
+            curl_easy_cleanup(easy);
         }
     }
 }
@@ -309,20 +318,57 @@ void Network::AddTask(const char *url, const char *file_name)
     Signal();
 }
 
-void Network::AddTask(const char *url, const char *post_data, size_t post_size, ClientCallBackFunc callback, void *callback_data = nullptr)
+void Network::AddTask(const char *url, ClientCallBackFunc callback, void *callback_data)
+{
+    AddTask(url, nullptr, 0, callback, callback_data);
+}
+
+void Network::AddTask(const char *url, const char *post_data, size_t post_size, ClientCallBackFunc callback, void *callback_data)
 {
     LogFunctionName;
 
     TaskCallback *task = new TaskCallback;
+    task->url = url;
     task->callback = callback;
     task->callback_data = callback_data;
-    task->post_data = std::string{post_data, post_size};
+    if (post_data && post_size)
+        task->post_data = std::string{post_data, post_size};
 
     Lock();
     _task_queue.push(task);
     Unlock();
 
     Signal();
+}
+
+void Network::CleanTask()
+{
+    LogFunctionName;
+
+    Lock();
+
+    while (!_task_queue.empty())
+    {
+        delete _task_queue.front();
+        _task_queue.pop();
+    }
+
+    Unlock();
+}
+
+void Network::CleanAllTask()
+{
+    LogFunctionName;
+
+    CleanTask();
+
+    Lock();
+    for (auto task : _active_tasks)
+    {
+        curl_easy_cleanup(task.first);
+        delete task.second;
+    }
+    Unlock();
 }
 
 void Network::_SetOptions(CURL *curl)

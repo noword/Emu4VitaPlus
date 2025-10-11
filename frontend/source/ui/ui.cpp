@@ -776,6 +776,7 @@ void Ui::_OnDialog(Input *input, int index)
             File::RemoveAllFiles(ARCHIVE_CACHE_DIR);
             File::RemoveAllFiles(PLAYLISTS_CACHE_DIR);
             File::RemoveAllFiles(CACHE_DIR);
+            File::RemoveAllFiles(THUMBNAILS_PATH);
         }
         break;
 

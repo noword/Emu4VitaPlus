@@ -94,6 +94,7 @@ App::App()
     gUi->AppendLog("Initialize video");
     gUi->AppendLog("Initialize core spec settings");
     gUi->AppendLog("Initialize network");
+    gNetwork->Start();
 
     gUi->AppendLog("Initialize emulator");
     gEmulator->Init();
@@ -279,7 +280,7 @@ public:
     }
 };
 
-void _VersionCallback(uint8_t *data, uint64_t size)
+void _CheckVersionCallback(const Response *response, void *callback_data)
 {
     LogFunctionName;
 
@@ -293,7 +294,7 @@ void _VersionCallback(uint8_t *data, uint64_t size)
 
         init.initialize(&params);
 
-        if (sce::Json::Parser::parse(root, (char *)data, size) == SCE_OK)
+        if (sce::Json::Parser::parse(root, response->data, response->size) == SCE_OK)
         {
             const char *tag_name = root.getValue("tag_name").getString().c_str();
             LogDebug("  version: %s", tag_name);
@@ -312,5 +313,5 @@ void _VersionCallback(uint8_t *data, uint64_t size)
 void App::_CheckVersion()
 {
     LogFunctionName;
-    // Network::Fetch(RELEASE_URL, _VersionCallback);
+    gNetwork->AddTask(RELEASE_URL, _CheckVersionCallback);
 }

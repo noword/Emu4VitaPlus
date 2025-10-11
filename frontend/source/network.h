@@ -63,19 +63,31 @@ public:
 
     size_t GetSize(const char *url);
     bool Download(const char *url, const char *file_name);
-    void AddTask(const char *url, const char *file_name);
-    void AddTask(const char *url, const char *post_data, size_t post_size, ClientCallBackFunc callback, void *callback_data = nullptr);
+    void RestCount() { _actived_task_count = _finished_task_count = 0; };
     size_t GetFinishedCount() { return _finished_task_count; };
+    size_t GetActivedCount() { return _actived_task_count; };
+
+    // all AddTask is Non-Blocking
+    void AddTask(const char *url, const char *file_name);
+    void AddTask(const char *url, ClientCallBackFunc callback, void *callback_data = nullptr);
+    void AddTask(const char *url, const char *post_data, size_t post_size, ClientCallBackFunc callback, void *callback_data = nullptr);
+
+    void CleanTask();
+    void CleanAllTask(); // include actived
+    bool AllCompleted() { return _task_queue.empty() && _active_tasks.empty(); };
 
 private:
     void _SetOptions(CURL *curl);
     void _ThreadLoop();
+    void _SubmitTaskLoop();
+    void _ActiveTaskLoop();
 
     static int _RunThread(SceSize args, void *argp);
     static int _init_count;
 
     size_t _max_concurrent;
     CURLM *_multi_handle;
+    size_t _actived_task_count;
     size_t _finished_task_count;
 
     std::queue<TaskBase *> _task_queue;
