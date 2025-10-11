@@ -93,8 +93,14 @@ App::App()
     gUi->AppendLog("Parse params");
     gUi->AppendLog("Initialize video");
     gUi->AppendLog("Initialize core spec settings");
+
     gUi->AppendLog("Initialize network");
+    // special for RetroAchievements
+    gNetwork->SetUserAgent(std::string("Emu4Vita++/" APP_VER_STR " ") + gEmulator->GetCoreName() + "/" + gEmulator->GetCoreVersion());
     gNetwork->Start();
+
+    gUi->AppendLog("Initialize RetroAchievements");
+    gRetroAchievements = new RetroAchievements();
 
     gUi->AppendLog("Initialize emulator");
     gEmulator->Init();
@@ -170,6 +176,7 @@ App::~App()
     delete gArchiveReaderFactory;
     delete gEmulator;
     delete gUi;
+    delete gRetroAchievements;
     delete gNetwork;
     delete gVideo;
     delete gConfig;

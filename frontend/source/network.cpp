@@ -61,9 +61,11 @@ static size_t MemoryWriteCallback(void *ptr, size_t size, size_t nmemb, void *us
 Network::Network(size_t max_concurrent)
     : ThreadBase(_RunThread),
       _max_concurrent(max_concurrent),
-      _finished_task_count(0)
+      _finished_task_count(0),
+      _user_agent(USER_AGENT)
 {
     LogFunctionName;
+
     if (_init_count == 0)
     {
         sceSysmoduleLoadModule(SCE_SYSMODULE_NET);
@@ -306,6 +308,7 @@ void Network::_ActiveTaskLoop()
 void Network::AddTask(const char *url, const char *file_name)
 {
     LogFunctionName;
+    LogDebug("  url: %s", url);
 
     TaskDownload *task = new TaskDownload;
     task->url = url;
@@ -326,6 +329,7 @@ void Network::AddTask(const char *url, ClientCallBackFunc callback, void *callba
 void Network::AddTask(const char *url, const char *post_data, size_t post_size, ClientCallBackFunc callback, void *callback_data)
 {
     LogFunctionName;
+    LogDebug("  url: %s", url);
 
     TaskCallback *task = new TaskCallback;
     task->url = url;

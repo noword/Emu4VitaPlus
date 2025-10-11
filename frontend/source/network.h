@@ -61,6 +61,7 @@ public:
 
     bool Connected();
 
+    void SetUserAgent(std::string agent) { _user_agent = agent; };
     size_t GetSize(const char *url);
     bool Download(const char *url, const char *file_name);
     void RestCount() { _actived_task_count = _finished_task_count = 0; };
@@ -85,6 +86,7 @@ private:
     static int _RunThread(SceSize args, void *argp);
     static int _init_count;
 
+    std::string _user_agent;
     size_t _max_concurrent;
     CURLM *_multi_handle;
     size_t _actived_task_count;

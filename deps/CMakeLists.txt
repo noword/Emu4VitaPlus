@@ -61,7 +61,10 @@ target_include_directories(rcheevos PRIVATE
     ${RCHEEVOS_PATH}/src/rhash
     ${LIBRETRO_PATH}/include
 )
-target_compile_definitions(rcheevos PRIVATE RC_CLIENT_SUPPORTS_EXTERNAL RC_CLIENT_SUPPORTS_RAINTEGRATION)
+target_compile_definitions(rcheevos PRIVATE
+    RC_CLIENT_SUPPORTS_EXTERNAL
+    RC_CLIENT_SUPPORTS_RAINTEGRATION
+    RC_CLIENT_SUPPORTS_HASH)
 target_compile_options(rcheevos PRIVATE -Os)
 
 # vita2d

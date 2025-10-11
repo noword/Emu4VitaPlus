@@ -42,7 +42,13 @@ add_custom_target(
     ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.h
 )
 
-add_compile_definitions(APP_VER_STR="${APP_VER}" SCE_LIBC_SIZE=0xA00000)
+add_compile_definitions(
+    APP_VER_STR="${APP_VER}"
+    SCE_LIBC_SIZE=0xA00000
+    RC_CLIENT_SUPPORTS_EXTERNAL
+    RC_CLIENT_SUPPORTS_RAINTEGRATION
+    RC_CLIENT_SUPPORTS_HASH)
+
 add_library(frontend OBJECT ${SRC})
 
 add_custom_target(FILE_TOUCHER COMMAND ${CMAKE_COMMAND} -E touch_nocreate ${CMAKE_CURRENT_SOURCE_DIR}/source/ui/tab_about.cpp)

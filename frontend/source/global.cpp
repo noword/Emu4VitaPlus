@@ -15,3 +15,4 @@ CoreStateManager *gStateManager = nullptr;
 Shaders *gShaders = nullptr;
 RomNameMap *gRomNameMap = nullptr;
 Network *gNetwork = nullptr;
+RetroAchievements *gRetroAchievements = nullptr;

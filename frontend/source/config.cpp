@@ -18,6 +18,7 @@
 #define MAIN_SECTION "MAIN"
 #define HOTKEY_SECTION "HOTKEY"
 #define GRAPHICS_SECTION "GRAPHICS"
+#define RA_SECTION "RETRO_ACHIEVEMENTS"
 
 static const float SPEED_STEP[] = {0.1, 0.2, 0.5, 1.0, -1};
 
@@ -258,6 +259,9 @@ namespace Emu4VitaPlus
             ini.SetBoolValue(MAIN_SECTION, "auto_download_thumbnail", auto_download_thumbnail);
         }
 
+        ini.SetValue(RA_SECTION, "user", ra_user.c_str());
+        ini.SetValue(RA_SECTION, "token", ra_token.c_str());
+
         for (const auto &control : control_maps)
         {
             int count = 0;
@@ -347,6 +351,9 @@ namespace Emu4VitaPlus
         {
             auto_download_thumbnail = ini.GetBoolValue(MAIN_SECTION, "auto_download_thumbnail", true);
         }
+
+        ra_user = ini.GetValue(RA_SECTION, "user", "");
+        ra_token = ini.GetValue(RA_SECTION, "token", "");
 
         tmp = ini.GetValue(MAIN_SECTION, "last_rom");
         if (tmp && File::Exist(tmp))
