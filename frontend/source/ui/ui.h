@@ -44,6 +44,7 @@ private:
 
     void _ChangeLanguage();
     void _ChangeAutoRotating();
+    void _ChangeRetroArchievements();
 
     void _ShowNormal();
     void _ShowHint();

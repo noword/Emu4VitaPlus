@@ -17,7 +17,7 @@ public:
     virtual ~Hint();
 
     void Show();
-    void SetHint(LanguageString s, int frame_count = 120, bool clear_queue = false);
+    void SetHint(LanguageString s, int frame_count = 120, bool clear_exists = false);
 
 private:
     void _Lock();

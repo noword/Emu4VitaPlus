@@ -248,65 +248,72 @@ void Ui::CreateTables()
     UpdateCoreOptions();
 
     _tabs[TAB_INDEX_OPTIONS] = new TabSeletable(LANG_OPTIONS,
-                                                {new ItemConfig(LANG_LANGUAGE,
-                                                                "",
-                                                                (uint32_t *)&gConfig->language,
-                                                                {
-                                                                    LanguageString(gLanguageNames[LANGUAGE_ENGLISH]),
-                                                                    LanguageString(gLanguageNames[LANGUAGE_CHINESE]),
-                                                                    LanguageString(gLanguageNames[LANGUAGE_JAPANESE]),
-                                                                    LanguageString(gLanguageNames[LANGUAGE_ITALIAN]),
-                                                                    LanguageString(gLanguageNames[LANGUAGE_FRENCH]),
-                                                                    LanguageString(gLanguageNames[LANGUAGE_SPANISH]),
-                                                                    LanguageString(gLanguageNames[LANGUAGE_RUSSIAN]),
-                                                                },
-                                                                std::bind(&Ui::_ChangeLanguage, gUi)),
-                                                 new ItemConfig(LANG_INDEPENDENT_CONFIG,
-                                                                "",
-                                                                &gConfig->independent_config,
-                                                                {LANG_NO, LANG_YES},
-                                                                nullptr),
-                                                 new ItemConfig(LANG_AUTO_ROTATING,
-                                                                "",
-                                                                &gConfig->auto_rotating,
-                                                                {LANG_NO, LANG_YES},
-                                                                std::bind(&Ui::_ChangeAutoRotating, gUi)),
-                                                 new ItemConfig(LANG_REWIND,
-                                                                "",
-                                                                &gConfig->rewind,
-                                                                {LANG_NO, LANG_YES},
-                                                                std::bind(&Emulator::ChangeRewindConfig, gEmulator)),
-                                                 new ItemIntConfig(LANG_REWIND_BUF_SIZE,
+                                                {
+                                                    new ItemConfig(LANG_LANGUAGE,
                                                                    "",
-                                                                   &gConfig->rewind_buf_size,
-                                                                   MIN_REWIND_BUF_SIZE,
-                                                                   MAX_REWIND_BUF_SIZE,
-                                                                   REWIND_BUF_SIZE_STEP,
+                                                                   (uint32_t *)&gConfig->language,
+                                                                   {
+                                                                       LanguageString(gLanguageNames[LANGUAGE_ENGLISH]),
+                                                                       LanguageString(gLanguageNames[LANGUAGE_CHINESE]),
+                                                                       LanguageString(gLanguageNames[LANGUAGE_JAPANESE]),
+                                                                       LanguageString(gLanguageNames[LANGUAGE_ITALIAN]),
+                                                                       LanguageString(gLanguageNames[LANGUAGE_FRENCH]),
+                                                                       LanguageString(gLanguageNames[LANGUAGE_SPANISH]),
+                                                                       LanguageString(gLanguageNames[LANGUAGE_RUSSIAN]),
+                                                                   },
+                                                                   std::bind(&Ui::_ChangeLanguage, gUi)),
+                                                    new ItemConfig(LANG_INDEPENDENT_CONFIG,
+                                                                   "",
+                                                                   &gConfig->independent_config,
+                                                                   {LANG_NO, LANG_YES}),
+                                                    new ItemConfig(LANG_AUTO_ROTATING,
+                                                                   "",
+                                                                   &gConfig->auto_rotating,
+                                                                   {LANG_NO, LANG_YES},
+                                                                   std::bind(&Ui::_ChangeAutoRotating, gUi)),
+                                                    new ItemConfig(LANG_REWIND,
+                                                                   "",
+                                                                   &gConfig->rewind,
+                                                                   {LANG_NO, LANG_YES},
                                                                    std::bind(&Emulator::ChangeRewindConfig, gEmulator)),
-                                                 new ItemConfig(LANG_SPEED_STEP,
-                                                                "",
-                                                                &gConfig->speed_step,
-                                                                Emu4VitaPlus::SPEED_STEP_OPTIONS),
-                                                 new ItemConfig(LANG_MUTE,
-                                                                "",
-                                                                (uint32_t *)&gConfig->mute,
-                                                                {LANG_NO, LANG_YES},
-                                                                std::bind(&Emulator::ChangeAudioConfig, gEmulator)),
-                                                 new ItemConfig(LANG_AUTO_SAVE,
-                                                                "",
-                                                                (uint32_t *)&gConfig->auto_save,
-                                                                {LANG_NO, LANG_YES},
-                                                                nullptr),
-                                                 new ItemConfig(LANG_AUTO_LOAD,
-                                                                "",
-                                                                (uint32_t *)&gConfig->auto_load,
-                                                                {LANG_NO, LANG_YES},
-                                                                nullptr),
-                                                 new ItemConfig(LANG_SWAP_ENTER,
-                                                                "",
-                                                                (uint32_t *)&gConfig->swap_enter,
-                                                                {LANG_NO, LANG_YES},
-                                                                nullptr)});
+                                                    new ItemIntConfig(LANG_REWIND_BUF_SIZE,
+                                                                      "",
+                                                                      &gConfig->rewind_buf_size,
+                                                                      MIN_REWIND_BUF_SIZE,
+                                                                      MAX_REWIND_BUF_SIZE,
+                                                                      REWIND_BUF_SIZE_STEP,
+                                                                      std::bind(&Emulator::ChangeRewindConfig, gEmulator)),
+                                                    new ItemConfig(LANG_SPEED_STEP,
+                                                                   "",
+                                                                   &gConfig->speed_step,
+                                                                   Emu4VitaPlus::SPEED_STEP_OPTIONS),
+                                                    new ItemConfig(LANG_MUTE,
+                                                                   "",
+                                                                   (uint32_t *)&gConfig->mute,
+                                                                   {LANG_NO, LANG_YES},
+                                                                   std::bind(&Emulator::ChangeAudioConfig, gEmulator)),
+                                                    new ItemConfig(LANG_AUTO_SAVE,
+                                                                   "",
+                                                                   (uint32_t *)&gConfig->auto_save,
+                                                                   {LANG_NO, LANG_YES}),
+                                                    new ItemConfig(LANG_AUTO_LOAD,
+                                                                   "",
+                                                                   (uint32_t *)&gConfig->auto_load,
+                                                                   {LANG_NO, LANG_YES}),
+                                                    new ItemConfig(LANG_SWAP_ENTER,
+                                                                   "",
+                                                                   (uint32_t *)&gConfig->swap_enter,
+                                                                   {LANG_NO, LANG_YES}),
+                                                    new ItemConfig(LANG_RETROARCHIEVEMENTS,
+                                                                   LANG_RETROARCHIEVEMENTS_DESC,
+                                                                   (uint32_t *)&gConfig->ra_login,
+                                                                   {LANG_NO, LANG_YES},
+                                                                   std::bind(&Ui::_ChangeRetroArchievements, gUi)),
+                                                    new ItemConfig(LANG_HARDCORE,
+                                                                   LANG_HARDCORE_DESC,
+                                                                   (uint32_t *)&gConfig->hardcore,
+                                                                   {LANG_NO, LANG_YES}),
+                                                });
 
     _tabs[TAB_INDEX_ABOUT] = new TabAbout();
 
@@ -485,8 +492,11 @@ void Ui::Show()
     // vita2d_set_clip_rectangle(0, 0, VITA_WIDTH, VITA_HEIGHT);
 
     APP_STATUS status = gStatus.Get();
-
-    if (((status & (APP_STATUS_BOOT | APP_STATUS_SHOW_UI | APP_STATUS_SHOW_UI_IN_GAME)) != 0))
+    if ((status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME)) != 0)
+    {
+        gHint->Show();
+    }
+    else if (((status & (APP_STATUS_BOOT | APP_STATUS_SHOW_UI | APP_STATUS_SHOW_UI_IN_GAME)) != 0))
     {
         ImGui_ImplVita2D_NewFrame();
         ImGui::SetMouseCursor(ImGuiMouseCursor_None);
@@ -502,10 +512,6 @@ void Ui::Show()
         ImGui::End();
         ImGui::Render();
         My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
-        gHint->Show();
-    }
-    else if ((status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME)) != 0)
-    {
         gHint->Show();
     }
 
@@ -748,4 +754,9 @@ void Ui::_OnStartCore(Input *input)
     {
         _tabs[TAB_INDEX_SYSTEM]->UnsetInputHooks(input);
     }
+}
+
+void Ui::_ChangeRetroArchievements()
+{
+    LogFunctionName;
 }

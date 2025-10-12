@@ -1666,6 +1666,53 @@
         "Spanish": "",
         "Russian": "Автозагрузка последнего сохранения",
         "Comments": ""
+    },
+    {
+        "No.": "140",
+        "Tag": "LANG_RETROARCHIEVEMENTS",
+        "English": "RetroArchievements",
+        "Chinese": "RetroArchievements 成就系统",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "141",
+        "Tag": "LANG_RETROARCHIEVEMENTS_DESC",
+        "English": "If you don't know what this is, visit https://retroachievements.org",
+        "Chinese": "如果你不知道这是什么，访问 https://retroachievements.org",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "142",
+        "Tag": "LANG_HARDCORE",
+        "English": "Hardcore mode",
+        "Chinese": "硬核模式",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "143",
+        "Tag": "LANG_HARDCORE_DESC",
+        "English": "Disables load/save states, cheats, rewind and slow-motion.",
+        "Chinese": "禁用即时存档，金手指，回溯和慢动作。",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
-
 ]

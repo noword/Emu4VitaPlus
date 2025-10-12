@@ -131,7 +131,8 @@ namespace Emu4VitaPlus
     Config::Config()
         : language(LANGUAGE_ENGLISH),
           hotkeys{0},
-          ra_login(false)
+          ra_login(false),
+          hardcore(false)
     {
         LogFunctionName;
         Default();

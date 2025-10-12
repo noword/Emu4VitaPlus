@@ -54,10 +54,10 @@ void Hint::Show()
     _Unlock();
 }
 
-void Hint::SetHint(LanguageString s, int frame_count, bool clear_queue)
+void Hint::SetHint(LanguageString s, int frame_count, bool clear_exists)
 {
     _Lock();
-    if (clear_queue)
+    if (clear_exists)
     {
         while (!_hints.empty())
             _hints.pop();
