@@ -26,16 +26,6 @@
 
 using namespace Emu4VitaPlus;
 
-void OnVersionChecked(bool has_new)
-{
-    LogFunctionName;
-
-    if (has_new)
-    {
-        gUi->SetHint(TEXT(LANG_NEW_VERSION_AVAILABLE), 3 * 60);
-    }
-}
-
 App::App()
 {
     LogFunctionName;
@@ -130,6 +120,7 @@ App::App()
 
     gUi->AppendLog("Create tables of UI");
     gUi->CreateTables();
+    gHint = new Hint;
 
     if (gConfig->language != LANGUAGE::LANGUAGE_ENGLISH)
     {
@@ -154,7 +145,7 @@ App::App()
             bios_hint += tmp;
         }
 
-        gUi->SetHint(bios_hint.c_str(), 5 * 60);
+        gHint->SetHint(bios_hint.c_str(), 5 * 60);
     }
 
     gUi->ClearLogs();
@@ -176,6 +167,7 @@ App::~App()
     delete gArchiveReaderFactory;
     delete gEmulator;
     delete gUi;
+    delete gHint;
     delete gRetroAchievements;
     delete gNetwork;
     delete gVideo;
@@ -307,7 +299,7 @@ void _CheckVersionCallback(const Response *response, void *callback_data)
             LogDebug("  version: %s", tag_name);
             if (!(*tag_name == 'v' && strcmp(tag_name + 1, APP_VER_STR) == 0))
             {
-                gUi->SetHint(TEXT(LANG_NEW_VERSION_AVAILABLE), 3 * 60);
+                gHint->SetHint(TEXT(LANG_NEW_VERSION_AVAILABLE), 3 * 60);
             }
         }
 

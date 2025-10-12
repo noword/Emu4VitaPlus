@@ -14,7 +14,7 @@ void ItemCoreOnClick()
     //     gConfig->core_options.Save((std::string(CORE_SAVEFILES_DIR) + "/" + gEmulator->GetCurrentName() + "/core.ini").c_str());
     // }
     gEmulator->CoreOptionUpdate();
-    gUi->SetHint(TEXT(LANG_CORE_NOTICE));
+    gHint->SetHint(TEXT(LANG_CORE_NOTICE));
 }
 
 class ItemCore : public ItemSelectable

@@ -11,6 +11,7 @@ public:
 
     void Login(const char *username, const char *password);
     void LoginWithToekn(const char *username, const char *token);
+    void Logout();
     void LoadGame(const char *path, const uint8_t *rom, size_t rom_size);
 
 private:

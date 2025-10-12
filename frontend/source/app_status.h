@@ -1,5 +1,6 @@
 #pragma once
 #include "video.h"
+#include "log.h"
 
 extern Emu4VitaPlus::Video *gVideo;
 

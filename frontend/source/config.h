@@ -43,8 +43,6 @@ namespace Emu4VitaPlus
         std::string version;
         bool reboot_when_loading_again;
         std::string last_rom;
-        std::string ra_user;
-        std::string ra_token;
         uint32_t language;
         uint32_t rewind;
         uint32_t rewind_buf_size;
@@ -66,6 +64,10 @@ namespace Emu4VitaPlus
         uint32_t support_no_game;
         uint32_t auto_rotating;
         uint32_t auto_download_thumbnail;
+
+        std::string ra_user;
+        std::string ra_token;
+        bool ra_login;
 
         static const std::unordered_map<uint32_t, const char *> PsvKeyStr;
         static const std::unordered_map<uint32_t, const char *> HotkeyStr;

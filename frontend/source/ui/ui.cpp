@@ -21,8 +21,7 @@
 #include "shader.h"
 #include "defines.h"
 #include "global.h"
-
-#define MAIN_WINDOW_PADDING 10
+#include "misc.h"
 
 static void ResumeGame()
 {
@@ -112,8 +111,6 @@ void Ui::_DeinitImgui()
 
 Ui::Ui() : _tab_index(TAB_INDEX_BROWSER),
            _tabs{nullptr},
-           _hint(""),
-           _hint_count(0),
            _ps_locked(false)
 {
     LogFunctionName;
@@ -456,14 +453,6 @@ void Ui::_UnlockPsButton()
     }
 }
 
-void Ui::SetHint(const char *s, int frame_count)
-{
-    LogFunctionName;
-    LogDebug("  hint: %d %s", frame_count, s);
-    _hint = LanguageString(s);
-    _hint_count = frame_count;
-}
-
 void Ui::_ShowNormal()
 {
     _tabs[TAB_INDEX_FAVORITE]->SetVisable(gFavorites->size() > 0);
@@ -490,32 +479,6 @@ void Ui::_ShowNormal()
     }
 }
 
-void Ui::_ShowHint()
-{
-    ImGui_ImplVita2D_NewFrame();
-    ImGui::SetMouseCursor(ImGuiMouseCursor_None);
-
-    ImVec2 size = ImGui::CalcTextSize(_hint.Get());
-    float x = (VITA_WIDTH - size.x) / 2;
-    float y = VITA_HEIGHT - size.y - MAIN_WINDOW_PADDING;
-
-    ImGui::SetNextWindowPos({x - MAIN_WINDOW_PADDING, y - MAIN_WINDOW_PADDING});
-    ImGui::SetNextWindowSize({size.x + MAIN_WINDOW_PADDING * 2, size.y + MAIN_WINDOW_PADDING * 2});
-    ImGui::SetNextWindowBgAlpha(0.8);
-
-    if (ImGui::Begin("hint", NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
-    {
-        ImGui::SetCursorPos({10, 10});
-        ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0, 255, 0, 255));
-        ImGui::TextWrapped(_hint.Get());
-        ImGui::PopStyleColor();
-    }
-    ImGui::End();
-
-    ImGui::Render();
-    My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
-}
-
 void Ui::Show()
 {
     LogFunctionNameLimited;
@@ -539,20 +502,13 @@ void Ui::Show()
         ImGui::End();
         ImGui::Render();
         My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
-        if (_hint_count > 0)
-        {
-            _ShowHint();
-        }
+        gHint->Show();
     }
-    else if (_hint_count > 0 && ((status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME)) != 0))
+    else if ((status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME)) != 0)
     {
-        _ShowHint();
+        gHint->Show();
     }
 
-    if (_hint_count > 0)
-    {
-        _hint_count--;
-    }
     return;
 }
 
@@ -570,7 +526,7 @@ void Ui::ClearLogs()
 void Ui::NotificationBootFailed()
 {
     LogFunctionName;
-    SetHint(TEXT(LANG_LOAD_ROM_FAILED));
+    gHint->SetHint(TEXT(LANG_LOAD_ROM_FAILED));
     if (_boot_ui->GetLogSize() > 0)
     {
         _boot_ui->SetInputHooks(&_input);

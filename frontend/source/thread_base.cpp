@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include "thread_base.h"
+#include "log.h"
 
 ThreadBase::ThreadBase(SceKernelThreadEntry entry, int priority, int cpu_affinity, int stack_size)
     : _entry(entry),

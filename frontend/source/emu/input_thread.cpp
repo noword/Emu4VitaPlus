@@ -1,4 +1,5 @@
 #include "input_thread.h"
+#include "log.h"
 
 InputThread::InputThread() : ThreadBase(_InputThread)
 {

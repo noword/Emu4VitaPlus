@@ -1,7 +1,5 @@
 #pragma once
 #include <psp2/kernel/threadmgr.h>
-#include <vector>
-#include <string>
 #include <language_string.h>
 #include "emulator.h"
 #include "input.h"
@@ -31,7 +29,6 @@ public:
     void UpdateControllerOptions();
     void UpdateDiskOptions();
     void OnStatusChanged(APP_STATUS status);
-    void SetHint(const char *s, int frame_count = 120);
 
 private:
     void
@@ -64,8 +61,5 @@ private:
     Dialog *_dialog;
     int _current_dialog;
     Boot *_boot_ui;
-
-    LanguageString _hint;
-    int _hint_count;
     bool _ps_locked;
 };

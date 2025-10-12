@@ -69,6 +69,12 @@ void RetroAchievements::LoginWithToekn(const char *username, const char *token)
     rc_client_begin_login_with_token(_client, username, token, _LoginCallback, this);
 }
 
+void RetroAchievements::Logout()
+{
+    LogFunctionName;
+    rc_client_logout(_client);
+}
+
 void RetroAchievements::_LoadGameCallback(int result, const char *error_message, rc_client_t *client, void *userdata)
 {
     LogFunctionName;

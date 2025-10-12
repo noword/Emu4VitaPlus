@@ -1,7 +1,6 @@
 #pragma once
 #include <stdint.h>
 #include <psp2/kernel/threadmgr.h>
-#include "log.h"
 
 #define CLASS_POINTER(CLASS, POINT, ARGP) CLASS *POINT = *(CLASS **)ARGP;
 

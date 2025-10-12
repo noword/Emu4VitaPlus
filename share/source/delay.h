@@ -1,5 +1,6 @@
 #pragma once
 #include <stdint.h>
+#include <psp2/kernel/processmgr.h>
 
 template <typename T>
 class Delay

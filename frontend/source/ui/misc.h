@@ -2,6 +2,7 @@
 #include <vita2d.h>
 #include <string>
 
+#define MAIN_WINDOW_PADDING 10
 #define BROWSER_TEXTURE_MAX_WIDTH 446
 #define BROWSER_TEXTURE_MAX_HEIGHT 394
 

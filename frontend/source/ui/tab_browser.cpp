@@ -445,7 +445,7 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
         strcpy(hint, TEXT(LANG_DOWNLOAD_PROGRESS));
         sprintf(hint + strlen(hint), " %d/%d\n", gNetwork->GetFinishedCount(), gNetwork->GetActivedCount());
         sprintf(hint + strlen(hint), TEXT(LANG_PRESS_CANCEL), EnterButton == SCE_CTRL_CIRCLE ? BUTTON_CROSS : BUTTON_CIRCLE);
-        gUi->SetHint(hint, 10 * 60);
+        gHint->SetHint(hint, 10 * 60, true);
 
         DirItem &item = tab->_directory->GetItem(i);
         if (item.is_dir)
@@ -491,7 +491,7 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
     {
         strcpy(hint, TEXT(LANG_DOWNLOAD_PROGRESS));
         sprintf(hint + strlen(hint), " %d/%d\n", gNetwork->GetFinishedCount(), gNetwork->GetActivedCount());
-        gUi->SetHint(hint, 10 * 60);
+        gHint->SetHint(hint, 10 * 60, true);
 
         sceKernelDelayThread(50);
     }
@@ -510,7 +510,7 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
         snprintf(hint, 0x40, TEXT(LANG_MANY_DOWNLOAD), gNetwork->GetFinishedCount());
         break;
     }
-    gUi->SetHint(hint);
+    gHint->SetHint(hint, 2 * 60, true);
 
     tab->_input->PopCallbacks();
 
@@ -636,11 +636,11 @@ void TabBrowser::_OnConfirmDialog(Input *input, int index)
                 _clipboard.Reset();
                 _directory->Refresh();
                 _Update();
-                gUi->SetHint((std::string(TEXT(LANG_DELETED)) + "\n" + path).c_str());
+                gHint->SetHint((std::string(TEXT(LANG_DELETED)) + "\n" + path).c_str());
             }
             else
             {
-                gUi->SetHint((std::string(TEXT(LANG_DELETION_FAILED)) + "\n" + path).c_str());
+                gHint->SetHint((std::string(TEXT(LANG_DELETION_FAILED)) + "\n" + path).c_str());
             }
         }
         break;
@@ -665,7 +665,7 @@ void TabBrowser::_PasteFile(bool overwrite)
     if (_clipboard.path == dst_path)
     {
         LogWarn("Cannot paste in the same directory");
-        gUi->SetHint(TEXT(LANG_SAME_DIR_WARN));
+        gHint->SetHint(TEXT(LANG_SAME_DIR_WARN));
         return;
     }
 
@@ -916,19 +916,19 @@ void TabBrowser::_Search(const char *s)
     size_t count = _directory->Search(s);
     if (count == 0)
     {
-        gUi->SetHint(TEXT(LANG_NOT_FOUND));
+        gHint->SetHint(TEXT(LANG_NOT_FOUND));
     }
     else if (count == 1)
     {
         char utf8[64];
         snprintf(utf8, 64, "%s 1 %s", TEXT(LANG_FOUND), TEXT(LANG_FILE));
-        gUi->SetHint(utf8);
+        gHint->SetHint(utf8);
     }
     else
     {
         char utf8[64];
         snprintf(utf8, 64, "%s %d %s", TEXT(LANG_FOUND), count, TEXT(LANG_FILES));
-        gUi->SetHint(utf8);
+        gHint->SetHint(utf8);
     }
 
     _OnKeySquare(_input);
