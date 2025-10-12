@@ -2,8 +2,8 @@
 #include <stdint.h>
 #include <vector>
 #include <psp2/touch.h>
-#include <psp2/kernel/threadmgr.h>
 #include "rect.h"
+#include "locker.h"
 
 struct TouchAxis
 {
@@ -51,7 +51,7 @@ public:
         float xscale = 32767.f / half_width; // 0x7fff == 32767
         float yscale = 32767.f / half_height;
 
-        _Lock();
+        _locker.Lock();
 
         _map_table_x.clear();
         _map_table_x.reserve(rect.width);
@@ -67,16 +67,16 @@ public:
             _map_table_y.emplace_back((y - half_height) * yscale);
         }
 
-        _Unlock();
+        _locker.Unlock();
     }
 
     template <typename T>
     int16_t GetMapedX(const Rect<T> &rect)
     {
         size_t x = _axis.x - rect.left;
-        _Lock();
+        _locker.Lock();
         int16_t mapx = rect.Contains(_axis.x, _axis.y) && x < _map_table_x.size() ? _map_table_x[x] : -0x8000;
-        _Unlock();
+        _locker.Unlock();
         return mapx;
     }
 
@@ -84,22 +84,19 @@ public:
     int16_t GetMapedY(const Rect<T> &rect)
     {
         size_t y = _axis.y - rect.top;
-        _Lock();
+        _locker.Lock();
         int16_t mapy = rect.Contains(_axis.x, _axis.y) && y < _map_table_y.size() ? _map_table_y[y] : -0x8000;
-        _Unlock();
+        _locker.Unlock();
         return mapy;
     }
 
 private:
-    void _Lock() { sceKernelLockLwMutex(&_mutex, 1, NULL); };
-    void _Unlock() { sceKernelUnlockLwMutex(&_mutex, 1); };
-
     const inline int16_t _GetRelativeMoving(std::vector<float> *table, int v)
     {
         int16_t result = 0;
         if (_last_id == _current_id && v != 0)
         {
-            _Lock();
+            _locker.Lock();
             if (v > 0 && v < _scale_map_table_x.size())
             {
                 result = _scale_map_table_x[v];
@@ -112,7 +109,7 @@ private:
                     result = -_scale_map_table_x[v];
                 }
             }
-            _Unlock();
+            _locker.Unlock();
         }
         return result;
     }
@@ -139,5 +136,5 @@ private:
     std::vector<float> _scale_map_table_x;
     std::vector<float> _scale_map_table_y;
 
-    SceKernelLwMutexWork _mutex;
+    Locker _locker;
 };

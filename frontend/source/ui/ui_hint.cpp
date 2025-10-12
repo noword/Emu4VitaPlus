@@ -5,12 +5,10 @@
 
 Hint::Hint()
 {
-    sceKernelCreateLwMutex(&_mutex, "hint_mutex", 0, 0, NULL);
 }
 
 Hint::~Hint()
 {
-    sceKernelDeleteLwMutex(&_mutex);
 }
 
 void Hint::Show()
@@ -20,7 +18,7 @@ void Hint::Show()
         return;
     }
 
-    _Lock();
+    _locker.Lock();
     HintItem &hint = _hints.front();
 
     ImGui_ImplVita2D_NewFrame();
@@ -51,27 +49,17 @@ void Hint::Show()
     {
         _hints.pop();
     }
-    _Unlock();
+    _locker.Unlock();
 }
 
 void Hint::SetHint(LanguageString s, int frame_count, bool clear_exists)
 {
-    _Lock();
+    _locker.Lock();
     if (clear_exists)
     {
         while (!_hints.empty())
             _hints.pop();
     }
     _hints.push({s, frame_count});
-    _Unlock();
-}
-
-void Hint::_Lock()
-{
-    sceKernelLockLwMutex(&_mutex, 1, NULL);
-}
-
-void Hint::_Unlock()
-{
-    sceKernelUnlockLwMutex(&_mutex, 1);
+    _locker.Unlock();
 }

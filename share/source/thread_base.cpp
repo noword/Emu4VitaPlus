@@ -3,7 +3,9 @@
 #include "log.h"
 
 ThreadBase::ThreadBase(SceKernelThreadEntry entry, int priority, int cpu_affinity, int stack_size)
-    : _entry(entry),
+    : Locker{"thread_mutex"},
+      Singleton{"thread_sema"},
+      _entry(entry),
       _priority(priority),
       _cpu_affinity(cpu_affinity),
       _stack_size(stack_size),
@@ -11,8 +13,6 @@ ThreadBase::ThreadBase(SceKernelThreadEntry entry, int priority, int cpu_affinit
       _keep_running(false)
 {
     LogFunctionName;
-    sceKernelCreateLwMutex(&_mutex, "thread_mutex", 0, 0, NULL);
-    _semaid = sceKernelCreateSema("thread_sema", 0, 0, 1, NULL);
 }
 
 ThreadBase::~ThreadBase()
@@ -22,8 +22,6 @@ ThreadBase::~ThreadBase()
     {
         Stop(true);
     }
-    sceKernelDeleteLwMutex(&_mutex);
-    sceKernelDeleteSema(_semaid);
 }
 
 bool ThreadBase::Start()
@@ -89,26 +87,6 @@ void ThreadBase::Stop(bool force)
 
     LogDebug("thread %08x exited", _thread_id);
     _thread_id = -1;
-}
-
-int32_t ThreadBase::Lock(uint32_t *timeout)
-{
-    return sceKernelLockLwMutex(&_mutex, 1, timeout);
-}
-
-void ThreadBase::Unlock()
-{
-    sceKernelUnlockLwMutex(&_mutex, 1);
-}
-
-int32_t ThreadBase::Wait(uint32_t *timeout)
-{
-    return sceKernelWaitSema(_semaid, 1, timeout);
-}
-
-void ThreadBase::Signal()
-{
-    sceKernelSignalSema(_semaid, 1);
 }
 
 void StartThread(SceKernelThreadEntry entry,

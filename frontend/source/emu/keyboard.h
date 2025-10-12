@@ -1,11 +1,11 @@
 #pragma once
 #include <imgui_vita2d/imgui_vita.h>
-#include <psp2/kernel/threadmgr.h>
 #include <libretro.h>
 #include <string>
 #include <bitset>
 #include <stdint.h>
 #include "input.h"
+#include "locker.h"
 
 namespace Emu4VitaPlus
 {
@@ -34,7 +34,7 @@ namespace Emu4VitaPlus
         ImVec2 size = {KEY_BUTTON_WIDTH, KEY_BUTTON_HEIGHT};
     };
 
-    class Keyboard
+    class Keyboard : public Locker
     {
     public:
         Keyboard();
@@ -46,8 +46,6 @@ namespace Emu4VitaPlus
 
         bool Visable() { return _visable; };
         void SetVisable(bool visable);
-        int32_t Lock(uint32_t *timeout = NULL);
-        void Unlock();
         bool CheckKey(retro_key key);
         void SetCallback(retro_keyboard_event_t callback) { _callback = callback; };
         void SetKeyboardUp() { _pos = {.0, .0}; };
@@ -63,7 +61,6 @@ namespace Emu4VitaPlus
         std::bitset<RETROK_LAST> _status;
         uint16_t _mod;
         bool _visable;
-        SceKernelLwMutexWork _mutex;
 
         retro_keyboard_event_t _callback;
     };

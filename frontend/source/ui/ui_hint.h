@@ -1,7 +1,7 @@
 #pragma once
 #include <queue>
 #include <string>
-#include <psp2/kernel/threadmgr.h>
+#include "locker.h"
 #include "language_string.h"
 
 struct HintItem
@@ -20,8 +20,6 @@ public:
     void SetHint(LanguageString s, int frame_count = 120, bool clear_exists = false);
 
 private:
-    void _Lock();
-    void _Unlock();
     std::queue<HintItem> _hints;
-    SceKernelLwMutexWork _mutex;
+    Locker _locker;
 };

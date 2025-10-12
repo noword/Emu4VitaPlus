@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string>
 #include <psp2/kernel/processmgr.h>
+#include "locker.h"
 
 #define LOG_LEVEL_TRACE 0
 #define LOG_LEVEL_DEBUG 1
@@ -114,7 +115,7 @@ private:
     std::string _name;
     char *_buf;
     int _buf_len;
-    SceKernelLwMutexWork _mutex;
+    Locker _locker;
     FILE *_fp;
 };
 

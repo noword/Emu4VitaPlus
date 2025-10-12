@@ -1,6 +1,7 @@
 #pragma once
 #include <stdint.h>
-#include <psp2/kernel/threadmgr.h>
+#include "locker.h"
+#include "singleton.h"
 
 #define CLASS_POINTER(CLASS, POINT, ARGP) CLASS *POINT = *(CLASS **)ARGP;
 
@@ -8,7 +9,7 @@
 #define SCE_KERNEL_LOWEST_PRIORITY_USER 191
 #define SCE_KERNEL_DEFAULT_PRIORITY_USER 0x10000100
 
-class ThreadBase
+class ThreadBase : public Locker, public Singleton
 {
 public:
     ThreadBase(SceKernelThreadEntry entry,
@@ -21,10 +22,6 @@ public:
     bool Start(void *data, SceSize size);
     void Stop(bool force = false);
     bool IsRunning() { return _keep_running; };
-    int32_t Lock(uint32_t *timeout = NULL);
-    void Unlock();
-    int32_t Wait(uint32_t *timeout = NULL);
-    void Signal();
 
 protected:
     SceKernelThreadEntry _entry;
@@ -33,8 +30,6 @@ protected:
     SceSize _stack_size;
     bool _keep_running;
     SceUID _thread_id;
-    SceKernelLwMutexWork _mutex;
-    SceUID _semaid;
 };
 
 // entry function must call sceKernelExitDeleteThread at end

@@ -201,19 +201,16 @@ const KeyButton Keyboard::_buttons[] = {
 };
 
 Keyboard::Keyboard()
-    : _visable(false),
+    : Locker("keyboard_mutex"),
+      _visable(false),
       _mod(0),
       _callback(nullptr),
       _status{0}
 {
     SetKeyboardDown();
-    sceKernelCreateLwMutex(&_mutex, "keyboard_mutex", 0, 0, NULL);
 };
 
-Keyboard::~Keyboard()
-{
-    sceKernelDeleteLwMutex(&_mutex);
-};
+Keyboard::~Keyboard() {};
 
 void Keyboard::Show()
 {
@@ -328,16 +325,6 @@ void Keyboard::_OnKeyUp(const Key &key)
         LogDebug("  _callback %d %04x %s %04x", down, key.key, key.str, _mod);
         _callback(down, key.key, 0, _mod);
     }
-}
-
-int32_t Keyboard::Lock(uint32_t *timeout)
-{
-    return sceKernelLockLwMutex(&_mutex, 1, timeout);
-}
-
-void Keyboard::Unlock()
-{
-    sceKernelUnlockLwMutex(&_mutex, 1);
 }
 
 bool Keyboard::CheckKey(retro_key key)

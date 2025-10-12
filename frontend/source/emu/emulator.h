@@ -14,6 +14,7 @@
 #include "disk_control.h"
 #include "rect.h"
 #include "keyboard.h"
+#include "locker.h"
 
 using namespace Emu4VitaPlus;
 
@@ -49,8 +50,9 @@ public:
     void Show();
     void Save();
     void Load();
-    int32_t Lock(uint32_t *timeout = NULL);
-    void Unlock();
+
+    int32_t Lock(uint32_t *timeout = NULL) { return _locker.Lock(timeout); };
+    void Unlock() { _locker.Unlock(); };
     void SetSpeed(double speed);
     void Wait();
     const char *GetCurrentName() { return _current_name.c_str(); };
@@ -135,6 +137,7 @@ private:
     void _InitArcadeManager();
     void _ShowSpeedHint();
 
+    Locker _locker;
     std::string _current_name;
     bool _loaded;
     retro_system_info _info;
@@ -157,8 +160,6 @@ private:
     Delay<double> _delay;
     uint32_t _frame_count;
     bool _show_video;
-
-    SceKernelLwMutexWork _run_mutex;
 
     ArchiveManager _archive_manager;
     RewindManager _rewind_manager;

@@ -21,7 +21,6 @@ Log::Log(const char *name, int buf_len)
 	_name = name;
 	_buf = new char[buf_len];
 	_buf_len = buf_len;
-	sceKernelCreateLwMutex(&_mutex, "log_mutex", 0, 0, NULL);
 #ifdef LOG_QUICK
 	_fp = fopen(name, "w");
 #endif
@@ -29,9 +28,7 @@ Log::Log(const char *name, int buf_len)
 
 Log::~Log()
 {
-	sceKernelLockLwMutex(&_mutex, 1, NULL);
 	delete[] _buf;
-	sceKernelDeleteLwMutex(&_mutex);
 
 #ifdef LOG_QUICK
 	fclose(_fp);
@@ -49,7 +46,7 @@ void Log::log(int log_level, const char *format, ...)
 
 void Log::log_v(int log_level, const char *format, va_list args)
 {
-	sceKernelLockLwMutex(&_mutex, 1, NULL);
+	_locker.Lock();
 #ifndef LOG_QUICK
 	_fp = fopen(_name.c_str(), "a");
 #endif
@@ -65,7 +62,7 @@ void Log::log_v(int log_level, const char *format, va_list args)
 		fflush(_fp);
 #endif
 	}
-	sceKernelUnlockLwMutex(&_mutex, 1);
+	_locker.Unlock();
 }
 
 #ifdef __cplusplus

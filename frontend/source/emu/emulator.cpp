@@ -40,7 +40,6 @@ Emulator::Emulator()
     memset(&_info, 0, sizeof(_info));
     retro_get_system_info(&_info);
     LogDebug("%s %s", _info.library_name, _info.library_version);
-    sceKernelCreateLwMutex(&_run_mutex, "run_mutex", 0, 0, NULL);
     _InitArcadeManager();
 
     if (ENABLE_KEYBOARD)
@@ -67,8 +66,6 @@ Emulator::~Emulator()
     {
         delete _keyboard;
     }
-
-    sceKernelDeleteLwMutex(&_run_mutex);
 
     retro_deinit();
 }
@@ -326,16 +323,6 @@ void Emulator::Run()
     {
         Wait();
     }
-}
-
-int32_t Emulator::Lock(uint32_t *timeout)
-{
-    return sceKernelLockLwMutex(&_run_mutex, 1, timeout);
-}
-
-void Emulator::Unlock()
-{
-    sceKernelUnlockLwMutex(&_run_mutex, 1);
 }
 
 void Emulator::Reset()

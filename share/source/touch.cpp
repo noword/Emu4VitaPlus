@@ -31,14 +31,11 @@ Touch::Touch(SceTouchPortType port)
 
     _center.x = (_info[_port].maxAaX - _info[_port].minAaX) / 4;
     _center.y = (_info[_port].maxAaY - _info[_port].minAaY) / 4;
-
-    sceKernelCreateLwMutex(&_mutex, "thread_mutex", 0, 0, NULL);
 }
 
 Touch::~Touch()
 {
     LogFunctionName;
-    sceKernelDeleteLwMutex(&_mutex);
 }
 
 void Touch::Enable(bool enable)
@@ -100,7 +97,7 @@ void Touch::InitMovingScale(float xscale, float yscale)
     LogFunctionName;
     size_t sizex = _info[_port].maxAaX - _info[_port].minAaX;
     size_t sizey = _info[_port].maxAaY - _info[_port].minAaY;
-    _Lock();
+    _locker.Lock();
 
     _scale_map_table_x.clear();
     _scale_map_table_x.reserve(sizex);
@@ -116,5 +113,5 @@ void Touch::InitMovingScale(float xscale, float yscale)
         _scale_map_table_y.emplace_back(i * xscale);
     }
 
-    _Unlock();
+    _locker.Unlock();
 }
