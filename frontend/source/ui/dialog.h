@@ -43,10 +43,15 @@ public:
     virtual ~InputTextDialog();
 
     bool Init();
+    void Deinit();
+    void SetText(const char *title, const char *initial_text = "");
     bool GetStatus();
     const char *GetInput() { return _utf8; };
+    bool Inited() { return _inited; };
 
 private:
+    bool _inited;
+
     uint16_t _title[SCE_IME_DIALOG_MAX_TITLE_LENGTH];
     uint16_t _text[SCE_IME_DIALOG_MAX_TITLE_LENGTH];
     uint16_t _input[SCE_IME_DIALOG_MAX_TITLE_LENGTH];

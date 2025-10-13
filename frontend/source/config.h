@@ -66,6 +66,7 @@ namespace Emu4VitaPlus
         uint32_t auto_download_thumbnail;
 
         std::string ra_user;
+        std::string ra_password;
         std::string ra_token;
         bool hardcore;
         bool ra_login;

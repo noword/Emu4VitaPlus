@@ -129,15 +129,20 @@ void Dialog::_OnCancel(Input *input)
 
 InputTextDialog::InputTextDialog(const char *title, const char *initial_text)
 {
-    Utils::Utf8ToUtf16(title, _title, SCE_IME_DIALOG_MAX_TITLE_LENGTH - 1);
-    Utils::Utf8ToUtf16(initial_text, _text, SCE_IME_DIALOG_MAX_TITLE_LENGTH - 1);
-    *_utf8 = 0;
+    SetText(title, initial_text);
 }
 
 InputTextDialog::~InputTextDialog()
 {
     LogFunctionName;
     sceImeDialogTerm();
+}
+
+void InputTextDialog::SetText(const char *title, const char *initial_text)
+{
+    Utils::Utf8ToUtf16(title, _title, SCE_IME_DIALOG_MAX_TITLE_LENGTH - 1);
+    Utils::Utf8ToUtf16(initial_text, _text, SCE_IME_DIALOG_MAX_TITLE_LENGTH - 1);
+    *_utf8 = 0;
 }
 
 bool InputTextDialog::Init()
@@ -157,12 +162,19 @@ bool InputTextDialog::Init()
     param.inputTextBuffer = _input;
 
     int32_t result = sceImeDialogInit(&param);
-
-    if (result != SCE_OK)
+    bool _inited = result == SCE_OK;
+    if (!_inited)
     {
         LogWarn("init InputTextDialog failed: %08x", result);
     }
-    return result == SCE_OK;
+    return _inited;
+}
+
+void InputTextDialog::Deinit()
+{
+    LogFunctionName;
+    sceImeDialogTerm();
+    _inited = false;
 }
 
 bool InputTextDialog::GetStatus()

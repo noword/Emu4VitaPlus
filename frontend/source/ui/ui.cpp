@@ -804,9 +804,21 @@ void Ui::_ProcessTextInput()
     switch (_current_dialog)
     {
     case LANG_USERNAME:
-        if (gConfig->ra_token.empty() || !gRetroAchievements->IsOnline())
+    {
+        const char *username = _text_dialog->GetInput();
+        if (!username)
         {
             delete _text_dialog;
+            _text_dialog = nullptr;
+            break;
+        }
+
+        gConfig->ra_user = username;
+        delete _text_dialog;
+        _text_dialog = nullptr;
+
+        if (gConfig->ra_token.empty() || !gRetroAchievements->IsOnline())
+        {
             _text_dialog = new InputTextDialog(TEXT(LANG_PASSWORD));
             if (_text_dialog->Init())
             {
@@ -822,10 +834,25 @@ void Ui::_ProcessTextInput()
         }
         else
         {
+            gRetroAchievements->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
         }
+    }
 
-        break;
+    break;
+
     case LANG_PASSWORD:
+    {
+        const char *password = _text_dialog->GetInput();
+        if (password)
+        {
+            gConfig->ra_password = password;
+            gRetroAchievements->Login(gConfig->ra_user.c_str(), gConfig->ra_password.c_str());
+        }
+        delete _text_dialog;
+        _text_dialog = nullptr;
+    }
+
+    break;
 
     default:
         break;
