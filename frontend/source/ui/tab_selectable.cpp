@@ -292,3 +292,16 @@ void TabSeletable::_Update()
     }
     gVideo->Unlock();
 }
+
+ItemBase *TabSeletable::GetItemByLanguageString(const LanguageString &lang)
+{
+    for (auto &item : _items)
+    {
+        if (item->GetLanguageString() == lang)
+        {
+            return item;
+        }
+    }
+
+    return nullptr;
+}

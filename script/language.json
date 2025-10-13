@@ -1714,5 +1714,41 @@
         "Spanish": "",
         "Russian": "",
         "Comments": ""
+    },
+    {
+        "No.": "144",
+        "Tag": "LANG_USERNAME",
+        "English": "Username",
+        "Chinese": "用户名",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "145",
+        "Tag": "LANG_PASSWORD",
+        "English": "Password",
+        "Chinese": "密码",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "146",
+        "Tag": "LANG_NO_NETWORK",
+        "English": "No active network connection",
+        "Chinese": "没有网络连接",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
 ]

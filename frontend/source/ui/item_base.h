@@ -37,6 +37,7 @@ public:
             _option_callback();
     }
 
+    const LanguageString &GetLanguageString() { return _text; };
     const char *GetText() { return _text.Get(); };
     const char *GetInfo() { return _info.Get(); };
     void SetVisable(bool visable) { _visable = visable; };

@@ -15,7 +15,7 @@
 #include "rom_name.h"
 #include "network.h"
 #include "retro_achievements.h"
-#include "ui_hint.h"
+#include "hint.h"
 
 extern bool gBootFromArch;
 extern std::string gBootRomPath;

@@ -134,3 +134,12 @@ void LanguageString::_InitTrans()
 
     delete[] buf;
 }
+
+bool LanguageString::operator==(const LanguageString &other) const
+{
+    if (_text_id != INVALID_TEXT_ENUM)
+    {
+        return _text_id == other.GetId();
+    }
+    return strcmp(_english_texts[_text_id].c_str(), other.GetOriginal()) == 0;
+}

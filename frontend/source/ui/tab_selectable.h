@@ -18,6 +18,7 @@ public:
     void SetColumns(int columns);
     void SetIndex(size_t index);
     bool Visable() override { return _visable && _GetItemCount() > 0; };
+    ItemBase *GetItemByLanguageString(const LanguageString &lang);
 
 protected:
     virtual void _Show() override;

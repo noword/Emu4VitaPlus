@@ -875,6 +875,7 @@ void TabBrowser::_OnKeyTriangle(Input *input)
     if (_text_dialog->Init())
     {
         UnsetInputHooks(input);
+        _cmd = 0xff;
     }
     else
     {

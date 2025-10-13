@@ -29,6 +29,8 @@ public:
     const char *const GetOriginal() const;
     TEXT_ENUM GetId() const { return _text_id; };
 
+    bool operator==(const LanguageString &other) const;
+
 private:
     static void _InitTexts();
     static void _InitTrans();

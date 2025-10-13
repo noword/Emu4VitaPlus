@@ -1,6 +1,6 @@
 #include <imgui_vita2d/imgui_vita.h>
 #include "my_imgui.h"
-#include "ui_hint.h"
+#include "hint.h"
 #include "misc.h"
 
 Hint::Hint()

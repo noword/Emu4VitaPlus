@@ -111,7 +111,8 @@ void Ui::_DeinitImgui()
 
 Ui::Ui() : _tab_index(TAB_INDEX_BROWSER),
            _tabs{nullptr},
-           _ps_locked(false)
+           _ps_locked(false),
+           _text_dialog(nullptr)
 {
     LogFunctionName;
     _boot_ui = new Boot();
@@ -126,6 +127,8 @@ Ui::~Ui()
     LogFunctionName;
     delete _boot_ui;
     delete _dialog;
+    if (_text_dialog)
+        delete _text_dialog;
 
     _DeinitImgui();
     _ClearTabs();
@@ -489,7 +492,8 @@ void Ui::_ShowNormal()
 void Ui::Show()
 {
     LogFunctionNameLimited;
-    // vita2d_set_clip_rectangle(0, 0, VITA_WIDTH, VITA_HEIGHT);
+
+    _ProcessTextInput();
 
     APP_STATUS status = gStatus.Get();
     if ((status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME)) != 0)
@@ -759,4 +763,75 @@ void Ui::_OnStartCore(Input *input)
 void Ui::_ChangeRetroArchievements()
 {
     LogFunctionName;
+    LogDebug("ra_login: %d", gConfig->ra_login);
+    if (!gConfig->ra_login)
+    {
+        gRetroAchievements->Logout();
+        return;
+    }
+
+    if (!gNetwork->Connected())
+    {
+        _current_dialog = LANG_NO_NETWORK;
+        _dialog->SetText(TEXT(LANG_NO_NETWORK));
+        _dialog->OnActive(&_input);
+        return;
+    }
+
+    if (_text_dialog)
+        delete _text_dialog;
+
+    _text_dialog = new InputTextDialog(TEXT(LANG_USERNAME), gConfig->ra_user.c_str());
+    if (_text_dialog->Init())
+    {
+        _current_dialog = LANG_USERNAME;
+        _input.PushCallbacks();
+    }
+    else
+    {
+        delete _text_dialog;
+        _text_dialog = nullptr;
+    }
+}
+
+void Ui::_ProcessTextInput()
+{
+    if (!(_text_dialog && _text_dialog->GetStatus()))
+    {
+        return;
+    }
+
+    switch (_current_dialog)
+    {
+    case LANG_USERNAME:
+        if (gConfig->ra_token.empty() || !gRetroAchievements->IsOnline())
+        {
+            delete _text_dialog;
+            _text_dialog = new InputTextDialog(TEXT(LANG_PASSWORD));
+            if (_text_dialog->Init())
+            {
+                _current_dialog = LANG_PASSWORD;
+                _input.PushCallbacks();
+            }
+            else
+            {
+                delete _text_dialog;
+                _text_dialog = nullptr;
+            }
+            return;
+        }
+        else
+        {
+        }
+
+        break;
+    case LANG_PASSWORD:
+
+    default:
+        break;
+    }
+
+    delete _text_dialog;
+    _text_dialog = nullptr;
+    _input.PopCallbacks();
 }

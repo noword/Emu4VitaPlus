@@ -25,7 +25,7 @@ void LogMessage(const char *message, const rc_client_t *client)
     LogInfo("rc client log: %s", message);
 }
 
-RetroAchievements::RetroAchievements()
+RetroAchievements::RetroAchievements() : _online(false)
 {
     LogFunctionName;
     _client = rc_client_create(ReadMemory, ServerCall);
@@ -51,6 +51,8 @@ void RetroAchievements::_LoginCallback(int result, const char *error_message, rc
         return;
     }
 
+    RetroAchievements *ra = (RetroAchievements *)userdata;
+    ra->_online = true;
     const rc_client_user_t *user = rc_client_get_user_info(client);
     // store_retroachievements_credentials(user->username, user->token);
 
@@ -72,7 +74,11 @@ void RetroAchievements::LoginWithToekn(const char *username, const char *token)
 void RetroAchievements::Logout()
 {
     LogFunctionName;
-    rc_client_logout(_client);
+    if (_online)
+    {
+        rc_client_logout(_client);
+        _online = false;
+    }
 }
 
 void RetroAchievements::_LoadGameCallback(int result, const char *error_message, rc_client_t *client, void *userdata)
