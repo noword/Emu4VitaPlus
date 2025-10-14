@@ -127,7 +127,7 @@ void Dialog::_OnCancel(Input *input)
     gVideo->Unlock();
 }
 
-InputTextDialog::InputTextDialog()
+InputTextDialog::InputTextDialog() : _inited(false)
 {
 }
 
@@ -140,6 +140,7 @@ InputTextDialog::~InputTextDialog()
 bool InputTextDialog::Open(InputDialogCallbackFunc callback, const char *title, const char *initial_text)
 {
     LogFunctionName;
+    LogDebug("  title: %s  initial_text: %s  callback: %08x", title, initial_text, callback);
 
     _callback = callback;
     Utils::Utf8ToUtf16(title, _title, SCE_IME_DIALOG_MAX_TITLE_LENGTH - 1);
@@ -159,7 +160,7 @@ bool InputTextDialog::Open(InputDialogCallbackFunc callback, const char *title, 
     param.inputTextBuffer = _input;
 
     int32_t result = sceImeDialogInit(&param);
-    bool _inited = result == SCE_OK;
+    _inited = (result == SCE_OK);
     if (!_inited)
     {
         LogWarn("init InputTextDialog failed: %08x", result);
@@ -169,6 +170,7 @@ bool InputTextDialog::Open(InputDialogCallbackFunc callback, const char *title, 
 
 void InputTextDialog::Close()
 {
+    LogFunctionName;
     if (_inited)
     {
         sceImeDialogTerm();

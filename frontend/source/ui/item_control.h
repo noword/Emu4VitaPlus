@@ -65,7 +65,6 @@ private:
 
     virtual void _OnClick(Input *input) override
     {
-
         uint8_t r = RETRO_KEYS[_index];
         std::vector<uint8_t> *retros = &_control_map->retros;
         auto iter = std::find(retros->begin(), retros->end(), r);

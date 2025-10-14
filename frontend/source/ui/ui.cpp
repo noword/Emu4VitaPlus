@@ -782,6 +782,7 @@ void Ui::_ChangeRetroArchievements()
 
 void Ui::_TextInputCallback(const char *text)
 {
+    LogFunctionName;
     _input.PopCallbacks();
 }
 
