@@ -64,6 +64,8 @@ private:
 
     void _OnItemUpdated(DirItem *item);
 
+    void _TextInputCallback(const char *text);
+
     Directory *_directory;
     vita2d_texture *_texture;
     float _texture_width;
@@ -71,7 +73,6 @@ private:
     float _texture_max_width;
     float _texture_max_height;
 
-    InputTextDialog *_text_dialog;
     Input *_input;
     const char *_name;
     std::string _info;

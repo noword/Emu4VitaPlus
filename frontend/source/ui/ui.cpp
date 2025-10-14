@@ -111,8 +111,7 @@ void Ui::_DeinitImgui()
 
 Ui::Ui() : _tab_index(TAB_INDEX_BROWSER),
            _tabs{nullptr},
-           _ps_locked(false),
-           _text_dialog(nullptr)
+           _ps_locked(false)
 {
     LogFunctionName;
     _boot_ui = new Boot();
@@ -127,8 +126,6 @@ Ui::~Ui()
     LogFunctionName;
     delete _boot_ui;
     delete _dialog;
-    if (_text_dialog)
-        delete _text_dialog;
 
     _DeinitImgui();
     _ClearTabs();
@@ -370,6 +367,7 @@ void Ui::_OnPsButton(Input *input)
 void Ui::Run()
 {
     _input.Poll(true);
+    gInputTextDialog->Run();
 }
 
 void Ui::OnStatusChanged(APP_STATUS status)
@@ -492,8 +490,6 @@ void Ui::_ShowNormal()
 void Ui::Show()
 {
     LogFunctionNameLimited;
-
-    _ProcessTextInput();
 
     APP_STATUS status = gStatus.Get();
     if ((status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME)) != 0)
@@ -778,87 +774,82 @@ void Ui::_ChangeRetroArchievements()
         return;
     }
 
-    if (_text_dialog)
-        delete _text_dialog;
-
-    _text_dialog = new InputTextDialog(TEXT(LANG_USERNAME), gConfig->ra_user.c_str());
-    if (_text_dialog->Init())
-    {
-        _current_dialog = LANG_USERNAME;
-        _input.PushCallbacks();
-    }
-    else
-    {
-        delete _text_dialog;
-        _text_dialog = nullptr;
-    }
+    gInputTextDialog->Open(std::bind(&Ui::_TextInputCallback, this, std::placeholders::_1),
+                           TEXT(LANG_USERNAME),
+                           gConfig->ra_user.c_str());
+    _input.PushCallbacks();
 }
 
-void Ui::_ProcessTextInput()
+void Ui::_TextInputCallback(const char *text)
 {
-    if (!(_text_dialog && _text_dialog->GetStatus()))
-    {
-        return;
-    }
-
-    switch (_current_dialog)
-    {
-    case LANG_USERNAME:
-    {
-        const char *username = _text_dialog->GetInput();
-        if (!username)
-        {
-            delete _text_dialog;
-            _text_dialog = nullptr;
-            break;
-        }
-
-        gConfig->ra_user = username;
-        delete _text_dialog;
-        _text_dialog = nullptr;
-
-        if (gConfig->ra_token.empty() || !gRetroAchievements->IsOnline())
-        {
-            _text_dialog = new InputTextDialog(TEXT(LANG_PASSWORD));
-            if (_text_dialog->Init())
-            {
-                _current_dialog = LANG_PASSWORD;
-                _input.PushCallbacks();
-            }
-            else
-            {
-                delete _text_dialog;
-                _text_dialog = nullptr;
-            }
-            return;
-        }
-        else
-        {
-            gRetroAchievements->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
-        }
-    }
-
-    break;
-
-    case LANG_PASSWORD:
-    {
-        const char *password = _text_dialog->GetInput();
-        if (password)
-        {
-            gConfig->ra_password = password;
-            gRetroAchievements->Login(gConfig->ra_user.c_str(), gConfig->ra_password.c_str());
-        }
-        delete _text_dialog;
-        _text_dialog = nullptr;
-    }
-
-    break;
-
-    default:
-        break;
-    }
-
-    delete _text_dialog;
-    _text_dialog = nullptr;
     _input.PopCallbacks();
 }
+
+// void Ui::_ProcessTextInput()
+// {
+//     if (!(_text_dialog && _text_dialog->GetStatus()))
+//     {
+//         return;
+//     }
+
+//     switch (_current_dialog)
+//     {
+//     case LANG_USERNAME:
+//     {
+//         const char *username = _text_dialog->GetInput();
+//         if (!username)
+//         {
+//             delete _text_dialog;
+//             _text_dialog = nullptr;
+//             break;
+//         }
+
+//         gConfig->ra_user = username;
+//         delete _text_dialog;
+//         _text_dialog = nullptr;
+
+//         if (gConfig->ra_token.empty() || !gRetroAchievements->IsOnline())
+//         {
+//             _text_dialog = new InputTextDialog(TEXT(LANG_PASSWORD));
+//             if (_text_dialog->Init())
+//             {
+//                 _current_dialog = LANG_PASSWORD;
+//                 _input.PushCallbacks();
+//             }
+//             else
+//             {
+//                 delete _text_dialog;
+//                 _text_dialog = nullptr;
+//             }
+//             return;
+//         }
+//         else
+//         {
+//             gRetroAchievements->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
+//         }
+//     }
+
+//     break;
+
+//     case LANG_PASSWORD:
+//     {
+//         const char *password = _text_dialog->GetInput();
+//         if (password)
+//         {
+//             gConfig->ra_password = password;
+//             gRetroAchievements->Login(gConfig->ra_user.c_str(), gConfig->ra_password.c_str());
+//         }
+//         delete _text_dialog;
+//         _text_dialog = nullptr;
+//     }
+
+//     break;
+
+//     default:
+//         break;
+//     }
+
+//     delete _text_dialog;
+//     _text_dialog = nullptr;
+//     _input.PopCallbacks();
+// }

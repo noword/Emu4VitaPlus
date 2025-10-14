@@ -555,6 +555,7 @@ void TabBrowser::_OnDialog(Input *input, int index)
         gInputTextDialog->Open(std::bind(&TabBrowser::_TextInputCallback, this, std::placeholders::_1),
                                TEXT(LANG_SEARCH),
                                _directory->GetItemPath(_index).c_str());
+        input->PushCallbacks();
 
         break;
 
@@ -823,6 +824,7 @@ void TabBrowser::ChangeLanguage(uint32_t language)
 void TabBrowser::_OnKeyTriangle(Input *input)
 {
     LogFunctionName;
+    input->PushCallbacks();
     gInputTextDialog->Open(std::bind(&TabBrowser::_TextInputCallback, this, std::placeholders::_1),
                            TEXT(LANG_SEARCH));
 }
@@ -911,5 +913,5 @@ void TabBrowser::_TextInputCallback(const char *text)
         }
     }
 
-    SetInputHooks(_input);
+    _input->PopCallbacks();
 }

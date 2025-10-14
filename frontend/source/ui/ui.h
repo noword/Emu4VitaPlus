@@ -45,7 +45,7 @@ private:
     void _ChangeLanguage();
     void _ChangeAutoRotating();
     void _ChangeRetroArchievements();
-    void _ProcessTextInput();
+    void _TextInputCallback(const char *text);
 
     void _ShowNormal();
     void _ShowHint();
@@ -61,7 +61,6 @@ private:
 
     TabBase *_tabs[TAB_INDEX_COUNT];
     Dialog *_dialog;
-    InputTextDialog *_text_dialog;
     int _current_dialog;
     Boot *_boot_ui;
     bool _ps_locked;
