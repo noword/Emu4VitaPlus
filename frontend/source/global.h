@@ -16,6 +16,7 @@
 #include "network.h"
 #include "retro_achievements.h"
 #include "hint.h"
+#include "dialog.h"
 
 extern bool gBootFromArch;
 extern std::string gBootRomPath;
@@ -34,3 +35,4 @@ extern RomNameMap *gRomNameMap;
 extern Network *gNetwork;
 extern RetroAchievements *gRetroAchievements;
 extern Hint *gHint;
+extern InputTextDialog *gInputTextDialog;

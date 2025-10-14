@@ -17,3 +17,4 @@ RomNameMap *gRomNameMap = nullptr;
 Network *gNetwork = nullptr;
 RetroAchievements *gRetroAchievements = nullptr;
 Hint *gHint = nullptr;
+InputTextDialog *gInputTextDialog = nullptr;

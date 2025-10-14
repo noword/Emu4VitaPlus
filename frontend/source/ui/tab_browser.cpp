@@ -26,7 +26,6 @@ TabBrowser::TabBrowser() : TabSeletable(LANG_BROWSER),
                            _texture(nullptr),
                            _texture_max_width(BROWSER_TEXTURE_MAX_WIDTH),
                            _texture_max_height(BROWSER_TEXTURE_MAX_HEIGHT),
-                           _text_dialog(nullptr),
                            _name(nullptr),
                            _dialog(nullptr),
                            _updating_thumbnails(false)
@@ -58,11 +57,6 @@ TabBrowser::~TabBrowser()
 
     delete _directory;
     delete _confirm_dialog;
-
-    if (_text_dialog != nullptr)
-    {
-        delete _text_dialog;
-    }
 
     if (_dialog != nullptr)
     {
@@ -238,30 +232,6 @@ void TabBrowser::_Show()
 
 void TabBrowser::Show(bool selected)
 {
-    if (_text_dialog != nullptr && _text_dialog->GetStatus())
-    {
-        if (_cmd == CMD_RENAME)
-        {
-            std::string src_path = _GetCurrentFullPath();
-            const char *dst_path = _text_dialog->GetInput();
-            File::MoveFile(src_path.c_str(), dst_path);
-            _directory->Refresh();
-            _cmd = 0xff;
-        }
-        else
-        {
-            const char *s = _text_dialog->GetInput();
-            if (*s)
-            {
-                _Search(s);
-            }
-        }
-
-        delete _text_dialog;
-        _text_dialog = nullptr;
-        SetInputHooks(_input);
-    }
-
     TabBase::Show(selected);
 
     if (_dialog && _dialog->IsActived())
@@ -582,22 +552,9 @@ void TabBrowser::_OnDialog(Input *input, int index)
             break;
         }
 
-        if (_text_dialog != nullptr)
-        {
-            delete _text_dialog;
-        }
-
-        _text_dialog = new InputTextDialog(TEXT(LANG_SEARCH), _directory->GetItemPath(_index).c_str());
-        if (_text_dialog->Init())
-        {
-            _input = input;
-            UnsetInputHooks(input);
-        }
-        else
-        {
-            delete _text_dialog;
-            _text_dialog = nullptr;
-        }
+        gInputTextDialog->Open(std::bind(&TabBrowser::_TextInputCallback, this, std::placeholders::_1),
+                               TEXT(LANG_SEARCH),
+                               _directory->GetItemPath(_index).c_str());
 
         break;
 
@@ -866,22 +823,8 @@ void TabBrowser::ChangeLanguage(uint32_t language)
 void TabBrowser::_OnKeyTriangle(Input *input)
 {
     LogFunctionName;
-    if (_text_dialog != nullptr)
-    {
-        delete _text_dialog;
-    }
-
-    _text_dialog = new InputTextDialog(TEXT(LANG_SEARCH));
-    if (_text_dialog->Init())
-    {
-        UnsetInputHooks(input);
-        _cmd = 0xff;
-    }
-    else
-    {
-        delete _text_dialog;
-        _text_dialog = nullptr;
-    }
+    gInputTextDialog->Open(std::bind(&TabBrowser::_TextInputCallback, this, std::placeholders::_1),
+                           TEXT(LANG_SEARCH));
 }
 
 void TabBrowser::_OnKeySquare(Input *input)
@@ -947,4 +890,26 @@ const std::string TabBrowser::_GetCurrentFullPath(bool *is_dir)
     if (is_dir)
         *is_dir = item.is_dir;
     return _directory->GetCurrentPath() + "/" + item.path;
+}
+
+void TabBrowser::_TextInputCallback(const char *text)
+{
+    if (_cmd == CMD_RENAME)
+    {
+        std::string src_path = _GetCurrentFullPath();
+        const char *dst_path = gInputTextDialog->GetInput();
+        File::MoveFile(src_path.c_str(), dst_path);
+        _directory->Refresh();
+        _cmd = 0xff;
+    }
+    else
+    {
+        const char *s = gInputTextDialog->GetInput();
+        if (*s)
+        {
+            _Search(s);
+        }
+    }
+
+    SetInputHooks(_input);
 }

@@ -77,6 +77,9 @@ App::App()
     gEmulator = new Emulator();
     gVideo = new Video();
     gUi = new Ui();
+    gHint = new Hint;
+    gInputTextDialog = new InputTextDialog;
+
     gVideo->Start();
 
     gUi->AppendLog("Booting");
@@ -120,7 +123,6 @@ App::App()
 
     gUi->AppendLog("Create tables of UI");
     gUi->CreateTables();
-    gHint = new Hint;
 
     if (gConfig->language != LANGUAGE::LANGUAGE_ENGLISH)
     {
@@ -168,6 +170,7 @@ App::~App()
     delete gEmulator;
     delete gUi;
     delete gHint;
+    delete gInputTextDialog;
     delete gRetroAchievements;
     delete gNetwork;
     delete gVideo;

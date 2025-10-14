@@ -127,27 +127,24 @@ void Dialog::_OnCancel(Input *input)
     gVideo->Unlock();
 }
 
-InputTextDialog::InputTextDialog(const char *title, const char *initial_text)
+InputTextDialog::InputTextDialog()
 {
-    SetText(title, initial_text);
 }
 
 InputTextDialog::~InputTextDialog()
 {
     LogFunctionName;
-    sceImeDialogTerm();
+    Close();
 }
 
-void InputTextDialog::SetText(const char *title, const char *initial_text)
+bool InputTextDialog::Open(InputDialogCallbackFunc callback, const char *title, const char *initial_text)
 {
+    LogFunctionName;
+
+    _callback = callback;
     Utils::Utf8ToUtf16(title, _title, SCE_IME_DIALOG_MAX_TITLE_LENGTH - 1);
     Utils::Utf8ToUtf16(initial_text, _text, SCE_IME_DIALOG_MAX_TITLE_LENGTH - 1);
     *_utf8 = 0;
-}
-
-bool InputTextDialog::Init()
-{
-    LogFunctionName;
 
     SceImeDialogParam param;
     sceImeDialogParamInit(&param);
@@ -170,25 +167,30 @@ bool InputTextDialog::Init()
     return _inited;
 }
 
-void InputTextDialog::Deinit()
+void InputTextDialog::Close()
 {
-    LogFunctionName;
-    sceImeDialogTerm();
-    _inited = false;
+    if (_inited)
+    {
+        sceImeDialogTerm();
+        _inited = false;
+    }
 }
 
-bool InputTextDialog::GetStatus()
+void InputTextDialog::Run()
 {
-    SceCommonDialogStatus status = sceImeDialogGetStatus();
-    if (status == SCE_COMMON_DIALOG_STATUS_FINISHED)
+    if (!_inited)
+        return;
+
+    if (sceImeDialogGetStatus() == SCE_COMMON_DIALOG_STATUS_FINISHED)
     {
         SceImeDialogResult result{0};
         sceImeDialogGetResult(&result);
         if (result.button == SCE_IME_DIALOG_BUTTON_ENTER)
         {
             Utils::Utf16ToUtf8(_input, _utf8, SCE_IME_DIALOG_MAX_TITLE_LENGTH - 1);
+            _callback(_utf8);
         }
-        return true;
+
+        Close();
     }
-    return false;
 }
