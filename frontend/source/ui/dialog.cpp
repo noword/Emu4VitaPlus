@@ -43,7 +43,8 @@ void Dialog::Show()
         size_t i = 0;
         for (const auto &option : _options)
         {
-            if (i == _index)
+            bool selected = (i == _index);
+            if (selected)
             {
                 ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered));
             }
@@ -51,7 +52,7 @@ void Dialog::Show()
             ImGui::Button(option.Get());
             ImGui::SameLine();
 
-            if (i == _index)
+            if (selected)
             {
                 ImGui::PopStyleColor();
             }
