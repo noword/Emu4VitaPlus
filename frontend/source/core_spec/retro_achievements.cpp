@@ -3,6 +3,26 @@
 #include "global.h"
 #include "log.h"
 
+#if defined(VBA_NEXT_BUILD) ||              \
+    defined(GAMBATTE_BUILD) ||              \
+    defined(FBNEO_BUILD) ||                 \
+    defined(FCEUMM_BUILD) ||                \
+    defined(GENESIS_PLUS_GX_BUILD) ||       \
+    defined(MEDNAFEN_PCE_FAST_BUILD) ||     \
+    defined(MEDNAFEN_SUPERGRAFX_BUILD) ||   \
+    defined(MEDNAFEN_NGP_BUILD) ||          \
+    defined(MEDNAFEN_WSWAN_BUILD) ||        \
+    defined(PROSYSTEM_BUILD) ||             \
+    defined(VECX_BUILD) ||                  \
+    defined(NEOCD_BUILD) ||                 \
+    defined(KM_FBNEO_XTREME_AMPED_BUILD) || \
+    defined(BLUEMSX_BUILD) ||               \
+    defined(MEDNAFEN_LYNX_BUILD) ||         \
+    defined(HANDY_BUILD) ||                 \
+    defined(CAP32_BUILD)
+#define SUPPORT_RETRO_ACHIEVEMENTS
+#endif
+
 uint32_t ReadMemory(uint32_t address, uint8_t *buffer, uint32_t num_bytes, rc_client_t *client)
 {
     return 0;

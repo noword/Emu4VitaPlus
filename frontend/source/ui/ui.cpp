@@ -492,11 +492,7 @@ void Ui::Show()
     LogFunctionNameLimited;
 
     APP_STATUS status = gStatus.Get();
-    if ((status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME)) != 0)
-    {
-        gHint->Show();
-    }
-    else if (((status & (APP_STATUS_BOOT | APP_STATUS_SHOW_UI | APP_STATUS_SHOW_UI_IN_GAME)) != 0))
+    if (((status & (APP_STATUS_BOOT | APP_STATUS_SHOW_UI | APP_STATUS_SHOW_UI_IN_GAME)) != 0))
     {
         ImGui_ImplVita2D_NewFrame();
         ImGui::SetMouseCursor(ImGuiMouseCursor_None);
@@ -512,7 +508,6 @@ void Ui::Show()
         ImGui::End();
         ImGui::Render();
         My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
-        gHint->Show();
     }
 
     return;

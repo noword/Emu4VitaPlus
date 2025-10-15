@@ -64,7 +64,8 @@ target_include_directories(rcheevos PRIVATE
 target_compile_definitions(rcheevos PRIVATE
     RC_CLIENT_SUPPORTS_EXTERNAL
     RC_CLIENT_SUPPORTS_RAINTEGRATION
-    RC_CLIENT_SUPPORTS_HASH)
+    RC_CLIENT_SUPPORTS_HASH
+    md5_finish=_md5_finish)
 target_compile_options(rcheevos PRIVATE -Os)
 
 # vita2d

@@ -65,16 +65,21 @@ namespace Emu4VitaPlus
 
             case APP_STATUS_RUN_GAME:
             case APP_STATUS_REWIND_GAME:
-            case APP_STATUS_SHOW_UI_IN_GAME:
                 // BeginProfile("Video");
                 gEmulator->Show();
-                gUi->Show();
                 // EndProfile("Video");
+                break;
+
+            case APP_STATUS_SHOW_UI_IN_GAME:
+                gEmulator->Show();
+                gUi->Show();
                 break;
 
             default:
                 break;
             }
+
+            gHint->Show();
 
             vita2d_end_drawing();
             vita2d_common_dialog_update();
