@@ -44,10 +44,7 @@ add_custom_target(
 
 add_compile_definitions(
     APP_VER_STR="${APP_VER}"
-    SCE_LIBC_SIZE=0xA00000
-    RC_CLIENT_SUPPORTS_EXTERNAL
-    RC_CLIENT_SUPPORTS_RAINTEGRATION
-    RC_CLIENT_SUPPORTS_HASH)
+    SCE_LIBC_SIZE=0xA00000)
 
 add_library(frontend OBJECT ${SRC})
 
