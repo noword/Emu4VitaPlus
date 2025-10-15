@@ -68,7 +68,7 @@ namespace Emu4VitaPlus
         std::string ra_user;
         std::string ra_password;
         std::string ra_token;
-        bool hardcore;
+        bool ra_hardcore;
         bool ra_login;
 
         static const std::unordered_map<uint32_t, const char *> PsvKeyStr;

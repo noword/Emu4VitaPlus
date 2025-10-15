@@ -142,6 +142,8 @@ bool InputTextDialog::Open(InputDialogCallbackFunc callback, const char *title, 
     LogFunctionName;
     LogDebug("  title: %s  initial_text: %s  callback: %08x", title, initial_text, callback);
 
+    Close();
+
     _callback = callback;
     Utils::Utf8ToUtf16(title, _title, SCE_IME_DIALOG_MAX_TITLE_LENGTH - 1);
     Utils::Utf8ToUtf16(initial_text, _text, SCE_IME_DIALOG_MAX_TITLE_LENGTH - 1);
@@ -190,9 +192,15 @@ void InputTextDialog::Run()
         if (result.button == SCE_IME_DIALOG_BUTTON_ENTER)
         {
             Utils::Utf16ToUtf8(_input, _utf8, SCE_IME_DIALOG_MAX_TITLE_LENGTH - 1);
-            _callback(_utf8);
+        }
+        else
+        {
+            *_utf8 = '\x00';
         }
 
-        Close();
+        if (_callback(_utf8))
+        {
+            Close();
+        }
     }
 }

@@ -20,7 +20,10 @@
     defined(MEDNAFEN_LYNX_BUILD) ||         \
     defined(HANDY_BUILD) ||                 \
     defined(CAP32_BUILD)
-#define SUPPORT_RETRO_ACHIEVEMENTS
+#define _SUPPORT_RETRO_ACHIEVEMENTS
+const bool SUPPORT_RETRO_ACHIEVEMENTS = true;
+#else
+const bool SUPPORT_RETRO_ACHIEVEMENTS = false;
 #endif
 
 uint32_t ReadMemory(uint32_t address, uint8_t *buffer, uint32_t num_bytes, rc_client_t *client)
@@ -65,18 +68,33 @@ RetroAchievements::~RetroAchievements()
 void RetroAchievements::_LoginCallback(int result, const char *error_message, rc_client_t *client, void *userdata)
 {
     LogFunctionName;
-    if (result != RC_OK)
+    RetroAchievements *ra = (RetroAchievements *)userdata;
+    gConfig->ra_login = ra->_online = (result == RC_OK);
+    if (ra->_online)
+    {
+
+        gHint->SetHint(TEXT(LANG_LOGIN_SUCCESSFULLY));
+        if (gConfig->ra_token.empty())
+        {
+            const rc_client_user_t *user = rc_client_get_user_info(client);
+            gConfig->ra_token = user->token;
+        }
+    }
+    else
     {
         LogWarn("Login failed: %s", error_message);
-        return;
+        if (gConfig->ra_token.empty())
+        {
+            gHint->SetHint(TEXT(LANG_LOGIN_FAILED));
+        }
+        else
+        {
+            gHint->SetHint(TEXT(LANG_TOKEN_EXPIRED));
+            gConfig->ra_token.clear();
+        }
     }
 
-    RetroAchievements *ra = (RetroAchievements *)userdata;
-    ra->_online = true;
-    const rc_client_user_t *user = rc_client_get_user_info(client);
-    // store_retroachievements_credentials(user->username, user->token);
-
-    LogDebug("Logged in as %s (%u points)", user->display_name, user->score);
+    gConfig->Save();
 }
 
 void RetroAchievements::Login(const char *username, const char *password)

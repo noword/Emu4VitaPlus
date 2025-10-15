@@ -200,8 +200,19 @@ void App::Run()
         gEmulator->LoadRom(gBootRomPath.c_str(), NULL, 0);
     }
 
+    uint64_t next_login_time = 0;
     while (running)
     {
+        if (SUPPORT_RETRO_ACHIEVEMENTS &&
+            !gConfig->ra_token.empty() &&
+            !gRetroAchievements->IsOnline() &&
+            gNetwork->Connected() &&
+            sceKernelGetProcessTimeWide() > next_login_time)
+        {
+            gRetroAchievements->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
+            next_login_time = sceKernelGetProcessTimeWide() + 5000000;
+        }
+
         APP_STATUS status = gStatus.Get();
         if (status != last_status)
         {

@@ -45,7 +45,7 @@ private:
     void _ChangeLanguage();
     void _ChangeAutoRotating();
     void _ChangeRetroArchievements();
-    void _TextInputCallback(const char *text);
+    bool _TextInputCallback(const char *text);
 
     void _ShowNormal();
     void _ShowHint();

@@ -64,7 +64,7 @@ private:
 
     void _OnItemUpdated(DirItem *item);
 
-    void _TextInputCallback(const char *text);
+    bool _TextInputCallback(const char *text);
 
     Directory *_directory;
     vita2d_texture *_texture;

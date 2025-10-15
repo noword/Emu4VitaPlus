@@ -894,24 +894,24 @@ const std::string TabBrowser::_GetCurrentFullPath(bool *is_dir)
     return _directory->GetCurrentPath() + "/" + item.path;
 }
 
-void TabBrowser::_TextInputCallback(const char *text)
+bool TabBrowser::_TextInputCallback(const char *text)
 {
-    if (_cmd == CMD_RENAME)
+    if (*text)
     {
-        std::string src_path = _GetCurrentFullPath();
-        const char *dst_path = gInputTextDialog->GetInput();
-        File::MoveFile(src_path.c_str(), dst_path);
-        _directory->Refresh();
-        _cmd = 0xff;
-    }
-    else
-    {
-        const char *s = gInputTextDialog->GetInput();
-        if (*s)
+        if (_cmd == CMD_RENAME)
         {
-            _Search(s);
+            std::string src_path = _GetCurrentFullPath();
+            File::MoveFile(src_path.c_str(), text);
+            _directory->Refresh();
+            _cmd = 0xff;
+        }
+        else
+        {
+            _Search(text);
         }
     }
 
     _input->PopCallbacks();
+
+    return true;
 }

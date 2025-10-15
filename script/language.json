@@ -1750,5 +1750,41 @@
         "Spanish": "",
         "Russian": "Нет подключения к Интернету",
         "Comments": ""
+    },
+    {
+        "No.": "147",
+        "Tag": "LANG_LOGIN_SUCCESSFULLY",
+        "English": "Successfully logged in to RetroArchievements",
+        "Chinese": "成功登录至 RetroArchievements",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "148",
+        "Tag": "LANG_LOGIN_FAILED",
+        "English": "Login failed",
+        "Chinese": "登录失败",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "149",
+        "Tag": "LANG_TOKEN_EXPIRED",
+        "English": "The token of RetroArchievements has expired. Please login again.",
+        "Chinese": "RetroArchievements 的令牌已过期，请重新登录。",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
 ]

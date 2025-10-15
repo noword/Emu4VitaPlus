@@ -14,6 +14,7 @@
 #include "utils.h"
 #include "global.h"
 #include "emulator.h"
+#include "retro_achievements.h"
 
 #define MAIN_SECTION "MAIN"
 #define HOTKEY_SECTION "HOTKEY"
@@ -132,7 +133,7 @@ namespace Emu4VitaPlus
         : language(LANGUAGE_ENGLISH),
           hotkeys{0},
           ra_login(false),
-          hardcore(false)
+          ra_hardcore(false)
     {
         LogFunctionName;
         Default();
@@ -261,8 +262,13 @@ namespace Emu4VitaPlus
             ini.SetBoolValue(MAIN_SECTION, "auto_download_thumbnail", auto_download_thumbnail);
         }
 
-        ini.SetValue(RA_SECTION, "user", ra_user.c_str());
-        ini.SetValue(RA_SECTION, "token", ra_token.c_str());
+        if (SUPPORT_RETRO_ACHIEVEMENTS)
+        {
+            ini.SetValue(RA_SECTION, "user", ra_user.c_str());
+            ini.SetValue(RA_SECTION, "token", ra_token.c_str());
+            ini.SetBoolValue(RA_SECTION, "login", ra_login);
+            ini.SetBoolValue(RA_SECTION, "hardcore", ra_hardcore);
+        }
 
         for (const auto &control : control_maps)
         {
@@ -354,8 +360,13 @@ namespace Emu4VitaPlus
             auto_download_thumbnail = ini.GetBoolValue(MAIN_SECTION, "auto_download_thumbnail", true);
         }
 
-        ra_user = ini.GetValue(RA_SECTION, "user", "");
-        ra_token = ini.GetValue(RA_SECTION, "token", "");
+        if (SUPPORT_RETRO_ACHIEVEMENTS)
+        {
+            ra_user = ini.GetValue(RA_SECTION, "user", "");
+            ra_token = ini.GetValue(RA_SECTION, "token", "");
+            ra_login = ini.GetBoolValue(RA_SECTION, "login", false);
+            ra_hardcore = ini.GetBoolValue(RA_SECTION, "hardcore", false);
+        }
 
         tmp = ini.GetValue(MAIN_SECTION, "last_rom");
         if (tmp && File::Exist(tmp))

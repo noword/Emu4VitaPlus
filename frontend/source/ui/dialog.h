@@ -37,7 +37,7 @@ private:
     bool _actived;
 };
 
-typedef std::function<void(const char *input_text)> InputDialogCallbackFunc;
+typedef std::function<bool(const char *input_text)> InputDialogCallbackFunc;
 
 class InputTextDialog
 {

@@ -3,6 +3,8 @@
 #include <rc_client.h>
 #include <stdint.h>
 
+extern const bool SUPPORT_RETRO_ACHIEVEMENTS;
+
 class RetroAchievements
 {
 public:
