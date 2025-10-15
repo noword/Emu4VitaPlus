@@ -90,3 +90,10 @@ enum MouseConfig
     CONFIG_MOUSE_REAR,
     CONFIG_MOUSE_COUNT,
 };
+
+enum CpuFreqConfig
+{
+    CPU_AUTO = 0;
+    CPU_333,
+    CPU_444,
+};

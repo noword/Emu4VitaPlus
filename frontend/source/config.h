@@ -64,6 +64,7 @@ namespace Emu4VitaPlus
         uint32_t support_no_game;
         uint32_t auto_rotating;
         uint32_t auto_download_thumbnail;
+        uint32_t cpu_freq;
 
         std::string ra_user;
         std::string ra_password;
