@@ -92,12 +92,13 @@ void ItemState::_ShowPopup()
 
     for (size_t i = 0; i < _menu_count; i++)
     {
-      if (i == _index)
+      bool selected = (i == _index);
+      if (selected)
       {
         ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered));
       }
       ImGui::Button(TEXT(_menu_texts[i]));
-      if (i == _index)
+      if (selected)
       {
         ImGui::PopStyleColor();
       }
