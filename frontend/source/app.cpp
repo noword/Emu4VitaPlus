@@ -202,19 +202,9 @@ void App::Run()
         gEmulator->LoadRom(gBootRomPath.c_str(), NULL, 0);
     }
 
-    uint64_t next_login_time = 0;
+    uint64_t next_idle_time = 0;
     while (running)
     {
-        if (gRetroAchievements &&
-            !gConfig->ra_token.empty() &&
-            !gRetroAchievements->IsOnline() &&
-            gNetwork->Connected() &&
-            sceKernelGetProcessTimeWide() > next_login_time)
-        {
-            gRetroAchievements->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
-            next_login_time = sceKernelGetProcessTimeWide() + 5000000;
-        }
-
         APP_STATUS status = gStatus.Get();
         if (status != last_status)
         {
@@ -222,7 +212,7 @@ void App::Run()
             last_status = status;
         }
 
-        switch (gStatus.Get())
+        switch (status)
         {
         case APP_STATUS_BOOT:
         case APP_STATUS_SHOW_UI:
@@ -267,6 +257,35 @@ void App::Run()
 
         default:
             break;
+        }
+
+        if (gRetroAchievements && gNetwork->Connected())
+        {
+            if (gRetroAchievements->IsOnline())
+            {
+                switch (gStatus.Get())
+                {
+                case APP_STATUS_RUN_GAME:
+                    gRetroAchievements->Run();
+                    break;
+
+                case APP_STATUS_SHOW_UI_IN_GAME:
+                    if (sceKernelGetProcessTimeWide() > next_idle_time)
+                    {
+                        gRetroAchievements->Idle();
+                        next_idle_time = sceKernelGetProcessTimeWide() + RETRO_ACHIEVEMENTS_IDLE_TIME;
+                    }
+                    break;
+
+                default:
+                    break;
+                }
+            }
+            else if ((!gConfig->ra_token.empty()) && sceKernelGetProcessTimeWide() > next_idle_time)
+            {
+                gRetroAchievements->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
+                next_idle_time = sceKernelGetProcessTimeWide() + RETRO_ACHIEVEMENTS_LOGIN_IDLE_TIME;
+            }
         }
     }
 }

@@ -3,6 +3,11 @@
 #include <rc_client.h>
 #include <stdint.h>
 
+// 5 seconds
+#define RETRO_ACHIEVEMENTS_LOGIN_IDLE_TIME 5000000
+// 0.95 second
+#define RETRO_ACHIEVEMENTS_IDLE_TIME 950000
+
 class RetroAchievements
 {
 public:
@@ -14,6 +19,10 @@ public:
     void LoginWithToekn(const char *username, const char *token);
     void Logout();
     void LoadGame(const char *path, const void *rom, size_t rom_size);
+    void UnloadGame();
+    void Reset();
+    void Run();
+    void Idle();
 
 private:
     static uint32_t _ReadMemory(uint32_t address, uint8_t *buffer, uint32_t num_bytes, rc_client_t *client);

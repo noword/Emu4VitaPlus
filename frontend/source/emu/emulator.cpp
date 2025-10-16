@@ -281,6 +281,10 @@ void Emulator::UnloadGame()
         _current_name.clear();
         _input.Stop();
         retro_unload_game();
+        if (gRetroAchievements)
+        {
+            gRetroAchievements->UnloadGame();
+        }
         Unlock();
 
         _last_texture = nullptr;
@@ -337,6 +341,10 @@ void Emulator::Reset()
     {
         gStatus.Set(APP_STATUS_BOOT);
         retro_reset();
+        if (gRetroAchievements)
+        {
+            gRetroAchievements->Reset();
+        }
         gStatus.Set(APP_STATUS_RUN_GAME);
     }
 }

@@ -18,10 +18,15 @@
 #define ICON_FONT_NAME "fontello.ttf"
 #define FONT_CACHE_VERSION 2
 
+#define RA_ICON_NAME "ra-icon.png"
+
 #define TIME_X (VITA_WIDTH - 320)
 #define BATTERY_X (VITA_WIDTH - 100)
 #define BATTERY_PERCENT_X (BATTERY_X + 30)
 #define WIFI_X (BATTERY_X - 30)
+#define RA_X (WIFI_X - 43)
+#define RA_W 36
+#define RA_H 20
 #define TOP_RIGHT_Y 13
 
 const char *BATTERY_ICONS[] = {ICON_BATTERY_25, ICON_BATTERY_50, ICON_BATTERY_75, ICON_BATTERY_100};
@@ -29,6 +34,7 @@ const char *BATTERY_ICONS[] = {ICON_BATTERY_25, ICON_BATTERY_50, ICON_BATTERY_75
 extern SceGxmProgram _binary_assets_imgui_v_cg_gxp_start;
 extern SceGxmProgram _binary_assets_imgui_f_cg_gxp_start;
 static vita2d_texture *gFontTexture = nullptr;
+static vita2d_texture *gRaIconTexture = nullptr;
 
 const static ImWchar GamePadCharset[] = {0x219c, 0x21a1,
                                          0x21b0, 0x21b3,
@@ -437,12 +443,16 @@ IMGUI_API void My_ImGui_ImplVita2D_Init(uint32_t language, const char *cache_pat
     io.ClipboardUserData = NULL;
 
     ImGui_ImplVita2D_InitTouch();
+
+    gRaIconTexture = vita2d_load_PNG_file(APP_ASSETS_DIR "/" RA_ICON_NAME);
 }
 
 IMGUI_API void My_ImGui_ImplVita2D_Shutdown()
 {
     LogFunctionName;
     My_Imgui_Destroy_Font(false);
+    vita2d_free_texture(gRaIconTexture);
+    gRaIconTexture = nullptr;
 }
 
 IMGUI_API void My_ImGui_ImplVita2D_RenderDrawData(ImDrawData *draw_data)
@@ -693,7 +703,7 @@ IMGUI_API bool My_ImGui_Selectable(const char *label, bool selected, TextMovingS
     return ImGui::Selectable(label, selected);
 }
 
-IMGUI_API void My_ImGui_ShowTimePower(bool show_wifi)
+IMGUI_API void My_ImGui_ShowTimePower(bool show_wifi, bool show_ra)
 {
     int percent = scePowerGetBatteryLifePercent();
     ImU32 color = percent <= 25 ? IM_COL32_RED : IM_COL32_GREEN;
@@ -724,12 +734,28 @@ IMGUI_API void My_ImGui_ShowTimePower(bool show_wifi)
              time_local.hour, time_local.minute, time_local.second);
 
     ImDrawList *draw_list = ImGui::GetWindowDrawList();
-    float time_x = show_wifi ? TIME_X - 20 : TIME_X;
+    float time_x = TIME_X;
+    if (show_wifi)
+    {
+        time_x -= 20.f;
+        if (show_ra)
+        {
+            time_x -= 36.f;
+        }
+    }
 
     draw_list->PushClipRectFullScreen();
     draw_list->AddText({time_x, TOP_RIGHT_Y}, IM_COL32_WHITE, time_str);
+    if (show_ra & show_wifi)
+    {
+        draw_list->AddImage(gRaIconTexture, {RA_X, TOP_RIGHT_Y + 3}, {RA_X + RA_W, TOP_RIGHT_Y + RA_H + 3});
+    }
+
     if (show_wifi)
+    {
         draw_list->AddText({WIFI_X, TOP_RIGHT_Y}, IM_COL32_GREEN, ICON_WIFI);
+    }
+
     draw_list->AddText({BATTERY_X, TOP_RIGHT_Y}, IM_COL32_GREEN, battery);
     draw_list->AddText({BATTERY_PERCENT_X, TOP_RIGHT_Y}, color, percent_str);
 

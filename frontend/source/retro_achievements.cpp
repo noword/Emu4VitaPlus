@@ -5,7 +5,19 @@
 
 uint32_t RetroAchievements::_ReadMemory(uint32_t address, uint8_t *buffer, uint32_t num_bytes, rc_client_t *client)
 {
-    return 0;
+    // LogFunctionName;
+    // LogDebug("  address: %08x num_bytes: %08x", address, num_bytes);
+    size_t size = retro_get_memory_size(RETRO_MEMORY_SYSTEM_RAM);
+    if (address + num_bytes > size)
+    {
+        return 0;
+    }
+
+    void *data = (uint8_t *)retro_get_memory_data(RETRO_MEMORY_SYSTEM_RAM) + address;
+
+    memcpy(buffer, data, num_bytes);
+
+    return num_bytes;
 }
 
 void RetroAchievements::_ServerCall(const rc_api_request_t *request, rc_client_server_callback_t callback, void *callback_data, rc_client_t *client)
@@ -34,6 +46,11 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
 {
     LogFunctionName;
     LogDebug("  type: %d", event->type);
+    switch (event->type)
+    {
+    case RC_CLIENT_EVENT_ACHIEVEMENT_TRIGGERED:
+        break;
+    }
 }
 
 RetroAchievements::RetroAchievements() : _online(false)
@@ -118,4 +135,26 @@ void RetroAchievements::LoadGame(const char *path, const void *rom, size_t rom_s
                                            rom_size,
                                            _LoadGameCallback,
                                            this);
+}
+
+void RetroAchievements::UnloadGame()
+{
+    LogFunctionName;
+    rc_client_unload_game(_client);
+}
+
+void RetroAchievements::Reset()
+{
+    LogFunctionName;
+    rc_client_reset(_client);
+}
+
+void RetroAchievements::Run()
+{
+    rc_client_do_frame(_client);
+}
+
+void RetroAchievements::Idle()
+{
+    rc_client_idle(_client);
 }
