@@ -165,6 +165,7 @@ namespace Emu4VitaPlus
         auto_rotating = true;
         language = Utils::GetDefaultLanguage();
         auto_download_thumbnail = (THUMBNAILS_NAME[0] != nullptr);
+        ra_position = RA_POSITION_BOTTOM_LEFT;
 
         DefaultControlMap();
         DefaultHotKey();
@@ -268,6 +269,7 @@ namespace Emu4VitaPlus
             ini.SetValue(RA_SECTION, "token", ra_token.c_str());
             ini.SetBoolValue(RA_SECTION, "login", ra_login);
             ini.SetBoolValue(RA_SECTION, "hardcore", ra_hardcore);
+            ini.SetLongValue(RA_SECTION, "position", ra_position);
         }
 
         for (const auto &control : control_maps)
@@ -360,6 +362,7 @@ namespace Emu4VitaPlus
         ra_token = ini.GetValue(RA_SECTION, "token", "");
         ra_login = ini.GetBoolValue(RA_SECTION, "login", false);
         ra_hardcore = ini.GetBoolValue(RA_SECTION, "hardcore", false);
+        ra_position = ini.GetLongValue(RA_SECTION, "position", RA_POSITION_BOTTOM_LEFT);
 
         if (THUMBNAILS_NAME[0] != nullptr)
         {

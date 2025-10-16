@@ -97,3 +97,11 @@ enum CpuFreqConfig
     CPU_333,
     CPU_444,
 };
+
+enum RetroAchievementPosition
+{
+    RA_POSITION_TOP_LEFT = 0,
+    RA_POSITION_TOP_RIGHT,
+    RA_POSITION_BOTTOM_LEFT,
+    RA_POSITION_BOTTOM_RIGHT,
+};
