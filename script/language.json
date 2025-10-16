@@ -1760,7 +1760,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Авторизация прошла успешно",
         "Comments": ""
     },
     {
@@ -1772,7 +1772,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Ошибка авторизации",
         "Comments": ""
     },
     {
@@ -1784,7 +1784,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Срок действия токена RetroAchievements.org истёк, войдите в систему снова.",
         "Comments": ""
     }
 ]
