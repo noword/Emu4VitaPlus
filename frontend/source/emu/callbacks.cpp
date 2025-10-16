@@ -265,7 +265,18 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS:
-        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS");
+        LogDebug("  cmd: RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS");
+        if (*(bool *)data)
+        {
+            if (!gRetroAchievements)
+                gRetroAchievements = new RetroAchievements;
+        }
+        else if (gRetroAchievements)
+        {
+            delete gRetroAchievements;
+            gRetroAchievements = nullptr;
+        }
+
         return false;
 
     case RETRO_ENVIRONMENT_SET_SERIALIZATION_QUIRKS:
@@ -396,6 +407,14 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         }
         break;
 
+    case RETRO_ENVIRONMENT_SET_CONTENT_INFO_OVERRIDE:
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_CONTENT_INFO_OVERRIDE");
+        return false;
+
+    case RETRO_ENVIRONMENT_GET_GAME_INFO_EXT:
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_GAME_INFO_EXT");
+        return false;
+
     case RETRO_ENVIRONMENT_SET_CORE_OPTIONS_V2:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_CORE_OPTIONS_V2");
         gConfig->core_options.Load((retro_core_options_v2 *)data);
@@ -412,6 +431,10 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_CORE_OPTIONS_UPDATE_DISPLAY_CALLBACK");
         gEmulator->_core_options_update_display_callback = data ? ((const retro_core_options_update_display_callback *)data)->callback : nullptr;
         break;
+
+    case RETRO_ENVIRONMENT_SET_VARIABLE:
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_VARIABLE");
+        return false;
 
     case RETRO_ENVIRONMENT_GET_CURRENT_SOFTWARE_FRAMEBUFFER:
         return gEmulator->GetCurrentSoftwareFramebuffer((retro_framebuffer *)data);

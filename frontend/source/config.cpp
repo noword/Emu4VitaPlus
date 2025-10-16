@@ -262,7 +262,7 @@ namespace Emu4VitaPlus
             ini.SetBoolValue(MAIN_SECTION, "auto_download_thumbnail", auto_download_thumbnail);
         }
 
-        if (SUPPORT_RETRO_ACHIEVEMENTS)
+        if (gRetroAchievements)
         {
             ini.SetValue(RA_SECTION, "user", ra_user.c_str());
             ini.SetValue(RA_SECTION, "token", ra_token.c_str());
@@ -355,17 +355,15 @@ namespace Emu4VitaPlus
         independent_config = ini.GetBoolValue(MAIN_SECTION, "independent_config", DEFAULT_INDEPENDENT_CONFIG);
         auto_rotating = ini.GetBoolValue(MAIN_SECTION, "auto_rotating", true);
         speed_step = ini.GetLongValue(MAIN_SECTION, "speed_step", 0);
+
+        ra_user = ini.GetValue(RA_SECTION, "user", "");
+        ra_token = ini.GetValue(RA_SECTION, "token", "");
+        ra_login = ini.GetBoolValue(RA_SECTION, "login", false);
+        ra_hardcore = ini.GetBoolValue(RA_SECTION, "hardcore", false);
+
         if (THUMBNAILS_NAME[0] != nullptr)
         {
             auto_download_thumbnail = ini.GetBoolValue(MAIN_SECTION, "auto_download_thumbnail", true);
-        }
-
-        if (SUPPORT_RETRO_ACHIEVEMENTS)
-        {
-            ra_user = ini.GetValue(RA_SECTION, "user", "");
-            ra_token = ini.GetValue(RA_SECTION, "token", "");
-            ra_login = ini.GetBoolValue(RA_SECTION, "login", false);
-            ra_hardcore = ini.GetBoolValue(RA_SECTION, "hardcore", false);
         }
 
         tmp = ini.GetValue(MAIN_SECTION, "last_rom");

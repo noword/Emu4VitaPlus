@@ -93,7 +93,7 @@ enum MouseConfig
 
 enum CpuFreqConfig
 {
-    CPU_AUTO = 0;
+    CPU_AUTO = 0,
     CPU_333,
     CPU_444,
 };

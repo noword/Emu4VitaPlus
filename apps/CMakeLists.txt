@@ -45,11 +45,6 @@ elseif(CORE IN_LIST MAME)
     set(ARC_DAT_NAME mame_dat.zbin)
 endif()
 
-add_compile_definitions(
-    RC_CLIENT_SUPPORTS_EXTERNAL
-    RC_CLIENT_SUPPORTS_RAINTEGRATION
-    RC_CLIENT_SUPPORTS_HASH)
-
 include_directories(
     ../frontend/source
     ../frontend/source/emu

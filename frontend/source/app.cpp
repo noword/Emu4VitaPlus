@@ -92,9 +92,6 @@ App::App()
     gNetwork->SetUserAgent(std::string("Emu4Vita++/" APP_VER_STR " ") + gEmulator->GetCoreName() + "/" + gEmulator->GetCoreVersion());
     gNetwork->Start();
 
-    gUi->AppendLog("Initialize RetroAchievements");
-    gRetroAchievements = new RetroAchievements();
-
     gUi->AppendLog("Initialize emulator");
     gEmulator->Init();
 
@@ -162,6 +159,12 @@ App::~App()
     gVideo->Stop();
     vita2d_wait_rendering_done();
 
+    if (gRetroAchievements)
+    {
+        delete gRetroAchievements;
+        gRetroAchievements = nullptr;
+    }
+
     delete gRomNameMap;
     delete gStateManager;
     delete gShaders;
@@ -171,7 +174,6 @@ App::~App()
     delete gUi;
     delete gHint;
     delete gInputTextDialog;
-    delete gRetroAchievements;
     delete gNetwork;
     delete gVideo;
     delete gConfig;
@@ -203,7 +205,7 @@ void App::Run()
     uint64_t next_login_time = 0;
     while (running)
     {
-        if (SUPPORT_RETRO_ACHIEVEMENTS &&
+        if (gRetroAchievements &&
             !gConfig->ra_token.empty() &&
             !gRetroAchievements->IsOnline() &&
             gNetwork->Connected() &&

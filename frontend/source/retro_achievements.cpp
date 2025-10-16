@@ -3,35 +3,12 @@
 #include "global.h"
 #include "log.h"
 
-#if defined(VBA_NEXT_BUILD) ||              \
-    defined(GAMBATTE_BUILD) ||              \
-    defined(FBNEO_BUILD) ||                 \
-    defined(FCEUMM_BUILD) ||                \
-    defined(GENESIS_PLUS_GX_BUILD) ||       \
-    defined(MEDNAFEN_PCE_FAST_BUILD) ||     \
-    defined(MEDNAFEN_SUPERGRAFX_BUILD) ||   \
-    defined(MEDNAFEN_NGP_BUILD) ||          \
-    defined(MEDNAFEN_WSWAN_BUILD) ||        \
-    defined(PROSYSTEM_BUILD) ||             \
-    defined(VECX_BUILD) ||                  \
-    defined(NEOCD_BUILD) ||                 \
-    defined(KM_FBNEO_XTREME_AMPED_BUILD) || \
-    defined(BLUEMSX_BUILD) ||               \
-    defined(MEDNAFEN_LYNX_BUILD) ||         \
-    defined(HANDY_BUILD) ||                 \
-    defined(CAP32_BUILD)
-#define _SUPPORT_RETRO_ACHIEVEMENTS
-const bool SUPPORT_RETRO_ACHIEVEMENTS = true;
-#else
-const bool SUPPORT_RETRO_ACHIEVEMENTS = false;
-#endif
-
-uint32_t ReadMemory(uint32_t address, uint8_t *buffer, uint32_t num_bytes, rc_client_t *client)
+uint32_t RetroAchievements::_ReadMemory(uint32_t address, uint8_t *buffer, uint32_t num_bytes, rc_client_t *client)
 {
     return 0;
 }
 
-void ServerCall(const rc_api_request_t *request, rc_client_server_callback_t callback, void *callback_data, rc_client_t *client)
+void RetroAchievements::_ServerCall(const rc_api_request_t *request, rc_client_server_callback_t callback, void *callback_data, rc_client_t *client)
 {
     if (request->post_data)
     {
@@ -43,16 +20,28 @@ void ServerCall(const rc_api_request_t *request, rc_client_server_callback_t cal
     }
 }
 
-void LogMessage(const char *message, const rc_client_t *client)
+void RetroAchievements::_LogMessage(const char *message, const rc_client_t *client)
 {
-    LogInfo("rc client log: %s", message);
+    LogInfo("[rc client] %s", message);
+}
+
+void RetroAchievements::_LoadGameCallback(int result, const char *error_message, rc_client_t *client, void *userdata)
+{
+    LogFunctionName;
+}
+
+void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_t *client)
+{
+    LogFunctionName;
+    LogDebug("  type: %d", event->type);
 }
 
 RetroAchievements::RetroAchievements() : _online(false)
 {
     LogFunctionName;
-    _client = rc_client_create(ReadMemory, ServerCall);
-    rc_client_enable_logging(_client, RC_CLIENT_LOG_LEVEL_VERBOSE, LogMessage);
+    _client = rc_client_create(_ReadMemory, _ServerCall);
+    rc_client_enable_logging(_client, RC_CLIENT_LOG_LEVEL_VERBOSE, _LogMessage);
+    rc_client_set_event_handler(_client, _EventHandler);
     rc_client_set_hardcore_enabled(_client, 0);
 }
 
@@ -119,18 +108,13 @@ void RetroAchievements::Logout()
     }
 }
 
-void RetroAchievements::_LoadGameCallback(int result, const char *error_message, rc_client_t *client, void *userdata)
-{
-    LogFunctionName;
-}
-
-void RetroAchievements::LoadGame(const char *path, const uint8_t *rom, size_t rom_size)
+void RetroAchievements::LoadGame(const char *path, const void *rom, size_t rom_size)
 {
     LogFunctionName;
     rc_client_begin_identify_and_load_game(_client,
                                            RC_CONSOLE_UNKNOWN,
                                            path,
-                                           rom,
+                                           (const uint8_t *)rom,
                                            rom_size,
                                            _LoadGameCallback,
                                            this);
