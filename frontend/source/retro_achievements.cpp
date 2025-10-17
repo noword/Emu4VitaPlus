@@ -58,12 +58,13 @@ uint32_t RetroAchievements::_ReadMemory(uint32_t address, uint8_t *buffer, uint3
     // LogFunctionName;
     // LogDebug("  address: %08x num_bytes: %08x", address, num_bytes);
     size_t size = retro_get_memory_size(RETRO_MEMORY_SYSTEM_RAM);
-    if (address + num_bytes > size)
+    void *data = (uint8_t *)retro_get_memory_data(RETRO_MEMORY_SYSTEM_RAM);
+    if (address + num_bytes > size || !data)
     {
         return 0;
     }
 
-    void *data = (uint8_t *)retro_get_memory_data(RETRO_MEMORY_SYSTEM_RAM) + address;
+    data += address;
 
     memcpy(buffer, data, num_bytes);
 
