@@ -3,6 +3,56 @@
 #include "global.h"
 #include "log.h"
 
+int RetroAchievements::_RaThread(SceSize args, void *argp)
+{
+    LogFunctionName;
+    CLASS_POINTER(RetroAchievements, ra, argp);
+
+    uint32_t idle_time;
+    APP_STATUS status = gStatus.Get();
+    while (ra->IsRunning() && (status & (APP_STATUS_EXIT | APP_STATUS_RETURN_ARCH | APP_STATUS_REBOOT_WITH_LOADING)) == 0)
+    {
+        if (gNetwork->Connected())
+        {
+            if (ra->_online)
+            {
+                switch (status)
+                {
+                case APP_STATUS_RUN_GAME:
+                    rc_client_do_frame(ra->_client);
+                    break;
+
+                case APP_STATUS_SHOW_UI_IN_GAME:
+                    rc_client_idle(ra->_client);
+                    break;
+
+                default:
+                    break;
+                }
+                idle_time = RETRO_ACHIEVEMENTS_IDLE_TIME;
+                ra->Wait(&idle_time);
+            }
+            else if (gConfig->ra_login && !gConfig->ra_token.empty())
+            {
+                ra->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
+                idle_time = RETRO_ACHIEVEMENTS_LOGIN_IDLE_TIME;
+                ra->Wait(&idle_time);
+            }
+        }
+        else
+        {
+            idle_time = RETRO_ACHIEVEMENTS_LOGIN_IDLE_TIME;
+            ra->Wait(&idle_time);
+        }
+
+        status = gStatus.Get();
+    }
+
+    LogDebug("_RaThread exit");
+    sceKernelExitThread(0);
+    return 0;
+}
+
 uint32_t RetroAchievements::_ReadMemory(uint32_t address, uint8_t *buffer, uint32_t num_bytes, rc_client_t *client)
 {
     // LogFunctionName;
@@ -53,7 +103,7 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
     }
 }
 
-RetroAchievements::RetroAchievements() : _online(false)
+RetroAchievements::RetroAchievements() : ThreadBase(_RaThread), _online(false)
 {
     LogFunctionName;
     _client = rc_client_create(_ReadMemory, _ServerCall);
@@ -67,6 +117,10 @@ RetroAchievements::~RetroAchievements()
     LogFunctionName;
     if (_client)
     {
+        if (_online)
+        {
+            Logout();
+        }
         rc_client_destroy(_client);
     }
 }
@@ -147,14 +201,4 @@ void RetroAchievements::Reset()
 {
     LogFunctionName;
     rc_client_reset(_client);
-}
-
-void RetroAchievements::Run()
-{
-    rc_client_do_frame(_client);
-}
-
-void RetroAchievements::Idle()
-{
-    rc_client_idle(_client);
 }

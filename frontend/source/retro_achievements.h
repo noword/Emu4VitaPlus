@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <string>
 #include <vita2d.h>
+#include "thread_base.h"
 
 // 5 seconds
 #define RETRO_ACHIEVEMENTS_LOGIN_IDLE_TIME 5000000
@@ -12,17 +13,26 @@
 
 struct Notification
 {
+    Notification() {};
+    virtual ~Notification()
+    {
+        if (texture)
+        {
+            vita2d_free_texture(texture);
+        }
+    }
+
     std::string title;
+    std::string text;
     vita2d_texture *texture = nullptr;
 };
 
-class RetroAchievements
+class RetroAchievements : public ThreadBase
 {
 public:
     RetroAchievements();
     virtual ~RetroAchievements();
 
-    void Run();
     void Show();
     bool IsOnline() { return _online; };
     void Login(const char *username, const char *password);
@@ -31,9 +41,10 @@ public:
     void LoadGame(const char *path, const void *rom, size_t rom_size);
     void UnloadGame();
     void Reset();
-    void Idle();
 
 private:
+    static int _RaThread(SceSize args, void *argp);
+
     static uint32_t _ReadMemory(uint32_t address, uint8_t *buffer, uint32_t num_bytes, rc_client_t *client);
     static void _ServerCall(const rc_api_request_t *request, rc_client_server_callback_t callback, void *callback_data, rc_client_t *client);
     static void _EventHandler(const rc_client_event_t *event, rc_client_t *client);

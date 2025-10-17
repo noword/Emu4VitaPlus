@@ -801,7 +801,7 @@ bool Ui::_TextInputCallback(const char *text)
             }
             else
             {
-                gRetroAchievements->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
+                gRetroAchievements->Signal();
             }
         }
 

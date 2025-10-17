@@ -281,7 +281,7 @@ void Emulator::UnloadGame()
         _current_name.clear();
         _input.Stop();
         retro_unload_game();
-        if (gRetroAchievements)
+        if (gRetroAchievements && gRetroAchievements->IsOnline())
         {
             gRetroAchievements->UnloadGame();
         }
@@ -314,6 +314,9 @@ void Emulator::Run()
     case APP_STATUS_RUN_GAME:
         if (gConfig->rewind)
             _rewind_manager.Signal();
+
+        if (gRetroAchievements && gRetroAchievements->IsOnline())
+            gRetroAchievements->Signal();
         break;
     default:
         return;
@@ -341,7 +344,7 @@ void Emulator::Reset()
     {
         gStatus.Set(APP_STATUS_BOOT);
         retro_reset();
-        if (gRetroAchievements)
+        if (gRetroAchievements && gRetroAchievements->IsOnline())
         {
             gRetroAchievements->Reset();
         }

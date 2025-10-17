@@ -279,7 +279,10 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         if (*(bool *)data)
         {
             if (!gRetroAchievements)
+            {
                 gRetroAchievements = new RetroAchievements;
+                gRetroAchievements->Start();
+            }
         }
         else if (gRetroAchievements)
         {

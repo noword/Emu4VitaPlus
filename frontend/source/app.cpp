@@ -159,6 +159,7 @@ App::~App()
     gVideo->Stop();
     vita2d_wait_rendering_done();
 
+    // gRetroAchievements is assigned with RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS
     if (gRetroAchievements)
     {
         delete gRetroAchievements;
@@ -257,35 +258,6 @@ void App::Run()
 
         default:
             break;
-        }
-
-        if (gRetroAchievements && gNetwork->Connected())
-        {
-            if (gRetroAchievements->IsOnline())
-            {
-                switch (gStatus.Get())
-                {
-                case APP_STATUS_RUN_GAME:
-                    gRetroAchievements->Run();
-                    break;
-
-                case APP_STATUS_SHOW_UI_IN_GAME:
-                    if (sceKernelGetProcessTimeWide() > next_idle_time)
-                    {
-                        gRetroAchievements->Idle();
-                        next_idle_time = sceKernelGetProcessTimeWide() + RETRO_ACHIEVEMENTS_IDLE_TIME;
-                    }
-                    break;
-
-                default:
-                    break;
-                }
-            }
-            else if ((!gConfig->ra_token.empty()) && sceKernelGetProcessTimeWide() > next_idle_time)
-            {
-                gRetroAchievements->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
-                next_idle_time = sceKernelGetProcessTimeWide() + RETRO_ACHIEVEMENTS_LOGIN_IDLE_TIME;
-            }
         }
     }
 }
