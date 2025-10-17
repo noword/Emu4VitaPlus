@@ -135,15 +135,13 @@ InputTextDialog::InputTextDialog() : _inited(false)
 InputTextDialog::~InputTextDialog()
 {
     LogFunctionName;
-    Close();
+    _Close();
 }
 
 bool InputTextDialog::Open(InputDialogCallbackFunc callback, const char *title, const char *initial_text)
 {
     LogFunctionName;
     LogDebug("  title: %s  initial_text: %s  callback: %08x", title, initial_text, callback);
-
-    Close();
 
     _callback = callback;
     Utils::Utf8ToUtf16(title, _title, SCE_IME_DIALOG_MAX_TITLE_LENGTH - 1);
@@ -171,7 +169,7 @@ bool InputTextDialog::Open(InputDialogCallbackFunc callback, const char *title, 
     return _inited;
 }
 
-void InputTextDialog::Close()
+void InputTextDialog::_Close()
 {
     LogFunctionName;
     if (_inited)
@@ -199,9 +197,8 @@ void InputTextDialog::Run()
             *_utf8 = '\x00';
         }
 
-        if (_callback(_utf8))
-        {
-            Close();
-        }
+        _Close();
+
+        _callback(_utf8);
     }
 }

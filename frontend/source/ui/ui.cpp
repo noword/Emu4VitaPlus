@@ -505,7 +505,7 @@ void Ui::Show()
 
         if (ImGui::Begin(_title.c_str(), NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
         {
-            My_ImGui_ShowTimePower(gNetwork->Connected(), gRetroAchievements->IsOnline());
+            My_ImGui_ShowTimePower(gNetwork->Connected(), gRetroAchievements && gRetroAchievements->IsOnline());
             (status == APP_STATUS_BOOT) ? _boot_ui->Show() : _ShowNormal();
         }
 
@@ -780,39 +780,38 @@ void Ui::_ChangeRetroArchievements()
     _input.PushCallbacks();
 }
 
-bool Ui::_TextInputCallback(const char *text)
+void Ui::_TextInputCallback(const char *text)
 {
     LogFunctionName;
 
+    bool pop = true;
     if (*text)
     {
         switch (_current_dialog)
         {
         case LANG_USERNAME:
         {
-            gConfig->ra_user = text;
-            if (gConfig->ra_token.empty())
+            if (gConfig->ra_token.empty() || gConfig->ra_user != text)
             {
+                gConfig->ra_user = text;
                 _current_dialog = LANG_PASSWORD;
                 gInputTextDialog->Open(std::bind(&Ui::_TextInputCallback, this, std::placeholders::_1),
                                        TEXT(LANG_PASSWORD));
-
-                return false;
+                pop = false;
             }
             else
             {
                 gRetroAchievements->Signal();
             }
         }
-
         break;
 
         case LANG_PASSWORD:
         {
             gConfig->ra_password = text;
+            gConfig->ra_token.clear();
             gRetroAchievements->Login(gConfig->ra_user.c_str(), gConfig->ra_password.c_str());
         }
-
         break;
 
         default:
@@ -820,6 +819,6 @@ bool Ui::_TextInputCallback(const char *text)
         }
     }
 
-    _input.PopCallbacks();
-    return true;
+    if (pop)
+        _input.PopCallbacks();
 }

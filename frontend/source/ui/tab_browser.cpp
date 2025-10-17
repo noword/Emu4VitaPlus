@@ -894,7 +894,7 @@ const std::string TabBrowser::_GetCurrentFullPath(bool *is_dir)
     return _directory->GetCurrentPath() + "/" + item.path;
 }
 
-bool TabBrowser::_TextInputCallback(const char *text)
+void TabBrowser::_TextInputCallback(const char *text)
 {
     if (*text)
     {
@@ -912,6 +912,4 @@ bool TabBrowser::_TextInputCallback(const char *text)
     }
 
     _input->PopCallbacks();
-
-    return true;
 }

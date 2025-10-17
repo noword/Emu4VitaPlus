@@ -37,7 +37,7 @@ private:
     bool _actived;
 };
 
-typedef std::function<bool(const char *input_text)> InputDialogCallbackFunc;
+typedef std::function<void(const char *input_text)> InputDialogCallbackFunc;
 
 class InputTextDialog
 {
@@ -46,12 +46,13 @@ public:
     virtual ~InputTextDialog();
 
     bool Open(InputDialogCallbackFunc callback, const char *title, const char *initial_text = "");
-    void Close();
     void Run();
     const char *GetInput() { return _utf8; };
     bool Inited() { return _inited; };
 
 private:
+    void _Close();
+
     bool _inited;
     InputDialogCallbackFunc _callback;
 
