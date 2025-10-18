@@ -63,8 +63,8 @@ public:
 
     void SetUserAgent(std::string agent) { _user_agent = agent; };
     size_t GetSize(const char *url);
-    bool Download(const char *url, const char *file_name);
-    bool Fetch(const char *url, std::string *buf);
+    bool Download(const char *url, const char *file_name); // blocking  function
+    bool Fetch(const char *url, std::string *buf);         // blocking  function
     void RestCount() { _actived_task_count = _finished_task_count = 0; };
     size_t GetFinishedCount() { return _finished_task_count; };
     size_t GetActivedCount() { return _actived_task_count; };

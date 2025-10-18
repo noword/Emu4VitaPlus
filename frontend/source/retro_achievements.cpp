@@ -95,6 +95,25 @@ void RetroAchievements::_LogMessage(const char *message, const rc_client_t *clie
 void RetroAchievements::_LoadGameCallback(int result, const char *error_message, rc_client_t *client, void *userdata)
 {
     LogFunctionName;
+    char url[128];
+    RetroAchievements *ra = (RetroAchievements *)userdata;
+
+    Notification *notification = new Notification;
+
+    const rc_client_game_t *game = rc_client_get_game_info(ra->_client);
+    notification->title = game->title;
+    std::string buf;
+    if (rc_client_game_get_image_url(game, url, sizeof(url)) == RC_OK && gNetwork->Fetch(url, &buf))
+    {
+        notification->texture = vita2d_load_PNG_buffer(buf.c_str());
+    }
+
+    rc_client_user_game_summary_t summary;
+    rc_client_get_user_game_summary(ra->_client, &summary);
+    notification->text = std::to_string(summary.num_unlocked_achievements) + " / " + std::to_string(summary.num_core_achievements);
+
+    notification->SetShowTime();
+    gRetroAchievements->AddNotification(game->id, notification);
 }
 
 void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_t *client)

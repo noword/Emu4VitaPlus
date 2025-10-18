@@ -88,12 +88,9 @@ void TabBrowser::UnsetInputHooks(Input *input)
 
 void TabBrowser::_Show()
 {
-    ImVec2 size = {0.f, 0.f};
-    if (_status_text.size() > 0)
-    {
-        ImVec2 s = ImGui::CalcTextSize(_status_text.c_str());
-        size.y = -s.y * (s.x / ImGui::GetContentRegionAvailWidth() + 1);
-    }
+    ImVec2 size = ImGui::CalcTextSize(_status_text.c_str());
+    size.x = 0;
+    size.y = -size.y;
 
     if (ImGui::BeginChild(TEXT(_title_id), size))
     {
