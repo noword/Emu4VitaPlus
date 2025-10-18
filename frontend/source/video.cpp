@@ -80,6 +80,7 @@ namespace Emu4VitaPlus
             }
 
             gHint->Show();
+            gRetroAchievements->Show();
 
             vita2d_end_drawing();
             vita2d_common_dialog_update();

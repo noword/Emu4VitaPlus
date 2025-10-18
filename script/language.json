@@ -1753,14 +1753,14 @@
     },
     {
         "No.": "147",
-        "Tag": "LANG_LOGIN_SUCCESSFULLY",
-        "English": "Successfully logged in to RetroArchievements",
-        "Chinese": "成功登录至 RetroArchievements",
+        "Tag": "LANG_LOGIN_SUCCESSFUL",
+        "English": "Login successful",
+        "Chinese": "登录成功",
         "Japanese": "",
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "Авторизация прошла успешно",
+        "Russian": "Вход успешный",
         "Comments": ""
     },
     {
@@ -1785,6 +1785,18 @@
         "French": "",
         "Spanish": "",
         "Russian": "Срок действия токена RetroAchievements.org истёк, войдите в систему снова.",
+        "Comments": ""
+    },
+    {
+        "No.": "150",
+        "Tag": "LANG_ACHIEVEMENT_UNLOCKED",
+        "English": "Achievement Unlocked",
+        "Chinese": "成就已解锁",
+        "Japanese": "実績のロックを解除しました",
+        "Italian": "Achievement sbloccato",
+        "French": "Succès déverrouillé",
+        "Spanish": "¡Logro desbloqueado",
+        "Russian": "Получено достижение",
         "Comments": ""
     }
 ]

@@ -24,7 +24,7 @@
 #define BATTERY_X (VITA_WIDTH - 100)
 #define BATTERY_PERCENT_X (BATTERY_X + 30)
 #define WIFI_X (BATTERY_X - 30)
-#define RA_X (WIFI_X - 43)
+#define RA_X (TIME_X - 70)
 #define RA_W 36
 #define RA_H 20
 #define TOP_RIGHT_Y 13
@@ -738,19 +738,15 @@ IMGUI_API void My_ImGui_ShowTimePower(bool show_wifi, bool show_ra)
     if (show_wifi)
     {
         time_x -= 20.f;
-        if (show_ra)
-        {
-            time_x -= 36.f;
-        }
     }
 
     draw_list->PushClipRectFullScreen();
-    draw_list->AddText({time_x, TOP_RIGHT_Y}, IM_COL32_WHITE, time_str);
     if (show_ra & show_wifi)
     {
         draw_list->AddImage(gRaIconTexture, {RA_X, TOP_RIGHT_Y + 3}, {RA_X + RA_W, TOP_RIGHT_Y + RA_H + 3});
     }
 
+    draw_list->AddText({time_x, TOP_RIGHT_Y}, IM_COL32_WHITE, time_str);
     if (show_wifi)
     {
         draw_list->AddText({WIFI_X, TOP_RIGHT_Y}, IM_COL32_GREEN, ICON_WIFI);

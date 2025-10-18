@@ -3,6 +3,10 @@
 #include "global.h"
 #include "log.h"
 
+#define NOTIFY_WINDOW_WIDTH 180.f
+#define NOTIFY_WINDOW_HEIGHT 70.f
+#define NOTIFY_IMAGE_HEIGHT (NOTIFY_WINDOW_HEIGHT * 0.75f)
+
 int RetroAchievements::_RaThread(SceSize args, void *argp)
 {
     LogFunctionName;
@@ -97,9 +101,64 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
 {
     LogFunctionName;
     LogDebug("  type: %d", event->type);
+
     switch (event->type)
     {
     case RC_CLIENT_EVENT_ACHIEVEMENT_TRIGGERED:
+    {
+        auto achievement = event->achievement;
+        Notification *notification = new Notification;
+        notification->title = TEXT(LANG_ACHIEVEMENT_UNLOCKED);
+        notification->text = achievement->title;
+
+        char url[128];
+        std::string buf;
+        if (rc_client_achievement_get_image_url(achievement, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED, url, sizeof(url)) == RC_OK && gNetwork->Fetch(url, &buf))
+        {
+            notification->texture = vita2d_load_PNG_buffer(buf.c_str());
+        }
+        notification->SetShowTime();
+        gRetroAchievements->AddNotification(achievement->id, notification);
+    }
+    break;
+
+    case RC_CLIENT_EVENT_LEADERBOARD_STARTED:
+        break;
+    case RC_CLIENT_EVENT_LEADERBOARD_FAILED:
+        break;
+    case RC_CLIENT_EVENT_LEADERBOARD_SUBMITTED:
+        break;
+    case RC_CLIENT_EVENT_ACHIEVEMENT_CHALLENGE_INDICATOR_SHOW:
+        break;
+    case RC_CLIENT_EVENT_ACHIEVEMENT_CHALLENGE_INDICATOR_HIDE:
+        break;
+    case RC_CLIENT_EVENT_ACHIEVEMENT_PROGRESS_INDICATOR_SHOW:
+        break;
+    case RC_CLIENT_EVENT_ACHIEVEMENT_PROGRESS_INDICATOR_HIDE:
+        break;
+    case RC_CLIENT_EVENT_ACHIEVEMENT_PROGRESS_INDICATOR_UPDATE:
+        break;
+    case RC_CLIENT_EVENT_LEADERBOARD_TRACKER_SHOW:
+        break;
+    case RC_CLIENT_EVENT_LEADERBOARD_TRACKER_HIDE:
+        break;
+    case RC_CLIENT_EVENT_LEADERBOARD_TRACKER_UPDATE:
+        break;
+    case RC_CLIENT_EVENT_LEADERBOARD_SCOREBOARD:
+        break;
+    case RC_CLIENT_EVENT_RESET:
+        break;
+    case RC_CLIENT_EVENT_GAME_COMPLETED:
+        break;
+    case RC_CLIENT_EVENT_SERVER_ERROR:
+        break;
+    case RC_CLIENT_EVENT_DISCONNECTED:
+        break;
+    case RC_CLIENT_EVENT_RECONNECTED:
+        break;
+    case RC_CLIENT_EVENT_SUBSET_COMPLETED:
+        break;
+    default:
         break;
     }
 }
@@ -116,6 +175,9 @@ RetroAchievements::RetroAchievements() : ThreadBase(_RaThread), _online(false)
 RetroAchievements::~RetroAchievements()
 {
     LogFunctionName;
+
+    _ClearNotifictions();
+
     if (_client)
     {
         if (_online)
@@ -133,11 +195,26 @@ void RetroAchievements::_LoginCallback(int result, const char *error_message, rc
     gConfig->ra_login = ra->_online = (result == RC_OK);
     if (ra->_online)
     {
+        Notification *notification = new Notification;
 
-        gHint->SetHint(TEXT(LANG_LOGIN_SUCCESSFULLY));
+        const rc_client_user_t *user = rc_client_get_user_info(client);
+        std::string buf;
+        if (gNetwork->Fetch(user->avatar_url, &buf))
+        {
+            notification->texture = vita2d_load_PNG_buffer(buf.c_str());
+        }
+        else
+        {
+            LogDebug("Fetch avatar failed");
+        }
+
+        notification->title = TEXT(LANG_LOGIN_SUCCESSFUL);
+        notification->text = std::string(user->display_name) + " / " + std::to_string(user->score);
+        notification->SetShowTime();
+        ra->AddNotification(0, notification);
+
         if (gConfig->ra_token.empty())
         {
-            const rc_client_user_t *user = rc_client_get_user_info(client);
             gConfig->ra_token = user->token;
         }
     }
@@ -202,4 +279,134 @@ void RetroAchievements::Reset()
 {
     LogFunctionName;
     rc_client_reset(_client);
+}
+
+static void _SetNextWindowPosition(ImVec2 &pos, const ImVec2 &size)
+{
+    if (pos.x < 0)
+    {
+        // first setting
+        switch (gConfig->ra_position)
+        {
+        case RA_POSITION_TOP_LEFT:
+            pos.x = 0.f;
+            pos.y = 0.f;
+            break;
+
+        case RA_POSITION_TOP_RIGHT:
+            pos.x = VITA_WIDTH - size.x;
+            pos.y = 0.f;
+            break;
+
+        case RA_POSITION_BOTTOM_LEFT:
+            pos.x = 0.f;
+            pos.y = VITA_HEIGHT - size.y;
+            break;
+
+        case RA_POSITION_BOTTOM_RIGHT:
+            pos.x = VITA_WIDTH - size.x;
+            pos.y = VITA_HEIGHT - size.y;
+            break;
+
+        default:
+            break;
+        }
+    }
+    else
+    {
+        switch (gConfig->ra_position)
+        {
+        case RA_POSITION_TOP_LEFT:
+        case RA_POSITION_TOP_RIGHT:
+            pos.y += size.y;
+            break;
+
+        case RA_POSITION_BOTTOM_LEFT:
+        case RA_POSITION_BOTTOM_RIGHT:
+            pos.y -= size.y;
+            break;
+
+        default:
+            break;
+        }
+    }
+}
+
+void RetroAchievements::Show()
+{
+    if (_notifications.empty())
+        return;
+
+    ImGui_ImplVita2D_NewFrame();
+    ImGui::SetMouseCursor(ImGuiMouseCursor_None);
+    ImVec2 pos{-1.f, -1.f};
+    ImVec2 size{NOTIFY_WINDOW_WIDTH, NOTIFY_WINDOW_HEIGHT};
+
+    size_t show_count = 0;
+    Lock();
+    for (const auto &iter : _notifications)
+    {
+        const auto n = iter.second;
+        if (n->TimeUp())
+            continue;
+
+        size.x = std::max(NOTIFY_WINDOW_WIDTH, NOTIFY_IMAGE_HEIGHT * 1.5 + ImGui::CalcTextSize(n->title.c_str()).x);
+        size.x = std::max(size.x, NOTIFY_IMAGE_HEIGHT * 1.5 + ImGui::CalcTextSize(n->text.c_str()).x);
+        _SetNextWindowPosition(pos, size);
+        ImGui::SetNextWindowPos(pos);
+        ImGui::SetNextWindowSize(size);
+        ImGui::SetNextWindowBgAlpha(0.8f);
+        if (ImGui::Begin((n->title + std::to_string(pos.x) + std::to_string(pos.y)).c_str(),
+                         NULL,
+                         ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoDecoration))
+        {
+            ImGui::BeginGroup();
+            if (n->texture)
+            {
+                float ratio = NOTIFY_IMAGE_HEIGHT / vita2d_texture_get_height(n->texture);
+                ImGui::Image(n->texture, {vita2d_texture_get_height(n->texture) * ratio, NOTIFY_IMAGE_HEIGHT});
+            }
+            ImGui::SameLine();
+            ImGui::BeginGroup();
+
+            ImGui::Text(n->title.c_str());
+
+            ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyle().Colors[ImGuiCol_TextDisabled]);
+            ImGui::Text(n->text.c_str());
+            ImGui::PopStyleColor();
+
+            ImGui::EndGroup();
+            ImGui::EndGroup();
+        }
+        ImGui::End();
+
+        show_count++;
+    }
+    Unlock();
+
+    ImGui::Render();
+    My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
+
+    if (show_count == 0)
+    {
+        _ClearNotifictions();
+    }
+}
+
+void RetroAchievements::_ClearNotifictions()
+{
+    Lock();
+    for (auto &n : _notifications)
+    {
+        delete n.second;
+    }
+    _notifications.clear();
+    Unlock();
+}
+
+void RetroAchievements::AddNotification(uint32_t id, Notification *n)
+{
+    Lock();
+    _notifications[id] = n;
+    Unlock();
 }

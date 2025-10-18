@@ -469,3 +469,29 @@ bool Network::Download(const char *url, const char *file_name)
         return false;
     }
 }
+
+bool Network::Fetch(const char *url, std::string *buf)
+{
+    LogFunctionName;
+    LogDebug("  url: %s", url);
+    if (!Connected())
+        return false;
+
+    CURL *curl = curl_easy_init();
+    if (!curl)
+    {
+        LogDebug("curl_easy_init failed");
+        return false;
+    }
+
+    _SetOptions(curl);
+
+    curl_easy_setopt(curl, CURLOPT_URL, url);
+    curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, MemoryWriteCallback);
+    curl_easy_setopt(curl, CURLOPT_WRITEDATA, buf);
+    CURLcode res = curl_easy_perform(curl);
+
+    curl_easy_cleanup(curl);
+
+    return res == CURLE_OK;
+}
