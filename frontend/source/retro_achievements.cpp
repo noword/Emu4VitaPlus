@@ -407,7 +407,7 @@ void RetroAchievements::Reset()
     rc_client_reset(_client);
 }
 
-static void _SetNextWindowPosition(ImVec2 &pos, const ImVec2 &size)
+static void _SetNextWindowPosition(ImVec2 &pos, const ImVec2 &size, ImVec2 &pre_size)
 {
     if (pos.x < 0)
     {
@@ -443,12 +443,12 @@ static void _SetNextWindowPosition(ImVec2 &pos, const ImVec2 &size)
         switch (gConfig->ra_position)
         {
         case RA_POSITION_TOP_LEFT:
-            pos.y += size.y;
+            pos.y += pre_size.y;
             break;
 
         case RA_POSITION_TOP_RIGHT:
             pos.x = VITA_WIDTH - size.x;
-            pos.y += size.y;
+            pos.y += pre_size.y;
             break;
 
         case RA_POSITION_BOTTOM_LEFT:
@@ -475,6 +475,7 @@ void RetroAchievements::Show()
     ImGui::SetMouseCursor(ImGuiMouseCursor_None);
     ImVec2 pos{-1.f, -1.f};
     ImVec2 size;
+    ImVec2 pre_size{0.f, 0.f};
 
     size_t show_count = 0;
     Lock();
@@ -494,7 +495,9 @@ void RetroAchievements::Show()
             size.y *= 0.6;
         }
 
-        _SetNextWindowPosition(pos, size);
+        _SetNextWindowPosition(pos, size, pre_size);
+        pre_size = size;
+
         ImGui::SetNextWindowPos(pos);
         ImGui::SetNextWindowSize(size);
         ImGui::SetNextWindowBgAlpha(0.8f);

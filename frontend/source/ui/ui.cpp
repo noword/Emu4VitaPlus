@@ -287,20 +287,20 @@ void Ui::CreateTables()
                        Emu4VitaPlus::SPEED_STEP_OPTIONS),
         new ItemConfig(LANG_MUTE,
                        "",
-                       (uint32_t *)&gConfig->mute,
+                       &gConfig->mute,
                        {LANG_NO, LANG_YES},
                        std::bind(&Emulator::ChangeAudioConfig, gEmulator)),
         new ItemConfig(LANG_AUTO_SAVE,
                        "",
-                       (uint32_t *)&gConfig->auto_save,
+                       &gConfig->auto_save,
                        {LANG_NO, LANG_YES}),
         new ItemConfig(LANG_AUTO_LOAD,
                        "",
-                       (uint32_t *)&gConfig->auto_load,
+                       &gConfig->auto_load,
                        {LANG_NO, LANG_YES}),
         new ItemConfig(LANG_SWAP_ENTER,
                        "",
-                       (uint32_t *)&gConfig->swap_enter,
+                       &gConfig->swap_enter,
                        {LANG_NO, LANG_YES}),
     };
 
@@ -308,13 +308,20 @@ void Ui::CreateTables()
     {
         configs.emplace_back(new ItemConfig(LANG_RETROARCHIEVEMENTS,
                                             LANG_RETROARCHIEVEMENTS_DESC,
-                                            (uint32_t *)&gConfig->ra_login,
+                                            &gConfig->ra_login,
                                             {LANG_NO, LANG_YES},
                                             std::bind(&Ui::_ChangeRetroArchievements, gUi)));
-        configs.emplace_back(new ItemConfig(LANG_HARDCORE,
-                                            LANG_HARDCORE_DESC,
-                                            (uint32_t *)&gConfig->ra_hardcore,
-                                            {LANG_NO, LANG_YES}));
+        // configs.emplace_back(new ItemConfig(LANG_HARDCORE,
+        //                                     LANG_HARDCORE_DESC,
+        //                                     (uint32_t *)&gConfig->ra_hardcore,
+        //                                     {LANG_NO, LANG_YES}));
+        configs.emplace_back(new ItemConfig(LANG_RETROARCHIEVEMENTS_LOCAL,
+                                            "",
+                                            (uint32_t *)&gConfig->ra_position,
+                                            {LANG_TOP_LEFT,
+                                             LANG_TOP_RIGHT,
+                                             LANG_BOTTOM_LEFT,
+                                             LANG_BOTTOM_RIGHT}));
     }
 
     _tabs[TAB_INDEX_OPTIONS] = new TabSeletable(LANG_OPTIONS, configs);

@@ -1834,5 +1834,65 @@
         "Spanish": "",
         "Russian": "",
         "Comments": ""
+    },
+    {
+        "No.": "154",
+        "Tag": "LANG_RETROARCHIEVEMENTS_LOCAL",
+        "English": "Achievement display location",
+        "Chinese": "成就显示位置",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "155",
+        "Tag": "LANG_TOP_LEFT",
+        "English": "Top left",
+        "Chinese": "左上",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "156",
+        "Tag": "LANG_TOP_RIGHT",
+        "English": "Top right",
+        "Chinese": "右上",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "157",
+        "Tag": "LANG_BOTTOM_LEFT",
+        "English": "Bottom left",
+        "Chinese": "左下",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "158",
+        "Tag": "LANG_BOTTOM_RIGHT",
+        "English": "Bottom right",
+        "Chinese": "右下",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
 ]
