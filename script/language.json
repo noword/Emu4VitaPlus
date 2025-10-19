@@ -1798,5 +1798,41 @@
         "Spanish": "¡Logro desbloqueado",
         "Russian": "Получено достижение",
         "Comments": ""
+    },
+    {
+        "No.": "151",
+        "Tag": "LANG_LEADERBOARD_STARTED",
+        "English": "Leaderboard attempt started",
+        "Chinese": "开始冲榜",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "152",
+        "Tag": "LANG_LEADERBOARD_FAILED",
+        "English": "Leaderboard attempt failed",
+        "Chinese": "冲榜失败",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "153",
+        "Tag": "LANG_LEADERBOARD_SUBMITTED",
+        "English": "Leaderboard submitted",
+        "Chinese": "已登榜",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
 ]

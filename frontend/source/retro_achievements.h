@@ -17,8 +17,7 @@
 
 struct Notification
 {
-    Notification() : texture(nullptr), _stop_time(0) {
-                     };
+    Notification() : texture(nullptr), _stop_time(0) {};
 
     virtual ~Notification()
     {
@@ -59,9 +58,12 @@ public:
     void UnloadGame();
     void Reset();
     void AddNotification(uint32_t id, Notification *n);
+    void RemoveNotification(uint32_t id);
+    void UpdateeNotification(uint32_t id, const std::string &title, const std::string &text = "", vita2d_texture *texture = nullptr);
 
 private:
-    static int _RaThread(SceSize args, void *argp);
+    static int
+    _RaThread(SceSize args, void *argp);
 
     static uint32_t _ReadMemory(uint32_t address, uint8_t *buffer, uint32_t num_bytes, rc_client_t *client);
     static void _ServerCall(const rc_api_request_t *request, rc_client_server_callback_t callback, void *callback_data, rc_client_t *client);
