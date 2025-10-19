@@ -255,8 +255,25 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
         break;
     case RC_CLIENT_EVENT_RESET:
         break;
+
     case RC_CLIENT_EVENT_GAME_COMPLETED:
-        break;
+    {
+        const rc_client_game_t *game = rc_client_get_game_info(client);
+        Notification *notification = new Notification;
+        notification->title = TEXT(LANG_GAME_COMPLETED);
+        notification->text = game->title;
+
+        char url[128];
+        std::string buf;
+        if (rc_client_game_get_image_url(game, url, sizeof(url)) == RC_OK && gNetwork->Fetch(url, &buf))
+        {
+            notification->texture = vita2d_load_PNG_buffer(buf.c_str());
+        }
+        notification->SetShowTime();
+        gRetroAchievements->AddNotification(game->id, notification);
+    }
+    break;
+
     case RC_CLIENT_EVENT_SERVER_ERROR:
         break;
 
@@ -270,6 +287,7 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
 
     case RC_CLIENT_EVENT_SUBSET_COMPLETED:
         break;
+
     default:
         break;
     }
