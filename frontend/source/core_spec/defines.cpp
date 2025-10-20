@@ -62,11 +62,11 @@ const char THUMBNAILS_PATH[] =
     defined(ATARI2600_BUILD) || \
     defined(ATARI5200_BUILD) || \
     defined(ATARI7800_BUILD)
-    THUMBNAILS_DIR "/" CONSOLE;
+    THUMBNAILS_CACHE_DIR "/" CONSOLE;
 #elif defined(FBA_BUILD)
-    THUMBNAILS_DIR "/FBA";
+    THUMBNAILS_CACHE_DIR "/FBA";
 #elif defined(MAME_BUILD)
-    THUMBNAILS_DIR "/MAME";
+    THUMBNAILS_CACHE_DIR "/MAME";
 #else
     "";
 #endif

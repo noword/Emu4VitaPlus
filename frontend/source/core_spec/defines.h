@@ -11,7 +11,9 @@
 #define ARCHIVE_CACHE_DIR CACHE_DIR "/archives"
 #define ARCADE_CACHE_DIR CACHE_DIR "/arcades"
 #define PLAYLISTS_CACHE_DIR CACHE_DIR "/playlists"
-#define THUMBNAILS_DIR CACHE_DIR "/thumbnails"
+#define THUMBNAILS_CACHE_DIR CACHE_DIR "/thumbnails"
+#define RETRO_ACHIEVEMENTS_CACHE_DIR CACHE_DIR "/retro_arcievements"
+
 #define OVERLAYS_DIR_NAME "overlays"
 #define PREVIEW_DIR_NAME ".previews"
 #define CHEAT_DIR_NAME ".cheats"

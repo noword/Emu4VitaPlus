@@ -740,12 +740,14 @@ void Ui::_OnDialog(Input *input, int index)
     case LANG_CLEAN_CACHE:
         if (index == 0)
         {
+            File::RemoveAllFiles(RETRO_ACHIEVEMENTS_CACHE_DIR);
             File::RemoveAllFiles(ARCADE_CACHE_DIR);
             File::RemoveAllFiles(ARCHIVE_CACHE_DIR);
             File::RemoveAllFiles(PLAYLISTS_CACHE_DIR);
             File::RemoveAllFiles(CACHE_DIR);
-            File::RemoveAllFiles(THUMBNAILS_PATH);
-        }
+            if (*THUMBNAILS_PATH)
+                File::RemoveAllFiles(THUMBNAILS_PATH);
+                }
         break;
 
     default:

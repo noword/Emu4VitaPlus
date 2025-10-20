@@ -134,8 +134,11 @@ vita2d_texture *RetroArchPlaylists::GetPreviewImage(const char *path)
         std::string *label = &(iter->second.label);
         vita2d_texture *texture;
 
-        for (const auto &root : {THUMBNAILS_DIR, RETRO_ARCH_UX0_THUMBNAILS_PATH, RETRO_ARCH_UMA0_THUMBNAILS_PATH})
+        for (const auto &root : {THUMBNAILS_PATH, RETRO_ARCH_UX0_THUMBNAILS_PATH, RETRO_ARCH_UMA0_THUMBNAILS_PATH})
         {
+            if (*root == 0)
+                continue;
+
             const std::string root_path = std::string(root) + "/" + _dbs[iter->second.db_name_index] + "/";
             for (const auto &path : THUMBNAILS_PATHS)
             {

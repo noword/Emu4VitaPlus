@@ -1,11 +1,13 @@
 #include <stdint.h>
 #include "retro_achievements.h"
 #include "global.h"
+#include "file.h"
 #include "log.h"
 
 #define NOTIFY_WINDOW_WIDTH 180.f
 #define NOTIFY_WINDOW_HEIGHT 70.f
 #define NOTIFY_IMAGE_HEIGHT (NOTIFY_WINDOW_HEIGHT * 0.76f)
+#define GAME_IMAGE_ID 0xffffffff
 
 int RetroAchievements::_RaThread(SceSize args, void *argp)
 {
@@ -101,11 +103,13 @@ void RetroAchievements::_LoadGameCallback(int result, const char *error_message,
     Notification *notification = new Notification;
 
     const rc_client_game_t *game = rc_client_get_game_info(ra->_client);
+    ra->_game_id = game->id;
+
     notification->title = game->title;
-    std::string buf;
-    if (rc_client_game_get_image_url(game, url, sizeof(url)) == RC_OK && gNetwork->Fetch(url, &buf))
+
+    if (rc_client_game_get_image_url(game, url, sizeof(url)) == RC_OK)
     {
-        notification->texture = vita2d_load_PNG_buffer(buf.c_str());
+        notification->texture = ra->_GetImage(url, GAME_IMAGE_ID);
     }
 
     rc_client_user_game_summary_t summary;
@@ -114,6 +118,8 @@ void RetroAchievements::_LoadGameCallback(int result, const char *error_message,
 
     notification->SetShowTime();
     gRetroAchievements->AddNotification(game->id, notification);
+
+    gRetroAchievements->_UpdateAchievemnts();
 }
 
 void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_t *client)
@@ -130,12 +136,21 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
         notification->title = TEXT(LANG_ACHIEVEMENT_UNLOCKED);
         notification->text = achievement->title;
 
-        char url[128];
-        std::string buf;
-        if (rc_client_achievement_get_image_url(achievement, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED, url, sizeof(url)) == RC_OK && gNetwork->Fetch(url, &buf))
+        auto iter = gRetroAchievements->_achievements.find(achievement->id);
+        if (iter == gRetroAchievements->_achievements.end())
         {
-            notification->texture = vita2d_load_PNG_buffer(buf.c_str());
+            char url[128];
+            if (rc_client_achievement_get_image_url(achievement, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED, url, sizeof(url)) == RC_OK)
+            {
+                notification->texture = gRetroAchievements->_GetImage(url, achievement->id);
+            }
         }
+        else
+        {
+            iter->second->SetState(true);
+            notification->texture = iter->second->texture;
+        }
+
         notification->SetShowTime();
         gRetroAchievements->AddNotification(achievement->id, notification);
     }
@@ -179,10 +194,9 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
         auto achievement = event->achievement;
         Notification *notification = new Notification;
         char url[128];
-        std::string buf;
-        if (rc_client_achievement_get_image_url(achievement, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED, url, sizeof(url)) == RC_OK && gNetwork->Fetch(url, &buf))
+        if (rc_client_achievement_get_image_url(achievement, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED, url, sizeof(url)) == RC_OK)
         {
-            notification->texture = vita2d_load_PNG_buffer(buf.c_str());
+            notification->texture = gRetroAchievements->_GetImage(url, achievement->id);
         }
         gRetroAchievements->AddNotification(achievement->id, notification);
     }
@@ -203,10 +217,9 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
         notification->text = achievement->title;
 
         char url[128];
-        std::string buf;
-        if (rc_client_achievement_get_image_url(achievement, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED, url, sizeof(url)) == RC_OK && gNetwork->Fetch(url, &buf))
+        if (rc_client_achievement_get_image_url(achievement, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED, url, sizeof(url)) == RC_OK)
         {
-            notification->texture = vita2d_load_PNG_buffer(buf.c_str());
+            notification->texture = gRetroAchievements->_GetImage(url, achievement->id);
         }
         gRetroAchievements->AddNotification(achievement->id, notification);
     }
@@ -223,7 +236,7 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
     {
         {
             auto achievement = event->achievement;
-            gRetroAchievements->UpdateeNotification(achievement->id, achievement->measured_progress);
+            gRetroAchievements->UpdateNotification(achievement->id, achievement->measured_progress);
         }
     }
     break;
@@ -247,7 +260,7 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
     case RC_CLIENT_EVENT_LEADERBOARD_TRACKER_UPDATE:
     {
         auto tracker = event->leaderboard_tracker;
-        gRetroAchievements->UpdateeNotification(tracker->id, tracker->display);
+        gRetroAchievements->UpdateNotification(tracker->id, tracker->display);
     }
     break;
 
@@ -264,10 +277,9 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
         notification->text = game->title;
 
         char url[128];
-        std::string buf;
-        if (rc_client_game_get_image_url(game, url, sizeof(url)) == RC_OK && gNetwork->Fetch(url, &buf))
+        if (rc_client_game_get_image_url(game, url, sizeof(url)) == RC_OK)
         {
-            notification->texture = vita2d_load_PNG_buffer(buf.c_str());
+            notification->texture = gRetroAchievements->_GetImage(url, GAME_IMAGE_ID);
         }
         notification->SetShowTime();
         gRetroAchievements->AddNotification(game->id, notification);
@@ -296,6 +308,9 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
 RetroAchievements::RetroAchievements() : ThreadBase(_RaThread), _online(false)
 {
     LogFunctionName;
+
+    File::MakeDirs(THUMBNAILS_CACHE_DIR);
+
     _client = rc_client_create(_ReadMemory, _ServerCall);
     rc_client_enable_logging(_client, RC_CLIENT_LOG_LEVEL_VERBOSE, _LogMessage);
     rc_client_set_event_handler(_client, _EventHandler);
@@ -307,6 +322,7 @@ RetroAchievements::~RetroAchievements()
     LogFunctionName;
 
     _ClearNotifictions();
+    _ClearAchievemnts();
 
     if (_client)
     {
@@ -570,7 +586,7 @@ void RetroAchievements::_ClearNotifictions()
 void RetroAchievements::AddNotification(uint32_t id, Notification *n)
 {
     LogFunctionName;
-    LogDebug("  %08x: %s / %s / %08x", n->title.c_str(), n->text.c_str(), n->texture);
+    LogDebug("  %08x: '%s' / '%s' / %08x", id, n->title.c_str(), n->text.c_str(), n->texture);
 
     Lock();
     _notifications[id] = n;
@@ -589,16 +605,100 @@ void RetroAchievements::RemoveNotification(uint32_t id)
     Unlock();
 }
 
-void RetroAchievements::UpdateeNotification(uint32_t id, const std::string &title, const std::string &text, vita2d_texture *texture)
+void RetroAchievements::UpdateNotification(uint32_t id, const std::string &title, const std::string &text, vita2d_texture *texture)
 {
     Lock();
     auto iter = _notifications.find(id);
     if (iter != _notifications.end())
     {
         auto n = iter->second;
-        n->title = title;
-        n->text = text;
-        n->texture = texture;
+        if (!title.empty())
+            n->title = title;
+
+        if (!text.empty())
+            n->text = text;
+
+        if (texture)
+            n->texture = texture;
     }
     Unlock();
+}
+
+vita2d_texture *RetroAchievements::_GetImage(const char *url, uint32_t id)
+{
+    LogFunctionName;
+    LogDebug("  url: %s", url);
+    LogDebug("  _game_id: %d, id: %d", _game_id, id);
+
+    std::string path = std::string(RETRO_ACHIEVEMENTS_CACHE_DIR "/") + std::to_string(_game_id) + "_" + std::to_string(id) + ".png";
+
+    if (!File::Exist(path.c_str()))
+    {
+        if (!gNetwork->Download(url, path.c_str()))
+        {
+            LogWarn("failed to download image: %s", url);
+            return nullptr;
+        }
+    }
+
+    return vita2d_load_PNG_file(path.c_str());
+}
+
+void RetroAchievements::_UpdateAchievemnts()
+{
+    LogFunctionName;
+
+    _ClearAchievemnts();
+
+    char url[128];
+    rc_client_achievement_list_t *list = rc_client_create_achievement_list(_client,
+                                                                           RC_CLIENT_ACHIEVEMENT_CATEGORY_CORE_AND_UNOFFICIAL,
+                                                                           RC_CLIENT_ACHIEVEMENT_LIST_GROUPING_PROGRESS);
+    for (int i = 0; i < list->num_buckets; i++)
+    {
+        LogDebug("%d bucket_type: %d", i, list->buckets[i].bucket_type);
+        if (list->buckets[i].bucket_type == RC_CLIENT_ACHIEVEMENT_BUCKET_UNSUPPORTED ||
+            list->buckets[i].bucket_type == RC_CLIENT_ACHIEVEMENT_BUCKET_RECENTLY_UNLOCKED)
+            continue;
+
+        for (int j = 0; j < list->buckets[i].num_achievements; j++)
+        {
+            const rc_client_achievement_t *achievement = list->buckets[i].achievements[j];
+            LogDebug("  [%d, %d] %s (%d)", i, j, achievement->title, achievement->state);
+            LogDebug("  %s", achievement->description);
+
+            Achievement *a = new Achievement(_game_id, achievement->id);
+            a->title = achievement->title;
+            a->description = achievement->description;
+
+            for (int state : {RC_CLIENT_ACHIEVEMENT_STATE_ACTIVE, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED})
+            {
+                std::string img_path = a->GetImagePath(state == RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED);
+                if ((!File::Exist(img_path.c_str())) && rc_client_achievement_get_image_url(achievement, state, url, sizeof(url)) == RC_OK)
+                {
+                    gNetwork->Download(url, img_path.c_str());
+                }
+            }
+
+            a->SetState(achievement->state == RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED);
+
+            gVideo->Lock();
+            _achievements[achievement->id] = a;
+            gVideo->Unlock();
+        }
+    }
+    rc_client_destroy_achievement_list(list);
+}
+
+void RetroAchievements::_ClearAchievemnts()
+{
+    LogFunctionName;
+
+    gVideo->Lock();
+    for (auto a : _achievements)
+    {
+        delete a.second;
+    }
+    _achievements.clear();
+    gVideo->Unlock();
 }

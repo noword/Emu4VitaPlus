@@ -5,6 +5,7 @@ include_directories(
     source/ui
     source/audio
     source/emu
+    source/retro_achievements
     source/core_spec
     ../share/source
     ../deps/libretro-common/include
@@ -20,7 +21,8 @@ file(GLOB SRC
     source/*.cpp
     source/ui/*.cpp
     source/emu/*.cpp
-    source/audio/*.cpp)
+    source/audio/*.cpp
+    source/retro_achievements/*.cpp)
 
 add_custom_command(OUTPUT
     ${CMAKE_CURRENT_SOURCE_DIR}/source/language_frontend.h
