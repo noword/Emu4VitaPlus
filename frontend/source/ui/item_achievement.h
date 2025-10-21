@@ -6,7 +6,7 @@ class ItemAchievement : public ItemSelectable
 {
 public:
     ItemAchievement(Achievement *achievement);
-    virutal ~ItemAchievement();
+    virtual ~ItemAchievement();
 
     virtual void Show(bool selected) override;
 

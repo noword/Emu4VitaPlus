@@ -18,7 +18,7 @@
 #include "language_string.h"
 #include "global.h"
 #include "profiler.h"
-#include "Network.h"
+#include "network.h"
 
 #ifdef TEXT
 #undef TEXT
