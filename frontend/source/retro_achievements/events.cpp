@@ -1,3 +1,4 @@
+#include <psp2/rtc.h>
 #include "retro_achievements.h"
 #include "language_string.h"
 #include "log.h"
@@ -44,6 +45,11 @@ void RetroAchievements::_OnAchievementTriggered(const rc_client_event_t *event)
     else
     {
         iter->second->SetState(true);
+        SceDateTime time;
+        sceRtcGetCurrentClockLocalTime(&time);
+        char buf[32];
+        snprintf(buf, 32, "%d-%d-%d %02d:%02d:%02d", time.year, time.month, time.day, time.hour, time.minute, time.second);
+        iter->second->unlock_time = buf;
         notification->texture = vita2d_load_PNG_file(iter->second->GetImagePath(true).c_str());
     }
 

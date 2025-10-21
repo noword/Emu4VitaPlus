@@ -35,6 +35,8 @@ public:
     void RemoveNotification(uint32_t id);
     void UpdateNotification(uint32_t id, const std::string &title, const std::string &text = "", vita2d_texture *texture = nullptr);
 
+    size_t GetAchievementsCount() { return _achievements.size(); };
+
 private:
     static int _RaThread(SceSize args, void *argp);
 

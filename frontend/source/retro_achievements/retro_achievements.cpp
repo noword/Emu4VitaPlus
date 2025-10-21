@@ -494,12 +494,19 @@ void RetroAchievements::_UpdateAchievemnts()
         for (int j = 0; j < list->buckets[i].num_achievements; j++)
         {
             const rc_client_achievement_t *achievement = list->buckets[i].achievements[j];
-            LogDebug("  [%d, %d] %s (%d)", i, j, achievement->title, achievement->state);
+            LogDebug("  [%d, %d] %s (%d, %d)", i, j, achievement->title, achievement->state, achievement->unlocked);
             LogDebug("  %s", achievement->description);
 
-            Achievement *a = new Achievement(_game_id, achievement->id, achievement->state == RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED);
+            Achievement *a = new Achievement(_game_id, achievement->id, achievement->unlocked);
             a->title = achievement->title;
             a->description = achievement->description;
+            if (achievement->unlocked)
+            {
+                char buf[32];
+                strftime(buf, 32, "%Y-%m-%d %H:%M:%S", localtime(&achievement->unlock_time));
+                a->unlock_time = buf;
+                LogDebug("  unlock time: %s", buf);
+            }
 
             for (int state : {RC_CLIENT_ACHIEVEMENT_STATE_ACTIVE, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED})
             {

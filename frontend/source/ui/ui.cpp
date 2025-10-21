@@ -181,6 +181,9 @@ void Ui::CreateTables()
     _tabs[TAB_INDEX_CHEAT] = new TabSeletable(LANG_CHEAT);
     _tabs[TAB_INDEX_CHEAT]->SetVisable(false);
 
+    _tabs[TAB_INDEX_ACHIEVEMENTS] = new TabSeletable(LANG_ACHIEVEMENTS);
+    _tabs[TAB_INDEX_ACHIEVEMENTS]->SetVisable(false);
+
     _tabs[TAB_INDEX_BROWSER] = new TabBrowser();
     _tabs[TAB_INDEX_FAVORITE] = new TabFavorite();
 
@@ -747,7 +750,7 @@ void Ui::_OnDialog(Input *input, int index)
             File::RemoveAllFiles(CACHE_DIR);
             if (*THUMBNAILS_PATH)
                 File::RemoveAllFiles(THUMBNAILS_PATH);
-                }
+        }
         break;
 
     default:

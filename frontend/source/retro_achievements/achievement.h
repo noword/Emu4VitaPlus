@@ -15,6 +15,7 @@ public:
 
     std::string title;
     std::string description;
+    std::string unlock_time;
 
 private:
     bool _unlocked;
