@@ -537,3 +537,17 @@ void RetroAchievements::_ClearAchievemnts()
     _achievements.clear();
     gVideo->Unlock();
 }
+
+Achievement *RetroAchievements::GetAchievement(size_t index)
+{
+    if (index >= 0 && index < _achievements.size())
+    {
+        auto it = _achievements.begin();
+        std::advance(it, index);
+        return it->second;
+    }
+    else
+    {
+        return nullptr;
+    }
+}

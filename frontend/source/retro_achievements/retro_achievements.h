@@ -36,9 +36,11 @@ public:
     void UpdateNotification(uint32_t id, const std::string &title, const std::string &text = "", vita2d_texture *texture = nullptr);
 
     size_t GetAchievementsCount() { return _achievements.size(); };
+    Achievement *GetAchievement(size_t index);
 
 private:
-    static int _RaThread(SceSize args, void *argp);
+    static int
+    _RaThread(SceSize args, void *argp);
 
     static uint32_t _ReadMemory(uint32_t address, uint8_t *buffer, uint32_t num_bytes, rc_client_t *client);
     static void _ServerCall(const rc_api_request_t *request, rc_client_server_callback_t callback, void *callback_data, rc_client_t *client);

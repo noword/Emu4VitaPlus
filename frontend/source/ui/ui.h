@@ -28,6 +28,7 @@ public:
     void UpdateCheatOptions();
     void UpdateControllerOptions();
     void UpdateDiskOptions();
+    void UpdateAchievements();
     void OnStatusChanged(APP_STATUS status);
 
 private:
