@@ -15,6 +15,8 @@
 // 0.95 second
 #define RETRO_ACHIEVEMENTS_IDLE_TIME 950000
 
+#define GAME_IMAGE_ID 0xffffffff
+
 class RetroAchievements : public ThreadBase
 {
 public:
@@ -48,24 +50,28 @@ private:
     void _UpdateAchievemnts();
     void _ClearAchievemnts();
 
-    void _OnAchievementTriggered(const rc_client_achievement_t *achievement);
-    void _OnLeaderboardStarted(const rc_client_leaderboard_t *leaderboard);
-    void _OnLeaderboardFailed(const rc_client_leaderboard_t *leaderboard);
-    void _OnLeaderboardSubmitted(const rc_client_leaderboard_t *leaderboard);
-    void _OnAchievementChallengeIndicatorShow(const rc_client_achievement_t *achievement);
-    void _OnAchievementChallengeIndicatorHide(const rc_client_achievement_t *achievement);
-    void _OnAchievementProgressIndicatorShow(const rc_client_achievement_t *achievement);
-    void _OnAchievementProgressIndicatorHide(const rc_client_achievement_t *achievement);
-    void _OnLeaderboardTrackerShow(const rc_client_leaderboard_t *leaderboard);
-    void _OnLeaderboardTrackerHide(const rc_client_leaderboard_t *leaderboard);
-    void _OnLeaderboardTrackerUpdate(const rc_client_leaderboard_t *leaderboard);
-    void _OnLeaderboardScoreboard(const rc_client_leaderboard_t *leaderboard);
-    void _OnReset();
-    void _OnGameCompleted();
-    void _OnServerError();
-    void _OnDisconnected();
-    void _OnReconnected();
-    void _OnSubsetCompleted(const rc_client_subset_t *subset);
+    typedef void (RetroAchievements::*EventFunc)(const rc_client_event_t *event);
+    static EventFunc _event_functions[];
+
+    void _OnAchievementTriggered(const rc_client_event_t *event);
+    void _OnLeaderboardStarted(const rc_client_event_t *event);
+    void _OnLeaderboardFailed(const rc_client_event_t *event);
+    void _OnLeaderboardSubmitted(const rc_client_event_t *event);
+    void _OnAchievementChallengeIndicatorShow(const rc_client_event_t *event);
+    void _OnAchievementChallengeIndicatorHide(const rc_client_event_t *event);
+    void _OnAchievementProgressIndicatorShow(const rc_client_event_t *event);
+    void _OnAchievementProgressIndicatorHide(const rc_client_event_t *event);
+    void _OnAchievementProgressIndicatorUpdate(const rc_client_event_t *event);
+    void _OnLeaderboardTrackerShow(const rc_client_event_t *event);
+    void _OnLeaderboardTrackerHide(const rc_client_event_t *event);
+    void _OnLeaderboardTrackerUpdate(const rc_client_event_t *event);
+    void _OnLeaderboardScoreboard(const rc_client_event_t *event);
+    void _OnReset(const rc_client_event_t *event);
+    void _OnGameCompleted(const rc_client_event_t *event);
+    void _OnServerError(const rc_client_event_t *event);
+    void _OnDisconnected(const rc_client_event_t *event);
+    void _OnReconnected(const rc_client_event_t *event);
+    void _OnSubsetCompleted(const rc_client_event_t *event);
 
     rc_client_t *_client;
     bool _online;

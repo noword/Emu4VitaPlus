@@ -7,7 +7,6 @@
 #define NOTIFY_WINDOW_WIDTH 180.f
 #define NOTIFY_WINDOW_HEIGHT 70.f
 #define NOTIFY_IMAGE_HEIGHT (NOTIFY_WINDOW_HEIGHT * 0.76f)
-#define GAME_IMAGE_ID 0xffffffff
 
 int RetroAchievements::_RaThread(SceSize args, void *argp)
 {
@@ -127,181 +126,11 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
     LogFunctionName;
     LogDebug("  type: %d", event->type);
 
-    switch (event->type)
+    if (event->type > RC_CLIENT_EVENT_TYPE_NONE &&
+        event->type < RC_CLIENT_EVENT_SUBSET_COMPLETED &&
+        RetroAchievements::_event_functions[event->type])
     {
-    case RC_CLIENT_EVENT_ACHIEVEMENT_TRIGGERED:
-    {
-        auto achievement = event->achievement;
-        Notification *notification = new Notification;
-        notification->title = TEXT(LANG_ACHIEVEMENT_UNLOCKED);
-        notification->text = achievement->title;
-
-        auto iter = gRetroAchievements->_achievements.find(achievement->id);
-        if (iter == gRetroAchievements->_achievements.end())
-        {
-            char url[128];
-            if (rc_client_achievement_get_image_url(achievement, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED, url, sizeof(url)) == RC_OK)
-            {
-                notification->texture = gRetroAchievements->_GetImage(url, achievement->id);
-            }
-        }
-        else
-        {
-            iter->second->SetState(true);
-            notification->texture = iter->second->texture;
-        }
-
-        notification->SetShowTime();
-        gRetroAchievements->AddNotification(achievement->id, notification);
-    }
-    break;
-
-    case RC_CLIENT_EVENT_LEADERBOARD_STARTED:
-    {
-        auto leaderboard = event->leaderboard;
-        Notification *notification = new Notification;
-        notification->title = TEXT(LANG_LEADERBOARD_STARTED);
-        notification->text = leaderboard->title;
-        notification->SetShowTime();
-        gRetroAchievements->AddNotification(leaderboard->id, notification);
-    }
-    break;
-
-    case RC_CLIENT_EVENT_LEADERBOARD_FAILED:
-    {
-        auto leaderboard = event->leaderboard;
-        Notification *notification = new Notification;
-        notification->title = TEXT(LANG_LEADERBOARD_FAILED);
-        notification->text = leaderboard->title;
-        notification->SetShowTime();
-        gRetroAchievements->AddNotification(leaderboard->id, notification);
-    }
-    break;
-
-    case RC_CLIENT_EVENT_LEADERBOARD_SUBMITTED:
-    {
-        auto leaderboard = event->leaderboard;
-        Notification *notification = new Notification;
-        notification->title = TEXT(LANG_LEADERBOARD_SUBMITTED);
-        notification->text = leaderboard->title;
-        notification->SetShowTime();
-        gRetroAchievements->AddNotification(leaderboard->id, notification);
-    }
-    break;
-
-    case RC_CLIENT_EVENT_ACHIEVEMENT_CHALLENGE_INDICATOR_SHOW:
-    {
-        auto achievement = event->achievement;
-        Notification *notification = new Notification;
-        char url[128];
-        if (rc_client_achievement_get_image_url(achievement, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED, url, sizeof(url)) == RC_OK)
-        {
-            notification->texture = gRetroAchievements->_GetImage(url, achievement->id);
-        }
-        gRetroAchievements->AddNotification(achievement->id, notification);
-    }
-    break;
-
-    case RC_CLIENT_EVENT_ACHIEVEMENT_CHALLENGE_INDICATOR_HIDE:
-    {
-        auto achievement = event->achievement;
-        gRetroAchievements->RemoveNotification(achievement->id);
-    }
-    break;
-
-    case RC_CLIENT_EVENT_ACHIEVEMENT_PROGRESS_INDICATOR_SHOW:
-    {
-        auto achievement = event->achievement;
-        Notification *notification = new Notification;
-        notification->title = achievement->measured_progress;
-        notification->text = achievement->title;
-
-        char url[128];
-        if (rc_client_achievement_get_image_url(achievement, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED, url, sizeof(url)) == RC_OK)
-        {
-            notification->texture = gRetroAchievements->_GetImage(url, achievement->id);
-        }
-        gRetroAchievements->AddNotification(achievement->id, notification);
-    }
-    break;
-
-    case RC_CLIENT_EVENT_ACHIEVEMENT_PROGRESS_INDICATOR_HIDE:
-    {
-        auto achievement = event->achievement;
-        gRetroAchievements->RemoveNotification(achievement->id);
-    }
-    break;
-
-    case RC_CLIENT_EVENT_ACHIEVEMENT_PROGRESS_INDICATOR_UPDATE:
-    {
-        {
-            auto achievement = event->achievement;
-            gRetroAchievements->UpdateNotification(achievement->id, achievement->measured_progress);
-        }
-    }
-    break;
-
-    case RC_CLIENT_EVENT_LEADERBOARD_TRACKER_SHOW:
-    {
-        auto tracker = event->leaderboard_tracker;
-        Notification *notification = new Notification;
-        notification->title = tracker->display;
-        gRetroAchievements->AddNotification(tracker->id, notification);
-    }
-    break;
-
-    case RC_CLIENT_EVENT_LEADERBOARD_TRACKER_HIDE:
-    {
-        auto tracker = event->leaderboard_tracker;
-        gRetroAchievements->RemoveNotification(tracker->id);
-    }
-    break;
-
-    case RC_CLIENT_EVENT_LEADERBOARD_TRACKER_UPDATE:
-    {
-        auto tracker = event->leaderboard_tracker;
-        gRetroAchievements->UpdateNotification(tracker->id, tracker->display);
-    }
-    break;
-
-    case RC_CLIENT_EVENT_LEADERBOARD_SCOREBOARD:
-        break;
-    case RC_CLIENT_EVENT_RESET:
-        break;
-
-    case RC_CLIENT_EVENT_GAME_COMPLETED:
-    {
-        const rc_client_game_t *game = rc_client_get_game_info(client);
-        Notification *notification = new Notification;
-        notification->title = TEXT(LANG_GAME_COMPLETED);
-        notification->text = game->title;
-
-        char url[128];
-        if (rc_client_game_get_image_url(game, url, sizeof(url)) == RC_OK)
-        {
-            notification->texture = gRetroAchievements->_GetImage(url, GAME_IMAGE_ID);
-        }
-        notification->SetShowTime();
-        gRetroAchievements->AddNotification(game->id, notification);
-    }
-    break;
-
-    case RC_CLIENT_EVENT_SERVER_ERROR:
-        break;
-
-    case RC_CLIENT_EVENT_DISCONNECTED:
-        gRetroAchievements->_online = false;
-        break;
-
-    case RC_CLIENT_EVENT_RECONNECTED:
-        gRetroAchievements->_online = true;
-        break;
-
-    case RC_CLIENT_EVENT_SUBSET_COMPLETED:
-        break;
-
-    default:
-        break;
+        (gRetroAchievements->*RetroAchievements::_event_functions[event->type])(event);
     }
 }
 
@@ -433,6 +262,7 @@ void RetroAchievements::UnloadGame()
 {
     LogFunctionName;
     rc_client_unload_game(_client);
+    _ClearAchievemnts();
 }
 
 void RetroAchievements::Reset()
@@ -667,7 +497,7 @@ void RetroAchievements::_UpdateAchievemnts()
             LogDebug("  [%d, %d] %s (%d)", i, j, achievement->title, achievement->state);
             LogDebug("  %s", achievement->description);
 
-            Achievement *a = new Achievement(_game_id, achievement->id);
+            Achievement *a = new Achievement(_game_id, achievement->id, achievement->state == RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED);
             a->title = achievement->title;
             a->description = achievement->description;
 
@@ -679,8 +509,6 @@ void RetroAchievements::_UpdateAchievemnts()
                     gNetwork->Download(url, img_path.c_str());
                 }
             }
-
-            a->SetState(achievement->state == RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED);
 
             gVideo->Lock();
             _achievements[achievement->id] = a;
