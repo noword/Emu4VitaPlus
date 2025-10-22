@@ -167,7 +167,27 @@ void RetroAchievements::_OnLeaderboardTrackerUpdate(const rc_client_event_t *eve
     UpdateNotification(tracker->id, tracker->display);
 }
 
-void RetroAchievements::_OnLeaderboardScoreboard(const rc_client_event_t *event) { LogFunctionName; }
+void RetroAchievements::_OnLeaderboardScoreboard(const rc_client_event_t *event)
+{
+    LogFunctionName;
+    auto leaderboard = event->leaderboard;
+    auto scoreboard = event->leaderboard_scoreboard;
+    Notification *notification = new Notification;
+
+    notification->title = leaderboard->title;
+    if (scoreboard)
+    {
+        notification->text = scoreboard->submitted_score;
+    }
+    else
+    {
+        notification->text = leaderboard->tracker_value;
+    }
+
+    notification->SetShowTime();
+    AddNotification(leaderboard->id, notification);
+}
+
 void RetroAchievements::_OnReset(const rc_client_event_t *event) { LogFunctionName; }
 
 void RetroAchievements::_OnGameCompleted(const rc_client_event_t *event)
