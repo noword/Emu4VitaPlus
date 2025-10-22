@@ -485,7 +485,7 @@ void Ui::_ShowNormal()
         _OnKeyL1(&_input);
     }
 
-    if (ImGui::BeginTabBar("MyTabBar", ImGuiTabBarFlags_FittingPolicyScroll))
+    if (ImGui::BeginTabBar("MyTabBar", ImGuiTabBarFlags_FittingPolicyScroll | ImGuiTabBarFlags_NoTabListScrollingButtons))
     {
         for (size_t i = 0; i < TAB_INDEX_COUNT; i++)
         {
