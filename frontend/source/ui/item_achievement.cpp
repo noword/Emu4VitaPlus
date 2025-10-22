@@ -13,7 +13,6 @@ ItemAchievement::~ItemAchievement()
 
 void ItemAchievement::Show(bool selected)
 {
-    // LogDebug("000");
     ImGui::BeginGroup();
     vita2d_texture *texture = _achievement->GetTexture();
     if (texture)
@@ -32,5 +31,4 @@ void ItemAchievement::Show(bool selected)
 
     ImGui::EndGroup();
     ImGui::EndGroup();
-    // LogDebug("end");
 }
