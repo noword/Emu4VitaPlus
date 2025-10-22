@@ -2,7 +2,7 @@
 #include "item_selectable.h"
 #include "achievement.h"
 
-class ItemAchievement : public ItemSelectable
+class ItemAchievement : public ItemBase
 {
 public:
     ItemAchievement(Achievement *achievement);
@@ -12,4 +12,4 @@ public:
 
 private:
     Achievement *_achievement;
-}
+};

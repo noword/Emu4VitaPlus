@@ -22,7 +22,7 @@ public:
     void SetInputHooks();
     void AppendLog(const char *log);
     void ClearLogs();
-    void NotificationBootFailed();
+    void NotifyBootResult(bool result);
 
     void UpdateCoreOptions();
     void UpdateCheatOptions();

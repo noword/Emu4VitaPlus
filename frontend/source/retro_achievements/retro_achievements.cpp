@@ -513,7 +513,7 @@ void RetroAchievements::_UpdateAchievemnts()
                 std::string img_path = a->GetImagePath(state == RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED);
                 if ((!File::Exist(img_path.c_str())) && rc_client_achievement_get_image_url(achievement, state, url, sizeof(url)) == RC_OK)
                 {
-                    gNetwork->Download(url, img_path.c_str());
+                    gNetwork->AddTask(url, img_path.c_str());
                 }
             }
 
@@ -523,6 +523,8 @@ void RetroAchievements::_UpdateAchievemnts()
         }
     }
     rc_client_destroy_achievement_list(list);
+
+    gUi->UpdateAchievements();
 }
 
 void RetroAchievements::_ClearAchievemnts()

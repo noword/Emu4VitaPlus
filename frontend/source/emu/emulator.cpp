@@ -247,9 +247,9 @@ LOAD_END:
         delete[] buf;
     }
 
+    gUi->NotifyBootResult(result);
     if (!result)
     {
-        gUi->NotificationBootFailed();
         _current_name.clear();
     }
 

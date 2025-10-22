@@ -16,7 +16,7 @@
 #define TEXT_FONT_NAME "AlibabaPuHuiTi-2-65-Medium.ttf"
 #define GAMEPAD_FONT_NAME "promptfont.ttf"
 #define ICON_FONT_NAME "fontello.ttf"
-#define FONT_CACHE_VERSION 2
+#define FONT_CACHE_VERSION 3
 
 #define RA_ICON_NAME "ra-icon.png"
 
@@ -53,6 +53,7 @@ const static ImWchar GamePadCharset[] = {0x219c, 0x21a1,
                                          0x0000};
 
 const static ImWchar IconCharset[] = {0xe800, 0xe80f,
+                                      0xe811, 0xe811,
                                       0xf08e, 0xf08e,
                                       0xf0c9, 0xf0c9,
                                       0xf11b, 0xf11b,

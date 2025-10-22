@@ -12,6 +12,7 @@
 #include "item_core.h"
 #include "item_state.h"
 #include "item_device.h"
+#include "item_achievement.h"
 #include "tab_browser.h"
 #include "tab_favorite.h"
 #include "tab_about.h"
@@ -181,7 +182,7 @@ void Ui::CreateTables()
     _tabs[TAB_INDEX_CHEAT] = new TabSeletable(LANG_CHEAT);
     _tabs[TAB_INDEX_CHEAT]->SetVisable(false);
 
-    _tabs[TAB_INDEX_ACHIEVEMENTS] = new TabSeletable(LANG_ACHIEVEMENTS);
+    _tabs[TAB_INDEX_ACHIEVEMENTS] = new TabSeletable(LANG_ACHIEVEMENTS, 1);
     _tabs[TAB_INDEX_ACHIEVEMENTS]->SetVisable(false);
 
     _tabs[TAB_INDEX_BROWSER] = new TabBrowser();
@@ -412,6 +413,7 @@ void Ui::OnStatusChanged(APP_STATUS status)
         }
 
         _tabs[TAB_INDEX_STATE]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME);
+        _tabs[TAB_INDEX_ACHIEVEMENTS]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME && gRetroAchievements->GetAchievementsCount());
         _tabs[TAB_INDEX_CHEAT]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME && (gEmulator->GetCheats()->size() > 0));
         _tabs[TAB_INDEX_BROWSER]->SetVisable(status == APP_STATUS_SHOW_UI);
         _tabs[TAB_INDEX_FAVORITE]->SetVisable(status == APP_STATUS_SHOW_UI);
@@ -538,17 +540,24 @@ void Ui::ClearLogs()
     _boot_ui->ClearLogs();
 }
 
-void Ui::NotificationBootFailed()
+void Ui::NotifyBootResult(bool result)
 {
     LogFunctionName;
-    gHint->SetHint(TEXT(LANG_LOAD_ROM_FAILED));
-    if (_boot_ui->GetLogSize() > 0)
+    if (result)
     {
-        _boot_ui->SetInputHooks(&_input);
+        _tab_index = TAB_INDEX_STATE;
     }
     else
     {
-        gStatus.Set(APP_STATUS_SHOW_UI);
+        gHint->SetHint(TEXT(LANG_LOAD_ROM_FAILED));
+        if (_boot_ui->GetLogSize() > 0)
+        {
+            _boot_ui->SetInputHooks(&_input);
+        }
+        else
+        {
+            gStatus.Set(APP_STATUS_SHOW_UI);
+        }
     }
 }
 
@@ -833,4 +842,34 @@ void Ui::_TextInputCallback(const char *text)
 
     if (pop)
         _input.PopCallbacks();
+}
+
+void Ui::UpdateAchievements()
+{
+    LogFunctionName;
+    size_t count = gRetroAchievements->GetAchievementsCount();
+
+    if (count == 0)
+    {
+        return;
+    }
+
+    std::vector<ItemBase *> achievements;
+
+    achievements.reserve(count);
+    for (size_t i = 0; i < count; i++)
+    {
+        achievements.emplace_back(new ItemAchievement(gRetroAchievements->GetAchievement(i)));
+    }
+
+    gVideo->Lock();
+
+    if (_tabs[TAB_INDEX_CORE] != nullptr)
+    {
+        delete _tabs[TAB_INDEX_ACHIEVEMENTS];
+    }
+
+    _tabs[TAB_INDEX_ACHIEVEMENTS] = new TabSeletable(LANG_ACHIEVEMENTS, achievements, 1);
+
+    gVideo->Unlock();
 }

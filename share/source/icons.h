@@ -47,6 +47,7 @@
 #define KEY_END "\xe2\x90\xb8"
 #define KEY_PAGEDOWN "\xe2\x90\xb9"
 #define ICON_WIFI "\xee\xa0\x90"
+#define ICON_AWARD "\xee\xa0\x91"
 
 #define ICON_STAR_SPACE ICON_STAR " "
 #define ICON_EMPTY_STAR_SPACE ICON_EMPTY_STAR " "
@@ -79,3 +80,4 @@
 #define ICON_CD_SPACE ICON_CD " "
 #define ICON_EJECT_SPACE ICON_EJECT " "
 #define ICON_WIFI_SPACE ICON_WIFI " "
+#define ICON_AWARD_SPACE ICON_AWARD " "
