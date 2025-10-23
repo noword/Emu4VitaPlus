@@ -17,7 +17,7 @@ public:
     void SetItemVisable(size_t index, bool visable);
     void SetColumns(int columns);
     void SetIndex(size_t index);
-    bool Visable() override { return _visable && _GetItemCount() > 0; };
+    bool Visable() override { return TabBase::Visable() && _GetItemCount() > 0; };
     ItemBase *GetItemByLanguageString(const LanguageString &lang);
 
 protected:

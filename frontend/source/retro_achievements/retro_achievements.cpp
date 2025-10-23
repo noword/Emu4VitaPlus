@@ -335,8 +335,6 @@ void RetroAchievements::Show()
     if (_notifications.empty())
         return;
 
-    ImGui_ImplVita2D_NewFrame();
-    ImGui::SetMouseCursor(ImGuiMouseCursor_None);
     ImVec2 pos{-1.f, -1.f};
     ImVec2 size;
     ImVec2 pre_size{0.f, 0.f};
@@ -367,7 +365,13 @@ void RetroAchievements::Show()
         ImGui::SetNextWindowBgAlpha(0.8f);
         if (ImGui::Begin((n->title + std::to_string(pos.x) + std::to_string(pos.y)).c_str(),
                          NULL,
-                         ImGuiWindowFlags_NoMove | ImGuiWindowFlags_NoBringToFrontOnFocus | ImGuiWindowFlags_NoFocusOnAppearing | ImGuiWindowFlags_NoDecoration))
+                         ImGuiWindowFlags_NoSavedSettings |
+                             ImGuiWindowFlags_NoTitleBar |
+                             ImGuiWindowFlags_NoCollapse |
+                             ImGuiWindowFlags_NoResize |
+                             ImGuiWindowFlags_NoScrollbar |
+                             ImGuiWindowFlags_NoInputs |
+                             ImGuiWindowFlags_NoFocusOnAppearing))
         {
             ImGui::BeginGroup();
             if (n->texture)
@@ -392,9 +396,6 @@ void RetroAchievements::Show()
         show_count++;
     }
     Unlock();
-
-    ImGui::Render();
-    My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
 
     if (show_count == 0)
     {

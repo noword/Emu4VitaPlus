@@ -508,23 +508,23 @@ void Ui::Show()
     LogFunctionNameLimited;
 
     APP_STATUS status = gStatus.Get();
-    if (((status & (APP_STATUS_BOOT | APP_STATUS_SHOW_UI | APP_STATUS_SHOW_UI_IN_GAME)) != 0))
+
+    ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, MAIN_WINDOW_PADDING});
+    ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2});
+
+    if (ImGui::Begin(_title.c_str(), NULL,
+                     ImGuiWindowFlags_NoSavedSettings |
+                         ImGuiWindowFlags_NoCollapse |
+                         ImGuiWindowFlags_NoResize |
+                         ImGuiWindowFlags_NoScrollbar |
+                         ImGuiWindowFlags_NoInputs |
+                         ImGuiWindowFlags_NoBringToFrontOnFocus))
     {
-        ImGui_ImplVita2D_NewFrame();
-        ImGui::SetMouseCursor(ImGuiMouseCursor_None);
-        ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, MAIN_WINDOW_PADDING});
-        ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2});
-
-        if (ImGui::Begin(_title.c_str(), NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
-        {
-            My_ImGui_ShowTimePower(gNetwork->Connected(), gRetroAchievements && gRetroAchievements->IsOnline());
-            (status == APP_STATUS_BOOT) ? _boot_ui->Show() : _ShowNormal();
-        }
-
-        ImGui::End();
-        ImGui::Render();
-        My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
+        My_ImGui_ShowTimePower(gNetwork->Connected(), gRetroAchievements && gRetroAchievements->IsOnline());
+        (status == APP_STATUS_BOOT) ? _boot_ui->Show() : _ShowNormal();
     }
+
+    ImGui::End();
 
     return;
 }

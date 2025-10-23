@@ -24,6 +24,7 @@ public:
     virtual ~RetroAchievements();
 
     void Show();
+    bool NeedShow() { return !_notifications.empty(); };
     bool IsOnline() { return _online; };
     void Login(const char *username, const char *password);
     void LoginWithToekn(const char *username, const char *token);

@@ -56,6 +56,15 @@ namespace Emu4VitaPlus
             vita2d_start_drawing_advanced(NULL, 0);
             vita2d_clear_screen();
 
+            bool use_imgui = (status & (APP_STATUS_BOOT | APP_STATUS_SHOW_UI | APP_STATUS_SHOW_UI_IN_GAME)) ||
+                             gHint->NeedShow() ||
+                             (gRetroAchievements && gRetroAchievements->NeedShow());
+            if (use_imgui)
+            {
+                ImGui_ImplVita2D_NewFrame();
+                ImGui::SetMouseCursor(ImGuiMouseCursor_None);
+            }
+
             switch (status)
             {
             case APP_STATUS_BOOT:
@@ -79,9 +88,15 @@ namespace Emu4VitaPlus
                 break;
             }
 
-            gHint->Show();
-            if (gRetroAchievements)
-                gRetroAchievements->Show();
+            if (use_imgui)
+            {
+                gHint->Show();
+                if (gRetroAchievements)
+                    gRetroAchievements->Show();
+
+                ImGui::Render();
+                My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
+            }
 
             vita2d_end_drawing();
             vita2d_common_dialog_update();

@@ -21,8 +21,6 @@ void Hint::Show()
     _locker.Lock();
     HintItem &hint = _hints.front();
 
-    ImGui_ImplVita2D_NewFrame();
-    ImGui::SetMouseCursor(ImGuiMouseCursor_None);
     const char *s = hint.lang_string.Get();
     ImVec2 size = ImGui::CalcTextSize(s);
     float x = (VITA_WIDTH - size.x) / 2;
@@ -32,7 +30,14 @@ void Hint::Show()
     ImGui::SetNextWindowSize({size.x + MAIN_WINDOW_PADDING * 2, size.y + MAIN_WINDOW_PADDING * 2});
     ImGui::SetNextWindowBgAlpha(0.8);
 
-    if (ImGui::Begin("hint", NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
+    if (ImGui::Begin("hint", NULL,
+                     ImGuiWindowFlags_NoSavedSettings |
+                         ImGuiWindowFlags_NoTitleBar |
+                         ImGuiWindowFlags_NoCollapse |
+                         ImGuiWindowFlags_NoResize |
+                         ImGuiWindowFlags_NoScrollbar |
+                         ImGuiWindowFlags_NoInputs |
+                         ImGuiWindowFlags_NoFocusOnAppearing))
     {
         ImGui::SetCursorPos({10, 10});
         ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0, 255, 0, 255));
@@ -40,9 +45,6 @@ void Hint::Show()
         ImGui::PopStyleColor();
     }
     ImGui::End();
-
-    ImGui::Render();
-    My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
 
     hint.frame_count--;
     if (hint.frame_count == 0)
