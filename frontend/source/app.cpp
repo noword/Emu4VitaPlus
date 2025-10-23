@@ -75,6 +75,7 @@ App::App()
 
     gNetwork = new Network();
     gEmulator = new Emulator();
+    gNetwork->SetUserAgent();
     gVideo = new Video();
     gUi = new Ui();
     gHint = new Hint;

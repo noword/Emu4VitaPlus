@@ -61,7 +61,7 @@ public:
 
     bool Connected();
 
-    void SetUserAgent(std::string agent) { _user_agent = agent; };
+    void SetUserAgent(std::string agent = "");
     size_t GetSize(const char *url);
     bool Download(const char *url, const char *file_name); // blocking  function
     bool Fetch(const char *url, std::string *buf);         // blocking  function

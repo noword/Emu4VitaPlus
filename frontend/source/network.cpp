@@ -116,6 +116,20 @@ Network::~Network()
     }
 }
 
+void Network::SetUserAgent(std::string agent)
+{
+    LogFunctionName;
+    if (agent.empty())
+    {
+        _user_agent = std::string(USER_AGENT) + " " + gEmulator->GetCoreName() + "/" + gEmulator->GetCoreVersion();
+    }
+    else
+    {
+        _user_agent = agent;
+    }
+    LogDebug("  user agent: %s", _user_agent.c_str());
+}
+
 bool Network::Connected()
 {
     int state;
@@ -377,7 +391,7 @@ void Network::CleanAllTask()
 
 void Network::_SetOptions(CURL *curl)
 {
-    curl_easy_setopt(curl, CURLOPT_USERAGENT, USER_AGENT);
+    curl_easy_setopt(curl, CURLOPT_USERAGENT, _user_agent.c_str());
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
     curl_easy_setopt(curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
