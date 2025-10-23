@@ -52,6 +52,15 @@ extern const bool ENABLE_KEYBOARD;
 
 extern const bool CONTROL_SPEED_BY_VIDEO;
 
+enum RETRO_ACHIEVEMENTS_SUPPORT_ENUM
+{
+    RETRO_ACHIEVEMENTS_AUTO,
+    RETRO_ACHIEVEMENTS_ENABLE,
+    RETRO_ACHIEVEMENTS_DISABLE,
+};
+
+extern RETRO_ACHIEVEMENTS_SUPPORT_ENUM RETRO_ACHIEVEMENTS_SUPPORT;
+
 extern const std::vector<uint8_t> RETRO_KEYS;
 extern const std::vector<ControlMapConfig> CONTROL_MAPS;
 extern const std::vector<std::pair<const char *, const char *>> DEFAULT_CORE_SETTINGS;

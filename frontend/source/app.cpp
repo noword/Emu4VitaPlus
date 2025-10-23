@@ -118,6 +118,12 @@ App::App()
     gRomNameMap = new RomNameMap;
     gRomNameMap->Load();
 
+    if (RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE)
+    {
+        gRetroAchievements = new RetroAchievements;
+        gRetroAchievements->Start();
+    }
+
     gUi->AppendLog("Create tables of UI");
     gUi->CreateTables();
 

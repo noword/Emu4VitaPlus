@@ -276,7 +276,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
 
     case RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS");
-        if (*(bool *)data)
+        if (*(bool *)data && RETRO_ACHIEVEMENTS_SUPPORT != RETRO_ACHIEVEMENTS_DISABLE)
         {
             if (!gRetroAchievements)
             {
