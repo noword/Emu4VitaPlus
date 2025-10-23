@@ -10,7 +10,6 @@ set(CORE_ROWS
     "fbalpha2012;fbalpha2012;FBA2012;ARC;FBA20124V"
     "snes9x2002;snes9x2002;Snes9x2002;SNES;SNES024VT"
     "snes9x2005;snes9x2005_plus;Snes9x2005Plus;SNES;SNES054VT"
-    "snes9x2010;snes9x2010;Snes9x2010;SNES;SNES104VT"
     "libretro-fceumm;fceumm;FCEUmm;NES;FCEUMM4VT"
     "nestopia;nestopia;Nestopia;NES;NESTP4VIT"
     "Genesis-Plus-GX;genesis_plus_gx;GenesisPlusGX;MD;GENESIS4V"
@@ -47,6 +46,7 @@ set(CORE_ROWS
     "libretro-handy;handy;Handy;LYNX;HANDY4VIT"
     "libretro-cap32;cap32;Caprice32;CPC;CAP324VIT"
     "libretro-crocods;crocods;CrocoDS;CPC;CROCODS4V"
+    "snes9x;snes9x;Snes9x;SNES;SNES9X4VT"
 )
 
 set(ROW_SIZE 5)

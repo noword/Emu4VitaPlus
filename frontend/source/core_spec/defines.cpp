@@ -96,13 +96,13 @@ const bool IS_ARCADE = false;
 const bool DEFAULT_INDEPENDENT_CORE_CONFIG = false;
 #endif
 
-#if defined(NES_BUILD) || defined(GENESIS_PLUS_GX_BUILD) || defined(SNES9X2010_BUILD)
+#if defined(NES_BUILD) || defined(GENESIS_PLUS_GX_BUILD) || defined(SNES9X2010_BUILD) || defined(SNES9X)
 const bool DEFAULT_LIGHTGUN = true;
 #else
 const bool DEFAULT_LIGHTGUN = false;
 #endif
 
-#if defined(SNES9X2010_BUILD) || defined(DOS_BUILD)
+#if defined(SNES9X2010_BUILD) || defined(DOS_BUILD) || defined(SNES9X)
 const bool DEFAULT_MOUSE = CONFIG_MOUSE_REAR;
 #else
 const bool DEFAULT_MOUSE = CONFIG_MOUSE_DISABLE;
