@@ -95,6 +95,9 @@ void RetroAchievements::_LoadGameCallback(int result, const char *error_message,
     Notification *notification = new Notification;
 
     const rc_client_game_t *game = rc_client_get_game_info(ra->_client);
+    LogInfo("[RA]         id: %d", game->id);
+    LogInfo("[RA]      title: %s", game->title);
+    LogInfo("[RA]       hash: %s", game->hash);
     ra->_game_id = game->id;
 
     notification->title = game->title;
@@ -135,7 +138,7 @@ RetroAchievements::RetroAchievements()
 {
     LogFunctionName;
 
-    File::MakeDirs(THUMBNAILS_CACHE_DIR);
+    File::MakeDirs(RETRO_ACHIEVEMENTS_CACHE_DIR);
 
     _client = rc_client_create(_ReadMemory, _ServerCall);
     rc_client_enable_logging(_client, RC_CLIENT_LOG_LEVEL_VERBOSE, _LogMessage);

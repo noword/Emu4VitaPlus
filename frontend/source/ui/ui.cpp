@@ -411,7 +411,7 @@ void Ui::OnStatusChanged(APP_STATUS status)
         }
 
         _tabs[TAB_INDEX_STATE]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME);
-        _tabs[TAB_INDEX_ACHIEVEMENTS]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME && gRetroAchievements->GetAchievementsCount());
+        _tabs[TAB_INDEX_ACHIEVEMENTS]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME && gRetroAchievements && gRetroAchievements->GetAchievementsCount());
         _tabs[TAB_INDEX_CHEAT]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME && (gEmulator->GetCheats()->size() > 0));
         _tabs[TAB_INDEX_BROWSER]->SetVisable(status == APP_STATUS_SHOW_UI);
         _tabs[TAB_INDEX_FAVORITE]->SetVisable(status == APP_STATUS_SHOW_UI);
@@ -705,16 +705,6 @@ void Ui::_ChangeLanguage()
     gVideo->Unlock();
 
     gConfig->Save();
-
-    const char ARCH_CONFIG_PATH[] = ROOT_DIR "/Arch/config.ini";
-
-    CSimpleIniA ini;
-    if (ini.LoadFile(ARCH_CONFIG_PATH) == SI_OK)
-    {
-        ini.SetValue("MAIN", "language", gLanguageNames[gConfig->language]);
-        File::Remove(ARCH_CONFIG_PATH);
-        ini.SaveFile(ARCH_CONFIG_PATH, false);
-    }
 }
 
 void Ui::_ChangeAutoRotating()

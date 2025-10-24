@@ -302,7 +302,25 @@ namespace Emu4VitaPlus
         device_options.Save(ini);
 
         File::Remove(path);
-        return ini.SaveFile(path, false) == SI_OK;
+        bool result = ini.SaveFile(path, false) == SI_OK;
+
+        ini.Reset();
+        if (ini.LoadFile(ARCH_CONFIG_PATH) == SI_OK)
+        {
+            ini.SetValue("MAIN", "language", gLanguageNames[gConfig->language]);
+            if (gRetroAchievements)
+            {
+                ini.SetValue(RA_SECTION, "user", ra_user.c_str());
+                ini.SetValue(RA_SECTION, "token", ra_token.c_str());
+                ini.SetBoolValue(RA_SECTION, "login", ra_login);
+                ini.SetBoolValue(RA_SECTION, "hardcore", ra_hardcore);
+                ini.SetLongValue(RA_SECTION, "position", ra_position);
+            }
+            File::Remove(ARCH_CONFIG_PATH);
+            result &= ini.SaveFile(ARCH_CONFIG_PATH, false);
+        }
+
+        return result;
     }
 
     bool Config::Load(const char *path)
@@ -415,6 +433,15 @@ namespace Emu4VitaPlus
         core_options.Load(ini);
         input_descriptors.Load(ini);
         device_options.Load(ini);
+
+        if (ini.LoadFile(ARCH_CONFIG_PATH) == SI_OK)
+        {
+            ra_user = ini.GetValue(RA_SECTION, "user", "");
+            ra_token = ini.GetValue(RA_SECTION, "token", "");
+            ra_login = ini.GetBoolValue(RA_SECTION, "login", false);
+            ra_hardcore = ini.GetBoolValue(RA_SECTION, "hardcore", false);
+            ra_position = ini.GetLongValue(RA_SECTION, "position", RA_POSITION_BOTTOM_RIGHT);
+        }
 
         return true;
     }

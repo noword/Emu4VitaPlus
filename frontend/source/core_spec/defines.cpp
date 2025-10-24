@@ -167,16 +167,18 @@ const bool DEFAULT_INDEPENDENT_CONFIG = true;
 const bool DEFAULT_INDEPENDENT_CONFIG = false;
 #endif
 
-#if defined(BLUEMSX_BUILD) ||       \
-    defined(STELLA2014) ||          \
-    defined(PROSYSTEM_BUILD) ||     \
-    defined(VECX_BUILD) ||          \
-    defined(PICODRIVE_BUILD) ||     \
-    defined(MEDNAFEN_LYNX_BUILD) || \
-    defined(HANDY_BUILD) ||         \
-    defined(NEOCD_BUILD) ||         \
-    defined(MEDNAFEN_NGP_BUILD) ||  \
-    defined(MEDNAFEN_WSWAN_BUILD)
+#if defined(BLUEMSX_BUILD) ||        \
+    defined(STELLA2014) ||           \
+    defined(PROSYSTEM_BUILD) ||      \
+    defined(VECX_BUILD) ||           \
+    defined(PICODRIVE_BUILD) ||      \
+    defined(MEDNAFEN_LYNX_BUILD) ||  \
+    defined(HANDY_BUILD) ||          \
+    defined(NEOCD_BUILD) ||          \
+    defined(MEDNAFEN_NGP_BUILD) ||   \
+    defined(MEDNAFEN_WSWAN_BUILD) || \
+    defined(VBA_NEXT_BUILD) ||       \
+    defined(GENESIS_PLUS_GX_BUILD)
 RETRO_ACHIEVEMENTS_SUPPORT_ENUM RETRO_ACHIEVEMENTS_SUPPORT = RETRO_ACHIEVEMENTS_ENABLE;
 #else
 RETRO_ACHIEVEMENTS_SUPPORT_ENUM RETRO_ACHIEVEMENTS_SUPPORT = RETRO_ACHIEVEMENTS_AUTO;

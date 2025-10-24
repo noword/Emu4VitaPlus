@@ -14,6 +14,8 @@
 #define THUMBNAILS_CACHE_DIR CACHE_DIR "/thumbnails"
 #define RETRO_ACHIEVEMENTS_CACHE_DIR CACHE_DIR "/retro_arcievements"
 
+#define ARCH_CONFIG_PATH ROOT_DIR "/Arch/config.ini"
+
 #define OVERLAYS_DIR_NAME "overlays"
 #define PREVIEW_DIR_NAME ".previews"
 #define CHEAT_DIR_NAME ".cheats"
