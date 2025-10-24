@@ -247,15 +247,12 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_SET_MEMORY_MAPS:
-        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_MEMORY_MAPS");
+        LogDebug("  cmd: RETRO_ENVIRONMENT_SET_MEMORY_MAPS");
         {
-            const retro_memory_map *mm = (const retro_memory_map *)data;
-            const retro_memory_descriptor *md = mm->descriptors;
-            LogDebug("flags, offset, start, select, disconnect, len, addrspace");
-            for (auto i = 0; i < mm->num_descriptors; i++)
+            const retro_memory_map *mmap = (const retro_memory_map *)data;
+            if (gRetroAchievements)
             {
-                LogDebug("%llx %08x %08x %08x %08x %08x %s", md->flags, md->offset, md->start, md->select, md->disconnect, md->len, md->addrspace ? md->addrspace : "");
-                md++;
+                gRetroAchievements->CopyRetroMmap(mmap);
             }
         }
         return false;

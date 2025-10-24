@@ -1,6 +1,7 @@
 #pragma once
 #include <rcheevos.h>
 #include <rc_client.h>
+#include <libretro.h>
 #include <stdint.h>
 #include <string>
 #include <map>
@@ -8,6 +9,7 @@
 #include "thread_base.h"
 #include "notification.h"
 #include "achievement.h"
+#include "retro_memory.h"
 #include "log.h"
 
 // 5 seconds
@@ -23,6 +25,7 @@ public:
     RetroAchievements();
     virtual ~RetroAchievements();
 
+    void CopyRetroMmap(const retro_memory_map *mmap);
     void Show();
     bool NeedShow() { return !_notifications.empty(); };
     bool IsOnline() { return _online; };
@@ -50,6 +53,7 @@ private:
     static void _LoginCallback(int result, const char *error_message, rc_client_t *client, void *userdata);
     static void _LoadGameCallback(int result, const char *error_message, rc_client_t *client, void *userdata);
 
+    void _ClearRetroMmap();
     void _ClearNotifictions();
     vita2d_texture *_GetImage(const char *url, uint32_t id);
     void _UpdateAchievemnts();
@@ -83,4 +87,6 @@ private:
     std::map<uint32_t, Notification *> _notifications;
     std::map<uint32_t, Achievement *> _achievements;
     uint32_t _game_id;
+    retro_memory_map _mmap;
+    RetroMemory *_retro_memory;
 };

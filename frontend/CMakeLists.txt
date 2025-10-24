@@ -14,7 +14,8 @@ include_directories(
     ../deps/simpleini
     ../deps/minizip-ng
     ../deps/7-Zip/C
-    ../deps/rcheevos/include)
+    ../deps/rcheevos/include
+    ../deps/rcheevos/src)
 
 file(GLOB SRC
     source/*.c

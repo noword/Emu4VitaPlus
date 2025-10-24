@@ -60,20 +60,13 @@ int RetroAchievements::_RaThread(SceSize args, void *argp)
 
 uint32_t RetroAchievements::_ReadMemory(uint32_t address, uint8_t *buffer, uint32_t num_bytes, rc_client_t *client)
 {
-    // LogFunctionName;
-    // LogDebug("  address: %08x num_bytes: %08x", address, num_bytes);
-    size_t size = retro_get_memory_size(RETRO_MEMORY_SYSTEM_RAM);
-    uint8_t *data = (uint8_t *)retro_get_memory_data(RETRO_MEMORY_SYSTEM_RAM);
-    if (address + num_bytes > size || !data)
+    if (gRetroAchievements->_retro_memory == nullptr)
     {
-        return 0;
+        const rc_client_game_t *game = rc_client_get_game_info(gRetroAchievements->_client);
+        gRetroAchievements->_retro_memory = new RetroMemory(&gRetroAchievements->_mmap, game ? game->console_id : 0);
     }
 
-    data += address;
-
-    memcpy(buffer, data, num_bytes);
-
-    return num_bytes;
+    return gRetroAchievements->_retro_memory->Read(address, buffer, num_bytes);
 }
 
 void RetroAchievements::_ServerCall(const rc_api_request_t *request, rc_client_server_callback_t callback, void *callback_data, rc_client_t *client)
@@ -134,7 +127,11 @@ void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_
     }
 }
 
-RetroAchievements::RetroAchievements() : ThreadBase(_RaThread), _online(false)
+RetroAchievements::RetroAchievements()
+    : ThreadBase(_RaThread),
+      _online(false),
+      _mmap{0},
+      _retro_memory(nullptr)
 {
     LogFunctionName;
 
@@ -152,6 +149,10 @@ RetroAchievements::~RetroAchievements()
 
     _ClearNotifictions();
     _ClearAchievemnts();
+    _ClearRetroMmap();
+
+    if (_retro_memory)
+        delete _retro_memory;
 
     if (_client)
     {
@@ -160,6 +161,41 @@ RetroAchievements::~RetroAchievements()
             Logout();
         }
         rc_client_destroy(_client);
+    }
+}
+
+void RetroAchievements::CopyRetroMmap(const retro_memory_map *mmap)
+{
+    LogFunctionName;
+
+    _ClearRetroMmap();
+    if (_retro_memory)
+    {
+        delete _retro_memory;
+        _retro_memory = nullptr;
+    }
+
+    retro_memory_descriptor *descriptors = new retro_memory_descriptor[mmap->num_descriptors];
+    _mmap.num_descriptors = mmap->num_descriptors;
+    _mmap.descriptors = descriptors;
+
+    LogDebug("index, flags, offset, start, select, disconnect, len, addrspace");
+    const retro_memory_descriptor *md = mmap->descriptors;
+    for (auto i = 0; i < _mmap.num_descriptors; i++)
+    {
+        LogDebug("%d %llx %08x %08x %08x %08x %08x %s", i, md->flags, md->offset, md->start, md->select, md->disconnect, md->len, md->addrspace ? md->addrspace : "");
+        memcpy(descriptors++, md++, sizeof(retro_memory_descriptor));
+    }
+}
+
+void RetroAchievements::_ClearRetroMmap()
+{
+    LogFunctionName;
+    if (_mmap.descriptors)
+    {
+        delete[] _mmap.descriptors;
+        _mmap.descriptors = nullptr;
+        _mmap.num_descriptors = 0;
     }
 }
 

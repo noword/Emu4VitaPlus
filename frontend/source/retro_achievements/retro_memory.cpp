@@ -1,5 +1,6 @@
 #include <libretro.h>
 #include "retro_memory.h"
+#include "log.h"
 
 static void GetCoreMemoryInfo(uint32_t id, rc_libretro_core_memory_info_t *info)
 {
@@ -17,7 +18,7 @@ RetroMemory::~RetroMemory()
     rc_libretro_memory_destroy(&_regions);
 }
 
-uint32_t RetroMemory::ReadMemory(uint32_t address, uint8_t *buffer, uint32_t num_bytes)
+uint32_t RetroMemory::Read(uint32_t address, uint8_t *buffer, uint32_t num_bytes)
 {
     return rc_libretro_memory_read(&_regions, address, buffer, num_bytes);
 }
