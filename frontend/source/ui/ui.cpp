@@ -837,24 +837,21 @@ void Ui::UpdateAchievements()
     LogFunctionName;
     size_t count = gRetroAchievements->GetAchievementsCount();
 
-    if (count == 0)
-    {
-        return;
-    }
-
     std::vector<ItemBase *> achievements;
 
-    achievements.reserve(count);
-    for (size_t i = 0; i < count; i++)
-    {
-        achievements.emplace_back(new ItemAchievement(gRetroAchievements->GetAchievement(i)));
-    }
-
     gVideo->Lock();
-
-    if (_tabs[TAB_INDEX_CORE] != nullptr)
+    if (count > 0)
     {
-        delete _tabs[TAB_INDEX_ACHIEVEMENTS];
+        achievements.reserve(count);
+        for (size_t i = 0; i < count; i++)
+        {
+            achievements.emplace_back(new ItemAchievement(gRetroAchievements->GetAchievement(i)));
+        }
+
+        if (_tabs[TAB_INDEX_CORE] != nullptr)
+        {
+            delete _tabs[TAB_INDEX_ACHIEVEMENTS];
+        }
     }
 
     _tabs[TAB_INDEX_ACHIEVEMENTS] = new TabSeletable(LANG_ACHIEVEMENTS, achievements, 1);

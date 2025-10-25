@@ -7,8 +7,8 @@
 #include <map>
 #include <vita2d.h>
 #include "thread_base.h"
-#include "notification.h"
 #include "achievement.h"
+#include "notification.h"
 #include "retro_memory.h"
 #include "log.h"
 
@@ -26,8 +26,6 @@ public:
     virtual ~RetroAchievements();
 
     void CopyRetroMmap(const retro_memory_map *mmap);
-    void Show();
-    bool NeedShow() { return !_notifications.empty(); };
     bool IsOnline() { return _online; };
     void Login(const char *username, const char *password);
     void LoginWithToekn(const char *username, const char *token);
@@ -35,9 +33,6 @@ public:
     void LoadGame(const char *path, const void *rom, size_t rom_size);
     void UnloadGame();
     void Reset();
-    void AddNotification(uint32_t id, Notification *n);
-    void RemoveNotification(uint32_t id);
-    void UpdateNotification(uint32_t id, const std::string &title, const std::string &text = "", vita2d_texture *texture = nullptr);
 
     size_t GetAchievementsCount() { return _achievements.size(); };
     Achievement *GetAchievement(size_t index);
@@ -54,7 +49,6 @@ private:
     static void _LoadGameCallback(int result, const char *error_message, rc_client_t *client, void *userdata);
 
     void _ClearRetroMmap();
-    void _ClearNotifictions();
     vita2d_texture *_GetImage(const char *url, uint32_t id);
     void _UpdateAchievemnts();
     void _ClearAchievemnts();
@@ -84,7 +78,6 @@ private:
 
     rc_client_t *_client;
     bool _online;
-    std::map<uint32_t, Notification *> _notifications;
     std::map<uint32_t, Achievement *> _achievements;
     uint32_t _game_id;
     retro_memory_map _mmap;

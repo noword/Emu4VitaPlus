@@ -1,6 +1,7 @@
 #include <psp2/rtc.h>
 #include "retro_achievements.h"
 #include "language_string.h"
+#include "global.h"
 #include "log.h"
 
 RetroAchievements::EventFunc RetroAchievements::_event_functions[] = {
@@ -54,7 +55,7 @@ void RetroAchievements::_OnAchievementTriggered(const rc_client_event_t *event)
     }
 
     notification->SetShowTime();
-    AddNotification(achievement->id, notification);
+    gNotifications->Add(achievement->id, notification);
 }
 
 void RetroAchievements::_OnLeaderboardStarted(const rc_client_event_t *event)
@@ -65,7 +66,7 @@ void RetroAchievements::_OnLeaderboardStarted(const rc_client_event_t *event)
     notification->title = TEXT(LANG_LEADERBOARD_STARTED);
     notification->text = leaderboard->title;
     notification->SetShowTime();
-    AddNotification(leaderboard->id, notification);
+    gNotifications->Add(leaderboard->id, notification);
 }
 
 void RetroAchievements::_OnLeaderboardFailed(const rc_client_event_t *event)
@@ -76,7 +77,7 @@ void RetroAchievements::_OnLeaderboardFailed(const rc_client_event_t *event)
     notification->title = TEXT(LANG_LEADERBOARD_FAILED);
     notification->text = leaderboard->title;
     notification->SetShowTime();
-    AddNotification(leaderboard->id, notification);
+    gNotifications->Add(leaderboard->id, notification);
 }
 
 void RetroAchievements::_OnLeaderboardSubmitted(const rc_client_event_t *event)
@@ -88,7 +89,7 @@ void RetroAchievements::_OnLeaderboardSubmitted(const rc_client_event_t *event)
     notification->title = TEXT(LANG_LEADERBOARD_SUBMITTED);
     notification->text = leaderboard->title;
     notification->SetShowTime();
-    AddNotification(leaderboard->id, notification);
+    gNotifications->Add(leaderboard->id, notification);
 }
 
 void RetroAchievements::_OnAchievementChallengeIndicatorShow(const rc_client_event_t *event)
@@ -102,13 +103,13 @@ void RetroAchievements::_OnAchievementChallengeIndicatorShow(const rc_client_eve
     {
         notification->texture = _GetImage(url, achievement->id);
     }
-    AddNotification(achievement->id, notification);
+    gNotifications->Add(achievement->id, notification);
 }
 
 void RetroAchievements::_OnAchievementChallengeIndicatorHide(const rc_client_event_t *event)
 {
     LogFunctionName;
-    RemoveNotification(event->achievement->id);
+    gNotifications->Remove(event->achievement->id);
 }
 
 void RetroAchievements::_OnAchievementProgressIndicatorShow(const rc_client_event_t *event)
@@ -124,14 +125,14 @@ void RetroAchievements::_OnAchievementProgressIndicatorShow(const rc_client_even
     {
         notification->texture = _GetImage(url, achievement->id);
     }
-    AddNotification(achievement->id, notification);
+    gNotifications->Add(achievement->id, notification);
 }
 
 void RetroAchievements::_OnAchievementProgressIndicatorHide(const rc_client_event_t *event)
 {
     LogFunctionName;
 
-    RemoveNotification(event->achievement->id);
+    gNotifications->Remove(event->achievement->id);
 }
 
 void RetroAchievements::_OnAchievementProgressIndicatorUpdate(const rc_client_event_t *event)
@@ -139,7 +140,7 @@ void RetroAchievements::_OnAchievementProgressIndicatorUpdate(const rc_client_ev
     LogFunctionName;
 
     auto achievement = event->achievement;
-    UpdateNotification(achievement->id, achievement->measured_progress);
+    gNotifications->Update(achievement->id, achievement->measured_progress);
 }
 
 void RetroAchievements::_OnLeaderboardTrackerShow(const rc_client_event_t *event)
@@ -149,14 +150,14 @@ void RetroAchievements::_OnLeaderboardTrackerShow(const rc_client_event_t *event
     auto tracker = event->leaderboard_tracker;
     Notification *notification = new Notification;
     notification->title = tracker->display;
-    AddNotification(tracker->id, notification);
+    gNotifications->Add(tracker->id, notification);
 }
 
 void RetroAchievements::_OnLeaderboardTrackerHide(const rc_client_event_t *event)
 {
     LogFunctionName;
 
-    RemoveNotification(event->leaderboard_tracker->id);
+    gNotifications->Remove(event->leaderboard_tracker->id);
 }
 
 void RetroAchievements::_OnLeaderboardTrackerUpdate(const rc_client_event_t *event)
@@ -164,7 +165,7 @@ void RetroAchievements::_OnLeaderboardTrackerUpdate(const rc_client_event_t *eve
     LogFunctionName;
 
     auto tracker = event->leaderboard_tracker;
-    UpdateNotification(tracker->id, tracker->display);
+    gNotifications->Update(tracker->id, tracker->display);
 }
 
 void RetroAchievements::_OnLeaderboardScoreboard(const rc_client_event_t *event)
@@ -185,7 +186,7 @@ void RetroAchievements::_OnLeaderboardScoreboard(const rc_client_event_t *event)
     }
 
     notification->SetShowTime();
-    AddNotification(leaderboard->id, notification);
+    gNotifications->Add(leaderboard->id, notification);
 }
 
 void RetroAchievements::_OnReset(const rc_client_event_t *event) { LogFunctionName; }
@@ -205,7 +206,7 @@ void RetroAchievements::_OnGameCompleted(const rc_client_event_t *event)
         notification->texture = _GetImage(url, GAME_IMAGE_ID);
     }
     notification->SetShowTime();
-    AddNotification(game->id, notification);
+    gNotifications->Add(game->id, notification);
 }
 
 void RetroAchievements::_OnServerError(const rc_client_event_t *event) { LogFunctionName; }

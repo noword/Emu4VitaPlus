@@ -58,7 +58,7 @@ namespace Emu4VitaPlus
 
             bool use_imgui = (status & (APP_STATUS_BOOT | APP_STATUS_SHOW_UI | APP_STATUS_SHOW_UI_IN_GAME)) ||
                              gHint->NeedShow() ||
-                             (gRetroAchievements && gRetroAchievements->NeedShow());
+                             (gNotifications->NeedShow());
             if (use_imgui)
             {
                 ImGui_ImplVita2D_NewFrame();
@@ -91,8 +91,7 @@ namespace Emu4VitaPlus
             if (use_imgui)
             {
                 gHint->Show();
-                if (gRetroAchievements)
-                    gRetroAchievements->Show();
+                gNotifications->Show();
 
                 ImGui::Render();
                 My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());

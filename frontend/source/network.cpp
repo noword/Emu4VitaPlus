@@ -297,6 +297,7 @@ void Network::_ActiveTaskLoop()
                     response.data = callback_task->buf.c_str();
                     response.size = callback_task->buf.size();
                     curl_easy_getinfo(easy, CURLINFO_RESPONSE_CODE, &response.code);
+                    LogDebug("  callback:%08x data: %08x, size: %d", callback_task->callback, response.data, response.size);
                     callback_task->callback(&response, callback_task->callback_data);
                     _finished_task_count++;
                 }
@@ -322,7 +323,7 @@ void Network::_ActiveTaskLoop()
 void Network::AddTask(const char *url, const char *file_name)
 {
     LogFunctionName;
-    LogDebug("  url: %s", url);
+    LogDebug("  url: %s file_name: %s", url, file_name);
 
     TaskDownload *task = new TaskDownload;
     task->url = url;
@@ -343,7 +344,7 @@ void Network::AddTask(const char *url, ClientCallBackFunc callback, void *callba
 void Network::AddTask(const char *url, const char *post_data, size_t post_size, ClientCallBackFunc callback, void *callback_data)
 {
     LogFunctionName;
-    LogDebug("  url: %s", url);
+    LogDebug("  url: %s callback: %08x", url, callback);
 
     TaskCallback *task = new TaskCallback;
     task->url = url;

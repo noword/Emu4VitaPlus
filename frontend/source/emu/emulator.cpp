@@ -169,11 +169,6 @@ LOADED:
     {
         gStatus.Set(APP_STATUS_RUN_GAME);
 
-        if (gRetroAchievements && gRetroAchievements->IsOnline())
-        {
-            gRetroAchievements->LoadGame(game_info.path, game_info.data, game_info.size);
-        }
-
         _last_texture = nullptr;
         retro_get_system_av_info(&_av_info);
         SetupKeys();
@@ -235,6 +230,11 @@ LOADED:
         {
             gUi->UpdateCheatOptions();
             _cheats.Start();
+        }
+
+        if (gRetroAchievements && gRetroAchievements->IsOnline())
+        {
+            gRetroAchievements->LoadGame(game_info.path, game_info.data, game_info.size);
         }
 
         _loaded = true;

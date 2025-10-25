@@ -79,6 +79,7 @@ App::App()
     gVideo = new Video();
     gUi = new Ui();
     gHint = new Hint;
+    gNotifications = new Notifications;
     gInputTextDialog = new InputTextDialog;
 
     gVideo->Start();
@@ -181,6 +182,7 @@ App::~App()
     delete gEmulator;
     delete gUi;
     delete gHint;
+    delete gNotifications;
     delete gInputTextDialog;
     delete gNetwork;
     delete gVideo;
@@ -231,6 +233,7 @@ void App::Run()
         case APP_STATUS_RUN_GAME:
         case APP_STATUS_REWIND_GAME:
             gEmulator->Run();
+            gNotifications->Run();
             break;
 
         case APP_STATUS_RETURN_ARCH:

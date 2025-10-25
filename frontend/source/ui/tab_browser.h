@@ -31,6 +31,7 @@ public:
     virtual void UnsetInputHooks(Input *input) override;
     virtual void Show(bool selected) override;
     virtual void ChangeLanguage(uint32_t language) override;
+    bool Visable() override { return _visable; };
 
 private:
     virtual void _Show() override;

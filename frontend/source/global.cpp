@@ -18,3 +18,4 @@ Network *gNetwork = nullptr;
 RetroAchievements *gRetroAchievements = nullptr;
 Hint *gHint = nullptr;
 InputTextDialog *gInputTextDialog = nullptr;
+Notifications *gNotifications = nullptr;

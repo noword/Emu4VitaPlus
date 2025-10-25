@@ -95,6 +95,10 @@ bool Config::Save(const char *path)
     LogDebug("path: %s", path);
 
     CSimpleIniA ini;
+    if (ini.LoadFile(path) != SI_OK)
+    {
+        ini.Reset();
+    }
 
     ini.SetValue(MAIN_SECTION, "last_core", last_core.c_str());
     ini.SetValue(MAIN_SECTION, "language", gLanguageNames[language]);

@@ -4,10 +4,6 @@
 #include "file.h"
 #include "log.h"
 
-#define NOTIFY_WINDOW_WIDTH 180.f
-#define NOTIFY_WINDOW_HEIGHT 70.f
-#define NOTIFY_IMAGE_HEIGHT (NOTIFY_WINDOW_HEIGHT * 0.76f)
-
 int RetroAchievements::_RaThread(SceSize args, void *argp)
 {
     LogFunctionName;
@@ -112,9 +108,9 @@ void RetroAchievements::_LoadGameCallback(int result, const char *error_message,
     notification->text = std::to_string(summary.num_unlocked_achievements) + " / " + std::to_string(summary.num_core_achievements);
 
     notification->SetShowTime();
-    gRetroAchievements->AddNotification(game->id, notification);
+    gNotifications->Add(game->id, notification);
 
-    gRetroAchievements->_UpdateAchievemnts();
+    ra->_UpdateAchievemnts();
 }
 
 void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_t *client)
@@ -150,7 +146,6 @@ RetroAchievements::~RetroAchievements()
 {
     LogFunctionName;
 
-    _ClearNotifictions();
     _ClearAchievemnts();
     _ClearRetroMmap();
 
@@ -225,7 +220,7 @@ void RetroAchievements::_LoginCallback(int result, const char *error_message, rc
         notification->title = TEXT(LANG_LOGIN_SUCCESSFUL);
         notification->text = std::string(user->display_name) + " / " + std::to_string(user->score);
         notification->SetShowTime();
-        ra->AddNotification(0, notification);
+        gNotifications->Add(0, notification);
 
         // Notification *n = new Notification;
         // n->title = "test";
@@ -310,190 +305,6 @@ void RetroAchievements::Reset()
     rc_client_reset(_client);
 }
 
-static void _SetNextWindowPosition(ImVec2 &pos, const ImVec2 &size, ImVec2 &pre_size)
-{
-    if (pos.x < 0)
-    {
-        // first setting
-        switch (gConfig->ra_position)
-        {
-        case RA_POSITION_TOP_LEFT:
-            pos.x = 0.f;
-            pos.y = 0.f;
-            break;
-
-        case RA_POSITION_TOP_RIGHT:
-            pos.x = VITA_WIDTH - size.x;
-            pos.y = 0.f;
-            break;
-
-        case RA_POSITION_BOTTOM_LEFT:
-            pos.x = 0.f;
-            pos.y = VITA_HEIGHT - size.y;
-            break;
-
-        case RA_POSITION_BOTTOM_RIGHT:
-            pos.x = VITA_WIDTH - size.x;
-            pos.y = VITA_HEIGHT - size.y;
-            break;
-
-        default:
-            break;
-        }
-    }
-    else
-    {
-        switch (gConfig->ra_position)
-        {
-        case RA_POSITION_TOP_LEFT:
-            pos.y += pre_size.y;
-            break;
-
-        case RA_POSITION_TOP_RIGHT:
-            pos.x = VITA_WIDTH - size.x;
-            pos.y += pre_size.y;
-            break;
-
-        case RA_POSITION_BOTTOM_LEFT:
-            pos.y -= size.y;
-            break;
-
-        case RA_POSITION_BOTTOM_RIGHT:
-            pos.x = VITA_WIDTH - size.x;
-            pos.y -= size.y;
-            break;
-
-        default:
-            break;
-        }
-    }
-}
-
-void RetroAchievements::Show()
-{
-    if (_notifications.empty())
-        return;
-
-    ImVec2 pos{-1.f, -1.f};
-    ImVec2 size;
-    ImVec2 pre_size{0.f, 0.f};
-
-    size_t show_count = 0;
-    Lock();
-    for (const auto &iter : _notifications)
-    {
-        const auto n = iter.second;
-        if (n->TimeUp())
-            continue;
-
-        float image_width = n->texture ? NOTIFY_IMAGE_HEIGHT * 1.3 : 0.f;
-        float title_width = n->title.empty() ? 0 : (ImGui::CalcTextSize(n->title.c_str()).x + 25);
-        float text_width = n->title.empty() ? 0 : (ImGui::CalcTextSize(n->text.c_str()).x + 25);
-
-        size = {std::max(image_width + title_width, image_width + text_width), NOTIFY_WINDOW_HEIGHT};
-        if ((!n->texture) && (n->title.empty() || n->text.empty()))
-        {
-            size.y *= 0.6;
-        }
-
-        _SetNextWindowPosition(pos, size, pre_size);
-        pre_size = size;
-
-        ImGui::SetNextWindowPos(pos);
-        ImGui::SetNextWindowSize(size);
-        ImGui::SetNextWindowBgAlpha(0.8f);
-        if (ImGui::Begin((n->title + std::to_string(pos.x) + std::to_string(pos.y)).c_str(),
-                         NULL,
-                         ImGuiWindowFlags_NoSavedSettings |
-                             ImGuiWindowFlags_NoTitleBar |
-                             ImGuiWindowFlags_NoCollapse |
-                             ImGuiWindowFlags_NoResize |
-                             ImGuiWindowFlags_NoScrollbar |
-                             ImGuiWindowFlags_NoInputs |
-                             ImGuiWindowFlags_NoFocusOnAppearing))
-        {
-            ImGui::BeginGroup();
-            if (n->texture)
-            {
-                float ratio = NOTIFY_IMAGE_HEIGHT / vita2d_texture_get_height(n->texture);
-                ImGui::Image(n->texture, {vita2d_texture_get_height(n->texture) * ratio, NOTIFY_IMAGE_HEIGHT});
-            }
-            ImGui::SameLine();
-            ImGui::BeginGroup();
-
-            ImGui::Text(n->title.c_str());
-
-            ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyle().Colors[ImGuiCol_TextDisabled]);
-            ImGui::Text(n->text.c_str());
-            ImGui::PopStyleColor();
-
-            ImGui::EndGroup();
-            ImGui::EndGroup();
-        }
-        ImGui::End();
-
-        show_count++;
-    }
-    Unlock();
-
-    if (show_count == 0)
-    {
-        _ClearNotifictions();
-    }
-}
-
-void RetroAchievements::_ClearNotifictions()
-{
-    Lock();
-    for (auto &n : _notifications)
-    {
-        delete n.second;
-    }
-    _notifications.clear();
-    Unlock();
-}
-
-void RetroAchievements::AddNotification(uint32_t id, Notification *n)
-{
-    LogFunctionName;
-    LogDebug("  %08x: '%s' / '%s' / %08x", id, n->title.c_str(), n->text.c_str(), n->texture);
-
-    Lock();
-    _notifications[id] = n;
-    Unlock();
-}
-
-void RetroAchievements::RemoveNotification(uint32_t id)
-{
-    Lock();
-    auto iter = _notifications.find(id);
-    if (iter != _notifications.end())
-    {
-        delete iter->second;
-        _notifications.erase(iter);
-    }
-    Unlock();
-}
-
-void RetroAchievements::UpdateNotification(uint32_t id, const std::string &title, const std::string &text, vita2d_texture *texture)
-{
-    Lock();
-    auto iter = _notifications.find(id);
-    if (iter != _notifications.end())
-    {
-        auto n = iter->second;
-        if (!title.empty())
-            n->title = title;
-
-        if (!text.empty())
-            n->text = text;
-
-        if (texture)
-            n->texture = texture;
-    }
-    Unlock();
-}
-
 vita2d_texture *RetroAchievements::_GetImage(const char *url, uint32_t id)
 {
     LogFunctionName;
@@ -527,8 +338,7 @@ void RetroAchievements::_UpdateAchievemnts()
     for (int i = 0; i < list->num_buckets; i++)
     {
         LogDebug("%d bucket_type: %d", i, list->buckets[i].bucket_type);
-        if (list->buckets[i].bucket_type == RC_CLIENT_ACHIEVEMENT_BUCKET_UNSUPPORTED ||
-            list->buckets[i].bucket_type == RC_CLIENT_ACHIEVEMENT_BUCKET_RECENTLY_UNLOCKED)
+        if (list->buckets[i].bucket_type == RC_CLIENT_ACHIEVEMENT_BUCKET_UNSUPPORTED)
             continue;
 
         for (int j = 0; j < list->buckets[i].num_achievements; j++)
@@ -536,6 +346,10 @@ void RetroAchievements::_UpdateAchievemnts()
             const rc_client_achievement_t *achievement = list->buckets[i].achievements[j];
             LogDebug("  [%d, %d] %s (%d, %d)", i, j, achievement->title, achievement->state, achievement->unlocked);
             LogDebug("  %s", achievement->description);
+
+            if (strcmp(achievement->title, "Warning: Unknown Emulator") == 0 ||
+                strcmp(achievement->title, "Unsupported Game Version") == 0)
+                continue;
 
             Achievement *a = new Achievement(_game_id, achievement->id, achievement->unlocked);
             a->title = achievement->title;
@@ -557,9 +371,7 @@ void RetroAchievements::_UpdateAchievemnts()
                 }
             }
 
-            gVideo->Lock();
             _achievements[achievement->id] = a;
-            gVideo->Unlock();
         }
     }
     rc_client_destroy_achievement_list(list);
@@ -571,17 +383,17 @@ void RetroAchievements::_ClearAchievemnts()
 {
     LogFunctionName;
 
-    gVideo->Lock();
     for (auto a : _achievements)
     {
         delete a.second;
     }
     _achievements.clear();
-    gVideo->Unlock();
 }
 
 Achievement *RetroAchievements::GetAchievement(size_t index)
 {
+    LogFunctionName;
+
     if (index >= 0 && index < _achievements.size())
     {
         auto it = _achievements.begin();
