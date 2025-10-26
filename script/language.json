@@ -56,7 +56,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Достижения",
         "Comments": ""
     },
     {
@@ -1688,7 +1688,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "Ретро-достижения",
+        "Russian": "Достижения RetroAchievements",
         "Comments": ""
     },
     {
@@ -1772,7 +1772,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "Вход успешный",
+        "Russian": "Вход выполнен",
         "Comments": ""
     },
     {
@@ -1784,7 +1784,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "Ошибка авторизации",
+        "Russian": "Не удалось выполнить вход",
         "Comments": ""
     },
     {
@@ -1796,7 +1796,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "Срок действия токена RetroAchievements.org истёк, войдите в систему снова.",
+        "Russian": "Срок действия токена RetroAchievements истёк, войдите в систему снова.",
         "Comments": ""
     },
     {
@@ -1808,7 +1808,7 @@
         "Italian": "Achievement sbloccato",
         "French": "Succès déverrouillé",
         "Spanish": "¡Logro desbloqueado",
-        "Russian": "Получено достижение",
+        "Russian": "Открыто достижение",
         "Comments": ""
     },
     {
@@ -1820,7 +1820,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Попытка попасть в таблицу лидеров",
         "Comments": ""
     },
     {
@@ -1832,7 +1832,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Не удалось попасть в таблицу лидеров",
         "Comments": ""
     },
     {
@@ -1844,7 +1844,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Результат занесён в таблицу лидеров",
         "Comments": ""
     },
     {
@@ -1856,7 +1856,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Расположение уведомлений о достижениях",
         "Comments": ""
     },
     {
@@ -1868,7 +1868,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Вверху слева",
         "Comments": ""
     },
     {
@@ -1880,7 +1880,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Вверху справа",
         "Comments": ""
     },
     {
@@ -1892,7 +1892,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Внизу слева",
         "Comments": ""
     },
     {
@@ -1904,7 +1904,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Внизу справа",
         "Comments": ""
     },
     {
@@ -1916,7 +1916,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Игра пройдена",
         "Comments": ""
     }
 ]
