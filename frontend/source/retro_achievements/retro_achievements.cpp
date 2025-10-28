@@ -202,6 +202,7 @@ void RetroAchievements::_LoginCallback(int result, const char *error_message, rc
     LogFunctionName;
     RetroAchievements *ra = (RetroAchievements *)userdata;
     gConfig->ra_login = ra->_online = (result == RC_OK);
+    gUi->OnRetrAchievementsLogInOut(ra->_online);
     if (ra->_online)
     {
         Notification *notification = new Notification;
@@ -221,20 +222,6 @@ void RetroAchievements::_LoginCallback(int result, const char *error_message, rc
         notification->text = std::string(user->display_name) + " / " + std::to_string(user->score);
         notification->SetShowTime();
         gNotifications->Add(0, notification);
-
-        // Notification *n = new Notification;
-        // n->title = "test";
-        // ra->AddNotification(1, n);
-
-        // n = new Notification;
-        // n->texture = vita2d_load_PNG_buffer(buf.c_str());
-        // ra->AddNotification(2, n);
-
-        // n = new Notification;
-        // n->title = "test";
-        // n->text = "fdsafdsafdafdsafd  safdsaf";
-        // n->texture = vita2d_load_PNG_buffer(buf.c_str());
-        // ra->AddNotification(3, n);
 
         if (gConfig->ra_token.empty())
         {

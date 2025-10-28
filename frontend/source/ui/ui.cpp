@@ -313,10 +313,10 @@ void Ui::CreateTables()
                                             &gConfig->ra_login,
                                             {LANG_NO, LANG_YES},
                                             std::bind(&Ui::_ChangeRetroArchievements, gUi)));
-        // configs.emplace_back(new ItemConfig(LANG_HARDCORE,
-        //                                     LANG_HARDCORE_DESC,
-        //                                     (uint32_t *)&gConfig->ra_hardcore,
-        //                                     {LANG_NO, LANG_YES}));
+        configs.emplace_back(new ItemConfig(LANG_HARDCORE,
+                                            LANG_HARDCORE_DESC,
+                                            (uint32_t *)&gConfig->ra_hardcore,
+                                            {LANG_NO, LANG_YES}));
         configs.emplace_back(new ItemConfig(LANG_RETROARCHIEVEMENTS_LOCAL,
                                             "",
                                             (uint32_t *)&gConfig->ra_position,
@@ -327,6 +327,8 @@ void Ui::CreateTables()
     }
 
     _tabs[TAB_INDEX_OPTIONS] = new TabSeletable(LANG_OPTIONS, configs);
+    ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_HARDCORE)->SetVisable(false);
+    ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_RETROARCHIEVEMENTS_LOCAL)->SetVisable(false);
 
     _tabs[TAB_INDEX_ABOUT] = new TabAbout();
 
@@ -771,6 +773,7 @@ void Ui::_ChangeRetroArchievements()
     if (!gConfig->ra_login)
     {
         gRetroAchievements->Logout();
+        OnRetrAchievementsLogInOut(false);
         return;
     }
 
@@ -857,4 +860,11 @@ void Ui::UpdateAchievements()
     _tabs[TAB_INDEX_ACHIEVEMENTS] = new TabSeletable(LANG_ACHIEVEMENTS, achievements, 1);
 
     gVideo->Unlock();
+}
+
+void Ui::OnRetrAchievementsLogInOut(bool login)
+{
+    LogFunctionName;
+    ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_HARDCORE)->SetVisable(login);
+    ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_RETROARCHIEVEMENTS_LOCAL)->SetVisable(login);
 }

@@ -30,6 +30,7 @@ public:
     void UpdateDiskOptions();
     void UpdateAchievements();
     void OnStatusChanged(APP_STATUS status);
+    void OnRetrAchievementsLogInOut(bool login);
 
 private:
     void
