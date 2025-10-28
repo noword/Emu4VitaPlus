@@ -316,7 +316,10 @@ void Ui::CreateTables()
         configs.emplace_back(new ItemConfig(LANG_HARDCORE,
                                             LANG_HARDCORE_DESC,
                                             (uint32_t *)&gConfig->ra_hardcore,
-                                            {LANG_NO, LANG_YES}));
+                                            {LANG_NO, LANG_YES},
+                                            std::bind(&RetroAchievements::SetHardcoreEnabled,
+                                                      gRetroAchievements,
+                                                      gConfig->ra_hardcore)));
         configs.emplace_back(new ItemConfig(LANG_RETROARCHIEVEMENTS_LOCAL,
                                             "",
                                             (uint32_t *)&gConfig->ra_position,
@@ -327,8 +330,12 @@ void Ui::CreateTables()
     }
 
     _tabs[TAB_INDEX_OPTIONS] = new TabSeletable(LANG_OPTIONS, configs);
-    ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_HARDCORE)->SetVisable(false);
-    ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_RETROARCHIEVEMENTS_LOCAL)->SetVisable(false);
+
+    if (gRetroAchievements)
+    {
+        ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_HARDCORE)->SetVisable(gRetroAchievements->IsOnline());
+        ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_RETROARCHIEVEMENTS_LOCAL)->SetVisable(gRetroAchievements->IsOnline());
+    }
 
     _tabs[TAB_INDEX_ABOUT] = new TabAbout();
 
@@ -813,7 +820,8 @@ void Ui::_TextInputCallback(const char *text)
             }
             else
             {
-                gRetroAchievements->Signal();
+                if (!gRetroAchievements->IsRunning())
+                    gRetroAchievements->Start();
             }
         }
         break;
@@ -823,6 +831,8 @@ void Ui::_TextInputCallback(const char *text)
             gConfig->ra_password = text;
             gConfig->ra_token.clear();
             gRetroAchievements->Login(gConfig->ra_user.c_str(), gConfig->ra_password.c_str());
+            if (!gRetroAchievements->IsRunning())
+                gRetroAchievements->Start();
         }
         break;
 
@@ -865,6 +875,10 @@ void Ui::UpdateAchievements()
 void Ui::OnRetrAchievementsLogInOut(bool login)
 {
     LogFunctionName;
-    ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_HARDCORE)->SetVisable(login);
-    ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_RETROARCHIEVEMENTS_LOCAL)->SetVisable(login);
+
+    if (_tabs[TAB_INDEX_OPTIONS])
+    {
+        ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_HARDCORE)->SetVisable(login);
+        ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_RETROARCHIEVEMENTS_LOCAL)->SetVisable(login);
+    }
 }

@@ -33,6 +33,7 @@ public:
     void LoadGame(const char *path, const void *rom, size_t rom_size);
     void UnloadGame();
     void Reset();
+    void SetHardcoreEnabled(bool enabled);
 
     size_t GetAchievementsCount() { return _achievements.size(); };
     Achievement *GetAchievement(size_t index);

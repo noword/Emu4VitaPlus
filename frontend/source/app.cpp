@@ -123,11 +123,12 @@ App::App()
     if (RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE)
     {
         gRetroAchievements = new RetroAchievements;
-        gRetroAchievements->Start();
     }
 
     gUi->AppendLog("Create tables of UI");
     gUi->CreateTables();
+    if (gRetroAchievements)
+        gRetroAchievements->Start();
 
     if (gConfig->language != LANGUAGE::LANGUAGE_ENGLISH)
     {

@@ -264,6 +264,7 @@ void RetroAchievements::Logout()
     {
         rc_client_logout(_client);
         _online = false;
+        Stop();
     }
 }
 
@@ -290,6 +291,12 @@ void RetroAchievements::Reset()
 {
     LogFunctionName;
     rc_client_reset(_client);
+}
+
+void RetroAchievements::SetHardcoreEnabled(bool enabled)
+{
+    LogFunctionName;
+    rc_client_set_hardcore_enabled(_client, enabled);
 }
 
 vita2d_texture *RetroAchievements::_GetImage(const char *url, uint32_t id)
