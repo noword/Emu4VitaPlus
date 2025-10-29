@@ -139,7 +139,9 @@ RetroAchievements::RetroAchievements()
     _client = rc_client_create(_ReadMemory, _ServerCall);
     rc_client_enable_logging(_client, RC_CLIENT_LOG_LEVEL_VERBOSE, _LogMessage);
     rc_client_set_event_handler(_client, _EventHandler);
-    rc_client_set_hardcore_enabled(_client, 0);
+
+    if (!gConfig->ra_hardcore)
+        rc_client_set_hardcore_enabled(_client, 0);
 }
 
 RetroAchievements::~RetroAchievements()
@@ -296,6 +298,7 @@ void RetroAchievements::Reset()
 void RetroAchievements::SetHardcoreEnabled(bool enabled)
 {
     LogFunctionName;
+    gHardcore = enabled;
     rc_client_set_hardcore_enabled(_client, enabled);
 }
 

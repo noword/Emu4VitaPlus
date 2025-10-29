@@ -360,6 +360,10 @@ void Emulator::_OnPsButton(Input *input)
 void Emulator::_OnHotkeySave(Input *input)
 {
     LogFunctionName;
+
+    if (gHardcore)
+        return;
+
     Lock();
     gStateManager->states[0]->Save();
     Unlock();
@@ -368,6 +372,10 @@ void Emulator::_OnHotkeySave(Input *input)
 void Emulator::_OnHotkeyLoad(Input *input)
 {
     LogFunctionName;
+
+    if (gHardcore)
+        return;
+
     Lock();
     gStateManager->states[0]->Load();
     Unlock();
@@ -406,6 +414,7 @@ void Emulator::_OnHotkeySpeedUp(Input *input)
 void Emulator::_OnHotkeySpeedDown(Input *input)
 {
     LogFunctionName;
+
     if (_speed > MIN_SPEED)
     {
         float step = gConfig->GetSpeedStep();
@@ -427,6 +436,11 @@ void Emulator::_OnHotkeySpeedDown(Input *input)
             new_speed = (_speed <= 1.0 ? MIN_SPEED : 1.0);
         }
 
+        if (gHardcore && new_speed < 1.0)
+        {
+            new_speed = 1.0;
+        }
+
         SetSpeed(new_speed);
 
         _ShowSpeedHint();
@@ -435,7 +449,7 @@ void Emulator::_OnHotkeySpeedDown(Input *input)
 
 void Emulator::_OnHotkeyRewind(Input *input)
 {
-    if (gConfig->rewind)
+    if (gConfig->rewind && (!gHardcore))
     {
         gStatus.Set(APP_STATUS_REWIND_GAME);
     }

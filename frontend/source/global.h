@@ -20,6 +20,7 @@
 #include "notification.h"
 
 extern bool gBootFromArch;
+extern bool gHardcore;
 extern std::string gBootRomPath;
 
 extern AppStatus gStatus;

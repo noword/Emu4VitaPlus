@@ -191,7 +191,7 @@ LOADED:
             gConfig->Save();
         }
 
-        if (gConfig->auto_load)
+        if (gConfig->auto_load && (!gHardcore))
         {
             State *state = gStateManager->GetNewest();
             if (state)
