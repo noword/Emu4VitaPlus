@@ -232,7 +232,7 @@ LOADED:
             _cheats.Start();
         }
 
-        if (gRetroAchievements && gRetroAchievements->IsOnline())
+        if (gRetroAchievements->IsOnline())
         {
             gRetroAchievements->LoadGame(game_info.path, game_info.data, game_info.size);
         }
@@ -281,10 +281,11 @@ void Emulator::UnloadGame()
         _current_name.clear();
         _input.Stop();
         retro_unload_game();
-        if (gRetroAchievements && gRetroAchievements->IsOnline())
+        if (gRetroAchievements->IsOnline())
         {
             gRetroAchievements->UnloadGame();
         }
+
         Unlock();
 
         _last_texture = nullptr;
@@ -315,7 +316,7 @@ void Emulator::Run()
         if (gConfig->rewind)
             _rewind_manager.Signal();
 
-        if (gRetroAchievements && gRetroAchievements->IsOnline())
+        if (gRetroAchievements->IsOnline())
             gRetroAchievements->Signal();
         break;
     default:
@@ -344,7 +345,7 @@ void Emulator::Reset()
     {
         gStatus.Set(APP_STATUS_BOOT);
         retro_reset();
-        if (gRetroAchievements && gRetroAchievements->IsOnline())
+        if (gRetroAchievements->IsOnline())
         {
             gRetroAchievements->Reset();
         }

@@ -248,14 +248,8 @@ bool EnvironmentCallback(unsigned cmd, void *data)
 
     case RETRO_ENVIRONMENT_SET_MEMORY_MAPS:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_MEMORY_MAPS");
-        {
-            const retro_memory_map *mmap = (const retro_memory_map *)data;
-            if (gRetroAchievements)
-            {
-                gRetroAchievements->CopyRetroMmap(mmap);
-            }
-        }
-        return false;
+        gRetroAchievements->CopyRetroMmap((const retro_memory_map *)data);
+        break;
 
     case RETRO_ENVIRONMENT_SET_GEOMETRY:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_GEOMETRY");
@@ -287,7 +281,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
             gRetroAchievements = nullptr;
         }
 
-        return false;
+        break;
 
     case RETRO_ENVIRONMENT_SET_SERIALIZATION_QUIRKS:
         LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_SERIALIZATION_QUIRKS");

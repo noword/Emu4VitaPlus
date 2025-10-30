@@ -120,14 +120,12 @@ App::App()
     gRomNameMap = new RomNameMap;
     gRomNameMap->Load();
 
-    if (RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE)
-    {
+    if (gRetroAchievements)
         gRetroAchievements = new RetroAchievements;
-    }
 
     gUi->AppendLog("Create tables of UI");
     gUi->CreateTables();
-    if (gRetroAchievements)
+    if (RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE && !gRetroAchievements->IsRunning())
         gRetroAchievements->Start();
 
     if (gConfig->language != LANGUAGE::LANGUAGE_ENGLISH)
@@ -168,19 +166,13 @@ App::~App()
     gVideo->Stop();
     vita2d_wait_rendering_done();
 
-    // gRetroAchievements is assigned with RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS
-    if (gRetroAchievements)
-    {
-        delete gRetroAchievements;
-        gRetroAchievements = nullptr;
-    }
-
     delete gRomNameMap;
     delete gStateManager;
     delete gShaders;
     delete gOverlays;
     delete gArchiveReaderFactory;
     delete gEmulator;
+    delete gRetroAchievements;
     delete gUi;
     delete gHint;
     delete gNotifications;

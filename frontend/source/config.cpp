@@ -263,14 +263,11 @@ namespace Emu4VitaPlus
             ini.SetBoolValue(MAIN_SECTION, "auto_download_thumbnail", auto_download_thumbnail);
         }
 
-        if (gRetroAchievements)
-        {
-            ini.SetValue(RA_SECTION, "user", ra_user.c_str());
-            ini.SetValue(RA_SECTION, "token", ra_token.c_str());
-            ini.SetBoolValue(RA_SECTION, "login", ra_login);
-            ini.SetBoolValue(RA_SECTION, "hardcore", ra_hardcore);
-            ini.SetLongValue(RA_SECTION, "position", ra_position);
-        }
+        ini.SetValue(RA_SECTION, "user", ra_user.c_str());
+        ini.SetValue(RA_SECTION, "token", ra_token.c_str());
+        ini.SetBoolValue(RA_SECTION, "login", ra_login);
+        ini.SetBoolValue(RA_SECTION, "hardcore", ra_hardcore);
+        ini.SetLongValue(RA_SECTION, "position", ra_position);
 
         for (const auto &control : control_maps)
         {
@@ -308,14 +305,13 @@ namespace Emu4VitaPlus
         if (ini.LoadFile(ARCH_CONFIG_PATH) == SI_OK)
         {
             ini.SetValue("MAIN", "language", gLanguageNames[gConfig->language]);
-            if (gRetroAchievements)
-            {
-                ini.SetValue(RA_SECTION, "user", ra_user.c_str());
-                ini.SetValue(RA_SECTION, "token", ra_token.c_str());
-                ini.SetBoolValue(RA_SECTION, "login", ra_login);
-                ini.SetBoolValue(RA_SECTION, "hardcore", ra_hardcore);
-                ini.SetLongValue(RA_SECTION, "position", ra_position);
-            }
+
+            ini.SetValue(RA_SECTION, "user", ra_user.c_str());
+            ini.SetValue(RA_SECTION, "token", ra_token.c_str());
+            ini.SetBoolValue(RA_SECTION, "login", ra_login);
+            ini.SetBoolValue(RA_SECTION, "hardcore", ra_hardcore);
+            ini.SetLongValue(RA_SECTION, "position", ra_position);
+
             File::Remove(ARCH_CONFIG_PATH);
             result &= ini.SaveFile(ARCH_CONFIG_PATH, false);
         }
