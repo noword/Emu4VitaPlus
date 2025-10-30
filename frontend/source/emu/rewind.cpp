@@ -50,7 +50,7 @@ static inline void neon_memcpy_16aligned(void *dst, const void *src, size_t n)
     size_t i = 0;
     for (; i + 4 <= blocks; i += 4)
     {
-        __builtin_prefetch(s + 128, 0, 0);
+        // __builtin_prefetch(s + 128, 0, 0);
 
         uint8x16_t v0 = vld1q_u8(s + 0);
         uint8x16_t v1 = vld1q_u8(s + 16);
