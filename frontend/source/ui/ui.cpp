@@ -519,7 +519,7 @@ void Ui::Show()
                          ImGuiWindowFlags_NoInputs |
                          ImGuiWindowFlags_NoBringToFrontOnFocus))
     {
-        My_ImGui_ShowTimePower(gNetwork->Connected(), gRetroAchievements->IsOnline());
+        My_ImGui_ShowTimePower(gNetwork->Connected(), gRetroAchievements && gRetroAchievements->IsOnline());
         (status == APP_STATUS_BOOT) ? _boot_ui->Show() : _ShowNormal();
     }
 

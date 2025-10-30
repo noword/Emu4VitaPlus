@@ -40,42 +40,6 @@ static inline int memcmp_0x10(const void *src, const void *dst)
 }
 #endif
 
-#ifdef NEON
-static inline void neon_memcpy_16aligned(void *dst, const void *src, size_t n)
-{
-    uint8_t *d = (uint8_t *)dst;
-    const uint8_t *s = (const uint8_t *)src;
-
-    size_t blocks = n >> 4;
-    size_t i = 0;
-    for (; i + 4 <= blocks; i += 4)
-    {
-        __builtin_prefetch(s + 128, 0, 0);
-
-        uint8x16_t v0 = vld1q_u8(s + 0);
-        uint8x16_t v1 = vld1q_u8(s + 16);
-        uint8x16_t v2 = vld1q_u8(s + 32);
-        uint8x16_t v3 = vld1q_u8(s + 48);
-
-        vst1q_u8(d + 0, v0);
-        vst1q_u8(d + 16, v1);
-        vst1q_u8(d + 32, v2);
-        vst1q_u8(d + 48, v3);
-
-        s += 64;
-        d += 64;
-    }
-
-    for (; i < blocks; i++)
-    {
-        uint8x16_t v = vld1q_u8(s);
-        vst1q_u8(d, v);
-        s += 16;
-        d += 16;
-    }
-}
-#endif
-
 RewindManager::RewindManager()
     : ThreadBase(_RewindThread),
       _contens(nullptr),
@@ -292,12 +256,12 @@ bool RewindManager::_SaveDiffState(RewindBlock *block)
     {
         if (last_diff)
         {
-            areas[content->num].size = ALIGN_UP_10H(_state_size - areas[content->num].offset);
+            areas[content->num].size = _state_size - areas[content->num].offset;
         }
         else
         {
             areas[content->num].offset = offset;
-            areas[content->num].size = ALIGN_UP_10H(tail_size);
+            areas[content->num].size = tail_size;
         }
 
         diff_size += sizeof(DiffArea) + areas[content->num].size;
@@ -329,11 +293,7 @@ bool RewindManager::_SaveDiffState(RewindBlock *block)
     uint8_t *buf = content->GetBuf();
     for (size_t i = 0; i < content->num; i++)
     {
-#ifdef NEON
-        neon_memcpy_16aligned(buf, _tmp_buf + areas[i].offset, areas[i].size);
-#else
         memcpy(buf, _tmp_buf + areas[i].offset, areas[i].size);
-#endif
         buf += areas[i].size;
     }
 
