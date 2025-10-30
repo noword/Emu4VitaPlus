@@ -50,7 +50,7 @@ static inline void neon_memcpy_16aligned(void *dst, const void *src, size_t n)
     size_t i = 0;
     for (; i + 4 <= blocks; i += 4)
     {
-        // __builtin_prefetch(s + 128, 0, 0);
+        __builtin_prefetch(s + 128, 0, 0);
 
         uint8x16_t v0 = vld1q_u8(s + 0);
         uint8x16_t v1 = vld1q_u8(s + 16);
@@ -292,12 +292,12 @@ bool RewindManager::_SaveDiffState(RewindBlock *block)
     {
         if (last_diff)
         {
-            areas[content->num].size = _state_size - areas[content->num].offset;
+            areas[content->num].size = ALIGN_UP_10H(_state_size - areas[content->num].offset);
         }
         else
         {
             areas[content->num].offset = offset;
-            areas[content->num].size = tail_size;
+            areas[content->num].size = ALIGN_UP_10H(tail_size);
         }
 
         diff_size += sizeof(DiffArea) + areas[content->num].size;
@@ -329,7 +329,11 @@ bool RewindManager::_SaveDiffState(RewindBlock *block)
     uint8_t *buf = content->GetBuf();
     for (size_t i = 0; i < content->num; i++)
     {
+#ifdef NEON
+        neon_memcpy_16aligned(buf, _tmp_buf + areas[i].offset, areas[i].size);
+#else
         memcpy(buf, _tmp_buf + areas[i].offset, areas[i].size);
+#endif
         buf += areas[i].size;
     }
 
