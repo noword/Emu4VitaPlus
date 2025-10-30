@@ -9,6 +9,11 @@
 #include "file.h"
 #include "profiler.h"
 
+#define NEON
+#ifdef NEON
+#include "arm_neon.h"
+#endif
+
 #define MIN_STATE_RATE 5
 #define NEXT_STATE_PERIOD 50000
 #define THRESHOLD_RATE 0.1
@@ -17,6 +22,23 @@
 #define MEMCMP2(SIZE) memcmp_##SIZE
 #define MEMCMP(SIZE) MEMCMP2(SIZE)
 #define MEMCMP_DIFF_STEP MEMCMP(DIFF_STEP)
+
+static inline int memcmp_0x10(const void *src, const void *dst)
+#ifdef NEON
+{
+    // return 0 if same, 1 if different
+    uint8x16_t s = vld1q_u8((const uint8_t *)src);
+    uint8x16_t d = vld1q_u8((const uint8_t *)dst);
+    uint8x16_t cmp = veorq_u8(s, d);
+    return vgetq_lane_u64(vreinterpretq_u64_u8(cmp), 0) != 0LL || vgetq_lane_u64(vreinterpretq_u64_u8(cmp), 1) != 0LL;
+}
+#else
+{
+    const uint32_t *s = (const uint32_t *)src;
+    const uint32_t *d = (const uint32_t *)dst;
+    return s[0] != d[0] || s[1] != d[1] || s[2] != d[2] || s[3] != d[3];
+}
+#endif
 
 RewindManager::RewindManager()
     : ThreadBase(_RewindThread),
@@ -182,13 +204,6 @@ void RewindManager::_Rewind()
     }
 
     Signal();
-}
-
-static inline int memcmp_0x10(const void *src, const void *dst)
-{
-    const uint32_t *s = (const uint32_t *)src;
-    const uint32_t *d = (const uint32_t *)dst;
-    return s[0] != d[0] || s[1] != d[1] || s[2] != d[2] || s[3] != d[3];
 }
 
 bool RewindManager::_SaveDiffState(RewindBlock *block)

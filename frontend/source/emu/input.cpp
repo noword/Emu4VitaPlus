@@ -463,16 +463,6 @@ void Emulator::_OnHotkeyRewindUp(Input *input)
     }
 }
 
-// void Emulator::_OnHotkeyCtrlPortUp(Input *input)
-// {
-//     LogFunctionName;
-// }
-
-// void Emulator::_OnHotkeyCtrlPortDown(Input *input)
-// {
-//     LogFunctionName;
-// }
-
 void Emulator::_OnHotkeyExitGame(Input *input)
 {
     LogFunctionName;
