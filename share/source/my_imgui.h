@@ -28,7 +28,7 @@ IMGUI_API void My_Imgui_Destroy_Font(bool clean_fonts = true);
 IMGUI_API bool My_ImGui_BeginCombo(const char *label, const char *preview_value, ImGuiComboFlags flags);
 IMGUI_API void My_ImGui_CenteredText(const char *text, ...);
 IMGUI_API bool My_ImGui_Selectable(const char *label, bool selected, TextMovingStatus *status);
-IMGUI_API void My_ImGui_ShowTimePower(bool show_wifi = false, bool show_ra = false);
+IMGUI_API void My_ImGui_ShowTimePower(bool show_wifi = false, bool show_ra = false, bool ra_hardcore = false);
 IMGUI_API void My_ImGui_HighlightText(const char *text, ImVec2 position, ImU32 text_color, ImU32 shadow_color);
 
 class My_Imgui_SpinText

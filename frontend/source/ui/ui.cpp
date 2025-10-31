@@ -315,9 +315,7 @@ void Ui::CreateTables()
                                                                               LANG_HARDCORE_DESC,
                                                                               (uint32_t *)&gConfig->ra_hardcore,
                                                                               {LANG_NO, LANG_YES},
-                                                                              std::bind(&RetroAchievements::SetHardcoreEnabled,
-                                                                                        gRetroAchievements,
-                                                                                        gConfig->ra_hardcore)),
+                                                                              std::bind(&Ui::_ChangeHardcore, gUi)),
                                                                new ItemConfig(LANG_RETROARCHIEVEMENTS_LOCAL,
                                                                               "",
                                                                               (uint32_t *)&gConfig->ra_position,
@@ -519,7 +517,7 @@ void Ui::Show()
                          ImGuiWindowFlags_NoInputs |
                          ImGuiWindowFlags_NoBringToFrontOnFocus))
     {
-        My_ImGui_ShowTimePower(gNetwork->Connected(), gRetroAchievements && gRetroAchievements->IsOnline());
+        My_ImGui_ShowTimePower(gNetwork->Connected(), gRetroAchievements && gRetroAchievements->IsOnline(), gHardcore);
         (status == APP_STATUS_BOOT) ? _boot_ui->Show() : _ShowNormal();
     }
 
@@ -789,6 +787,12 @@ void Ui::_ChangeRetroArchievements()
                            gConfig->ra_user.c_str());
     _current_dialog = LANG_USERNAME;
     _input.PushCallbacks();
+}
+
+void Ui::_ChangeHardcore()
+{
+    LogFunctionName;
+    gRetroAchievements->SetHardcoreEnabled(gConfig->ra_hardcore);
 }
 
 void Ui::_TextInputCallback(const char *text)

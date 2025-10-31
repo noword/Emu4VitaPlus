@@ -120,7 +120,7 @@ App::App()
     gRomNameMap = new RomNameMap;
     gRomNameMap->Load();
 
-    if (gRetroAchievements)
+    if (!gRetroAchievements)
         gRetroAchievements = new RetroAchievements;
 
     gUi->AppendLog("Create tables of UI");

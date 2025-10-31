@@ -19,14 +19,15 @@
 #define FONT_CACHE_VERSION 3
 
 #define RA_ICON_NAME "ra-icon.png"
+#define RA_ICON_GREEN_NAME "ra-icon-gray.png"
 
 #define TIME_X (VITA_WIDTH - 320)
 #define BATTERY_X (VITA_WIDTH - 100)
 #define BATTERY_PERCENT_X (BATTERY_X + 30)
 #define WIFI_X (BATTERY_X - 30)
 #define RA_X (TIME_X - 70)
-#define RA_W 36
-#define RA_H 20
+#define RA_W 30
+#define RA_H 17
 #define TOP_RIGHT_Y 13
 
 const char *BATTERY_ICONS[] = {ICON_BATTERY_25, ICON_BATTERY_50, ICON_BATTERY_75, ICON_BATTERY_100};
@@ -35,6 +36,7 @@ extern SceGxmProgram _binary_assets_imgui_v_cg_gxp_start;
 extern SceGxmProgram _binary_assets_imgui_f_cg_gxp_start;
 static vita2d_texture *gFontTexture = nullptr;
 static vita2d_texture *gRaIconTexture = nullptr;
+static vita2d_texture *gRaIconGreenTexture = nullptr;
 
 const static ImWchar GamePadCharset[] = {0x219c, 0x21a1,
                                          0x21b0, 0x21b3,
@@ -446,6 +448,7 @@ IMGUI_API void My_ImGui_ImplVita2D_Init(uint32_t language, const char *cache_pat
     ImGui_ImplVita2D_InitTouch();
 
     gRaIconTexture = vita2d_load_PNG_file(APP_ASSETS_DIR "/" RA_ICON_NAME);
+    gRaIconGreenTexture = vita2d_load_PNG_file(APP_ASSETS_DIR "/" RA_ICON_GREEN_NAME);
 }
 
 IMGUI_API void My_ImGui_ImplVita2D_Shutdown()
@@ -454,6 +457,8 @@ IMGUI_API void My_ImGui_ImplVita2D_Shutdown()
     My_Imgui_Destroy_Font(false);
     vita2d_free_texture(gRaIconTexture);
     gRaIconTexture = nullptr;
+    vita2d_free_texture(gRaIconGreenTexture);
+    gRaIconGreenTexture = nullptr;
 }
 
 IMGUI_API void My_ImGui_ImplVita2D_RenderDrawData(ImDrawData *draw_data)
@@ -704,7 +709,7 @@ IMGUI_API bool My_ImGui_Selectable(const char *label, bool selected, TextMovingS
     return ImGui::Selectable(label, selected);
 }
 
-IMGUI_API void My_ImGui_ShowTimePower(bool show_wifi, bool show_ra)
+IMGUI_API void My_ImGui_ShowTimePower(bool show_wifi, bool show_ra, bool ra_hardcore)
 {
     int percent = scePowerGetBatteryLifePercent();
     ImU32 color = percent <= 25 ? IM_COL32_RED : IM_COL32_GREEN;
@@ -742,9 +747,11 @@ IMGUI_API void My_ImGui_ShowTimePower(bool show_wifi, bool show_ra)
     }
 
     draw_list->PushClipRectFullScreen();
-    if (show_ra & show_wifi)
+    if (show_ra && show_wifi)
     {
-        draw_list->AddImage(gRaIconTexture, {RA_X, TOP_RIGHT_Y + 3}, {RA_X + RA_W, TOP_RIGHT_Y + RA_H + 3});
+        draw_list->AddImage(ra_hardcore ? gRaIconTexture : gRaIconGreenTexture,
+                            {RA_X, TOP_RIGHT_Y + 6},
+                            {RA_X + RA_W, TOP_RIGHT_Y + RA_H + 6});
     }
 
     draw_list->AddText({time_x, TOP_RIGHT_Y}, IM_COL32_WHITE, time_str);

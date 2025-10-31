@@ -272,13 +272,16 @@ bool EnvironmentCallback(unsigned cmd, void *data)
             if (!gRetroAchievements)
             {
                 gRetroAchievements = new RetroAchievements;
+            }
+
+            if (!gRetroAchievements->IsRunning())
+            {
                 gRetroAchievements->Start();
             }
         }
-        else if (gRetroAchievements)
+        else if (gRetroAchievements->IsRunning())
         {
-            delete gRetroAchievements;
-            gRetroAchievements = nullptr;
+            gRetroAchievements->Stop();
         }
 
         break;
