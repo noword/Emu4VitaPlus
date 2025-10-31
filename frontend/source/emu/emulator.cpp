@@ -303,7 +303,6 @@ void Emulator::Run()
 {
     LogFunctionNameLimited;
 
-    uint64_t start = sceKernelGetProcessTimeWide();
     _input.Signal();
 
     switch (gStatus.Get())
