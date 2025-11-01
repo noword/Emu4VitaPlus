@@ -189,7 +189,11 @@ void RetroAchievements::_OnLeaderboardScoreboard(const rc_client_event_t *event)
     gNotifications->Add(leaderboard->id, notification);
 }
 
-void RetroAchievements::_OnReset(const rc_client_event_t *event) { LogFunctionName; }
+void RetroAchievements::_OnReset(const rc_client_event_t *event)
+{
+    LogFunctionName;
+    gEmulator->Reset();
+}
 
 void RetroAchievements::_OnGameCompleted(const rc_client_event_t *event)
 {

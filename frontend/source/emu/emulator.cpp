@@ -221,7 +221,7 @@ LOADED:
 
         _frame_count = 0;
 
-        if (gConfig->rewind)
+        if (gConfig->rewind && !gHardcore)
         {
             _rewind_manager.Init();
         }

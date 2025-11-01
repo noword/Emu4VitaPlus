@@ -120,14 +120,6 @@ App::App()
     gRomNameMap = new RomNameMap;
     gRomNameMap->Load();
 
-    if (!gRetroAchievements)
-        gRetroAchievements = new RetroAchievements;
-
-    gUi->AppendLog("Create tables of UI");
-    gUi->CreateTables();
-    if (RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE && !gRetroAchievements->IsRunning())
-        gRetroAchievements->Start();
-
     if (gConfig->language != LANGUAGE::LANGUAGE_ENGLISH)
     {
         gUi->AppendLog("Load font");
@@ -136,6 +128,15 @@ App::App()
         My_Imgui_Create_Font(gConfig->language, CACHE_DIR);
         gVideo->Unlock();
     }
+
+    gUi->AppendLog("Initialize RetroAchievements");
+    if (!gRetroAchievements)
+        gRetroAchievements = new RetroAchievements;
+    if (RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE && !gRetroAchievements->IsRunning())
+        gRetroAchievements->Start();
+
+    gUi->AppendLog("Create tables of UI");
+    gUi->CreateTables();
 
     gUi->AppendLog("Check BIOS files");
     std::vector<const char *> bios;
