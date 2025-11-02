@@ -110,7 +110,16 @@ void RetroAchievements::_LoadGameCallback(int result, const char *error_message,
     notification->SetShowTime();
     gNotifications->Add(game->id, notification);
 
-    ra->_UpdateAchievemnts();
+    if (rc_client_is_processing_required(ra->_client))
+    {
+        ra->_UpdateAchievemnts();
+        ra->SetHardcoreEnabled(gConfig->ra_hardcore);
+    }
+    else
+    {
+        ra->_ClearAchievemnts();
+        ra->SetHardcoreEnabled(false);
+    }
 }
 
 void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_t *client)
