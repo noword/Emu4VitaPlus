@@ -31,7 +31,7 @@ void Notifications::_Clear()
         delete n.second;
     }
     _notifications.clear();
-    LogDebug("Notifications _Clear Done");
+    LogDebug("Notifications::_Clear Done");
 }
 
 static void _SetNextWindowPosition(ImVec2 &pos, const ImVec2 &size, ImVec2 &pre_size)
@@ -197,8 +197,7 @@ void Notifications::Remove(uint32_t id)
     auto iter = _notifications.find(id);
     if (iter != _notifications.end())
     {
-        delete iter->second;
-        _notifications.erase(iter);
+        iter->second->SetShowTime(0);
     }
     _locker.Unlock();
 }
