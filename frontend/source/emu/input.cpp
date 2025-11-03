@@ -460,6 +460,7 @@ void Emulator::_OnHotkeyRewindUp(Input *input)
     if (gConfig->rewind)
     {
         gStatus.Set(APP_STATUS_RUN_GAME);
+        _rewind_manager.Signal();
     }
 }
 

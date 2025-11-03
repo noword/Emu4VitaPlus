@@ -38,6 +38,8 @@ public:
     size_t GetAchievementsCount() { return _achievements.size(); };
     Achievement *GetAchievement(size_t index);
 
+    bool Enabled;
+
 private:
     static int
     _RaThread(SceSize args, void *argp);

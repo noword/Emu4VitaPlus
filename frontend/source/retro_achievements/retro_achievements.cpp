@@ -13,39 +13,29 @@ int RetroAchievements::_RaThread(SceSize args, void *argp)
     APP_STATUS status = gStatus.Get();
     while (ra->IsRunning() && (status & (APP_STATUS_EXIT | APP_STATUS_RETURN_ARCH | APP_STATUS_REBOOT_WITH_LOADING)) == 0)
     {
-        if (gNetwork->Connected())
+        if (gNetwork->Connected() && ra->_online)
         {
-            if (ra->_online)
+            switch (status)
             {
-                switch (status)
-                {
-                case APP_STATUS_RUN_GAME:
-                    rc_client_do_frame(ra->_client);
-                    break;
+            case APP_STATUS_RUN_GAME:
+                rc_client_do_frame(ra->_client);
+                break;
 
-                case APP_STATUS_SHOW_UI_IN_GAME:
-                    rc_client_idle(ra->_client);
-                    break;
+            case APP_STATUS_SHOW_UI_IN_GAME:
+                rc_client_idle(ra->_client);
+                break;
 
-                default:
-                    break;
-                }
-                idle_time = RETRO_ACHIEVEMENTS_IDLE_TIME;
-                ra->Wait(&idle_time);
+            default:
+                break;
             }
-            else if (gConfig->ra_login && !gConfig->ra_token.empty())
-            {
-                ra->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
-                idle_time = RETRO_ACHIEVEMENTS_LOGIN_IDLE_TIME;
-                ra->Wait(&idle_time);
-            }
+            idle_time = RETRO_ACHIEVEMENTS_IDLE_TIME;
         }
         else
         {
             idle_time = RETRO_ACHIEVEMENTS_LOGIN_IDLE_TIME;
-            ra->Wait(&idle_time);
         }
 
+        ra->Wait(&idle_time);
         status = gStatus.Get();
     }
 
@@ -139,7 +129,8 @@ RetroAchievements::RetroAchievements()
     : ThreadBase(_RaThread),
       _online(false),
       _mmap{0},
-      _retro_memory(nullptr)
+      _retro_memory(nullptr),
+      Enabled(false)
 {
     LogFunctionName;
 
@@ -148,8 +139,6 @@ RetroAchievements::RetroAchievements()
     _client = rc_client_create(_ReadMemory, _ServerCall);
     rc_client_enable_logging(_client, RC_CLIENT_LOG_LEVEL_VERBOSE, _LogMessage);
     rc_client_set_event_handler(_client, _EventHandler);
-
-    SetHardcoreEnabled(gConfig->ra_hardcore);
 }
 
 RetroAchievements::~RetroAchievements()
@@ -237,6 +226,8 @@ void RetroAchievements::_LoginCallback(int result, const char *error_message, rc
         {
             gConfig->ra_token = user->token;
         }
+
+        ra->SetHardcoreEnabled(gConfig->ra_hardcore);
     }
     else
     {

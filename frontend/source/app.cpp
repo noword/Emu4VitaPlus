@@ -133,7 +133,14 @@ App::App()
     if (!gRetroAchievements)
         gRetroAchievements = new RetroAchievements;
     if (RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE && !gRetroAchievements->IsRunning())
+    {
+        gRetroAchievements->Enabled = true;
         gRetroAchievements->Start();
+        if (gNetwork->Connected() && gConfig->ra_login && !gConfig->ra_token.empty())
+        {
+            gRetroAchievements->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
+        }
+    }
 
     gUi->AppendLog("Create tables of UI");
     gUi->CreateTables();

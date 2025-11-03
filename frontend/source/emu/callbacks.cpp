@@ -274,6 +274,8 @@ bool EnvironmentCallback(unsigned cmd, void *data)
                 gRetroAchievements = new RetroAchievements;
             }
 
+            gRetroAchievements->Enabled = true;
+
             if (!gRetroAchievements->IsRunning())
             {
                 gRetroAchievements->Start();
