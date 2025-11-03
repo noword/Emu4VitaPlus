@@ -1681,9 +1681,9 @@
     },
     {
         "No.": "141",
-        "Tag": "LANG_RETROARCHIEVEMENTS",
-        "English": "RetroArchievements",
-        "Chinese": "RetroArchievements 成就系统",
+        "Tag": "LANG_RETROACHIEVEMENTS",
+        "English": "RetroAchievements",
+        "Chinese": "RetroAchievements 成就系统",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -1693,7 +1693,7 @@
     },
     {
         "No.": "142",
-        "Tag": "LANG_RETROARCHIEVEMENTS_DESC",
+        "Tag": "LANG_RETROACHIEVEMENTS_DESC",
         "English": "If you don't know what this is, visit https://retroachievements.org",
         "Chinese": "如果你不知道这是什么，访问 https://retroachievements.org",
         "Japanese": "",
@@ -1790,8 +1790,8 @@
     {
         "No.": "150",
         "Tag": "LANG_TOKEN_EXPIRED",
-        "English": "The token of RetroArchievements has expired. Please login again.",
-        "Chinese": "RetroArchievements 的令牌已过期，请重新登录。",
+        "English": "The token of RetroAchievements has expired. Please login again.",
+        "Chinese": "RetroAchievements 的令牌已过期，请重新登录。",
         "Japanese": "",
         "Italian": "",
         "French": "",

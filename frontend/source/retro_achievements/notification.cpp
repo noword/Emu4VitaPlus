@@ -25,11 +25,13 @@ Notifications::~Notifications()
 
 void Notifications::_Clear()
 {
+    LogFunctionName;
     for (auto &n : _notifications)
     {
         delete n.second;
     }
     _notifications.clear();
+    LogDebug("Notifications _Clear Done");
 }
 
 static void _SetNextWindowPosition(ImVec2 &pos, const ImVec2 &size, ImVec2 &pre_size)
