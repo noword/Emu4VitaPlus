@@ -294,7 +294,7 @@ void RetroAchievements::Reset()
     rc_client_reset(_client);
 }
 
-void RetroAchievements::SetHardcoreEnabled(bool enabled)
+void RetroAchievements::SetHardcoreEnabled(const bool &enabled)
 {
     LogFunctionName;
     LogDebug("  enabled: %d", enabled);

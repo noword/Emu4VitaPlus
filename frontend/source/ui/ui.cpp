@@ -315,7 +315,7 @@ void Ui::CreateTables()
                                                                               LANG_HARDCORE_DESC,
                                                                               (uint32_t *)&gConfig->ra_hardcore,
                                                                               {LANG_NO, LANG_YES},
-                                                                              std::bind(&Ui::_ChangeHardcore, gUi)),
+                                                                              std::bind(&RetroAchievements::SetHardcoreEnabled, gRetroAchievements, std::ref(gConfig->ra_hardcore))),
                                                                new ItemConfig(LANG_RETROARCHIEVEMENTS_LOCAL,
                                                                               "",
                                                                               (uint32_t *)&gConfig->ra_position,
@@ -790,12 +790,6 @@ void Ui::_ChangeRetroArchievements()
                            gConfig->ra_user.c_str());
     _current_dialog = LANG_USERNAME;
     _input.PushCallbacks();
-}
-
-void Ui::_ChangeHardcore()
-{
-    LogFunctionName;
-    gRetroAchievements->SetHardcoreEnabled(gConfig->ra_hardcore);
 }
 
 void Ui::_TextInputCallback(const char *text)
