@@ -4,6 +4,8 @@
 #include "global.h"
 #include "log.h"
 
+#define PROGRESS_INDICATOR_ID 0xffffffff
+
 RetroAchievements::EventFunc RetroAchievements::_event_functions[] = {
     nullptr,
     &RetroAchievements::_OnAchievementTriggered,
@@ -125,14 +127,14 @@ void RetroAchievements::_OnAchievementProgressIndicatorShow(const rc_client_even
     {
         notification->texture = _GetImage(url, achievement->id);
     }
-    gNotifications->Add(achievement->id, notification);
+    gNotifications->Add(PROGRESS_INDICATOR_ID, notification);
 }
 
 void RetroAchievements::_OnAchievementProgressIndicatorHide(const rc_client_event_t *event)
 {
     LogFunctionName;
 
-    gNotifications->Remove(event->achievement->id);
+    gNotifications->Remove(PROGRESS_INDICATOR_ID);
 }
 
 void RetroAchievements::_OnAchievementProgressIndicatorUpdate(const rc_client_event_t *event)
@@ -140,7 +142,7 @@ void RetroAchievements::_OnAchievementProgressIndicatorUpdate(const rc_client_ev
     LogFunctionName;
 
     auto achievement = event->achievement;
-    gNotifications->Update(achievement->id, achievement->measured_progress);
+    gNotifications->Update(PROGRESS_INDICATOR_ID, achievement->measured_progress);
 }
 
 void RetroAchievements::_OnLeaderboardTrackerShow(const rc_client_event_t *event)

@@ -341,7 +341,7 @@ void RetroAchievements::_UpdateAchievemnts()
         for (int j = 0; j < list->buckets[i].num_achievements; j++)
         {
             const rc_client_achievement_t *achievement = list->buckets[i].achievements[j];
-            LogDebug("  [%d, %d] %s (%d, %d)", i, j, achievement->title, achievement->state, achievement->unlocked);
+            LogDebug("  [%d, %d] %s (%d, %d, %d)", i, j, achievement->title, achievement->id, achievement->state, achievement->unlocked);
             LogDebug("  %s", achievement->description);
 
             if (strcmp(achievement->title, "Warning: Unknown Emulator") == 0 ||

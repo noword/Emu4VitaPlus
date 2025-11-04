@@ -8,10 +8,12 @@
 
 Notification::~Notification()
 {
-    gVideo->Lock();
     if (texture)
+    {
+        gVideo->Lock();
         vita2d_free_texture(texture);
-    gVideo->Unlock();
+        gVideo->Unlock();
+    }
 }
 
 Notifications::Notifications()
@@ -193,6 +195,8 @@ void Notifications::Add(uint32_t id, Notification *n)
 void Notifications::Remove(uint32_t id)
 {
     LogFunctionName;
+    LogDebug("  id: %d", id);
+
     _locker.Lock();
     auto iter = _notifications.find(id);
     if (iter != _notifications.end())
