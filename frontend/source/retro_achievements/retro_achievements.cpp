@@ -75,8 +75,10 @@ void RetroAchievements::_LogMessage(const char *message, const rc_client_t *clie
 void RetroAchievements::_LoadGameCallback(int result, const char *error_message, rc_client_t *client, void *userdata)
 {
     LogFunctionName;
+
     char url[128];
     RetroAchievements *ra = (RetroAchievements *)userdata;
+    ra->_ClearAchievemnts();
 
     Notification *notification = new Notification;
 
@@ -107,7 +109,6 @@ void RetroAchievements::_LoadGameCallback(int result, const char *error_message,
     }
     else
     {
-        ra->_ClearAchievemnts();
         ra->SetHardcoreEnabled(false);
     }
 }
@@ -293,31 +294,9 @@ void RetroAchievements::SetHardcoreEnabled(const bool &enabled)
     rc_client_set_hardcore_enabled(_client, enabled);
 }
 
-// vita2d_texture *RetroAchievements::_GetImage(const char *url, uint32_t id)
-// {
-//     LogFunctionName;
-//     LogDebug("  url: %s", url);
-//     LogDebug("  _game_id: %d, id: %d", _game_id, id);
-
-//     std::string path = std::string(RETRO_ACHIEVEMENTS_CACHE_DIR "/") + std::to_string(_game_id) + "_" + std::to_string(id) + ".png";
-
-//     if (!File::Exist(path.c_str()))
-//     {
-//         if (!gNetwork->Download(url, path.c_str()))
-//         {
-//             LogWarn("failed to download image: %s", url);
-//             return nullptr;
-//         }
-//     }
-
-//     return vita2d_load_PNG_file(path.c_str());
-// }
-
 void RetroAchievements::_UpdateAchievemnts()
 {
     LogFunctionName;
-
-    _ClearAchievemnts();
 
     char url[128];
     rc_client_achievement_list_t *list = rc_client_create_achievement_list(_client,
@@ -371,13 +350,14 @@ void RetroAchievements::_ClearAchievemnts()
 {
     LogFunctionName;
 
+    gVideo->Lock();
     for (auto a : _achievements)
     {
         delete a.second;
     }
     _achievements.clear();
     gNotifications->Clear();
-    _texture_cache.Clear();
+    gVideo->Unlock();
 }
 
 Achievement *RetroAchievements::GetAchievement(size_t index)

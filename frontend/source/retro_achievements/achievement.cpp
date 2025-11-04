@@ -6,8 +6,8 @@
 Achievement::Achievement(uint32_t game_id, uint32_t id, bool unlocked) : _unlocked(unlocked)
 {
     LogFunctionName;
-    _image_file_name[0] = std::to_string(game_id) + "_" + std::to_string(id) + ".png";
-    _image_file_name[1] = std::to_string(game_id) + "_" + std::to_string(id) + "_unlocked.png";
+    _image_file_name[0] = std::to_string(game_id) + "_" + std::to_string(id) + "_locked.png";
+    _image_file_name[1] = std::to_string(game_id) + "_" + std::to_string(id) + ".png";
     _texture[0] = _texture[1] = nullptr;
 }
 
@@ -15,13 +15,11 @@ Achievement::~Achievement()
 {
     LogFunctionName;
 
-    gVideo->Lock();
     for (auto texture : _texture)
     {
         if (texture)
             vita2d_free_texture(texture);
     }
-    gVideo->Unlock();
 }
 
 const std::string Achievement::GetImagePath(bool unlocked)
