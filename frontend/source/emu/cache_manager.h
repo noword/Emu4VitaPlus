@@ -78,6 +78,11 @@ public:
         _cache.erase(*earliest_name);
     };
 
+    void Clear()
+    {
+        _cache.clear();
+    }
+
 private:
     size_t _max_size;
     std::string _dir_path;

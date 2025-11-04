@@ -75,6 +75,12 @@ public:
     void SetupKeysWithSaveConfig();
     bool NeedRender();
     const ArcadeManager *GetArcadeManager() const { return _arcade_manager; };
+    void ClearCache()
+    {
+        if (_arcade_manager)
+            _arcade_manager->Clear();
+        _archive_manager.Clear();
+    }
 
     template <typename T>
     void SetDiskControlCallback(const T *callback)

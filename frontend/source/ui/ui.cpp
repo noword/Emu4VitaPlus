@@ -749,6 +749,7 @@ void Ui::_OnDialog(Input *input, int index)
             File::RemoveAllFiles(CACHE_DIR);
             if (*THUMBNAILS_PATH)
                 File::RemoveAllFiles(THUMBNAILS_PATH);
+            gEmulator->ClearCache();
         }
         break;
 
