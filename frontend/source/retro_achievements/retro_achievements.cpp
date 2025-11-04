@@ -264,7 +264,7 @@ void RetroAchievements::Logout()
     if (_online)
     {
         rc_client_logout(_client);
-        _online = false;
+        gHardcore = _online = false;
         Stop();
     }
 }
