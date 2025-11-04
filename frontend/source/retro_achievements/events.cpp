@@ -42,7 +42,7 @@ void RetroAchievements::_OnAchievementTriggered(const rc_client_event_t *event)
         char url[128];
         if (rc_client_achievement_get_image_url(achievement, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED, url, sizeof(url)) == RC_OK)
         {
-            notification->texture = _GetImage(url, achievement->id);
+            notification->texture = _texture_cache.Get(url, _game_id, achievement->id);
         }
     }
     else
@@ -103,7 +103,7 @@ void RetroAchievements::_OnAchievementChallengeIndicatorShow(const rc_client_eve
     char url[128];
     if (rc_client_achievement_get_image_url(achievement, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED, url, sizeof(url)) == RC_OK)
     {
-        notification->texture = _GetImage(url, achievement->id);
+        notification->texture = _texture_cache.Get(url, _game_id, achievement->id);
     }
     gNotifications->Add(achievement->id, notification);
 }
@@ -125,7 +125,7 @@ void RetroAchievements::_OnAchievementProgressIndicatorShow(const rc_client_even
     char url[128];
     if (rc_client_achievement_get_image_url(achievement, RC_CLIENT_ACHIEVEMENT_STATE_UNLOCKED, url, sizeof(url)) == RC_OK)
     {
-        notification->texture = _GetImage(url, achievement->id);
+        notification->texture = _texture_cache.Get(url, _game_id, achievement->id);
     }
     gNotifications->Add(PROGRESS_INDICATOR_ID, notification);
 }
@@ -209,7 +209,7 @@ void RetroAchievements::_OnGameCompleted(const rc_client_event_t *event)
     char url[128];
     if (rc_client_game_get_image_url(game, url, sizeof(url)) == RC_OK)
     {
-        notification->texture = _GetImage(url, GAME_IMAGE_ID);
+        notification->texture = _texture_cache.Get(url, _game_id, GAME_IMAGE_ID);
     }
     notification->SetShowTime();
     gNotifications->Add(game->id, notification);

@@ -6,34 +6,31 @@
 #define NOTIFY_WINDOW_HEIGHT 70.f
 #define NOTIFY_IMAGE_HEIGHT (NOTIFY_WINDOW_HEIGHT * 0.76f)
 
-Notification::~Notification()
-{
-    if (texture)
-    {
-        gVideo->Lock();
-        vita2d_free_texture(texture);
-        gVideo->Unlock();
-    }
-}
-
 Notifications::Notifications()
 {
 }
 
 Notifications::~Notifications()
 {
-    _Clear();
+    Clear();
 }
 
-void Notifications::_Clear()
+void Notifications::Clear()
 {
     LogFunctionName;
-    for (auto &n : _notifications)
+
+    _locker.Lock();
+
+    if (!_notifications.empty())
     {
-        delete n.second;
+        for (auto &n : _notifications)
+        {
+            delete n.second;
+        }
+        _notifications.clear();
     }
-    _notifications.clear();
-    LogDebug("Notifications::_Clear Done");
+
+    _locker.Unlock();
 }
 
 static void _SetNextWindowPosition(ImVec2 &pos, const ImVec2 &size, ImVec2 &pre_size)
@@ -165,21 +162,15 @@ void Notifications::Run()
     if (_notifications.empty())
         return;
 
-    bool need_clear = true;
     for (const auto &iter : _notifications)
     {
-        const auto n = iter.second;
-        if (!n->TimeUp())
+        if (!iter.second->TimeUp())
         {
-            need_clear = false;
-            break;
+            return;
         }
     }
 
-    if (need_clear)
-    {
-        _Clear();
-    }
+    Clear();
 }
 
 void Notifications::Add(uint32_t id, Notification *n)

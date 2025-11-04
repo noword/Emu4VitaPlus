@@ -11,6 +11,7 @@
 #include "notification.h"
 #include "retro_memory.h"
 #include "log.h"
+#include "texture_cache.h"
 
 // 5 seconds
 #define RETRO_ACHIEVEMENTS_LOGIN_IDLE_TIME 5000000
@@ -52,7 +53,6 @@ private:
     static void _LoadGameCallback(int result, const char *error_message, rc_client_t *client, void *userdata);
 
     void _ClearRetroMmap();
-    vita2d_texture *_GetImage(const char *url, uint32_t id);
     void _UpdateAchievemnts();
     void _ClearAchievemnts();
 
@@ -85,4 +85,5 @@ private:
     uint32_t _game_id;
     retro_memory_map _mmap;
     RetroMemory *_retro_memory;
+    TextureCache _texture_cache;
 };

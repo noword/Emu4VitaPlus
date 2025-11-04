@@ -90,7 +90,7 @@ void RetroAchievements::_LoadGameCallback(int result, const char *error_message,
 
     if (rc_client_game_get_image_url(game, url, sizeof(url)) == RC_OK)
     {
-        notification->texture = ra->_GetImage(url, GAME_IMAGE_ID);
+        notification->texture = ra->_texture_cache.Get(url, game->id, GAME_IMAGE_ID);
     }
 
     rc_client_user_game_summary_t summary;
@@ -204,19 +204,10 @@ void RetroAchievements::_LoginCallback(int result, const char *error_message, rc
     gUi->OnRetrAchievementsLogInOut(ra->_online);
     if (ra->_online)
     {
-        Notification *notification = new Notification;
-
         const rc_client_user_t *user = rc_client_get_user_info(client);
-        std::string buf;
-        if (gNetwork->Fetch(user->avatar_url, &buf))
-        {
-            notification->texture = vita2d_load_PNG_buffer(buf.c_str());
-        }
-        else
-        {
-            LogDebug("Fetch avatar failed");
-        }
 
+        Notification *notification = new Notification;
+        notification->texture = ra->_texture_cache.Get(user->avatar_url);
         notification->title = TEXT(LANG_LOGIN_SUCCESSFUL);
         notification->text = std::string(user->display_name) + " / " + std::to_string(user->score);
         notification->SetShowTime();
@@ -302,25 +293,25 @@ void RetroAchievements::SetHardcoreEnabled(const bool &enabled)
     rc_client_set_hardcore_enabled(_client, enabled);
 }
 
-vita2d_texture *RetroAchievements::_GetImage(const char *url, uint32_t id)
-{
-    LogFunctionName;
-    LogDebug("  url: %s", url);
-    LogDebug("  _game_id: %d, id: %d", _game_id, id);
+// vita2d_texture *RetroAchievements::_GetImage(const char *url, uint32_t id)
+// {
+//     LogFunctionName;
+//     LogDebug("  url: %s", url);
+//     LogDebug("  _game_id: %d, id: %d", _game_id, id);
 
-    std::string path = std::string(RETRO_ACHIEVEMENTS_CACHE_DIR "/") + std::to_string(_game_id) + "_" + std::to_string(id) + ".png";
+//     std::string path = std::string(RETRO_ACHIEVEMENTS_CACHE_DIR "/") + std::to_string(_game_id) + "_" + std::to_string(id) + ".png";
 
-    if (!File::Exist(path.c_str()))
-    {
-        if (!gNetwork->Download(url, path.c_str()))
-        {
-            LogWarn("failed to download image: %s", url);
-            return nullptr;
-        }
-    }
+//     if (!File::Exist(path.c_str()))
+//     {
+//         if (!gNetwork->Download(url, path.c_str()))
+//         {
+//             LogWarn("failed to download image: %s", url);
+//             return nullptr;
+//         }
+//     }
 
-    return vita2d_load_PNG_file(path.c_str());
-}
+//     return vita2d_load_PNG_file(path.c_str());
+// }
 
 void RetroAchievements::_UpdateAchievemnts()
 {
@@ -385,6 +376,8 @@ void RetroAchievements::_ClearAchievemnts()
         delete a.second;
     }
     _achievements.clear();
+    gNotifications->Clear();
+    _texture_cache.Clear();
 }
 
 Achievement *RetroAchievements::GetAchievement(size_t index)

@@ -12,7 +12,7 @@
 struct Notification
 {
     Notification() : texture(nullptr), _stop_time(0) {};
-    virtual ~Notification();
+    virtual ~Notification() {};
 
     bool TimeUp() const
     {
@@ -44,10 +44,9 @@ public:
     void Add(uint32_t id, Notification *n);
     void Remove(uint32_t id);
     void Update(uint32_t id, const std::string &title, const std::string &text = "", vita2d_texture *texture = nullptr);
+    void Clear();
 
 private:
-    void _Clear();
-
     std::map<uint32_t, Notification *> _notifications;
     Locker _locker;
 };
