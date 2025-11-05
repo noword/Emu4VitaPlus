@@ -6,15 +6,6 @@
 #define NOTIFY_WINDOW_HEIGHT 70.f
 #define NOTIFY_IMAGE_HEIGHT (NOTIFY_WINDOW_HEIGHT * 0.76f)
 
-Notifications::Notifications()
-{
-}
-
-Notifications::~Notifications()
-{
-    Clear();
-}
-
 void Notifications::Clear()
 {
     LogFunctionName;

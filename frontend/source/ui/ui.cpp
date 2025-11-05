@@ -855,13 +855,12 @@ void Ui::UpdateAchievements()
         {
             achievements.emplace_back(new ItemAchievement(gRetroAchievements->GetAchievement(i)));
         }
-
-        if (_tabs[TAB_INDEX_CORE] != nullptr)
-        {
-            delete _tabs[TAB_INDEX_ACHIEVEMENTS];
-        }
     }
 
+    if (_tabs[TAB_INDEX_CORE] != nullptr)
+    {
+        delete _tabs[TAB_INDEX_ACHIEVEMENTS];
+    }
     _tabs[TAB_INDEX_ACHIEVEMENTS] = new TabSeletable(LANG_ACHIEVEMENTS, achievements, 1);
 
     gVideo->Unlock();

@@ -12,7 +12,7 @@
 struct Notification
 {
     Notification() : texture(nullptr), _stop_time(0) {};
-    virtual ~Notification() {};
+    virtual ~Notification() {}; // texture is assigned and destroyed within TextureCache, so do nothing here
 
     bool TimeUp() const
     {
@@ -35,8 +35,8 @@ private:
 class Notifications
 {
 public:
-    Notifications();
-    virtual ~Notifications();
+    Notifications() {};
+    virtual ~Notifications() { Clear(); };
 
     bool NeedShow() { return !_notifications.empty(); };
     void Show();

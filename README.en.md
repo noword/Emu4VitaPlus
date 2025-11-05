@@ -86,7 +86,7 @@ NES
 SNES
   - [Snes9x 2002](https://github.com/libretro/snes9x2002)
   - [Snes9x 2005](https://github.com/libretro/snes9x2005)
-  - [Snes9x 2010](https://github.com/libretro/snes9x2010)
+  - [Snes9x](https://github.com/libretro/snes9x)
   - [Supafaust](https://github.com/Rinnegatamante/supafaust)
   - [ChimeraSNES](https://github.com/jamsilva/chimerasnes)
 
@@ -248,6 +248,8 @@ If the program crashes, please find the psp2dmp file under ux0:/data/ and upload
 [KyleBing](https://github.com/KyleBing/retro-game-console-icons)
 
 TearCrow
+
+[Scott](https://github.com/ScottFromDerby) (RetroAchievements test)
 
 [yyoossk](https://github.com/yyoossk) (Japanese translation)
 

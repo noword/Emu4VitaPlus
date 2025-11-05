@@ -94,7 +94,7 @@ NES
 SNES
   - [Snes9x 2002](https://github.com/libretro/snes9x2002)
   - [Snes9x 2005](https://github.com/libretro/snes9x2005)
-  - [Snes9x 2010](https://github.com/libretro/snes9x2010)
+  - [Snes9x](https://github.com/libretro/snes9x)
   - [Supafaust](https://github.com/Rinnegatamante/supafaust)
   - [ChimeraSNES](https://github.com/jamsilva/chimerasnes)
 
@@ -265,6 +265,8 @@ QQ群：550802386
 [KyleBing](https://github.com/KyleBing/retro-game-console-icons)
 
 TearCrow
+
+[Scott](https://github.com/ScottFromDerby) (RetroAchievements 测试)
 
 [yyoossk](https://github.com/yyoossk) (日语翻译)
 
