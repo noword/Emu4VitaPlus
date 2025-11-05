@@ -312,7 +312,7 @@ void Emulator::Run()
             _rewind_manager.Wait();
         break;
     case APP_STATUS_RUN_GAME:
-        if (gConfig->rewind)
+        if (gConfig->rewind && !gHardcore)
             _rewind_manager.Signal();
 
         if (gRetroAchievements->IsOnline())
