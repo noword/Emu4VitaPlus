@@ -217,7 +217,7 @@ void App::Run()
     while (running)
     {
         APP_STATUS status = gStatus.Get();
-        if (status != last_status)
+        if (unlikely(status != last_status))
         {
             gUi->OnStatusChanged(status);
             last_status = status;

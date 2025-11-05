@@ -331,7 +331,7 @@ void Emulator::Run()
 
     EndProfile("retro_run");
 
-    if (!CONTROL_SPEED_BY_VIDEO)
+    if (likely(!CONTROL_SPEED_BY_VIDEO))
     {
         Wait();
     }

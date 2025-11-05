@@ -10,6 +10,9 @@
 #define LOOP_PLUS_ONE(VALUE, TOTAL) (VALUE = (((VALUE + 1) >= (TOTAL)) ? 0 : VALUE + 1))
 #define LOOP_MINUS_ONE(VALUE, TOTAL) (VALUE = ((VALUE == 0) ? (TOTAL) - 1 : VALUE - 1))
 
+#define likely(x) __builtin_expect(!!(x), 1)
+#define unlikely(x) __builtin_expect(!!(x), 0)
+
 namespace Utils
 {
     class JsonAllocator : public sce::Json::MemAllocator

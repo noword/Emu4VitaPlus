@@ -171,7 +171,7 @@ void Emulator::Show()
 
     _video_delay.Wait();
 
-    if (status == APP_STATUS_RUN_GAME && _keyboard && _keyboard->Visable())
+    if (unlikely(status == APP_STATUS_RUN_GAME && _keyboard && _keyboard->Visable()))
     {
         _keyboard->Show();
     }
@@ -180,7 +180,7 @@ void Emulator::Show()
 bool Emulator::GetCurrentSoftwareFramebuffer(retro_framebuffer *fb)
 {
     LogFunctionNameLimited;
-    if (!fb || _texture_buf == nullptr || _graphics_config_changed)
+    if (unlikely(!fb || _texture_buf == nullptr || _graphics_config_changed))
     {
         return false;
     }
@@ -189,8 +189,8 @@ bool Emulator::GetCurrentSoftwareFramebuffer(retro_framebuffer *fb)
 
     vita2d_texture *texture = _texture_buf->NextBegin();
 
-    if (fb->width != vita2d_texture_get_width(texture) ||
-        fb->height != vita2d_texture_get_height(texture))
+    if (unlikely(fb->width != vita2d_texture_get_width(texture) ||
+                 fb->height != vita2d_texture_get_height(texture)))
     {
         _SetupVideoOutput(fb->width, fb->height);
         texture = _texture_buf->NextBegin();

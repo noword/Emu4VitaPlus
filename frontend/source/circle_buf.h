@@ -1,6 +1,7 @@
 #pragma once
 #include <atomic>
 #include <string.h>
+#include "utils.h"
 #include "log.h"
 
 template <typename T>
@@ -41,7 +42,7 @@ public:
 
     T *WriteBegin(size_t size)
     {
-        if (size > FreeSize())
+        if (unlikely(size > FreeSize()))
         {
             return nullptr;
         }
@@ -54,7 +55,7 @@ public:
     void WriteEnd(size_t size)
     {
         size_t write_pos = _write_pos.load(std::memory_order_relaxed);
-        if (_continue_write)
+        if (likely(_continue_write))
         {
             write_pos += size;
             _write_pos.store(write_pos, std::memory_order_release);
@@ -67,13 +68,13 @@ public:
 
     bool Write(const T *data, size_t size)
     {
-        if (size > FreeSize())
+        if (unlikely(size > FreeSize()))
         {
             return false;
         }
 
         size_t write_pos = _write_pos.load(std::memory_order_relaxed);
-        if ((write_pos + size) < _total_size)
+        if (likely((write_pos + size) < _total_size))
         {
             memcpy(_buf + write_pos, data, size * sizeof(T));
             write_pos += size;
@@ -97,7 +98,7 @@ public:
         const size_t write_pos = _write_pos.load(std::memory_order_acquire);
         const size_t read_pos = _read_pos.load(std::memory_order_relaxed);
 
-        if (read_pos == write_pos)
+        if (unlikely(read_pos == write_pos))
         {
             *size = 0;
             return nullptr;
@@ -118,7 +119,7 @@ public:
     void ReadEnd(size_t size)
     {
         size_t read_pos = _read_pos.load(std::memory_order_relaxed) + size;
-        if (read_pos == _total_size)
+        if (unlikely(read_pos == _total_size))
         {
             read_pos = 0;
         }
@@ -134,7 +135,7 @@ public:
             LogError("_total_size must be a multiple of size.");
         }
 #endif
-        if (AvailableSize() < size)
+        if (unlikely(AvailableSize() < size))
             return nullptr;
 
         size_t read_pos = _read_pos.load(std::memory_order_relaxed);
@@ -185,7 +186,7 @@ public:
 protected:
     T *_GetTmpBuf(size_t size)
     {
-        if (size > _tmp_size)
+        if (unlikely(size > _tmp_size))
         {
             if (_tmp != nullptr)
                 delete[] _tmp;
