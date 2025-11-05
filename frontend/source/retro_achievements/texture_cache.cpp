@@ -4,7 +4,7 @@
 
 void TextureCache::Clear()
 {
-    LogFunctionName;
+    LogFunctionNameLimited;
     if (!_cache.empty())
     {
         gVideo->Lock();

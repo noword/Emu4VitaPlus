@@ -221,6 +221,10 @@ void App::Run()
         {
             gUi->OnStatusChanged(status);
             last_status = status;
+            if (status == APP_STATUS_SHOW_UI && (!gNotifications->NeedShow()))
+            {
+                gRetroAchievements->ClearTextureCache();
+            }
         }
 
         switch (status)

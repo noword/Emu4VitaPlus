@@ -375,3 +375,8 @@ Achievement *RetroAchievements::GetAchievement(size_t index)
         return nullptr;
     }
 }
+
+void RetroAchievements::ClearTextureCache()
+{
+    _texture_cache.Clear();
+}

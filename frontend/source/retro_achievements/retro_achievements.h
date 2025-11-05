@@ -35,6 +35,7 @@ public:
     void UnloadGame();
     void Reset();
     void SetHardcoreEnabled(const bool &enabled);
+    void ClearTextureCache();
 
     size_t GetAchievementsCount() { return _achievements.size(); };
     Achievement *GetAchievement(size_t index);
