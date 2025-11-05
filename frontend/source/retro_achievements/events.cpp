@@ -28,6 +28,19 @@ RetroAchievements::EventFunc RetroAchievements::_event_functions[] = {
     &RetroAchievements::_OnReconnected,
     &RetroAchievements::_OnSubsetCompleted};
 
+void RetroAchievements::_EventHandler(const rc_client_event_t *event, rc_client_t *client)
+{
+    LogFunctionName;
+    LogDebug("  type: %d", event->type);
+
+    if (event->type > RC_CLIENT_EVENT_TYPE_NONE &&
+        event->type < RC_CLIENT_EVENT_SUBSET_COMPLETED &&
+        RetroAchievements::_event_functions[event->type])
+    {
+        (gRetroAchievements->*RetroAchievements::_event_functions[event->type])(event);
+    }
+}
+
 void RetroAchievements::_OnAchievementTriggered(const rc_client_event_t *event)
 {
     LogFunctionName;

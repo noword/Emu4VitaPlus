@@ -52,10 +52,6 @@
 	path = cores/snes9x2005
 	url = https://github.com/libretro/snes9x2005
     branch = master
-[submodule "cores/snes9x2010"]
-	path = cores/snes9x2010
-	url = https://github.com/libretro/snes9x2010
-    branch = master
 [submodule "cores/vba-next"]
 	path = cores/vba-next
 	url = https://github.com/libretro/vba-next
