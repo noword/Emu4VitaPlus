@@ -77,7 +77,7 @@ int AudioResampler::_ResampleThread(SceSize args, void *argp)
             in = resampler->_in_buf.ReadBegin(&in_size);
         }
 
-        if (!resampler->IsRunning())
+        if (unlikely(!resampler->IsRunning()))
         {
             break;
         }

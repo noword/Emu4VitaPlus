@@ -13,6 +13,8 @@ AudioOutput::AudioOutput(uint32_t sample_size, uint32_t sample_rate, AudioBuf *b
 
 AudioOutput::~AudioOutput()
 {
+    LogFunctionName;
+    _keep_running = false;
     sceAudioOutReleasePort(_port);
 }
 
@@ -30,12 +32,13 @@ int AudioOutput::_AudioThread(SceSize args, void *argp)
     int16_t *buf;
     while (output->IsRunning())
     {
-        while ((buf = output->_out_buf->Read(AUDIO_OUTPUT_BLOCK_SIZE)) == nullptr)
+        while ((buf = output->_out_buf->Read(AUDIO_OUTPUT_BLOCK_SIZE)) == nullptr && output->IsRunning())
         {
             output->Wait();
-            if (!output->IsRunning())
-                break;
         }
+
+        if (unlikely(!output->IsRunning()))
+            break;
 
         BeginProfile("AudioOutput");
         sceAudioOutOutput(output->_port, buf);
