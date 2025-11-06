@@ -46,7 +46,7 @@ int RetroAchievements::_RaThread(SceSize args, void *argp)
 
 uint32_t RetroAchievements::_ReadMemory(uint32_t address, uint8_t *buffer, uint32_t num_bytes, rc_client_t *client)
 {
-    if (gRetroAchievements->_retro_memory == nullptr)
+    if (unlikely(gRetroAchievements->_retro_memory == nullptr))
     {
         const rc_client_game_t *game = rc_client_get_game_info(gRetroAchievements->_client);
         gRetroAchievements->_retro_memory = new RetroMemory(&gRetroAchievements->_mmap, game ? game->console_id : 0);
@@ -135,9 +135,7 @@ RetroAchievements::~RetroAchievements()
 
     _ClearAchievemnts();
     _ClearRetroMmap();
-
-    if (_retro_memory)
-        delete _retro_memory;
+    _ClearRetroMemory();
 
     if (_client)
     {
@@ -154,11 +152,7 @@ void RetroAchievements::CopyRetroMmap(const retro_memory_map *mmap)
     LogFunctionName;
 
     _ClearRetroMmap();
-    if (_retro_memory)
-    {
-        delete _retro_memory;
-        _retro_memory = nullptr;
-    }
+    _ClearRetroMemory();
 
     retro_memory_descriptor *descriptors = new retro_memory_descriptor[mmap->num_descriptors];
     _mmap.num_descriptors = mmap->num_descriptors;
@@ -271,6 +265,7 @@ void RetroAchievements::Reset()
 {
     LogFunctionName;
     rc_client_reset(_client);
+    _ClearRetroMemory();
 }
 
 void RetroAchievements::SetHardcoreEnabled(const bool &enabled)
@@ -366,4 +361,13 @@ Achievement *RetroAchievements::GetAchievement(size_t index)
 void RetroAchievements::ClearTextureCache()
 {
     _texture_cache.Clear();
+}
+
+void RetroAchievements::_ClearRetroMemory()
+{
+    if (_retro_memory)
+    {
+        delete _retro_memory;
+        _retro_memory = nullptr;
+    }
 }

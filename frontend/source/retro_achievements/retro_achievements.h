@@ -54,6 +54,7 @@ private:
     static void _LoadGameCallback(int result, const char *error_message, rc_client_t *client, void *userdata);
 
     void _ClearRetroMmap();
+    void _ClearRetroMemory();
     void _UpdateAchievemnts();
     void _ClearAchievemnts();
 
