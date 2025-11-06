@@ -368,7 +368,7 @@ void Emulator::_ShowSpeedHint()
 {
     char tmp[64];
     snprintf(tmp, 64, "%s %.1fX", TEXT(LANG_SPEED), _speed);
-    gHint->SetHint(tmp);
+    gHint->SetHint(tmp, 120, true);
 }
 
 void Emulator::Wait()

@@ -62,7 +62,7 @@ bool ThreadBase::Start(void *data, SceSize size)
 void ThreadBase::Stop(bool force)
 {
     LogFunctionName;
-    LogDebug("%08x", _thread_id);
+    LogDebug("%08x %d", _thread_id, force);
     if (_thread_id == -1)
     {
         return;
@@ -79,7 +79,9 @@ void ThreadBase::Stop(bool force)
         sceKernelWaitThreadEnd(_thread_id, NULL, NULL);
     }
 
+    LogDebug("xxx");
     int result = sceKernelDeleteThread(_thread_id);
+    LogDebug("yyy");
     if (result != SCE_OK)
     {
         LogError("sceKernelDeleteThread error: %08x %08x", _thread_id, result);

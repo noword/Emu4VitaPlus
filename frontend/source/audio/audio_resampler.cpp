@@ -16,6 +16,7 @@ AudioResampler::AudioResampler(uint32_t in_rate, uint32_t out_rate, AudioOutput 
 AudioResampler::~AudioResampler()
 {
     LogFunctionName;
+    _keep_running = false;
     if (_swr_ctx != nullptr)
     {
         swr_free(&_swr_ctx);
@@ -107,7 +108,7 @@ int AudioResampler::_ResampleThread(SceSize args, void *argp)
         EndProfile("AudioResampler");
     }
 
-    LogDebug("_Audio_ResempleThreadThread exit");
+    LogDebug("_Audio_ResampleThreadThread exit");
     sceKernelExitThread(0);
 
     return 0;
