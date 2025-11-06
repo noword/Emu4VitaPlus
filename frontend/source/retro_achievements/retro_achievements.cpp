@@ -132,7 +132,7 @@ RetroAchievements::RetroAchievements()
 RetroAchievements::~RetroAchievements()
 {
     LogFunctionName;
-
+    _keep_running = false;
     _ClearAchievemnts();
     _ClearRetroMmap();
     _ClearRetroMemory();

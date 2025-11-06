@@ -53,6 +53,7 @@ RewindManager::RewindManager()
 RewindManager::~RewindManager()
 {
     LogFunctionName;
+    _keep_running = false;
     Deinit();
 }
 
