@@ -361,7 +361,7 @@ void Emulator::_OnHotkeySave(Input *input)
 {
     LogFunctionName;
 
-    if (gHardcore)
+    if (gRetroAchievements->GetHardcoreEnabled())
         return;
 
     Lock();
@@ -373,7 +373,7 @@ void Emulator::_OnHotkeyLoad(Input *input)
 {
     LogFunctionName;
 
-    if (gHardcore)
+    if (gRetroAchievements->GetHardcoreEnabled())
         return;
 
     Lock();
@@ -436,7 +436,7 @@ void Emulator::_OnHotkeySpeedDown(Input *input)
             new_speed = (_speed <= 1.0 ? MIN_SPEED : 1.0);
         }
 
-        if (gHardcore && new_speed < 1.0)
+        if (gRetroAchievements->GetHardcoreEnabled() && new_speed < 1.0)
         {
             new_speed = 1.0;
         }
@@ -449,7 +449,7 @@ void Emulator::_OnHotkeySpeedDown(Input *input)
 
 void Emulator::_OnHotkeyRewind(Input *input)
 {
-    if (gConfig->rewind && (!gHardcore))
+    if (gConfig->rewind && (!gRetroAchievements->GetHardcoreEnabled()))
     {
         gStatus.Set(APP_STATUS_REWIND_GAME);
     }

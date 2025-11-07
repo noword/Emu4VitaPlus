@@ -410,9 +410,9 @@ void Ui::OnStatusChanged(APP_STATUS status)
             }
         }
 
-        _tabs[TAB_INDEX_STATE]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME && (!gHardcore));
+        _tabs[TAB_INDEX_STATE]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME && (!gRetroAchievements->GetHardcoreEnabled()));
         _tabs[TAB_INDEX_ACHIEVEMENTS]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME && gRetroAchievements->GetAchievementsCount());
-        _tabs[TAB_INDEX_CHEAT]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME && (!gHardcore) && (gEmulator->GetCheats()->size() > 0));
+        _tabs[TAB_INDEX_CHEAT]->SetVisable(status == APP_STATUS_SHOW_UI_IN_GAME && (!gRetroAchievements->GetHardcoreEnabled()) && (gEmulator->GetCheats()->size() > 0));
         _tabs[TAB_INDEX_BROWSER]->SetVisable(status == APP_STATUS_SHOW_UI);
         _tabs[TAB_INDEX_FAVORITE]->SetVisable(status == APP_STATUS_SHOW_UI);
 
@@ -507,7 +507,8 @@ void Ui::Show()
 {
     LogFunctionNameLimited;
 
-    APP_STATUS status = gStatus.Get();
+    ImGui_ImplVita2D_NewFrame();
+    ImGui::SetMouseCursor(ImGuiMouseCursor_None);
 
     ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, MAIN_WINDOW_PADDING});
     ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2});
@@ -520,11 +521,14 @@ void Ui::Show()
                          ImGuiWindowFlags_NoInputs |
                          ImGuiWindowFlags_NoBringToFrontOnFocus))
     {
-        My_ImGui_ShowTimePower(gNetwork->Connected(), gRetroAchievements && gRetroAchievements->IsOnline(), gHardcore);
-        (status == APP_STATUS_BOOT) ? _boot_ui->Show() : _ShowNormal();
+        My_ImGui_ShowTimePower(gNetwork->Connected(), gRetroAchievements && gRetroAchievements->IsOnline(), gRetroAchievements->GetHardcoreEnabled());
+        (gStatus.Get() == APP_STATUS_BOOT) ? _boot_ui->Show() : _ShowNormal();
     }
 
     ImGui::End();
+
+    ImGui::Render();
+    My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
 
     return;
 }

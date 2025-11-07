@@ -191,7 +191,7 @@ LOADED:
             gConfig->Save();
         }
 
-        if (gConfig->auto_load && (!gHardcore))
+        if (gConfig->auto_load && (!gRetroAchievements->GetHardcoreEnabled()))
         {
             State *state = gStateManager->GetNewest();
             if (state)
@@ -221,7 +221,7 @@ LOADED:
 
         _frame_count = 0;
 
-        if (gConfig->rewind && !gHardcore)
+        if (gConfig->rewind && !gRetroAchievements->GetHardcoreEnabled())
         {
             _rewind_manager.Init();
         }
@@ -312,7 +312,7 @@ void Emulator::Run()
             _rewind_manager.Wait();
         break;
     case APP_STATUS_RUN_GAME:
-        if (gConfig->rewind && !gHardcore)
+        if (gConfig->rewind && !gRetroAchievements->GetHardcoreEnabled())
             _rewind_manager.Signal();
 
         if (gRetroAchievements->IsOnline())

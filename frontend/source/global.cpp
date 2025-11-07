@@ -2,7 +2,6 @@
 
 AppStatus gStatus;
 bool gBootFromArch = false;
-bool gHardcore = false;
 std::string gBootRomPath;
 
 Emu4VitaPlus::Video *gVideo = nullptr;

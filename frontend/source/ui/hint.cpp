@@ -18,6 +18,9 @@ void Hint::Show()
         return;
     }
 
+    ImGui_ImplVita2D_NewFrame();
+    ImGui::SetMouseCursor(ImGuiMouseCursor_None);
+
     _locker.Lock();
     HintItem &hint = _hints.front();
 
@@ -52,6 +55,9 @@ void Hint::Show()
         _hints.pop();
     }
     _locker.Unlock();
+
+    ImGui::Render();
+    My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
 }
 
 void Hint::SetHint(LanguageString s, int frame_count, bool clear_exists)

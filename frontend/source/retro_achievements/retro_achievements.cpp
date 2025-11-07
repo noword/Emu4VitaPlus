@@ -12,6 +12,7 @@ int RetroAchievements::_RaThread(SceSize args, void *argp)
 
     uint32_t idle_time;
     APP_STATUS status = gStatus.Get();
+    int try_login_count = 0;
     while (ra->IsRunning() && (status & (APP_STATUS_EXIT | APP_STATUS_RETURN_ARCH | APP_STATUS_REBOOT_WITH_LOADING)) == 0)
     {
         if (gNetwork->Connected() && ra->_online)
@@ -33,6 +34,11 @@ int RetroAchievements::_RaThread(SceSize args, void *argp)
         }
         else
         {
+            if (try_login_count < 5 && !gConfig->ra_token.empty() && gNetwork->Connected())
+            {
+                ra->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
+                try_login_count++;
+            }
             idle_time = RETRO_ACHIEVEMENTS_LOGIN_IDLE_TIME;
         }
 
@@ -251,7 +257,6 @@ void RetroAchievements::Logout()
     if (_online)
     {
         rc_client_logout(_client);
-        gHardcore = _online = false;
         Stop();
     }
 }
@@ -286,8 +291,13 @@ void RetroAchievements::SetHardcoreEnabled(const bool &enabled)
 {
     LogFunctionName;
     LogDebug("  enabled: %d", enabled);
-    gHardcore = enabled;
     rc_client_set_hardcore_enabled(_client, enabled);
+}
+
+bool RetroAchievements::GetHardcoreEnabled()
+{
+    LogFunctionName;
+    return rc_client_get_hardcore_enabled(_client);
 }
 
 void RetroAchievements::_UpdateAchievemnts()
