@@ -156,11 +156,6 @@ void Network::_ThreadLoop()
         if (AllCompleted())
         {
             Wait();
-            // uint32_t timeout = 10000;
-            // if (Wait(&timeout) == SCE_KERNEL_ERROR_WAIT_TIMEOUT)
-            // {
-            //     continue;
-            // }
         }
 
         _SubmitTaskLoop();
@@ -290,17 +285,24 @@ void Network::_ActiveTaskLoop()
 
             case CALLBACK_TASK:
             {
+                TaskCallback *callback_task = (TaskCallback *)task;
+                Response response;
                 if (msg->data.result == CURLE_OK)
                 {
-                    TaskCallback *callback_task = (TaskCallback *)task;
-                    Response response;
                     response.data = callback_task->buf.c_str();
                     response.size = callback_task->buf.size();
                     curl_easy_getinfo(easy, CURLINFO_RESPONSE_CODE, &response.code);
                     LogDebug("  callback:%08x data: %08x, size: %d", callback_task->callback, response.data, response.size);
-                    callback_task->callback(&response, callback_task->callback_data);
-                    _finished_task_count++;
                 }
+                else
+                {
+                    LogWarn("  task failed: %s", task->url.c_str());
+                    LogWarn("  result: %d", msg->data.result);
+                    response.data = "";
+                    response.size = 0;
+                }
+                callback_task->callback(&response, callback_task->callback_data);
+                _finished_task_count++;
             }
             break;
 
@@ -397,6 +399,7 @@ void Network::_SetOptions(CURL *curl)
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
     curl_easy_setopt(curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
     curl_easy_setopt(curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
+    // curl_easy_setopt(curl, CURLOPT_TIMEOUT, 3L);
 }
 
 size_t Network::GetSize(const char *url)

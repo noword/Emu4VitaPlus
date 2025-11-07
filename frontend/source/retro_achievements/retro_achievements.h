@@ -88,4 +88,5 @@ private:
     retro_memory_map _mmap;
     RetroMemory *_retro_memory;
     TextureCache _texture_cache;
+    int _login_session_count;
 };

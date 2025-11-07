@@ -1,5 +1,6 @@
 #include <stdint.h>
 #include "retro_achievements.h"
+#include "delay.h"
 #include "global.h"
 #include "file.h"
 #include "log.h"
@@ -118,7 +119,8 @@ RetroAchievements::RetroAchievements()
       _online(false),
       _mmap{0},
       _retro_memory(nullptr),
-      Enabled(false)
+      Enabled(false),
+      _login_session_count(0)
 {
     LogFunctionName;
 
@@ -186,6 +188,8 @@ void RetroAchievements::_LoginCallback(int result, const char *error_message, rc
     gUi->OnRetrAchievementsLogInOut(ra->_online);
     if (ra->_online)
     {
+        ra->Signal();
+
         const rc_client_user_t *user = rc_client_get_user_info(client);
 
         Notification *notification = new Notification;
@@ -205,30 +209,40 @@ void RetroAchievements::_LoginCallback(int result, const char *error_message, rc
     else
     {
         LogWarn("Login failed: %s", error_message);
-        if (gConfig->ra_token.empty())
+        char text[64];
+        snprintf(text, 64, "%s: %s", TEXT(LANG_LOGIN_FAILED), error_message);
+        gHint->SetHint(text);
+
+        if (strcmp(error_message, "No response") != 0)
         {
-            gHint->SetHint(TEXT(LANG_LOGIN_FAILED));
-        }
-        else
-        {
-            gHint->SetHint(TEXT(LANG_TOKEN_EXPIRED));
             gConfig->ra_token.clear();
         }
     }
 
     gConfig->Save();
+
+    ra->_login_session_count--;
 }
 
 void RetroAchievements::Login(const char *username, const char *password)
 {
     LogFunctionName;
-    rc_client_begin_login_with_password(_client, username, password, _LoginCallback, this);
+    if (_login_session_count == 0)
+    {
+        _login_session_count++;
+        rc_client_begin_login_with_password(_client, username, password, _LoginCallback, this);
+    }
 }
 
 void RetroAchievements::LoginWithToekn(const char *username, const char *token)
 {
     LogFunctionName;
-    rc_client_begin_login_with_token(_client, username, token, _LoginCallback, this);
+    if (_login_session_count == 0)
+    {
+        _login_session_count++;
+        LogDebug("  username: %s token: %s", username, token);
+        rc_client_begin_login_with_token(_client, username, token, _LoginCallback, this);
+    }
 }
 
 void RetroAchievements::Logout()
