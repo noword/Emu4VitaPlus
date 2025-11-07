@@ -296,7 +296,6 @@ void RetroAchievements::SetHardcoreEnabled(const bool &enabled)
 
 bool RetroAchievements::GetHardcoreEnabled()
 {
-    LogFunctionName;
     return rc_client_get_hardcore_enabled(_client);
 }
 

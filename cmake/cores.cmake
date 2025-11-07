@@ -47,6 +47,7 @@ set(CORE_ROWS
     "libretro-cap32;cap32;Caprice32;CPC;CAP324VIT"
     "libretro-crocods;crocods;CrocoDS;CPC;CROCODS4V"
     "snes9x;snes9x;Snes9x;SNES;SNES9X4VT"
+    "mgba;mgba;mGBA;GBA;MGBA4VITA"
 )
 
 set(ROW_SIZE 5)

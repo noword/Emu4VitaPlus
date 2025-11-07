@@ -145,6 +145,7 @@ App::App()
                        {{"Mednafen Wswan", "mednafen_wswan"}}),
         new CoreButton(GBA, // 2001
                        {{"gpSP " ICON_STAR, "gpsp"},
+                        {"mGBA", "mgba"},
                         {"VBA Next", "vba_next"}}),
         new CoreButton(ARC,
                        {{"FBA Lite", "fba_lite"},

@@ -180,6 +180,7 @@ const bool DEFAULT_INDEPENDENT_CONFIG = false;
     defined(VBA_NEXT_BUILD) ||        \
     defined(GENESIS_PLUS_GX_BUILD) || \
     defined(GAMBATTE_BUILD) ||        \
+    defined(MGBA_BUILD) ||            \
     defined(GPSP_BUILD)
 RETRO_ACHIEVEMENTS_SUPPORT_ENUM RETRO_ACHIEVEMENTS_SUPPORT = RETRO_ACHIEVEMENTS_ENABLE;
 #else
