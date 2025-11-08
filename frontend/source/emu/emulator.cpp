@@ -326,7 +326,7 @@ void Emulator::Run()
 
     Lock();
     retro_run();
-    _audio.NotifyBufStatus();
+    _audio.NotifyBufStatus(_show_video);
     Unlock();
 
     EndProfile("retro_run");

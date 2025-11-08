@@ -299,35 +299,15 @@ else ifeq ($(platform), psp1)
 else ifeq ($(platform), vita)
    TARGET := $(TARGET_NAME)_libretro_$(platform).a
    CC = arm-vita-eabi-gcc$(EXE_EXT)
-   AR = arm-vita-eabi-gcc-ar$(EXE_EXT)
-   PLATFORM_DEFINES := -DVITA -DCC_RESAMPLER -DPSP2 -DHAVE_STRTOF_L \
--DENABLE_SCRIPTING \
--DHAVE_CRC32 \
--DHAVE_FREELOCALE \
--DHAVE_FUTIMENS \
--DHAVE_LOCALE \
--DHAVE_LOCALTIME_R \
--DHAVE_NEWLOCALE \
--DHAVE_REALPATH \
--DHAVE_SETLOCALE \
--DHAVE_STRDUP \
--DHAVE_STRLCPY \
--DHAVE_STRNDUP \
--DHAVE_USELOCALE \
--DHAVE_VASPRINTF \
--DIOAPI_NO_64 \
--DM_CORE_GB \
--DM_CORE_GBA \
--DUSE_LIBSWRESAMPLE \
--D_GNU_SOURCE
+   AR = arm-vita-eabi-ar$(EXE_EXT)
+   PLATFORM_DEFINES := -DVITA -DCC_RESAMPLER -DPSP2 -DHAVE_STRTOF_L -DNDEBUG -DENABLE_DIRECTORIES -DENABLE_SCRIPTING
    STATIC_LINKING = 1
-   DEFINES += -std=c11
-   CFLAGS += -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard \
+   DEFINES += -std=c11 -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard \
 -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant \
 -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables \
--ffast-math -ftree-vectorize -funroll-loops -fno-short-enums -fwrapv
-   CXXFLAGS += $(CFLAGS)
-   LDFLAGS += -Wl,-z,nocopyreloc
+-ffast-math -ftree-vectorize -fdata-sections -ffunction-sections
+    LDFLAGS += -Wl,-z,nocopyreloc
+
 
 # CTR(3DS)
 else ifeq ($(platform), ctr)
@@ -343,7 +323,7 @@ else ifeq ($(platform), ctr)
    CFLAGS += -I$(CTRULIB)/include
    DEFINES += -std=c99
 
-   PLATFORM_DEFINES += -DUSE_VFS_3DS
+   PLATFORM_DEFINES += -DENABLE_VFS_3DS
    STATIC_LINKING = 1
 
 # Xbox 360
@@ -491,7 +471,7 @@ endif
 
 $(TARGET): $(OBJS)
 ifeq ($(STATIC_LINKING), 1)
-	$(AR) rcs $@ $(OBJS)
+	$(AR) qc $@ $(OBJS)
 else
 	$(LD) -o $@ $(SHARED) $(OBJS) $(LDFLAGS) $(LIBS)
 endif

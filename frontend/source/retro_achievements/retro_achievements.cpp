@@ -256,6 +256,7 @@ void RetroAchievements::Logout()
     LogFunctionName;
     if (_online)
     {
+        _online = false;
         rc_client_logout(_client);
         Stop();
     }

@@ -1,6 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include <psp2/kernel/processmgr.h>
+#include "utils.h"
 
 template <typename T>
 class Delay
@@ -14,6 +15,7 @@ public:
     void SetInterval(T interval_ms, T start_ms = 0)
     {
         _interval_ms = interval_ms;
+        _outtime_ms = _interval_ms * 8;
         _next_ms = sceKernelGetProcessTimeWide() + _interval_ms + start_ms;
     };
 
@@ -22,16 +24,20 @@ public:
     bool Wait()
     {
         T current = sceKernelGetProcessTimeWide();
-        bool result = (current <= _next_ms);
 
-        if (current < _next_ms)
+        bool result = current < _next_ms;
+        if (likely(result))
         {
             sceKernelDelayThread(_next_ms - current);
             _next_ms += _interval_ms;
         }
-        else
+        else if (current > _next_ms + _outtime_ms)
         {
             _next_ms = current + _interval_ms;
+        }
+        else
+        {
+            _next_ms += _interval_ms;
         }
 
         return result;
@@ -51,4 +57,5 @@ public:
 private:
     T _interval_ms;
     T _next_ms;
+    T _outtime_ms;
 };

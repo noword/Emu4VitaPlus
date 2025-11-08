@@ -81,6 +81,8 @@ App::App()
     gHint = new Hint;
     gNotifications = new Notifications;
     gInputTextDialog = new InputTextDialog;
+    if (!gRetroAchievements)
+        gRetroAchievements = new RetroAchievements;
 
     gVideo->Start();
 
@@ -130,8 +132,7 @@ App::App()
     }
 
     gUi->AppendLog("Initialize RetroAchievements");
-    if (!gRetroAchievements)
-        gRetroAchievements = new RetroAchievements;
+
     if (RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE && !gRetroAchievements->IsRunning())
     {
         gRetroAchievements->Enabled = true;

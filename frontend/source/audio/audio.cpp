@@ -163,15 +163,23 @@ namespace Emu4VitaPlus
         return frames;
     }
 
-    void Audio::NotifyBufStatus()
+    void Audio::NotifyBufStatus(bool show_video)
     {
         if (_buf_status_callback && _output)
         {
-            int remain = _output->GetRemain();
-            _buf_status_callback(gConfig->mute, remain * 100 / AUDIO_OUTPUT_COUNT, remain < AUDIO_OUTPUT_COUNT);
+            if (show_video)
+            {
+                _buf_status_callback(gConfig->mute, 100, false);
+            }
+            else
+            {
+                _buf_status_callback(gConfig->mute, 10, true);
+            }
+            // int remain = _output->GetRemain();
+            // _buf_status_callback(gConfig->mute, remain * 100 / AUDIO_OUTPUT_COUNT, remain < AUDIO_OUTPUT_COUNT);
             // if (remain < AUDIO_OUTPUT_COUNT)
             // {
-            //     LogDebug("skip audio: %d ", remain);
+            //     LogInfo("skip audio: %d ", remain);
             // }
         }
     }

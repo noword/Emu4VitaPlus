@@ -507,9 +507,11 @@ void Ui::Show()
 {
     LogFunctionNameLimited;
 
+#ifndef DRAW_IMGUI_TOGETHER
     ImGui_ImplVita2D_NewFrame();
     ImGui::SetMouseCursor(ImGuiMouseCursor_None);
-
+#endif
+    APP_STATUS status = gStatus.Get();
     ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, MAIN_WINDOW_PADDING});
     ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2});
 
@@ -522,13 +524,15 @@ void Ui::Show()
                          ImGuiWindowFlags_NoBringToFrontOnFocus))
     {
         My_ImGui_ShowTimePower(gNetwork->Connected(), gRetroAchievements && gRetroAchievements->IsOnline(), gRetroAchievements->GetHardcoreEnabled());
-        (gStatus.Get() == APP_STATUS_BOOT) ? _boot_ui->Show() : _ShowNormal();
+        (status == APP_STATUS_BOOT) ? _boot_ui->Show() : _ShowNormal();
     }
 
     ImGui::End();
 
+#ifndef DRAW_IMGUI_TOGETHER
     ImGui::Render();
     My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
+#endif
 
     return;
 }
