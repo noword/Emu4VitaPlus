@@ -497,6 +497,10 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_NETPACKET_INTERFACE");
         return false;
 
+    case RETRO_ENVIRONMENT_GET_TARGET_SAMPLE_RATE:
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_TARGET_SAMPLE_RATE");
+        return false;
+
     default:
         if (cmd > RETRO_ENVIRONMENT_EXPERIMENTAL)
         {

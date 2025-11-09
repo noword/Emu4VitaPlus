@@ -14,17 +14,17 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
 {
     LogFunctionNameLimited;
 
-    if (width == 0 || height == 0)
+    if (unlikely(width == 0 || height == 0))
     {
         LogDebug("  invalid size: %d %d", width, height);
         // gEmulator->_delay.Wait();
         return;
     }
 
-    if (gEmulator->_graphics_config_changed ||
-        gEmulator->_texture_buf == nullptr ||
-        gEmulator->_texture_buf->GetWidth() != width ||
-        gEmulator->_texture_buf->GetHeight() != height)
+    if (unlikely(gEmulator->_graphics_config_changed ||
+                 gEmulator->_texture_buf == nullptr ||
+                 gEmulator->_texture_buf->GetWidth() != width ||
+                 gEmulator->_texture_buf->GetHeight() != height))
     {
         if (gEmulator->_texture_buf)
         {
@@ -43,7 +43,7 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
         gEmulator->_SetupVideoOutput(width, height);
     }
 
-    if ((!data) || pitch == 0)
+    if (unlikely((!data) || pitch == 0))
     {
         return;
     }
@@ -52,7 +52,7 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
 
     vita2d_texture *texture = gEmulator->_texture_buf->NextBegin();
 
-    if (data != vita2d_texture_get_datap(texture))
+    if (likely(data != vita2d_texture_get_datap(texture)))
     {
         unsigned out_pitch = vita2d_texture_get_stride(texture);
         uint8_t *out = (uint8_t *)vita2d_texture_get_datap(texture);

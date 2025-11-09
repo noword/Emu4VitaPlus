@@ -44,7 +44,12 @@ void Profiler::EndBlock(const std::string &name)
         SceKernelThreadInfo info{0};
         info.size = sizeof(SceKernelThreadInfo);
         sceKernelGetThreadInfo(sceKernelGetThreadId(), &info);
-        LogDebug("Profiler: %s [%d] %0.4f %2.2f%%", name.c_str(), info.currentCpuId, block->working_time / 1000000.0, block->working_time * 100.0 / _log_interval);
+        LogDebug("Profiler: [%08x, %d] %s %0.4f %2.2f%%",
+                 sceKernelGetThreadId(),
+                 info.currentCpuId,
+                 name.c_str(),
+                 block->working_time / 1000000.0,
+                 block->working_time * 100.0 / _log_interval);
 
         block->working_time = 0;
         block->next_log_time = now + _log_interval;
