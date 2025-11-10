@@ -177,3 +177,13 @@ set(LZ4_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lz4/lib)
 set(LZ4_SRC ${LZ4_PATH}/lz4.c ${LZ4_PATH}/lz4hc.c)
 add_library(lz4 ${LZ4_SRC})
 target_include_directories(lz4 PRIVATE ${LZ4_PATH})
+
+# gprof
+# ----------------------
+if(GPROF)
+    project(vitagprof C ASM)
+    set(GPROF_PATH ${CMAKE_CURRENT_SOURCE_DIR}/gprof)
+    set(GPROF_SRC ${GPROF_PATH}/prof.c ${GPROF_PATH}/mcount.s)
+    add_library(vitagprof ${GPROF_SRC})
+    target_include_directories(vitagprof PRIVATE ${GPROF_PATH})
+endif()

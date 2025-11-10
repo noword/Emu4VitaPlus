@@ -64,6 +64,7 @@ add_dependencies(${ELF_NAME} ${CORE_TAG})
 target_link_libraries(
     ${ELF_NAME}
     ${LIBRETRO_LIBRARY}
+    ${GPORF_LIB}
     retro_comm
     rcheevos
     share
@@ -111,7 +112,7 @@ target_link_libraries(
 
 set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")
 
-vita_create_self(${EBOOT_NAME} ${ELF_NAME} STRIPPED)
+vita_create_self(${EBOOT_NAME} ${ELF_NAME} STRIPPED ${NOASLR})
 
 if(NOT BUILD_SELF)
     set(PRIVATE_PKG_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${CORE}/pkg)

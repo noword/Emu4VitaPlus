@@ -26,7 +26,7 @@ extern int _newlib_vm_size_user __attribute__((weak));
 
 #define ALIGN(x, a) (((x) + ((a) - 1)) & ~((a) - 1))
 
-void *_sbrk_r(struct _reent *reent, ptrdiff_t incr)
+__attribute__((no_instrument_function)) void *_sbrk_r(struct _reent *reent, ptrdiff_t incr)
 {
 	if (sceKernelLockLwMutex(&_newlib_sbrk_mutex, 1, 0) < 0)
 		goto fail;
@@ -48,7 +48,7 @@ void *_sbrk_r(struct _reent *reent, ptrdiff_t incr)
 	return (void *)prev_heap_end;
 }
 
-void _init_vita_heap(void)
+__attribute__((no_instrument_function)) void _init_vita_heap(void)
 {
 
 	int _newlib_vm_size = 0;
@@ -114,12 +114,12 @@ failure:
 	_newlib_heap_cur = 0;
 }
 
-int getVMBlock()
+__attribute__((no_instrument_function)) int getVMBlock()
 {
 	return _newlib_vm_memblock;
 }
 
-void _free_vita_heap(void)
+__attribute__((no_instrument_function)) void _free_vita_heap(void)
 {
 	// Destroy the sbrk mutex
 	sceKernelDeleteLwMutex(&_newlib_sbrk_mutex);

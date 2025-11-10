@@ -20,6 +20,10 @@
 #include "profiler.h"
 #include "network.h"
 
+#ifdef ENABLE_GPROF
+#include "vitagprof.h"
+#endif
+
 #ifdef TEXT
 #undef TEXT
 #endif
@@ -276,6 +280,11 @@ void App::Run()
             break;
         }
     }
+
+#ifdef ENABLE_GPROF
+    LogDebug("dump gprof data to ux0:/data/gmon.out");
+    gprof_stop("ux0:/data/gmon.out", 1);
+#endif
 }
 
 bool App::_IsSaveMode()

@@ -80,6 +80,7 @@ add_dependencies(${APP_NAME}.elf LANG_ARCH)
 
 target_link_libraries(
     ${APP_NAME}.elf
+    ${GPORF_LIB}
     share
     vita2d
     imgui_vita2d
