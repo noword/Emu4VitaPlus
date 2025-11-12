@@ -498,13 +498,14 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         return false;
 
     case RETRO_ENVIRONMENT_GET_TARGET_SAMPLE_RATE:
-        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_TARGET_SAMPLE_RATE");
-        return false;
+        LogDebug("  cmd: RETRO_ENVIRONMENT_GET_TARGET_SAMPLE_RATE");
+        *(unsigned *)data = 48000;
+        break;
 
     default:
         if (cmd > RETRO_ENVIRONMENT_EXPERIMENTAL)
         {
-            LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_EXPERIMENTAL | %d", cmd - RETRO_ENVIRONMENT_EXPERIMENTAL);
+            LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_EXPERIMENTAL | %d", cmd & ~RETRO_ENVIRONMENT_EXPERIMENTAL);
         }
         else
         {
