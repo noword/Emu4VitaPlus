@@ -9,8 +9,10 @@ public:
 
     void Start();
     void Stop();
+    bool Enabled() { return _enabled; };
     const SceMotionSensorState &GetState();
 
 private:
     SceMotionSensorState _state;
+    bool _enabled;
 };

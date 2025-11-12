@@ -155,7 +155,7 @@ const bool ENABLE_KEYBOARD = true;
 const bool ENABLE_KEYBOARD = false;
 #endif
 
-#if defined(MGBA)
+#if defined(MGBA_BUILD)
 const bool ENABLE_MOTION_SENSOR = true;
 #else
 const bool ENABLE_MOTION_SENSOR = false;

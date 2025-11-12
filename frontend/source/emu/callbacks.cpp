@@ -189,14 +189,17 @@ bool EnvironmentCallback(unsigned cmd, void *data)
     case RETRO_ENVIRONMENT_GET_SENSOR_INTERFACE:
         LogDebug("  cmd: RETRO_ENVIRONMENT_GET_SENSOR_INTERFACE");
         {
+            LogDebug("  ENABLE_MOTION_SENSOR: %d", ENABLE_MOTION_SENSOR);
             retro_sensor_interface *interface = (retro_sensor_interface *)data;
             if (ENABLE_MOTION_SENSOR)
             {
+                interface->set_sensor_state = SetSensorStateCallback;
+                interface->get_sensor_input = SensorGetInputCallback;
             }
             else
             {
-                interface->get_sensor_input = nullptr;
                 interface->set_sensor_state = nullptr;
+                interface->get_sensor_input = nullptr;
             }
         }
         break;
@@ -513,9 +516,12 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         return false;
 
     case RETRO_ENVIRONMENT_GET_TARGET_SAMPLE_RATE:
-        LogDebug("  cmd: RETRO_ENVIRONMENT_GET_TARGET_SAMPLE_RATE");
-        *(unsigned *)data = 48000;
-        break;
+        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_TARGET_SAMPLE_RATE");
+        return false;
+        // It will slow down the speed of mgba, so we do nothing here.
+        // LogDebug("  cmd: RETRO_ENVIRONMENT_GET_TARGET_SAMPLE_RATE");
+        // *(unsigned *)data = 48000;
+        // break;
 
     default:
         if (cmd > RETRO_ENVIRONMENT_EXPERIMENTAL)

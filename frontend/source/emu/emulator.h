@@ -15,6 +15,7 @@
 #include "rect.h"
 #include "keyboard.h"
 #include "locker.h"
+#include "motion_sensor.h"
 
 using namespace Emu4VitaPlus;
 
@@ -164,6 +165,7 @@ private:
 
     Audio _audio;
     InputThread _input;
+    MotionSensor _motion_sensor;
     uint32_t _keys[16];
     uint32_t _keys_mask;
     double _speed;

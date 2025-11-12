@@ -108,6 +108,7 @@ target_link_libraries(
     SceFiber_stub
     SceSsl_stub
     SceHttp_stub
+    SceMotion_stub
 )
 
 set(VITA_MAKE_FSELF_FLAGS "-a 0x2800000000000001")

@@ -49,6 +49,59 @@ int16_t InputStateCallback(unsigned port, unsigned device, unsigned index, unsig
     }
 }
 
+bool SetSensorStateCallback(unsigned port, enum retro_sensor_action action, unsigned rate)
+{
+    LogFunctionName;
+
+    LogDebug("  port: %d action: %d rate: %d", port, action, rate);
+
+    switch (action)
+    {
+    case RETRO_SENSOR_ACCELEROMETER_DISABLE:
+    case RETRO_SENSOR_GYROSCOPE_DISABLE:
+        gEmulator->_motion_sensor.Stop();
+        return true;
+
+    case RETRO_SENSOR_ACCELEROMETER_ENABLE:
+    case RETRO_SENSOR_GYROSCOPE_ENABLE:
+        gEmulator->_motion_sensor.Start();
+        return true;
+
+    case RETRO_SENSOR_ILLUMINANCE_DISABLE:
+        return true;
+
+    default:
+        return false;
+    }
+}
+
+float SensorGetInputCallback(unsigned port, unsigned id)
+{
+    if (!gEmulator->_motion_sensor.Enabled())
+    {
+        return 0.f;
+    }
+
+    const SceMotionSensorState &state = gEmulator->_motion_sensor.GetState();
+    switch (id)
+    {
+    case RETRO_SENSOR_ACCELEROMETER_X:
+        return state.accelerometer.x;
+    case RETRO_SENSOR_ACCELEROMETER_Y:
+        return state.accelerometer.y;
+    case RETRO_SENSOR_ACCELEROMETER_Z:
+        return state.accelerometer.z;
+    case RETRO_SENSOR_GYROSCOPE_X:
+        return state.gyro.x;
+    case RETRO_SENSOR_GYROSCOPE_Y:
+        return state.gyro.y;
+    case RETRO_SENSOR_GYROSCOPE_Z:
+        return state.gyro.z;
+    }
+
+    return 0.f;
+}
+
 int16_t Emulator::_GetJoypadState(unsigned index, unsigned id)
 {
     uint32_t key_states = _input.GetKeyStates();
