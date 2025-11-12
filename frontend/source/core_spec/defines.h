@@ -51,7 +51,7 @@ extern const bool DEFAULT_INDEPENDENT_CONFIG;
 extern const bool DEFAULT_LIGHTGUN;
 extern const bool DEFAULT_MOUSE;
 extern const bool ENABLE_KEYBOARD;
-
+extern const bool ENABLE_MOTION_SENSOR;
 extern const bool CONTROL_SPEED_BY_VIDEO;
 
 enum RETRO_ACHIEVEMENTS_SUPPORT_ENUM

@@ -186,6 +186,21 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_GET_RUMBLE_INTERFACE");
         return false;
 
+    case RETRO_ENVIRONMENT_GET_SENSOR_INTERFACE:
+        LogDebug("  cmd: RETRO_ENVIRONMENT_GET_SENSOR_INTERFACE");
+        {
+            retro_sensor_interface *interface = (retro_sensor_interface *)data;
+            if (ENABLE_MOTION_SENSOR)
+            {
+            }
+            else
+            {
+                interface->get_sensor_input = nullptr;
+                interface->set_sensor_state = nullptr;
+            }
+        }
+        break;
+
     case RETRO_ENVIRONMENT_GET_LOG_INTERFACE:
         LogDebug("  cmd: RETRO_ENVIRONMENT_GET_LOG_INTERFACE");
         if (data)

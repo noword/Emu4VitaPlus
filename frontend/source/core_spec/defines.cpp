@@ -155,6 +155,12 @@ const bool ENABLE_KEYBOARD = true;
 const bool ENABLE_KEYBOARD = false;
 #endif
 
+#if defined(MGBA)
+const bool ENABLE_MOTION_SENSOR = true;
+#else
+const bool ENABLE_MOTION_SENSOR = false;
+#endif
+
 #if defined(VBA_NEXT_BUILD)
 const bool CONTROL_SPEED_BY_VIDEO = true;
 #else

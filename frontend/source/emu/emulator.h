@@ -35,6 +35,8 @@ extern void AudioSampleCallback(int16_t left, int16_t right);
 extern size_t AudioSampleBatchCallback(const int16_t *data, size_t frames);
 extern void InputPollCallback();
 extern int16_t InputStateCallback(unsigned port, unsigned device, unsigned index, unsigned id);
+extern bool SetSensorStateCallback(unsigned port, enum retro_sensor_action action, unsigned rate);
+extern float SensorGetInputCallback(unsigned port, unsigned id);
 
 class Emulator
 {
@@ -106,6 +108,8 @@ public:
     friend size_t AudioSampleBatchCallback(const int16_t *data, size_t frames);
     friend void InputPollCallback();
     friend int16_t InputStateCallback(unsigned port, unsigned device, unsigned index, unsigned id);
+    friend bool SetSensorStateCallback(unsigned port, enum retro_sensor_action action, unsigned rate);
+    friend float SensorGetInputCallback(unsigned port, unsigned id);
 
 private:
     void _SetPixelFormat(retro_pixel_format format);
