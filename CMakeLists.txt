@@ -60,12 +60,12 @@ set(CMAKE_EXE_LINKER_FLAGS "-Wl,-q,-no-enum-size-warning,--as-needed,--gc-sectio
 set(OUT_PATH "${CMAKE_BINARY_DIR}/out")
 file(MAKE_DIRECTORY ${OUT_PATH})
 
-set(APP_VER "0.50")
-set(SFO_APP_VER "00.50")
+set(APP_VER "0.51")
+set(SFO_APP_VER "00.51")
 
 if(LTO)
-    set(CMAKE_C_FLAGS " ${CMAKE_C_FLAGS} -flto -fno-fat-lto-objects ")
-    set(CMAKE_CXX_FLAGS " ${CMAKE_CXX_FLAGS} -flto -fno-fat-lto-objects ")
+    set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -flto -fno-fat-lto-objects ")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -flto -fno-fat-lto-objects ")
     set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -flto ")
 
     if(EXISTS $ENV{VITASDK}/lib/gcc/arm-vita-eabi/10.3.0/liblto_plugin-0.dll)
@@ -103,12 +103,12 @@ foreach(index RANGE ${length})
     list(GET CORE_SHORTS ${index} CORE_SHORT)
     list(GET TITLE_IDS ${index} SFO_TITLE_ID)
 
-    if(BUILD STREQUAL " All" OR BUILD STREQUAL "Arch " OR BUILD STREQUAL ${CORE})
+    if(BUILD STREQUAL "All" OR BUILD STREQUAL "Arch" OR BUILD STREQUAL ${CORE})
         add_subdirectory(cores cores/${CORE})
         add_subdirectory(apps apps/${CORE})
     endif()
 endforeach()
 
-if(BUILD STREQUAL " All" OR BUILD STREQUAL "Arch ")
+if(BUILD STREQUAL "All" OR BUILD STREQUAL "Arch")
     add_subdirectory(arch)
 endif()
