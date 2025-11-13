@@ -1930,5 +1930,29 @@
         "Spanish": "",
         "Russian": "Тестирование интеграции с RetroAchievements",
         "Comments": ""
+    },
+    {
+        "No.": "162",
+        "Tag": "LANG_CPU_FREQ",
+        "English": "CPU frequency",
+        "Chinese": "CPU 频率",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "163",
+        "Tag": "LANG_AUTO",
+        "English": "Auto",
+        "Chinese": "自动",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
 ]

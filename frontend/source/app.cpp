@@ -34,7 +34,6 @@ App::App()
 {
     LogFunctionName;
 
-    scePowerSetArmClockFrequency(444);
     scePowerSetBusClockFrequency(222);
     scePowerSetGpuClockFrequency(222);
     scePowerSetGpuXbarClockFrequency(166);
@@ -63,7 +62,6 @@ App::App()
     _IsSaveMode();
     // LogDebug("getVMBlock: %08x", getVMBlock());
     gConfig = new Config();
-
     if (!gConfig->Load())
     {
         File::RemoveAllFiles(ARCADE_CACHE_DIR);
@@ -79,6 +77,8 @@ App::App()
 
     gNetwork = new Network();
     gEmulator = new Emulator();
+    gEmulator->SetCpuFreq();
+
     gNetwork->SetUserAgent();
     gVideo = new Video();
     gUi = new Ui();

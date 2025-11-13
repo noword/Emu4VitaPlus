@@ -16,6 +16,7 @@
 #include "keyboard.h"
 #include "locker.h"
 #include "motion_sensor.h"
+#include "fps.h"
 
 using namespace Emu4VitaPlus;
 
@@ -78,6 +79,7 @@ public:
     void SetupKeysWithSaveConfig();
     bool NeedRender();
     const ArcadeManager *GetArcadeManager() const { return _arcade_manager; };
+    void SetCpuFreq(int freq = -1);
     void ClearCache()
     {
         if (_arcade_manager)
@@ -148,6 +150,8 @@ private:
     void _InitArcadeManager();
     void _ShowSpeedHint();
 
+    void _AutoAdjustCpu();
+
     Locker _locker;
     std::string _current_name;
     bool _loaded;
@@ -186,4 +190,10 @@ private:
 
     DiskControl *_disk_contorl;
     Keyboard *_keyboard;
+
+    Fps _fps;
+    int _overclock_fps_threshold;
+    int _downclock_fps_threshold;
+    int _current_cpu_freq;
+    int _adjust_cpu_count;
 };

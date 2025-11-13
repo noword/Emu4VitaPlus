@@ -362,6 +362,9 @@ void Emulator::SetSpeed(double speed)
     _delay.SetInterval(interval);
     _video_delay.SetInterval(interval);
     _audio.Init(_av_info.timing.sample_rate * speed);
+    _overclock_fps_threshold = _av_info.timing.fps * 0.6;
+    _downclock_fps_threshold = _av_info.timing.fps * 0.8;
+    _adjust_cpu_count = 0;
 }
 
 void Emulator::_ShowSpeedHint()
@@ -719,4 +722,56 @@ void Emulator::ChangeCheatConfig()
 bool Emulator::IsMultiDisc()
 {
     return _disk_contorl && _disk_contorl->GetNumImages() > 1;
+}
+
+void Emulator::SetCpuFreq(int freq)
+{
+    LogFunctionName;
+
+    if (freq < 0)
+    {
+        switch (gConfig->cpu_freq)
+        {
+        case CPU_444:
+            freq = 444;
+            break;
+
+        case CPU_500:
+            freq = 500;
+            break;
+
+        case CPU_AUTO:
+        case CPU_333:
+        default:
+            freq = 333;
+            break;
+        }
+    }
+    LogDebug("  set cpu freq to %d", freq);
+    scePowerSetArmClockFrequency(freq);
+    _current_cpu_freq = freq;
+}
+
+void Emulator::_AutoAdjustCpu()
+{
+    _fps.Update();
+    int fps = _fps.Get();
+    if (fps <= _overclock_fps_threshold)
+    {
+        if (_current_cpu_freq != 444 && _adjust_cpu_count++ > 180)
+        {
+            SetCpuFreq(444);
+        }
+    }
+    else if (fps >= _downclock_fps_threshold)
+    {
+        if (_current_cpu_freq != 333 && _adjust_cpu_count++ > 180)
+        {
+            SetCpuFreq(333);
+        }
+    }
+    else
+    {
+        _adjust_cpu_count = 0;
+    }
 }

@@ -96,6 +96,7 @@ enum CpuFreqConfig
     CPU_AUTO = 0,
     CPU_333,
     CPU_444,
+    CPU_500,
 };
 
 enum RetroAchievementPosition
