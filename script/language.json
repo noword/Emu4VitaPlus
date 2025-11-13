@@ -1686,7 +1686,7 @@
         "Chinese": "RetroAchievements 成就系统",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "RetroAchievements",
         "Spanish": "",
         "Russian": "Достижения RetroAchievements",
         "Comments": ""
@@ -1698,7 +1698,7 @@
         "Chinese": "如果你不知道这是什么，访问 https://retroachievements.org",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Si vous ne savez pas de quoi il s'agit, rendez-vous sur https://retroachievements.org",
         "Spanish": "",
         "Russian": "Не знаете, что это такое? Посетите https://retroachievements.org",
         "Comments": ""
@@ -1710,7 +1710,7 @@
         "Chinese": "硬核模式",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Mode hardcore",
         "Spanish": "",
         "Russian": "Хардкорный режим",
         "Comments": ""
@@ -1734,7 +1734,7 @@
         "Chinese": "用户名",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Nom d'utilisateur",
         "Spanish": "",
         "Russian": "Имя пользователя",
         "Comments": ""
@@ -1746,7 +1746,7 @@
         "Chinese": "密码",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Mot de passe",
         "Spanish": "",
         "Russian": "Пароль",
         "Comments": ""
@@ -1758,7 +1758,7 @@
         "Chinese": "没有网络连接",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Aucune connexion réseau active",
         "Spanish": "",
         "Russian": "Нет подключения к Интернету",
         "Comments": ""
@@ -1770,7 +1770,7 @@
         "Chinese": "登录成功",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Connexion réussie",
         "Spanish": "",
         "Russian": "Вход выполнен",
         "Comments": ""
@@ -1782,7 +1782,7 @@
         "Chinese": "登录失败",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "La connexion a échoué",
         "Spanish": "",
         "Russian": "Не удалось выполнить вход",
         "Comments": ""
@@ -1794,7 +1794,7 @@
         "Chinese": "RetroAchievements 的令牌已过期，请重新登录。",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Le jeton de RetroAchievements a expiré. Veuillez vous reconnecter.",
         "Spanish": "",
         "Russian": "Срок действия токена RetroAchievements истёк, войдите в систему снова.",
         "Comments": ""
@@ -1818,7 +1818,7 @@
         "Chinese": "开始冲榜",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Tentative de classement commencée",
         "Spanish": "",
         "Russian": "Попытка попасть в таблицу лидеров",
         "Comments": ""
@@ -1830,7 +1830,7 @@
         "Chinese": "冲榜失败",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "La tentative d'inscription au classement a échoué.",
         "Spanish": "",
         "Russian": "Не удалось попасть в таблицу лидеров",
         "Comments": ""
@@ -1842,7 +1842,7 @@
         "Chinese": "已登榜",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Classement soumis",
         "Spanish": "",
         "Russian": "Результат занесён в таблицу лидеров",
         "Comments": ""
@@ -1854,7 +1854,7 @@
         "Chinese": "成就显示位置",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Emplacement d'affichage des réalisations",
         "Spanish": "",
         "Russian": "Расположение уведомлений о достижениях",
         "Comments": ""
@@ -1866,7 +1866,7 @@
         "Chinese": "左上",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "En haut à gauche",
         "Spanish": "",
         "Russian": "Вверху слева",
         "Comments": ""
@@ -1878,7 +1878,7 @@
         "Chinese": "右上",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "En haut à droite",
         "Spanish": "",
         "Russian": "Вверху справа",
         "Comments": ""
@@ -1890,7 +1890,7 @@
         "Chinese": "左下",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "En bas à gauche",
         "Spanish": "",
         "Russian": "Внизу слева",
         "Comments": ""
@@ -1902,7 +1902,7 @@
         "Chinese": "右下",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "En haut à droit",
         "Spanish": "",
         "Russian": "Внизу справа",
         "Comments": ""
@@ -1914,7 +1914,7 @@
         "Chinese": "游戏通关",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Jeu terminé",
         "Spanish": "",
         "Russian": "Игра пройдена",
         "Comments": ""
@@ -1926,7 +1926,7 @@
         "Chinese": "RetroAchievements 测试",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Testeur de RetroAchievements",
         "Spanish": "",
         "Russian": "Тестирование интеграции с RetroAchievements",
         "Comments": ""
@@ -1938,7 +1938,7 @@
         "Chinese": "CPU 频率",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Fréquence du processeur",
         "Spanish": "",
         "Russian": "",
         "Comments": ""
@@ -1950,9 +1950,10 @@
         "Chinese": "自动",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Auto",
         "Spanish": "",
         "Russian": "",
         "Comments": ""
     }
+
 ]
