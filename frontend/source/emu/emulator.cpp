@@ -754,7 +754,6 @@ void Emulator::SetCpuFreq(int freq)
 
 void Emulator::_AutoAdjustCpu()
 {
-    _fps.Update();
     int fps = _fps.Get();
     if (fps <= _overclock_fps_threshold)
     {

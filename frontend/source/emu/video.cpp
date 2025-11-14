@@ -76,6 +76,12 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
 
     gEmulator->_texture_buf->NextEnd();
     gEmulator->_frame_count++;
+
+    if (gConfig->fps > 0 || gConfig->cpu_freq == CPU_AUTO)
+    {
+        gEmulator->_fps.Update();
+    }
+
     if (gConfig->cpu_freq == CPU_AUTO)
     {
         gEmulator->_AutoAdjustCpu();
