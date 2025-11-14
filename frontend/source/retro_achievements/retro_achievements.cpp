@@ -135,6 +135,7 @@ RetroAchievements::RetroAchievements()
     _client = rc_client_create(_ReadMemory, _ServerCall);
     rc_client_enable_logging(_client, RC_CLIENT_LOG_LEVEL_VERBOSE, _LogMessage);
     rc_client_set_event_handler(_client, _EventHandler);
+    SetHardcoreEnabled(false);
 }
 
 RetroAchievements::~RetroAchievements()
@@ -297,7 +298,7 @@ void RetroAchievements::SetHardcoreEnabled(const bool &enabled)
 
 bool RetroAchievements::GetHardcoreEnabled()
 {
-    return rc_client_get_hardcore_enabled(_client);
+    return _online && rc_client_get_hardcore_enabled(_client);
 }
 
 void RetroAchievements::_UpdateAchievemnts()
