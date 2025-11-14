@@ -167,6 +167,7 @@ namespace Emu4VitaPlus
         auto_download_thumbnail = (THUMBNAILS_NAME[0] != nullptr);
         ra_position = RA_POSITION_BOTTOM_RIGHT;
         cpu_freq = CPU_AUTO;
+        fps = FPS_POSITION_DISABLE;
 
         DefaultControlMap();
         DefaultHotKey();
@@ -259,6 +260,7 @@ namespace Emu4VitaPlus
         ini.SetBoolValue(MAIN_SECTION, "auto_rotating", auto_rotating);
         ini.SetLongValue(MAIN_SECTION, "speed_step", speed_step);
         ini.SetLongValue(MAIN_SECTION, "cpu_freq", cpu_freq);
+        ini.SetLongValue(MAIN_SECTION, "fps", fps);
 
         if (THUMBNAILS_NAME[0] != nullptr)
         {
@@ -374,6 +376,7 @@ namespace Emu4VitaPlus
         auto_rotating = ini.GetBoolValue(MAIN_SECTION, "auto_rotating", true);
         speed_step = ini.GetLongValue(MAIN_SECTION, "speed_step", 0);
         cpu_freq = ini.GetLongValue(MAIN_SECTION, "cpu_freq", CPU_AUTO);
+        fps = ini.GetLongValue(MAIN_SECTION, "fps", FPS_POSITION_DISABLE);
 
         ra_user = ini.GetValue(RA_SECTION, "user", "");
         ra_token = ini.GetValue(RA_SECTION, "token", "");

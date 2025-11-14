@@ -63,6 +63,7 @@ namespace Emu4VitaPlus
 
 #ifdef DRAW_IMGUI_TOGETHER
             bool use_imgui = (status & (APP_STATUS_BOOT | APP_STATUS_SHOW_UI | APP_STATUS_SHOW_UI_IN_GAME)) ||
+                             gConfig->fps > 0 ||
                              gHint->NeedShow() ||
                              gNotifications->NeedShow();
             if (use_imgui)

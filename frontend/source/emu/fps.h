@@ -9,6 +9,7 @@ public:
 
     void Update();
     int Get() { return _fps; };
+    void Show();
 
 private:
     int _fps;

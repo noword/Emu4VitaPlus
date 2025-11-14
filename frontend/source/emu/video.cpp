@@ -180,6 +180,8 @@ void Emulator::Show()
     {
         _keyboard->Show();
     }
+
+    _fps.Show();
 }
 
 bool Emulator::GetCurrentSoftwareFramebuffer(retro_framebuffer *fb)
