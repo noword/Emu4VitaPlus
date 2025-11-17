@@ -331,7 +331,9 @@ void RetroAchievements::_UpdateAchievemnts()
             if (achievement->unlocked)
             {
                 char buf[32];
-                strftime(buf, 32, "%Y-%m-%d %H:%M:%S", localtime(&achievement->unlock_time));
+                tm _tm;
+                localtime_r(&achievement->unlock_time, &_tm);
+                strftime(buf, 32, "%Y-%m-%d %H:%M:%S", &_tm);
                 a->unlock_time = buf;
                 LogDebug("  unlock time: %s", buf);
             }
