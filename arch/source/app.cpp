@@ -503,8 +503,8 @@ void App::_RestoreLastCore()
         {
             if (gConfig->last_core == button->_cores[j].boot_name)
             {
-                _index_x = i % (_visable_buttons.size() / ROW_COUNT);
-                _index_y = i / (_visable_buttons.size() / ROW_COUNT);
+                _index_x = i % ((_visable_buttons.size() + 1) / ROW_COUNT);
+                _index_y = i / ((_visable_buttons.size() + 1) / ROW_COUNT);
                 button->_index = j;
                 found = true;
                 break;
