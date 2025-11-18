@@ -418,6 +418,7 @@ void Emulator::_OnHotkeySave(Input *input)
         return;
 
     Lock();
+    sceKernelDelayThread(10000);
     gStateManager->states[0]->Save();
     Unlock();
 }

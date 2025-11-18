@@ -34,11 +34,11 @@ int RetroAchievements::_RaThread(SceSize args, void *argp)
         }
         else
         {
-            if (try_login_count < 5 && !gConfig->ra_token.empty() && gNetwork->Connected())
+            if (try_login_count < 5 && gConfig->ra_login && !gConfig->ra_token.empty() && gNetwork->Connected())
             {
                 ra->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
-                try_login_count++;
             }
+            try_login_count++;
             idle_time = RETRO_ACHIEVEMENTS_LOGIN_IDLE_TIME;
         }
 
