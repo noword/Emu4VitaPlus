@@ -259,7 +259,7 @@ void RetroAchievements::Logout()
     {
         _online = false;
         rc_client_logout(_client);
-        Stop();
+        Stop(true);
     }
 }
 

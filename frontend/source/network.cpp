@@ -98,7 +98,7 @@ Network::~Network()
 
     CleanAllTask();
 
-    Stop();
+    Stop(true);
 
     curl_multi_cleanup(_multi_handle);
 

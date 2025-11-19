@@ -24,7 +24,7 @@ namespace Emu4VitaPlus
         LogFunctionName;
         if (_thread_id >= 0)
         {
-            Stop();
+            Stop(true);
         }
 
         vita2d_ext_fini();
