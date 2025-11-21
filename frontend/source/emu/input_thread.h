@@ -9,11 +9,20 @@ class InputThread
       virtual public ThreadBase
 {
 public:
-    InputThread();
-    virtual ~InputThread();
-
-    bool Start();
+    InputThread() : ThreadBase(_InputThread) {};
+    virtual ~InputThread() {};
 
 private:
-    static int _InputThread(SceSize args, void *argp);
+    static int _InputThread(SceSize args, void *argp)
+    {
+        CLASS_POINTER(InputThread, input, argp);
+
+        while (input->IsRunning())
+        {
+            input->Wait();
+            input->Poll();
+        }
+
+        return 0;
+    }
 };
