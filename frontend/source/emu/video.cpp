@@ -99,8 +99,8 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
 
 bool Emulator::NeedRender()
 {
-    return (!gEmulator->_graphics_config_changed) &&
-           gEmulator->_texture_buf != nullptr &&
+    return (!_graphics_config_changed) &&
+           _texture_buf != nullptr &&
            _last_texture != _texture_buf->Current();
 }
 
@@ -110,7 +110,7 @@ void Emulator::Show()
 
     APP_STATUS status = gStatus.Get();
 
-    if (gEmulator->_graphics_config_changed || gEmulator->_texture_buf == nullptr || !(status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME | APP_STATUS_SHOW_UI_IN_GAME)))
+    if (_graphics_config_changed || _texture_buf == nullptr || !(status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME | APP_STATUS_SHOW_UI_IN_GAME)))
     {
         sceKernelDelayThread(100000);
         return;

@@ -12,6 +12,14 @@ public:
     InputThread() : ThreadBase(_InputThread) {};
     virtual ~InputThread() {};
 
+    bool Start()
+    {
+        LogFunctionName;
+
+        uint32_t p = (uint32_t)this;
+        return ThreadBase::Start(&p, 4);
+    }
+
 private:
     static int _InputThread(SceSize args, void *argp)
     {
