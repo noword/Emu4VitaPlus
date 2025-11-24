@@ -75,7 +75,6 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
     }
 
     gEmulator->_texture_buf->NextEnd();
-    gEmulator->_frame_count++;
 
     if (gConfig->fps > 0 || gConfig->cpu_freq == CPU_AUTO)
     {
@@ -187,6 +186,7 @@ void Emulator::Show()
         _keyboard->Show();
     }
 
+    _frame_count++;
     _fps.Show();
 }
 

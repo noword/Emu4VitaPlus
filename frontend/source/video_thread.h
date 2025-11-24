@@ -5,11 +5,11 @@
 
 namespace Emu4VitaPlus
 {
-    class Video : public ThreadBase
+    class VideoThread : public ThreadBase
     {
     public:
-        Video();
-        virtual ~Video();
+        VideoThread();
+        virtual ~VideoThread();
 
     private:
         static int _DrawThread(SceSize args, void *argp);

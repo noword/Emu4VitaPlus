@@ -2,7 +2,6 @@
 #include "my_imgui.h"
 #include "hint.h"
 #include "misc.h"
-#include "video.h"
 
 Hint::Hint()
 {

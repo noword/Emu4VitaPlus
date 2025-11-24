@@ -3,16 +3,11 @@
 #include <stdint.h>
 #include <math.h>
 #include <vfs/vfs_implementation.h>
-#include "app.h"
-#include "emulator.h"
-#include "video.h"
-#include "ui.h"
-#include "config.h"
+#include "global.h"
 #include "file.h"
 #include "profiler.h"
 #include "input_descriptor.h"
 #include "performance.h"
-#include "global.h"
 
 #define CORE_OPTIONS_VERSION 2
 

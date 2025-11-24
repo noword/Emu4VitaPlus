@@ -1,8 +1,8 @@
 #pragma once
-#include "video.h"
+#include "video_thread.h"
 #include "log.h"
 
-extern Emu4VitaPlus::Video *gVideo;
+extern Emu4VitaPlus::VideoThread *gVideo;
 
 enum APP_STATUS
 {

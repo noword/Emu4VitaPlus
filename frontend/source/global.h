@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include "config_types.h"
-#include "video.h"
+#include "video_thread.h"
 #include "app_status.h"
 #include "overlay.h"
 #include "log.h"
@@ -23,7 +23,7 @@ extern bool gBootFromArch;
 extern std::string gBootRomPath;
 
 extern AppStatus gStatus;
-extern Emu4VitaPlus::Video *gVideo;
+extern Emu4VitaPlus::VideoThread *gVideo;
 extern Overlays *gOverlays;
 extern RetroArchPlaylists *gPlaylists;
 extern Ui *gUi;

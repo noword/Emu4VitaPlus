@@ -280,7 +280,10 @@ void Emulator::UnloadGame()
         // Save();  // already run when switching to the menu
         _current_name.clear();
         _input.Stop(true);
-        retro_unload_game();
+
+        if (!DEFAULT_REBOOT_WHEN_LOADING_AGAIN)
+            retro_unload_game();
+
         if (gRetroAchievements->IsOnline())
         {
             gRetroAchievements->UnloadGame();

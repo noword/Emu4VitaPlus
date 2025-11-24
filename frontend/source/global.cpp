@@ -4,7 +4,7 @@ AppStatus gStatus;
 bool gBootFromArch = false;
 std::string gBootRomPath;
 
-Emu4VitaPlus::Video *gVideo = nullptr;
+Emu4VitaPlus::VideoThread *gVideo = nullptr;
 Overlays *gOverlays;
 RetroArchPlaylists *gPlaylists;
 Ui *gUi = nullptr;

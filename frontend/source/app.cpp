@@ -5,7 +5,6 @@
 #include <psp2/display.h>
 #include <vita2d.h>
 #include "my_imgui.h"
-#include "app.h"
 #include "config.h"
 #include "state_manager.h"
 #include "log.h"
@@ -16,6 +15,7 @@
 #include "input_descriptor.h"
 #include "bios_checker.h"
 #include "language_string.h"
+#include "app.h"
 #include "global.h"
 #include "profiler.h"
 #include "network.h"
@@ -80,7 +80,7 @@ App::App()
     gEmulator->SetCpuFreq();
 
     gNetwork->SetUserAgent();
-    gVideo = new Video();
+    gVideo = new VideoThread();
     gUi = new Ui();
     gHint = new Hint;
     gNotifications = new Notifications;

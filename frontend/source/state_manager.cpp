@@ -2,8 +2,6 @@
 #include "state_manager.h"
 #include "global.h"
 #include "log.h"
-#include "emulator.h"
-#include "video.h"
 
 vita2d_texture *State::_empty_texture = nullptr;
 

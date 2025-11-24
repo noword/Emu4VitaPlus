@@ -4,14 +4,9 @@
 #include <zlib.h>
 #include <map>
 #include "tab_browser.h"
-#include "emulator.h"
-#include "video.h"
-#include "app.h"
-#include "ui.h"
 #include "file.h"
 #include "log.h"
 #include "favorite.h"
-#include "config.h"
 #include "icons.h"
 #include "state_manager.h"
 #include "misc.h"

@@ -2,7 +2,7 @@
 #include <psp2/kernel/threadmgr.h>
 #include <vita2d.h>
 #include <vita2d_ext.h>
-#include "video.h"
+#include "video_thread.h"
 #include "global.h"
 #include "ui.h"
 #include "log.h"
@@ -10,7 +10,7 @@
 
 namespace Emu4VitaPlus
 {
-    Video::Video() : ThreadBase(_DrawThread)
+    VideoThread::VideoThread() : ThreadBase(_DrawThread)
     {
         LogFunctionName;
         vita2d_init();
@@ -19,7 +19,7 @@ namespace Emu4VitaPlus
         // vita2d_set_clear_color(0xFF362B00);
     }
 
-    Video::~Video()
+    VideoThread::~VideoThread()
     {
         LogFunctionName;
         if (_thread_id >= 0)
@@ -31,11 +31,11 @@ namespace Emu4VitaPlus
         vita2d_fini();
     }
 
-    int Video::_DrawThread(SceSize args, void *argp)
+    int VideoThread::_DrawThread(SceSize args, void *argp)
     {
         LogFunctionName;
 
-        CLASS_POINTER(Video, video, argp);
+        CLASS_POINTER(VideoThread, video, argp);
 
         int vcount = 0;
         APP_STATUS status = gStatus.Get();
