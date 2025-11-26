@@ -5,9 +5,9 @@
 #include "my_imgui.h"
 
 #define FPS_SAMPLES 32
-#define ONE_SECOND 1000000
+#define ONE_SECOND 1000000.f
 
-#define FPS_HUD_WIDTH 50
+#define FPS_HUD_WIDTH 65
 #define FPS_HUD_HEIGHT 30
 
 #define GREEN_THRESHOLD int(60 * 0.8)
@@ -35,29 +35,17 @@ void Fps::Update()
     }
 }
 
+static const ImVec2 POS_VECTORS[] = {
+    {0.0f, 0.0f},
+    {0.f, 0.f},                                                      // FPS_POSITION_TOP_LEFT
+    {VITA_WIDTH - FPS_HUD_WIDTH, 0.f},                               // FPS_POSITION_TOP_RIGHT
+    {0.f, VITA_HEIGHT - FPS_HUD_HEIGHT * 1.5},                       // FPS_POSITION_BOTTOM_LEFT
+    {VITA_WIDTH - FPS_HUD_WIDTH, VITA_HEIGHT - FPS_HUD_HEIGHT * 1.5} // FPS_POSITION_BOTTOM_RIGHT
+};
+
 void Fps::Show()
 {
-    ImVec2 pos;
-    switch (gConfig->fps)
-    {
-    case FPS_POSITION_TOP_LEFT:
-        pos = {0.f, 0.f};
-        break;
-
-    case FPS_POSITION_TOP_RIGHT:
-        pos = {VITA_WIDTH - FPS_HUD_WIDTH, 0.f};
-        break;
-
-    case FPS_POSITION_BOTTOM_LEFT:
-        pos = {0.f, VITA_HEIGHT - FPS_HUD_HEIGHT};
-        break;
-
-    case FPS_POSITION_BOTTOM_RIGHT:
-        break;
-
-    default:
-        return;
-    }
+    const ImVec2 &pos = POS_VECTORS[gConfig->fps];
 
     ImU32 color;
     if (_fps > GREEN_THRESHOLD)
@@ -85,7 +73,7 @@ void Fps::Show()
                          ImGuiWindowFlags_NoFocusOnAppearing))
     {
         ImGui::PushStyleColor(ImGuiCol_Text, color);
-        ImGui::TextUnformatted(std::to_string(_fps).c_str());
+        ImGui::Text("%.2f", _fps);
         ImGui::PopStyleColor();
     }
     ImGui::End();

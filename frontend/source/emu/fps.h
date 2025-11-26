@@ -12,7 +12,7 @@ public:
     void Show();
 
 private:
-    int _fps;
+    float _fps;
     uint64_t _last_time;
     int _frame_count;
 };
