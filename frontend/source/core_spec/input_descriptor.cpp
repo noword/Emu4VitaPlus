@@ -30,6 +30,7 @@ InputDescriptors::~InputDescriptors()
 
 void InputDescriptors::UpdateInputDescriptors(const retro_input_descriptor *descriptors)
 {
+    LogDebug("port device index id description");
     while (descriptors != nullptr && descriptors->description != nullptr)
     {
         LogDebug("%d %d %d %d %s",

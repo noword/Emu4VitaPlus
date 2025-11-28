@@ -6206,7 +6206,7 @@
     {
         "No.": "565",
         "English": "Detailed > Limit CPU Usage",
-        "Chinese": "",
+        "Chinese": "详细 > 限制 CPU 使用率",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6217,7 +6217,7 @@
     {
         "No.": "566",
         "English": "When emulating DOS as fast as possible, how much time per frame should be used by the emulation.\nLower this if your device becomes hot while using this core.",
-        "Chinese": "",
+        "Chinese": "当 DOS 模拟全速运行时，用于每一帧处理的时间。\n如果你的设备在使用该核心时变得过热，请降低此数值。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6228,7 +6228,7 @@
     {
         "No.": "567",
         "English": "Advanced > Show Performance Statistics",
-        "Chinese": "",
+        "Chinese": "高级 > 显示性能统计数据",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6239,7 +6239,7 @@
     {
         "No.": "568",
         "English": "Enable this to show statistics about performance and framerate and check if emulation runs at full speed.",
-        "Chinese": "",
+        "Chinese": "打开这个选项后，你可以看到性能和帧率的相关统计，用来确认模拟是不是在全速运行。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6250,7 +6250,7 @@
     {
         "No.": "569",
         "English": "Emulated Graphics Chip (restart required)",
-        "Chinese": "",
+        "Chinese": "模拟图形芯片（需要重启）",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6261,7 +6261,7 @@
     {
         "No.": "570",
         "English": "The type of graphics chip that DOSBox will emulate.",
-        "Chinese": "",
+        "Chinese": "DOSBox 将模拟的图形芯片类型。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6272,7 +6272,7 @@
     {
         "No.": "571",
         "English": "CGA Mode",
-        "Chinese": "",
+        "Chinese": "CGA 模式",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6283,7 +6283,7 @@
     {
         "No.": "572",
         "English": "The CGA variation that is being emulated.",
-        "Chinese": "",
+        "Chinese": "正在模拟的 CGA 变体类型。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6294,7 +6294,7 @@
     {
         "No.": "573",
         "English": "Hercules Color Mode",
-        "Chinese": "",
+        "Chinese": "Hercules 色彩模式",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6305,7 +6305,7 @@
     {
         "No.": "574",
         "English": "The color scheme for Hercules emulation.",
-        "Chinese": "",
+        "Chinese": "模拟 Hercules 配色方案",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6316,7 +6316,7 @@
     {
         "No.": "575",
         "English": "SVGA Mode (restart required)",
-        "Chinese": "",
+        "Chinese": "SVGA 模式（需要重启）",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6327,7 +6327,7 @@
     {
         "No.": "576",
         "English": "The SVGA variation that is being emulated. Try changing this if you encounter graphical glitches.",
-        "Chinese": "",
+        "Chinese": "正在模拟的 SVGA 变体类型。如果你遇到图形异常，可以尝试更改这个设置。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6338,7 +6338,7 @@
     {
         "No.": "577",
         "English": "SVGA Memory (restart required)",
-        "Chinese": "",
+        "Chinese": "SVGA 内存（需要重启）",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6349,7 +6349,7 @@
     {
         "No.": "578",
         "English": "The amount of memory available to the emulated SVGA card.",
-        "Chinese": "",
+        "Chinese": "分配给模拟 SVGA 显卡的可用内存大小。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6360,7 +6360,7 @@
     {
         "No.": "579",
         "English": "3dfx Voodoo Emulation",
-        "Chinese": "",
+        "Chinese": "3dfx Voodoo 模拟器",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6371,7 +6371,7 @@
     {
         "No.": "580",
         "English": "Enables certain games with support for the Voodoo 3D accelerator.\n3dfx Voodoo Graphics SST-1/2 emulator by Aaron Giles and the MAME team (license: BSD-3-Clause)",
-        "Chinese": "",
+        "Chinese": "启用后，可让部分支持 Voodoo 3D 加速器的游戏正常运行。\n使用的是由 Aaron Giles 和 MAME 团队制作的 3dfx Voodoo Graphics SST-1/2 模拟器（许可证：BSD-3-Clause）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6382,7 +6382,7 @@
     {
         "No.": "581",
         "English": "3dfx Voodoo Performance",
-        "Chinese": "",
+        "Chinese": "3dfx Voodoo 性能",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6393,7 +6393,7 @@
     {
         "No.": "582",
         "English": "Options to tweak the behavior of the 3dfx Voodoo emulation.\nSwitching to OpenGL requires a restart.\nIf OpenGL is available, host-side 3D acceleration is used which can make 3D rendering much faster.\nAuto will use OpenGL if it is the active video driver in the frontend.",
-        "Chinese": "",
+        "Chinese": "用于调整 3dfx Voodoo 模拟行为的选项。\n切换到 OpenGL 需要重新启动。\n如果 OpenGL 可用，将会使用宿主设备的 3D 加速，使 3D 渲染速度更快。\n“自动” 会在前端的当前视频驱动为 OpenGL 时启用它。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6404,7 +6404,7 @@
     {
         "No.": "583",
         "English": "3dfx Voodoo OpenGL Scaling",
-        "Chinese": "",
+        "Chinese": "3dfx Voodoo OpenGL 缩放",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6415,7 +6415,7 @@
     {
         "No.": "584",
         "English": "Increase the native resolution of the rendered image.",
-        "Chinese": "",
+        "Chinese": "提升渲染画面的原生分辨率。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6426,7 +6426,7 @@
     {
         "No.": "585",
         "English": "3dfx Voodoo Gamma Correction",
-        "Chinese": "",
+        "Chinese": "3dfx Voodoo Gamma 校正",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6437,7 +6437,7 @@
     {
         "No.": "586",
         "English": "Change brightness of rendered 3dfx output.",
-        "Chinese": "",
+        "Chinese": "调整 3dfx 渲染输出的亮度。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6448,7 +6448,7 @@
     {
         "No.": "587",
         "English": "Aspect Ratio Correction",
-        "Chinese": "",
+        "Chinese": "宽高比校正",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6459,7 +6459,7 @@
     {
         "No.": "588",
         "English": "Adjust the core's aspect ratio to approximate what a CRT monitor would display.",
-        "Chinese": "",
+        "Chinese": "调整核心的宽高比，使其接近 CRT 显示器的显示效果。",
         "Japanese": "",
         "Italian": "",
         "French": "",
