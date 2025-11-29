@@ -161,14 +161,15 @@ option(MZ_PKCRYPT " " OFF)
 option(MZ_WZAES " " OFF)
 option(MZ_DECOMPRESS_ONLY " " ON)
 option(MZ_FETCH_LIBS " " ON)
-option(MZ_FORCE_FETCH_LIBS " " ON)
 
+# set(MZ_ZLIB_FLAVOR zlib-ng)
+
+# option(MZ_FORCE_FETCH_LIBS " " ON)
 option(ZLIB_COMPAT " " ON)
 option(ZLIB_ENABLE_TESTS " " OFF)
 option(ZLIBNG_ENABLE_TESTS " " OFF)
 option(WITH_GZFILEOP " " OFF)
 option(WITH_GTEST " " OFF)
-option(ZLIBNG_ENABLE_TESTS " " OFF)
 add_subdirectory(minizip-ng)
 
 # lz4

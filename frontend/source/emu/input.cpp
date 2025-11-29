@@ -129,11 +129,6 @@ int16_t Emulator::_GetJoypadState(unsigned index, unsigned id)
 
         return state;
     }
-    // else if (id >= 16)
-    // {
-    //     LogError("  InputStateCallback, wrong id %d", id);
-    //     return 0;
-    // }
     else
     {
         return (key_states & _keys[id & 0xf]) ? 1 : 0;

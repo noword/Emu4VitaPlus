@@ -54,7 +54,7 @@ const uint32_t SCE_CTRL_RSTICK_LEFT = 0x20000000;
 #define DEFAULT_TURBO_INTERVAL 50000ull
 
 #define TEST_KEY(KEY, KEYS) (((KEY) & (KEYS)) == (KEY))
-#define ANALOG_PSV_TO_RETRO(X) (((X) - 0x80) << 8)
+#define ANALOG_PSV_TO_RETRO(X) (-32767 + ((int32_t)(X) * 65534) / 255)
 
 extern uint32_t EnterButton;
 #define CancelButton (EnterButton == SCE_CTRL_CIRCLE ? SCE_CTRL_CROSS : SCE_CTRL_CIRCLE)
@@ -144,7 +144,7 @@ namespace Emu4VitaPlus
         AnalogAxis _right_analog;
         // map to retro's analog
         // -0x7fff to 0x7fff
-        static int16_t _analog_map_table[0x100];
+        static const int16_t _analog_map_table[0x100];
 
         Touch _front_touch{SCE_TOUCH_PORT_FRONT};
         Touch _rear_touch{SCE_TOUCH_PORT_BACK};

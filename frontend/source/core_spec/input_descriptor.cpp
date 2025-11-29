@@ -30,6 +30,7 @@ InputDescriptors::~InputDescriptors()
 
 void InputDescriptors::UpdateInputDescriptors(const retro_input_descriptor *descriptors)
 {
+    LogFunctionName;
     LogDebug("port device index id description");
     while (descriptors != nullptr && descriptors->description != nullptr)
     {
@@ -49,6 +50,7 @@ void InputDescriptors::UpdateInputDescriptors(const retro_input_descriptor *desc
 
 void InputDescriptors::Update()
 {
+    LogFunctionName;
     for (auto &desc : _descriptors)
     {
         desc.Update();
@@ -70,15 +72,9 @@ const char *InputDescriptors::Get(int index)
 bool InputDescriptors::Load(const char *path)
 {
     LogFunctionName;
-#if defined(ARC_BUILD)
+#if defined(ARC_BUILD) || defined(DOS_BUILD)
     return true;
 #else
-#if defined(ARCH_BUILD)
-    if (gCore->console == ARC)
-    {
-        return true;
-    }
-#endif
 
     LogDebug("path: %s", path);
 
@@ -117,15 +113,10 @@ bool InputDescriptors::Save(const char *path)
 {
     LogFunctionName;
 
-#if defined(ARC_BUILD)
+#if defined(ARC_BUILD) || defined(DOS_BUILD)
     return true;
 #else
-#if defined(ARCH_BUILD)
-    if (gCore->console == ARC)
-    {
-        return true;
-    }
-#endif
+
     LogDebug("path: %s", path);
 
     CSimpleIniA ini;
@@ -147,15 +138,10 @@ bool InputDescriptors::Save(CSimpleIniA &ini)
 {
     LogFunctionName;
 
-#if defined(ARC_BUILD)
+#if defined(ARC_BUILD) || defined(DOS_BUILD)
     return true;
 #else
-#if defined(ARCH_BUILD)
-    if (gCore->console == ARC)
-    {
-        return true;
-    }
-#endif
+
     char num[8];
     bool need_save = false;
     for (size_t i = 0; i < INPUT_DESC_COUNT; i++)
