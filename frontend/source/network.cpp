@@ -347,6 +347,7 @@ void Network::AddTask(const char *url, const char *post_data, size_t post_size, 
 {
     LogFunctionName;
     LogDebug("  url: %s callback: %08x", url, callback);
+    LogDebug("  post_data(%d): %s", post_size, post_data);
 
     TaskCallback *task = new TaskCallback;
     task->url = url;
@@ -470,19 +471,23 @@ bool Network::Download(const char *url, const char *file_name)
     curl_easy_setopt(curl, CURLOPT_URL, url);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, FileWriteCallback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, &fp);
-    CURLcode res = curl_easy_perform(curl);
+    long http_code = 0;
+    if (curl_easy_perform(curl) == CURLE_OK)
+    {
+        curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_code);
+    }
 
     sceIoClose(fp);
 
     curl_easy_cleanup(curl);
 
-    if (res == CURLE_OK)
+    if (http_code == 200)
     {
         return true;
     }
     else
     {
-        LogDebug("download failed");
+        LogDebug("download failed: %d", http_code);
         File::Remove(file_name);
         return false;
     }
@@ -507,9 +512,14 @@ bool Network::Fetch(const char *url, std::string *buf)
     curl_easy_setopt(curl, CURLOPT_URL, url);
     curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, MemoryWriteCallback);
     curl_easy_setopt(curl, CURLOPT_WRITEDATA, buf);
-    CURLcode res = curl_easy_perform(curl);
+
+    long http_code = 0;
+    if (curl_easy_perform(curl) == CURLE_OK)
+    {
+        curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &http_code);
+    }
 
     curl_easy_cleanup(curl);
 
-    return res == CURLE_OK;
+    return http_code == 200;
 }

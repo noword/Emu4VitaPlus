@@ -48,8 +48,9 @@ endif()
 include_directories(
     ../frontend/source
     ../frontend/source/emu
+    ../frontend/source/emu/audio
+    ../frontend/source/emu/video
     ../frontend/source/ui
-    ../frontend/source/audio
     ../frontend/source/core_spec
     ../deps/libretro-common/include
     ../deps/7-Zip/C

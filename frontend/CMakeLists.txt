@@ -3,8 +3,9 @@ cmake_minimum_required(VERSION 3.12)
 include_directories(
     source
     source/ui
-    source/audio
     source/emu
+    source/emu/audio
+    source/emu/video
     source/retro_achievements
     source/core_spec
     ../share/source
@@ -23,7 +24,8 @@ file(GLOB SRC
     source/*.cpp
     source/ui/*.cpp
     source/emu/*.cpp
-    source/audio/*.cpp
+    source/emu/audio/*.cpp
+    source/emu/video/*.cpp
     source/retro_achievements/*.cpp)
 
 add_custom_command(OUTPUT
