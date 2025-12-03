@@ -107,8 +107,10 @@ target_link_libraries(
     SceMotion_stub
     SceHid_stub
     SceFiber_stub
-    SceSsl_stub
+    SceNet_stub
+    SceNetCtl_stub
     SceHttp_stub
+    SceSsl_stub
     SceMotion_stub
 )
 

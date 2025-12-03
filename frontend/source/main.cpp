@@ -9,7 +9,7 @@
 #define SCE_LIBC_HEAP_SIZE_EXTENDED_ALLOC_NO_LIMIT (0xffffffffU)
 unsigned int sceLibcHeapExtendedAlloc __attribute__((used)) = 1;
 unsigned int sceLibcHeapSize __attribute__((used)) = SCE_LIBC_HEAP_SIZE_EXTENDED_ALLOC_NO_LIMIT;
-unsigned int sceUserMainThreadStackSize __attribute__((used)) = 0x100000; // 1M
+unsigned int sceUserMainThreadStackSize __attribute__((used)) = 0x1000000; // 1M
 
 extern "C"
 {

@@ -10,7 +10,7 @@
 #include "utils.h"
 
 #define USER_AGENT "Emu4Vita++/" APP_VER_STR
-#define POOL_SIZE (1 * 1024 * 1024)
+#define POOL_SIZE (4 * 1024 * 1024)
 
 int Network::_init_count = 0;
 
@@ -398,6 +398,8 @@ void Network::_SetOptions(CURL *curl)
     curl_easy_setopt(curl, CURLOPT_USERAGENT, _user_agent.c_str());
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYHOST, 0L);
     curl_easy_setopt(curl, CURLOPT_SSL_VERIFYPEER, 0L);
+    curl_easy_setopt(curl, CURLOPT_PROXY_SSL_VERIFYHOST, 0L);
+    curl_easy_setopt(curl, CURLOPT_PROXY_SSL_VERIFYPEER, 0L);
     curl_easy_setopt(curl, CURLOPT_SSLVERSION, CURL_SSLVERSION_TLSv1_2);
     curl_easy_setopt(curl, CURLOPT_IPRESOLVE, CURL_IPRESOLVE_V4);
     // curl_easy_setopt(curl, CURLOPT_TIMEOUT, 3L);
