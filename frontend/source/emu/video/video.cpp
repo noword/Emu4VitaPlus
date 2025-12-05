@@ -1,12 +1,15 @@
 #include <math.h>
 #include <imgui_vita2d/imgui_impl_vita2d.h>
 #include <shared.h>
-#include "emulator.h"
+#include "video.h"
+
 #include "config.h"
 #include "global.h"
 #include "overlay.h"
 #include "shader.h"
 #include "profiler.h"
+
+using namespace Emu4VitaPlus;
 
 extern float _vita2d_ortho_matrix[4 * 4];
 
@@ -95,10 +98,139 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
 
     EndProfile("VideoRefreshCallback");
 }
+namespace Emu4VitaPlus
+{
+    Video::Video()
+        : _texture_buf(nullptr),
+          _retro_pixel_format((retro_pixel_format)-1)
+    {
+        LogFunctionName;
+    }
+
+    Video::~Video()
+    {
+        LogFunctionName;
+    }
+
+    void Video::SetPixelFormat(retro_pixel_format format)
+    {
+        if (_retro_pixel_format != format)
+        {
+            _retro_pixel_format = format;
+            _graphics_config_changed = true;
+        }
+    }
+
+    void Video::Refresh(const void *data, unsigned width, unsigned height, size_t pitch)
+    {
+        LogFunctionNameLimited;
+
+        if (unlikely((!data) || pitch == 0))
+        {
+            return;
+        }
+
+        if (unlikely(
+                _graphics_config_changed ||
+                _texture_buf == nullptr ||
+                _texture_buf->GetWidth() != width ||
+                _texture_buf->GetHeight() != height ||
+                _texture_buf->GetPitch() != pitch))
+        {
+            _SetupVideoOutput(width, height);
+
+            if (_texture_buf)
+            {
+                delete _texture_buf;
+                _texture_buf = nullptr;
+            }
+
+            _texture_buf = new TextureBuf<>(width, height, pitch, _retro_pixel_format);
+            _texture_buf->SetFilter(gConfig->graphics[GRAPHICS_SMOOTH] ? SCE_GXM_TEXTURE_FILTER_LINEAR : SCE_GXM_TEXTURE_FILTER_POINT);
+        }
+
+        memcpy(_texture_buf->Next(), data, pitch * height);
+        gVideo->Signal();
+        if (CONTROL_SPEED_BY_VIDEO)
+        {
+            gEmulator->Wait();
+        }
+    }
+
+    void Video::Show()
+    {
+        APP_STATUS status = gStatus.Get();
+
+        if (_graphics_config_changed || _texture_buf == nullptr || !(status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME | APP_STATUS_SHOW_UI_IN_GAME)))
+        {
+            sceKernelDelayThread(100000);
+            return;
+        }
+
+        if (gConfig->graphics[GRAPHICS_OVERLAY] > 0 && gConfig->graphics[GRAPHICS_OVERLAY_MODE] == CONFIG_GRAPHICS_OVERLAY_MODE_BACKGROUND)
+        {
+            vita2d_texture *tex = (*gOverlays)[gConfig->graphics[GRAPHICS_OVERLAY] - 1].Get();
+            if (tex)
+            {
+                vita2d_draw_texture(tex, 0.f, 0.f);
+            }
+        }
+
+        uint32_t index = gConfig->graphics[GRAPHICS_SHADER];
+        Shader *shader = (index > 0 && index <= gShaders->size()) ? &(*gShaders)[index - 1] : nullptr;
+
+        const SceGxmProgramParameter *wvp_param;
+
+        if (shader && shader->Valid())
+        {
+            vita2d_shader *_shader = shader->Get();
+            vita2d_set_shader(_shader);
+            float *texture_size = (float *)vita2d_pool_memalign(4 * sizeof(float), sizeof(float));
+            float *output_size = texture_size + 2;
+            texture_size[0] = _texture_buf->GetWidth();
+            texture_size[1] = _texture_buf->GetHeight();
+            output_size[0] = _video_rect.width;
+            output_size[1] = _video_rect.height;
+            shader->SetUniformData(texture_size, output_size);
+            wvp_param = _shader->wvpParam;
+        }
+        else
+        {
+            sceGxmSetVertexProgram(vita2d_get_context(), _vita2d_textureVertexProgram);
+            sceGxmSetFragmentProgram(vita2d_get_context(), _vita2d_textureFragmentProgram);
+
+            wvp_param = _vita2d_textureWvpParam;
+        }
+
+        void *vertex_wvp_buffer;
+        sceGxmReserveVertexDefaultUniformBuffer(vita2d_get_context(), &vertex_wvp_buffer);
+        sceGxmSetUniformDataF(vertex_wvp_buffer, wvp_param, 0, 16, _vita2d_ortho_matrix);
+
+        vita2d_texture_vertex *vertices = (vita2d_texture_vertex *)vita2d_pool_memalign(4 * sizeof(vita2d_texture_vertex), // 4 vertices
+                                                                                        sizeof(vita2d_texture_vertex));
+        memcpy(vertices, _vertices, 4 * sizeof(vita2d_texture_vertex));
+
+        sceGxmSetFragmentTexture(vita2d_get_context(), 0, &_texture_buf->Current()->gxm_tex);
+        sceGxmSetVertexStream(vita2d_get_context(), 0, vertices);
+        sceGxmDraw(vita2d_get_context(), SCE_GXM_PRIMITIVE_TRIANGLE_STRIP, SCE_GXM_INDEX_FORMAT_U16, vita2d_get_linear_indices(), 4);
+
+        // LogDebug("%f %f %f %f", _video_rect.x, _video_rect.y, _video_rect.width, _video_rect.height);
+        // LogDebug("%f %f", _video_rect.width / _texture_buf->GetWidth(), _video_rect.height / _texture_buf->GetHeight());
+
+        if (gConfig->graphics[GRAPHICS_OVERLAY] > 0 && gConfig->graphics[GRAPHICS_OVERLAY_MODE] == CONFIG_GRAPHICS_OVERLAY_MODE_OVERLAY)
+        {
+            vita2d_texture *tex = (*gOverlays)[gConfig->graphics[GRAPHICS_OVERLAY] - 1].Get();
+            if (tex)
+            {
+                vita2d_draw_texture(tex, 0.f, 0.f);
+            }
+        }
+    }
+}
 
 bool Emulator::NeedRender()
 {
-    return (!_graphics_config_changed) &&
+    return (!) &&
            _texture_buf != nullptr &&
            _last_texture != _texture_buf->Current();
 }
@@ -123,10 +255,6 @@ void Emulator::Show()
             vita2d_draw_texture(tex, 0.f, 0.f);
         }
     }
-
-    // LogDebug("Show _texture_buf->Current() %08x", _texture_buf->Current());
-
-    // vita2d_shader *shader = gConfig->graphics[GRAPHICS_SHADER] > 0 ? (*gShaders)[gConfig->graphics[GRAPHICS_SHADER] - 1].Get() : nullptr;
 
     uint32_t index = gConfig->graphics[GRAPHICS_SHADER];
     Shader *shader = (index > 0 && index <= gShaders->size()) ? &(*gShaders)[index - 1] : nullptr;

@@ -23,14 +23,6 @@ using namespace Emu4VitaPlus;
 #define MAX_SPEED 3.0
 #define MIN_SPEED 0.3
 
-enum VIDEO_ROTATION
-{
-    VIDEO_ROTATION_0 = 0,
-    VIDEO_ROTATION_90,
-    VIDEO_ROTATION_180,
-    VIDEO_ROTATION_270
-};
-
 extern bool EnvironmentCallback(unsigned cmd, void *data);
 extern void VideoRefreshCallback(const void *data, unsigned width, unsigned height, size_t pitch);
 extern void AudioSampleCallback(int16_t left, int16_t right);
