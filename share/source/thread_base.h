@@ -8,6 +8,7 @@
 #define SCE_KERNEL_HIGHEST_PRIORITY_USER 64
 #define SCE_KERNEL_LOWEST_PRIORITY_USER 191
 #define SCE_KERNEL_DEFAULT_PRIORITY_USER 0x10000100
+#define DEFAULT_STACK_SIZE 0x100000
 
 class ThreadBase : public Locker, public Singleton
 {
@@ -15,7 +16,7 @@ public:
     ThreadBase(SceKernelThreadEntry entry,
                int priority = SCE_KERNEL_DEFAULT_PRIORITY_USER,
                int cpu_affinity = SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT,
-               int stack_size = 0x10000);
+               int stack_size = DEFAULT_STACK_SIZE);
     virtual ~ThreadBase();
 
     bool Start(); // the point of class will be sent
@@ -36,4 +37,4 @@ protected:
 void StartThread(SceKernelThreadEntry entry, SceSize args, void *argp,
                  int priority = SCE_KERNEL_DEFAULT_PRIORITY_USER,
                  int cpu_affinity = SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT,
-                 int stack_size = 0x10000);
+                 int stack_size = DEFAULT_STACK_SIZE);
