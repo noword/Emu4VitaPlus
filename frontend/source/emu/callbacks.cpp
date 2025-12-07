@@ -499,6 +499,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
             throttle_state->rate = std::min((float)gEmulator->_av_info.timing.fps, 60.0);
             break;
         }
+        break;
     }
 
     case RETRO_ENVIRONMENT_GET_SAVESTATE_CONTEXT:
