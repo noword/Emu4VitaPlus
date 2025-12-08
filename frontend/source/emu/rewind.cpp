@@ -41,7 +41,7 @@ static inline int memcmp_0x10(const void *src, const void *dst)
 #endif
 
 RewindManager::RewindManager()
-    : ThreadBase(_RewindThread),
+    : ThreadBase(_RewindThread, "rewind"),
       _contens(nullptr),
       _block_count(0),
       _tmp_buf(nullptr),

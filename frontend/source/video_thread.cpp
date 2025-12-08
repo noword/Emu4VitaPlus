@@ -10,7 +10,7 @@
 
 namespace Emu4VitaPlus
 {
-    VideoThread::VideoThread() : ThreadBase(_DrawThread)
+    VideoThread::VideoThread() : ThreadBase(_DrawThread, "video")
     {
         LogFunctionName;
         vita2d_init();

@@ -121,7 +121,7 @@ void RetroAchievements::_LoadGameCallback(int result, const char *error_message,
 }
 
 RetroAchievements::RetroAchievements()
-    : ThreadBase(_RaThread),
+    : ThreadBase(_RaThread, "RetroAchievements"),
       _online(false),
       _mmap{0},
       _retro_memory(nullptr),

@@ -59,7 +59,7 @@ static size_t MemoryWriteCallback(void *ptr, size_t size, size_t nmemb, void *us
 }
 
 Network::Network(size_t max_concurrent)
-    : ThreadBase(_RunThread),
+    : ThreadBase(_RunThread, "network"),
       _max_concurrent(max_concurrent),
       _finished_task_count(0),
       _user_agent(USER_AGENT)

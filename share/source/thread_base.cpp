@@ -2,10 +2,11 @@
 #include "thread_base.h"
 #include "log.h"
 
-ThreadBase::ThreadBase(SceKernelThreadEntry entry, int priority, int cpu_affinity, int stack_size)
+ThreadBase::ThreadBase(SceKernelThreadEntry entry, const char *name, int priority, int cpu_affinity, int stack_size)
     : Locker{"thread_mutex"},
       Singleton{"thread_sema"},
       _entry(entry),
+      _name(name ? name : __PRETTY_FUNCTION__),
       _priority(priority),
       _cpu_affinity(cpu_affinity),
       _stack_size(stack_size),
@@ -36,10 +37,10 @@ bool ThreadBase::Start(void *data, SceSize size)
 {
     LogFunctionName;
 
-    _thread_id = sceKernelCreateThread(__PRETTY_FUNCTION__, _entry, _priority, _stack_size, 0, _cpu_affinity, NULL);
+    _thread_id = sceKernelCreateThread(_name.c_str(), _entry, _priority, _stack_size, 0, _cpu_affinity, NULL);
     if (_thread_id < 0)
     {
-        LogError("failed to create thread: %s", __PRETTY_FUNCTION__);
+        LogError("failed to create thread: %s", _name.c_str());
         return false;
     }
 
@@ -47,14 +48,14 @@ bool ThreadBase::Start(void *data, SceSize size)
     int result = sceKernelStartThread(_thread_id, size, data);
     if (result != SCE_OK)
     {
-        LogError("failed to start thread: %s / %d", __PRETTY_FUNCTION__, result);
+        LogError("failed to start thread: %s / %d", _name.c_str(), result);
         sceKernelDeleteThread(_thread_id);
         _thread_id = -1;
         _keep_running = false;
         return false;
     }
 
-    LogInfo("Thread started. id: %08x function: %08x", _thread_id, _entry);
+    LogInfo("Thread '%s' started. id: %08x function: %08x", _name.c_str(), _thread_id, _entry);
 
     return true;
 }

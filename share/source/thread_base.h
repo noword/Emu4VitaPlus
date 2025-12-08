@@ -1,5 +1,6 @@
 #pragma once
 #include <stdint.h>
+#include <string>
 #include "locker.h"
 #include "singleton.h"
 
@@ -14,6 +15,7 @@ class ThreadBase : public Locker, public Singleton
 {
 public:
     ThreadBase(SceKernelThreadEntry entry,
+               const char *name = nullptr,
                int priority = SCE_KERNEL_DEFAULT_PRIORITY_USER,
                int cpu_affinity = SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT,
                int stack_size = DEFAULT_STACK_SIZE);
@@ -26,6 +28,7 @@ public:
 
 protected:
     SceKernelThreadEntry _entry;
+    const std::string _name;
     int _priority;
     int _cpu_affinity;
     SceSize _stack_size;

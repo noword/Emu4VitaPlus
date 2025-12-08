@@ -160,7 +160,7 @@ void Notifications::Show()
 
 void Notifications::Run()
 {
-    if (_notifications.empty())
+    if (likely(_notifications.empty()))
         return;
 
     for (const auto &iter : _notifications)

@@ -282,8 +282,8 @@ void App::Run()
     }
 
 #ifdef ENABLE_GPROF
-    LogDebug("dump gprof data to ux0:/data/gmon.out");
-    gprof_stop("ux0:/data/gmon.out", 1);
+    LogDebug("dump gprof data to " GPROF_DUMP_FILE);
+    gprof_stop(GPROF_DUMP_FILE, 1);
 #endif
 }
 
