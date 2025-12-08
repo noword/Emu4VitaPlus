@@ -283,15 +283,8 @@ bool EnvironmentCallback(unsigned cmd, void *data)
 
     case RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS");
-        if (*(bool *)data && RETRO_ACHIEVEMENTS_SUPPORT != RETRO_ACHIEVEMENTS_DISABLE)
+        if (*(bool *)data)
         {
-            if (!gRetroAchievements)
-            {
-                gRetroAchievements = new RetroAchievements;
-            }
-
-            gRetroAchievements->Enabled = true;
-
             if (!gRetroAchievements->IsRunning())
             {
                 gRetroAchievements->Start();
@@ -499,6 +492,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
             throttle_state->rate = std::min((float)gEmulator->_av_info.timing.fps, 60.0);
             break;
         }
+        break;
     }
 
     case RETRO_ENVIRONMENT_GET_SAVESTATE_CONTEXT:

@@ -4,7 +4,7 @@
 #include "profiler.h"
 
 AudioOutput::AudioOutput(uint32_t sample_size, uint32_t sample_rate, AudioBuf *buf)
-    : ThreadBase(_AudioThread),
+    : ThreadBase(_AudioThread, "audio"),
       _sample_size(sample_size),
       _out_buf(buf)
 {

@@ -4,7 +4,7 @@
 #include "profiler.h"
 
 AudioResampler::AudioResampler(uint32_t in_rate, uint32_t out_rate, AudioOutput *output, AudioBuf *out_buf)
-    : ThreadBase(_ResampleThread),
+    : ThreadBase(_ResampleThread, "resampler"),
       _output(output),
       _out_buf(out_buf),
       _swr_ctx(nullptr)

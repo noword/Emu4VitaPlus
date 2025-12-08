@@ -347,7 +347,7 @@ void Cheat::_ApplyRetro(bool *run_cheat)
     }
 }
 
-Cheats::Cheats() : ThreadBase(_CheatThread)
+Cheats::Cheats() : ThreadBase(_CheatThread, "cheats")
 {
 }
 

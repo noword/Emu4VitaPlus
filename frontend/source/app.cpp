@@ -139,7 +139,6 @@ App::App()
 
     if (RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE && !gRetroAchievements->IsRunning())
     {
-        gRetroAchievements->Enabled = true;
         gRetroAchievements->Start();
         if (gNetwork->Connected() && gConfig->ra_login && !gConfig->ra_token.empty())
         {
@@ -282,8 +281,8 @@ void App::Run()
     }
 
 #ifdef ENABLE_GPROF
-    LogDebug("dump gprof data to ux0:/data/gmon.out");
-    gprof_stop("ux0:/data/gmon.out", 1);
+    LogDebug("dump gprof data to " GPROF_DUMP_FILE);
+    gprof_stop(GPROF_DUMP_FILE, 1);
 #endif
 }
 

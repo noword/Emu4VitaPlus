@@ -23,6 +23,8 @@
 #define LIBRETRO_THUMBNAILS "https://thumbnails.libretro.com/"
 #define THUMBNAILS_SUBDIR "Named_Boxarts"
 
+#define GPROF_DUMP_FILE "ux0:/data/gmon.out"
+
 #define DEFAULT_SPEED_STEP 1
 
 extern const char CONSOLE_DIR[];
