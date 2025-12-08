@@ -576,8 +576,8 @@ const std::vector<ControlMapConfig> CONTROL_MAPS = {
 
 const std::vector<std::pair<const char *, const char *>> DEFAULT_CORE_SETTINGS = {
 #if defined(DOSBOX_PURE_BUILD)
-    {"dosbox_pure_cycles", "max"},
-    {"dosbox_pure_force60fps", "true"}
+// {"dosbox_pure_cycles", "max"},
+// {"dosbox_pure_force60fps", "true"}
 #elif defined(NEKOP2KAI_BUILD)
     {"np2kai_clk_mult", "2"},
     {"np2kai_joymode", "Keypad"}
