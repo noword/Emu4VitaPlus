@@ -144,13 +144,8 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         LogDebug("  cmd: RETRO_ENVIRONMENT_GET_VARIABLE");
         if (data)
         {
-            return gConfig->core_options.Get((retro_variable *)data);
+            gConfig->core_options.Get((retro_variable *)data);
         }
-        else
-        {
-            return false;
-        }
-
         break;
 
     case RETRO_ENVIRONMENT_SET_VARIABLES:
