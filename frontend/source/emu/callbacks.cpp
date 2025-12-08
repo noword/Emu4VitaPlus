@@ -285,13 +285,6 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_SUPPORT_ACHIEVEMENTS");
         if (*(bool *)data)
         {
-            if (!gRetroAchievements)
-            {
-                gRetroAchievements = new RetroAchievements;
-            }
-
-            gRetroAchievements->Enabled = true;
-
             if (!gRetroAchievements->IsRunning())
             {
                 gRetroAchievements->Start();

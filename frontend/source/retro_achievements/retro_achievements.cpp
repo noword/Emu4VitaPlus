@@ -125,7 +125,6 @@ RetroAchievements::RetroAchievements()
       _online(false),
       _mmap{0},
       _retro_memory(nullptr),
-      Enabled(false),
       _login_session_count(0)
 {
     LogFunctionName;

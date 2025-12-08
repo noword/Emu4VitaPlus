@@ -139,7 +139,6 @@ App::App()
 
     if (RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE && !gRetroAchievements->IsRunning())
     {
-        gRetroAchievements->Enabled = true;
         gRetroAchievements->Start();
         if (gNetwork->Connected() && gConfig->ra_login && !gConfig->ra_token.empty())
         {

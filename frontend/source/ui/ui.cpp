@@ -335,7 +335,7 @@ void Ui::CreateTables()
                                                                                LANG_BOTTOM_LEFT,
                                                                                LANG_BOTTOM_RIGHT})});
 
-    ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_RETROACHIEVEMENTS)->SetVisable(gRetroAchievements->Enabled);
+    ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_RETROACHIEVEMENTS)->SetVisable(gRetroAchievements->IsRunning());
     ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_HARDCORE)->SetVisable(gRetroAchievements->IsOnline());
     ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_RETROARCHIEVEMENTS_LOCAL)->SetVisable(gRetroAchievements->IsOnline());
 
@@ -433,7 +433,7 @@ void Ui::OnStatusChanged(APP_STATUS status)
         system_tab->SetItemVisable(2, status == APP_STATUS_SHOW_UI_IN_GAME && retro_serialize_size() > 0); // LANG_RESET_GAME
         system_tab->SetItemVisable(3, status == APP_STATUS_SHOW_UI_IN_GAME);                               // LANG_EXIT_GAME
 
-        ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_RETROACHIEVEMENTS)->SetVisable(gRetroAchievements->Enabled);
+        ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_RETROACHIEVEMENTS)->SetVisable(gRetroAchievements->IsRunning());
 
         if (status == APP_STATUS_SHOW_UI_IN_GAME)
         {
