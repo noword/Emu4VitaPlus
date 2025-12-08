@@ -25,6 +25,7 @@ namespace Emu4VitaPlus
         void SetPixelFormat(retro_pixel_format format);
         void Refresh(const void *data, unsigned width, unsigned height, size_t pitch);
         void Show();
+        bool NeedRender();
 
     private:
         retro_pixel_format _retro_pixel_format;

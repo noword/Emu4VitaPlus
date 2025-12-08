@@ -98,6 +98,7 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
 
     EndProfile("VideoRefreshCallback");
 }
+
 namespace Emu4VitaPlus
 {
     Video::Video()
@@ -110,6 +111,10 @@ namespace Emu4VitaPlus
     Video::~Video()
     {
         LogFunctionName;
+        if (_texture_buf)
+        {
+            delete _texture_buf;
+        }
     }
 
     void Video::SetPixelFormat(retro_pixel_format format)
@@ -119,6 +124,11 @@ namespace Emu4VitaPlus
             _retro_pixel_format = format;
             _graphics_config_changed = true;
         }
+    }
+
+    bool Video::NeedRender()
+    {
+        return _texture_buf != nullptr && _texture_buf->NeedRender();
     }
 
     void Video::Refresh(const void *data, unsigned width, unsigned height, size_t pitch)
@@ -149,7 +159,9 @@ namespace Emu4VitaPlus
             _texture_buf->SetFilter(gConfig->graphics[GRAPHICS_SMOOTH] ? SCE_GXM_TEXTURE_FILTER_LINEAR : SCE_GXM_TEXTURE_FILTER_POINT);
         }
 
-        memcpy(_texture_buf->Next(), data, pitch * height);
+        memcpy(_texture_buf->NextBegin(), data, pitch * height);
+        _texture_buf->NextEnd();
+
         gVideo->Signal();
         if (CONTROL_SPEED_BY_VIDEO)
         {
@@ -210,7 +222,7 @@ namespace Emu4VitaPlus
                                                                                         sizeof(vita2d_texture_vertex));
         memcpy(vertices, _vertices, 4 * sizeof(vita2d_texture_vertex));
 
-        sceGxmSetFragmentTexture(vita2d_get_context(), 0, &_texture_buf->Current()->gxm_tex);
+        sceGxmSetFragmentTexture(vita2d_get_context(), 0, &_texture_buf->GetTexture()->gxm_tex);
         sceGxmSetVertexStream(vita2d_get_context(), 0, vertices);
         sceGxmDraw(vita2d_get_context(), SCE_GXM_PRIMITIVE_TRIANGLE_STRIP, SCE_GXM_INDEX_FORMAT_U16, vita2d_get_linear_indices(), 4);
 
