@@ -118,7 +118,7 @@ private:
     void _SetPixelFormat(retro_pixel_format format);
     void _SetVideoSize(uint32_t width, uint32_t height);
     void _SetVertices(float x, float y, float tex_x, float tex_y, float tex_w, float tex_h, float x_scale, float y_scale, float rad);
-    void _CreateTextureBuf(SceGxmTextureFormat format, size_t width, size_t height);
+    void _CreateTextureBuf(retro_pixel_format format, size_t width, size_t height, size_t pitch);
     void _SetupVideoOutput(unsigned width, unsigned height);
     void _SetControllerInfo(retro_controller_info *info);
 
@@ -158,14 +158,12 @@ private:
     retro_system_info _info;
     retro_system_av_info _av_info;
 
-    SceGxmTextureFormat _video_pixel_format;
     retro_pixel_format _retro_pixel_format;
-    TextureBuf *_texture_buf;
+    TextureBuf<> *_texture_buf;
     Rect<int> _video_rect;
     bool _graphics_config_changed;
     VIDEO_ROTATION _video_rotation;
     Delay<double> _video_delay;
-    vita2d_texture *_last_texture;
 
     Audio _audio;
     InputThread _input;

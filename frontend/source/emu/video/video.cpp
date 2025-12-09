@@ -41,6 +41,7 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
         }
 
         gEmulator->_SetupVideoOutput(width, height);
+        gEmulator->_CreateTextureBuf(gEmulator->_retro_pixel_format, width, height, pitch);
     }
 
     if (unlikely((!data) || pitch == 0))
@@ -50,30 +51,7 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
 
     BeginProfile("VideoRefreshCallback");
 
-    vita2d_texture *texture = gEmulator->_texture_buf->NextBegin();
-
-    if (likely(data != vita2d_texture_get_datap(texture)))
-    {
-        unsigned out_pitch = vita2d_texture_get_stride(texture);
-        uint8_t *out = (uint8_t *)vita2d_texture_get_datap(texture);
-        uint8_t *in = (uint8_t *)data;
-
-        if (pitch == out_pitch)
-        {
-            memcpy(out, in, pitch * height);
-        }
-        else
-        {
-            unsigned p = std::min(pitch, out_pitch);
-            for (unsigned i = 0; i < height; i++)
-            {
-                memcpy(out, in, p);
-                in += pitch;
-                out += out_pitch;
-            }
-        }
-    }
-
+    memcpy(gEmulator->_texture_buf->NextBegin(), data, pitch * height);
     gEmulator->_texture_buf->NextEnd();
 
     if (gConfig->fps > 0 || gConfig->cpu_freq == CPU_AUTO)
@@ -100,7 +78,7 @@ bool Emulator::NeedRender()
 {
     return (!_graphics_config_changed) &&
            _texture_buf != nullptr &&
-           _last_texture != _texture_buf->Current();
+           _texture_buf->NeedRender();
 }
 
 void Emulator::Show()
@@ -131,7 +109,6 @@ void Emulator::Show()
     uint32_t index = gConfig->graphics[GRAPHICS_SHADER];
     Shader *shader = (index > 0 && index <= gShaders->size()) ? &(*gShaders)[index - 1] : nullptr;
 
-    _last_texture = _texture_buf->Current();
     const SceGxmProgramParameter *wvp_param;
 
     if (shader && shader->Valid())
@@ -163,7 +140,7 @@ void Emulator::Show()
                                                                                     sizeof(vita2d_texture_vertex));
     memcpy(vertices, _vertices, 4 * sizeof(vita2d_texture_vertex));
 
-    sceGxmSetFragmentTexture(vita2d_get_context(), 0, &_last_texture->gxm_tex);
+    sceGxmSetFragmentTexture(vita2d_get_context(), 0, &_texture_buf->GetTexture()->gxm_tex);
     sceGxmSetVertexStream(vita2d_get_context(), 0, vertices);
     sceGxmDraw(vita2d_get_context(), SCE_GXM_PRIMITIVE_TRIANGLE_STRIP, SCE_GXM_INDEX_FORMAT_U16, vita2d_get_linear_indices(), 4);
 
@@ -200,15 +177,14 @@ bool Emulator::GetCurrentSoftwareFramebuffer(retro_framebuffer *fb)
 
     // LogDebug("GetCurrentSoftwareFramebuffer _texture_buf->Current() %08x", _texture_buf->Current());
 
-    vita2d_texture *texture = _texture_buf->NextBegin();
-
-    if (unlikely(fb->width != vita2d_texture_get_width(texture) ||
-                 fb->height != vita2d_texture_get_height(texture)))
+    if (unlikely(fb->width != _texture_buf->GetWidth() ||
+                 fb->height != _texture_buf->GetHeight()))
     {
         _SetupVideoOutput(fb->width, fb->height);
-        texture = _texture_buf->NextBegin();
+        _CreateTextureBuf(gEmulator->_retro_pixel_format, fb->width, fb->height, fb->width);
     }
 
+    vita2d_texture *texture = _texture_buf->GetTexture(false);
     fb->data = vita2d_texture_get_datap(texture);
     fb->pitch = vita2d_texture_get_stride(texture);
     fb->format = _retro_pixel_format;
@@ -222,36 +198,16 @@ void Emulator::_SetPixelFormat(retro_pixel_format format)
 {
     LogFunctionName;
 
-    _retro_pixel_format = format;
-    SceGxmTextureFormat old_format = _video_pixel_format;
-    switch (format)
-    {
-    case RETRO_PIXEL_FORMAT_0RGB1555:
-        _video_pixel_format = SCE_GXM_TEXTURE_FORMAT_X1U5U5U5_1RGB;
-        break;
-
-    case RETRO_PIXEL_FORMAT_XRGB8888:
-        _video_pixel_format = SCE_GXM_TEXTURE_FORMAT_X8U8U8U8_1RGB;
-        break;
-
-    case RETRO_PIXEL_FORMAT_RGB565:
-        _video_pixel_format = SCE_GXM_TEXTURE_FORMAT_U5U6U5_RGB;
-        break;
-
-    default:
-        LogWarn("  unknown pixel format: %d", format);
-        break;
-    }
-
-    LogDebug("  _video_pixel_format: %d", format);
-    if (_texture_buf != nullptr && old_format != _video_pixel_format)
+    if (_texture_buf != nullptr && _retro_pixel_format != format)
     {
         delete _texture_buf;
         _texture_buf = nullptr;
     }
+
+    _retro_pixel_format = format;
 }
 
-void Emulator::_CreateTextureBuf(SceGxmTextureFormat format, size_t width, size_t height)
+void Emulator::_CreateTextureBuf(retro_pixel_format format, size_t width, size_t height, size_t pitch)
 {
     LogFunctionName;
 
@@ -261,9 +217,8 @@ void Emulator::_CreateTextureBuf(SceGxmTextureFormat format, size_t width, size_
         delete _texture_buf;
     }
 
-    _texture_buf = new TextureBuf(format, width, height);
+    _texture_buf = new TextureBuf(width, height, pitch, format);
     _texture_buf->SetFilter(gConfig->graphics[GRAPHICS_SMOOTH] ? SCE_GXM_TEXTURE_FILTER_LINEAR : SCE_GXM_TEXTURE_FILTER_POINT);
-    _last_texture = nullptr;
 }
 
 void Emulator::_SetVideoSize(uint32_t width, uint32_t height)
@@ -432,7 +387,6 @@ void Emulator::_SetupVideoOutput(unsigned width, unsigned height)
 
     gVideo->Lock();
 
-    _CreateTextureBuf(_video_pixel_format, width, height);
     _SetVideoSize(width, height);
 
     float rad;
@@ -453,7 +407,6 @@ void Emulator::_SetupVideoOutput(unsigned width, unsigned height)
                  rad);
 
     _graphics_config_changed = false;
-    _last_texture = nullptr;
 
     gVideo->Unlock();
 

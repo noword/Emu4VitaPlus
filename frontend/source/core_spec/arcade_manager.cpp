@@ -7,6 +7,7 @@
 #include "file.h"
 #include "log.h"
 #include "emulator.h"
+#include "defines.h"
 #include "archive_reader_factory.h"
 #include "file.h"
 
