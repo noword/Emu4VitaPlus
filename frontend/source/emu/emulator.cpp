@@ -20,8 +20,7 @@ extern "C"
 }
 
 Emulator::Emulator()
-    : _texture_buf(nullptr),
-      _keys{0},
+    : _keys{0},
       _info{0},
       _av_info{0},
       _graphics_config_changed(false),
@@ -500,7 +499,7 @@ bool Emulator::SaveScreenShot(const char *name)
     size_t width = _texture_buf->GetWidth();
     size_t height = _texture_buf->GetHeight();
     uint8_t *buf = new uint8_t[width * height * 3];
-    ConvertTextureToRGB888(_texture_buf->Current(), buf, width, height);
+    ConvertTextureToRGB888(_texture_buf->GetTexture(), buf, width, height);
 
     if (_video_rotation != VIDEO_ROTATION_0)
     {

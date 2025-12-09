@@ -27,7 +27,9 @@ namespace Emu4VitaPlus
         void Show();
         bool NeedRender();
 
-    private:
+    protected:
+        void _SetupVideoOutput(unsigned width, unsigned height);
+
         retro_pixel_format _retro_pixel_format;
         TextureBuf<> *_texture_buf;
         Rect<int> _video_rect;

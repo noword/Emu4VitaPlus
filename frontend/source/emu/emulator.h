@@ -3,7 +3,7 @@
 #include <libretro.h>
 #include <stdint.h>
 #include <vector>
-#include "texture_buf.h"
+#include "video.h"
 #include "audio.h"
 #include "delay.h"
 #include "input_thread.h"
@@ -32,7 +32,7 @@ extern int16_t InputStateCallback(unsigned port, unsigned device, unsigned index
 extern bool SetSensorStateCallback(unsigned port, enum retro_sensor_action action, unsigned rate);
 extern float SensorGetInputCallback(unsigned port, unsigned id);
 
-class Emulator
+class Emulator : public Video
 {
 public:
     Emulator();
@@ -111,7 +111,7 @@ private:
     void _SetVideoSize(uint32_t width, uint32_t height);
     void _SetVertices(float x, float y, float tex_x, float tex_y, float tex_w, float tex_h, float x_scale, float y_scale, float rad);
     void _CreateTextureBuf(SceGxmTextureFormat format, size_t width, size_t height);
-    void _SetupVideoOutput(unsigned width, unsigned height);
+
     void _SetControllerInfo(retro_controller_info *info);
 
     int16_t _GetJoypadState(unsigned index, unsigned id);
@@ -152,7 +152,6 @@ private:
 
     SceGxmTextureFormat _video_pixel_format;
     retro_pixel_format _retro_pixel_format;
-    TextureBuf *_texture_buf;
     Rect<int> _video_rect;
     bool _graphics_config_changed;
     VIDEO_ROTATION _video_rotation;

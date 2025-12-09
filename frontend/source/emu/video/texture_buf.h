@@ -2,7 +2,9 @@
 #include <stdint.h>
 #include <vita2d.h>
 #include <libretro.h>
+#include <string.h>
 #include "utils.h"
+#include "log.h"
 
 #define DEFAULT_TEXTURE_BUF_COUNT 4
 
@@ -17,13 +19,13 @@ public:
         : _width(width),
           _height(height),
           _pitch(pitch),
-          _format(foramt),
-          _index(0))
+          _format(format),
+          _index(0)
     {
         _texture = vita2d_create_empty_texture_format(width, height, _GetVitaPixelFormat(format));
 
         size_t block_size = ALIGN_UP_10H(height * pitch);
-        char *p = _last_buf = _buf = uint8_t char[block_size * BUF_SIZE];
+        uint8_t *p = _last_buf = _buf = new uint8_t[block_size * BUF_SIZE];
         for (size_t i = 0; i < BUF_SIZE; i++)
         {
             _bufs[i] = p;
@@ -34,6 +36,7 @@ public:
     virtual ~TextureBuf()
     {
         delete[] _buf;
+        vita2d_wait_rendering_done();
         vita2d_free_texture(_texture);
     }
 
@@ -42,7 +45,7 @@ public:
     size_t GetPitch() { return _pitch; }
     retro_pixel_format GetFormat() { return _format; }
 
-    bool NeedRender() { _last_buf != Current(); };
+    bool NeedRender() { return _last_buf != Current(); };
 
     char *NextBegin()
     {

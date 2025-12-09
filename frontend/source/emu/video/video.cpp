@@ -16,87 +16,7 @@ extern float _vita2d_ortho_matrix[4 * 4];
 void VideoRefreshCallback(const void *data, unsigned width, unsigned height, size_t pitch)
 {
     LogFunctionNameLimited;
-
-    if (unlikely(width == 0 || height == 0))
-    {
-        LogDebug("  invalid size: %d %d", width, height);
-        // gEmulator->_delay.Wait();
-        return;
-    }
-
-    if (unlikely(gEmulator->_graphics_config_changed ||
-                 gEmulator->_texture_buf == nullptr ||
-                 gEmulator->_texture_buf->GetWidth() != width ||
-                 gEmulator->_texture_buf->GetHeight() != height))
-    {
-        if (gEmulator->_texture_buf)
-        {
-            LogDebug("  old: (%d, %d) new: (%d, %d)",
-                     gEmulator->_texture_buf->GetWidth(),
-                     gEmulator->_texture_buf->GetHeight(),
-                     width,
-                     height);
-
-            LogDebug("  base width: %d base height: %d aspect ratio: %0.4f",
-                     gEmulator->_av_info.geometry.base_width,
-                     gEmulator->_av_info.geometry.base_height,
-                     gEmulator->_av_info.geometry.aspect_ratio);
-        }
-
-        gEmulator->_SetupVideoOutput(width, height);
-    }
-
-    if (unlikely((!data) || pitch == 0))
-    {
-        return;
-    }
-
-    BeginProfile("VideoRefreshCallback");
-
-    vita2d_texture *texture = gEmulator->_texture_buf->NextBegin();
-
-    if (likely(data != vita2d_texture_get_datap(texture)))
-    {
-        unsigned out_pitch = vita2d_texture_get_stride(texture);
-        uint8_t *out = (uint8_t *)vita2d_texture_get_datap(texture);
-        uint8_t *in = (uint8_t *)data;
-
-        if (pitch == out_pitch)
-        {
-            memcpy(out, in, pitch * height);
-        }
-        else
-        {
-            unsigned p = std::min(pitch, out_pitch);
-            for (unsigned i = 0; i < height; i++)
-            {
-                memcpy(out, in, p);
-                in += pitch;
-                out += out_pitch;
-            }
-        }
-    }
-
-    gEmulator->_texture_buf->NextEnd();
-
-    if (gConfig->fps > 0 || gConfig->cpu_freq == CPU_AUTO)
-    {
-        gEmulator->_fps.Update();
-    }
-
-    if (gConfig->cpu_freq == CPU_AUTO)
-    {
-        gEmulator->_AutoAdjustCpu();
-    }
-
-    gVideo->Signal();
-
-    if (CONTROL_SPEED_BY_VIDEO)
-    {
-        gEmulator->Wait();
-    }
-
-    EndProfile("VideoRefreshCallback");
+    gEmulator->Refresh(data, width, height, pitch);
 }
 
 namespace Emu4VitaPlus
@@ -173,7 +93,7 @@ namespace Emu4VitaPlus
     {
         APP_STATUS status = gStatus.Get();
 
-        if (_graphics_config_changed || _texture_buf == nullptr || !(status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME | APP_STATUS_SHOW_UI_IN_GAME)))
+        if (_texture_buf == nullptr || !(status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME | APP_STATUS_SHOW_UI_IN_GAME)))
         {
             sceKernelDelayThread(100000);
             return;
