@@ -54,16 +54,6 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
     memcpy(gEmulator->_texture_buf->NextBegin(), data, pitch * height);
     gEmulator->_texture_buf->NextEnd();
 
-    if (gConfig->fps > 0 || gConfig->cpu_freq == CPU_AUTO)
-    {
-        gEmulator->_fps.Update();
-    }
-
-    if (gConfig->cpu_freq == CPU_AUTO)
-    {
-        gEmulator->_AutoAdjustCpu();
-    }
-
     gVideo->Signal();
 
     if (CONTROL_SPEED_BY_VIDEO)
@@ -87,7 +77,9 @@ void Emulator::Show()
 
     APP_STATUS status = gStatus.Get();
 
-    if (_graphics_config_changed || _texture_buf == nullptr || !(status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME | APP_STATUS_SHOW_UI_IN_GAME)))
+    if (unlikely(_graphics_config_changed ||
+                 _texture_buf == nullptr ||
+                 !(status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME | APP_STATUS_SHOW_UI_IN_GAME))))
     {
         sceKernelDelayThread(100000);
         return;
@@ -128,7 +120,6 @@ void Emulator::Show()
     {
         sceGxmSetVertexProgram(vita2d_get_context(), _vita2d_textureVertexProgram);
         sceGxmSetFragmentProgram(vita2d_get_context(), _vita2d_textureFragmentProgram);
-
         wvp_param = _vita2d_textureWvpParam;
     }
 
@@ -156,15 +147,29 @@ void Emulator::Show()
         }
     }
 
-    _video_delay.Wait();
-
     if (unlikely(status == APP_STATUS_RUN_GAME && _keyboard && _keyboard->Visable()))
     {
         _keyboard->Show();
     }
 
     _frame_count++;
-    _fps.Show();
+
+    if (gConfig->fps > 0 || gConfig->cpu_freq == CPU_AUTO)
+    {
+        _fps.Update();
+
+        if (gConfig->fps > 0)
+        {
+            _fps.Show();
+        }
+
+        if (gConfig->cpu_freq == CPU_AUTO)
+        {
+            _AutoAdjustCpu();
+        }
+    }
+
+    _video_delay.Wait();
 }
 
 bool Emulator::GetCurrentSoftwareFramebuffer(retro_framebuffer *fb)
