@@ -154,7 +154,7 @@ void Emulator::Show()
 
     _frame_count++;
 
-    if (gConfig->fps > 0 || gConfig->cpu_freq == CPU_AUTO)
+    if ((gConfig->fps > 0 || gConfig->cpu_freq == CPU_AUTO) && (status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME)))
     {
         _fps.Update();
 
