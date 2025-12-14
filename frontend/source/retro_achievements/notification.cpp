@@ -92,10 +92,8 @@ void Notifications::Show()
     ImVec2 size;
     ImVec2 pre_size{0.f, 0.f};
 
-#ifndef DRAW_IMGUI_TOGETHER
     ImGui_ImplVita2D_NewFrame();
     ImGui::SetMouseCursor(ImGuiMouseCursor_None);
-#endif
 
     _locker.Lock();
     for (const auto &iter : _notifications)
@@ -152,10 +150,8 @@ void Notifications::Show()
     }
     _locker.Unlock();
 
-#ifndef DRAW_IMGUI_TOGETHER
     ImGui::Render();
     My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
-#endif
 }
 
 void Notifications::Run()

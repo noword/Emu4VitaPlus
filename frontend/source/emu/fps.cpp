@@ -55,10 +55,8 @@ void Fps::Show()
     else
         color = IM_COL32(255, 0, 0, 255);
 
-#ifndef DRAW_IMGUI_TOGETHER
     ImGui_ImplVita2D_NewFrame();
     ImGui::SetMouseCursor(ImGuiMouseCursor_None);
-#endif
     ImGui::SetNextWindowPos(pos);
     ImGui::SetNextWindowSize({FPS_HUD_WIDTH, FPS_HUD_HEIGHT});
     ImGui::SetNextWindowBgAlpha(0.f);
@@ -79,8 +77,6 @@ void Fps::Show()
     ImGui::End();
     ImGui::PopStyleVar();
 
-#ifndef DRAW_IMGUI_TOGETHER
     ImGui::Render();
     My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
-#endif
 }

@@ -18,10 +18,8 @@ void Hint::Show()
         return;
     }
 
-#ifndef DRAW_IMGUI_TOGETHER
     ImGui_ImplVita2D_NewFrame();
     ImGui::SetMouseCursor(ImGuiMouseCursor_None);
-#endif
 
     _locker.Lock();
     HintItem &hint = _hints.front();
@@ -58,10 +56,8 @@ void Hint::Show()
     }
     _locker.Unlock();
 
-#ifndef DRAW_IMGUI_TOGETHER
     ImGui::Render();
     My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
-#endif
 }
 
 void Hint::SetHint(LanguageString s, int frame_count, bool clear_exists)
