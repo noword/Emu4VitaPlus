@@ -412,11 +412,11 @@ bool EnvironmentCallback(unsigned cmd, void *data)
 
     case RETRO_ENVIRONMENT_SET_MINIMUM_AUDIO_LATENCY:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_MINIMUM_AUDIO_LATENCY");
-        if (data && *(const unsigned *)data != 0)
+        if (data)
         {
             LogDebug("  data: %d", *(const unsigned *)data);
             // gEmulator->SetSpeed(gEmulator->_speed); // will reset audio
-            // gEmulator->_audio.SetLatency(*(const unsigned *)data);
+            gEmulator->_audio.SetLatency(*(const unsigned *)data);
         }
         break;
 

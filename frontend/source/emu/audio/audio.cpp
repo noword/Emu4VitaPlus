@@ -35,7 +35,8 @@ size_t AudioSampleBatchCallback(const int16_t *data, size_t frames)
 namespace Emu4VitaPlus
 {
     Audio::Audio()
-        : _in_sample_rate(0),
+        : _latency(AUDIO_DEFAULT_LATENCY),
+          _in_sample_rate(0),
           _resampler(nullptr),
           _output(nullptr),
           _buf_status_callback(nullptr)
@@ -99,6 +100,8 @@ namespace Emu4VitaPlus
                 _resampler = nullptr;
             }
         }
+
+        SetLatency(_latency);
     }
 
     void Audio::Deinit()
@@ -167,20 +170,29 @@ namespace Emu4VitaPlus
     {
         if (_buf_status_callback && _output)
         {
-            // if (show_video)
-            // {
-            //     _buf_status_callback(gConfig->mute, 100, false);
-            // }
-            // else
-            // {
-            //     _buf_status_callback(gConfig->mute, 10, true);
-            // }
-            int remain = _output->GetRemain();
-            _buf_status_callback(gConfig->mute, remain * 100 / AUDIO_OUTPUT_COUNT, remain < AUDIO_OUTPUT_COUNT);
+            // int remain = _output->GetRemain();
+            //_buf_status_callback(gConfig->mute, remain * 100 / AUDIO_OUTPUT_COUNT, remain < AUDIO_OUTPUT_COUNT);
+
             // if (remain < AUDIO_OUTPUT_COUNT)
             // {
             //     LogInfo("skip audio: %d ", remain);
             // }
+
+            unsigned occupancy = _out_buf.AvailableSize() * 100 / _output->GetLatencySize();
+            _buf_status_callback(gConfig->mute, occupancy, occupancy < 20);
+        }
+    }
+
+    void Audio::SetLatency(unsigned latency)
+    {
+        LogFunctionName;
+
+        if (_output && latency >= 0 && latency <= 512)
+        {
+            _latency = latency;
+            unsigned size = _out_sample_rate * 2 * latency / 1000;
+            LogDebug("  Latency Size: %d", size);
+            _output->SetLatencySize(size);
         }
     }
 }

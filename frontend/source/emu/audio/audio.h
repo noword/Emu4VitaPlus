@@ -20,10 +20,12 @@ namespace Emu4VitaPlus
         void SetBufStatusCallback(retro_audio_buffer_status_callback_t callback) { _buf_status_callback = callback; };
         void NotifyBufStatus(bool show_video);
         uint32_t GetSampleRate() { return _out_sample_rate; };
+        void SetLatency(unsigned latency);
 
     private:
         bool _GetSuitableSampleRate(uint32_t sample_rate, uint32_t *out_sample_rate);
 
+        unsigned _latency;
         uint32_t _in_sample_rate;
         uint32_t _out_sample_rate;
 

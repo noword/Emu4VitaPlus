@@ -12,6 +12,12 @@ public:
     void SetRate(uint32_t sample_size, uint32_t sample_rate);
     unsigned GetOccupancy();
     int GetRemain();
+    void SetLatencySize(unsigned latency_size)
+    {
+        _latency_size = latency_size;
+        _latency_updated = true;
+    };
+    unsigned GetLatencySize() { return _latency_size; };
 
 private:
     static int
@@ -20,4 +26,6 @@ private:
     int _port;
     uint32_t _sample_size;
     AudioBuf *_out_buf;
+    unsigned _latency_size;
+    bool _latency_updated;
 };
