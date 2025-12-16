@@ -68,13 +68,17 @@ public:
     double GetSampleRate() const { return _av_info.timing.sample_rate; };
     float GetAspectRatio() { return _av_info.geometry.aspect_ratio; };
     uint64_t GetMsPerFrame() { return _delay.GetInterval(); };
+
     void ChangeGraphicsConfig() { _graphics_config_changed = true; };
     void ChangeRewindConfig();
     void ChangeAudioConfig();
+    void ChangeAudioLatencyConfig();
+    void ChangeCheatConfig();
+
     uint32_t GetFrameCount() { return _frame_count; };
     void CoreOptionUpdate();
     Cheats *GetCheats() { return &_cheats; };
-    void ChangeCheatConfig();
+
     void SetupKeys();
     void SetupKeysWithSaveConfig();
     bool NeedRender();

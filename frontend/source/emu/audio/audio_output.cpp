@@ -62,20 +62,3 @@ int AudioOutput::_AudioThread(SceSize args, void *argp)
 
     return 0;
 }
-
-unsigned AudioOutput::GetOccupancy()
-{
-    int rest = sceAudioOutGetRestSample(_port);
-    if (rest >= 0)
-    {
-        return rest * 100 / _sample_size;
-    }
-
-    return 0;
-}
-
-int AudioOutput::GetRemain()
-{
-    int rest = sceAudioOutGetRestSample(_port);
-    return rest > 0 ? rest : 0;
-}

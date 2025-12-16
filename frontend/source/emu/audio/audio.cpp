@@ -35,16 +35,13 @@ size_t AudioSampleBatchCallback(const int16_t *data, size_t frames)
 namespace Emu4VitaPlus
 {
     Audio::Audio()
-        : _latency(AUDIO_DEFAULT_LATENCY),
-          _in_sample_rate(0),
+        : _in_sample_rate(0),
           _resampler(nullptr),
           _output(nullptr),
-          _buf_status_callback(nullptr)
+          _buf_status_callback(nullptr),
+          _latency(1 << (gConfig->audio_latency + 4))
     {
         LogFunctionName;
-
-        // SetSampleRate(sample_rate);
-        // LogDebug("_in_sample_rate: %d _out_sample_rate:%d _resampler:%08x", _in_sample_rate, _out_sample_rate, _resampler);
     }
 
     Audio::~Audio()
@@ -170,14 +167,6 @@ namespace Emu4VitaPlus
     {
         if (_buf_status_callback && _output)
         {
-            // int remain = _output->GetRemain();
-            //_buf_status_callback(gConfig->mute, remain * 100 / AUDIO_OUTPUT_COUNT, remain < AUDIO_OUTPUT_COUNT);
-
-            // if (remain < AUDIO_OUTPUT_COUNT)
-            // {
-            //     LogInfo("skip audio: %d ", remain);
-            // }
-
             unsigned occupancy = _out_buf.AvailableSize() * 100 / _output->GetLatencySize();
             _buf_status_callback(gConfig->mute, occupancy, occupancy < 20);
         }
@@ -187,12 +176,16 @@ namespace Emu4VitaPlus
     {
         LogFunctionName;
 
-        if (_output && latency >= 0 && latency <= 512)
+        if (latency >= 0 && latency <= 512)
         {
-            _latency = latency;
-            unsigned size = _out_sample_rate * 2 * latency / 1000;
-            LogDebug("  Latency Size: %d", size);
-            _output->SetLatencySize(size);
+            _latency = std::max(_latency, latency);
+            LogDebug("  _latency: %d", _latency);
+            if (_output)
+            {
+                unsigned size = _out_sample_rate * 2 * _latency / 1024;
+                LogDebug("  Latency Size: %d", size);
+                _output->SetLatencySize(size);
+            }
         }
     }
 }

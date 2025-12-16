@@ -675,6 +675,12 @@ void Emulator::ChangeAudioConfig()
     }
 }
 
+void Emulator::ChangeAudioLatencyConfig()
+{
+    LogFunctionName;
+    _audio.SetLatency(1 << (gConfig->audio_latency + 4));
+}
+
 void Emulator::CoreOptionUpdate()
 {
     LogFunctionName;

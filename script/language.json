@@ -1954,5 +1954,17 @@
         "Spanish": "",
         "Russian": "Автоматически",
         "Comments": ""
+    },
+    {
+        "No.": "164",
+        "Tag": "LANG_AUDIO_LATENCY",
+        "English": "Audio Latency (ms)",
+        "Chinese": "音频延迟 (ms)",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
 ]
