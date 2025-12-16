@@ -38,7 +38,10 @@ set(RETRO_SRC
     ${LIBRETRO_PATH}/audio/resampler/drivers/sinc_resampler.c
     ${LIBRETRO_PATH}/audio/resampler/drivers/nearest_resampler.c
     ${LIBRETRO_PATH}/audio/conversion/s16_to_float.c
-    ${LIBRETRO_PATH}/audio/conversion/float_to_s16.c)
+    ${LIBRETRO_PATH}/audio/conversion/float_to_s16.c
+    ${LIBRETRO_PATH}/formats/png/rpng.c
+    ${LIBRETRO_PATH}/formats/png/rpng_encode.c
+)
 
 add_compile_definitions(VITA HAVE_NEON HAVE_THREADS HAVE_COMPRESSION HAVE_ZLIB HAVE_7ZIP __ARM_NEON__)
 add_library(retro_comm STATIC ${RETRO_SRC})
