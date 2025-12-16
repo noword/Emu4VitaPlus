@@ -23,11 +23,12 @@ public:
           _index(0)
     {
         _texture = vita2d_create_empty_texture_format(width, height, _GetVitaPixelFormat(format));
+        _out_pitch = vita2d_texture_get_stride(_texture);
+        _texture_data = (uint8_t *)vita2d_texture_get_datap(_texture);
 
         if (pitch == 0)
-        {
-            pitch = width;
-        }
+            pitch = _out_pitch;
+
         size_t block_size = ALIGN_UP_10H(height * pitch);
         uint8_t *p = _last_buf = _buf = new uint8_t[block_size * BUF_SIZE];
         for (size_t i = 0; i < BUF_SIZE; i++)
@@ -72,21 +73,20 @@ public:
     {
         if (render)
         {
-            unsigned out_pitch = vita2d_texture_get_stride(_texture);
-            uint8_t *out = (uint8_t *)vita2d_texture_get_datap(_texture);
             uint8_t *in = _last_buf = Current();
-            if (_pitch == out_pitch)
+            if (_pitch == _out_pitch)
             {
-                memcpy(out, in, _pitch * _height);
+                memcpy(_texture_data, in, _pitch * _height);
             }
             else
             {
-                unsigned row_length = std::min(_pitch, out_pitch);
+                uint8_t *out = _texture_data;
+                unsigned row_length = std::min(_pitch, _out_pitch);
                 for (unsigned i = 0; i < _height; i++)
                 {
                     memcpy(out, in, row_length);
                     in += _pitch;
-                    out += out_pitch;
+                    out += _out_pitch;
                 }
             }
         }
@@ -121,6 +121,8 @@ private:
     unsigned _width;
     unsigned _height;
     size_t _pitch;
+    size_t _out_pitch;
+    uint8_t *_texture_data;
     retro_pixel_format _format;
     vita2d_texture *_texture;
     uint8_t *_buf;
