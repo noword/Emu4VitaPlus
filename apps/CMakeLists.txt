@@ -89,6 +89,7 @@ target_link_libraries(
     pthread
     FLAC
     ogg
+    zstd
     SceLibJson_stub
     ScePvf_stub
     ScePgf_stub

@@ -52,7 +52,6 @@ OBJS =	\
 	$(EMU)/archivers/7z/7zCrc.o \
 	$(EMU)/archivers/7z/7zDecode.o \
 	$(EMU)/archivers/7z/7zExtract.o \
-	$(EMU)/archivers/7z/7zHeader.o \
 	$(EMU)/archivers/7z/7zIn.o \
 	$(EMU)/archivers/7z/7zItem.o \
 	$(EMU)/archivers/7z/7zMethodID.o \
