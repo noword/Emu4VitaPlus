@@ -20,11 +20,15 @@ public:
           _height(height),
           _pitch(pitch),
           _format(format),
-          _index(0)
+          _index(0),
+          _texture_index(0)
     {
-        _texture = vita2d_create_empty_texture_format(width, height, _GetVitaPixelFormat(format));
-        _out_pitch = vita2d_texture_get_stride(_texture);
-        _texture_data = (uint8_t *)vita2d_texture_get_datap(_texture);
+        _textures[0] = vita2d_create_empty_texture_format(width, height, _GetVitaPixelFormat(format));
+        _textures[1] = vita2d_create_empty_texture_format(width, height, _GetVitaPixelFormat(format));
+        _texture_datas[0] = (uint8_t *)vita2d_texture_get_datap(_textures[0]);
+        _texture_datas[1] = (uint8_t *)vita2d_texture_get_datap(_textures[1]);
+
+        _out_pitch = vita2d_texture_get_stride(_textures[0]);
 
         if (pitch == 0)
             pitch = _out_pitch;
@@ -42,7 +46,8 @@ public:
     {
         delete[] _buf;
         vita2d_wait_rendering_done();
-        vita2d_free_texture(_texture);
+        vita2d_free_texture(_textures[0]);
+        vita2d_free_texture(_textures[1]);
     }
 
     unsigned GetWidth() { return _width; }
@@ -73,14 +78,15 @@ public:
     {
         if (render)
         {
+            LOOP_PLUS_ONE(_texture_index, 2);
             uint8_t *in = _last_buf = Current();
             if (_pitch == _out_pitch)
             {
-                memcpy(_texture_data, in, _pitch * _height);
+                memcpy(_texture_datas[_texture_index], in, _pitch * _height);
             }
             else
             {
-                uint8_t *out = _texture_data;
+                uint8_t *out = _texture_datas[_texture_index];
                 unsigned row_length = std::min(_pitch, _out_pitch);
                 for (unsigned i = 0; i < _height; i++)
                 {
@@ -90,12 +96,13 @@ public:
                 }
             }
         }
-        return _texture;
+        return _textures[_texture_index];
     };
 
     void SetFilter(SceGxmTextureFilter filter)
     {
-        vita2d_texture_set_filters(_texture, filter, filter);
+        vita2d_texture_set_filters(_textures[0], filter, filter);
+        vita2d_texture_set_filters(_textures[1], filter, filter);
     };
 
 private:
@@ -122,9 +129,12 @@ private:
     unsigned _height;
     size_t _pitch;
     size_t _out_pitch;
-    uint8_t *_texture_data;
     retro_pixel_format _format;
-    vita2d_texture *_texture;
+
+    uint8_t *_texture_datas[2];
+    vita2d_texture *_textures[2];
+    uint8_t _texture_index;
+
     uint8_t *_buf;
     uint8_t *_bufs[BUF_SIZE];
     uint8_t *_last_buf;
