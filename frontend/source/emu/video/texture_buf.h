@@ -1,145 +1,74 @@
 #pragma once
-#include <stdint.h>
 #include <vita2d.h>
-#include <libretro.h>
-#include <string.h>
-#include "utils.h"
+#include <array>
 #include "log.h"
+#include "defines.h"
+#include "utils.h"
 
 #define DEFAULT_TEXTURE_BUF_COUNT 4
 
-template <size_t BUF_SIZE = DEFAULT_TEXTURE_BUF_COUNT>
-class TextureBuf
+class TextureBuf : public std::array<vita2d_texture *, DEFAULT_TEXTURE_BUF_COUNT>
 {
 public:
-    TextureBuf(unsigned width,
-               unsigned height,
-               size_t pitch,
-               retro_pixel_format format)
-        : _width(width),
-          _height(height),
-          _pitch(pitch),
-          _format(format),
-          _index(0),
-          _texture_index(0)
+    TextureBuf(SceGxmTextureFormat format, size_t width, size_t height)
+        : _width(width), _height(height), _index(0)
     {
         LogFunctionName;
-        LogDebug("%d %d %d %d", width, height, pitch, format);
-        _textures[0] = vita2d_create_empty_texture_format(width, height, _GetVitaPixelFormat(format));
-        _textures[1] = vita2d_create_empty_texture_format(width, height, _GetVitaPixelFormat(format));
-        _texture_datas[0] = (uint8_t *)vita2d_texture_get_datap(_textures[0]);
-        _texture_datas[1] = (uint8_t *)vita2d_texture_get_datap(_textures[1]);
 
-        _out_pitch = vita2d_texture_get_stride(_textures[0]);
+        LogDebug("  %d x %d (%d)", width, height, format);
 
-        if (pitch == 0)
-            pitch = _out_pitch;
-
-        size_t block_size = ALIGN_UP_10H(height * pitch);
-        uint8_t *p = _last_buf = _buf = new uint8_t[block_size * BUF_SIZE];
-        for (size_t i = 0; i < BUF_SIZE; i++)
+        for (auto &texture : *this)
         {
-            _bufs[i] = p;
-            p += block_size;
+            texture = vita2d_create_empty_texture_format(width, height, format);
         }
-    }
+    };
 
     virtual ~TextureBuf()
     {
         LogFunctionName;
-        delete[] _buf;
+
         vita2d_wait_rendering_done();
-        vita2d_free_texture(_textures[0]);
-        vita2d_free_texture(_textures[1]);
+        for (auto &texture : *this)
+        {
+            vita2d_free_texture(texture);
+        }
     }
 
-    unsigned GetWidth() { return _width; }
-    unsigned GetHeight() { return _height; }
-    size_t GetPitch() { return _pitch; }
-    retro_pixel_format GetFormat() { return _format; }
+    size_t GetWidth() const { return _width; };
+    size_t GetHeight() const { return _height; };
 
-    bool NeedRender() { return _last_buf != Current(); };
+    vita2d_texture *Next()
+    {
+        LOOP_PLUS_ONE(_index, size());
+        return (*this)[_index];
+    };
 
-    uint8_t *NextBegin()
+    vita2d_texture *NextBegin()
     {
         size_t index = _index;
-        LOOP_PLUS_ONE(index, BUF_SIZE);
-        return _bufs[index];
+        LOOP_PLUS_ONE(index, size());
+        return (*this)[index];
     };
 
     void NextEnd()
     {
-        LOOP_PLUS_ONE(_index, BUF_SIZE);
+        LOOP_PLUS_ONE(_index, size());
     };
 
-    uint8_t *Current()
+    vita2d_texture *Current()
     {
-        return _bufs[_index];
-    };
-
-    vita2d_texture *GetTexture(bool render = true)
-    {
-        if (render)
-        {
-            LOOP_PLUS_ONE(_texture_index, 2);
-            uint8_t *in = _last_buf = Current();
-            if (_pitch == _out_pitch)
-            {
-                memcpy(_texture_datas[_texture_index], in, _pitch * _height);
-            }
-            else
-            {
-                uint8_t *out = _texture_datas[_texture_index];
-                unsigned row_length = std::min(_pitch, _out_pitch);
-                for (unsigned i = 0; i < _height; i++)
-                {
-                    memcpy(out, in, row_length);
-                    in += _pitch;
-                    out += _out_pitch;
-                }
-            }
-        }
-        return _textures[_texture_index];
+        return (*this)[_index];
     };
 
     void SetFilter(SceGxmTextureFilter filter)
     {
-        vita2d_texture_set_filters(_textures[0], filter, filter);
-        vita2d_texture_set_filters(_textures[1], filter, filter);
-    };
-
-private:
-    SceGxmTextureFormat _GetVitaPixelFormat(retro_pixel_format format)
-    {
-        switch (format)
+        for (auto &texture : *this)
         {
-        case RETRO_PIXEL_FORMAT_0RGB1555:
-            return SCE_GXM_TEXTURE_FORMAT_X1U5U5U5_1RGB;
-
-        case RETRO_PIXEL_FORMAT_XRGB8888:
-            return SCE_GXM_TEXTURE_FORMAT_X8U8U8U8_1RGB;
-
-        case RETRO_PIXEL_FORMAT_RGB565:
-            return SCE_GXM_TEXTURE_FORMAT_U5U6U5_RGB;
-
-        default:
-            LogError("  unknown pixel format: %d", format);
-            return (SceGxmTextureFormat)-1;
+            vita2d_texture_set_filters(texture, filter, filter);
         }
     }
 
-    unsigned _width;
-    unsigned _height;
-    size_t _pitch;
-    size_t _out_pitch;
-    retro_pixel_format _format;
-
-    vita2d_texture *_textures[2];
-    uint8_t *_texture_datas[2];
-    uint8_t _texture_index;
-
-    uint8_t *_buf;
-    uint8_t *_bufs[BUF_SIZE];
-    uint8_t *_last_buf;
+private:
+    size_t _width, _height;
     size_t _index;
 };

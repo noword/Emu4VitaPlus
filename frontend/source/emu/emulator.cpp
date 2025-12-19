@@ -34,8 +34,7 @@ Emulator::Emulator()
       _loaded(false),
       _disk_contorl(nullptr),
       _speed(1.0),
-      _keyboard(nullptr),
-      _retro_pixel_format((retro_pixel_format)-1)
+      _keyboard(nullptr)
 {
     LogFunctionName;
     memset(&_info, 0, sizeof(_info));
@@ -174,6 +173,7 @@ LOADED:
     {
         gStatus.Set(APP_STATUS_RUN_GAME);
 
+        _last_texture = nullptr;
         retro_get_system_av_info(&_av_info);
         SetupKeys();
 
@@ -295,6 +295,7 @@ void Emulator::UnloadGame()
 
         Unlock();
 
+        _last_texture = nullptr;
         if (_disk_contorl)
         {
             delete _disk_contorl;
@@ -503,7 +504,7 @@ bool Emulator::SaveScreenShot(const char *name)
     size_t width = _texture_buf->GetWidth();
     size_t height = _texture_buf->GetHeight();
     uint8_t *buf = new uint8_t[width * height * 3];
-    ConvertTextureToRGB888(_texture_buf->GetTexture(), buf, width, height);
+    ConvertTextureToRGB888(_texture_buf->Current(), buf, width, height);
 
     if (_video_rotation != VIDEO_ROTATION_0)
     {
