@@ -23,6 +23,8 @@ public:
           _index(0),
           _texture_index(0)
     {
+        LogFunctionName;
+        LogDebug("%d %d %d %d", width, height, pitch, format);
         _textures[0] = vita2d_create_empty_texture_format(width, height, _GetVitaPixelFormat(format));
         _textures[1] = vita2d_create_empty_texture_format(width, height, _GetVitaPixelFormat(format));
         _texture_datas[0] = (uint8_t *)vita2d_texture_get_datap(_textures[0]);
@@ -44,6 +46,7 @@ public:
 
     virtual ~TextureBuf()
     {
+        LogFunctionName;
         delete[] _buf;
         vita2d_wait_rendering_done();
         vita2d_free_texture(_textures[0]);
@@ -131,8 +134,8 @@ private:
     size_t _out_pitch;
     retro_pixel_format _format;
 
-    uint8_t *_texture_datas[2];
     vita2d_texture *_textures[2];
+    uint8_t *_texture_datas[2];
     uint8_t _texture_index;
 
     uint8_t *_buf;

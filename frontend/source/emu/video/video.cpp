@@ -205,8 +205,10 @@ void Emulator::_SetPixelFormat(retro_pixel_format format)
 
     if (_texture_buf != nullptr && _retro_pixel_format != format)
     {
+        gVideo->Lock();
         delete _texture_buf;
         _texture_buf = nullptr;
+        gVideo->Unlock();
     }
 
     _retro_pixel_format = format;
@@ -218,8 +220,10 @@ void Emulator::_CreateTextureBuf(retro_pixel_format format, size_t width, size_t
 
     if (_texture_buf != nullptr)
     {
-        vita2d_wait_rendering_done();
+        gVideo->Lock();
         delete _texture_buf;
+        _texture_buf = nullptr;
+        gVideo->Unlock();
     }
 
     _texture_buf = new TextureBuf(width, height, pitch, format);
