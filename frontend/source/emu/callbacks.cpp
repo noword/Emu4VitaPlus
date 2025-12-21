@@ -13,8 +13,9 @@
 
 void RetroLog(retro_log_level level, const char *fmt, ...)
 {
+    // LogFunctionName;
     // #if LOG_LEVEL > LOG_LEVEL_DEBUG
-    if (gStatus.Get() == APP_STATUS_RUN_GAME)
+    if ((!fmt) || gStatus.Get() == APP_STATUS_RUN_GAME)
     {
         return;
     }
@@ -405,8 +406,11 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_MESSAGE_EXT");
         {
             retro_message_ext *message = (retro_message_ext *)data;
-            LogDebug(message->msg);
-            gHint->SetHint(message->msg);
+            if (message && message->msg)
+            {
+                LogDebug(message->msg);
+                gHint->SetHint(message->msg);
+            }
         }
         break;
 
