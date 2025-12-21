@@ -153,7 +153,7 @@ if(NOT BUILD_SELF)
 
     if(NOT BUILD STREQUAL "All")
         add_custom_target(send COMMAND curl -T ${EBOOT_NAME} "ftp://\${PSVITAIP}:1337/ux0:/app/${SFO_TITLE_ID}/eboot.bin")
-        add_dependencies(send ${VPK_NAME})
+        add_dependencies(send ${EBOOT_NAME}-self)
 
         add_custom_target(sendvpk COMMAND curl -T ${OUT_PATH}/${VPK_NAME} "ftp://\${PSVITAIP}:1337/ux0:")
         add_dependencies(sendvpk ${VPK_NAME})

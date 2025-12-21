@@ -168,7 +168,7 @@ namespace Emu4VitaPlus
         ra_position = RA_POSITION_BOTTOM_RIGHT;
         cpu_freq = CPU_500;
         fps = FPS_POSITION_DISABLE;
-        audio_latency = AUDIO_LATENCY_64MS;
+        audio_latency = AUDIO_LATENCY_128MS;
 
         DefaultControlMap();
         DefaultHotKey();
@@ -379,7 +379,7 @@ namespace Emu4VitaPlus
         speed_step = ini.GetLongValue(MAIN_SECTION, "speed_step", 0);
         cpu_freq = ini.GetLongValue(MAIN_SECTION, "cpu_freq", CPU_500);
         fps = ini.GetLongValue(MAIN_SECTION, "fps", FPS_POSITION_DISABLE);
-        audio_latency = ini.GetLongValue(MAIN_SECTION, "audio_latency", AUDIO_LATENCY_64MS);
+        audio_latency = ini.GetLongValue(MAIN_SECTION, "audio_latency", AUDIO_LATENCY_128MS);
 
         ra_user = ini.GetValue(RA_SECTION, "user", "");
         ra_token = ini.GetValue(RA_SECTION, "token", "");

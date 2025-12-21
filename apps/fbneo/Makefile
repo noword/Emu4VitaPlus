@@ -16,6 +16,8 @@ HAVE_NEON = 0
 USE_EXPERIMENTAL_FLAGS = 0
 USE_CYCLONE = 0
 HAVE_UWP = 0
+SUPPORT_LARGE_FILES = 1
+# Use a temporary file to hold the list of objects, as it can exceed windows shell command limits
 SPLIT_UP_LINK ?= 0
 REGEN_HEADERS ?= 0
 
@@ -92,6 +94,8 @@ ifneq (,$(findstring unix,$(platform)))
 		endif
 	else ifneq (,$(findstring rpi4_64,$(platform)))
 		PLATFORM_DEFINES := -march=armv8-a+crc+simd -mtune=cortex-a72
+	else ifneq (,$(findstring rpi5_64,$(platform)))
+		PLATFORM_DEFINES := -march=armv8.2-a+crc+simd -mtune=cortex-a76
 	endif
 
 	# Solaris
@@ -265,6 +269,8 @@ else ifeq ($(platform), vita)
 	STATIC_LINKING = 1
 	USE_CYCLONE = 1
 	HAVE_NEON = 1
+    INCLUDE_7Z_SUPPORT = 0
+    SUPPORT_LARGE_FILES = 0
 
 # CTR (3DS)
 else ifeq ($(platform), ctr)
@@ -279,7 +285,6 @@ else ifeq ($(platform), ctr)
 	EXTERNAL_ZLIB = 1
 	STATIC_LINKING = 1
 	USE_CYCLONE = 1
-	LIGHT = 1
 
 # Xbox 360
 else ifeq ($(platform), xenon)
@@ -419,6 +424,7 @@ else ifeq ($(platform), emscripten)
 	INCLUDE_7Z_SUPPORT = 0
 	EXTERNAL_ZLIB = 1
 	STATIC_LINKING = 1
+	FASTMATH = 0
 
 # Windows MSVC 2017 all architectures
 else ifneq (,$(findstring windows_msvc2017,$(platform)))
@@ -537,9 +543,9 @@ FBNEO_COBJ := $(SOURCES_C:.c=.o)
 FBNEO_SOBJ := $(SOURCES_S:.S=.o)
 
 OBJS := $(FBNEO_COBJ) $(FBNEO_CXXOBJ) $(FBNEO_SOBJ)
+DEPS := $(OBJS:.o=.d)
 
 FBNEO_DEFINES += -D__LIBRETRO__ \
-	-DNO_VIZ -D_LARGEFILE64_SOURCE=0 -D_FILE_OFFSET_BITS=32 \
 	$(ENDIANNESS_DEFINES) \
 	$(PLATFORM_DEFINES) \
 	$(NEON_FLAGS) \
@@ -609,8 +615,8 @@ else
 	endif
 endif
 
-CFLAGS += $(fpic) $(FBNEO_DEFINES)
-CXXFLAGS += $(fpic) $(FBNEO_DEFINES)
+CFLAGS += $(fpic) $(FBNEO_DEFINES) -MMD
+CXXFLAGS += $(fpic) $(FBNEO_DEFINES) -MMD
 LDFLAGS += $(fpic)
 
 ifeq (,$(findstring msvc,$(platform)))
@@ -651,7 +657,7 @@ EXE_PREFIX = ./
 .PHONY: all clean generate-files generate-files-clean clean-objs
 
 ifeq ($(REGEN_HEADERS), 1)
-all: generate-files clean-objs .WAIT $(TARGET)
+all: generate-files .WAIT $(TARGET)
 else
 all: $(TARGET)
 endif
@@ -760,7 +766,6 @@ else
 endif
 else
 ifeq ($(SPLIT_UP_LINK), 1)
-	# Use a temporary file to hold the list of objects, as it can exceed windows shell command limits
 	$(file >$@.in,$(OBJS))
 	$(LD) $(LINKOUT)$@ $(SHARED) @$@.in $(LDFLAGS) $(LIBS)
 	@rm $@.in
@@ -769,18 +774,19 @@ else
 endif
 endif
 
-clean-objs:
-	rm -f $(OBJS)
+-include $(DEPS)
 
-clean:
+clean-objs:
 ifeq ($(SPLIT_UP_LINK), 1)
-	# Use a temporary file to hold the list of objects, as it can exceed windows shell command limits
-	$(file >$@.in,$(OBJS))
-	rm -f @$@.in $(TARGET)
-	@rm $@.in
+	$(file >$@.in,$(OBJS) $(DEPS))
+	xargs rm -f <$@.in
+	rm -f $@.in
+else
+	rm -f $(OBJS) $(DEPS)
 endif
+
+clean: clean-objs
 	rm -f $(TARGET)
-	rm -f $(OBJS)
 	rm -f $(M68KMAKE_EXE)
 	rm -f $(PGM_SPRITE_CREATE_EXE)
 	rm -f $(CTVMAKE_EXE)

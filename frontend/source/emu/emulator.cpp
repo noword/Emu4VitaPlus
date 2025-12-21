@@ -34,7 +34,8 @@ Emulator::Emulator()
       _loaded(false),
       _disk_contorl(nullptr),
       _speed(1.0),
-      _keyboard(nullptr)
+      _keyboard(nullptr),
+      _current_cpu_freq(0)
 {
     LogFunctionName;
     memset(&_info, 0, sizeof(_info));
@@ -760,9 +761,13 @@ void Emulator::SetCpuFreq(int freq)
             break;
         }
     }
-    LogDebug("  set cpu freq to %d", freq);
-    scePowerSetArmClockFrequency(freq);
-    _current_cpu_freq = freq;
+
+    if (_current_cpu_freq != freq)
+    {
+        LogDebug("  set cpu freq to %d", freq);
+        scePowerSetArmClockFrequency(freq);
+        _current_cpu_freq = freq;
+    }
 }
 
 void Emulator::_AutoAdjustCpu()
