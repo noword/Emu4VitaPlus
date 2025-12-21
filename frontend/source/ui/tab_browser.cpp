@@ -762,9 +762,6 @@ void TabBrowser::_OnItemUpdated(DirItem *item)
                     &_texture_width,
                     &_texture_height);
     }
-    else
-    {
-    }
 }
 
 void TabBrowser::_Update()
