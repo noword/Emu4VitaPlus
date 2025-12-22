@@ -60,7 +60,7 @@ namespace Emu4VitaPlus
             vita2d_pool_reset();
             vita2d_start_drawing_advanced(NULL, 0);
             vita2d_clear_screen();
-
+            bool show_dialog = true;
             switch (status)
             {
             case APP_STATUS_BOOT:
@@ -71,6 +71,7 @@ namespace Emu4VitaPlus
             case APP_STATUS_RUN_GAME:
             case APP_STATUS_REWIND_GAME:
                 // BeginProfile("Video");
+                show_dialog = false;
                 gEmulator->Show();
                 // EndProfile("Video");
                 break;
@@ -88,7 +89,11 @@ namespace Emu4VitaPlus
             gNotifications->Show();
 
             vita2d_end_drawing();
-            vita2d_common_dialog_update();
+
+            if (show_dialog)
+            {
+                vita2d_common_dialog_update();
+            }
             vita2d_swap_buffers();
             video->Unlock();
         }
