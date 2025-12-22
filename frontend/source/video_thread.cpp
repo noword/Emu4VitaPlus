@@ -37,7 +37,7 @@ namespace Emu4VitaPlus
 
         CLASS_POINTER(VideoThread, video, argp);
 
-        // int vcount = 0;
+        int vcount = 0;
         APP_STATUS status = gStatus.Get();
         while (video->IsRunning() && (status & (APP_STATUS_EXIT | APP_STATUS_RETURN_ARCH | APP_STATUS_REBOOT_WITH_LOADING)) == 0)
         {
@@ -53,9 +53,9 @@ namespace Emu4VitaPlus
 
             video->Lock();
 
-            // int old_vcount = vcount;
-            // vcount = sceDisplayGetVcount();
-            // vita2d_set_vblank_wait(vcount + 1 >= old_vcount);
+            int old_vcount = vcount;
+            vcount = sceDisplayGetVcount();
+            vita2d_set_vblank_wait(vcount + 1 >= old_vcount);
 
             vita2d_pool_reset();
             vita2d_start_drawing_advanced(NULL, 0);
