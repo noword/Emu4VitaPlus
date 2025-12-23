@@ -6,6 +6,15 @@
 #include "utils.h"
 
 #define DEFAULT_TEXTURE_BUF_COUNT 16
+#if !(DEFAULT_TEXTURE_BUF_COUNT > 0 && (DEFAULT_TEXTURE_BUF_COUNT & (DEFAULT_TEXTURE_BUF_COUNT - 1)) == 0)
+#error DEFAULT_TEXTURE_BUF_COUNT must be a power of 2
+#endif
+
+#define POWER2_LOOP_PLUS_ONE(VALUE, TOTAL) \
+    {                                      \
+        VALUE++;                           \
+        VALUE &= TOTAL - 1;                \
+    }
 
 class TextureBuf : public std::array<vita2d_texture *, DEFAULT_TEXTURE_BUF_COUNT>
 {
@@ -39,20 +48,20 @@ public:
 
     vita2d_texture *Next()
     {
-        LOOP_PLUS_ONE(_index, size());
+        POWER2_LOOP_PLUS_ONE(_index, size());
         return (*this)[_index];
     };
 
     vita2d_texture *NextBegin()
     {
         size_t index = _index;
-        LOOP_PLUS_ONE(index, size());
+        POWER2_LOOP_PLUS_ONE(index, size());
         return (*this)[index];
     };
 
     void NextEnd()
     {
-        LOOP_PLUS_ONE(_index, size());
+        POWER2_LOOP_PLUS_ONE(_index, size());
     };
 
     vita2d_texture *Current()
