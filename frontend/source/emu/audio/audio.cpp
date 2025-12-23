@@ -168,7 +168,7 @@ namespace Emu4VitaPlus
         if (_buf_status_callback && _output)
         {
             unsigned occupancy = _out_buf.AvailableSize() * 100 / _output->GetLatencySize();
-            _buf_status_callback(gConfig->mute, occupancy, occupancy < 20);
+            _buf_status_callback(gConfig->mute, occupancy, show_video && occupancy < 20);
         }
     }
 

@@ -12,8 +12,12 @@ extern float _vita2d_ortho_matrix[4 * 4];
 
 void VideoRefreshCallback(const void *data, unsigned width, unsigned height, size_t pitch)
 {
-    LogFunctionNameLimited;
+    gEmulator->Refresh(data, width, height, pitch);
+}
 
+void Emulator::Refresh(const void *data, unsigned width, unsigned height, size_t pitch)
+{
+    LogFunctionNameLimited;
     if (unlikely(width == 0 || height == 0))
     {
         LogDebug("  invalid size: %d %d", width, height);
@@ -21,26 +25,26 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
         return;
     }
 
-    if (unlikely(gEmulator->_graphics_config_changed ||
-                 gEmulator->_texture_buf == nullptr ||
-                 gEmulator->_texture_buf->GetWidth() != width ||
-                 gEmulator->_texture_buf->GetHeight() != height))
+    if (unlikely(_graphics_config_changed ||
+                 _texture_buf == nullptr ||
+                 _texture_buf->GetWidth() != width ||
+                 _texture_buf->GetHeight() != height))
     {
-        if (gEmulator->_texture_buf)
+        if (_texture_buf)
         {
             LogDebug("  old: (%d, %d) new: (%d, %d)",
-                     gEmulator->_texture_buf->GetWidth(),
-                     gEmulator->_texture_buf->GetHeight(),
+                     _texture_buf->GetWidth(),
+                     _texture_buf->GetHeight(),
                      width,
                      height);
 
             LogDebug("  base width: %d base height: %d aspect ratio: %0.4f",
-                     gEmulator->_av_info.geometry.base_width,
-                     gEmulator->_av_info.geometry.base_height,
-                     gEmulator->_av_info.geometry.aspect_ratio);
+                     _av_info.geometry.base_width,
+                     _av_info.geometry.base_height,
+                     _av_info.geometry.aspect_ratio);
         }
 
-        gEmulator->_SetupVideoOutput(width, height);
+        _SetupVideoOutput(width, height);
     }
 
     if (unlikely((!data) || pitch == 0))
@@ -50,7 +54,7 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
 
     BeginProfile("VideoRefreshCallback");
 
-    vita2d_texture *texture = gEmulator->_texture_buf->NextBegin();
+    vita2d_texture *texture = _texture_buf->NextBegin();
 
     if (likely(data != vita2d_texture_get_datap(texture)))
     {
@@ -74,13 +78,13 @@ void VideoRefreshCallback(const void *data, unsigned width, unsigned height, siz
         }
     }
 
-    gEmulator->_texture_buf->NextEnd();
+    _texture_buf->NextEnd();
 
     gVideo->Signal();
 
     if (CONTROL_SPEED_BY_VIDEO)
     {
-        gEmulator->Wait();
+        Wait();
     }
 
     EndProfile("VideoRefreshCallback");

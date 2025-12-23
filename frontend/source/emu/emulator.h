@@ -54,6 +54,7 @@ public:
     void Show();
     void Save();
     void Load();
+    inline void Refresh(const void *data, unsigned width, unsigned height, size_t pitch);
 
     int32_t Lock(uint32_t *timeout = NULL) { return _locker.Lock(timeout); };
     void Unlock() { _locker.Unlock(); };
@@ -126,12 +127,12 @@ private:
     void _SetupVideoOutput(unsigned width, unsigned height);
     void _SetControllerInfo(retro_controller_info *info);
 
-    int16_t _GetJoypadState(unsigned index, unsigned id);
-    int16_t _GetAnalogState(unsigned index, unsigned id);
-    int16_t _GetMouseState(unsigned index, unsigned id);
-    int16_t _GetLightGunState(unsigned index, unsigned id);
-    int16_t _GetPointerState(unsigned index, unsigned id);
-    int16_t _GetKeybaordState(unsigned index, unsigned id);
+    inline int16_t _GetJoypadState(unsigned index, unsigned id);
+    inline int16_t _GetAnalogState(unsigned index, unsigned id);
+    inline int16_t _GetMouseState(unsigned index, unsigned id);
+    inline int16_t _GetLightGunState(unsigned index, unsigned id);
+    inline int16_t _GetPointerState(unsigned index, unsigned id);
+    inline int16_t _GetKeybaordState(unsigned index, unsigned id);
 
     void _OnPsButton(Input *input);
     void _OnHotkeySave(Input *input);
