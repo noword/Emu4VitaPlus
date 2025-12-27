@@ -4,7 +4,7 @@
 
 ThreadBase::ThreadBase(SceKernelThreadEntry entry, const char *name, int priority, int cpu_affinity, int stack_size)
     : Locker{"thread_mutex"},
-      Singleton{"thread_sema"},
+      Semaphore{"thread_sema"},
       _entry(entry),
       _name(name ? name : __PRETTY_FUNCTION__),
       _priority(priority),

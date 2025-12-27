@@ -1,15 +1,15 @@
 #pragma once
 #include <psp2/kernel/threadmgr.h>
 
-class Singleton
+class Semaphore
 {
 public:
-    Singleton(const char *name = "sema")
+    Semaphore(const char *name = "sema")
     {
         _semaid = sceKernelCreateSema(name, 0, 0, 1, NULL);
     }
 
-    virtual ~Singleton()
+    virtual ~Semaphore()
     {
         sceKernelDeleteSema(_semaid);
     }

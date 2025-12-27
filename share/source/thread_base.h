@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include <string>
 #include "locker.h"
-#include "singleton.h"
+#include "semaphore.h"
 
 #define CLASS_POINTER(CLASS, POINT, ARGP) CLASS *POINT = *(CLASS **)ARGP;
 
@@ -11,7 +11,7 @@
 #define SCE_KERNEL_DEFAULT_PRIORITY_USER 0x10000100
 #define DEFAULT_STACK_SIZE 0x100000
 
-class ThreadBase : public Locker, public Singleton
+class ThreadBase : public Locker, public Semaphore
 {
 public:
     ThreadBase(SceKernelThreadEntry entry,
