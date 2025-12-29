@@ -319,7 +319,7 @@ void Ui::CreateTables()
                                                                               {LANG_DISABLE,
                                                                                LANG_TOP_LEFT,
                                                                                LANG_TOP_RIGHT,
-                                                                               LANG_BOTTOM_RIGHT,
+                                                                               LANG_BOTTOM_LEFT,
                                                                                LANG_BOTTOM_RIGHT}),
                                                                new ItemConfig(LANG_RETROACHIEVEMENTS,
                                                                               LANG_RETROACHIEVEMENTS_DESC,
