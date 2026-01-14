@@ -13,8 +13,11 @@ void ItemCoreOnClick()
     //     File::MakeDirs((std::string(CORE_SAVEFILES_DIR) + "/" + gEmulator->GetCurrentName()).c_str());
     //     gConfig->core_options.Save((std::string(CORE_SAVEFILES_DIR) + "/" + gEmulator->GetCurrentName() + "/core.ini").c_str());
     // }
-    gEmulator->CoreOptionUpdate();
-    gHint->SetHint(TEXT(LANG_CORE_NOTICE));
+    if (*gEmulator->GetCurrentName()) // game loaded
+    {
+        gEmulator->CoreOptionUpdate();
+        gHint->SetHint(TEXT(LANG_CORE_NOTICE));
+    }
 }
 
 class ItemCore : public ItemSelectable
