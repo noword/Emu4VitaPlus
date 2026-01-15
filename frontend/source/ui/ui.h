@@ -33,8 +33,7 @@ public:
     void OnRetrAchievementsLogInOut(bool login);
 
 private:
-    void
-    _InitImgui();
+    void _InitImgui();
     void _DeinitImgui();
 
     void _OnKeyL1(Input *input);
