@@ -54,7 +54,7 @@ __attribute__((no_instrument_function)) void _init_vita_heap(void)
 	int _newlib_vm_size = 0;
 	if (&_newlib_vm_size_user != NULL)
 	{
-		printf("_newlib_vm_size_user %x\n", _newlib_vm_size_user);
+		sceClibPrintf("_newlib_vm_size_user %x\n", _newlib_vm_size_user);
 		_newlib_vm_size = ALIGN(_newlib_vm_size_user, 0x100000);
 		_newlib_vm_memblock = sceKernelAllocMemBlockForVM("code", _newlib_vm_size);
 
@@ -78,7 +78,7 @@ __attribute__((no_instrument_function)) void _init_vita_heap(void)
 	SceKernelFreeMemorySizeInfo info;
 	info.size = sizeof(SceKernelFreeMemorySizeInfo);
 	sceKernelGetFreeMemorySize(&info);
-	printf("sceKernelGetFreeMemorySize %x\n", info.size_user);
+	sceClibPrintf("sceKernelGetFreeMemorySize %x\n", info.size_user);
 
 	if (&_newlib_heap_size_user != NULL)
 	{
@@ -95,17 +95,17 @@ __attribute__((no_instrument_function)) void _init_vita_heap(void)
 	_newlib_heap_memblock = sceKernelAllocMemBlock("Newlib heap", SCE_KERNEL_MEMBLOCK_TYPE_USER_RW, _newlib_heap_size, 0);
 	if (_newlib_heap_memblock < 0)
 	{
-		printf("sceKernelAllocMemBlock failed\n");
+		sceClibPrintf("sceKernelAllocMemBlock failed\n");
 		goto failure;
 	}
 	if (sceKernelGetMemBlockBase(_newlib_heap_memblock, (void **)&_newlib_heap_base) < 0)
 	{
-		printf("sceKernelGetMemBlockBase failed\n");
+		sceClibPrintf("sceKernelGetMemBlockBase failed\n");
 		goto failure;
 	}
 	_newlib_heap_end = _newlib_heap_base + _newlib_heap_size;
 	_newlib_heap_cur = _newlib_heap_base;
-	printf("_newlib_heap_size: %08x\n", _newlib_heap_size);
+	sceClibPrintf("_newlib_heap_size: %08x\n", _newlib_heap_size);
 	return;
 failure:
 	_newlib_vm_memblock = 0;

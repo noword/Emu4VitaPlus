@@ -22,7 +22,6 @@ add_compile_definitions(
     _CORE_SHORT_NAME="${CORE_SHORT}"
     CONSOLE="${CONSOLE}"
     APP_VER_STR="${APP_VER}"
-    SCE_LIBC_SIZE=0xA00000
 )
 
 set(FBA
