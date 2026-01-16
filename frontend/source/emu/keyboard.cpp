@@ -329,9 +329,9 @@ void Keyboard::_OnKeyUp(const Key &key)
 
 bool Keyboard::CheckKey(retro_key key)
 {
-    Lock();
+    // Lock();
     bool result = _status[key];
-    Unlock();
+    // Unlock();
 
     // LogDebug("CheckKey %04x %d", key, result);
     return result;

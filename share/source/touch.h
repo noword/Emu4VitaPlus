@@ -74,9 +74,9 @@ public:
     int16_t GetMapedX(const Rect<T> &rect)
     {
         size_t x = _axis.x - rect.left;
-        _locker.Lock();
+        // _locker.Lock();
         int16_t mapx = rect.Contains(_axis.x, _axis.y) && x < _map_table_x.size() ? _map_table_x[x] : -0x8000;
-        _locker.Unlock();
+        // _locker.Unlock();
         return mapx;
     }
 
@@ -84,9 +84,9 @@ public:
     int16_t GetMapedY(const Rect<T> &rect)
     {
         size_t y = _axis.y - rect.top;
-        _locker.Lock();
+        // _locker.Lock();
         int16_t mapy = rect.Contains(_axis.x, _axis.y) && y < _map_table_y.size() ? _map_table_y[y] : -0x8000;
-        _locker.Unlock();
+        // _locker.Unlock();
         return mapy;
     }
 
@@ -96,7 +96,7 @@ private:
         int16_t result = 0;
         if (_last_id == _current_id && v != 0)
         {
-            _locker.Lock();
+            // _locker.Lock();
             if (v > 0 && v < _scale_map_table_x.size())
             {
                 result = _scale_map_table_x[v];
@@ -109,7 +109,7 @@ private:
                     result = -_scale_map_table_x[v];
                 }
             }
-            _locker.Unlock();
+            // _locker.Unlock();
         }
         return result;
     }
