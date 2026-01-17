@@ -28,6 +28,8 @@
 #undef TEXT
 #endif
 
+#define RESET_TIME 3000000
+
 using namespace Emu4VitaPlus;
 
 App::App()
@@ -62,7 +64,24 @@ App::App()
     _IsSaveMode();
     // LogDebug("getVMBlock: %08x", getVMBlock());
     gConfig = new Config();
-    if (!gConfig->Load())
+
+    uint64_t end_time = sceKernelGetProcessTimeWide() + RESET_TIME;
+    bool reset = true;
+    while (sceKernelGetProcessTimeWide() < end_time)
+    {
+        SceCtrlData ctrl_data{0};
+        sceCtrlPeekBufferPositiveExt2(0, &ctrl_data, 1);
+        if ((ctrl_data.buttons & SCE_CTRL_START) == 0)
+        {
+            reset = false;
+            break;
+        }
+        sceKernelDelayThread(1000);
+    }
+
+    LogInfo("reset: %d", reset);
+
+    if (reset || !gConfig->Load())
     {
         File::RemoveAllFiles(ARCADE_CACHE_DIR);
         File::RemoveAllFiles(ARCHIVE_CACHE_DIR);
