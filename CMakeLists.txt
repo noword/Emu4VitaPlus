@@ -54,7 +54,7 @@ set(CMAKE_C_FLAGS "-marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard \
 -ffast-math -ftree-vectorize -O3 \
 -fdata-sections -ffunction-sections \
 -DLOG_LEVEL=${LOG_LEVEL} \
--DSCE_LIBC_SIZE=0x1000000")
+-DSCE_LIBC_SIZE=0xA00000")
 set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -fno-rtti -std=gnu++17 -fno-exceptions")
 set(CMAKE_EXE_LINKER_FLAGS "-Wl,-q,-no-enum-size-warning,--as-needed,--gc-sections -L${CMAKE_CURRENT_SOURCE_DIR}/deps/libs") # ,--no-undefined,--as-needed,--hash-style=gnu")
 set(OUT_PATH "${CMAKE_BINARY_DIR}/out")

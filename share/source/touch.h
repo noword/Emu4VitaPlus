@@ -96,7 +96,7 @@ private:
         int16_t result = 0;
         if (_last_id == _current_id && v != 0)
         {
-            // _locker.Lock();
+            _locker.Lock();
             if (v > 0 && v < _scale_map_table_x.size())
             {
                 result = _scale_map_table_x[v];
@@ -109,7 +109,7 @@ private:
                     result = -_scale_map_table_x[v];
                 }
             }
-            // _locker.Unlock();
+            _locker.Unlock();
         }
         return result;
     }
