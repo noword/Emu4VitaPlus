@@ -58,7 +58,8 @@ namespace Emu4VitaPlus
         uint32_t mouse;
         uint32_t lightgun;
         uint32_t swap_enter;
-        uint32_t sim_button;
+        uint32_t sim_button_rear;
+        uint32_t sim_button_front;
         uint32_t independent_config;
         uint32_t speed_step;
         uint32_t support_no_game;

@@ -157,7 +157,7 @@ namespace Emu4VitaPlus
         auto_save = DEFAULT_AUTO_SAVE;
         auto_load = DEFAULT_AUTO_LOAD;
         swap_enter = false;
-        sim_button = false;
+        sim_button_rear = false;
         independent_config = DEFAULT_INDEPENDENT_CONFIG;
         reboot_when_loading_again = DEFAULT_REBOOT_WHEN_LOADING_AGAIN;
         speed_step = DEFAULT_SPEED_STEP;
@@ -256,7 +256,7 @@ namespace Emu4VitaPlus
         ini.SetLongValue(MAIN_SECTION, "mouse", mouse);
         ini.SetBoolValue(MAIN_SECTION, "lightgun", lightgun);
         ini.SetBoolValue(MAIN_SECTION, "swap_enter", swap_enter);
-        ini.SetBoolValue(MAIN_SECTION, "sim_button", sim_button);
+        ini.SetBoolValue(MAIN_SECTION, "sim_button_rear", sim_button_rear);
         ini.SetBoolValue(MAIN_SECTION, "independent_config", independent_config);
         ini.SetBoolValue(MAIN_SECTION, "auto_rotating", auto_rotating);
         ini.SetLongValue(MAIN_SECTION, "speed_step", speed_step);
@@ -373,7 +373,7 @@ namespace Emu4VitaPlus
         mouse = ini.GetLongValue(MAIN_SECTION, "mouse", DEFAULT_MOUSE);
         lightgun = ini.GetBoolValue(MAIN_SECTION, "lightgun", DEFAULT_LIGHTGUN);
         swap_enter = ini.GetBoolValue(MAIN_SECTION, "swap_enter", false);
-        sim_button = ini.GetBoolValue(MAIN_SECTION, "sim_button", false);
+        sim_button_rear = ini.GetBoolValue(MAIN_SECTION, "sim_button_rear", false);
         independent_config = ini.GetBoolValue(MAIN_SECTION, "independent_config", DEFAULT_INDEPENDENT_CONFIG);
         auto_rotating = ini.GetBoolValue(MAIN_SECTION, "auto_rotating", true);
         speed_step = ini.GetLongValue(MAIN_SECTION, "speed_step", 0);
@@ -481,7 +481,7 @@ namespace Emu4VitaPlus
 
     bool Config::RearEnabled()
     {
-        return mouse == CONFIG_MOUSE_REAR || sim_button;
+        return mouse == CONFIG_MOUSE_REAR || sim_button_rear;
     }
 
     float Config::GetSpeedStep()

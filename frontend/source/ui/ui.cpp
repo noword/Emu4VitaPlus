@@ -663,9 +663,15 @@ void Ui::UpdateControllerOptions()
                                          {LANG_DISABLED, LANG_ENABLED},
                                          std::bind(&Emulator::SetupKeys, gEmulator)));
 
-    controls.emplace_back(new ItemConfig(LANG_SIM_BUTTON,
+    controls.emplace_back(new ItemConfig(LANG_REAR_SIM_BUTTON,
                                          "",
-                                         &gConfig->sim_button,
+                                         &gConfig->sim_button_rear,
+                                         {LANG_DISABLED, LANG_ENABLED},
+                                         std::bind(&Emulator::SetupKeys, gEmulator)));
+
+    controls.emplace_back(new ItemConfig(LANG_FRONT_SIM_BUTTON,
+                                         "",
+                                         &gConfig->sim_button_front,
                                          {LANG_DISABLED, LANG_ENABLED},
                                          std::bind(&Emulator::SetupKeys, gEmulator)));
 

@@ -313,7 +313,7 @@
     },
     {
         "No.": "27",
-        "Tag": "LANG_SIM_BUTTON",
+        "Tag": "LANG_REAR_SIM_BUTTON",
         "English": "Simulate ↲↳⇋⇌ with rear touch panel",
         "Chinese": "后触控板模拟 ↲↳⇋⇌",
         "Japanese": "背面タッチパネルに ↲↳⇋⇌ を割り当て",
@@ -1966,6 +1966,17 @@
         "Spanish": "",
         "Russian": "Задержка звука (мс)",
         "Comments": ""
+    },
+    {
+        "No.": "165",
+        "Tag": "LANG_FRONT_SIM_BUTTON",
+        "English": "Simulate ↲↳⇋⇌ with front touch screen",
+        "Chinese": "前触控屏模拟 ↲↳⇋⇌",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
-
 ]

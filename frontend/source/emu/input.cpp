@@ -103,13 +103,22 @@ float SensorGetInputCallback(unsigned port, unsigned id)
 
 int16_t Emulator::_GetJoypadState(unsigned index, unsigned id)
 {
+    static const uint32_t button_map[] = {SCE_CTRL_L2, SCE_CTRL_R2, SCE_CTRL_L3, SCE_CTRL_L3};
     uint32_t key_states = _input.GetKeyStates();
     auto touch = _input.GetRearTouch();
-    if (gConfig->sim_button & touch->GetState() == TouchDown)
+    if (unlikely(gConfig->sim_button_rear && touch->GetState() == TouchDown))
     {
         const auto axis = touch->GetAxis();
         const auto center = touch->GetCenter();
-        static const uint32_t button_map[] = {SCE_CTRL_L2, SCE_CTRL_R2, SCE_CTRL_L3, SCE_CTRL_L3};
+        int flag = (axis.y < center.y ? 0 : 2) | (axis.x < center.x ? 0 : 1);
+        key_states |= button_map[flag];
+    }
+
+    touch = _input.GetFrontTouch();
+    if (unlikely(gConfig->sim_button_front && touch->GetState() == TouchDown))
+    {
+        const auto axis = touch->GetAxis();
+        const auto center = touch->GetCenter();
         int flag = (axis.y < center.y ? 0 : 2) | (axis.x < center.x ? 0 : 1);
         key_states |= button_map[flag];
     }
