@@ -1722,7 +1722,7 @@
         "Chinese": "禁用即时存档，金手指，回溯和慢动作。",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Désactive le chargement/la sauvegarde d'état, les codes de triche, le rembobinage et le ralenti.",
         "Spanish": "",
         "Russian": "Отключает мгновенные сохранения, чит-коды, перемотку и замедление.",
         "Comments": ""
@@ -1962,9 +1962,10 @@
         "Chinese": "音频延迟 (ms)",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Latence audio (ms)",
         "Spanish": "",
         "Russian": "Задержка звука (мс)",
         "Comments": ""
     }
+
 ]
