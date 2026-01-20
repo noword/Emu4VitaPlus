@@ -150,7 +150,7 @@ const bool DEFAULT_AUTO_LOAD = true;
     defined(C64_BUILD) ||       \
     defined(X68000_BUILD) ||    \
     defined(ATARI5200_BUILD) || \
-    defined(CAP32_BUILD)
+    defined(CPC_BUILD)
 const bool ENABLE_KEYBOARD = true;
 #else
 const bool ENABLE_KEYBOARD = false;
