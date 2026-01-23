@@ -329,7 +329,7 @@ void Emulator::_SetVideoSize(uint32_t width, uint32_t height)
             aspect_ratio = _av_info.geometry.aspect_ratio;
         }
 
-        if (_video_rotation == VIDEO_ROTATION_90)
+        if (_video_rotation == VIDEO_ROTATION_90 || _video_rotation == VIDEO_ROTATION_270)
         {
             aspect_ratio = 1.f / aspect_ratio;
         }
