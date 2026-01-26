@@ -119,7 +119,7 @@ endif()
 set(CORE_TAG ${CORE}_build CACHE INTERNAL "CORE_TAG")
 add_custom_target(
     ${CORE_TAG} ALL
-    COMMAND make -f ${CORE_MAKEFILE_NAME} ${CORE_ARGS} -j4
+    COMMAND make -f ${CORE_MAKEFILE_NAME} ${CORE_ARGS} ${MAKE_FLAG}
     WORKING_DIRECTORY ${CORE_DIR})
 
 add_library(${CORE} STATIC IMPORTED)
