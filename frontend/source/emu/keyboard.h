@@ -46,7 +46,7 @@ namespace Emu4VitaPlus
 
         bool Visable() { return _visable; };
         void SetVisable(bool visable);
-        bool CheckKey(retro_key key);
+        int16_t CheckKey(retro_key key) { return _status[key]; };
         void SetCallback(retro_keyboard_event_t callback) { _callback = callback; };
         void SetKeyboardUp() { _pos = {.0, .0}; };
         void SetKeyboardDown() { _pos = {(VITA_WIDTH - KEYBOARD_WIDTH) / 2, VITA_HEIGHT - KEYBOARD_HEIGHT}; };

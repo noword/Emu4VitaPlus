@@ -327,16 +327,6 @@ void Keyboard::_OnKeyUp(const Key &key)
     }
 }
 
-bool Keyboard::CheckKey(retro_key key)
-{
-    // Lock();
-    bool result = _status[key];
-    // Unlock();
-
-    // LogDebug("CheckKey %04x %d", key, result);
-    return result;
-}
-
 void Keyboard::_ModKeyDown()
 {
     //_callback should be checked when call
