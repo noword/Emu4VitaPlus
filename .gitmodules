@@ -211,3 +211,7 @@
 	path = deps/minizip-ng
 	url = https://github.com/zlib-ng/minizip-ng.git
 	branch = develop
+[submodule "cores/parallel-n64"]
+	path = cores/parallel-n64
+	url = https://github.com/libretro/parallel-n64.git
+	branch = master
