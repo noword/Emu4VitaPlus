@@ -501,7 +501,7 @@ else ifeq ($(platform), emscripten)
 # PlayStation Vita
 else ifneq (,$(findstring vita,$(platform)))
    TARGET:= $(TARGET_NAME)_libretro_$(platform).a
-   CPUFLAGS += -DNO_ASM  -DARM -D__arm__ -DARM_ASM -D__NEON_OPT
+   CPUFLAGS += -DNO_ASM  -DARM -D__arm__ -DARM_ASM -D__NEON_OPT -DARM_FIX
    CPUFLAGS += -w -mthumb -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -D__arm__ -DARM_ASM -D__NEON_OPT -g
    HAVE_NEON = 1
 
@@ -511,10 +511,10 @@ else ifneq (,$(findstring vita,$(platform)))
    AR  = $(PREFIX)-ar
    WITH_DYNAREC = arm
    DYNAREC_USED = 0
-   GLES = 0
-   HAVE_OPENGL = 0
+   GLES = 1
+   HAVE_OPENGL = 1
    PLATCFLAGS += -DVITA
-   CPUCFLAGS += -DNO_ASM
+   #CPUCFLAGS += -DNO_ASM
    CFLAGS += -DVITA -lm
    VITA = 1
    HAVE_PARALLEL=0
@@ -864,7 +864,9 @@ ifeq ($(HAVE_OPENGL),0)
 	HAVE_RICE=0
 endif
 
-include Makefile.common
+#include Makefile.common
+mkfile_path := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+include $(mkfile_path)/Makefile.common
 
 ifeq ($(HAVE_NEON), 1)
    COREFLAGS += -DHAVE_NEON

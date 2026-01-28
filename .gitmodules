@@ -215,3 +215,6 @@
 	path = cores/parallel-n64
 	url = https://github.com/libretro/parallel-n64.git
 	branch = master
+[submodule "deps/vitaGL"]
+	path = deps/vitaGL
+	url = git@github.com:noword/vitaGL.git

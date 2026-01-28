@@ -68,6 +68,8 @@ target_compile_definitions(rcheevos PRIVATE
     RC_CLIENT_SUPPORTS_EXTERNAL
     RC_CLIENT_SUPPORTS_RAINTEGRATION
     RC_CLIENT_SUPPORTS_HASH
+    md5_init=_md5_init
+    md5_append=_md5_append
     md5_finish=_md5_finish)
 target_compile_options(rcheevos PRIVATE -Os)
 
@@ -118,6 +120,32 @@ add_library(vita2d_ext STATIC ${VITA2D_EXT_SRC})
 target_include_directories(vita2d_ext PRIVATE
     ${VITA2D_EXT_PATH}/include
     ${VITA2D_PATH}/include)
+
+# vitaGL
+# ----------------------
+set(VITAGL vitaGL)
+set(VITAGL_BUILD vitagl_build CACHE INTERNAL "VITAGL_BUILD")
+set(LIB_VITAGL "${CMAKE_CURRENT_SOURCE_DIR}/vitaGL/libvitaGL.a" CACHE INTERNAL "LIB_VITAGL")
+
+if(WITH_LOG)
+    set(LOG_FLAGS HAVE_SHARK_LOG=1 LOG_ERRORS=2 DEBUG_GLSL_TRANSLATOR=1 DEBUG_GLSL_PREPROCESSOR=1)
+endif()
+
+add_custom_target(
+    ${VITAGL_BUILD} ALL
+    COMMAND make -j4 HAVE_VITA3K_SUPPORT=1 HAVE_GLSL_SUPPORT=1 NO_DEBUG=1 HAVE_SHARK_FFP=1 ${LOG_FLAGS}
+    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/vitaGL)
+
+add_library(${VITAGL} STATIC IMPORTED)
+
+set_property(
+    TARGET ${VITAGL}
+    APPEND
+    PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
+
+add_dependencies(${VITAGL} ${VITAGL_BUILD})
+
+set_target_properties(${VITAGL} PROPERTIES IMPORTED_LOCATION_NOCONFIG ${LIB_VITAGL})
 
 # 7zip
 # ----------------------

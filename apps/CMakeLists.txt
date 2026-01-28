@@ -64,7 +64,8 @@ add_dependencies(${ELF_NAME} ${CORE_TAG})
 target_link_libraries(
     ${ELF_NAME}
     ${LIBRETRO_LIBRARY}
-    ${GPORF_LIB}
+    ${LIB_VITAGL}
+    ${LIB_GPORF}
     retro_comm
     rcheevos
     share
@@ -89,6 +90,12 @@ target_link_libraries(
     FLAC
     ogg
     zstd
+    vitashark
+    SceShaccCgExt
+    taihen_stub
+    SceShaccCg_stub
+    mathneon
+    SceKernelDmacMgr_stub
     SceLibJson_stub
     ScePvf_stub
     ScePgf_stub
