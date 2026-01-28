@@ -33,6 +33,7 @@ CORES = {
     'X68000': ('px68k',),
     'LYNX': ('mednafen_lynx', 'handy'),
     'CPC': ('cap32', 'crocods'),
+    'N64': ('parallel_n64',),
 }
 
 NAMES = {
@@ -84,4 +85,5 @@ NAMES = {
     'handy': 'Handy',
     'cap32': 'Caprice32',
     'crocods': 'CrocoDS',
+    'parallel_n64': 'Mupen64Plus',
 }
