@@ -67,6 +67,7 @@ target_link_libraries(
     ${LIB_VITAGL}
     ${LIB_GPORF}
     retro_comm
+    retro_comm_gl
     rcheevos
     share
     frontend
