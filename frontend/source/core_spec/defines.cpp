@@ -17,6 +17,12 @@ const char CORE_CONFIG_PATH[] = _CORE_DATA_DIR "/config.ini";
 const char CORE_INPUT_DESC_PATH[] = _CORE_DATA_DIR "/input_desc.ini";
 const char CORE_FAVOURITE_PATH[] = _CORE_DATA_DIR "/favourite.ini";
 
+#if defined(ENABLE_VITAGL)
+const bool SUPPORT_HW_RENDER = true;
+#else
+const bool SUPPORT_HW_RENDER = false;
+#endif
+
 const char *THUMBNAILS_NAME[] = {
 #if defined(NES_BUILD)
     "Nintendo%20-%20Nintendo%20Entertainment%20System",
@@ -47,6 +53,8 @@ const char *THUMBNAILS_NAME[] = {
     "FBNeo%20-%20Arcade%20Games",
 #elif defined(MAME_BUILD)
     "MAME",
+#elif defined(N64_BUILD)
+    "Nintendo%20-%20Nintendo%2064",
 #endif
     nullptr};
 
@@ -61,7 +69,8 @@ const char THUMBNAILS_PATH[] =
     defined(NGP_BUILD) ||       \
     defined(ATARI2600_BUILD) || \
     defined(ATARI5200_BUILD) || \
-    defined(ATARI7800_BUILD)
+    defined(ATARI7800_BUILD) || \
+    defined(N64_BUILD)
     THUMBNAILS_CACHE_DIR "/" CONSOLE;
 #elif defined(FBA_BUILD)
     THUMBNAILS_CACHE_DIR "/FBA";

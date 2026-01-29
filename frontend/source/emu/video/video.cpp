@@ -7,6 +7,7 @@
 #include "overlay.h"
 #include "shader.h"
 #include "profiler.h"
+#include "hw_render.h"
 
 extern float _vita2d_ortho_matrix[4 * 4];
 
@@ -470,4 +471,18 @@ void Emulator::_SetupVideoOutput(unsigned width, unsigned height)
     _input.GetFrontTouch()->InitMapTable(_video_rect);
     _input.GetFrontTouch()->InitMovingScale((float)width / _video_rect.width, (float)height / _video_rect.height);
     _input.GetRearTouch()->InitMovingScale((float)width / _video_rect.width, (float)height / _video_rect.height);
+}
+
+bool Emulator::SetHardwareRender(retro_hw_render_callback *data)
+{
+    LogFunctionName;
+    if (!SUPPORT_HW_RENDER)
+        return false;
+
+    if (_hw_render)
+        delete _hw_render;
+
+    _hw_render = new HardwareRender((retro_hw_render_callback *)data);
+
+    return true;
 }

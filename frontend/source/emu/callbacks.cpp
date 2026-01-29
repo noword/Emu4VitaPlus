@@ -138,8 +138,8 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         break;
 
     case RETRO_ENVIRONMENT_SET_HW_RENDER:
-        LogDebug("  unsupported cmd: RETRO_ENVIRONMENT_SET_HW_RENDER");
-        return false;
+        LogDebug("  cmd: RETRO_ENVIRONMENT_SET_HW_RENDER");
+        return gEmulator->SetHardwareRender((retro_hw_render_callback *)data);
 
     case RETRO_ENVIRONMENT_GET_VARIABLE:
         LogDebug("  cmd: RETRO_ENVIRONMENT_GET_VARIABLE");
@@ -381,7 +381,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         LogDebug("  cmd: RETRO_ENVIRONMENT_GET_PREFERRED_HW_RENDER");
         if (data)
         {
-            *(retro_hw_context_type *)data = RETRO_HW_CONTEXT_NONE;
+            *(retro_hw_context_type *)data = SUPPORT_HW_RENDER ? RETRO_HW_CONTEXT_OPENGLES2 : RETRO_HW_CONTEXT_NONE;
         }
         break;
 

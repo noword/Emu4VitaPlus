@@ -17,6 +17,7 @@
 #include "locker.h"
 #include "motion_sensor.h"
 #include "fps.h"
+#include "hw_render.h"
 
 using namespace Emu4VitaPlus;
 
@@ -75,6 +76,8 @@ public:
     void ChangeAudioConfig();
     void ChangeAudioLatencyConfig();
     void ChangeCheatConfig();
+
+    bool SetHardwareRender(retro_hw_render_callback *data);
 
     uint32_t GetFrameCount() { return _frame_count; };
     void CoreOptionUpdate();
@@ -171,6 +174,7 @@ private:
     VIDEO_ROTATION _video_rotation;
     Delay<double> _video_delay;
     vita2d_texture *_last_texture;
+    HardwareRender *_hw_render;
 
     Audio _audio;
     InputThread _input;

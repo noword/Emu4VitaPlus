@@ -35,7 +35,8 @@ Emulator::Emulator()
       _disk_contorl(nullptr),
       _speed(1.0),
       _keyboard(nullptr),
-      _current_cpu_freq(0)
+      _current_cpu_freq(0),
+      _hw_render(nullptr)
 {
     LogFunctionName;
     memset(&_info, 0, sizeof(_info));
@@ -66,6 +67,11 @@ Emulator::~Emulator()
     if (_keyboard)
     {
         delete _keyboard;
+    }
+
+    if (_hw_render)
+    {
+        delete _hw_render;
     }
 
     retro_deinit();

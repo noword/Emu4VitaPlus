@@ -56,6 +56,11 @@ extern const bool ENABLE_KEYBOARD;
 extern const bool ENABLE_MOTION_SENSOR;
 extern const bool CONTROL_SPEED_BY_VIDEO;
 
+extern const bool SUPPORT_HW_RENDER;
+#if defined(N64_BUILD)
+#define ENABLE_VITAGL
+#endif
+
 enum RETRO_ACHIEVEMENTS_SUPPORT_ENUM
 {
     RETRO_ACHIEVEMENTS_AUTO,
