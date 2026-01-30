@@ -506,6 +506,7 @@ endif
 	CXXFLAGS += -DHAVE_PARALLEL_RSP -DPARALLEL_INTEGRATION
 endif
 
+ifneq ($(VITA), 1)
 ifeq ($(HAVE_OPENGL),1)
 ifeq ($(GLES),1)
 	GLFLAGS += -DHAVE_OPENGLES -DHAVE_OPENGLES2 -DDISABLE_3POINT
@@ -518,4 +519,5 @@ else
 	SOURCES_C += $(LIBRETRO_COMM_DIR)/glsym/glsym_gl.c
 endif
 SOURCES_C += $(LIBRETRO_COMM_DIR)/glsym/rglgen.c
+endif
 endif
