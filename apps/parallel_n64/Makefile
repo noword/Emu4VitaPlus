@@ -522,6 +522,8 @@ else ifneq (,$(findstring vita,$(platform)))
 
    PLATFORM_EXT := unix
    STATIC_LINKING=1
+   
+   INCFLAGS += -I../../deps/libretro-common-gl -I../../deps/vitaGL/source
 
 # Windows MSVC 2017 all architectures
 else ifneq (,$(findstring windows_msvc2017,$(platform)))

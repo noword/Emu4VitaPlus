@@ -25,7 +25,7 @@
 
 #if defined(VITA)
 
-#include "vitaGL.h"
+#include <vitaGL.h>
 
 #elif defined(IOS)
 
