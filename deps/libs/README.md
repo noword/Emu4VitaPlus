@@ -89,3 +89,31 @@ version 7.1.2
     --disable-xlib \
     --enable-pthreads
 ```
+
+version 8.0.1
+
+``` bash
+./configure --enable-cross-compile \
+    --cross-prefix=$VITASDK/bin/arm-vita-eabi- \
+    --cc=arm-vita-eabi-gcc \
+    --cxx=vita-eabi-g++ \
+    --extra-cflags=" -Wl,-q -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -fdata-sections -ffunction-sections -O3 -D_BSD_SOURCE -std=gnu17" \
+    --extra-cxxflags=" -Wl,-q -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -fdata-sections -ffunction-sections -fno-rtti -std=gnu++17 -fno-exceptions -O3 -D_BSD_SOURCE" \
+    --extra-ldflags=" -L$VITASDK/lib " \
+    --target-os=none \
+    --arch=armv7-a \
+    --cpu=cortex-a9 \
+    --enable-static \
+    --disable-shared \
+    --disable-runtime-cpudetect \
+    --disable-everything \
+    --enable-swresample \
+    --enable-swscale \
+    --enable-decoder=pcm_s16le,wavpack \
+    --enable-encoder=pcm_s16le,wavpack \
+    --enable-pthreads \
+    --disable-bzlib \
+    --disable-iconv \
+    --disable-lzma \
+    --disable-sdl2
+```
