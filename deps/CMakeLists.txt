@@ -49,7 +49,10 @@ target_include_directories(retro_comm PRIVATE ${LIBRETRO_PATH}/include)
 
 # special gl for libertro-common
 set(LIBRETRO_GL_PATH "libretro-common-gl")
-file(GLOB RETRO_GL_SRC ${LIBRETRO_GL_PATH}/gfx/*.c)
+file(GLOB RETRO_GL_SRC
+    ${LIBRETRO_GL_PATH}/gfx/*.c
+    ${LIBRETRO_GL_PATH}/glsm/*.c
+    ${LIBRETRO_GL_PATH}/glsym/*.c)
 add_library(retro_comm_gl STATIC ${RETRO_GL_SRC})
 target_include_directories(retro_comm_gl PRIVATE ${LIBRETRO_GL_PATH} ${LIBRETRO_PATH}/include)
 add_compile_definitions(VITA HAVE_OPENGLES HAVE_OPENGLES2 HAVE_NEON HAVE_THREADS HAVE_COMPRESSION HAVE_ZLIB HAVE_7ZIP __ARM_NEON__)

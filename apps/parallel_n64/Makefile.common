@@ -258,8 +258,10 @@ endif
 
 # Libretro
 
+ifneq ($(VITA), 1)
 ifeq ($(HAVE_OPENGL),1)
 SOURCES_C += $(LIBRETRO_COMM_DIR)/glsm/glsm.c
+endif
 endif
 
 SOURCES_C += $(LIBRETRO_DIR)/libretro.c \
