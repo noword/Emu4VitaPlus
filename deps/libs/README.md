@@ -107,6 +107,17 @@ version 8.0.1
     --disable-shared \
     --disable-runtime-cpudetect \
     --disable-everything \
+    --disable-network \
+    --disable-programs \
+    --disable-ffmpeg \
+    --disable-ffplay  \
+    --disable-ffprobe \
+    --disable-doc \
+    --disable-htmlpages \
+    --disable-manpages  \
+    --disable-podpages  \
+    --disable-txtpages  \
+    --disable-avfilter \
     --enable-swresample \
     --enable-swscale \
     --enable-decoder=pcm_s16le,wavpack \
@@ -115,5 +126,7 @@ version 8.0.1
     --disable-bzlib \
     --disable-iconv \
     --disable-lzma \
-    --disable-sdl2
+    --disable-sdl2 \
+    --disable-debug \
+    --enable-small
 ```

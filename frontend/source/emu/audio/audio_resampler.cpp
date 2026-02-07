@@ -1,5 +1,4 @@
 #include <stdint.h>
-#include "defines.h"
 #include "audio_resampler.h"
 #include "profiler.h"
 
