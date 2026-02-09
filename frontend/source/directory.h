@@ -18,6 +18,7 @@ struct DirItem
     std::string entry_name = "";
     std::string display_name = "";
     std::string rom_name = "";
+    std::vector<uint16_t> path_gbk = {}; // std::wstring is 32bits
 
     const std::string GetFullPath() { return (*parent_path) + '/' + path; }
 

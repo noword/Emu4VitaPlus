@@ -16,11 +16,22 @@
 
 static void SortDirItemsByNameIgnoreCase(std::vector<DirItem> &items)
 {
-    std::sort(items.begin(), items.end(), [](const DirItem &a, const DirItem &b)
-              { return std::lexicographical_compare(
-                    a.path.begin(), a.path.end(), b.path.begin(), b.path.end(),
-                    [](unsigned char ch1, unsigned char ch2)
-                    { return std::tolower(ch1) < std::tolower(ch2); }); });
+    if (gConfig->language == LANGUAGE_CHINESE)
+    {
+        std::sort(items.begin(), items.end(), [](const DirItem &a, const DirItem &b)
+                  { return std::lexicographical_compare(
+                        a.path_gbk.begin(), a.path_gbk.end(), b.path_gbk.begin(), b.path_gbk.end(),
+                        [](uint16_t ch1, uint16_t ch2)
+                        { return std::tolower(ch1) < std::tolower(ch2); }); });
+    }
+    else
+    {
+        std::sort(items.begin(), items.end(), [](const DirItem &a, const DirItem &b)
+                  { return std::lexicographical_compare(
+                        a.path.begin(), a.path.end(), b.path.begin(), b.path.end(),
+                        [](unsigned char ch1, unsigned char ch2)
+                        { return std::tolower(ch1) < std::tolower(ch2); }); });
+    }
 }
 
 struct UpdateDetialsArgument
@@ -281,6 +292,22 @@ bool Directory::SetCurrentPath(const std::string &path)
         }
     }
     sceIoDclose(dfd);
+
+    if (gConfig->language == LANGUAGE_CHINESE)
+    {
+        uint16_t gbk[SCE_FIOS_PATH_MAX];
+        for (auto &item : _items)
+        {
+            size_t size = Utils::Utf8ToGbk(item.path.c_str(), gbk, SCE_FIOS_PATH_MAX);
+            item.path_gbk = {gbk, gbk + size};
+        }
+
+        for (auto &item : files)
+        {
+            size_t size = Utils::Utf8ToGbk(item.path.c_str(), gbk, SCE_FIOS_PATH_MAX);
+            item.path_gbk = {gbk, gbk + size};
+        }
+    }
 
     SortDirItemsByNameIgnoreCase(_items);
     SortDirItemsByNameIgnoreCase(files);

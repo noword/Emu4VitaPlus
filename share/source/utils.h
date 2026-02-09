@@ -41,6 +41,8 @@ namespace Utils
 
     int Utf16ToUtf8(const uint16_t *utf16, char *utf8, size_t size);
     int Utf8ToUtf16(const char *utf8, uint16_t *utf16, size_t size);
+    int Utf16ToGbk(const uint16_t *utf16, uint16_t *gbk, size_t size);
+    int Utf8ToGbk(const char *utf8, uint16_t *gbk, size_t size);
 
     LANGUAGE GetDefaultLanguage();
 };

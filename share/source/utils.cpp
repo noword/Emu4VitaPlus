@@ -6,6 +6,7 @@
 #include "my_imgui.h"
 #include "utils.h"
 #include "log.h"
+#include "utf16_to_gb2312.inc"
 
 namespace Utils
 {
@@ -203,6 +204,26 @@ namespace Utils
         }
         utf16[count] = 0;
         return count;
+    }
+
+    int Utf16ToGbk(const uint16_t *utf16, uint16_t *gbk, size_t size)
+    {
+        int count = 0;
+        while (size > 0 && *utf16)
+        {
+            *gbk++ = Utf16ToGbkConstexpr(*utf16++);
+            count++;
+            size--;
+        }
+        *gbk = 0;
+        return count;
+    }
+
+    int Utf8ToGbk(const char *utf8, uint16_t *gbk, size_t size)
+    {
+        static uint16_t utf16[1024]; // the max path size;
+        Utf8ToUtf16(utf8, utf16, 1024);
+        return Utf16ToGbk(utf16, gbk, size);
     }
 
     LANGUAGE GetDefaultLanguage()
