@@ -52,6 +52,7 @@ set(CMAKE_C_FLAGS "-marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard \
 -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant \
 -fno-unwind-tables -fno-asynchronous-unwind-tables \
 -ffast-math -ftree-vectorize -O3 \
+-funsafe-math-optimizations -mvectorize-with-neon-quad \
 -fdata-sections -ffunction-sections \
 -DLOG_LEVEL=${LOG_LEVEL} \
 -DSCE_LIBC_SIZE=0xA00000")
