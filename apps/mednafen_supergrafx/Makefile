@@ -263,7 +263,13 @@ else ifeq ($(platform), vita)
    FLAGS += -DVITA -march=armv7-a -mfpu=neon -mfloat-abi=hard -mlittle-endian -ffast-math
    STATIC_LINKING = 1
    EXTRA_INCLUDES := -I"$(VITASDK)/arm-vita-eabi/include"
-
+   CFLAGS += -fsingle-precision-constant \
+    -marm -mcpu=cortex-a9 -mfpu=neon -DVITA -D__vita__ \
+    -mword-relocations -fno-optimize-sibling-calls \
+    -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables \
+    -ftree-vectorize -O3 -funsafe-math-optimizations -mvectorize-with-neon-quad 
+   CXXFLAGS := $(CFLAGS)
+    
 # Xbox 360
 else ifeq ($(platform), xenon)
    TARGET := $(TARGET_NAME)_libretro_xenon360.a

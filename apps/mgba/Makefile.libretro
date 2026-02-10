@@ -305,7 +305,8 @@ else ifeq ($(platform), vita)
    DEFINES += -std=c11 -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard \
 -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant \
 -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables \
--ffast-math -ftree-vectorize -fdata-sections -ffunction-sections
+-ffast-math -ftree-vectorize -fdata-sections -ffunction-sections -O3 \
+-funsafe-math-optimizations -mvectorize-with-neon-quad 
     LDFLAGS += -Wl,-z,nocopyreloc
 
 

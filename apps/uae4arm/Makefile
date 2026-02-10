@@ -107,6 +107,7 @@ else ifeq ($(platform), vita)
 	PLATFLAGS += -mword-relocations -fno-unwind-tables -fno-optimize-sibling-calls
 	PLATFLAGS += -mvectorize-with-neon-quad -funsafe-math-optimizations
 	PLATFLAGS += -mlittle-endian -munaligned-access
+	PLATFLAGS += -funsafe-math-optimizations -mvectorize-with-neon-quad -O3
 	PLATFLAGS += -D__arm__ -DVITA 
 	HAVE_NEON = 1
 	USE_PICASSO96 = 1

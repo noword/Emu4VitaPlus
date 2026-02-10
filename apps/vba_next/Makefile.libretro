@@ -333,7 +333,7 @@ else ifeq ($(platform), vita)
 	__FLAGS := -marm -mfpu=neon -mtune=cortex-a9 -mcpu=cortex-a9 -mfloat-abi=hard -mword-relocations
 	__FLAGS += -fno-optimize-sibling-calls -fno-strict-aliasing -fno-partial-inlining -fno-tree-vrp
 	__FLAGS += -ffast-math -fsingle-precision-constant -funroll-loops -ftracer
-
+    __FLAGS += -funsafe-math-optimizations -mvectorize-with-neon-quad -O3
 	CFLAGS += $(__FLAGS)
 	CXXFLAGS += $(__FLAGS)
 	CXXFLAGS += -fno-exceptions -fno-rtti 

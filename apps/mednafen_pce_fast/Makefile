@@ -268,6 +268,12 @@ else ifeq ($(platform), vita)
    AR = arm-vita-eabi-ar$(EXE_EXT)
    FLAGS += -DVITA
    STATIC_LINKING = 1
+   CFLAGS += -mfloat-abi=hard -fsingle-precision-constant \
+    -marm -mcpu=cortex-a9 -mfpu=neon -DVITA -D__vita__ \
+    -mword-relocations -fno-optimize-sibling-calls \
+    -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables \
+    -ffast-math -ftree-vectorize -O3 -funsafe-math-optimizations -mvectorize-with-neon-quad 
+   CXXFLAGS := $(CFLAGS)
 
 # Xbox 360
 else ifeq ($(platform), xenon)

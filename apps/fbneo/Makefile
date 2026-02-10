@@ -254,11 +254,13 @@ else ifeq ($(platform), vita)
 	          -mfpu=neon -mcpu=cortex-a9 \
 			  -ffast-math -ftree-vectorize \
 			  -fdata-sections -ffunction-sections \
+              -funsafe-math-optimizations -mvectorize-with-neon-quad -O3 \
 			  -DTHREADY_PTHREAD
 	CXXFLAGS += -mfloat-abi=hard -fsingle-precision-constant -fpermissive -fno-rtti \
 	          -mfpu=neon -mcpu=cortex-a9 \
 			  -ffast-math -ftree-vectorize \
 			  -fdata-sections -ffunction-sections \
+              -funsafe-math-optimizations -mvectorize-with-neon-quad -O3 \
 			  -DTHREADY_PTHREAD
 	ASFLAGS += -mcpu=cortex-a9
 #    CFLAGS += -mfloat-abi=hard -fsingle-precision-constant \

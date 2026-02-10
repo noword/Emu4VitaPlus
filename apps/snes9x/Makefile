@@ -307,6 +307,7 @@ else ifeq ($(platform), vita)
    CXXFLAGS += -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant
    CXXFLAGS += -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables
    CXXFLAGS += -ffast-math -ftree-vectorize -O3 -fdata-sections -ffunction-sections
+   CXXFLAGS += -funsafe-math-optimizations -mvectorize-with-neon-quad
    # HAVE_EXCEPTIONS = 1
    STATIC_LINKING=1
    STATIC_LINKING_LINK=1

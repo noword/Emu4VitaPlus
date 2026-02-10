@@ -476,6 +476,7 @@ else ifeq ($(platform), vita)
 	CFLAGS += -fno-unwind-tables -fno-asynchronous-unwind-tables
 	CFLAGS +=  -fno-optimize-sibling-calls
 	CFLAGS += -ftree-vectorize -funroll-loops -fno-short-enums -fcommon
+	CFLAGS += -O3 -funsafe-math-optimizations -mvectorize-with-neon-quad
 	CXXFLAGS = $(CFLAGS) -fno-rtti -fno-exceptions
 	HAVE_RZLIB := 1
 	ARM = 1

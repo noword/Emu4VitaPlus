@@ -205,6 +205,16 @@ else ifeq ($(platform), vita)
 	AR = arm-vita-eabi-ar$(EXE_EXT)
    PLATFORM_DEFINES := -DVITA
    STATIC_LINKING = 1
+   	CFLAGS += -mfloat-abi=hard -fsingle-precision-constant \
+	          -mfpu=neon -mcpu=cortex-a9 \
+			  -ffast-math -ftree-vectorize \
+			  -fdata-sections -ffunction-sections \
+              -funsafe-math-optimizations -mvectorize-with-neon-quad -O3
+	CXXFLAGS += -mfloat-abi=hard -fsingle-precision-constant -fpermissive -fno-rtti \
+	          -mfpu=neon -mcpu=cortex-a9 \
+			  -ffast-math -ftree-vectorize \
+			  -fdata-sections -ffunction-sections \
+              -funsafe-math-optimizations -mvectorize-with-neon-quad -O3
 
 # CTR (3DS)
 else ifeq ($(platform), ctr)

@@ -261,6 +261,7 @@ else ifeq ($(platform), vita)
 	CFLAGS += -fno-asynchronous-unwind-tables -ftree-vectorize -funroll-loops
 	CFLAGS += -mword-relocations -fno-unwind-tables
 	CFLAGS += -fno-optimize-sibling-calls
+    CFLAGS += -O3 -funsafe-math-optimizations -mvectorize-with-neon-quad
 	STATIC_LINKING = 1
 	STATIC_LINKING_LINK = 1
 
