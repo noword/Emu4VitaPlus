@@ -22,7 +22,7 @@ static void SortDirItemsByNameIgnoreCase(std::vector<DirItem> &items)
                   { return std::lexicographical_compare(
                         a.path_gbk.begin(), a.path_gbk.end(), b.path_gbk.begin(), b.path_gbk.end(),
                         [](uint16_t ch1, uint16_t ch2)
-                        { return std::tolower(ch1) < std::tolower(ch2); }); });
+                        { return (ch1 < 0x80 ? std::tolower(ch1) : ch1) < (ch2 < 0x80 ? std::tolower(ch2) : ch2); }); });
     }
     else
     {
