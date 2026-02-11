@@ -1,0 +1,285 @@
+#define brightboost  1.20     // adjust brightness
+#define scanline     8.0      // scanline param, vertical sharpness
+#define beam_min     1.35     // dark area beam min - wide
+#define beam_max     1.05     // bright area beam max - narrow
+#define h_sharp      1.25     // pixel sharpness
+#define gamma_out    0.50     // output gamma
+#define sat          1.0     // saturation
+#define shadowMask   5.0      // Shadow mask type 
+#define masksize     1.0      // Shadow mask size
+#define mcut         0.20     // Mask 5&6 cutoff
+#define maskDark     0.50     // Dark "Phosphor"
+#define maskLight    1.50     // Light "Phosphor"
+#define CGWG         0.40     // CGWG Mask Strength
+#define warpX        0.01    // Curvature X
+#define warpY        0.03    // Curvature Y
+#define vignette 1.0
+
+#define lumweight float3(0.30,0.59,0.11)
+
+struct input
+{
+    float2 video_size;
+    float2 texture_size;
+    float2 output_size;
+};
+
+#if defined(VERTEX)
+void main(
+  float2 aTexcoord,
+  float4 aPosition,
+  uniform input IN,
+  uniform float4x4 wvp,
+  float4 out oPosition : POSITION,
+  float2 out TEX0 : TEXCOORD0,
+  float2 out fragpos: TEXCOORD1,
+  float2 out ps: TEXCOORD2)
+{
+    oPosition = mul(aPosition, wvp);
+    TEX0 = aTexcoord;
+    fragpos = TEX0 * IN.output_size;
+    ps = 1.0 / IN.texture_size;
+}
+
+#elif defined(FRAGMENT)
+float2 Warp(float2 pos)
+{
+    pos  = (pos*2.0)-1.0;    
+    pos *= float2(1.0 + (pos.y*pos.y)*warpX, 1.0 + (pos.x*pos.x)*warpY);
+    return (pos*0.5) + 0.5;
+} 
+
+float sw (float y, float l, float v)
+{
+    float scan = lerp(scanline-2.0, scanline, y);
+    float tmp = lerp(beam_min+v, beam_max+v, l);
+    float ex = y*tmp;
+    return exp2(-scan*ex*ex);
+}
+
+// Shadow mask (1-4 from PD CRT Lottes shader).
+float3 Mask(float2 pos, float3 c)
+{
+	pos = floor(pos/masksize);
+	float3 mask = float3(maskDark);
+	
+	// No mask
+	if (shadowMask == -1.0)
+	{
+		mask = float3(1.0);
+	}       
+	
+	// Phosphor.
+	else if (shadowMask == 0.0)
+	{	
+		pos.x = frac(pos.x*0.5);
+		float mc = 1.0 - CGWG;
+		if (pos.x < 0.5) { mask.r = 1.0; mask.g = mc; mask.b = 1.0; }
+		else { mask.r = mc; mask.g = 1.0; mask.b = mc; }
+	}    
+   
+	// Very compressed TV style shadow mask.
+	else if (shadowMask == 1.0)
+	{
+		float line = maskLight;
+		float odd  = 0.0;
+
+		if (frac(pos.x/6.0) < 0.5)
+			odd = 1.0;
+		if (frac((pos.y + odd)/2.0) < 0.5)
+			line = maskDark;
+
+		pos.x = frac(pos.x/3.0);
+    
+		if      (pos.x < 0.3333) mask.b = maskLight;
+		else if (pos.x < 0.6666) mask.g = maskLight;
+		else                    mask.r = maskLight;
+		
+		mask*=line;  
+	} 
+
+	// Aperture-grille.
+	else if (shadowMask == 2.0)
+	{
+		pos.x = frac(pos.x/3.0);
+
+		if      (pos.x < 0.3333) mask.b = maskLight;
+		else if (pos.x < 0.6666) mask.g = maskLight;
+		else                    mask.r = maskLight;
+	} 
+
+	// Stretched VGA style shadow mask (same as prior shaders).
+	else if (shadowMask == 3.0)
+	{
+		pos.x += pos.y*3.0;
+		pos.x  = frac(pos.x/6.0);
+
+		if      (pos.x < 0.3333) mask.r = maskLight;
+		else if (pos.x < 0.6666) mask.g = maskLight;
+		else                    mask.b = maskLight;
+	}
+
+	// VGA style shadow mask.
+	else if (shadowMask == 4.0)
+	{
+		pos.xy = floor(pos.xy*float2(1.0, 0.5));
+		pos.x += pos.y*3.0;
+		pos.x  = frac(pos.x/6.0);
+
+		if      (pos.x < 0.3333) mask.r = maskLight;
+		else if (pos.x < 0.6666) mask.g = maskLight;
+		else                    mask.b = maskLight;
+	}
+	
+	// Alternate mask 5
+	else if (shadowMask == 5.0)
+	{
+		float mx = max(max(c.r,c.g),c.b);
+		float3 maskTmp = float3( min( 1.25*max(mx-mcut,0.0)/(1.0-mcut) ,maskDark + 0.2*(1.0-maskDark)*mx));
+		float adj = 0.80*maskLight - 0.5*(0.80*maskLight - 1.0)*mx + 0.75*(1.0-mx);	
+		mask = maskTmp;
+		pos.x = frac(pos.x/2.0);
+		if  (pos.x < 0.5)
+		{	mask.r  = adj;
+			mask.b  = adj;
+		}
+		else     mask.g = adj;
+	}    
+
+	// Alternate mask 6
+	else if (shadowMask == 6.0)
+	{
+		float mx = max(max(c.r,c.g),c.b);
+		float3 maskTmp = float3( min( 1.33*max(mx-mcut,0.0)/(1.0-mcut) ,maskDark + 0.225*(1.0-maskDark)*mx));
+		float adj = 0.80*maskLight - 0.5*(0.80*maskLight - 1.0)*mx + 0.75*(1.0-mx);
+		mask = maskTmp;
+		pos.x = frac(pos.x/3.0);
+		if      (pos.x < 0.3333) mask.r = adj;
+		else if (pos.x < 0.6666) mask.g = adj;
+		else                    mask.b = adj; 
+	}
+	
+	// Alternate mask 7
+	else if (shadowMask == 7.0)
+	{
+		float mc = 1.0 - CGWG;
+		float mx = max(max(c.r,c.g),c.b);
+		float maskTmp = min(1.6*max(mx-mcut,0.0)/(1.0-mcut) , mc);
+		mask = float3(maskTmp);
+		pos.x = frac(pos.x/2.0);
+		if  (pos.x < 0.5) mask = float3(1.0 + 0.6*(1.0-mx));
+	}    
+	else if (shadowMask == 8.0)
+	{
+		float line = maskLight;
+		float odd  = 0.0;
+
+		if (frac(pos.x/4.0) < 0.5)
+			odd = 1.0;
+		if (frac((pos.y + odd)/2.0) < 0.5)
+			line = maskDark;
+
+		pos.x = frac(pos.x/2.0);
+    
+		if  (pos.x < 0.5) {mask.r = maskLight; mask.b = maskLight;}
+		else  mask.g = maskLight;	
+		mask*=line;  
+	} 
+
+	 else if (shadowMask == 9.0)
+    {
+        float bright = maskLight;
+        float left  = 0.0;
+      
+
+        if (frac(pos.x/6.0) < 0.5)
+            left = 1.0;
+          
+            
+        float m = frac(pos.x/3.0);
+    
+        if      (m < 0.3333) mask.b = 0.9;
+        else if (m < 0.6666) mask.g = 0.9;
+        else                mask.r = 0.9;
+        
+        if      (fmod(pos.y,2.0)==1.0 && left == 1.0 || fmod(pos.y,2.0)==0.0 && left == 0.0 ) mask*=bright; 
+        
+        return mask; 
+    } 
+    
+	 else if (shadowMask == 10.0)
+    {
+        float line = maskLight;
+		float odd  = 0.0;
+
+		if (frac(pos.x/6.0) < 0.5)
+			odd = 1.0;
+		if (frac((pos.y + odd)/2.0) < 0.5)
+			line = 1.0;    
+    
+        float m = frac(pos.x/3.0);
+        float y = frac(pos.y/2.0);
+        
+        if      (m > 0.3333)  {mask.r = 1.0; mask.b = 1.0;}
+        else if (m > 0.6666) mask.g = 1.0;
+        else                 mask = float3(mcut);
+        if (m>0.333) mask*=line; 
+        return mask; 
+    } 
+
+	return mask;
+}  
+
+float4 main(uniform input IN,
+  uniform sampler2D vTexture,
+  float2 TEX0 : TEXCOORD0,
+  float2 fragpos : TEXCOORD1,
+  float2 ps : TEXCOORD2)
+{
+	float2 pos = Warp(TEX0);
+
+	float2 OGL2Pos = pos * IN.texture_size;
+	float2 fp = frac(OGL2Pos);
+	float2 dx = float2(ps.x,0.0);
+	float2 dy = float2(0.0, ps.y);
+
+    float2 pC4 = floor(OGL2Pos) * ps + 0.5*ps;	
+	float f = fp.y-0.5; 
+    if (IN.video_size.y > 400.0) 
+        f=1.0;
+
+    float3 ul = tex2D(vTexture, pC4     ).xyz; 
+	float3 ur = tex2D(vTexture, pC4 - dx).xyz; 
+	float3 dl = tex2D(vTexture, pC4 + dy).xyz; 
+	float3 dr = tex2D(vTexture, pC4 + float2(-ps.x,ps.y)).xyz; 
+
+	float lx = fp.x;        lx = pow(lx, h_sharp);
+	float rx = 1.0 - fp.x;  rx = pow(rx, h_sharp);
+
+    float3 color1 = (ur*rx + ul*lx)/(lx+rx);  
+	float3 color2 = (dr*rx + dl*lx)/(lx+rx);	
+	color1 *=color1; color2 *=color2;
+
+    float lum = dot (color1, lumweight);
+	float lum2 = dot (color2, lumweight);
+
+    float v = 0.0;
+
+    if (vignette > 0.0)
+    {  
+        v = (TEX0.x-0.5);  // range -0.5 to 0.5, 0.0 being center of screen
+        v = v*v;    // curved response: higher values (more far from center) get higher results.
+    }
+
+    float3 color = color1*sw(f, lum,v) + color2*sw(1.0-f, lum2,v); 
+	color = color*Mask(fragpos, color);
+    
+    color = pow(color, float3(gamma_out));
+
+	color*= lerp(1.0,brightboost,lum);
+	color = lerp(float3(lum),color,sat);
+
+    return float4(color, 1.0);
+}
+
+#endif
