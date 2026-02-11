@@ -172,7 +172,9 @@ option(BUILD_TESTING "" OFF)
 option(WITH_GZFILEOP "" OFF)
 option(ZLIB_COMPAT "" ON)
 option(WITH_NATIVE_INSTRUCTIONS "" ON)
+option(WITH_ARMV8 "" OFF)
 set(BUILD_SHARED_LIBS OFF)
+set(WITH_ACLE OFF)
 
 add_subdirectory(minizip-ng)
 
