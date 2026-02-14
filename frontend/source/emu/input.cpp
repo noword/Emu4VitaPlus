@@ -103,7 +103,7 @@ float SensorGetInputCallback(unsigned port, unsigned id)
 
 int16_t Emulator::_GetJoypadState(unsigned index, unsigned id)
 {
-    static const uint32_t button_map[] = {SCE_CTRL_L2, SCE_CTRL_R2, SCE_CTRL_L3, SCE_CTRL_L3};
+    static const uint32_t button_map[] = {SCE_CTRL_L2, SCE_CTRL_R2, SCE_CTRL_L3, SCE_CTRL_R3};
     uint32_t key_states = _input.GetKeyStates();
     auto touch = _input.GetRearTouch();
     if (unlikely(gConfig->sim_button_rear && touch->GetState() == TouchDown))
