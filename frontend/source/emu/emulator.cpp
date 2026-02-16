@@ -35,7 +35,8 @@ Emulator::Emulator()
       _disk_contorl(nullptr),
       _speed(1.0),
       _keyboard(nullptr),
-      _current_cpu_freq(0)
+      _current_cpu_freq(0),
+      _inited(false)
 {
     LogFunctionName;
     memset(&_info, 0, sizeof(_info));
@@ -68,7 +69,8 @@ Emulator::~Emulator()
         delete _keyboard;
     }
 
-    retro_deinit();
+    if (_inited)
+        retro_deinit();
 }
 
 void Emulator::Init()
@@ -83,6 +85,8 @@ void Emulator::Init()
     retro_set_input_state(InputStateCallback);
 
     retro_init();
+
+    _inited = true;
 }
 
 bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
@@ -92,6 +96,11 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
     char *buf = nullptr;
     bool result = false;
     retro_game_info game_info = {0};
+
+    if (!_inited)
+    {
+        Init();
+    }
 
     if (path == nullptr)
     {
@@ -292,6 +301,12 @@ void Emulator::UnloadGame()
         if (gRetroAchievements->IsOnline())
         {
             gRetroAchievements->UnloadGame();
+        }
+
+        if (_inited)
+        {
+            retro_deinit();
+            _inited = false;
         }
 
         Unlock();

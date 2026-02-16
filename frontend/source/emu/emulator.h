@@ -157,6 +157,7 @@ private:
 
     void _AutoAdjustCpu();
 
+    bool _inited;
     Locker _locker;
     std::string _current_name;
     bool _loaded;
