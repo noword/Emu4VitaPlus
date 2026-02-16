@@ -33,28 +33,23 @@ void State::Init(const char *game_name)
         _texture = nullptr;
     }
 
-    char path[SCE_FIOS_PATH_MAX];
-    char name[SCE_FIOS_PATH_MAX];
-    snprintf(path, SCE_FIOS_PATH_MAX, "%s/%s", CORE_SAVEFILES_DIR, game_name);
-    if (!File::Exist(path))
+    std::string path = std::string(CORE_SAVEFILES_DIR) + "/" + game_name;
+    _state_path = path + "/state_" + _slot_name + ".bin";
+    _image_path = path + "/state_" + _slot_name + ".jpg";
+
+    if (!File::Exist(path.c_str()))
     {
-        File::MakeDirs(path);
+        File::MakeDirs(path.c_str());
         return;
     }
 
-    snprintf(name, SCE_FIOS_PATH_MAX, "%s/state_%s.bin", path, _slot_name.c_str());
-
-    _state_path = name;
-    _valid = File::Exist(name);
+    _valid = File::Exist(_state_path.c_str());
     if (_valid)
     {
-        File::GetModifyTime(name, &_create_time);
+        File::GetModifyTime(_state_path.c_str(), &_create_time);
     }
 
-    snprintf(name, SCE_FIOS_PATH_MAX, "%s/state_%s.jpg", path, _slot_name.c_str());
-    _image_path = name;
-
-    _texture = vita2d_load_JPEG_file(name);
+    _texture = vita2d_load_JPEG_file(_image_path.c_str());
 }
 
 bool State::Save()
