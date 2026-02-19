@@ -326,9 +326,7 @@ void Emulator::Run()
 {
     LogFunctionNameLimited;
 
-    _input.Signal();
-
-    switch (gStatus.Get())
+      switch (gStatus.Get())
     {
     case APP_STATUS_REWIND_GAME:
         if (gConfig->rewind)

@@ -1,6 +1,7 @@
 #pragma once
 #include "input.h"
 #include "thread_base.h"
+#include "delay.h"
 
 using namespace Emu4VitaPlus;
 
@@ -27,10 +28,12 @@ private:
 
         while (input->IsRunning())
         {
-            input->Wait();
+            input->_delay.Wait();
             input->Poll();
         }
 
         return 0;
     }
+
+    Delay<uint64_t> _delay{1000000 / 120};
 };
