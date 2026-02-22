@@ -158,6 +158,7 @@ namespace Emu4VitaPlus
         auto_load = DEFAULT_AUTO_LOAD;
         swap_enter = false;
         sim_button_rear = false;
+        sim_button_front = false;
         independent_config = DEFAULT_INDEPENDENT_CONFIG;
         reboot_when_loading_again = DEFAULT_REBOOT_WHEN_LOADING_AGAIN;
         speed_step = DEFAULT_SPEED_STEP;
@@ -257,6 +258,7 @@ namespace Emu4VitaPlus
         ini.SetBoolValue(MAIN_SECTION, "lightgun", lightgun);
         ini.SetBoolValue(MAIN_SECTION, "swap_enter", swap_enter);
         ini.SetBoolValue(MAIN_SECTION, "sim_button_rear", sim_button_rear);
+        ini.SetBoolValue(MAIN_SECTION, "sim_button_front", sim_button_front);
         ini.SetBoolValue(MAIN_SECTION, "independent_config", independent_config);
         ini.SetBoolValue(MAIN_SECTION, "auto_rotating", auto_rotating);
         ini.SetLongValue(MAIN_SECTION, "speed_step", speed_step);
@@ -374,6 +376,7 @@ namespace Emu4VitaPlus
         lightgun = ini.GetBoolValue(MAIN_SECTION, "lightgun", DEFAULT_LIGHTGUN);
         swap_enter = ini.GetBoolValue(MAIN_SECTION, "swap_enter", false);
         sim_button_rear = ini.GetBoolValue(MAIN_SECTION, "sim_button_rear", false);
+        sim_button_front = ini.GetBoolValue(MAIN_SECTION, "sim_button_front", false);
         independent_config = ini.GetBoolValue(MAIN_SECTION, "independent_config", DEFAULT_INDEPENDENT_CONFIG);
         auto_rotating = ini.GetBoolValue(MAIN_SECTION, "auto_rotating", true);
         speed_step = ini.GetLongValue(MAIN_SECTION, "speed_step", 0);
