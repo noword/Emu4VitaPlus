@@ -97,16 +97,17 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
     bool result = false;
     retro_game_info game_info = {0};
 
-    if (!_inited)
-    {
-        Init();
-    }
-
     if (path == nullptr)
     {
         gStatus.Set(APP_STATUS_BOOT);
         path = "";
         _current_name.clear();
+
+        if (!_inited)
+        {
+            Init();
+        }
+
         result = retro_load_game(NULL);
         goto LOADED;
     }
@@ -123,6 +124,11 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
         _current_name = path;
         gStatus.Set(APP_STATUS_REBOOT_WITH_LOADING);
         return true;
+    }
+
+    if (!_inited)
+    {
+        Init();
     }
 
     gStatus.Set(APP_STATUS_BOOT);
@@ -303,7 +309,7 @@ void Emulator::UnloadGame()
             gRetroAchievements->UnloadGame();
         }
 
-        if (_inited)
+        if (_inited && !gConfig->reboot_when_loading_again)
         {
             retro_deinit();
             _inited = false;
@@ -326,7 +332,7 @@ void Emulator::Run()
 {
     LogFunctionNameLimited;
 
-      switch (gStatus.Get())
+    switch (gStatus.Get())
     {
     case APP_STATUS_REWIND_GAME:
         if (gConfig->rewind)
