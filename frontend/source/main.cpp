@@ -28,7 +28,7 @@ static void ParseParams(int argc, char *const argv[])
         else if (strcmp(argv[i], "--rom") == 0)
         {
             i++;
-            if (File::Exist(argv[i]))
+            if (File::Exist(argv[i]) || strcmp(argv[i], EMPTY_ROM_NAME) == 0)
                 gBootRomPath = argv[i];
         }
     }

@@ -96,13 +96,17 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
     char *buf = nullptr;
     bool result = false;
     retro_game_info game_info = {0};
+    _current_name = path;
 
-    if (path == nullptr)
+    if (gConfig->reboot_when_loading_again && _loaded)
+    {
+        gStatus.Set(APP_STATUS_REBOOT_WITH_LOADING);
+        return true;
+    }
+
+    if (strcmp(path, EMPTY_ROM_NAME) == 0)
     {
         gStatus.Set(APP_STATUS_BOOT);
-        path = "";
-        _current_name.clear();
-
         if (!_inited)
         {
             Init();
@@ -116,14 +120,8 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
 
     if (!File::Exist(path))
     {
+        _current_name.clear();
         return false;
-    }
-
-    if (gConfig->reboot_when_loading_again && _loaded)
-    {
-        _current_name = path;
-        gStatus.Set(APP_STATUS_REBOOT_WITH_LOADING);
-        return true;
     }
 
     if (!_inited)

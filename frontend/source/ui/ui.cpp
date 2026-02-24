@@ -786,7 +786,7 @@ void Ui::_OnDialog(Input *input, int index)
 void Ui::_OnStartCore(Input *input)
 {
     LogFunctionName;
-    if (gConfig->support_no_game && gEmulator->LoadRom(NULL, NULL, 0))
+    if (gConfig->support_no_game && gEmulator->LoadRom(EMPTY_ROM_NAME, NULL, 0))
     {
         _tabs[TAB_INDEX_SYSTEM]->UnsetInputHooks(input);
     }

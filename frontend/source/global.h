@@ -19,6 +19,8 @@
 #include "dialog.h"
 #include "notification.h"
 
+#define EMPTY_ROM_NAME "NULL"
+
 extern bool gBootFromArch;
 extern std::string gBootRomPath;
 
