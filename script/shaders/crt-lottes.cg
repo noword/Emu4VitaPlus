@@ -22,7 +22,7 @@
 #define maskLight 1.5
 #define scaleInLinearGamma 1
 #define shadowMask 4
-#define brightboost 1
+#define brightboost 1.5
 #define hardBloomScan -2.0
 #define hardBloomPix -1.5
 #define bloomAmount 1.0/16.0

@@ -1,4 +1,4 @@
-#define brightboost  1.20     // adjust brightness
+#define brightboost  1.50     // adjust brightness
 #define scanline     8.0      // scanline param, vertical sharpness
 #define beam_min     1.35     // dark area beam min - wide
 #define beam_max     1.05     // bright area beam max - narrow

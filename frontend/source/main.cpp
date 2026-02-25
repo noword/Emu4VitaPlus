@@ -80,9 +80,9 @@ int main(int argc, char *const argv[])
 
     // must use for keeping this variables
     // LogInfo("%d", _newlib_heap_size_user);
-    LogInfo("%d", sceUserMainThreadStackSize);
-    LogInfo("%d", sceLibcHeapExtendedAlloc);
-    LogInfo("%d", sceLibcHeapSize);
+    LogInfo("sceUserMainThreadStackSize: %d", sceUserMainThreadStackSize);
+    LogInfo("sceLibcHeapExtendedAlloc: %d", sceLibcHeapExtendedAlloc);
+    LogInfo("sceLibcHeapSize: %d", sceLibcHeapSize);
 
     LogDebug("stack size: %d", sceKernelCheckThreadStack());
 
