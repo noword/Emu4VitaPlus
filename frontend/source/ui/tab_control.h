@@ -34,8 +34,13 @@ private:
     void _OnStart(Input *input)
     {
         input->PushCallbacks();
-        gEmulator->SetupKeys();
-        gEmulator->StartInput();
+
+        if (gStatus.Get() != APP_STATUS_SHOW_UI_IN_GAME)
+        {
+            gEmulator->SetupKeys();
+            gEmulator->StartInput();
+        }
+
         _gamepad.SetInput(input);
         _gamepad.SetActive(true);
     }

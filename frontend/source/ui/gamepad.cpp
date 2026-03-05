@@ -71,14 +71,15 @@ void Gamepad::Show()
         _start_pressed = false;
     }
 
-    ImGui ::SetNextWindowPos({MAIN_WINDOW_PADDING, MAIN_WINDOW_PADDING});
+    ImGui ::SetNextWindowPos({0, 0});
     ImGui::SetNextWindowSize({VITA_WIDTH, VITA_HEIGHT});
     ImGui::SetNextWindowBgAlpha(0.6);
     if (ImGui::BeginPopupModal("Gamepad", NULL, ImGuiWindowFlags_NoTitleBar))
     {
         if (!_actived && is_popup)
         {
-            gEmulator->StopInput();
+            if (gStatus.Get() != APP_STATUS_SHOW_UI_IN_GAME)
+                gEmulator->StopInput();
             ImGui::CloseCurrentPopup();
             _input->PopCallbacks();
         }
