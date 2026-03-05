@@ -1978,5 +1978,29 @@
         "Spanish": "",
         "Russian": "Имитация ↲↳⇋⇌ на сенсорном экране",
         "Comments": ""
+    },
+    {
+        "No.": "166",
+        "Tag": "LANG_TEST",
+        "English": "Test",
+        "Chinese": "测试",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
+    },
+    {
+        "No.": "167",
+        "Tag": "LANG_HOLD_EXIT",
+        "English": "Press and hold %s to exit.",
+        "Chinese": "长按 %s 以关闭",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
 ]

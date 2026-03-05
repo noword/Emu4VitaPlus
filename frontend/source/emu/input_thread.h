@@ -31,7 +31,6 @@ private:
             input->_delay.Wait();
             input->Poll();
         }
-
         return 0;
     }
 

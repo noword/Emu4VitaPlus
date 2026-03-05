@@ -69,6 +69,9 @@ public:
     double GetSampleRate() const { return _av_info.timing.sample_rate; };
     float GetAspectRatio() { return _av_info.geometry.aspect_ratio; };
     uint64_t GetMsPerFrame() { return _delay.GetInterval(); };
+    void StartInput() { _input.Start(); };
+    void StopInput() { _input.Stop(); }
+    int16_t GetInputInfo(const AnalogAxis *left, const AnalogAxis *right);
 
     void ChangeGraphicsConfig() { _graphics_config_changed = true; };
     void ChangeRewindConfig();

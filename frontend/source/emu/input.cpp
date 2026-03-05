@@ -297,10 +297,10 @@ int16_t Emulator::_GetKeybaordState(unsigned index, unsigned id)
 void Emulator::SetupKeys()
 {
     LogFunctionName;
-    if ((gStatus.Get() & (APP_STATUS_RUN_GAME | APP_STATUS_SHOW_UI_IN_GAME)) == 0)
-    {
-        return;
-    }
+    // if ((gStatus.Get() & (APP_STATUS_RUN_GAME | APP_STATUS_SHOW_UI_IN_GAME)) == 0)
+    // {
+    //     return;
+    // }
 
     memset(_keys, 0, sizeof(_keys));
     _keys_mask = 0;
@@ -569,3 +569,10 @@ void Emulator::_SetControllerInfo(retro_controller_info *info)
     gConfig->device_options.Load(info);
     gUi->UpdateControllerOptions();
 }
+
+int16_t Emulator::GetInputInfo(const AnalogAxis *left, const AnalogAxis *right)
+{
+    left = &_input.GetLeftAnalogAxis();
+    right = &_input.GetRightAnalogAxis();
+    return _GetJoypadState(0, RETRO_DEVICE_ID_JOYPAD_MASK);
+};

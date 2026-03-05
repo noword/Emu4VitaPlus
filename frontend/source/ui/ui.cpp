@@ -4,6 +4,7 @@
 #include "log.h"
 #include "state_manager.h"
 #include "tab_selectable.h"
+#include "tab_control.h"
 #include "item_config.h"
 #include "item_control.h"
 #include "item_hotkey.h"
@@ -687,7 +688,7 @@ void Ui::UpdateControllerOptions()
     {
         delete _tabs[TAB_INDEX_CONTROL];
     }
-    _tabs[TAB_INDEX_CONTROL] = new TabSeletable(LANG_CONTROL, controls);
+    _tabs[TAB_INDEX_CONTROL] = new TabControl(controls);
     gVideo->Unlock();
 }
 
