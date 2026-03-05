@@ -6,7 +6,16 @@
 class TabControl : public TabSeletable
 {
 public:
-    TabControl(std::vector<ItemBase *> items) : TabSeletable{LANG_CONTROL, items} {};
+    TabControl(std::vector<ItemBase *> items) : TabSeletable{LANG_CONTROL, items}
+    {
+        std::string s = std::string("\t" BUTTON_START) + " " + TEXT(LANG_TEST);
+        for (auto item : _items)
+        {
+            std::string info = item->GetInfo();
+            item->SetInfo(info + s);
+        }
+    };
+
     virtual ~TabControl() {};
 
     virtual void SetInputHooks(Input *input) override

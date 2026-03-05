@@ -11,6 +11,10 @@ using namespace Emu4VitaPlus;
 #define LEFT_POS (VITA_WIDTH / 2 - BUTTON_WIDTH * 4)
 #define RIGHT_POS (VITA_WIDTH / 2 + BUTTON_WIDTH * 3)
 #define CLOSE_TIME 2000000;
+#define LEFT_ANGLOG_X (VITA_WIDTH / 2 - BUTTON_WIDTH * 5)
+#define RIGHT_ANGLOG_X (VITA_WIDTH / 2 + BUTTON_WIDTH * 5)
+#define ANGLOG_Y (BUTTON_HEIGHT * 8)
+#define ANGLOG_RADIUS (BUTTON_WIDTH * 2)
 
 Button Gamepad::_buttons[14] = {
     {BUTTON_B, {RIGHT_POS, BUTTON_HEIGHT * 3}},
@@ -68,8 +72,8 @@ void Gamepad::Show()
     }
 
     ImGui ::SetNextWindowPos({MAIN_WINDOW_PADDING, MAIN_WINDOW_PADDING});
-    ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2});
-    ImGui::SetNextWindowBgAlpha(0.5);
+    ImGui::SetNextWindowSize({VITA_WIDTH, VITA_HEIGHT});
+    ImGui::SetNextWindowBgAlpha(0.6);
     if (ImGui::BeginPopupModal("Gamepad", NULL, ImGuiWindowFlags_NoTitleBar))
     {
         if (!_actived && is_popup)
@@ -94,6 +98,15 @@ void Gamepad::Show()
             }
         }
 
+        ImDrawList *draw_list = ImGui::GetWindowDrawList();
+        draw_list->AddCircle({LEFT_ANGLOG_X, ANGLOG_Y}, ANGLOG_RADIUS, ImGui::GetColorU32(ImGuiCol_Button), 0, 5.f);
+        draw_list->AddCircle({RIGHT_ANGLOG_X, ANGLOG_Y}, ANGLOG_RADIUS, ImGui::GetColorU32(ImGuiCol_Button), 0, 5.f);
+
+        char s[255];
+        snprintf(s, 255, TEXT(LANG_HOLD_EXIT), BUTTON_START);
+        ImVec2 text_size = ImGui::CalcTextSize(s);
+        ImGui::SetCursorScreenPos({(VITA_WIDTH - text_size.x) / 2, VITA_HEIGHT - text_size.y * 2});
+        ImGui::TextUnformatted(s);
         ImGui::EndPopup();
     }
 }

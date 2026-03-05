@@ -40,6 +40,7 @@ public:
     const LanguageString &GetLanguageString() { return _text; };
     const char *GetText() { return _text.Get(); };
     const char *GetInfo() { return _info.Get(); };
+    void SetInfo(LanguageString s) { _info = s; };
     void SetVisable(bool visable) { _visable = visable; };
     bool Visable() { return _visable; };
 
