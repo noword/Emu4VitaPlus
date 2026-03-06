@@ -13,6 +13,7 @@ TabSeletable::TabSeletable(TEXT_ENUM title_id, std::vector<ItemBase *> items, in
       _in_refreshing(false)
 {
     LogFunctionName;
+    _Update();
 }
 
 TabSeletable::TabSeletable(TEXT_ENUM title_id, int columns)

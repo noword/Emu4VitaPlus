@@ -14,6 +14,7 @@ public:
             std::string info = item->GetInfo();
             item->SetInfo(info + s);
         }
+        _Update();
     };
 
     virtual ~TabControl() {};

@@ -4,14 +4,10 @@
 
 namespace Emu4VitaPlus
 {
-#define BUTTON_WIDTH 50
-#define BUTTON_HEIGHT 50
-
     struct Button
     {
         const char *text;
         ImVec2 pos;
-        ImVec2 size = {BUTTON_WIDTH, BUTTON_HEIGHT};
     };
 
     class Gamepad

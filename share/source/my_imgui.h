@@ -47,3 +47,5 @@ private:
     size_t _count;
     ImU32 _color;
 };
+
+extern ImFont *gLargeFont;
