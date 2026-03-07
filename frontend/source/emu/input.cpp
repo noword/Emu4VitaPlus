@@ -105,8 +105,9 @@ int16_t Emulator::_GetJoypadState(unsigned index, unsigned id)
 {
     static const uint32_t button_map[] = {SCE_CTRL_L2, SCE_CTRL_R2, SCE_CTRL_L3, SCE_CTRL_R3};
     uint32_t key_states = _input.GetKeyStates();
-    auto touch = _input.GetRearTouch();
-    if (unlikely(gConfig->sim_button_rear && touch->GetState() == TouchDown))
+
+    Touch *touch = _input.GetRearTouch();
+    if (unlikely(gConfig->sim_button_rear && (touch->GetState() & (TouchDown | TouchHold))))
     {
         const auto axis = touch->GetAxis();
         const auto center = touch->GetCenter();
@@ -115,11 +116,12 @@ int16_t Emulator::_GetJoypadState(unsigned index, unsigned id)
     }
 
     touch = _input.GetFrontTouch();
-    if (unlikely(gConfig->sim_button_front && touch->GetState() == TouchDown))
+    if (unlikely(gConfig->sim_button_front && (touch->GetState() & (TouchDown | TouchHold))))
     {
         const auto axis = touch->GetAxis();
         const auto center = touch->GetCenter();
         int flag = (axis.y < center.y ? 0 : 2) | (axis.x < center.x ? 0 : 1);
+        // LogDebug("%d %d | %d %d | %d", center.x, center.y, axis.x, axis.y, flag);
         key_states |= button_map[flag];
     }
 
@@ -223,7 +225,7 @@ int16_t Emulator::_GetLightGunState(unsigned index, unsigned id)
     switch (id)
     {
     case RETRO_DEVICE_ID_LIGHTGUN_TRIGGER:
-        return front->GetState() == TouchUp ? 1 : 0;
+        return front->GetState() == TouchDown ? 1 : 0;
 
     case RETRO_DEVICE_ID_LIGHTGUN_AUX_A:
         return (_input.GetKeyStates() & _keys[RETRO_DEVICE_ID_JOYPAD_A]) ? 1 : 0;
@@ -249,7 +251,7 @@ int16_t Emulator::_GetLightGunState(unsigned index, unsigned id)
     case RETRO_DEVICE_ID_LIGHTGUN_RELOAD:
     {
         const TouchAxis &axis = front->GetAxis();
-        return (!_video_rect.Contains(axis.x, axis.y)) && front->GetState() == TouchUp;
+        return (!_video_rect.Contains(axis.x, axis.y));
     }
 
     default:
@@ -387,10 +389,13 @@ void Emulator::SetupKeys()
     _input.GetFrontTouch()->Enable(gConfig->FrontEnabled());
     _input.GetRearTouch()->Enable(gConfig->RearEnabled());
 
-    int count = 0;
-    for (const auto &device : gConfig->device_options)
+    if (_current_name.size() > 0) // loaded
     {
-        device.Apply(count++);
+        int count = 0;
+        for (const auto &device : gConfig->device_options)
+        {
+            device.Apply(count++);
+        }
     }
 }
 
@@ -403,12 +408,18 @@ void Emulator::SetupKeysWithSaveConfig()
 void Emulator::_OnPsButton(Input *input)
 {
     LogFunctionName;
+    if (!(gStatus.Get() & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME)))
+    {
+        return;
+    }
+
     if (_keyboard && _keyboard->Visable())
     {
         gVideo->Lock();
         _keyboard->SetVisable(false);
         gVideo->Unlock();
     }
+
     gStatus.Set(APP_STATUS_SHOW_UI_IN_GAME);
     Save();
 }

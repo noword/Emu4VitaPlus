@@ -1,6 +1,8 @@
 #include "touch.h"
 #include "log.h"
 
+#define MAX_STATES 256
+
 SceTouchPanelInfo Touch::_info[2] = {0};
 
 Touch::Touch(SceTouchPortType port)
@@ -55,41 +57,63 @@ void Touch::Poll()
     SceTouchData touch_data{0};
     if (sceTouchPeek(_port, &touch_data, 1) == 1)
     {
+        _current_id = touch_data.report->id;
+        _axis.x = touch_data.report->x >> 1;
+        _axis.y = touch_data.report->y >> 1;
+
+        _locker.Lock();
+
+        if (_current_id == _last_id)
+        {
+            if (_axis == _last_axis)
+            {
+                if (_down_count < 10)
+                {
+                    _down_count++;
+                    _states.push(TouchHold);
+                }
+                else if (_down_count == 10)
+                {
+                    _down_count++;
+                    _states.push(TouchUp);
+                }
+            }
+            else
+            {
+                _states.push(TouchHold);
+            }
+        }
+        else
+        {
+            _states.push(TouchDown);
+            _down_count = 0;
+        }
+
+        if (_states.size() > MAX_STATES)
+        {
+            _states.pop();
+        }
+
+        _locker.Unlock();
 
         _last_id = _current_id;
-        _current_id = touch_data.report->id;
-        _last_axis = _org_axis;
-        _org_axis.x = touch_data.report->x;
-        _org_axis.y = touch_data.report->y;
-        _axis.x = _org_axis.x >> 1;
-        _axis.y = _org_axis.y >> 1;
+        _last_axis = _axis;
     }
 }
 
 TouchState Touch::GetState()
 {
-    if (_last_id == _current_id)
+    if (_states.empty())
     {
-        if (_org_axis == _last_axis)
-        {
-            if (_down_count < 10)
-            {
-                _down_count++;
-                return TouchDown;
-            }
-            return TouchNone;
-        }
-        else
-        {
-            _down_count = 0;
-            return TouchDown;
-        }
+        return TouchNone;
     }
-    else
-    {
-        _down_count = 0;
-        return TouchUp;
-    }
+
+    _locker.Lock();
+    TouchState state = _states.front();
+    _states.pop();
+    _locker.Unlock();
+
+    return state;
 }
 
 void Touch::InitMovingScale(float xscale, float yscale)

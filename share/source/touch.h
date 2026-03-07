@@ -1,6 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include <vector>
+#include <queue>
 #include <psp2/touch.h>
 #include "rect.h"
 #include "locker.h"
@@ -20,9 +21,10 @@ struct TouchAxis
 
 enum TouchState
 {
-    TouchNone,
-    TouchDown,
-    TouchUp,
+    TouchNone = 0,
+    TouchDown = 1,
+    TouchHold = 2,
+    TouchUp = 4,
 };
 
 class Touch
@@ -118,7 +120,6 @@ private:
     static SceTouchPanelInfo _info[2];
     TouchAxis _last_axis;
     TouchAxis _axis;
-    TouchAxis _org_axis;
     TouchAxis _center;
     uint8_t _last_id;
     uint8_t _current_id;
@@ -135,6 +136,8 @@ private:
     // map to retro's mouse moving
     std::vector<float> _scale_map_table_x;
     std::vector<float> _scale_map_table_y;
+
+    std::queue<TouchState> _states;
 
     Locker _locker;
 };
