@@ -17,6 +17,8 @@ using namespace Emu4VitaPlus;
 #define RIGHT_ANALOG_X (VITA_WIDTH / 2 + BUTTON_WIDTH * 5)
 #define ANALOG_Y (BUTTON_HEIGHT * 8)
 #define ANALOG_RADIUS (BUTTON_WIDTH * 2)
+#define ANALOG_POINT_RADIUS BUTTON_WIDTH
+#define TOUCH_RADIUS (BUTTON_WIDTH / 4)
 
 Button Gamepad::_buttons[14] = {
     {BUTTON_B, {RIGHT_POS, BUTTON_HEIGHT * 3.5}},
@@ -78,9 +80,10 @@ void Gamepad::Show()
         ImGui::OpenPopup("Gamepad");
     }
 
-    AnalogAxis left;
-    AnalogAxis right;
-    const int16_t keys = gEmulator->GetInputInfo(left, right);
+    AnalogAxis left, right;
+    TouchAxis touch;
+    const int16_t keys = gEmulator->GetInputInfo(left, right, touch);
+
     if (keys & (1 << RETRO_DEVICE_ID_JOYPAD_START))
     {
         if (_start_pressed)
@@ -161,14 +164,17 @@ void Gamepad::Show()
         ImU32 left_color = (keys & (1 << RETRO_DEVICE_ID_JOYPAD_L3)) ? ImGui::GetColorU32(ImGuiCol_ButtonHovered) : ImGui::GetColorU32(ImGuiCol_Text);
         ImU32 right_color = (keys & (1 << RETRO_DEVICE_ID_JOYPAD_R3)) ? ImGui::GetColorU32(ImGuiCol_ButtonHovered) : ImGui::GetColorU32(ImGuiCol_Text);
 
-        draw_list->AddCircleFilled({LEFT_ANALOG_X + left_x, ANALOG_Y + left_y}, BUTTON_WIDTH / 2, left_color);
-        draw_list->AddCircleFilled({RIGHT_ANALOG_X + right_x, ANALOG_Y + right_y}, BUTTON_WIDTH / 2, right_color);
+        draw_list->AddCircleFilled({LEFT_ANALOG_X + left_x, ANALOG_Y + left_y}, ANALOG_POINT_RADIUS, left_color);
+        draw_list->AddCircleFilled({RIGHT_ANALOG_X + right_x, ANALOG_Y + right_y}, ANALOG_POINT_RADIUS, right_color);
 
         char s[255];
         snprintf(s, 255, TEXT(LANG_HOLD_EXIT), BUTTON_START);
         ImVec2 text_size = ImGui::CalcTextSize(s);
         ImGui::SetCursorScreenPos({(VITA_WIDTH - text_size.x) / 2, VITA_HEIGHT - text_size.y * 2});
         ImGui::TextUnformatted(s);
+
+        draw_list->AddCircleFilled({(float)touch.x, (float)touch.y}, TOUCH_RADIUS, ImGui::GetColorU32(ImGuiCol_Button));
+
         ImGui::EndPopup();
     }
 }

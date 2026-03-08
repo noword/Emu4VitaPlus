@@ -581,9 +581,19 @@ void Emulator::_SetControllerInfo(retro_controller_info *info)
     gUi->UpdateControllerOptions();
 }
 
-int16_t Emulator::GetInputInfo(AnalogAxis &left, AnalogAxis &right)
+int16_t Emulator::GetInputInfo(AnalogAxis &left, AnalogAxis &right, TouchAxis &touch)
 {
     left = _input.GetLeftAnalogAxis();
     right = _input.GetRightAnalogAxis();
+
+    Touch *t = _input.GetFrontTouch();
+    touch = t->IsEnabled() ? t->GetAxis() : TouchAxis{0, 0};
+
+    if (touch == TouchAxis{0, 0})
+    {
+        t = _input.GetRearTouch();
+        touch = t->IsEnabled() ? t->GetAxis() : TouchAxis{0, 0};
+    }
+
     return _GetJoypadState(0, RETRO_DEVICE_ID_JOYPAD_MASK);
 };

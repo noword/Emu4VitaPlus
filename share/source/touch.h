@@ -42,8 +42,8 @@ public:
     const TouchAxis &GetCenter() const { return _center; };
     const SceTouchPanelInfo &GetInfo() const { return _info[_port]; };
     void InitMovingScale(float xscale, float yscale);
-    const int16_t GetRelativeMovingX() { return _GetRelativeMoving(&_scale_map_table_x, _axis.x - (_last_axis.x >> 1)); };
-    const int16_t GetRelativeMovingY() { return _GetRelativeMoving(&_scale_map_table_y, _axis.y - (_last_axis.y >> 1)); };
+    const int16_t GetRelativeMovingX() { return _GetRelativeMoving(&_scale_map_table_x, _axis.x - _last_axis.x); };
+    const int16_t GetRelativeMovingY() { return _GetRelativeMoving(&_scale_map_table_y, _axis.y - _last_axis.y); };
 
     template <typename T>
     void InitMapTable(const Rect<T> &rect)
@@ -76,9 +76,7 @@ public:
     int16_t GetMapedX(const Rect<T> &rect)
     {
         size_t x = _axis.x - rect.left;
-        // _locker.Lock();
         int16_t mapx = rect.Contains(_axis.x, _axis.y) && x < _map_table_x.size() ? _map_table_x[x] : -0x8000;
-        // _locker.Unlock();
         return mapx;
     }
 
@@ -86,9 +84,7 @@ public:
     int16_t GetMapedY(const Rect<T> &rect)
     {
         size_t y = _axis.y - rect.top;
-        // _locker.Lock();
         int16_t mapy = rect.Contains(_axis.x, _axis.y) && y < _map_table_y.size() ? _map_table_y[y] : -0x8000;
-        // _locker.Unlock();
         return mapy;
     }
 
