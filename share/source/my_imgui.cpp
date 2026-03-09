@@ -16,6 +16,7 @@
 #define TEXT_FONT_NAME "AlibabaPuHuiTi-2-65-Medium.ttf"
 #define GAMEPAD_FONT_NAME "promptfont.ttf"
 #define ICON_FONT_NAME "fontello.ttf"
+#define FONT_CACHE_MAGIC "IMFC"
 #define FONT_CACHE_VERSION 4
 
 #define RA_ICON_NAME "ra-icon.png"
@@ -111,59 +112,65 @@ float ortho_proj_matrix[16];
 
 constexpr auto ImguiVertexSize = 20;
 
-// struct SubFontCache
-// {
-//     float font_size;
-//     uint32_t glyphs_size;
-// };
+struct ImFontCache
+{
+    float size;      // FontSize
+    int glyphs_size; // Glyphs.size()
+};
 
-// struct FontCache
-// {
-//     uint32_t version;
-//     int size;
-//     int width;
-//     int height;
-//     ImVec2 white_uv;
-// };
+struct ImFontAtlasCache
+{
+    char magic[4];    // FONT_CAACHE_MAGIC
+    uint32_t version; // FONT_CACHE_VERSION
+    int size;         // Fonts.size()
+    int width;        // TexWidth
+    int height;       // TexHeight
+    ImVec2 white_uv;  // TexUvWhitePixel
+};
 
-// static bool SaveFontCache(const char *path)
-// {
-//     LogFunctionName;
-//     ImFontAtlas *fonts = ImGui::GetIO().Fonts;
+static bool SaveFontCache(const char *path)
+{
+    LogFunctionName;
 
-//     if (!fonts->TexID)
-//     {
-//         return false;
-//     }
+    LogDebug("  path: %s", path);
 
-//     FILE *fp = fopen(path, "wb");
-//     if (!fp)
-//     {
-//         return false;
-//     }
+    ImFontAtlas *fonts = ImGui::GetIO().Fonts;
 
-//     FontCache cache;
-//     uint8_t *pixels;
-//     fonts->GetTexDataAsAlpha8(&pixels, &cache.width, &cache.height);
-//     cache.version = FONT_CACHE_VERSION;
-//     cache.white_uv = fonts->TexUvWhitePixel;
-//     cache.size = fonts->Fonts.size();
-//     // cache.glyphs_size = fonts->Fonts[0]->Glyphs.size();
-//     // cache.size = fonts->Fonts[0]->FontSize;
+    if (!fonts->TexID)
+    {
+        return false;
+    }
 
-//     fwrite(&cache, sizeof(FontCache), 1, fp);
-//     fwrite(pixels, cache.width * cache.height, 1, fp);
-//     fwrite(fonts->TexUvLines, sizeof(fonts->TexUvLines), 1, fp);
-//     for (int i = 0; i < cache.size; i++)
-//     {
-//         ImFont *font = fonts->Fonts[i];
-//         SubFontCache sub_cache = {};
-//         fwrite(font->Glyphs.Data, sizeof(ImFontGlyph), cache.glyphs_size, fp);
-//     }
+    FILE *fp = fopen(path, "wb");
+    if (!fp)
+    {
+        return false;
+    }
 
-//     fclose(fp);
-//     return true;
-// }
+    ImFontAtlasCache cache;
+    uint8_t *pixels;
+    fonts->GetTexDataAsAlpha8(&pixels, &cache.width, &cache.height);
+    memcpy(cache.magic, FONT_CACHE_MAGIC, sizeof(cache.magic));
+    cache.version = FONT_CACHE_VERSION;
+    cache.white_uv = fonts->TexUvWhitePixel;
+    cache.size = fonts->Fonts.size();
+
+    fwrite(&cache, sizeof(cache), 1, fp);
+
+    for (int i = 0; i < cache.size; i++)
+    {
+        ImFont *font = fonts->Fonts[i];
+        ImFontCache font_cache{font->FontSize, font->Glyphs.size()};
+        fwrite(&font_cache, sizeof(font_cache), 1, fp);
+        fwrite(font->Glyphs.Data, sizeof(ImFontGlyph), font_cache.glyphs_size, fp);
+    }
+
+    fwrite(pixels, cache.width * cache.height, 1, fp);
+    fwrite(fonts->TexUvLines, sizeof(fonts->TexUvLines), 1, fp);
+
+    fclose(fp);
+    return true;
+}
 
 static void GenFontTexture(ImFontAtlas *fonts)
 {
@@ -191,65 +198,77 @@ static void GenFontTexture(ImFontAtlas *fonts)
     fonts->TexID = texture;
 }
 
-// static bool LoadFontCache(const char *path)
-// {
-//     LogFunctionName;
-//     FILE *fp = fopen(path, "rb");
-//     if (!fp)
-//     {
-//         return false;
-//     }
+static bool LoadFontCache(const char *path)
+{
+    LogFunctionName;
+    LogDebug("  path: %s", path);
 
-//     FontCache cache;
-//     fread(&cache, sizeof(FontCache), 1, fp);
-//     if (cache.version != FONT_CACHE_VERSION)
-//     {
-//         fclose(fp);
-//         return false;
-//     }
+    FILE *fp = fopen(path, "rb");
+    if (!fp)
+    {
+        return false;
+    }
 
-//     ImFontAtlas *fonts = ImGui::GetIO().Fonts;
-//     ImFontConfig config{};
-//     config.FontData = IM_ALLOC(1);
-//     config.FontDataSize = 1;
-//     config.SizePixels = 1.f;
+    ImFontAtlasCache cache;
+    fread(&cache, sizeof(cache), 1, fp);
+    if (memcmp(cache.magic, FONT_CACHE_MAGIC, sizeof(cache.magic)) != 0 || cache.version != FONT_CACHE_VERSION)
+    {
+        fclose(fp);
+        return false;
+    }
 
-//     ImFont *font = fonts->AddFont(&config);
+    ImFontAtlas *fonts = ImGui::GetIO().Fonts;
 
-//     font->FontSize = cache.size;
-//     font->ConfigDataCount = 1;
-//     font->ContainerAtlas = fonts;
-//     font->ConfigData = &config;
-//     fonts->TexWidth = cache.width;
-//     fonts->TexHeight = cache.height;
-//     fonts->TexUvWhitePixel = cache.white_uv;
+    for (int i = 0; i < cache.size; i++)
+    {
+        ImFontConfig config{};
+        config.FontData = IM_ALLOC(1);
+        config.FontDataSize = 1;
+        config.SizePixels = 1.f;
 
-//     size_t size = cache.width * cache.height;
-//     fonts->TexPixelsAlpha8 = (unsigned char *)IM_ALLOC(size);
+        ImFont *font = fonts->AddFont(&config);
 
-//     fread(fonts->TexPixelsAlpha8, size, 1, fp);
-//     fread(fonts->TexUvLines, sizeof(fonts->TexUvLines), 1, fp);
+        ImFontCache font_cache;
+        fread(&font_cache, sizeof(font_cache), 1, fp);
 
-//     ImFontGlyph *glyphs = new ImFontGlyph[cache.glyphs_size];
-//     ImFontGlyph *g = glyphs;
-//     fread(glyphs, sizeof(ImFontGlyph), cache.glyphs_size, fp);
-//     font->Glyphs.reserve(cache.glyphs_size);
-//     for (size_t i = 0; i < cache.glyphs_size; i++)
-//     {
-//         font->AddGlyph(&config, g->Codepoint & 0xffff,
-//                        g->X0, g->Y0, g->X1, g->Y1,
-//                        g->U0, g->V0, g->U1, g->V1, g->AdvanceX);
-//         font->SetGlyphVisible(g->Codepoint, g->Visible);
-//         g++;
-//     }
+        font->FontSize = font_cache.size;
+        font->ConfigDataCount = 1;
+        font->ContainerAtlas = fonts;
+        font->ConfigData = &config;
+        ImFontGlyph *glyphs = new ImFontGlyph[font_cache.glyphs_size];
+        ImFontGlyph *g = glyphs;
+        fread(glyphs, sizeof(ImFontGlyph), font_cache.glyphs_size, fp);
+        font->Glyphs.reserve(font_cache.glyphs_size);
+        for (size_t i = 0; i < font_cache.glyphs_size; i++)
+        {
+            font->AddGlyph(&config, g->Codepoint & 0xffff,
+                           g->X0, g->Y0, g->X1, g->Y1,
+                           g->U0, g->V0, g->U1, g->V1, g->AdvanceX);
+            font->SetGlyphVisible(g->Codepoint, g->Visible);
+            g++;
+        }
 
-//     delete[] glyphs;
+        delete[] glyphs;
 
-//     font->BuildLookupTable();
-//     GenFontTexture(fonts);
-//     fclose(fp);
-//     return true;
-// }
+        font->BuildLookupTable();
+    }
+
+    fonts->TexWidth = cache.width;
+    fonts->TexHeight = cache.height;
+    fonts->TexUvWhitePixel = cache.white_uv;
+    size_t size = cache.width * cache.height;
+    fonts->TexPixelsAlpha8 = (unsigned char *)IM_ALLOC(size);
+    fread(fonts->TexPixelsAlpha8, size, 1, fp);
+    fread(fonts->TexUvLines, sizeof(fonts->TexUvLines), 1, fp);
+
+    GenFontTexture(fonts);
+
+    fclose(fp);
+
+    gLargeFont = fonts->Fonts[1];
+
+    return true;
+}
 
 static const ImWchar *GetGlyphRanges(uint32_t language)
 {
@@ -283,18 +302,18 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
 
     char name[255];
 
-    // if (cache_path)
-    // {
-    //     snprintf(name, 255, "%s/font_%08x.bin", cache_path, GetLanguageCrc32(language));
-    //     if (LoadFontCache(name))
-    //     {
-    //         return;
-    //     }
-    //     else
-    //     {
-    //         LogDebug("failed to load cache");
-    //     }
-    // }
+    if (cache_path)
+    {
+        snprintf(name, 255, "%s/font_%08x.bin", cache_path, GetLanguageCrc32(language));
+        if (LoadFontCache(name))
+        {
+            return;
+        }
+        else
+        {
+            LogDebug("failed to load cache");
+        }
+    }
 
     // Build texture atlas
     ImGuiIO &io = ImGui::GetIO();
@@ -345,10 +364,10 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
                                               GamePadCharset);
     GenFontTexture(io.Fonts);
 
-    // if (cache_path)
-    // {
-    //     SaveFontCache(name);
-    // }
+    if (cache_path)
+    {
+        SaveFontCache(name);
+    }
     return;
 }
 
