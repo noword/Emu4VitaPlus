@@ -11,6 +11,7 @@
 #include "cyrillic.i"
 #include "icons.h"
 #include "utils.h"
+#include "file.h"
 
 #define APP_ASSETS_DIR "app0:assets"
 #define TEXT_FONT_NAME "AlibabaPuHuiTi-2-65-Medium.ttf"
@@ -203,23 +204,33 @@ static bool LoadFontCache(const char *path)
     LogFunctionName;
     LogDebug("  path: %s", path);
 
-    FILE *fp = fopen(path, "rb");
-    if (!fp)
+    bool result = true;
+    char *buf = nullptr;
+    char *p;
+    ImFontAtlasCache *cache;
+    ImFontAtlas *fonts;
+
+    size_t size = File::ReadFile(path, (void **)&buf);
+
+    if (size < sizeof(ImFontAtlasCache))
     {
-        return false;
+        result = false;
+        goto END;
     }
 
-    ImFontAtlasCache cache;
-    fread(&cache, sizeof(cache), 1, fp);
-    if (memcmp(cache.magic, FONT_CACHE_MAGIC, sizeof(cache.magic)) != 0 || cache.version != FONT_CACHE_VERSION)
+    p = buf;
+
+    cache = (ImFontAtlasCache *)p;
+    p += sizeof(ImFontAtlasCache);
+    if (memcmp(cache->magic, FONT_CACHE_MAGIC, sizeof(cache->magic)) != 0 || cache->version != FONT_CACHE_VERSION)
     {
-        fclose(fp);
-        return false;
+        result = false;
+        goto END;
     }
 
-    ImFontAtlas *fonts = ImGui::GetIO().Fonts;
+    fonts = ImGui::GetIO().Fonts;
 
-    for (int i = 0; i < cache.size; i++)
+    for (int i = 0; i < cache->size; i++)
     {
         ImFontConfig config{};
         config.FontData = IM_ALLOC(1);
@@ -228,18 +239,19 @@ static bool LoadFontCache(const char *path)
 
         ImFont *font = fonts->AddFont(&config);
 
-        ImFontCache font_cache;
-        fread(&font_cache, sizeof(font_cache), 1, fp);
+        ImFontCache *font_cache = (ImFontCache *)p;
+        p += sizeof(ImFontCache);
 
-        font->FontSize = font_cache.size;
+        font->FontSize = font_cache->size;
         font->ConfigDataCount = 1;
         font->ContainerAtlas = fonts;
         font->ConfigData = &config;
-        ImFontGlyph *glyphs = new ImFontGlyph[font_cache.glyphs_size];
-        ImFontGlyph *g = glyphs;
-        fread(glyphs, sizeof(ImFontGlyph), font_cache.glyphs_size, fp);
-        font->Glyphs.reserve(font_cache.glyphs_size);
-        for (size_t i = 0; i < font_cache.glyphs_size; i++)
+
+        ImFontGlyph *g = (ImFontGlyph *)p;
+        p += sizeof(ImFontGlyph) * font_cache->glyphs_size;
+
+        font->Glyphs.reserve(font_cache->glyphs_size);
+        for (size_t i = 0; i < font_cache->glyphs_size; i++)
         {
             font->AddGlyph(&config, g->Codepoint & 0xffff,
                            g->X0, g->Y0, g->X1, g->Y1,
@@ -248,26 +260,29 @@ static bool LoadFontCache(const char *path)
             g++;
         }
 
-        delete[] glyphs;
-
         font->BuildLookupTable();
     }
 
-    fonts->TexWidth = cache.width;
-    fonts->TexHeight = cache.height;
-    fonts->TexUvWhitePixel = cache.white_uv;
-    size_t size = cache.width * cache.height;
+    fonts->TexWidth = cache->width;
+    fonts->TexHeight = cache->height;
+    fonts->TexUvWhitePixel = cache->white_uv;
+    size = cache->width * cache->height;
     fonts->TexPixelsAlpha8 = (unsigned char *)IM_ALLOC(size);
-    fread(fonts->TexPixelsAlpha8, size, 1, fp);
-    fread(fonts->TexUvLines, sizeof(fonts->TexUvLines), 1, fp);
+    memcpy(fonts->TexPixelsAlpha8, p, size);
+    p += size;
+
+    memcpy(fonts->TexUvLines, p, sizeof(fonts->TexUvLines));
+    p += sizeof(fonts->TexUvLines);
 
     GenFontTexture(fonts);
 
-    fclose(fp);
-
     gLargeFont = fonts->Fonts[1];
 
-    return true;
+END:
+    if (buf)
+        delete[] buf;
+
+    return result;
 }
 
 static const ImWchar *GetGlyphRanges(uint32_t language)
