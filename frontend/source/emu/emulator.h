@@ -179,8 +179,8 @@ private:
     Audio _audio;
     InputThread _input;
     MotionSensor _motion_sensor;
-    uint32_t _keys[16];
-    uint32_t _keys_mask;
+    int16_t _keys[16];
+
     double _speed;
     Delay<double> _delay;
     uint32_t _frame_count;

@@ -305,7 +305,6 @@ void Emulator::SetupKeys()
     // }
 
     memset(_keys, 0, sizeof(_keys));
-    _keys_mask = 0;
     _input.Reset();
     for (const auto &k : gConfig->control_maps)
     {
@@ -348,7 +347,6 @@ void Emulator::SetupKeys()
                 }
             }
 
-            _keys_mask |= k.psv;
             if (k.turbo)
             {
                 _input.SetTurbo(k.psv);
