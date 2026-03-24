@@ -48,6 +48,7 @@ set(CORE_ROWS
     "libretro-crocods;crocods;CrocoDS;CPC;CROCODS4V"
     "snes9x;snes9x;Snes9x;SNES;SNES9X4VT"
     "mgba;mgba;mGBA;GBA;MGBA4VITA"
+    "free-j2me;freej2me;freej2me;JAVA;J2ME4VITA"
 )
 
 set(ROW_SIZE 5)
