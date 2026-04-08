@@ -102,6 +102,7 @@ GBC
 GBA
   - [gpSP](https://github.com/libretro/gpsp)
   - [VBA Next](https://github.com/libretro/vba-next)
+  - [mGBA](https://github.com/libretro/mgba)
 
 PCE
   - [Mednafen PCE Fast](https://github.com/libretro/beetle-pce-fast-libretro)
