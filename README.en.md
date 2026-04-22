@@ -250,6 +250,8 @@ If the program crashes, please find the psp2dmp file under ux0:/data/ and upload
 
 TearCrow
 
+[SnowPin](https://github.com/LiquifiedSnow) (RetroAchievements Admin)
+
 [Scott](https://github.com/ScottFromDerby) (RetroAchievements test)
 
 [yyoossk](https://github.com/yyoossk) (Japanese translation)

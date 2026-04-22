@@ -149,6 +149,7 @@ void TabAbout::_InitTexts()
     _texts = {std::string(TEXT(LANG_COMPILED_ON)) + " " + __DATE__ + " " + __TIME__,
               std::string(TEXT(LANG_AUTHOR)) + ": noword",
               std::string(TEXT(LANG_SPECIAL_THANKS)) + ": yizhigai, KyleBing, TearCrow",
+              std::string(TEXT(LANG_RETROACHIEVEMENTS_ADMIN)) + ": SnowPin",
               std::string(TEXT(LANG_RETROACHIEVEMENTS_TESTER)) + ": Scott",
               std::string(TEXT(LANG_JAPANESE_TRANS)) + ": yyoossk",
               std::string(TEXT(LANG_ITALIAN_TRANS)) + ": theheroGAC",

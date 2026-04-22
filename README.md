@@ -267,6 +267,8 @@ QQ群：550802386
 
 TearCrow
 
+[SnowPin](https://github.com/LiquifiedSnow) (RetroAchievements Admin)
+
 [Scott](https://github.com/ScottFromDerby) (RetroAchievements 测试)
 
 [yyoossk](https://github.com/yyoossk) (日语翻译)
