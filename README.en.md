@@ -6,6 +6,7 @@ This is an emulator frontend for the PlayStation Vita, based on the [Libretro AP
 * [Supported Cores](#Supported-Cores)
 * [Compilation](#Pre-Compilation-Preparation)
 * [Scripts](#Scripts)
+* [Paths](#Paths)
 * [Problem Reporting](#Problem-Reporting)
 * [Special thanks](#Special-thanks)
 
@@ -218,6 +219,9 @@ The program will automatically search for a `jpg` or `png` image with the same n
 
 ### Cheats
 The program will find the .cht file of the same name as rom in the rom directory, the `.cheats` directory under the rom directory, and `ux0:/data/EMU4VITAPLUS/[core]/cheats` directory, whichever is found first.
+
+### Overlays
+The program will read overlays.ini from ux0:/data/EMU4VITAPLUS/[core]/overlays.
 
 ### Save
 ux0:/data/EMU4VITAPLUS/[core]/savefiles/[rom]
