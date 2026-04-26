@@ -72,7 +72,8 @@ namespace Emu4VitaPlus
             {
             case APP_STATUS_BOOT:
             case APP_STATUS_SHOW_UI:
-                gUi->Show();
+                if (show_imgui)
+                    gUi->Show();
                 break;
 
             case APP_STATUS_RUN_GAME:
@@ -85,18 +86,19 @@ namespace Emu4VitaPlus
 
             case APP_STATUS_SHOW_UI_IN_GAME:
                 gEmulator->Show();
-                gUi->Show();
+                if (show_imgui)
+                    gUi->Show();
                 break;
 
             default:
                 break;
             }
 
-            gHint->Show();
-            gNotifications->Show();
-
             if (show_imgui)
             {
+                gHint->Show();
+                gNotifications->Show();
+
                 ImGui::Render();
                 My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
             }
