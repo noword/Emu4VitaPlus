@@ -523,9 +523,6 @@ void Ui::Show()
 {
     LogFunctionNameLimited;
 
-    ImGui_ImplVita2D_NewFrame();
-    ImGui::SetMouseCursor(ImGuiMouseCursor_None);
-
     ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, MAIN_WINDOW_PADDING});
     ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2});
 
@@ -542,9 +539,6 @@ void Ui::Show()
     }
 
     ImGui::End();
-
-    ImGui::Render();
-    My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
 
     return;
 }

@@ -61,6 +61,13 @@ namespace Emu4VitaPlus
             vita2d_start_drawing_advanced(NULL, 0);
             vita2d_clear_screen();
             bool show_dialog = true;
+            bool show_imgui = (status & (APP_STATUS_BOOT | APP_STATUS_SHOW_UI | APP_STATUS_SHOW_UI_IN_GAME)) | gHint->NeedShow() | gNotifications->NeedShow();
+            if (show_imgui)
+            {
+                ImGui_ImplVita2D_NewFrame();
+                ImGui::SetMouseCursor(ImGuiMouseCursor_None);
+            }
+
             switch (status)
             {
             case APP_STATUS_BOOT:
@@ -87,6 +94,12 @@ namespace Emu4VitaPlus
 
             gHint->Show();
             gNotifications->Show();
+
+            if (show_imgui)
+            {
+                ImGui::Render();
+                My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
+            }
 
             vita2d_end_drawing();
 
