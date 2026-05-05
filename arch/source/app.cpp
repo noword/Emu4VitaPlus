@@ -130,7 +130,7 @@ App::App()
                        {{"Gambatte", "gambatte"},
                         {"TGB Dual", "tgbdual"}}),
         new CoreButton(SNES, // 1990
-                       {{"Snes9x 2002", "snes9x2002"},
+                       {     //{"Snes9x 2002", "snes9x2002"},
                         {"Snes9x 2005" ICON_STAR, "snes9x2005_plus"},
                         {"Snes9x", "snes9x"},
                         {"Mednafen Supafaust" ICON_STAR, "mednafen_supafaust"},

@@ -8,7 +8,7 @@ set(CORE_ROWS
     "libretro-fba-lite;fba_lite;FBALite;ARC;FBALITE4V"
     "libretro-fbneo;fbneo;FBNeo;ARC;FBNEO4VIT"
     "fbalpha2012;fbalpha2012;FBA2012;ARC;FBA20124V"
-    "snes9x2002;snes9x2002;Snes9x2002;SNES;SNES024VT"
+    #"snes9x2002;snes9x2002;Snes9x2002;SNES;SNES024VT"
     "snes9x2005;snes9x2005_plus;Snes9x2005Plus;SNES;SNES054VT"
     "libretro-fceumm;fceumm;FCEUmm;NES;FCEUMM4VT"
     "nestopia;nestopia;Nestopia;NES;NESTP4VIT"
