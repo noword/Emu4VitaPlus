@@ -120,9 +120,11 @@ App::App()
                        {{"Mednafen PCE Fast", "mednafen_pce_fast"},
                         {"Mednafen SuperGrafx", "mednafen_supergrafx"}}),
         new CoreButton(MD, // 1988
-                       {{"Genesis Plus GX " ICON_STAR, "genesis_plus_gx"},
-                        {"Genesis Plus GX Wide", "genesis_plus_gx_wide"},
-                        {"PicoDrive", "picodrive"}}),
+                       {
+                           {"Genesis Plus GX " ICON_STAR, "genesis_plus_gx"},
+                           {"Genesis Plus GX Wide", "genesis_plus_gx_wide"},
+                           //{"PicoDrive", "picodrive"}
+                       }),
         new CoreButton(LYNX, // 1989
                        {{"Beetle Lynx", "mednafen_lynx"},
                         {"Handy", "handy"}}),
