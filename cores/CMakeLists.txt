@@ -4,6 +4,7 @@ set(CORE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/${CORE_DIR})
 set(CORE_MAKEFILE_NAME Makefile)
 set(CORE_ARGS platform=vita EXTERNAL_ZLIB=1)
 set(LIBRETRO_LIBRARY "")
+set(CORE_CFLAGS -flto -ffat-lto-objects -save-temps)
 
 if(CORE STREQUAL "gpsp")
 elseif(CORE STREQUAL "vba_next")
@@ -61,6 +62,7 @@ elseif(CORE STREQUAL "vecx")
 elseif(CORE STREQUAL "uae4arm")
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/Makefile)
 elseif(CORE STREQUAL "fuse")
+    set(CORE_CFLAGS "${CORE_CFLAGS} -D__GNU_LIBRARY__")
 elseif(CORE STREQUAL "neocd")
 elseif(CORE STREQUAL "mednafen_supafaust")
     set(CORE_ARGS ${CORE_ARGS} USE_BLARGG_APU=1)
@@ -119,7 +121,10 @@ endif()
 set(CORE_TAG ${CORE}_build CACHE INTERNAL "CORE_TAG")
 add_custom_target(
     ${CORE_TAG} ALL
-    COMMAND make -f ${CORE_MAKEFILE_NAME} ${CORE_ARGS} ${MAKE_FLAG}
+    COMMAND ${CMAKE_COMMAND} -E env
+    CFLAGS="${CORE_CFLAGS}"
+    CXXFLAGS="${CORE_CFLAGS}"
+    make -f ${CORE_MAKEFILE_NAME} ${CORE_ARGS} ${MAKE_FLAG}
     WORKING_DIRECTORY ${CORE_DIR})
 
 add_library(${CORE} STATIC IMPORTED)
