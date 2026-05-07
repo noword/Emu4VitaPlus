@@ -67,14 +67,9 @@ set(SFO_APP_VER "00.65")
 if(LTO)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -flto=auto -fno-fat-lto-objects ")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -flto=auto -fno-fat-lto-objects ")
-    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -flto=auto ")
-
-    if(EXISTS $ENV{VITASDK}/lib/gcc/arm-vita-eabi/10.3.0/liblto_plugin-0.dll)
-        set(CMAKE_STATIC_LINKER_FLAGS " --plugin=$ENV{VITASDK}/lib/gcc/arm-vita-eabi/10.3.0/liblto_plugin-0.dll ")
-    else()
-        set(CMAKE_STATIC_LINKER_FLAGS " --plugin=$ENV{VITASDK}/lib/gcc/arm-vita-eabi/10.3.0/liblto_plugin-0.so ")
-    endif()
 endif()
+
+set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -flto=auto ")
 
 add_subdirectory(deps)
 
