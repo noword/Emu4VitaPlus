@@ -36,6 +36,7 @@ elseif(CORE STREQUAL "genesis_plus_gx_wide")
 elseif(CORE STREQUAL "picodrive")
     set(CORE_MAKEFILE_NAME Makefile.libretro)
     set(CORE_ARGS ${CORE_ARGS} PLATFORM_ZLIB=0 use_libchdr=1)
+    set(CORE_LTO OFF)
 elseif(CORE STREQUAL "mednafen_pce_fast")
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/Makefile)
     set(CORE_ARGS ${CORE_ARGS} SYSTEM_ZLIB=1)
@@ -85,11 +86,13 @@ elseif(CORE STREQUAL "nekop2")
     set(CORE_DIR ${CORE_DIR}/libretro)
     set(CORE_MAKEFILE_NAME Makefile.libretro)
 elseif(CORE STREQUAL "fmsx")
+    set(CORE_CFLAGS ${CORE_CFLAGS} -include file/file_path.h)
 elseif(CORE STREQUAL "bluemsx")
     set(CORE_MAKEFILE_NAME Makefile.libretro)
 elseif(CORE STREQUAL "np2kai")
     set(CORE_DIR ${CORE_DIR}/sdl)
     set(CORE_MAKEFILE_NAME Makefile.libretro)
+    set(CORE_CFLAGS ${CORE_CFLAGS} -Dmx=mx_vita -Dmy=my_vita)
 elseif(CORE STREQUAL "vice")
     set(LIBRETRO_LIBRARY ${CORE_DIR}/vice_x64_libretro_vita.a CACHE INTERNAL "LIBRETRO_LIBRARY")
 elseif(CORE STREQUAL "px68k")
@@ -124,12 +127,14 @@ if(n GREATER 2)
     set(MAKE_FLAG "-j${n}")
 endif()
 
+if(NOT ${CORE_CFLAGS} STREQUAL "")
+    set(PRE_COMMAND ${CMAKE_COMMAND} -E env CFLAGS="${CORE_CFLAGS}" CXXFLAGS="${CORE_CFLAGS}")
+endif()
+
 set(CORE_TAG ${CORE}_build CACHE INTERNAL "CORE_TAG")
 add_custom_target(
     ${CORE_TAG} ALL
-    COMMAND ${CMAKE_COMMAND} -E env
-    CFLAGS="${CORE_CFLAGS}"
-    CXXFLAGS="${CORE_CFLAGS}"
+    COMMAND ${PRE_COMMAND}
     make -f ${CORE_MAKEFILE_NAME} ${CORE_ARGS} ${MAKE_FLAG}
     WORKING_DIRECTORY ${CORE_DIR})
 
