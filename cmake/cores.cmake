@@ -15,8 +15,7 @@ set(CORE_ROWS
     "nestopia;nestopia;Nestopia;NES;NESTP4VIT"
     "Genesis-Plus-GX;genesis_plus_gx;GenesisPlusGX;MD;GENESIS4V"
     "Genesis-Plus-GX-Wide;genesis_plus_gx_wide;GenesisPlusGXWide;MD;GENWIDE4V"
-
-    # "picodrive;picodrive;PicoDrive;MD;PICODR4VT"
+    "picodrive;picodrive;PicoDrive;MD;PICODR4VT"
     "beetle-pce-fast-libretro;mednafen_pce_fast;MednafenPCEFast;PCE;MPCEF4VIT"
     "beetle-supergrafx-libretro;mednafen_supergrafx;MednafenPCESuperGrafx;PCE;MPCESG4VT"
     "beetle-ngp-libretro;mednafen_ngp;MednafenNgp;NGP;MNGP4VITA"

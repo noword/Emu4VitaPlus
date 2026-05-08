@@ -123,8 +123,7 @@ App::App()
                        {
                            {"Genesis Plus GX " ICON_STAR, "genesis_plus_gx"},
                            {"Genesis Plus GX Wide", "genesis_plus_gx_wide"},
-                           //{"PicoDrive", "picodrive"}
-                       }),
+                           {"PicoDrive", "picodrive"}}),
         new CoreButton(LYNX, // 1989
                        {{"Beetle Lynx", "mednafen_lynx"},
                         {"Handy", "handy"}}),
