@@ -228,17 +228,21 @@ bool RetroArchPlaylists::_LoadLpl(const char *lpl_path, ItemMap &items)
             const char *path = path_string.c_str();
             if (path_string.size() > 5 && label_string.size() > 0)
             {
-                uint32_t crc;
-                if (path[4] == '/')
+                const char *colon = strchr(path, ':');
+                if (colon)
                 {
-                    crc = crc32(0, (uint8_t *)path, path_string.size());
+                    uint32_t crc;
+                    if (*(colon + 1) == '/')
+                    {
+                        crc = crc32(0, (uint8_t *)path, path_string.size());
+                    }
+                    else
+                    {
+                        std::string s = std::string(path, colon + 1) + "/" + (colon + 1);
+                        crc = crc32(0, (uint8_t *)s.c_str(), s.size());
+                    }
+                    items[crc] = {db_index, label_string.c_str()};
                 }
-                else
-                {
-                    std::string s = std::string(path, 4) + "/" + (path + 4);
-                    crc = crc32(0, (uint8_t *)s.c_str(), s.size());
-                }
-                items[crc] = {db_index, label_string.c_str()};
             }
         }
 
