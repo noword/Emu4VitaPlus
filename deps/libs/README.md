@@ -2,9 +2,9 @@
 
 The main purpose is to increase the running speed or reduce the code size.
 
-Compile with `CFLAGS="-marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -fdata-sections -ffunction-sections"`  -Os or -O3
+Compile with `CFLAGS="-marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -fdata-sections -ffunction-sections -flto=auto -ffat-lto-objects"`  -Os or -O3
 
-`CXXFLAGS="-marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -fdata-sections -ffunction-sections -fno-rtti -std=gnu++17 -fno-exceptions"` -Os or O3
+`CXXFLAGS="-marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -fdata-sections -ffunction-sections -fno-rtti -std=gnu++17 -fno-exceptions -flto=auto -ffat-lto-objects"` -Os or O3
 
 ## tiny-curl
 download from https://curl.se/tiny/
@@ -29,10 +29,11 @@ cmake .. -DCMAKE_TOOLCHAIN_FILE=$VITASDK/share/vita.toolchain.cmake \
 -DCURL_DISABLE_SRP=ON \
 -DCURL_DISABLE_VERBOSE_STRINGS=ON \
 -DCURL_CA_BUNDLE="vs0:data/external/cert/CA_LIST.cer" \
--DCMAKE_C_FLAGS=" -DNO_WRITEV -DSOMAXCONN=128 -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fdata-sections -ffunction-sections -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -Os"
+-DCMAKE_C_FLAGS=" -DNO_WRITEV -DSOMAXCONN=128 -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fdata-sections -ffunction-sections -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -flto=auto -ffat-lto-objects -Os"
 ```
 
 ## openssl
+download from https://github.com/d3m3vilurr/vita-openssl
 
 ```bash
 ./Configure -DOPENSSL_SMALL_FOOTPRINT \
@@ -46,7 +47,11 @@ no-rmd160 no-scrypt no-seed no-siphash no-siv no-sm2 \
 no-sm3 no-sm4 no-srp no-srtp no-ts no-whirlpool \
 no-ssl2 no-ssl3 no-hw \
 -DOPENSSL_USE_IPV6=0 -DNO_FORK \
--Os --prefix=$VITASDK/arm-vita-eabi/ vita-cross
+-Os -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard \
+-mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant \
+-fomit-frame-pointer -fno-unwind-tables -fdata-sections -ffunction-sections \
+-fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -flto=auto -ffat-lto-objects \
+--prefix=$VITASDK/arm-vita-eabi/ vita-cross
 ```
 
 ## ffmpeg
@@ -59,8 +64,8 @@ version 8.0.1
     --cross-prefix=$VITASDK/bin/arm-vita-eabi- \
     --cc=arm-vita-eabi-gcc \
     --cxx=vita-eabi-g++ \
-    --extra-cflags=" -Wl,-q -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -fdata-sections -ffunction-sections -O3 -D_BSD_SOURCE -std=gnu17" \
-    --extra-cxxflags=" -Wl,-q -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -fdata-sections -ffunction-sections -fno-rtti -std=gnu++17 -fno-exceptions -O3 -D_BSD_SOURCE" \
+    --extra-cflags=" -Wl,-q -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -fdata-sections -ffunction-sections -O3 -D_BSD_SOURCE -std=gnu17 -flto=auto -ffat-lto-objects -Wno-error=incompatible-pointer-types" \
+    --extra-cxxflags=" -Wl,-q -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -fdata-sections -ffunction-sections -fno-rtti -std=gnu++17 -fno-exceptions -O3 -D_BSD_SOURCE -flto=auto -ffat-lto-objects -Wno-error=incompatible-pointer-types" \
     --extra-ldflags=" -L$VITASDK/lib " \
     --target-os=none \
     --arch=armv7-a \
