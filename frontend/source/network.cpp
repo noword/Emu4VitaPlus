@@ -417,7 +417,7 @@ size_t Network::GetSize(const char *url)
     if (!curl)
         return 0;
 
-    double content_length = 0.;
+    curl_off_t content_length = 0.;
 
     _SetOptions(curl);
     curl_easy_setopt(curl, CURLOPT_URL, url);
@@ -430,7 +430,7 @@ size_t Network::GetSize(const char *url)
         goto END;
     }
 
-    res = curl_easy_getinfo(curl, CURLINFO_CONTENT_LENGTH_DOWNLOAD, &content_length);
+    res = curl_easy_getinfo(curl, CURLINFO_CONTENT_LENGTH_DOWNLOAD_T, &content_length);
 
     if (res != CURLE_OK)
     {
@@ -441,7 +441,7 @@ size_t Network::GetSize(const char *url)
 END:
     curl_easy_cleanup(curl);
 
-    return (size_t)content_length;
+    return content_length;
 }
 
 bool Network::Download(const char *url, const char *file_name)
