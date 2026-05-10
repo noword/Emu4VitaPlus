@@ -72,6 +72,7 @@ public:
     void StartInput() { _input.Start(); };
     void StopInput() { _input.Stop(); }
     int16_t GetInputInfo(AnalogAxis &left, AnalogAxis &right, TouchAxis &touch);
+    bool NeedShowKeyboard() { return _keyboard && _keyboard->Visable(); };
 
     void ChangeGraphicsConfig() { _graphics_config_changed = true; };
     void ChangeRewindConfig();

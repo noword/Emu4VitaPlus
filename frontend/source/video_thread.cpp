@@ -60,16 +60,22 @@ namespace Emu4VitaPlus
             vita2d_pool_reset();
             vita2d_start_drawing_advanced(NULL, 0);
             vita2d_clear_screen();
-            bool show_dialog = true;
 
-            ImGui_ImplVita2D_NewFrame();
-            ImGui::SetMouseCursor(ImGuiMouseCursor_None);
+            bool show_dialog = true;
+            bool show_imgui = (status & (APP_STATUS_BOOT | APP_STATUS_SHOW_UI | APP_STATUS_SHOW_UI_IN_GAME)) | gHint->NeedShow() | gNotifications->NeedShow() | gConfig->fps | gEmulator->NeedShowKeyboard();
+
+            if (show_imgui)
+            {
+                ImGui_ImplVita2D_NewFrame();
+                ImGui::SetMouseCursor(ImGuiMouseCursor_None);
+            }
 
             switch (status)
             {
             case APP_STATUS_BOOT:
             case APP_STATUS_SHOW_UI:
-                gUi->Show();
+                if (show_imgui)
+                    gUi->Show();
                 break;
 
             case APP_STATUS_RUN_GAME:
@@ -82,18 +88,22 @@ namespace Emu4VitaPlus
 
             case APP_STATUS_SHOW_UI_IN_GAME:
                 gEmulator->Show();
-                gUi->Show();
+                if (show_imgui)
+                    gUi->Show();
                 break;
 
             default:
                 break;
             }
 
-            gHint->Show();
-            gNotifications->Show();
+            if (show_imgui)
+            {
+                gHint->Show();
+                gNotifications->Show();
 
-            ImGui::Render();
-            My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
+                ImGui::Render();
+                My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
+            }
 
             vita2d_end_drawing();
 
@@ -101,6 +111,7 @@ namespace Emu4VitaPlus
             {
                 vita2d_common_dialog_update();
             }
+
             vita2d_swap_buffers();
             video->Unlock();
         }

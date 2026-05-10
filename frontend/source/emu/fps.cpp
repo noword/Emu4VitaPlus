@@ -36,7 +36,7 @@ void Fps::Update()
 }
 
 static const ImVec2 POS_VECTORS[] = {
-    {0.0f, 0.0f},
+    {0.0f, 0.0f},                                                    // invisable
     {0.f, 0.f},                                                      // FPS_POSITION_TOP_LEFT
     {VITA_WIDTH - FPS_HUD_WIDTH, 0.f},                               // FPS_POSITION_TOP_RIGHT
     {0.f, VITA_HEIGHT - FPS_HUD_HEIGHT * 1.5},                       // FPS_POSITION_BOTTOM_LEFT
