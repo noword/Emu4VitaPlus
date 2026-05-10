@@ -228,7 +228,7 @@ LOADED:
 
         if (!_input.IsRunning())
         {
-            LogDebug("_input: %08x %08x", _input, &_input);
+            // LogDebug("_input: %08x %08x", _input, &_input);
             _input.Start();
         }
 
@@ -789,6 +789,8 @@ void Emulator::SetCpuFreq(int freq)
 
 void Emulator::_AutoAdjustCpu()
 {
+    LogFunctionName;
+
     int fps = _fps.Get();
     if (fps <= _overclock_fps_threshold)
     {

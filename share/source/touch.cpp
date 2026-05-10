@@ -45,6 +45,7 @@ namespace Emu4VitaPlus
     void Touch::Enable(bool enable)
     {
         LogFunctionName;
+        LogDebug("  enable: %d", enable);
         _enabled = enable;
         sceTouchSetSamplingState(_port, enable ? SCE_TOUCH_SAMPLING_STATE_START : SCE_TOUCH_SAMPLING_STATE_STOP);
     }
@@ -123,6 +124,9 @@ namespace Emu4VitaPlus
         LogFunctionName;
         size_t sizex = _info[_port].maxAaX - _info[_port].minAaX;
         size_t sizey = _info[_port].maxAaY - _info[_port].minAaY;
+
+        LogDebug("  _port: %d sizex: %d sizey: %d", _port, sizex, sizey);
+
         _locker.Lock();
 
         _scale_map_table_x.clear();

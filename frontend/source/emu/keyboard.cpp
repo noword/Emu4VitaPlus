@@ -214,9 +214,6 @@ Keyboard::~Keyboard() {};
 
 void Keyboard::Show()
 {
-    ImGui_ImplVita2D_NewFrame();
-    ImGui::SetMouseCursor(ImGuiMouseCursor_None);
-
     ImGui::SetNextWindowPos(_pos);
     ImGui::SetNextWindowSize({KEYBOARD_WIDTH, KEYBOARD_HEIGHT});
     ImGui::SetNextWindowBgAlpha(0.5);
@@ -258,9 +255,6 @@ void Keyboard::Show()
         }
     }
     ImGui::End();
-
-    ImGui::Render();
-    My_ImGui_ImplVita2D_RenderDrawData(ImGui::GetDrawData());
 }
 
 extern int mx, my;
