@@ -61,15 +61,14 @@ set(CMAKE_EXE_LINKER_FLAGS "-Wl,-q,-no-enum-size-warning,--as-needed,--gc-sectio
 set(OUT_PATH "${CMAKE_BINARY_DIR}/out")
 file(MAKE_DIRECTORY ${OUT_PATH})
 
-set(APP_VER "0.65")
-set(SFO_APP_VER "00.65")
+set(APP_VER "0.66")
+set(SFO_APP_VER "00.66")
 
 if(LTO)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -flto=auto -fno-fat-lto-objects ")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -flto=auto -fno-fat-lto-objects ")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -flto=auto")
 endif()
-
-set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -flto=auto ")
 
 add_subdirectory(deps)
 
