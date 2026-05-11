@@ -97,3 +97,28 @@ version 8.0.1
     --disable-debug \
     --enable-small
 ```
+
+## libjpeg
+download from https://github.com/libjpeg-turbo/libjpeg-turbo
+
+```bash
+cmake .. -DCMAKE_TOOLCHAIN_FILE=$VITASDK/share/vita.toolchain.cmake -DCMAKE_BUILD_TYPE=Release  \
+    -DENABLE_SHARED=FALSE \
+    -DWITH_TOOLS=FALSE \
+    -DWITH_TURBOJPEG=FALSE \
+    -DCMAKE_C_FLAGS=" -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fdata-sections -ffunction-sections -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -flto=auto -ffat-lto-objects -Os"
+```
+
+## libpng
+download from https://github.com/pnggroup/libpng
+
+```bash
+cmake .. -DCMAKE_TOOLCHAIN_FILE=$VITASDK/share/vita.toolchain.cmake \
+    -DCMAKE_BUILD_TYPE=Release \
+    -DPNG_ARM_NEON=on \
+    -DPNG_SHARED=OFF \
+    -DPNG_TESTS=OFF \
+    -DPNG_TOOLS=OFF \
+    -DSKIP_INSTALL_EXECUTABLES=ON \
+    -DCMAKE_C_FLAGS=" -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant -fomit-frame-pointer -fno-unwind-tables -fdata-sections -ffunction-sections -fno-asynchronous-unwind-tables -ffast-math -ftree-vectorize -flto=auto -ffat-lto-objects -Os"
+```
