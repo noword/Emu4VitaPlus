@@ -124,10 +124,10 @@ if(n GREATER 2)
     set(MAKE_FLAG "-j${n}")
 endif()
 
-# too slow
-# if(CORE_LTO)
-# set(CORE_CFLAGS ${CORE_CFLAGS} -flto=auto -ffat-lto-objects)
-# endif()
+if(CORE_LTO)
+    set(CORE_CFLAGS ${CORE_CFLAGS} -flto=auto -ffat-lto-objects)
+endif()
+
 if(NOT "${CORE_CFLAGS}" STREQUAL "")
     set(PRE_COMMAND ${CMAKE_COMMAND} -E env CFLAGS="${CORE_CFLAGS}" CXXFLAGS="${CORE_CFLAGS}")
 endif()

@@ -7,6 +7,12 @@ set(SFO_TITLE_NAME "Emu4Vita++ (${CORE_SHORT})")
 set(ELF_NAME ${CORE_SHORT}.elf)
 set(EBOOT_NAME eboot_${CORE_SHORT}.bin)
 
+if(LTO)
+    set(LTO_CACHE_DIR ${LTO_CACHE_DIR}/${CORE})
+    file(MAKE_DIRECTORY "${LTO_CACHE_DIR}")
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -flto-incremental=\"${LTO_CACHE_DIR}\"")
+endif()
+
 string(TOUPPER ${CORE} UPPER_CORE)
 
 if(WITH_LOG)
