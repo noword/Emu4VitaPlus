@@ -180,7 +180,7 @@ private:
     Audio _audio;
     InputThread _input;
     MotionSensor _motion_sensor;
-    int16_t _keys[16];
+    int32_t _keys[16];
 
     double _speed;
     Delay<double> _delay;
