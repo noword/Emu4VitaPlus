@@ -255,13 +255,13 @@ else ifeq ($(platform), vita)
 			  -ffast-math -ftree-vectorize \
 			  -fdata-sections -ffunction-sections \
               -funsafe-math-optimizations -mvectorize-with-neon-quad -O3 \
-			  -DTHREADY_PTHREAD
+			  -DTHREADY_PTHREAD -save-temps
 	CXXFLAGS += -mfloat-abi=hard -fsingle-precision-constant -fpermissive -fno-rtti \
 	          -mfpu=neon -mcpu=cortex-a9 \
 			  -ffast-math -ftree-vectorize \
 			  -fdata-sections -ffunction-sections \
               -funsafe-math-optimizations -mvectorize-with-neon-quad -O3 \
-			  -DTHREADY_PTHREAD
+			  -DTHREADY_PTHREAD -save-temps
 	ASFLAGS += -mcpu=cortex-a9
 #    CFLAGS += -mfloat-abi=hard -fsingle-precision-constant \
 #     -marm -mcpu=cortex-a9 -mfpu=neon -DVITA -D__vita__ -O3
@@ -546,8 +546,11 @@ endif
 CC_SYSTEM = gcc
 CXX_SYSTEM = g++
 
-include Makefile.common
+mkfile_path := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+include $(mkfile_path)/Makefile.common
 include $(INCLUDED_MAKEFILE)
+
+SOURCES_CXX := $(foreach f,$(SOURCES_CXX), $(if $(filter $(notdir $(f)),$(DRV_BLACKLIST)),,$(f)))
 
 FBNEO_CXXOBJ := $(SOURCES_CXX:.cpp=.o)
 FBNEO_COBJ := $(SOURCES_C:.c=.o)
@@ -647,14 +650,14 @@ ifeq (,$(findstring msvc,$(platform)))
 endif
 
 # gcc specific flags
-# ifeq ($(shell $(CC) -v 2>&1 | grep -c "gcc version"), 1)
-# 	CFLAGS += -ffloat-store
-# 	CXXFLAGS += -ffloat-store
-# 	ifeq ($(shell expr `$(CC) -dumpversion | cut -f1 -d.` \>= 5), 1)
-# 		CFLAGS += -finline-limit=1200 -fcheck-new
-# 		CXXFLAGS += -finline-limit=1200 -fcheck-new
-# 	endif
-# endif
+ifeq ($(shell $(CC) -v 2>&1 | grep -c "gcc version"), 1)
+	CFLAGS += -ffloat-store
+	CXXFLAGS += -ffloat-store
+	ifeq ($(shell expr `$(CC) -dumpversion | cut -f1 -d.` \>= 5), 1)
+		CFLAGS += -finline-limit=1200 -fcheck-new
+		CXXFLAGS += -finline-limit=1200 -fcheck-new
+	endif
+endif
 
 PERL = perl$(EXE_EXT)
 M68KMAKE_EXE = m68kmake$(EXE_EXT)

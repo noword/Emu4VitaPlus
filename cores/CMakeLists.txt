@@ -19,6 +19,10 @@ elseif(CORE STREQUAL "fbneo")
     set(CORE_DIR ${CORE_DIR}/src/burner/libretro)
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/makefile)
     set(CORE_ARGS ${CORE_ARGS} STATIC_LINKING=1)
+    add_custom_target(
+        PRE_CORE_TAG ALL
+        COMMAND make -f ${CORE_MAKEFILE_NAME} ${CORE_ARGS} ${MAKE_FLAG} REGEN_HEADERS=1 generate-files
+        WORKING_DIRECTORY ${CORE_DIR})
 elseif(CORE STREQUAL "fbalpha2012")
     set(CORE_DIR ${CORE_DIR}/svn-current/trunk)
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/makefile.libretro)
@@ -146,4 +150,9 @@ set_property(
     PROPERTY IMPORTED_CONFIGURATIONS NOCONFIG)
 
 add_dependencies(${CORE} ${CORE_TAG})
+
+if(TARGET PRE_CORE_TAG)
+    add_dependencies(${CORE_TAG} PRE_CORE_TAG)
+endif()
+
 set_target_properties(${CORE} PROPERTIES IMPORTED_LOCATION "${LIBRETRO_LIBRARY}")
