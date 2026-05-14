@@ -85,7 +85,6 @@ NES
   - [Nestopia](https://github.com/libretro/nestopia)
 
 SNES
-  - [Snes9x 2002](https://github.com/libretro/snes9x2002)
   - [Snes9x 2005](https://github.com/libretro/snes9x2005)
   - [Snes9x](https://github.com/libretro/snes9x)
   - [Supafaust](https://github.com/Rinnegatamante/supafaust)

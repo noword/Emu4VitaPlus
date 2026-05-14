@@ -116,7 +116,6 @@ static const char *CORES_URL[] = {
     "https://github.com/libretro/nestopia",
     "https://github.com/libretro/pcsx_rearmed",
     "https://github.com/libretro/picodrive",
-    "https://github.com/libretro/snes9x2002",
     "https://github.com/libretro/snes9x2005",
     "https://github.com/libretro/snes9x",
     "https://github.com/libretro/vba-next",
