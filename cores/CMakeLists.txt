@@ -75,9 +75,8 @@ elseif(CORE STREQUAL "mednafen_supafaust")
     set(CORE_ARGS ${CORE_ARGS} USE_BLARGG_APU=1)
 elseif(CORE STREQUAL "km_fbneo_xtreme_amped")
     # https://github.com/noword/Emu4VitaPlus/issues/17#issuecomment-2599572046
-    # should fix it manually
-    # src/burner/libretro/libretro.cpp line 211
-    # src/burner/libretro/libretro-common/include/string/stdstring.h line 162
+    # km_fbneo_string_replace_substring is implemented in frontend/source/core_spec/defines.cpp
+    set(CORE_CFLAGS ${CORE_CFLAGS} -Dstring_replace_substring=km_fbneo_string_replace_substring)
     set(CORE_DIR ${CORE_DIR}/src/burner/libretro)
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/Makefile)
     set(CORE_ARGS ${CORE_ARGS} STATIC_LINKING=1)

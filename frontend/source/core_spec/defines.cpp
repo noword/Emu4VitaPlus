@@ -719,3 +719,14 @@ const std::vector<std::string> DEFAULT_DEVICES = {
     "Amstrad Joystick"
 #endif
 };
+
+#if defined(KM_FBNEO_XTREME_AMPED_BUILD)
+#include <string/stdstring.h>
+
+extern "C" char *km_fbneo_string_replace_substring(const char *in,
+                                                   const char *pattern, size_t pattern_len,
+                                                   const char *replacement, size_t replacement_len)
+{
+    return string_replace_substring(in, strlen(in), pattern, pattern_len, replacement, replacement_len);
+}
+#endif
