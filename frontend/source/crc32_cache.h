@@ -3,6 +3,7 @@
 #include <zlib.h>
 #include "file.h"
 #include "defines.h"
+#include "log.h"
 
 #define DEFAULT_CRC32_CACHE_SIZE 0x2000
 
@@ -33,28 +34,33 @@ public:
 
     bool Load(const char *path = CRC32_CACHE_FILE)
     {
+        LogFunctionName;
         return File::ReadFile(path, _cache, _cache_bytes);
     }
 
     bool Save(const char *path = CRC32_CACHE_FILE)
     {
+        LogFunctionName;
         return File::WriteFile(path, _cache, _cache_bytes);
     }
 
     uint32_t Get(const char *path)
     {
+        LogFunctionName;
         if (!File::Exist(path))
             return 0;
 
         time_t time;
         File::GetModifyTime(path, &time);
         size_t size = File::GetSize(path);
+
         uint32_t key = crc32(0, (const Bytef *)path, strlen(path));
+        uint32_t index = key & (SIZE - 1);
         key = crc32(key, (const Bytef *)&time, sizeof(time_t));
         key = crc32(key, (const Bytef *)&size, sizeof(size_t));
-        uint32_t index = key & (SIZE - 1);
         if (_cache[index].key == key)
         {
+            LogDebug("hit cache: %s[0x%08x]", path, _cache[index].crc32);
             return _cache[index].crc32;
         }
         else
