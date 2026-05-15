@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <zlib.h>
 #include "file.h"
+#include "defines.h"
 
 #define DEFAULT_CRC32_CACHE_SIZE 0x2000
 
@@ -19,7 +20,7 @@ class Crc32Cache
 public:
     _Static_assert(IS_POWER_OF_TWO(SIZE), "cache size must be power of two");
 
-    Crc32Cache()
+    Crc32Cache() : _save_count(0)
     {
         _cache = new CRC32_CACHE[SIZE];
         memset(_cache, 0, _cache_bytes);
@@ -30,12 +31,12 @@ public:
         delete[] _cache;
     }
 
-    bool Load(const char *path)
+    bool Load(const char *path = CRC32_CACHE_FILE)
     {
         return File::ReadFile(path, _cache, _cache_bytes);
     }
 
-    bool Save(const char *path)
+    bool Save(const char *path = CRC32_CACHE_FILE)
     {
         return File::WriteFile(path, _cache, _cache_bytes);
     }
@@ -60,6 +61,14 @@ public:
         {
             uint32_t crc32 = File::GetCrc32(path);
             _cache[index] = {key, crc32};
+
+            _save_count++;
+            if (_save_count > 10)
+            {
+                _save_count = 0;
+                Save();
+            }
+
             return crc32;
         }
     }
@@ -67,4 +76,5 @@ public:
 private:
     CRC32_CACHE *_cache;
     const size_t _cache_bytes = SIZE * sizeof(CRC32_CACHE);
+    int _save_count;
 };
