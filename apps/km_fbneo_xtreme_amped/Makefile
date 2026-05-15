@@ -525,7 +525,8 @@ endif
 CC_SYSTEM = gcc
 CXX_SYSTEM = g++
 
-include $(INCLUDED_MAKEFILE)
+mkfile_path := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
+include $(mkfile_path)/$(INCLUDED_MAKEFILE)
 
 FBNEO_CXXOBJ := $(SOURCES_CXX:.cpp=.o)
 FBNEO_COBJ := $(SOURCES_C:.c=.o)
@@ -625,14 +626,14 @@ ifeq (,$(findstring msvc,$(platform)))
 endif
 
 # gcc specific flags
-#ifeq ($(shell $(CC) -v 2>&1 | grep -c "gcc version"), 1)
-#	CFLAGS += -ffloat-store
-#	CXXFLAGS += -ffloat-store
-#	ifeq ($(shell expr `$(CC) -dumpversion | cut -f1 -d.` \>= 5), 1)
-#		CFLAGS += -finline-limit=1200 -fcheck-new
-#		CXXFLAGS += -finline-limit=1200 -fcheck-new
-#	endif
-#endif
+ifeq ($(shell $(CC) -v 2>&1 | grep -c "gcc version"), 1)
+	CFLAGS += -ffloat-store
+	CXXFLAGS += -ffloat-store
+	ifeq ($(shell expr `$(CC) -dumpversion | cut -f1 -d.` \>= 5), 1)
+		CFLAGS += -finline-limit=1200 -fcheck-new
+		CXXFLAGS += -finline-limit=1200 -fcheck-new
+	endif
+endif
 
 PERL = perl$(EXE_EXT)
 M68KMAKE_EXE = m68kmake$(EXE_EXT)

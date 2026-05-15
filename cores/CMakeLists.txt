@@ -80,6 +80,10 @@ elseif(CORE STREQUAL "km_fbneo_xtreme_amped")
     set(CORE_DIR ${CORE_DIR}/src/burner/libretro)
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/Makefile)
     set(CORE_ARGS ${CORE_ARGS} STATIC_LINKING=1)
+    add_custom_target(
+        PRE_CORE_TAG ALL
+        COMMAND make -f ${CORE_MAKEFILE_NAME} ${CORE_ARGS} ${MAKE_FLAG} generate-files
+        WORKING_DIRECTORY ${CORE_DIR})
 elseif(CORE STREQUAL "km_mame2003_xtreme_amped")
     set(CORE_ARGS ${CORE_ARGS} SPLIT_UP_LINK=1)
     set(CORE_CFLAGS -include psp2/io/stat.h)
