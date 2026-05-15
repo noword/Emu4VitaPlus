@@ -145,6 +145,10 @@ App::App()
     gRomNameMap = new RomNameMap;
     gRomNameMap->Load();
 
+    gUi->AppendLog("Load Crc32 cache");
+    gCrc32Cache = new Crc32Cache<>;
+    gCrc32Cache->Load(CRC32_CACHE_FILE);
+
     if (gConfig->language != LANGUAGE::LANGUAGE_ENGLISH)
     {
         gUi->AppendLog("Load font");
@@ -197,6 +201,9 @@ App::~App()
     gVideo->Stop();
     vita2d_wait_rendering_done();
 
+    gCrc32Cache->Save(CRC32_CACHE_FILE);
+
+    delete gCrc32Cache;
     delete gRomNameMap;
     delete gStateManager;
     delete gShaders;

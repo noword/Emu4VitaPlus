@@ -18,6 +18,7 @@
 #include "hint.h"
 #include "dialog.h"
 #include "notification.h"
+#include "crc32_cache.h"
 
 #define EMPTY_ROM_NAME "NULL"
 
@@ -40,3 +41,4 @@ extern RetroAchievements *gRetroAchievements;
 extern Hint *gHint;
 extern InputTextDialog *gInputTextDialog;
 extern Notifications *gNotifications;
+extern Crc32Cache<> *gCrc32Cache;

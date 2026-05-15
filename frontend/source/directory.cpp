@@ -52,7 +52,7 @@ uint32_t GetRomCrc32(const char *full_path)
     }
     else if (File::GetSize(full_path) < 50 * 1024 * 1024)
     {
-        crc = File::GetCrc32(full_path);
+        crc = gCrc32Cache->Get(full_path);
     }
 
     return crc;

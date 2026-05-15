@@ -13,6 +13,7 @@
 #define PLAYLISTS_CACHE_DIR CACHE_DIR "/playlists"
 #define THUMBNAILS_CACHE_DIR CACHE_DIR "/thumbnails"
 #define RETRO_ACHIEVEMENTS_CACHE_DIR CACHE_DIR "/retro_arcievements"
+#define CRC32_CACHE_FILE CACHE_DIR "/crc32.bin"
 
 #define ARCH_CONFIG_PATH ROOT_DIR "/Arch/config.ini"
 
