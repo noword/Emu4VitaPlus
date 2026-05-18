@@ -5,6 +5,7 @@ set(CORE_MAKEFILE_NAME Makefile)
 set(CORE_ARGS platform=vita EXTERNAL_ZLIB=1)
 set(LIBRETRO_LIBRARY "")
 set(CORE_LTO ON)
+set(PRE_CORE_TAG "PRE_${CORE}_TAG")
 
 # set(CORE_CFLAGS -save-temps)
 if(CORE STREQUAL "gpsp")
@@ -20,7 +21,7 @@ elseif(CORE STREQUAL "fbneo")
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/makefile)
     set(CORE_ARGS ${CORE_ARGS} STATIC_LINKING=1)
     add_custom_target(
-        PRE_CORE_TAG ALL
+        ${PRE_CORE_TAG} ALL
         COMMAND make -f ${CORE_MAKEFILE_NAME} ${CORE_ARGS} ${MAKE_FLAG} REGEN_HEADERS=1 generate-files
         WORKING_DIRECTORY ${CORE_DIR})
 elseif(CORE STREQUAL "fbalpha2012")
@@ -81,7 +82,7 @@ elseif(CORE STREQUAL "km_fbneo_xtreme_amped")
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/Makefile)
     set(CORE_ARGS ${CORE_ARGS} STATIC_LINKING=1)
     add_custom_target(
-        PRE_CORE_TAG ALL
+        ${PRE_CORE_TAG} ALL
         COMMAND make -f ${CORE_MAKEFILE_NAME} ${CORE_ARGS} ${MAKE_FLAG} generate-files
         WORKING_DIRECTORY ${CORE_DIR})
 elseif(CORE STREQUAL "km_mame2003_xtreme_amped")
@@ -154,8 +155,8 @@ set_property(
 
 add_dependencies(${CORE} ${CORE_TAG})
 
-if(TARGET PRE_CORE_TAG)
-    add_dependencies(${CORE_TAG} PRE_CORE_TAG)
+if(TARGET ${PRE_CORE_TAG})
+    add_dependencies(${CORE_TAG} ${PRE_CORE_TAG})
 endif()
 
 set_target_properties(${CORE} PROPERTIES IMPORTED_LOCATION "${LIBRETRO_LIBRARY}")
