@@ -35,6 +35,10 @@ This is an emulator frontend for the PlayStation Vita, based on the [Libretro AP
 | <img src="screenshots/button-triangle.svg" width="30">                                                      | search                                                                  |
 | <img src="screenshots/button-square.svg" width="30">                                                        | the next match file                                                     |
 
+### Gamepad test
+
+<img src="screenshots/control_test.jpg" width="720">
+
 ### In game
 <img src="screenshots/game.jpg" alt="drawing" width="720"/>
 

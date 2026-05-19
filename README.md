@@ -40,6 +40,10 @@
 | <img src="screenshots/button-triangle.svg" width="30">                                                      | 搜索                           |
 | <img src="screenshots/button-square.svg" width="30">                                                        | 下一个搜索匹配文件             |
 
+### 手柄测试
+
+<img src="screenshots/control_test.jpg" width="720">
+
 ### 游戏
 <img src="screenshots/game.jpg" width="720"/>
 
