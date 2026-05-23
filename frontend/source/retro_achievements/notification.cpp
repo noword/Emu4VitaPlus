@@ -172,6 +172,9 @@ void Notifications::Add(uint32_t id, Notification *n)
     _locker.Lock();
     _notifications[id] = n;
     _locker.Unlock();
+
+    if (gSound)
+        gSound->Play(SOUND_NOTIFICATION);
 }
 
 void Notifications::Remove(uint32_t id)

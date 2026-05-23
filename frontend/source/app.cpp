@@ -149,6 +149,9 @@ App::App()
     gCrc32Cache = new Crc32Cache<>;
     gCrc32Cache->Load();
 
+    gUi->AppendLog("Load Sounds");
+    gSound = new Sound();
+
     if (gConfig->language != LANGUAGE::LANGUAGE_ENGLISH)
     {
         gUi->AppendLog("Load font");
@@ -203,6 +206,7 @@ App::~App()
 
     gCrc32Cache->Save();
 
+    delete gSound;
     delete gCrc32Cache;
     delete gRomNameMap;
     delete gStateManager;

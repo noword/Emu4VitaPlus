@@ -60,7 +60,7 @@ public:
         key = crc32(key, (const Bytef *)&size, sizeof(size_t));
         if (_cache[index].key == key)
         {
-            LogDebug("hit cache: %s[0x%08x]", path, _cache[index].crc32);
+            LogDebug("hit cache %x: %s[0x%08x]", index, path, _cache[index].crc32);
             return _cache[index].crc32;
         }
         else
@@ -74,6 +74,8 @@ public:
                 _save_count = 0;
                 Save();
             }
+
+            LogDebug("miss cache %d: %s[0x%08x]", index, path, crc32);
 
             return crc32;
         }

@@ -20,3 +20,4 @@ Hint *gHint = nullptr;
 InputTextDialog *gInputTextDialog = nullptr;
 Notifications *gNotifications = nullptr;
 Crc32Cache<> *gCrc32Cache = nullptr;
+Emu4VitaPlus::Sound *gSound = nullptr;
