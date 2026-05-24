@@ -10,12 +10,6 @@
 #error DEFAULT_TEXTURE_BUF_COUNT must be a power of 2
 #endif
 
-#define POWER2_LOOP_PLUS_ONE(VALUE, TOTAL) \
-    {                                      \
-        VALUE++;                           \
-        VALUE &= TOTAL - 1;                \
-    }
-
 class TextureBuf : public std::array<vita2d_texture *, DEFAULT_TEXTURE_BUF_COUNT>
 {
 public:

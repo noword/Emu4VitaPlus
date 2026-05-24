@@ -157,7 +157,11 @@ namespace Emu4VitaPlus
             }
 
             sceAudioOutOutput(port, NULL);
-            sceAudioOutReleasePort(port);
+            port = sceAudioOutReleasePort(port);
+            if (port < 0)
+            {
+                LogError("Error: sceAudioOutReleasePort() 0x%08x\n", port);
+            }
         }
         else
         {

@@ -12,6 +12,11 @@
 
 #define LOOP_PLUS_ONE(VALUE, TOTAL) (VALUE = (unlikely((VALUE + 1) >= (TOTAL)) ? 0 : VALUE + 1))
 #define LOOP_MINUS_ONE(VALUE, TOTAL) (VALUE = (unlikely(VALUE == 0) ? (TOTAL) - 1 : VALUE - 1))
+#define POWER2_LOOP_PLUS_ONE(VALUE, TOTAL) \
+    {                                      \
+        VALUE++;                           \
+        VALUE &= TOTAL - 1;                \
+    }
 
 namespace Utils
 {

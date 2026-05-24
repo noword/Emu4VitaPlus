@@ -114,6 +114,9 @@ App::App()
     gUi->AppendLog("Initialize video");
     gUi->AppendLog("Initialize core spec settings");
 
+    gUi->AppendLog("Load Sounds");
+    gSound = new Sound();
+
     gUi->AppendLog("Initialize network");
     // special for RetroAchievements
     gNetwork->SetUserAgent(std::string("Emu4Vita++/" APP_VER_STR " ") + gEmulator->GetCoreName() + "/" + gEmulator->GetCoreVersion());
@@ -148,9 +151,6 @@ App::App()
     gUi->AppendLog("Load Crc32 cache");
     gCrc32Cache = new Crc32Cache<>;
     gCrc32Cache->Load();
-
-    gUi->AppendLog("Load Sounds");
-    gSound = new Sound();
 
     if (gConfig->language != LANGUAGE::LANGUAGE_ENGLISH)
     {
