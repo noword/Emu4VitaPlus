@@ -119,6 +119,7 @@ Ui::Ui() : _tab_index(TAB_INDEX_BROWSER),
     _InitImgui();
     _dialog = new Dialog("", {LANG_OK, LANG_CANCEL},
                          std::bind(&Ui::_OnDialog, this, std::placeholders::_1, std::placeholders::_2));
+    _themes.Load(DEFAULT_THEMES_JSON);
 }
 
 Ui::~Ui()

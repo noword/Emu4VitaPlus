@@ -7,6 +7,7 @@
 #include "dialog.h"
 #include "boot.h"
 #include "app_status.h"
+#include "theme.h"
 
 class Ui
 {
@@ -65,4 +66,5 @@ private:
     int _current_dialog;
     Boot *_boot_ui;
     bool _ps_locked;
+    Themes _themes;
 };

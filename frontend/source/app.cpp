@@ -323,23 +323,6 @@ bool App::_IsSaveMode()
 
 #define RELEASE_URL "https://api.github.com/repos/noword/Emu4VitaPlus/releases/latest"
 
-class JsonAllocator : public sce::Json::MemAllocator
-{
-public:
-    JsonAllocator() {};
-    virtual ~JsonAllocator() {};
-
-    virtual void *allocateMemory(size_t size, void *user_data) override
-    {
-        return new uint8_t[size];
-    }
-
-    virtual void freeMemory(void *ptr, void *user_data) override
-    {
-        delete[] (uint8_t *)ptr;
-    }
-};
-
 void _CheckVersionCallback(const Response *response, void *callback_data)
 {
     LogFunctionName;
