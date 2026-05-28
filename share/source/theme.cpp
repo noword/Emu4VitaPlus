@@ -132,11 +132,18 @@ static Theme GetTheme(const sce::Json::Value &value)
                                   std::clamp(c.y * 0.7f, 0.f, 1.0f),
                                   std::clamp(c.z * 0.7f, 0.f, 1.0f),
                                   c.w};
+
     c = style_colors[ImGuiCol_TabActive];
     style_colors[ImGuiCol_TabActive] = {std::clamp(c.x * 1.2f, 0.f, 1.f),
                                         std::clamp(c.y * 1.2f, 0.f, 1.f),
                                         std::clamp(c.z * 1.2f, 0.f, 1.f),
                                         c.w};
+
+    c = style_colors[ImGuiCol_FrameBgHovered];
+    style_colors[ImGuiCol_FrameBgHovered] = {c.x, c.y, c.z, std::clamp(c.w, 0.8f, 1.0f)};
+
+    c = style_colors[ImGuiCol_FrameBg];
+    style_colors[ImGuiCol_FrameBg] = {c.x, c.y, c.z, std::clamp(c.w, 0.8f, 1.0f)};
 
     return theme;
 }
