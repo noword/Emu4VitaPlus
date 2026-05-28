@@ -69,6 +69,8 @@ namespace Emu4VitaPlus
         uint32_t fps;
         uint32_t audio_latency;
 
+        std::string theme;
+
         std::string ra_user;
         std::string ra_password;
         std::string ra_token;

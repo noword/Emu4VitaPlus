@@ -12,6 +12,7 @@
 #include "item_state.h"
 #include "item_device.h"
 #include "item_achievement.h"
+#include "item_theme.h"
 #include "tab_browser.h"
 #include "tab_favorite.h"
 #include "tab_about.h"
@@ -264,6 +265,7 @@ void Ui::CreateTables()
                                                                                   LanguageString(gLanguageNames[LANGUAGE_RUSSIAN]),
                                                                               },
                                                                               std::bind(&Ui::_ChangeLanguage, gUi)),
+                                                               new ItemTheme(_themes),
                                                                new ItemConfig(LANG_INDEPENDENT_CONFIG,
                                                                               "",
                                                                               &gConfig->independent_config,

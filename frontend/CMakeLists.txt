@@ -3,6 +3,8 @@ cmake_minimum_required(VERSION 3.12)
 include_directories(
     source
     source/ui
+    source/ui/items
+    source/ui/tabs
     source/emu
     source/emu/audio
     source/emu/video
@@ -23,6 +25,8 @@ file(GLOB SRC
     source/*.c
     source/*.cpp
     source/ui/*.cpp
+    source/ui/items/*.cpp
+    source/ui/tabs/*.cpp
     source/emu/*.cpp
     source/emu/audio/*.cpp
     source/emu/video/*.cpp

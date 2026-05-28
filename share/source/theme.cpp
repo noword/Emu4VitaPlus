@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <psp2/json.h>
 #include "utils.h"
 #include "theme.h"
@@ -40,9 +41,10 @@ static Theme GetTheme(const sce::Json::Value &value)
     Theme theme;
     memcpy(&theme.style, &ImGui::GetStyle(), sizeof(ImGuiStyle));
 
+    GET_STR(name, theme, value);
+
     const sce::Json::Value &styles = value.getValue("styles");
 
-    GET_STR(name, theme, styles);
     GET_FLOAT(Alpha, theme, styles);
     GET_VEC2(WindowPadding, theme, styles);
     GET_FLOAT(WindowRounding, theme, styles);
@@ -126,9 +128,15 @@ static Theme GetTheme(const sce::Json::Value &value)
 
     style_colors[ImGuiCol_TitleBg] = style_colors[ImGuiCol_TitleBgActive];
     ImVec4 c = style_colors[ImGuiCol_Tab];
-    style_colors[ImGuiCol_Tab] = {c.x * 0.7, c.y * 0.7, c.z * 0.7, c.w};
+    style_colors[ImGuiCol_Tab] = {std::clamp(c.x * 0.7f, 0.f, 1.0f),
+                                  std::clamp(c.y * 0.7f, 0.f, 1.0f),
+                                  std::clamp(c.z * 0.7f, 0.f, 1.0f),
+                                  c.w};
     c = style_colors[ImGuiCol_TabActive];
-    style_colors[ImGuiCol_TabActive] = {c.x * 1.2, c.y * 1.2, c.z * 1.2, c.w};
+    style_colors[ImGuiCol_TabActive] = {std::clamp(c.x * 1.2f, 0.f, 1.f),
+                                        std::clamp(c.y * 1.2f, 0.f, 1.f),
+                                        std::clamp(c.z * 1.2f, 0.f, 1.f),
+                                        c.w};
 
     return theme;
 }
@@ -183,7 +191,7 @@ END:
     return result;
 }
 
-void Themes::Apply(size_t index)
+void Themes::Apply(size_t index) const
 {
     LogFunctionName;
     if (index > 0 && index < _themes.size())
@@ -197,7 +205,7 @@ void Themes::Apply(size_t index)
     }
 }
 
-void Themes::Apply(const char *name)
+void Themes::Apply(const char *name) const
 {
     for (int i = 0; i < _themes.size(); i++)
     {

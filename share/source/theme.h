@@ -21,8 +21,9 @@ public:
     virtual ~Themes() {};
 
     bool Load(const char *path);
-    void Apply(size_t index);
-    void Apply(const char *name);
+    void Apply(size_t index) const;
+    void Apply(const char *name) const;
+    const std::vector<Theme> &Get() const { return _themes; };
 
 private:
     std::vector<Theme> _themes;
