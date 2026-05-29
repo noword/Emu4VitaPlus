@@ -143,12 +143,14 @@ static Theme GetTheme(const sce::Json::Value &value)
                                         std::clamp(c.z * 1.2f, 0.f, 1.f),
                                         c.w};
 
-    // adjust alpha
-    // for (int i = 0; i < ImGuiCol_COUNT; i++)
-    // {
-    //     // if (style_colors[i].w < 0.8f)
-    //     style_colors[i].w = 1.f;
-    // }
+    style_colors[ImGuiCol_PopupBg].w = std::clamp(style_colors[ImGuiCol_PopupBg].w, 0.9f, 1.f);
+
+#define MIN_THRESHOLD 0.08
+
+    if (std::abs(style_colors[ImGuiCol_PopupBg].x - style_colors[ImGuiCol_Header].x) < MIN_THRESHOLD &&
+        std::abs(style_colors[ImGuiCol_PopupBg].y - style_colors[ImGuiCol_Header].y) < MIN_THRESHOLD &&
+        std::abs(style_colors[ImGuiCol_PopupBg].z - style_colors[ImGuiCol_Header].z) < MIN_THRESHOLD)
+        style_colors[ImGuiCol_Header] = style_colors[ImGuiCol_HeaderActive];
 
     return theme;
 }
