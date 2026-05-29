@@ -95,12 +95,12 @@ void Ui::_InitImgui()
     ImGui_ImplVita2D_UseRearTouch(false);
     ImGui_ImplVita2D_GamepadUsage(false);
 
-    ImGuiStyle *style = &ImGui::GetStyle();
-    style->Colors[ImGuiCol_TitleBg] = style->Colors[ImGuiCol_TitleBgActive];
-    ImVec4 c = style->Colors[ImGuiCol_Tab];
-    style->Colors[ImGuiCol_Tab] = {c.x * 0.7, c.y * 0.7, c.z * 0.7, c.w};
-    c = style->Colors[ImGuiCol_TabActive];
-    style->Colors[ImGuiCol_TabActive] = {c.x * 1.2, c.y * 1.2, c.z * 1.2, c.w};
+    // ImGuiStyle *style = &ImGui::GetStyle();
+    // style->Colors[ImGuiCol_TitleBg] = style->Colors[ImGuiCol_TitleBgActive];
+    // ImVec4 c = style->Colors[ImGuiCol_Tab];
+    // style->Colors[ImGuiCol_Tab] = {c.x * 0.7, c.y * 0.7, c.z * 0.7, c.w};
+    // c = style->Colors[ImGuiCol_TabActive];
+    // style->Colors[ImGuiCol_TabActive] = {c.x * 1.2, c.y * 1.2, c.z * 1.2, c.w};
 }
 
 void Ui::_DeinitImgui()
@@ -120,7 +120,9 @@ Ui::Ui() : _tab_index(TAB_INDEX_BROWSER),
     _InitImgui();
     _dialog = new Dialog("", {LANG_OK, LANG_CANCEL},
                          std::bind(&Ui::_OnDialog, this, std::placeholders::_1, std::placeholders::_2));
+
     _themes.Load(DEFAULT_THEMES_JSON);
+    _themes.Apply(gConfig->theme.c_str());
 }
 
 Ui::~Ui()

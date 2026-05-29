@@ -51,7 +51,8 @@ void TabAbout::_Show()
         ImGui::Image(_title_texture,
                      {TITLE_WIDTH, TITLE_HEIGHT},
                      {0, _title_index / TITLE_COUNT},
-                     {1, (_title_index + 1) / TITLE_COUNT});
+                     {1, (_title_index + 1) / TITLE_COUNT},
+                     ImGui::GetStyleColorVec4(ImGuiCol_Text));
     }
 
     if (ImGui::BeginChild("ChildAbout", {0, 0}, false, ImGuiWindowFlags_HorizontalScrollbar))

@@ -85,7 +85,7 @@ void TabSeletable::_Show()
         else
         {
             size_t total = _GetItemCount();
-            ImGui::PushStyleColor(ImGuiCol_PopupBg, ImGui::GetColorU32(ImGuiCol_MenuBarBg));
+            // ImGui::PushStyleColor(ImGuiCol_PopupBg, ImGui::GetColorU32(ImGuiCol_MenuBarBg));
             for (size_t i = 0; i < total; i++)
             {
                 if (_ItemVisable(i))
@@ -102,7 +102,7 @@ void TabSeletable::_Show()
                     LOOP_PLUS_ONE(_index, total);
                 }
             }
-            ImGui::PopStyleColor();
+            // ImGui::PopStyleColor();
         }
         ImGui::Columns(1);
     }
@@ -110,7 +110,7 @@ void TabSeletable::_Show()
     ImGui::EndChild();
     if (_status_text.size() > 0)
     {
-        ImGui::PushStyleColor(ImGuiCol_Text, Greenalize(ImGui::GetStyleColorVec4(ImGuiCol_Text)));
+        ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32_GREEN);
         ImGui::TextWrapped("%s", _status_text.c_str());
         ImGui::PopStyleColor();
     }
@@ -258,18 +258,6 @@ void TabSeletable::SetItemVisable(size_t index, bool visable)
         _items[index]->SetVisable(visable);
     }
 }
-
-// bool TabSeletable::ItemVisable(size_t index)
-// {
-//     if (index < _items.size())
-//     {
-//         return _items[index]->Visable();
-//     }
-//     else
-//     {
-//         return false;
-//     }
-// }
 
 void TabSeletable::SetColumns(int columns)
 {

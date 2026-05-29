@@ -279,15 +279,12 @@ void App::_Show()
 
                 if (_start_count > 0)
                 {
-                    bool push_color = (_start_count / 60) % 2 == 0;
-                    if (push_color)
-                        ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32_DARK_GREY);
-
                     ImGui::SetCursorPos({_moving_status.pos - ImGui::CalcTextSize(BUTTON_RIGHT_ANALOG_LEFT_RIGHT).x * 1.5, 0});
-                    ImGui::TextUnformatted(BUTTON_RIGHT_ANALOG_LEFT_RIGHT);
 
-                    if (push_color)
-                        ImGui::PopStyleColor();
+                    if ((_start_count / 60) % 2 == 0)
+                        ImGui::TextDisabled(BUTTON_RIGHT_ANALOG_LEFT_RIGHT);
+                    else
+                        ImGui::TextUnformatted(BUTTON_RIGHT_ANALOG_LEFT_RIGHT);
                 }
             }
             ImGui::End();

@@ -63,7 +63,7 @@ void TabFavorite::_Show()
         const std::string *rom_name = nullptr;
         if (ImGui::ListBoxHeader("", ImGui::GetContentRegionAvail()))
         {
-            ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0, 255, 0, 255));
+            ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32_GREEN);
             for (const auto &fav : *gFavorites)
             {
                 if (count == _index)
@@ -149,7 +149,7 @@ void TabFavorite::_Show()
     }
 
     ImGui::EndChild();
-    ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0xcc, 0xcc, 0xcc, 255));
+    ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyleColorVec4(ImGuiCol_TextDisabled));
     ImGui::TextWrapped(_status_text.c_str());
     ImGui::PopStyleColor();
 }

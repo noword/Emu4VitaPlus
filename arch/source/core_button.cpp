@@ -38,7 +38,7 @@ void CoreButton::Show(bool selected, bool choice)
     pos.y += BUTTON_SIZE - size.y - 5;
     ImDrawList *draw_list = ImGui::GetWindowDrawList();
     draw_list->AddText(pos,
-                       (choice && !gConfig->consoles[_console]) ? IM_COL32_DARK_GREY : IM_COL32_WHITE,
+                       (choice && !gConfig->consoles[_console]) ? ImGui::GetColorU32(ImGuiCol_TextDisabled) : IM_COL32_WHITE,
                        CONSOLE_NAMES[_console]);
 
     if (selected)
@@ -55,7 +55,7 @@ void CoreButton::Show(bool selected, bool choice)
         }
         else
         {
-            draw_list->AddText(pos, IM_COL32_DARK_GREY, ICON_OFF);
+            draw_list->AddText(pos, ImGui::GetColorU32(ImGuiCol_TextDisabled), ICON_OFF);
         }
     }
 }

@@ -68,7 +68,7 @@ public:
                 bool enabled = PsvKeys[i] & *_hotkey;
                 if (!enabled)
                 {
-                    ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(100, 100, 100, 255));
+                    ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyleColorVec4(ImGuiCol_TextDisabled));
                 }
 
                 ImGui::Selectable(_GetOptionString(i), i == _GetIndex());

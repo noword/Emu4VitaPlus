@@ -804,7 +804,7 @@ IMGUI_API void My_ImGui_ShowTimePower(bool show_wifi, bool show_ra, bool ra_hard
                             {RA_X + RA_W, TOP_RIGHT_Y + RA_H + 6});
     }
 
-    draw_list->AddText({time_x, TOP_RIGHT_Y}, IM_COL32_WHITE, time_str);
+    draw_list->AddText({time_x, TOP_RIGHT_Y}, ImGui::GetColorU32(ImGuiCol_Text), time_str);
     if (show_wifi)
     {
         draw_list->AddText({WIFI_X, TOP_RIGHT_Y}, IM_COL32_GREEN, ICON_WIFI);

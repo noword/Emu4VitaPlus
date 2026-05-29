@@ -41,7 +41,7 @@ void ItemAchievement::Show(bool selected)
     ImGui::Text(_achievement->title.c_str());
     if (_achievement->unlock_time.size() > 0)
     {
-        ImGui::PushStyleColor(ImGuiCol_Text, {0.8f, 0.8f, 0.8f, 1.0f});
+        ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyleColorVec4(ImGuiCol_TextDisabled));
         ImGui::Text(_achievement->unlock_time.c_str());
         ImGui::PopStyleColor();
     }

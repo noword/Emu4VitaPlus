@@ -1,12 +1,11 @@
 #pragma once
 #include <algorithm>
 #include <imgui_vita2d/imgui_vita.h>
+#include "theme.h"
 #include <stdint.h>
 #include "delay.h"
 
-#define IM_COL32_GREEN IM_COL32(0, 255, 0, 255)
-#define IM_COL32_RED IM_COL32(255, 0, 0, 255)
-#define IM_COL32_DARK_GREY IM_COL32(100, 100, 100, 255)
+#define IM_COL32_DARK_GREY ImGui::GetColorU32(ImGuiCol_TextDisabled)
 #define DEFAULT_TEXT_MOVING_INTERVAL 15000
 #define DEFAULT_TEXT_MOVING_START 800000
 
@@ -31,14 +30,6 @@ IMGUI_API void My_ImGui_CenteredText(const char *text, ...);
 IMGUI_API bool My_ImGui_Selectable(const char *label, bool selected, TextMovingStatus *status);
 IMGUI_API void My_ImGui_ShowTimePower(bool show_wifi = false, bool show_ra = false, bool ra_hardcore = false);
 IMGUI_API void My_ImGui_HighlightText(const char *text, ImVec2 position, ImU32 text_color, ImU32 shadow_color);
-
-inline ImVec4 Greenalize(ImVec4 color)
-{
-    color.x = std::clamp(color.x * 0.1f, 0.f, 1.f);
-    color.y = std::clamp(color.y * 1.5f, 0.3f, 1.f);
-    color.z = std::clamp(color.z * 0.1f, 0.f, 1.f);
-    return color;
-}
 
 class My_Imgui_SpinText
 {

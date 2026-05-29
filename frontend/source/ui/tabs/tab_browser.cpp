@@ -119,13 +119,13 @@ void TabBrowser::_Show()
                         if (item.legal)
                         {
                             if (_directory->BeFound(i))
-                                color = IM_COL32(255, 255, 33, 255);
+                                color = IM_COL32_YELLOW;
                             else
-                                color = IM_COL32(0, 255, 0, 255);
+                                color = IM_COL32_GREEN;
                         }
                         else
                         {
-                            color = IM_COL32(0x66, 0x66, 0x66, 0x66);
+                            color = ImGui::GetColorU32(ImGuiCol_TextDisabled);
                         }
 
                         ImGui::PushStyleColor(ImGuiCol_Text, color);
@@ -216,7 +216,7 @@ void TabBrowser::_Show()
 
     if (_status_text.size() > 0)
     {
-        ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0xcc, 0xcc, 0xcc, 255));
+        ImGui::PushStyleColor(ImGuiCol_Text, ImGui::GetStyleColorVec4(ImGuiCol_TextDisabled));
         ImGui::TextWrapped(_status_text.c_str());
         ImGui::PopStyleColor();
     }

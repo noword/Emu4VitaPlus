@@ -5,6 +5,10 @@
 #include "file.h"
 #include "log.h"
 
+ImU32 IM_COL32_GREEN;
+ImU32 IM_COL32_RED;
+ImU32 IM_COL32_YELLOW;
+
 static ImGuiDir GetImGuiDir(const char *s)
 {
     if (strcmp(s, "Left") == 0)
@@ -139,11 +143,12 @@ static Theme GetTheme(const sce::Json::Value &value)
                                         std::clamp(c.z * 1.2f, 0.f, 1.f),
                                         c.w};
 
-    c = style_colors[ImGuiCol_FrameBgHovered];
-    style_colors[ImGuiCol_FrameBgHovered] = {c.x, c.y, c.z, std::clamp(c.w, 0.8f, 1.0f)};
-
-    c = style_colors[ImGuiCol_FrameBg];
-    style_colors[ImGuiCol_FrameBg] = {c.x, c.y, c.z, std::clamp(c.w, 0.8f, 1.0f)};
+    // adjust alpha
+    // for (int i = 0; i < ImGuiCol_COUNT; i++)
+    // {
+    //     // if (style_colors[i].w < 0.8f)
+    //     style_colors[i].w = 1.f;
+    // }
 
     return theme;
 }
@@ -198,10 +203,31 @@ END:
     return result;
 }
 
+size_t Themes::GetIndexByName(const char *name) const
+{
+    size_t index = 0;
+    size_t dark = 0;
+    for (const auto &theme : _themes)
+    {
+        if (theme.name == name)
+        {
+            return index;
+        }
+        else if (theme.name == DEFAULT_THEME_NAME)
+        {
+            dark = index;
+        }
+
+        index++;
+    }
+
+    return dark;
+}
+
 void Themes::Apply(size_t index) const
 {
     LogFunctionName;
-    if (index > 0 && index < _themes.size())
+    if (index >= 0 && index < _themes.size())
     {
         LogDebug("  theme: %s", _themes[index].name.c_str());
 
@@ -209,16 +235,24 @@ void Themes::Apply(size_t index) const
         const ImGuiStyle &theme_style = _themes[index].style;
 
         memcpy(&style, &theme_style, sizeof(ImGuiStyle));
+
+        ImVec4 color = theme_style.Colors[ImGuiCol_Text];
+        IM_COL32_GREEN = ImGui::GetColorU32({std::clamp(color.x * 0.1f, 0.f, 1.f),
+                                             std::clamp(color.y * 1.5f, 0.3f, 1.f),
+                                             std::clamp(color.z * 0.1f, 0.f, 1.f),
+                                             color.w});
+        IM_COL32_RED = ImGui::GetColorU32({std::clamp(color.x * 1.5f, 0.3f, 1.f),
+                                           std::clamp(color.y * 0.1f, 0.f, 1.f),
+                                           std::clamp(color.z * 0.1f, 0.f, 1.f),
+                                           color.w});
+        IM_COL32_YELLOW = ImGui::GetColorU32({std::clamp(color.x * 1.5f, 0.3f, 1.f),
+                                              std::clamp(color.x * 1.5f, 0.3f, 1.f),
+                                              std::clamp(color.z * 0.1f, 0.f, 1.f),
+                                              color.w});
     }
 }
 
 void Themes::Apply(const char *name) const
 {
-    for (int i = 0; i < _themes.size(); i++)
-    {
-        if (_themes[i].name == name)
-        {
-            return Apply(i);
-        }
-    }
+    Apply(GetIndexByName(name));
 }

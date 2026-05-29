@@ -40,7 +40,7 @@ void Hint::Show()
                          ImGuiWindowFlags_NoFocusOnAppearing))
     {
         ImGui::SetCursorPos({10, 10});
-        ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32(0, 255, 0, 255));
+        ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32_GREEN);
         ImGui::TextWrapped(s);
         ImGui::PopStyleColor();
     }
