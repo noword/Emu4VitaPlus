@@ -12,7 +12,7 @@ namespace Emu4VitaPlus
           _enabled(false),
           _x_scale(1.f),
           _y_scale(1.f),
-          _down_count(0)
+          _touched(false)
     {
         LogFunctionName;
 
@@ -58,65 +58,13 @@ namespace Emu4VitaPlus
         }
 
         SceTouchData touch_data{0};
-        if (sceTouchPeek(_port, &touch_data, 1) == 1)
+        _touched = (sceTouchPeek(_port, &touch_data, 1) == 1 && touch_data.reportNum == 1);
+        if (_touched)
         {
             _current_id = touch_data.report->id;
             _axis.x = touch_data.report->x >> 1;
             _axis.y = touch_data.report->y >> 1;
-
-            _locker.Lock();
-
-            if (_current_id == _last_id)
-            {
-                if (_axis == _last_axis)
-                {
-                    if (_down_count < 10)
-                    {
-                        _down_count++;
-                        _states.push(TouchHold);
-                    }
-                    else if (_down_count == 10)
-                    {
-                        _down_count++;
-                        _states.push(TouchUp);
-                    }
-                }
-                else
-                {
-                    _states.push(TouchHold);
-                }
-            }
-            else
-            {
-                _states.push(TouchDown);
-                _down_count = 0;
-            }
-
-            if (_states.size() > MAX_STATES)
-            {
-                _states.pop();
-            }
-
-            _locker.Unlock();
-
-            _last_id = _current_id;
-            _last_axis = _axis;
         }
-    }
-
-    TouchState Touch::GetState()
-    {
-        if (_states.empty())
-        {
-            return TouchNone;
-        }
-
-        _locker.Lock();
-        TouchState state = _states.front();
-        _states.pop();
-        _locker.Unlock();
-
-        return state;
     }
 
     void Touch::InitMovingScale(float xscale, float yscale)
@@ -126,8 +74,6 @@ namespace Emu4VitaPlus
         size_t sizey = _info[_port].maxAaY - _info[_port].minAaY;
 
         LogDebug("  _port: %d sizex: %d sizey: %d", _port, sizex, sizey);
-
-        _locker.Lock();
 
         _scale_map_table_x.clear();
         _scale_map_table_x.reserve(sizex);
@@ -142,7 +88,5 @@ namespace Emu4VitaPlus
         {
             _scale_map_table_y.emplace_back(i * xscale);
         }
-
-        _locker.Unlock();
     }
 }

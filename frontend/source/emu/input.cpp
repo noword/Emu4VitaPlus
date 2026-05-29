@@ -107,7 +107,7 @@ int16_t Emulator::_GetJoypadState(unsigned index, unsigned id)
     uint32_t key_states = _input.GetKeyStates();
 
     Touch *touch = _input.GetRearTouch();
-    if (unlikely(gConfig->sim_button_rear && (touch->GetState() & (TouchDown | TouchHold))))
+    if (unlikely(gConfig->sim_button_rear && touch->IsTouched()))
     {
         const auto axis = touch->GetAxis();
         const auto center = touch->GetCenter();
@@ -116,7 +116,7 @@ int16_t Emulator::_GetJoypadState(unsigned index, unsigned id)
     }
 
     touch = _input.GetFrontTouch();
-    if (unlikely(gConfig->sim_button_front && (touch->GetState() & (TouchDown | TouchHold))))
+    if (unlikely(gConfig->sim_button_front && touch->IsTouched()))
     {
         const auto axis = touch->GetAxis();
         const auto center = touch->GetCenter();
@@ -225,7 +225,7 @@ int16_t Emulator::_GetLightGunState(unsigned index, unsigned id)
     switch (id)
     {
     case RETRO_DEVICE_ID_LIGHTGUN_TRIGGER:
-        return front->GetState() == TouchDown ? 1 : 0;
+        return front->IsTouched();
 
     case RETRO_DEVICE_ID_LIGHTGUN_AUX_A:
         return (_input.GetKeyStates() & _keys[RETRO_DEVICE_ID_JOYPAD_A]) ? 1 : 0;
@@ -278,7 +278,7 @@ int16_t Emulator::_GetPointerState(unsigned index, unsigned id)
         return front->GetMapedY(_video_rect);
 
     case RETRO_DEVICE_ID_POINTER_PRESSED:
-        return front->GetState() == TouchDown ? 1 : 0;
+        return front->IsTouched();
 
     case RETRO_DEVICE_ID_POINTER_COUNT:
         return front->GetId();

@@ -21,14 +21,6 @@ namespace Emu4VitaPlus
         };
     };
 
-    enum TouchState
-    {
-        TouchNone = 0,
-        TouchDown = 1,
-        TouchHold = 2,
-        TouchUp = 4,
-    };
-
     class Touch
     {
     public:
@@ -38,14 +30,25 @@ namespace Emu4VitaPlus
         void Enable(bool enable);
         bool IsEnabled() const { return _enabled; };
         void Poll();
-        TouchState GetState();
+        bool IsTouched() { return _touched; };
         int16_t GetId() const { return _current_id; };
         const TouchAxis &GetAxis() const { return _axis; };
         const TouchAxis &GetCenter() const { return _center; };
         const SceTouchPanelInfo &GetInfo() const { return _info[_port]; };
         void InitMovingScale(float xscale, float yscale);
-        const int16_t GetRelativeMovingX() { return _GetRelativeMoving(&_scale_map_table_x, _axis.x - _last_axis.x); };
-        const int16_t GetRelativeMovingY() { return _GetRelativeMoving(&_scale_map_table_y, _axis.y - _last_axis.y); };
+        const int16_t GetRelativeMovingX()
+        {
+            int16_t v = _GetRelativeMoving(&_scale_map_table_x, _axis.x - _last_axis.x);
+            _last_axis.x = _axis.x;
+            return v;
+        };
+
+        const int16_t GetRelativeMovingY()
+        {
+            int16_t v = _GetRelativeMoving(&_scale_map_table_y, _axis.y - _last_axis.y);
+            _last_axis.y = _axis.y;
+            return v;
+        };
 
         template <typename T>
         void InitMapTable(const Rect<T> &rect)
@@ -54,8 +57,6 @@ namespace Emu4VitaPlus
             T half_height = rect.height / 2;
             float xscale = 32767.f / half_width; // 0x7fff == 32767
             float yscale = 32767.f / half_height;
-
-            _locker.Lock();
 
             _map_table_x.clear();
             _map_table_x.reserve(rect.width);
@@ -70,8 +71,6 @@ namespace Emu4VitaPlus
             {
                 _map_table_y.emplace_back((y - half_height) * yscale);
             }
-
-            _locker.Unlock();
         }
 
         template <typename T>
@@ -94,9 +93,8 @@ namespace Emu4VitaPlus
         const inline int16_t _GetRelativeMoving(std::vector<float> *table, int v)
         {
             int16_t result = 0;
-            if (_last_id == _current_id && v != 0)
+            if (v != 0)
             {
-                _locker.Lock();
                 if (v > 0 && v < _scale_map_table_x.size())
                 {
                     result = _scale_map_table_x[v];
@@ -109,7 +107,6 @@ namespace Emu4VitaPlus
                         result = -_scale_map_table_x[v];
                     }
                 }
-                _locker.Unlock();
             }
             return result;
         }
@@ -119,12 +116,10 @@ namespace Emu4VitaPlus
         TouchAxis _last_axis;
         TouchAxis _axis;
         TouchAxis _center;
-        uint8_t _last_id;
         uint8_t _current_id;
         SceTouchPortType _port;
         float _x_scale;
         float _y_scale;
-        size_t _down_count;
 
         // map to retro's coordinate system
         // -0x7fff to 0x7fff
@@ -135,8 +130,6 @@ namespace Emu4VitaPlus
         std::vector<float> _scale_map_table_x;
         std::vector<float> _scale_map_table_y;
 
-        std::queue<TouchState> _states;
-
-        Locker _locker;
+        bool _touched;
     };
 }
