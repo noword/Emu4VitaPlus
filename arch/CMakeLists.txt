@@ -89,6 +89,7 @@ target_link_libraries(
     jpeg
     z
     pthread
+    SceLibJson_stub
     ScePvf_stub
     ScePgf_stub
     SceDisplay_stub

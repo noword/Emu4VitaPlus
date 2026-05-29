@@ -3,6 +3,7 @@
 #include "file.h"
 #include "log.h"
 #include "utils.h"
+#include "theme.h"
 
 #define MAIN_SECTION "MAIN"
 #define CONSOLE_SECTION "CONSOLE"
@@ -62,13 +63,10 @@ bool Config::Load(const char *path)
         return false;
     }
 
-    const char *tmp = ini.GetValue(MAIN_SECTION, "last_core");
-    if (tmp)
-    {
-        last_core = tmp;
-    }
+    last_core = ini.GetValue(MAIN_SECTION, "last_core", "");
+    theme = ini.GetValue(MAIN_SECTION, "theme", DEFAULT_THEME_NAME);
 
-    tmp = ini.GetValue(MAIN_SECTION, "language");
+    const char *tmp = ini.GetValue(MAIN_SECTION, "language");
     if (tmp)
     {
         for (size_t i = 0; i < LANGUAGE_COUNT; i++)
@@ -102,6 +100,7 @@ bool Config::Save(const char *path)
 
     ini.SetValue(MAIN_SECTION, "last_core", last_core.c_str());
     ini.SetValue(MAIN_SECTION, "language", gLanguageNames[language]);
+    ini.SetValue(MAIN_SECTION, "theme", theme.c_str());
 
     for (size_t i = 0; i < CONSOLE_COUNT; i++)
     {

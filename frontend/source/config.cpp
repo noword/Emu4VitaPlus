@@ -314,7 +314,8 @@ namespace Emu4VitaPlus
         ini.Reset();
         if (ini.LoadFile(ARCH_CONFIG_PATH) == SI_OK)
         {
-            ini.SetValue("MAIN", "language", gLanguageNames[gConfig->language]);
+            ini.SetValue(MAIN_SECTION, "language", gLanguageNames[gConfig->language]);
+            ini.SetValue(MAIN_SECTION, "theme", theme.c_str());
 
             ini.SetValue(RA_SECTION, "user", ra_user.c_str());
             ini.SetValue(RA_SECTION, "token", ra_token.c_str());

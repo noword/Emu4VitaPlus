@@ -6,6 +6,7 @@ import json
 
 THEMES_TOML = 'themes.toml'
 OUTPUT_JSON = 'themes.json'
+EXCLUDES = ('Moonlight', 'Darky')
 STYLE_MAP = {  # The version of imgui-vita2d is relatively old and has fewer style attributes.
     "alpha": "Alpha",
     "windowPadding": "WindowPadding",
@@ -111,6 +112,8 @@ data = toml.load(open(THEMES_TOML))['themes']
 
 new_data = []
 for d in data:
+    if d['name'] in EXCLUDES:
+        continue
     styles = {}
     for k, v in STYLE_MAP.items():
         styles[v] = d['style'][k]

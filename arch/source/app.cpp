@@ -12,6 +12,7 @@
 #include "config.h"
 #include "icons.h"
 #include "language_arch.h"
+#include "theme.h"
 
 bool gRunning = true;
 std::string gCoreName;
@@ -82,8 +83,10 @@ App::App()
     ImGui_ImplVita2D_UseRearTouch(false);
     ImGui_ImplVita2D_GamepadUsage(false);
 
-    ImGuiStyle *style = &ImGui::GetStyle();
-    style->Colors[ImGuiCol_TitleBg] = style->Colors[ImGuiCol_TitleBgActive];
+    Themes themes(DEFAULT_THEMES_JSON);
+    themes.Apply(gConfig->theme.c_str());
+    // ImGuiStyle *style = &ImGui::GetStyle();
+    // style->Colors[ImGuiCol_TitleBg] = style->Colors[ImGuiCol_TitleBgActive];
 
     _buttons = {
         new CoreButton(ATARI2600, // 1977
