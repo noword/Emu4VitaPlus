@@ -71,7 +71,7 @@ public:
     uint64_t GetMsPerFrame() { return _delay.GetInterval(); };
     void StartInput() { _input.Start(); };
     void StopInput() { _input.Stop(); }
-    int16_t GetInputInfo(AnalogAxis &left, AnalogAxis &right, TouchAxis &touch);
+    int16_t GetInputInfo(AnalogAxis &left, AnalogAxis &right, TouchAxis &touch, bool &touched);
     bool NeedShowKeyboard() { return _keyboard && _keyboard->Visable(); };
 
     void ChangeGraphicsConfig() { _graphics_config_changed = true; };

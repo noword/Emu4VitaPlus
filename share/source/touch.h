@@ -30,8 +30,8 @@ namespace Emu4VitaPlus
         void Enable(bool enable);
         bool IsEnabled() const { return _enabled; };
         void Poll();
-        bool IsTouched() { return _touched; };
-        int16_t GetId() const { return _current_id; };
+        bool IsTouched() const { return _touched; };
+        uint8_t GetId() const { return _current_id; };
         const TouchAxis &GetAxis() const { return _axis; };
         const TouchAxis &GetCenter() const { return _center; };
         const SceTouchPanelInfo &GetInfo() const { return _info[_port]; };

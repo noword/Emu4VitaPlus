@@ -18,7 +18,8 @@ using namespace Emu4VitaPlus;
 #define ANALOG_Y (BUTTON_HEIGHT * 8)
 #define ANALOG_RADIUS (BUTTON_WIDTH * 2)
 #define ANALOG_POINT_RADIUS BUTTON_WIDTH
-#define TOUCH_RADIUS (BUTTON_WIDTH / 4)
+#define TOUCH_RADIUS_SMALL (BUTTON_WIDTH / 4)
+#define TOUCH_RADIUS BUTTON_WIDTH
 
 Button Gamepad::_buttons[14] = {
     {BUTTON_B, {RIGHT_POS, BUTTON_HEIGHT * 3.5}},
@@ -82,7 +83,8 @@ void Gamepad::Show()
 
     AnalogAxis left, right;
     TouchAxis touch;
-    const int16_t keys = gEmulator->GetInputInfo(left, right, touch);
+    bool touched;
+    const int16_t keys = gEmulator->GetInputInfo(left, right, touch, touched);
 
     if (keys & (1 << RETRO_DEVICE_ID_JOYPAD_START))
     {
@@ -173,7 +175,10 @@ void Gamepad::Show()
         ImGui::SetCursorScreenPos({(VITA_WIDTH - text_size.x) / 2, VITA_HEIGHT - text_size.y * 2});
         ImGui::TextUnformatted(s);
 
-        draw_list->AddCircleFilled({(float)touch.x, (float)touch.y}, TOUCH_RADIUS, ImGui::GetColorU32(ImGuiCol_Button));
+        if (touch != TouchAxis{0, 0})
+            draw_list->AddCircleFilled({(float)touch.x, (float)touch.y},
+                                       touched ? TOUCH_RADIUS : TOUCH_RADIUS_SMALL,
+                                       touched ? ImU32 IM_COL32_RED : ImGui::GetColorU32(ImGuiCol_Button));
 
         ImGui::EndPopup();
     }

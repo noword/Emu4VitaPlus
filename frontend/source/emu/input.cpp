@@ -225,7 +225,18 @@ int16_t Emulator::_GetLightGunState(unsigned index, unsigned id)
     switch (id)
     {
     case RETRO_DEVICE_ID_LIGHTGUN_TRIGGER:
-        return front->IsTouched();
+    {
+        static uint8_t last_id = 0xff;
+        if (last_id != front->GetId() && front->IsTouched())
+        {
+            last_id = front->GetId();
+            return 1;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 
     case RETRO_DEVICE_ID_LIGHTGUN_AUX_A:
         return (_input.GetKeyStates() & _keys[RETRO_DEVICE_ID_JOYPAD_A]) ? 1 : 0;
@@ -579,18 +590,31 @@ void Emulator::_SetControllerInfo(retro_controller_info *info)
     gUi->UpdateControllerOptions();
 }
 
-int16_t Emulator::GetInputInfo(AnalogAxis &left, AnalogAxis &right, TouchAxis &touch)
+int16_t Emulator::GetInputInfo(AnalogAxis &left, AnalogAxis &right, TouchAxis &touch, bool &touched)
 {
     left = _input.GetLeftAnalogAxis();
     right = _input.GetRightAnalogAxis();
 
-    Touch *t = _input.GetFrontTouch();
-    touch = t->IsEnabled() ? t->GetAxis() : TouchAxis{0, 0};
+    const Touch *t = _input.GetFrontTouch();
 
-    if (touch == TouchAxis{0, 0})
+    if (t->IsEnabled())
+    {
+        touched = t->IsTouched();
+        touch = t->GetAxis();
+    }
+    else
     {
         t = _input.GetRearTouch();
-        touch = t->IsEnabled() ? t->GetAxis() : TouchAxis{0, 0};
+        if (t->IsEnabled())
+        {
+            touched = t->IsTouched();
+            touch = t->GetAxis();
+        }
+        else
+        {
+            touched = false;
+            touch = TouchAxis{0, 0};
+        }
     }
 
     return _GetJoypadState(0, RETRO_DEVICE_ID_JOYPAD_MASK);
