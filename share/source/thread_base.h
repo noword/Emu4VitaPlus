@@ -25,6 +25,7 @@ public:
     bool Start(void *data, SceSize size);
     void Stop(bool force = false);
     bool IsRunning() { return _keep_running; };
+    int Join();
 
 protected:
     SceKernelThreadEntry _entry;

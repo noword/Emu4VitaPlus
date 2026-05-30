@@ -1,7 +1,6 @@
 #pragma once
 #include <stdint.h>
 #include <vector>
-#include <queue>
 #include <psp2/touch.h>
 #include "rect.h"
 #include "locker.h"

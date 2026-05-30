@@ -90,6 +90,13 @@ void ThreadBase::Stop(bool force)
     _thread_id = -1;
 }
 
+int ThreadBase::Join()
+{
+    int exit_status;
+    sceKernelWaitThreadEnd(_thread_id, &exit_status, NULL);
+    return exit_status;
+}
+
 SceUID StartThread(SceKernelThreadEntry entry,
                    SceSize args,
                    void *argp,
