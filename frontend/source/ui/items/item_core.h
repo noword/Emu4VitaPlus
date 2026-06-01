@@ -5,27 +5,22 @@
 #include "file.h"
 #include "global.h"
 
-void ItemCoreOnClick()
-{
-    gConfig->Save();
-    // if (gConfig->independent_config && gStatus.Get() == APP_STATUS_SHOW_UI_IN_GAME && *gEmulator->GetCurrentName())
-    // {
-    //     File::MakeDirs((std::string(CORE_SAVEFILES_DIR) + "/" + gEmulator->GetCurrentName()).c_str());
-    //     gConfig->core_options.Save((std::string(CORE_SAVEFILES_DIR) + "/" + gEmulator->GetCurrentName() + "/core.ini").c_str());
-    // }
-    if (*gEmulator->GetCurrentName()) // game loaded
-    {
-        gEmulator->CoreOptionUpdate();
-        gHint->SetHint(TEXT(LANG_CORE_NOTICE));
-    }
-}
-
 class ItemCore : public ItemSelectable
 {
 public:
     ItemCore(CoreOption *option)
-        : ItemSelectable(option->desc, option->info, ItemCoreOnClick),
-          _option(option)
+        : _option(option),
+          ItemSelectable(option->desc,
+                         option->info,
+                         []()
+                         {
+                             gConfig->Save();
+                             if (*gEmulator->GetCurrentName()) // game loaded
+                             {
+                                 gEmulator->CoreOptionUpdate();
+                                 gHint->SetHint(TEXT(LANG_CORE_NOTICE));
+                             }
+                         })
     {
         _values = _option->GetValues();
         _index = _option->GetValueIndex();

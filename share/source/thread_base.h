@@ -39,7 +39,7 @@ protected:
 
 // entry function must call sceKernelExitDeleteThread at end
 // call sceKernelWaitThreadEnd to join the thread
-SceUID StartThread(SceKernelThreadEntry entry, SceSize args, void *argp,
+SceUID StartThread(SceKernelThreadEntry entry, SceSize args = 0, void *argp = nullptr,
                    int priority = SCE_KERNEL_DEFAULT_PRIORITY_USER,
                    int cpu_affinity = SCE_KERNEL_THREAD_CPU_AFFINITY_MASK_DEFAULT,
                    int stack_size = DEFAULT_STACK_SIZE);

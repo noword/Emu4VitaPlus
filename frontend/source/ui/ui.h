@@ -12,6 +12,18 @@
 class Ui
 {
     friend class App;
+    friend int SystemTabCreator(SceSize args, void *argp);
+    friend int StateTabCreator(SceSize args, void *argp);
+    friend int CheatTabCreator(SceSize args, void *argp);
+    friend int AchievementsTabCreator(SceSize args, void *argp);
+    friend int BrowserTabCreator(SceSize args, void *argp);
+    friend int FavoriteTabCreator(SceSize args, void *argp);
+    friend int GraphicsTabCreator(SceSize args, void *argp);
+    friend int ControlTabCreator(SceSize args, void *argp);
+    friend int HotkeyTabCreator(SceSize args, void *argp);
+    friend int CoreTabCreator(SceSize args, void *argp);
+    friend int OptionsTabCreator(SceSize args, void *argp);
+    friend int AboutTabCreator(SceSize args, void *argp);
 
 public:
     Ui();
@@ -55,6 +67,16 @@ private:
     void _ClearTabs();
     void _LockPsButton();
     void _UnlockPsButton();
+
+    void _ResumeGame();
+    void _ResetGame();
+    void _ExitGame();
+    void _ReturnToArch();
+    void _ExitApp();
+    void _ResetGraphics();
+    void _ResetControl();
+    void _ResetHotkey();
+    void _ResetCoreOptions();
 
     std::string _title;
 
