@@ -170,10 +170,19 @@ Sharp X68000
   pacman -S cmake python python-pip ccache
   ```
 
-* Install [openpyxl](https://pypi.org/project/openpyxl/), [pillow](https://pypi.org/project/pillow/), [lz4](https://pypi.org/project/lz4/)
+* Install [openpyxl](https://pypi.org/project/openpyxl/), [pillow](https://pypi.org/project/pillow/), [lz4](https://pypi.org/project/lz4/), [toml](https://pypi.org/project/toml/)
 
   ```bash
-  pip install openpyxl lz4
+  pip install openpyxl lz4 toml
+  ```
+
+  Alternatively, you can install the appropriate version using pacman (recommended).
+
+  ```bash
+  pacman -S mingw-w64-???-???-python-openpyxl \
+            mingw-w64-???-???-python-pillow \
+            mingw-w64-???-???-python-lz4 \
+            mingw-w64-???-???-python-toml
   ```
 
 ### Linux
