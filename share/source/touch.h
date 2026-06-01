@@ -12,6 +12,7 @@ namespace Emu4VitaPlus
         int16_t x;
         int16_t y;
         inline bool operator==(const TouchAxis &axis) const { return x == axis.x && y == axis.y; };
+        inline bool operator!=(const TouchAxis &axis) const { return !(*this == axis); };
         inline TouchAxis &operator=(const TouchAxis &axis)
         {
             x = axis.x;

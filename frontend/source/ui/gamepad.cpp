@@ -178,7 +178,7 @@ void Gamepad::Show()
         if (touch != TouchAxis{0, 0})
             draw_list->AddCircleFilled({(float)touch.x, (float)touch.y},
                                        touched ? TOUCH_RADIUS : TOUCH_RADIUS_SMALL,
-                                       touched ? ImU32 IM_COL32_RED : ImGui::GetColorU32(ImGuiCol_Button));
+                                       touched ? IM_COL32_RED : ImGui::GetColorU32(ImGuiCol_Button));
 
         ImGui::EndPopup();
     }

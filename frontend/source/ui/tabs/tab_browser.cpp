@@ -489,7 +489,9 @@ void TabBrowser::_OnDownloadThumbnails(Input *input)
     _updating_thumbnails = true;
 
     uint32_t p = (uint32_t)this;
-    return StartThread(_DownloadThumbnailsThread, 4, &p);
+    StartThread(_DownloadThumbnailsThread, 4, &p);
+
+    return;
 }
 
 void TabBrowser::_OnCancelDownloadThumbnails(Input *input)
