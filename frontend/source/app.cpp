@@ -114,7 +114,7 @@ App::App()
     gUi->AppendLog("Initialize video");
     gUi->AppendLog("Initialize core spec settings");
 
-    gUi->AppendLog("Load Sounds");
+    gUi->AppendLog("Load sounds");
     gSound = new Sound();
 
     gUi->AppendLog("Initialize network");
@@ -137,18 +137,18 @@ App::App()
     gUi->AppendLog("Load shaders");
     gShaders = new Shaders;
 
-    gUi->AppendLog("Load Favorites");
+    gUi->AppendLog("Load favorites");
     gFavorites = new Favorites;
 
-    gUi->AppendLog("Load RetroArch Playlists");
+    gUi->AppendLog("Load RetroArch playlists");
     gPlaylists = new RetroArchPlaylists;
     gPlaylists->LoadAll();
 
-    gUi->AppendLog("Load Rom names DB");
+    gUi->AppendLog("Load rom names DB");
     gRomNameMap = new RomNameMap;
     gRomNameMap->Load();
 
-    gUi->AppendLog("Load Crc32 cache");
+    gUi->AppendLog("Load crc32 cache");
     gCrc32Cache = new Crc32Cache<>;
     gCrc32Cache->Load();
 
