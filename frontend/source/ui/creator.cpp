@@ -335,7 +335,7 @@ void Ui::CreateTables()
 
     _ClearTabs();
 
-    int thread_ids[TAB_INDEX_COUNT] = {0};
+    int thread_ids[TAB_INDEX_COUNT] = {-1};
 
     uint32_t p = (uint32_t)this;
     for (int i = 0; i < TAB_INDEX_COUNT; i++)
