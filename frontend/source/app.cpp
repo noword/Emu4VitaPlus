@@ -32,6 +32,76 @@
 
 using namespace Emu4VitaPlus;
 
+static const SceKernelThreadEntry InitThreads[] = {
+    [](SceSize args, void *argp) -> int
+    {
+        gUi->AppendLog("Initialize emulator");
+        gEmulator->Init();
+        return sceKernelExitDeleteThread(0);
+    },
+
+    [](SceSize args, void *argp) -> int
+    {
+        gUi->AppendLog("Initialize state manager");
+        gStateManager = new CoreStateManager();
+        return sceKernelExitDeleteThread(0);
+    },
+
+    [](SceSize args, void *argp) -> int
+    {
+        gUi->AppendLog("Initialize archive reader factory");
+        gArchiveReaderFactory = new ArchiveReaderFactory();
+        return sceKernelExitDeleteThread(0);
+    },
+
+    [](SceSize args, void *argp) -> int
+    {
+        gUi->AppendLog("Load overlays");
+        gOverlays = new Overlays;
+        return sceKernelExitDeleteThread(0);
+    },
+
+    [](SceSize args, void *argp) -> int
+    {
+        gUi->AppendLog("Load shaders");
+        gShaders = new Shaders;
+        return sceKernelExitDeleteThread(0);
+    },
+
+    [](SceSize args, void *argp) -> int
+    {
+        gUi->AppendLog("Load favorites");
+        gFavorites = new Favorites;
+        return sceKernelExitDeleteThread(0);
+    },
+
+    [](SceSize args, void *argp) -> int
+    {
+        gUi->AppendLog("Load RetroArch playlists");
+        gPlaylists = new RetroArchPlaylists;
+        gPlaylists->LoadAll();
+        return sceKernelExitDeleteThread(0);
+    },
+
+    [](SceSize args, void *argp) -> int
+    {
+        gUi->AppendLog("Load rom names DB");
+        gRomNameMap = new RomNameMap;
+        gRomNameMap->Load();
+        return sceKernelExitDeleteThread(0);
+    },
+
+    [](SceSize args, void *argp) -> int
+    {
+        gUi->AppendLog("Load crc32 cache");
+        gCrc32Cache = new Crc32Cache<>;
+        gCrc32Cache->Load();
+        return sceKernelExitDeleteThread(0);
+    },
+};
+
+static const size_t InitThreadsCount = sizeof(InitThreads) / sizeof(InitThreads[0]);
+
 App::App()
 {
     LogFunctionName;
@@ -114,44 +184,6 @@ App::App()
     gUi->AppendLog("Initialize video");
     gUi->AppendLog("Initialize core spec settings");
 
-    gUi->AppendLog("Load sounds");
-    gSound = new Sound();
-
-    gUi->AppendLog("Initialize network");
-    // special for RetroAchievements
-    gNetwork->SetUserAgent(std::string("Emu4Vita++/" APP_VER_STR " ") + gEmulator->GetCoreName() + "/" + gEmulator->GetCoreVersion());
-    gNetwork->Start();
-
-    gUi->AppendLog("Initialize emulator");
-    gEmulator->Init();
-
-    gUi->AppendLog("Initialize state manager");
-    gStateManager = new CoreStateManager();
-
-    gUi->AppendLog("Initialize archive reader factory");
-    gArchiveReaderFactory = new ArchiveReaderFactory();
-
-    gUi->AppendLog("Load overlays");
-    gOverlays = new Overlays;
-
-    gUi->AppendLog("Load shaders");
-    gShaders = new Shaders;
-
-    gUi->AppendLog("Load favorites");
-    gFavorites = new Favorites;
-
-    gUi->AppendLog("Load RetroArch playlists");
-    gPlaylists = new RetroArchPlaylists;
-    gPlaylists->LoadAll();
-
-    gUi->AppendLog("Load rom names DB");
-    gRomNameMap = new RomNameMap;
-    gRomNameMap->Load();
-
-    gUi->AppendLog("Load crc32 cache");
-    gCrc32Cache = new Crc32Cache<>;
-    gCrc32Cache->Load();
-
     if (gConfig->language != LANGUAGE::LANGUAGE_ENGLISH)
     {
         gUi->AppendLog("Load font");
@@ -161,15 +193,34 @@ App::App()
         gVideo->Unlock();
     }
 
-    gUi->AppendLog("Initialize RetroAchievements");
+    gUi->AppendLog("Load sounds");
+    gSound = new Sound();
+
+    gUi->AppendLog("Initialize network");
+    // special for RetroAchievements
+    gNetwork->SetUserAgent(std::string("Emu4Vita++/" APP_VER_STR " ") + gEmulator->GetCoreName() + "/" + gEmulator->GetCoreVersion());
+    gNetwork->Start();
 
     if (RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE && !gRetroAchievements->IsRunning())
     {
+        gUi->AppendLog("Initialize RetroAchievements");
         gRetroAchievements->Start();
         if (gNetwork->Connected() && gConfig->ra_login && !gConfig->ra_token.empty())
         {
             gRetroAchievements->LoginWithToekn(gConfig->ra_user.c_str(), gConfig->ra_token.c_str());
         }
+    }
+
+    int thread_ids[InitThreadsCount] = {-1};
+    for (int i = 0; i < InitThreadsCount; i++)
+    {
+        thread_ids[i] = StartThread(InitThreads[i]);
+    }
+
+    for (int i = 0; i < InitThreadsCount; i++)
+    {
+        if (thread_ids[i] >= 0)
+            sceKernelWaitThreadEnd(thread_ids[i], nullptr, nullptr);
     }
 
     gUi->AppendLog("Create tables of UI");
