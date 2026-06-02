@@ -11,20 +11,6 @@
 
 class Ui
 {
-    friend class App;
-    friend int SystemTabCreator(SceSize args, void *argp);
-    friend int StateTabCreator(SceSize args, void *argp);
-    friend int CheatTabCreator(SceSize args, void *argp);
-    friend int AchievementsTabCreator(SceSize args, void *argp);
-    friend int BrowserTabCreator(SceSize args, void *argp);
-    friend int FavoriteTabCreator(SceSize args, void *argp);
-    friend int GraphicsTabCreator(SceSize args, void *argp);
-    friend int ControlTabCreator(SceSize args, void *argp);
-    friend int HotkeyTabCreator(SceSize args, void *argp);
-    friend int CoreTabCreator(SceSize args, void *argp);
-    friend int OptionsTabCreator(SceSize args, void *argp);
-    friend int AboutTabCreator(SceSize args, void *argp);
-
 public:
     Ui();
     virtual ~Ui();
