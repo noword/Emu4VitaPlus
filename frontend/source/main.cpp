@@ -87,7 +87,10 @@ int main(int argc, char *const argv[])
     LogDebug("stack size: %d", sceKernelCheckThreadStack());
 
     {
+        uint64_t startup_time = sceKernelGetProcessTimeWide();
         App app;
+        startup_time = sceKernelGetProcessTimeWide() - startup_time;
+        LogInfo("Startup time: %lld.%lld", startup_time / UINT64_C(1000000), startup_time % UINT64_C(1000000));
         LogInfo("_newlib_heap_size: %d", _newlib_heap_size);
         LogInfo("free heap: %d", _newlib_heap_end - _newlib_heap_cur);
         app.Run();
