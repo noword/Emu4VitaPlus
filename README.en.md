@@ -39,6 +39,9 @@ This is an emulator frontend for the PlayStation Vita, based on the [Libretro AP
 
 <img src="screenshots/control_test.jpg" width="720">
 
+### Theme
+<img src="screenshots/theme.jpg" width="720">
+
 ### In game
 <img src="screenshots/game.jpg" alt="drawing" width="720"/>
 
