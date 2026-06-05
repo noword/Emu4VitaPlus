@@ -5,6 +5,7 @@ from colorthief import ColorThief
 import shutil
 from cores import *
 import os
+import subprocess
 
 # svg from https://gitlab.com/recalbox/recalbox-themes
 
@@ -153,11 +154,28 @@ for console, cores in CORES.items():
     color = gen_bg(console, cores)
     gen_startup(console, cores, color)
 
-os.environ['PATH'] += os.pathsep + 'C:/Program Files/GIMP 2/bin'
 
-os.system(
-    '''gimp-2.10.exe -idf --batch-interpreter python-fu-eval  -b "import sys;sys.path+=['.'];import apply_filters;apply_filters.apply_filters()"  -b "pdb.gimp_quit(1)"'''
+GIMP_PATH = 'C:/Program Files/GIMP 3/bin'
+GIMP_EXE = f'{GIMP_PATH}/gimp-3.exe'
+GIMP_SCRIPT = 'apply_filters.py'
+
+os.environ['PATH'] += os.pathsep + GIMP_PATH
+
+scripts = open('cores.py').read()
+scripts += open(GIMP_SCRIPT).read()
+
+subprocess.run(
+    [
+        GIMP_EXE,
+        "-i",
+        "--batch-interpreter=python-fu-eval",
+        "-b",
+        scripts,
+        "--quit",
+    ],
+    check=True,
 )
+
 
 for console, cores in CORES.items():
     name = f'{console}.png'
