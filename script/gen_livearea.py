@@ -138,11 +138,14 @@ def gen_startup(console, cores, color):
     im = Image.new('RGBA', (STARTUP_WIDTH, STARTUP_HEIGHT), '#cccccc66')
     im.paste(_im, ((STARTUP_WIDTH - ICON_WIDTH) // 2, 18), _im)
     for core in cores:
+        name = f'../apps/{core}/pkg/sce_sys/livearea/contents/startup.png'
+        if os.path.exists(name):
+            continue
+
         _im = im.copy()
         draw = ImageDraw.Draw(_im)
         length = draw.textlength(NAMES[core], font=TINY_FONT)
-        draw.text(((STARTUP_WIDTH - length) // 2, ICON_WIDTH), NAMES[core], font=TINY_FONT, fill=color)
-        name = f'../apps/{core}/pkg/sce_sys/livearea/contents/startup.png'
+        draw.text(((STARTUP_WIDTH - length) // 2, h + 24), NAMES[core], font=TINY_FONT, fill=color)
         try:
             os.makedirs(os.path.split(name)[0])
         except:

@@ -52,7 +52,6 @@ def apply_filters():
         img_path = str(Path(img_path).resolve())
         print(img_path)
         process_image(img_path)
-        break
 
 
 apply_filters()

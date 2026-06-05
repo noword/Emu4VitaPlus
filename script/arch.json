@@ -289,6 +289,18 @@
     },
     {
         "No.": "25",
+        "Tag": "INTRO_PC88",
+        "English": "The PC-8800 series (Japanese: PC-8800シリーズ, Hepburn: Pī Shī Hassen Happyaku Shirīzu), commonly shortened to PC-88, are a brand of Zilog Z80-based 8-bit home computers released by NEC in 1981 and primarily sold in Japan.",
+        "Chinese": "PC-8800系列，简称PC-88，是由日本电气（NEC）自1981年起在日本发行（之后移交NEC Home Electronics）的一系列家用电脑产品。系列首款产品是1981年12月推出的PC-8801，其采用Zilog Z80为中央处理器，在日本非常畅销。NEC后续推出了包括PC-8801mkII、PC-8801mkIISR、PC-88VA在内的多种机型。",
+        "Japanese": "PC-8800シリーズは、1981年（昭和56年）から日本電気（NEC、後に日本電気ホームエレクトロニクスへ移管）が販売していた、パーソナルコンピュータ「PC-8801」及びその周辺機器のシリーズ名である。1980年代当時パソコン御三家の筆頭格と謳われたシリーズの一つである。",
+        "Italian": "La serie di NEC PC-8801 o PC-8800 (PC-8800シリーズ, Pī Shī Hassen Happyaku Shirīzu), generalmente abbreviata in PC-88, è una linea di home computer a 8 bit basati sul processore NEC µPD780C, clone del Zilog Z80, prodotti dal 1981 da NEC e commercializzati prevalentemente in Giappone.",
+        "French": "Le PC-88 (de son nom complet NEC PC-8801) est un micro-ordinateur japonais créé par NEC en 1981 et basé à sa sortie sur le microprocesseur Zilog Z80. Le PC-88 a connu un franc succès au Japon, mais n'a été commercialisé dans aucun autre pays.",
+        "Spanish": "La serie de computadoras NEC PC-8801 fue introducida por NEC Corporation en 1981 y comercializada hasta 1989, y es uno de los primeros computadores que estuvieron basados en el microprocesador Zilog Z80. El PC-88, como fue conocido informalmente, se hizo muy popular en Japón, pero no fue lanzado en otros mercados.",
+        "Russian": "NEC PC-8800 (неформальное название — PC-88) — семейство восьмибитных компьютеров компании NEC на базе Z80-совместимого процессора. Компьютеры семейства являлись одними из самых популярных в Японии благодаря сбалансированному соотношению «цена-характеристики». Начиная с модели mkIISR компьютеры поставлялись также в США, но там большой популярности им получить не удалось.",
+        "Comments": ""
+    },
+    {
+        "No.": "26",
         "Tag": "LANG_MANAGE_ICONS",
         "English": "⇸ Manage icons",
         "Chinese": "⇸ 管理图标",
