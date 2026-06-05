@@ -116,6 +116,13 @@ elseif(CORE STREQUAL "snes9x")
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/Makefile)
 elseif(CORE STREQUAL "mgba")
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/Makefile.libretro)
+elseif(CORE STREQUAL "quasi88")
+    set(CORE_CFLAGS ${CORE_CFLAGS} -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard
+        -mword-relocations -fno-optimize-sibling-calls -fsingle-precision-constant
+        -fno-unwind-tables -fno-asynchronous-unwind-tables
+        -ffast-math -ftree-vectorize -O3
+        -funsafe-math-optimizations -mvectorize-with-neon-quad
+        -fdata-sections -ffunction-sections -Wno-error=incompatible-pointer-types)
 else()
     message(FATAL_ERROR "unknown core: " ${CORE})
 endif()

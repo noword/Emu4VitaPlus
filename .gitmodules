@@ -211,3 +211,7 @@
 	path = cores/NP2kai
 	url = https://github.com/AZO234/NP2kai.git
 	branch = master
+[submodule "cores/quasi88-libretro"]
+	path = cores/quasi88-libretro
+	url = https://github.com/libretro/quasi88-libretro.git
+	branch = master
