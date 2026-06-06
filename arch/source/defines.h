@@ -21,6 +21,7 @@ enum CONSOLE
     VECTREX,
     ZXS,
     DOS,
+    PC88,
     PC98,
     MSX,
     NES,

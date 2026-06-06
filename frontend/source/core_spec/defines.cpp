@@ -80,7 +80,8 @@ const char THUMBNAILS_PATH[] =
     defined(MSX_BUILD) ||     \
     defined(C64_BUILD) ||     \
     defined(X68000_BUILD) ||  \
-    defined(VECTREX_BUILD)
+    defined(VECTREX_BUILD) || \
+    defined(PC88_BUILD)
 const bool DEFAULT_ENABLE_REWIND = false;
 const size_t DEFAULT_REWIND_BUF_SIZE = 50;
 #else
@@ -118,7 +119,8 @@ const bool DEFAULT_MOUSE = CONFIG_MOUSE_DISABLE;
     defined(X68000_BUILD) ||        \
     defined(MEDNAFEN_LYNX_BUILD) || \
     defined(CPC_BUILD) ||           \
-    defined(ATARI5200_BUILD)
+    defined(ATARI5200_BUILD) ||     \
+    defined(PC88_BUILD)
 const bool DEFAULT_AUTO_SAVE = false;
 const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = true;
 #else
@@ -136,7 +138,8 @@ const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = false;
     defined(X68000_BUILD) ||        \
     defined(MEDNAFEN_LYNX_BUILD) || \
     defined(CPC_BUILD) ||           \
-    defined(ARC_BUILD)
+    defined(ARC_BUILD) ||           \
+    defined(PC88_BUILD)
 const bool DEFAULT_AUTO_LOAD = false;
 #else
 const bool DEFAULT_AUTO_LOAD = true;
@@ -150,7 +153,8 @@ const bool DEFAULT_AUTO_LOAD = true;
     defined(C64_BUILD) ||       \
     defined(X68000_BUILD) ||    \
     defined(ATARI5200_BUILD) || \
-    defined(CPC_BUILD)
+    defined(CPC_BUILD) ||       \
+    defined(PC88_BUILD)
 const bool ENABLE_KEYBOARD = true;
 #else
 const bool ENABLE_KEYBOARD = false;

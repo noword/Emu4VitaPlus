@@ -18,6 +18,7 @@ const char *CONSOLE_NAMES[] = {
     "VECTREX",
     "ZXS",
     "DOS",
+    "PC88",
     "PC98",
     "MSX",
     "NES",

@@ -85,6 +85,18 @@
     },
     {
         "No.": "8",
+        "Tag": "INTRO_PC88",
+        "English": "The PC-8800 series (Japanese: PC-8800シリーズ, Hepburn: Pī Shī Hassen Happyaku Shirīzu), commonly shortened to PC-88, are a brand of Zilog Z80-based 8-bit home computers released by NEC in 1981 and primarily sold in Japan.",
+        "Chinese": "PC-8800系列，简称PC-88，是由日本电气（NEC）自1981年起在日本发行（之后移交NEC Home Electronics）的一系列家用电脑产品。系列首款产品是1981年12月推出的PC-8801，其采用Zilog Z80为中央处理器，在日本非常畅销。NEC后续推出了包括PC-8801mkII、PC-8801mkIISR、PC-88VA在内的多种机型。",
+        "Japanese": "PC-8800シリーズは、1981年（昭和56年）から日本電気（NEC、後に日本電気ホームエレクトロニクスへ移管）が販売していた、パーソナルコンピュータ「PC-8801」及びその周辺機器のシリーズ名である。1980年代当時パソコン御三家の筆頭格と謳われたシリーズの一つである。",
+        "Italian": "La serie di NEC PC-8801 o PC-8800 (PC-8800シリーズ, Pī Shī Hassen Happyaku Shirīzu), generalmente abbreviata in PC-88, è una linea di home computer a 8 bit basati sul processore NEC µPD780C, clone del Zilog Z80, prodotti dal 1981 da NEC e commercializzati prevalentemente in Giappone.",
+        "French": "Le PC-88 (de son nom complet NEC PC-8801) est un micro-ordinateur japonais créé par NEC en 1981 et basé à sa sortie sur le microprocesseur Zilog Z80. Le PC-88 a connu un franc succès au Japon, mais n'a été commercialisé dans aucun autre pays.",
+        "Spanish": "La serie de computadoras NEC PC-8801 fue introducida por NEC Corporation en 1981 y comercializada hasta 1989, y es uno de los primeros computadores que estuvieron basados en el microprocesador Zilog Z80. El PC-88, como fue conocido informalmente, se hizo muy popular en Japón, pero no fue lanzado en otros mercados.",
+        "Russian": "NEC PC-8800 (неформальное название — PC-88) — семейство восьмибитных компьютеров компании NEC на базе Z80-совместимого процессора. Компьютеры семейства являлись одними из самых популярных в Японии благодаря сбалансированному соотношению «цена-характеристики». Начиная с модели mkIISR компьютеры поставлялись также в США, но там большой популярности им получить не удалось.",
+        "Comments": ""
+    },
+    {
+        "No.": "9",
         "Tag": "INTRO_PC98",
         "English": "The PC-9800 series, commonly shortened to PC-98 or simply 98 (Kyū-hachi), is a lineup of Japanese 16-bit and 32-bit personal computers manufactured by NEC from 1982 to 2003. While based on Intel processors, it uses an in-house architecture making it incompatible with IBM clones; some PC-98 computers used NEC's own V30 processor. The platform established NEC's dominance in the Japanese personal computer market, and, by 1999, more than 18 million units had been sold. While NEC did not market these specific machines in the West, it sold the NEC APC series, which had similar hardware to early PC-98 models.",
         "Chinese": "PC9800系列，略称PC-98，是日本电气（NEC）独立设计的一系列16位至32位个人电脑产品，包括PC-9800、PC-9821、PC98-NX三个系列。从1982年问世以来，一度垄断日本电脑市场长达十多年，至1999年已售出1800万部以上；NEC亦曾于西方国家销售与早期的PC-98硬件构造相似的NEC APC系列电脑。微软推出Windows操作系统后，PC-98于2003年正式停产。",
@@ -96,7 +108,7 @@
         "Comments": ""
     },
     {
-        "No.": "9",
+        "No.": "10",
         "Tag": "INTRO_MSX",
         "English": "MSX is a standardized home computer architecture, announced by ASCII Corporation on June 16, 1983.  It was initially conceived by Microsoft as a product for the Eastern sector, and jointly marketed by Kazuhiko Nishi, the director at ASCII Corporation. Microsoft and Nishi conceived the project as an attempt to create unified standards among various home computing system manufacturers of the period, in the same fashion as the VHS standard for home video tape machines. The first MSX computer sold to the public was a Mitsubishi ML-8000, released on October 21, 1983, thus marking its official release date.",
         "Chinese": "MSX是一个标准化的家用计算机体系结构，最早由微软于1983年6月16日提出，并由后来的微软日本副总裁与ASCII主管西和彦构思。尽管有微软的介入，但MSX构架的机器在美国很少出现，而在日本、韩国、中东、巴西、苏联、荷兰、西班牙以及其他几个小型欧洲国家却非常流行。MSX计算机的销售数量难以估计，但仅在日本的最终销量就超过500万。在任天堂的红白机出现之前，MSX是日文主要的游戏平台，如科乐美和Hudson Soft就在这平台上生产游戏软件。比如合金装备系列最初就是为MSX硬件而编写。",
@@ -108,7 +120,7 @@
         "Comments": ""
     },
     {
-        "No.": "10",
+        "No.": "11",
         "Tag": "INTRO_NES",
         "English": "The Nintendo Entertainment System (NES) is an 8-bit home video game console produced by Nintendo. It was first released in Japan on July 15, 1983, as the Family Computer (Famicom). It was released in US test markets as the redesigned NES in October 1985, and fully launched in the US the following year. The NES was distributed in Europe, Australia, and parts of Asia throughout the 1980s under various names. As a third-generation console, it mainly competed with Sega's Master System.",
         "Chinese": "FC游戏机，是任天堂生产、发行和销售的8位第三世代家用游戏机日本版，官方名称为家庭电脑（日版名：ファミリーコンピュータ，Family Computer，Famicom），俗称“红白机”，1983年7月15日在日本推出；欧美版名称为任天堂娱乐系统（英文版名：Nintendo Entertainment System，NES），俗称“灰机”，1985年10月18日在美国推出。欧美版主机外型和使用的游戏盒带（卡带），与日本版的红白机完全不同。红白机是当时最畅销的游戏机，全球累计销量超过了6100万台。FC游戏机出现对电子游戏产生了十分深远的影响，让美国电子游戏界从1983年的崩溃中恢复过来，也奠定了任天堂在当今游戏界的地位。",
@@ -120,7 +132,7 @@
         "Comments": ""
     },
     {
-        "No.": "11",
+        "No.": "12",
         "Tag": "INTRO_CPC",
         "English": "The Amstrad CPC (short for \"Colour Personal Computer\") is a series of 8-bit home computers produced by Amstrad between 1984 and 1990. It was designed to compete in the mid-1980s home computer market dominated by the Commodore 64 and the ZX Spectrum; it successfully established itself primarily in the United Kingdom, France, Spain, and the German-speaking parts of Europe, and also Canada.",
         "Chinese": "Amstrad CPC（Colour Personal Computer的缩写）是Amstrad在1984至1990年间制作的一系列8位家用电脑。",
@@ -132,7 +144,7 @@
         "Comments": ""
     },
     {
-        "No.": "12",
+        "No.": "13",
         "Tag": "INTRO_AMIGA",
         "English": "Amiga is a family of personal computers produced by Commodore from 1985 until the company's bankruptcy in 1994, with production by others afterward. The original model is one of a number of mid-1980s computers with 16-bit or 16/32-bit processors, 256 KB or more of RAM, mouse-based GUIs, and significantly improved graphics and audio compared to previous 8-bit systems. These include the Atari ST—released earlier the same year—as well as the Macintosh and Acorn Archimedes. The Amiga differs from its contemporaries through custom hardware to accelerate graphics and sound, including sprites, a blitter, and four channels of sample-based audio. It runs a pre-emptive multitasking operating system called AmigaOS, with a desktop environment called Workbench.",
         "Chinese": "Amiga（非正式译名为阿米加）是Amiga公司开发的个人电脑产品系列。在1982年，主要的硬件设计师杰·迈纳开始了Amiga的开发工作。康懋达国际（Commodore International）收购了Amiga公司后，在1985年将Amiga引入市场。",
@@ -144,7 +156,7 @@
         "Comments": ""
     },
     {
-        "No.": "13",
+        "No.": "14",
         "Tag": "INTRO_X68000",
         "English": "The X68000 (Hepburn: Ekkusu Rokuman Hassen) is a home computer created by Sharp Corporation. It was first released in 1987 and sold only in Japan.The initial model has a 10 MHz Motorola 68000 CPU, 1 MB of RAM, and lacks a hard drive. The final model was released in 1993 with a 25 MHz Motorola 68030 CPU, 4 MB of RAM, and optional 80 MB SCSI hard drive. RAM in these systems is expandable to 12 MB, though most games and applications do not require more than 2 MB.",
         "Chinese": "X68000是由夏普设计的家用电脑，1987到1993年间只在日本贩售，采用由Hudson Soft开发Human68k视窗系统，硬件规格处理器为摩托罗拉6800/16MHz的时脉、记忆体为2MB、硬盘分为SASI与SCSI界面。可以运行游戏，例如任天堂所制作的游戏、或者一般的文书处理，具备GNU C/C++ 编译器、16位元的色彩深度，在当时有不少玩家受其优秀的性能所震撼，曾获认为是游戏界的梦幻机种。另外，官方曾提供论坛让使用者免费下载软件、游戏。",
@@ -156,7 +168,7 @@
         "Comments": ""
     },
     {
-        "No.": "14",
+        "No.": "15",
         "Tag": "INTRO_PCE",
         "English": "The TurboGrafx-16, known as the PC Engine outside North America, is a home video game console designed by Hudson Soft and sold by NEC Home Electronics. It was the first console marketed in the fourth generation, commonly known as the 16-bit era. It was released in Japan in 1987 and in North America in 1989. In Europe the Japanese model was unofficially imported and distributed in the United Kingdom and France from 1988. In Japan, the system was launched as a competitor to the Famicom, but the delayed United States release meant that it ended up competing with the Sega Genesis and later the Super NES.",
         "Chinese": "PC Engine（日版名：PCエンジン，美版名：TurboGrafx-16，简称PCE），是由Hudson Soft与日本电气（NEC）两家日本公司联手开发的家用游戏机，并在1987年10月30日由NEC的子公司“NEC Home Electronics”（简称NEC HE）推出。",
@@ -168,7 +180,7 @@
         "Comments": ""
     },
     {
-        "No.": "15",
+        "No.": "16",
         "Tag": "INTRO_MD",
         "English": "The Sega Genesis, known as the Mega Drive outside North America, is a 16-bit fourth generation home video game console developed and sold by Sega. It was Sega's third console and the successor to the Master System. Sega released it in 1988 in Japan as the Mega Drive, and in 1989 in North America as the Genesis. In 1990, it was distributed as the Mega Drive by Virgin Mastertronic in Europe, Ozisoft in Australasia, and Tectoy in Brazil. In South Korea, it was distributed by Samsung Electronics as the Super Gam*Boy and later the Super Aladdin Boy.",
         "Chinese": "Mega Drive（日版名：メガドライブ，美版名：Sega Genesis，简称MD，香港俗称世嘉五代）是世嘉在1988年推出的16-bit家用游戏机，1989年在美国推出，1990年在欧洲推出。Mega Drive在全球共售出3075万台。",
@@ -180,7 +192,7 @@
         "Comments": ""
     },
     {
-        "No.": "16",
+        "No.": "17",
         "Tag": "INTRO_LYNX",
         "English": "The Atari Lynx is a fourth-generation hand-held game console released by Atari Corporation in September 1989 in North America and 1990 in Europe and Japan. It was the first handheld game console with a color liquid-crystal display. ",
         "Chinese": "Atari Lynx是生产商雅达利公司（Atari Corporation）于1989年发布的手提式游戏机，是世上首款设有彩色液晶显示屏的手提电子游戏机，与任天堂的GameBoy游戏机同年推出。",
@@ -192,7 +204,7 @@
         "Comments": ""
     },
     {
-        "No.": "17",
+        "No.": "18",
         "Tag": "INTRO_GBC",
         "English": "The Game Boy Color (GBC or CGB) is an 8-bit handheld game console, manufactured by Nintendo, which was released in Japan on October 21, 1998, and to international markets that November. Compared to the original Game Boy, the Game Boy Color features a color TFT screen rather than monochrome, a processor that can operate twice as fast, and four times as much memory. It retains backward compatibility with games initially developed for its predecessor.",
         "Chinese": "Game Boy Color（日语：ゲームボーイカラー，简称GBC）是由任天堂开发的一款由电池驱动的彩色屏幕掌上游戏机，是Game Boy的加强版，于1998年10月21日在日本发行。其相对于原版Game Boy的最大特点是彩色屏幕的使用。",
@@ -204,7 +216,7 @@
         "Comments": ""
     },
     {
-        "No.": "18",
+        "No.": "19",
         "Tag": "INTRO_SNES",
         "English": "The Super Nintendo Entertainment System, commonly shortened to Super Nintendo, Super NES or SNES, is a 16-bit home video game console developed by Nintendo that was released in 1990 in Japan and South Korea, 1991 in North America, 1992 in Europe and Oceania and 1993 in South America. In Japan, it is called the Super Famicom (SFC). In South Korea, it is called the Super Comboy and was distributed by Hyundai Electronics. The system was released in Brazil on August 30, 1993, by Playtronic. In Russia and CIS, the system was distributed by Steepler from 1994 until 1996. Although each version is essentially the same, several forms of regional lockout prevent cartridges for one version from being used in other versions.",
         "Chinese": "超级任天堂（日版名：スーパーファミコン，Super Famicom，英文版名：Super Nintendo Entertainment System，简称超任；日版简称SFC；欧美版简称Super Nintendo、SNES）是由游戏公司任天堂继红白机后开发的16位家用游戏机。超级任天堂于1990年11月21日在日本开始发售，北美于1991年8月13日发售，欧洲于1992年4月11日发售。手柄改进之处在于第一次加入了肩部按键L/R，并形成了ABXY四个按键的手柄布局。超级任天堂全球累计销量为4910万台。超级任天堂的下一代产品为任天堂64。",
@@ -216,7 +228,7 @@
         "Comments": ""
     },
     {
-        "No.": "19",
+        "No.": "20",
         "Tag": "INTRO_NEOCD",
         "English": "The Neo Geo CD (Neo Jio Shī Dī) is a home video game console produced by SNK Corporation, released on September 9, 1994. The system is the same platform as the cartridge-based Neo Geo released four years earlier, but converted to the cheaper CD media format which retailed at $49 to 79 per title compared to over $200 for the equivalent cartridge.",
         "Chinese": "Neo Geo CD（日语：ネオジオCD）是SNK公司Neo Geo家族的第二款家用游戏机，发行于1994年9月9日。同四年前的卡带版主机相比，本主机使用廉价的CD作媒介：CD版游戏零售价为每张49美元至79美元，而盒装版游戏价格为300美元。日版主机首发价49,800日元，美版首发价为399美元，英国版首发价399英镑。",
@@ -228,7 +240,7 @@
         "Comments": ""
     },
     {
-        "No.": "20",
+        "No.": "21",
         "Tag": "INTRO_PS1",
         "English": "PlayStation is a video gaming brand owned and produced by Sony Interactive Entertainment (SIE), a division of Japanese conglomerate Sony. Its flagship products consists of a series of home video game consoles produced under the brand; it also consists of handhelds, online services, magazines, and other forms of media.",
         "Chinese": "PlayStation（プレイステーション，简称为PS）是由索尼旗下的索尼互动娱乐（原索尼电脑娱乐）创立并开发，从第五到第九世代的一系列电子游戏机品牌。品牌于1994年12月3日随着初代PlayStation游戏机在日本发售而首次推出。",
@@ -240,7 +252,7 @@
         "Comments": ""
     },
     {
-        "No.": "21",
+        "No.": "22",
         "Tag": "INTRO_NGP",
         "English": "The Neo Geo Pocket Color (NGPC) is a 16-bit handheld game console developed and manufactured by SNK, released on March 19, 1999 in Japan with international markets following in August that year. It is an upgrade of the original Neo Geo Pocket, which was released in 1998 and mainly sold in Japan; the Color features a color display instead of a monochrome one, and is fully backward compatible.",
         "Chinese": "Neo Geo Pocket Color（简称NGPC）是一款由SNK制造的16位彩色掌上游戏机。本游戏机为Neo Geo Pocket继任机种，于1999年3月19日在日本发行，于8月6日在北美地区发行，10月1日在欧洲发行。",
@@ -252,7 +264,7 @@
         "Comments": ""
     },
     {
-        "No.": "22",
+        "No.": "23",
         "Tag": "INTRO_WSC",
         "English": "The WonderSwan is a handheld game console released in Japan by Bandai. It was developed by Gunpei Yokoi's company Koto Laboratory and Bandai, and was the last piece of hardware Yokoi developed before his death in 1997. Released in 1999 in the sixth generation of video game consoles, the WonderSwan and its two later models, the WonderSwan Color and SwanCrystal, were officially supported until being discontinued by Bandai in 2003. During its lifespan, no variation of the WonderSwan was released outside of Japan.",
         "Chinese": "WonderSwan（日语：ワンダースワン，简称为WS）是日本玩具制造商万代（后与南梦宫合并为万代南梦宫）推出的16位掌上游戏机、第五世代游戏机，由Game Boy设计者横井军平成立的公司Koto Laboratory和万代共同设计，亦是横井军平在1997年因车祸逝世前主导设计的最后一款硬件。初代WonderSwan于1999年3月于日本推出；派生机型包括于2000年推出的WonderSwan Color（日语：ワンダースワンカラー，简称为WSC），以及2002年推出的SwanCrystal（日语：スワンクリスタル，简称为SC）。在生命周期内，没有任何一款WonderSwan系列主机于日本以外的地区正式推出。WonderSwan系列主机在其生命周期中销量共计约350万部，于日本掌上游戏机市场市占率最高达8%。尽管在市场龙头任天堂Game Boy系列的竞争下表现并不算突出，多数舆论仍给予WonderSwan正面评价。",
@@ -264,7 +276,7 @@
         "Comments": ""
     },
     {
-        "No.": "23",
+        "No.": "24",
         "Tag": "INTRO_GBA",
         "English": "The Game Boy Advance (GBA) is a 32-bit handheld game console, manufactured by Nintendo, which was released in Japan on March 21, 2001, and to international markets that June. It was later released in mainland China in 2004, under the name iQue Game Boy Advance. Compared to the Game Boy Color it succeeded, the console offered a significantly more powerful ARM7 processor and improved graphics, while retaining backward compatibility with games initially developed for its predecessor.",
         "Chinese": "Game Boy Advance（日语：ゲームボーイアドバンス，简称GBA）是日本任天堂公司于2001年3月21日发售的掌上游戏机，其后2001年6月11日在北美发行，2001年6月22日在德国地区发行，并于2004年6月8日以“小神游GBA”的名义在中国发行。售价9800日元，可向下兼容上一代的的Game Boy和Game Boy Color的游戏。拥有8x8像素的位图显示和16种颜色（4bpp）或256种颜色（8bpp），一颗在1994年制造的ARM7TDMI32位的CPU，比起Game Boy与Game Boy Color这回大幅度提升2D图形、伪3D图形、半透明效果及堆栈图形处理能力。频率为16.78 MHz，32kb的内部工作RAM，256kb的外部RAM和96kb的VRAM。在开发者的立场却不是强大的掌上游戏机，因为Game Boy Advance不支持3D图形功能及缺少浮点运算器，尽管仍有一些游戏开发商尝试设计3D的Game Boy Advance游戏，因无法呈现光源效果及动态光照（dynamic lighting）错觉，因此多数的游戏开发厂仍以2D图形游戏为首。",
@@ -276,7 +288,7 @@
         "Comments": ""
     },
     {
-        "No.": "24",
+        "No.": "25",
         "Tag": "INTRO_ARC",
         "English": "An arcade video game is an arcade game that takes player input from its controls, processes it through electrical or computerized components, and displays output to an electronic monitor or similar display. All arcade video games are coin-operated or accept other means of payment, housed in an arcade cabinet, and located in amusement arcades alongside other kinds of arcade games. Until the early 2000s, arcade video games were the largest and most technologically advanced segment of the video game industry.",
         "Chinese": "街机（英语：arcade cabinet或arcade machine，台湾作机台），即街边游戏机、步行街游戏机，又称大型电玩，是放置于公共娱乐场所或电子游乐场营业用的游戏机，最早的街机雏型于1971年诞生在美国，当时常放置于酒吧内。与街边游戏机相对则是的家用游戏机。",
@@ -285,18 +297,6 @@
         "French": "Un jeu vidéo d'arcade est un jeu qui capte les données du joueur via ses commandes, les traite via des composants électriques ou informatiques, et les affiche sur un écran électronique ou un écran similaire. Tous les jeux vidéo d'arcade fonctionnent avec des pièces ou acceptent d'autres moyens de paiement, sont hébergés dans une borne d'arcade et sont présents dans les salles de jeux, aux côtés d'autres types de jeux d'arcade. Jusqu'au début des années 2000, les jeux vidéo d'arcade constituaient le segment le plus important et le plus avancé technologiquement de l'industrie du jeu vidéo.",
         "Spanish": "Un videojuego de arcade es un juego de arcade que toma la entrada del jugador de sus controles, la procesa a través de componentes eléctricos o computarizados y muestra la salida a un monitor electrónico o pantalla similar. Todos los videojuegos de arcade funcionan con monedas o aceptan otros medios de pago, alojados en un gabinete de arcade y ubicados en salas de juegos junto con otros tipos de juegos de arcade. Hasta principios de la década de 2000, los videojuegos arcade eran el segmento más grande y tecnológicamente avanzado de la industria de los videojuegos.",
         "Russian": "Аркадные видеоигры — игры для аркадных игровых автоматов. В аркадных видеоиграх часто очень короткие, но динамичные уровни, простые и интуитивно понятные схемы управления и быстро нарастающая сложность. Это связано с природой зала игровых автоматов, где игрок арендует игру до тех пор, пока его игровое воплощение может оставаться в живых, или пока у игрока не закончатся жетоны для оплаты игры. Большинство аркадных игровых автоматов оснащены специализированными контроллерами — джойстиками, кнопками и трекболами, приспособленными к игровому процессу.",
-        "Comments": ""
-    },
-    {
-        "No.": "25",
-        "Tag": "INTRO_PC88",
-        "English": "The PC-8800 series (Japanese: PC-8800シリーズ, Hepburn: Pī Shī Hassen Happyaku Shirīzu), commonly shortened to PC-88, are a brand of Zilog Z80-based 8-bit home computers released by NEC in 1981 and primarily sold in Japan.",
-        "Chinese": "PC-8800系列，简称PC-88，是由日本电气（NEC）自1981年起在日本发行（之后移交NEC Home Electronics）的一系列家用电脑产品。系列首款产品是1981年12月推出的PC-8801，其采用Zilog Z80为中央处理器，在日本非常畅销。NEC后续推出了包括PC-8801mkII、PC-8801mkIISR、PC-88VA在内的多种机型。",
-        "Japanese": "PC-8800シリーズは、1981年（昭和56年）から日本電気（NEC、後に日本電気ホームエレクトロニクスへ移管）が販売していた、パーソナルコンピュータ「PC-8801」及びその周辺機器のシリーズ名である。1980年代当時パソコン御三家の筆頭格と謳われたシリーズの一つである。",
-        "Italian": "La serie di NEC PC-8801 o PC-8800 (PC-8800シリーズ, Pī Shī Hassen Happyaku Shirīzu), generalmente abbreviata in PC-88, è una linea di home computer a 8 bit basati sul processore NEC µPD780C, clone del Zilog Z80, prodotti dal 1981 da NEC e commercializzati prevalentemente in Giappone.",
-        "French": "Le PC-88 (de son nom complet NEC PC-8801) est un micro-ordinateur japonais créé par NEC en 1981 et basé à sa sortie sur le microprocesseur Zilog Z80. Le PC-88 a connu un franc succès au Japon, mais n'a été commercialisé dans aucun autre pays.",
-        "Spanish": "La serie de computadoras NEC PC-8801 fue introducida por NEC Corporation en 1981 y comercializada hasta 1989, y es uno de los primeros computadores que estuvieron basados en el microprocesador Zilog Z80. El PC-88, como fue conocido informalmente, se hizo muy popular en Japón, pero no fue lanzado en otros mercados.",
-        "Russian": "NEC PC-8800 (неформальное название — PC-88) — семейство восьмибитных компьютеров компании NEC на базе Z80-совместимого процессора. Компьютеры семейства являлись одними из самых популярных в Японии благодаря сбалансированному соотношению «цена-характеристики». Начиная с модели mkIISR компьютеры поставлялись также в США, но там большой популярности им получить не удалось.",
         "Comments": ""
     },
     {
