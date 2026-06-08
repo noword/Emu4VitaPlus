@@ -28,6 +28,7 @@ const char *CONSOLE_NAMES[] = {
     "PCE",
     "MD",
     "LYNX",
+    "VB",
     "GBC",
     "SNES",
     "NEOCD",

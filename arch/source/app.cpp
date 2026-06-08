@@ -131,6 +131,8 @@ App::App()
         new CoreButton(LYNX, // 1989
                        {{"Beetle Lynx", "mednafen_lynx"},
                         {"Handy", "handy"}}),
+        new CoreButton(VB, // 1995
+                       {{"Beetle VB", "mednafen_vb"}}),
         new CoreButton(GBC, // 1989,1998
                        {{"Gambatte", "gambatte"},
                         {"TGB Dual", "tgbdual"}}),

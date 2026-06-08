@@ -31,6 +31,7 @@ enum CONSOLE
     PCE,
     MD,
     LYNX,
+    VB,
     GBC,
     SNES,
     NEOCD,
