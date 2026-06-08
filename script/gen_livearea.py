@@ -145,7 +145,7 @@ def gen_startup(console, cores, color):
         _im = im.copy()
         draw = ImageDraw.Draw(_im)
         length = draw.textlength(NAMES[core], font=TINY_FONT)
-        draw.text(((STARTUP_WIDTH - length) // 2, h + 24), NAMES[core], font=TINY_FONT, fill=color)
+        draw.text(((STARTUP_WIDTH - length) // 2, min(h + 24, ICON_WIDTH)), NAMES[core], font=TINY_FONT, fill=color)
         try:
             os.makedirs(os.path.split(name)[0])
         except:

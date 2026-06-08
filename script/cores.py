@@ -34,6 +34,7 @@ CORES = {
     'LYNX': ('mednafen_lynx', 'handy'),
     'CPC': ('cap32', 'crocods'),
     'PC88': ('quasi88',),
+    'VB': ('mednafen_vb',),
 }
 
 NAMES = {
@@ -86,4 +87,5 @@ NAMES = {
     'cap32': 'Caprice32',
     'crocods': 'CrocoDS',
     'quasi88': 'QUASI88',
+    'mednafen_vb': 'Beetle VB',
 }

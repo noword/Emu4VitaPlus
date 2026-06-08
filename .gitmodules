@@ -215,3 +215,7 @@
 	path = cores/quasi88-libretro
 	url = https://github.com/libretro/quasi88-libretro.git
 	branch = master
+[submodule "cores/beetle-vb-libretro"]
+	path = cores/beetle-vb-libretro
+	url = https://github.com/libretro/beetle-vb-libretro.git
+	branch = master

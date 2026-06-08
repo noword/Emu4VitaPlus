@@ -332,6 +332,17 @@ const std::vector<uint8_t> RETRO_KEYS = {
         RETRO_DEVICE_ID_JOYPAD_Y,
         RETRO_DEVICE_ID_JOYPAD_L,
         RETRO_DEVICE_ID_JOYPAD_R,
+#elif defined(VB_BUILD)
+        RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_X,
+        RETRO_DEVICE_ID_JOYPAD_Y,
+        RETRO_DEVICE_ID_JOYPAD_L,
+        RETRO_DEVICE_ID_JOYPAD_R,
+        RETRO_DEVICE_ID_JOYPAD_L2,
+        RETRO_DEVICE_ID_JOYPAD_R2,
+        RETRO_DEVICE_ID_JOYPAD_L3,
+        RETRO_DEVICE_ID_JOYPAD_R3,
 #else
 #error "unknown build"
 #endif
@@ -571,6 +582,19 @@ const std::vector<ControlMapConfig> CONTROL_MAPS = {
     {SCE_CTRL_R2},
     {SCE_CTRL_L3},
     {SCE_CTRL_R3},
+#elif defined(VB_BUILD)
+    {SCE_CTRL_CROSS, {RETRO_DEVICE_ID_JOYPAD_B}},
+    {SCE_CTRL_TRIANGLE, {RETRO_DEVICE_ID_JOYPAD_X}},
+    {SCE_CTRL_CIRCLE, {RETRO_DEVICE_ID_JOYPAD_A}},
+    {SCE_CTRL_SQUARE, {RETRO_DEVICE_ID_JOYPAD_Y}},
+    {SCE_CTRL_SELECT, {RETRO_DEVICE_ID_JOYPAD_SELECT}},
+    {SCE_CTRL_START, {RETRO_DEVICE_ID_JOYPAD_START}},
+    {SCE_CTRL_L1, {RETRO_DEVICE_ID_JOYPAD_L}},
+    {SCE_CTRL_R1, {RETRO_DEVICE_ID_JOYPAD_R}},
+    {SCE_CTRL_L2},
+    {SCE_CTRL_R2},
+    {SCE_CTRL_L3},
+    {SCE_CTRL_R3},
 #else
 #error "unknown build"
 #endif
@@ -592,6 +616,11 @@ const std::vector<ControlMapConfig> CONTROL_MAPS = {
     {SCE_CTRL_RSTICK_DOWN, {RETRO_DEVICE_ID_JOYPAD_DOWN}},
     {SCE_CTRL_RSTICK_LEFT, {RETRO_DEVICE_ID_JOYPAD_LEFT}},
     {SCE_CTRL_RSTICK_RIGHT, {RETRO_DEVICE_ID_JOYPAD_RIGHT}},
+#elif defined(VB_BUILD)
+    {SCE_CTRL_RSTICK_UP, {RETRO_DEVICE_ID_JOYPAD_L2}},
+    {SCE_CTRL_RSTICK_LEFT, {RETRO_DEVICE_ID_JOYPAD_R2}},
+    {SCE_CTRL_RSTICK_DOWN, {RETRO_DEVICE_ID_JOYPAD_L3}},
+    {SCE_CTRL_RSTICK_RIGHT, {RETRO_DEVICE_ID_JOYPAD_R3}},
 #else
     {SCE_CTRL_RSTICK_UP},
     {SCE_CTRL_RSTICK_DOWN},
@@ -621,6 +650,8 @@ const std::vector<std::pair<const char *, const char *>> DEFAULT_CORE_SETTINGS =
     {"pcsx_rearmed_noxadecoding", "enabled"},
     {"pcsx_rearmed_spu_thread", "enabled"},
     {"pcsx_rearmed_vibration", "disabled"},
+#elif defined(MEDNAFEN_VB_BUILD)
+    {"vb_color_mode", "black & green"},
 #endif
 };
 
@@ -741,6 +772,7 @@ const std::vector<BIOS> REQUIRED_BIOS = {
     {"quasi88/n88_1.rom", 0},
     {"quasi88/n88_2.rom", 0},
     {"quasi88/n88_3.rom", 0},
+#elif defined(VB_BUILD)
 #else
 #error "unknown build"
 #endif

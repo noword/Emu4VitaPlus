@@ -50,6 +50,7 @@ set(CORE_ROWS
     "snes9x;snes9x;Snes9x;SNES;SNES9X4VT"
     "mgba;mgba;mGBA;GBA;MGBA4VITA"
     "quasi88-libretro;quasi88;quasi88;PC88;QUASI884V"
+    "beetle-vb-libretro;mednafen_vb;mednafen_vb;VB;VB4PSVITA"
 )
 
 set(ROW_SIZE 5)
