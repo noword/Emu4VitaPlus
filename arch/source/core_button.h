@@ -28,6 +28,7 @@ public:
     void SetInputHooks(Input *input);
     void UnsetInputHooks(Input *input);
     const char *GetIntro() const;
+    CONSOLE GetConsole() const { return _console; };
 
 private:
     void _ShowPopup();

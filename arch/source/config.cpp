@@ -10,35 +10,6 @@
 
 Config *gConfig = nullptr;
 
-const char *CONSOLE_NAMES[] = {
-    "ATARI2600",
-    "ATARI5200",
-    "ATARI7800",
-    "C64",
-    "VECTREX",
-    "ZXS",
-    "DOS",
-    "PC88",
-    "PC98",
-    "MSX",
-    "NES",
-    "CPC",
-    "AMIGA",
-    "X68000",
-    "PCE",
-    "MD",
-    "LYNX",
-    "VB",
-    "GBC",
-    "SNES",
-    "NEOCD",
-    "PS1",
-    "NGP",
-    "WSC",
-    "GBA",
-    "ARC",
-};
-
 Config::Config()
 {
     for (size_t i = 0; i < CONSOLE_COUNT; i++)
