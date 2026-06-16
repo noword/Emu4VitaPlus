@@ -46,7 +46,8 @@ App::App()
       _index_y(0),
       _start_count(60 * 6),
       _in_choice(false),
-      _current_buttons(&_visable_buttons)
+      _current_buttons(&_visable_buttons),
+      _max_row(0)
 {
     LogFunctionName;
 
@@ -85,85 +86,95 @@ App::App()
 
     Themes themes(DEFAULT_THEMES_JSON);
     themes.Apply(gConfig->theme.c_str());
-    // ImGuiStyle *style = &ImGui::GetStyle();
-    // style->Colors[ImGuiCol_TitleBg] = style->Colors[ImGuiCol_TitleBgActive];
 
     _buttons = {
-        new CoreButton(ATARI2600, // 1977
-                       {{"Stella 2014", "stella2014"}}),
-        new CoreButton(ATARI5200, // 1982
-                       {{"Atari800", "atari800"}}),
-        new CoreButton(ATARI7800, // 1986
-                       {{"ProSystem", "prosystem"}}),
-        new CoreButton(C64, // 1982.1
-                       {{"the Versatile Commodore Emulator", "vice"}}),
-        new CoreButton(VECTREX, // 1982.4
-                       {{"vecx", "vecx"}}),
-        new CoreButton(ZXS, // 1982.11
-                       {{"fuse", "fuse"}}),
-        new CoreButton(DOS, // 1981
-                       {{"DOS BOX Pure", "dosbox_pure"}}),
-        new CoreButton(PC88, // 1981
-                       {{"QUASI88", "quasi88"}}),
-        new CoreButton(PC98, // 1982
-                       {{"Neko Project II", "nekop2"},
-                        {"Neko Project II kai", "np2kai"}}),
-        new CoreButton(MSX, // 1983
-                       {{"blueMSX", "bluemsx"},
-                        {"Marat Fayzullin's fMSX", "fmsx"}}),
-        new CoreButton(NES, // 1983
-                       {{"FCEUmm " ICON_STAR, "fceumm"},
-                        {"Nestopia", "nestopia"}}),
-        new CoreButton(CPC, // 1984
-                       {{"Caprice32", "cap32"},
-                        {"CrocoDS", "crocods"}}),
-        new CoreButton(AMIGA, // 1985
-                       {{"uae4arm", "uae4arm"}}),
-        new CoreButton(X68000, // 1987
-                       {{"Portable (x)keropi PRO-68K", "px68k"}}),
-        new CoreButton(PCE, // 1987
-                       {{"Mednafen PCE Fast", "mednafen_pce_fast"},
-                        {"Mednafen SuperGrafx", "mednafen_supergrafx"}}),
-        new CoreButton(MD, // 1988
-                       {{"Genesis Plus GX " ICON_STAR, "genesis_plus_gx"},
-                        {"Genesis Plus GX Wide", "genesis_plus_gx_wide"},
-                        {"PicoDrive", "picodrive"}}),
-        new CoreButton(LYNX, // 1989
-                       {{"Beetle Lynx", "mednafen_lynx"},
-                        {"Handy", "handy"}}),
-        new CoreButton(VB, // 1995
-                       {{"Beetle VB", "mednafen_vb"}}),
-        new CoreButton(GBC, // 1989,1998
-                       {{"Gambatte", "gambatte"},
-                        {"TGB Dual", "tgbdual"}}),
-        new CoreButton(SNES, // 1990
-                       {     //{"Snes9x 2002", "snes9x2002"},
-                        {"Snes9x 2005" ICON_STAR, "snes9x2005_plus"},
-                        {"Snes9x", "snes9x"},
-                        {"Mednafen Supafaust" ICON_STAR, "mednafen_supafaust"},
-                        {"Chimera SNES", "chimerasnes"}}),
-        new CoreButton(NEOCD, // 1994
-                       {{"neocd", "neocd"}}),
-        new CoreButton(PS1, // 1994.12
-                       {{"PCSX ReARMed", "pcsx_rearmed"}}),
-        new CoreButton(NGP, // 1998
-                       {{"Mednafen NeoPop", "mednafen_ngp"}}),
-        new CoreButton(WSC, // 1999
-                       {{"Mednafen Wswan", "mednafen_wswan"}}),
-        new CoreButton(GBA, // 2001
-                       {{"gpSP " ICON_STAR, "gpsp"},
-                        {"mGBA", "mgba"},
-                        {"VBA Next", "vba_next"}}),
-        new CoreButton(ARC,
-                       {{"FBA Lite", "fba_lite"},
-                        {"FBA 2012", "fbalpha2012"},
-                        {"FinalBurn Neo", "fbneo"},
-                        {"FinalBurn Neo Xtreme", "km_fbneo_xtreme_amped"},
-                        {"MAME 2000", "mame2000"},
-                        {"MAME 2003" ICON_STAR, "mame2003"},
-                        {"MAME 2003 Plus", "mame2003_plus"},
-                        {"MAME 2003 Xtreme" ICON_STAR, "km_mame2003_xtreme_amped"}}),
-    };
+        {
+            new CoreButton(C64, // 1982.1
+                           {{"the Versatile Commodore Emulator", "vice"}}),
+            new CoreButton(ZXS, // 1982.11
+                           {{"fuse", "fuse"}}),
+            new CoreButton(DOS, // 1981
+                           {{"DOS BOX Pure", "dosbox_pure"}}),
+            new CoreButton(PC88, // 1981
+                           {{"QUASI88", "quasi88"}}),
+            new CoreButton(PC98, // 1982
+                           {{"Neko Project II", "nekop2"},
+                            {"Neko Project II kai", "np2kai"}}),
+            new CoreButton(MSX, // 1983
+                           {{"blueMSX", "bluemsx"},
+                            {"Marat Fayzullin's fMSX", "fmsx"}}),
+            new CoreButton(CPC, // 1984
+                           {{"Caprice32", "cap32"},
+                            {"CrocoDS", "crocods"}}),
+            new CoreButton(AMIGA, // 1985
+                           {{"uae4arm", "uae4arm"}}),
+            new CoreButton(X68000, // 1987
+                           {{"Portable (x)keropi PRO-68K", "px68k"}}),
+
+        },
+        {
+            new CoreButton(ATARI2600, // 1977
+                           {{"Stella 2014", "stella2014"}}),
+            new CoreButton(ATARI5200, // 1982
+                           {{"Atari800", "atari800"}}),
+            new CoreButton(ATARI7800, // 1986
+                           {{"ProSystem", "prosystem"}}),
+
+            new CoreButton(VECTREX, // 1982.4
+                           {{"vecx", "vecx"}}),
+
+            new CoreButton(NES, // 1983
+                           {{"FCEUmm " ICON_STAR, "fceumm"},
+                            {"Nestopia", "nestopia"}}),
+
+            new CoreButton(PCE, // 1987
+                           {{"Mednafen PCE Fast", "mednafen_pce_fast"},
+                            {"Mednafen SuperGrafx", "mednafen_supergrafx"}}),
+            new CoreButton(MD, // 1988
+                           {{"Genesis Plus GX " ICON_STAR, "genesis_plus_gx"},
+                            {"Genesis Plus GX Wide", "genesis_plus_gx_wide"},
+                            {"PicoDrive", "picodrive"}}),
+            new CoreButton(LYNX, // 1989
+                           {{"Beetle Lynx", "mednafen_lynx"},
+                            {"Handy", "handy"}}),
+            new CoreButton(SNES, // 1990
+                           {     //{"Snes9x 2002", "snes9x2002"},
+                            {"Snes9x 2005" ICON_STAR, "snes9x2005_plus"},
+                            {"Snes9x", "snes9x"},
+                            {"Mednafen Supafaust" ICON_STAR, "mednafen_supafaust"},
+                            {"Chimera SNES", "chimerasnes"}}),
+            new CoreButton(NEOCD, // 1994
+                           {{"neocd", "neocd"}}),
+            new CoreButton(PS1, // 1994.12
+                           {{"PCSX ReARMed", "pcsx_rearmed"}}),
+        },
+        {
+            new CoreButton(VB, // 1995
+                           {{"Beetle VB", "mednafen_vb"}}),
+            new CoreButton(GBC, // 1989,1998
+                           {{"Gambatte", "gambatte"},
+                            {"TGB Dual", "tgbdual"}}),
+
+            new CoreButton(NGP, // 1998
+                           {{"Mednafen NeoPop", "mednafen_ngp"}}),
+            new CoreButton(WSC, // 1999
+                           {{"Mednafen Wswan", "mednafen_wswan"}}),
+            new CoreButton(GBA, // 2001
+                           {{"gpSP " ICON_STAR, "gpsp"},
+                            {"mGBA", "mgba"},
+                            {"VBA Next", "vba_next"}}),
+        },
+        {
+            new CoreButton(ARC,
+                           {{"FBA Lite", "fba_lite"},
+                            {"FBA 2012", "fbalpha2012"},
+                            {"FinalBurn Neo", "fbneo"},
+                            {"FinalBurn Neo Xtreme", "km_fbneo_xtreme_amped"},
+                            {"MAME 2000", "mame2000"},
+                            {"MAME 2003" ICON_STAR, "mame2003"},
+                            {"MAME 2003 Plus", "mame2003_plus"},
+                            {"MAME 2003 Xtreme" ICON_STAR, "km_mame2003_xtreme_amped"}}),
+        }};
 
     _input.SetTurboInterval(DEFAULT_TURBO_START_TIME * 5);
     SetInputHooks(&_input);
@@ -171,8 +182,17 @@ App::App()
     sceKernelCreateLwMutex(&_video_mutex, "video_mutex", 0, 0, NULL);
 
     _SetVisableButtons();
+    _SetMaxRow();
     _RestoreLastCore();
     _UpdateIntro();
+}
+
+void App::_SetMaxRow()
+{
+    for (const auto &buttons : *_current_buttons)
+    {
+        _max_row = std::max(_max_row, (float)buttons.size());
+    }
 }
 
 App::~App()
@@ -182,9 +202,10 @@ App::~App()
     delete gConfig;
     sceKernelDeleteLwMutex(&_video_mutex);
 
-    for (auto button : _buttons)
+    for (auto buttons : _buttons)
     {
-        delete button;
+        for (auto button : buttons)
+            delete button;
     }
 
     My_ImGui_ImplVita2D_Shutdown();
@@ -229,49 +250,54 @@ void App::_Show()
             ImGui::GetWindowDrawList()->AddText({(VITA_WIDTH - size.x) / 2.f, 70.f}, IM_COL32_WHITE, manage_icons);
         }
 
-        pos.y = (ImGui::GetContentRegionMax().y - BUTTON_SIZE * 2) / 2 + 20;
+        _VideoLock();
 
-        float pos_x = pos.x;
-        if (_current_buttons->size() <= 10)
+        CoreButtons *buttons;
+
+        if (_index_y > 0)
         {
-            pos.x = pos_x = (VITA_WIDTH - (_current_buttons->size() + 1) / 2 * (BUTTON_SIZE + 8) - 8) / 2;
+            pos.y = (ImGui::GetContentRegionAvail().y - BUTTON_SIZE) / 2 + MAIN_WINDOW_PADDING * 2 - BUTTON_SIZE - ImGui::GetStyle().FramePadding.y;
+            ImGui::SetCursorPos(pos);
+            buttons = &(*_current_buttons)[_index_y - 1];
+            for (int i = 0; i < buttons->size(); i++)
+            {
+                (*buttons)[i]->ShowDisabled();
+                if (i + 1 < buttons->size())
+                    ImGui::SameLine();
+            }
+        }
+        else
+        {
+            pos.y = (ImGui::GetContentRegionAvail().y - BUTTON_SIZE) / 2 + MAIN_WINDOW_PADDING * 2;
+            ImGui::SetCursorPos(pos);
         }
 
-        ImGui::SetCursorPos(pos);
-        size_t count = 0;
-        size_t index = _GetIndex();
-
-        _VideoLock();
-        for (auto button : *_current_buttons)
+        buttons = &(*_current_buttons)[_index_y];
+        for (int i = 0; i < buttons->size(); i++)
         {
-            bool selected = (count == index);
-            button->Show(selected, _in_choice);
+            bool selected = (i == _index_x);
+            (*buttons)[i]->Show(selected, _in_choice);
             if (selected)
             {
-                size_t half = (_current_buttons->size() + 1) / 2;
-                ImGui::SetScrollHereX(float(count % half) / float(half));
+                ImGui::SetScrollHereX(float(i) / _max_row);
             }
 
-            count++;
-
-            if (count != (_current_buttons->size() + 1) / 2)
-            {
+            if (i + 1 < buttons->size())
                 ImGui::SameLine();
-            }
-            else
-            {
-                pos.x = pos_x;
-                pos.y += BUTTON_SIZE + 8;
-                ImGui::SetCursorPos(pos);
-            }
         }
-        _VideoUnlock();
 
-        if (_current_buttons->size() & 1)
+        if (_index_y + 1 < _current_buttons->size())
         {
-            // show an empty button
-            ImGui::Button("", {BUTTON_SIZE, BUTTON_SIZE});
+            buttons = &(*_current_buttons)[_index_y + 1];
+            for (int i = 0; i < buttons->size(); i++)
+            {
+                (*buttons)[i]->ShowDisabled();
+                if (i + 1 < buttons->size())
+                    ImGui::SameLine();
+            }
         }
+
+        _VideoUnlock();
 
         if (*_intro)
         {
@@ -349,50 +375,38 @@ void App::UnsetInputHooks(Input *input)
 
 void App::_OnKeyLeft(Input *input)
 {
-    size_t half = (_current_buttons->size() + 1) / ROW_COUNT;
-    if ((_current_buttons->size() & 1) && _index_y == ROW_COUNT - 1 && _index_x == 0)
-    {
-        _index_x = half - 2;
-    }
-    else
-    {
-        LOOP_MINUS_ONE(_index_x, half);
-    }
+    if (_index_x > 0)
+        _index_x--;
     _UpdateIntro();
 }
 
 void App::_OnKeyRight(Input *input)
 {
-    size_t half = (_current_buttons->size() + 1) / ROW_COUNT;
-
-    if ((_current_buttons->size() & 1) && _index_y == ROW_COUNT - 1 && _index_x == half - 2)
-    {
-        _index_x = 0;
-    }
-    else
-    {
-        LOOP_PLUS_ONE(_index_x, half);
-    }
+    if (_index_x + 1 < (*_current_buttons)[_index_y].size())
+        _index_x++;
 
     _UpdateIntro();
 }
 
 void App::_OnKeyUp(Input *input)
 {
-    LOOP_MINUS_ONE(_index_y, ROW_COUNT);
-    if ((_current_buttons->size() & 1) && _index_y == ROW_COUNT - 1 && _index_x == _current_buttons->size() / ROW_COUNT)
+    if (_index_y > 0)
     {
-        _index_x--;
+        _index_y--;
+        if (_index_x >= (*_current_buttons)[_index_y].size())
+            _index_x = (*_current_buttons)[_index_y].size() - 1;
     }
+
     _UpdateIntro();
 }
 
 void App::_OnKeyDown(Input *input)
 {
-    LOOP_PLUS_ONE(_index_y, ROW_COUNT);
-    if ((_current_buttons->size() & 1) && _index_y == ROW_COUNT - 1 && _index_x == _current_buttons->size() / ROW_COUNT)
+    if (_index_y + 1 < (*_current_buttons)[_index_y].size())
     {
-        _index_x--;
+        _index_y++;
+        if (_index_x >= (*_current_buttons)[_index_y].size())
+            _index_x = (*_current_buttons)[_index_y].size() - 1;
     }
     _UpdateIntro();
 }
@@ -412,11 +426,14 @@ void App::_OnClick(Input *input)
         }
 
         if (count > 1)
-            gConfig->consoles[_GetIndex()] = !gConfig->consoles[_GetIndex()];
+        {
+            CONSOLE console = _buttons[_index_y][_index_x]->GetConsole();
+            gConfig->consoles[console] = !gConfig->consoles[console];
+        }
     }
     else
     {
-        _visable_buttons[_GetIndex()]->OnActive(input);
+        _visable_buttons[_index_y][_index_x]->OnActive(input);
     }
 }
 
@@ -434,24 +451,22 @@ void App::_OnKeyStart(Input *input)
         _current_buttons = &_visable_buttons;
         _UpdateIntro();
         gConfig->Save();
-    }
-}
 
-size_t App::_GetIndex()
-{
-    size_t index = _index_y * ((_current_buttons->size() + 1) / ROW_COUNT) + _index_x;
-    if (index >= _current_buttons->size())
-    {
-        index = _current_buttons->size() - 1;
+        if (_index_y >= _current_buttons->size())
+            _index_y = _current_buttons->size() - 1;
+
+        if (_index_x >= (*_current_buttons)[_index_y].size())
+            _index_x = (*_current_buttons)[_index_y].size() - 1;
     }
-    return index;
+
+    _SetMaxRow();
 }
 
 void App::_UpdateIntro()
 {
     LogFunctionName;
     _moving_status.Reset();
-    _intro = (*_current_buttons)[_GetIndex()]->GetIntro();
+    _intro = (*_current_buttons)[_index_y][_index_x]->GetIntro();
 }
 
 void App::_OnStartRollingIntro(Input *input)
@@ -472,16 +487,23 @@ void App::_OnStartRollingBackIntro(Input *input)
 void App::_SetVisableButtons()
 {
     LogFunctionName;
+
     _VideoLock();
 
     _visable_buttons.clear();
-    for (size_t i = 0; i < CONSOLE_COUNT; i++)
+    for (auto buttons : _buttons)
     {
-        LogDebug("%s %d", CONSOLE_NAMES[i], gConfig->consoles[i]);
-        if (gConfig->consoles[i])
+        CoreButtons core_buttons;
+        for (auto button : buttons)
         {
-            _visable_buttons.push_back(_buttons[i]);
+            CONSOLE console = button->GetConsole();
+            LogDebug("%s %d", CONSOLE_NAMES[console], gConfig->consoles[console]);
+            if (gConfig->consoles[console])
+            {
+                core_buttons.push_back(button);
+            }
         }
+        _visable_buttons.push_back(core_buttons);
     }
 
     _VideoUnlock();
@@ -500,19 +522,26 @@ void App::_VideoUnlock()
 void App::_RestoreLastCore()
 {
     bool found = false;
-    for (size_t i = 0; i < _visable_buttons.size() && !found; i++)
+    _index_x = _index_y = 0;
+    for (auto buttons : _visable_buttons)
     {
-        CoreButton *button = _visable_buttons[i];
-        for (size_t j = 0; j < button->_cores.size(); j++)
+
+        for (auto button : buttons)
         {
-            if (gConfig->last_core == button->_cores[j].boot_name)
+            for (size_t j = 0; j < button->_cores.size(); j++)
             {
-                _index_x = i % ((_visable_buttons.size() + 1) / ROW_COUNT);
-                _index_y = i / ((_visable_buttons.size() + 1) / ROW_COUNT);
-                button->_index = j;
-                found = true;
-                break;
+                if (gConfig->last_core == button->_cores[j].boot_name)
+                {
+                    button->_index = j;
+                    found = true;
+                    break;
+                }
             }
         }
+
+        if (found)
+            break;
+
+        _index_y++;
     }
 }

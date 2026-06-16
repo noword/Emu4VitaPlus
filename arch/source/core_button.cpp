@@ -8,6 +8,8 @@
 #include "language_arch.h"
 #include "icons.h"
 
+#define DISABLE_COLOR 0.7f
+
 CoreButton::CoreButton(CONSOLE console, std::vector<CoreName> cores)
     : _console(console),
       _cores(std::move(cores)),
@@ -29,6 +31,7 @@ CoreButton::~CoreButton()
 void CoreButton::Show(bool selected, bool choice)
 {
     ImVec4 color = selected ? ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered) : ImVec4{0, 0, 0, 0};
+
     ImGui::ImageButton(_texture, {BUTTON_SIZE, BUTTON_SIZE}, {0.f, 0.f}, {1.f, 1.f}, 0, color);
 
     ImVec2 pos = ImGui::GetItemRectMin();
@@ -38,7 +41,7 @@ void CoreButton::Show(bool selected, bool choice)
     pos.y += BUTTON_SIZE - size.y - 5;
     ImDrawList *draw_list = ImGui::GetWindowDrawList();
     draw_list->AddText(pos,
-                       (choice && !gConfig->consoles[_console]) ? ImGui::GetColorU32(ImGuiCol_TextDisabled) : IM_COL32_WHITE,
+                       (choice && !gConfig->consoles[_console]) ? ImGui::GetColorU32(ImGuiCol_TextDisabled) : ImGui::GetColorU32(ImGuiCol_Text),
                        CONSOLE_NAMES[_console]);
 
     if (selected)
@@ -58,6 +61,11 @@ void CoreButton::Show(bool selected, bool choice)
             draw_list->AddText(pos, ImGui::GetColorU32(ImGuiCol_TextDisabled), ICON_OFF);
         }
     }
+}
+
+void CoreButton::ShowDisabled()
+{
+    ImGui::Image(_texture, {BUTTON_SIZE, BUTTON_SIZE}, {0, 0}, {1, 1}, {DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR});
 }
 
 void CoreButton::_ShowPopup()

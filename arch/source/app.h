@@ -8,6 +8,9 @@
 extern bool gRunning;
 extern std::string gCoreName;
 
+using CoreButtons = std::vector<CoreButton *>;
+using CoreButtonsVector = std::vector<CoreButtons>;
+
 struct IntroMovingStatus : public TextMovingStatus
 {
     void Reset();
@@ -25,10 +28,10 @@ public:
 
 private:
     void _Show();
-    size_t _GetIndex();
     void _UpdateIntro();
     void _SetVisableButtons();
     void _RestoreLastCore();
+    void _SetMaxRow();
 
     void _OnClick(Input *input);
     void _OnKeyLeft(Input *input);
@@ -43,10 +46,11 @@ private:
     void _VideoUnlock();
 
     Input _input;
-    std::vector<CoreButton *> _buttons;
-    std::vector<CoreButton *> _visable_buttons;
-    std::vector<CoreButton *> *_current_buttons;
+    CoreButtonsVector _buttons;
+    CoreButtonsVector _visable_buttons;
+    CoreButtonsVector *_current_buttons;
 
+    float _max_row;
     size_t _index_x;
     size_t _index_y;
     IntroMovingStatus _moving_status;
