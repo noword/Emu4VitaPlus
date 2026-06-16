@@ -123,7 +123,7 @@ namespace Emu4VitaPlus
 
         for (auto const &psv_sample_rate : SAMPLE_RATES)
         {
-            if ((sample_rate >= psv_sample_rate - SAMPLE_RATE_NEGLECT) && (sample_rate <= psv_sample_rate + SAMPLE_RATE_NEGLECT))
+            if (psv_sample_rate == sample_rate)
             {
                 *out_sample_rate = psv_sample_rate;
                 return true;
