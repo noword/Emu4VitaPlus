@@ -31,6 +31,7 @@ private:
     void _UpdateIntro();
     void _SetVisableButtons();
     void _RestoreLastCore();
+    void _SetMaxRow();
 
     void _OnClick(Input *input);
     void _OnKeyLeft(Input *input);
@@ -49,6 +50,7 @@ private:
     CoreButtonsVector _visable_buttons;
     CoreButtonsVector *_current_buttons;
 
+    float _max_row;
     size_t _index_x;
     size_t _index_y;
     IntroMovingStatus _moving_status;

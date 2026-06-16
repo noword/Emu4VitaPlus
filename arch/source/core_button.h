@@ -24,6 +24,7 @@ public:
     CoreButton(CONSOLE console, std::vector<CoreName> cores);
     virtual ~CoreButton();
     void Show(bool selected, bool choice = false);
+    void ShowDisabled();
     void OnActive(Input *input);
     void SetInputHooks(Input *input);
     void UnsetInputHooks(Input *input);

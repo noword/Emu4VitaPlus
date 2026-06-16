@@ -46,7 +46,8 @@ App::App()
       _index_y(0),
       _start_count(60 * 6),
       _in_choice(false),
-      _current_buttons(&_visable_buttons)
+      _current_buttons(&_visable_buttons),
+      _max_row(0)
 {
     LogFunctionName;
 
@@ -85,8 +86,6 @@ App::App()
 
     Themes themes(DEFAULT_THEMES_JSON);
     themes.Apply(gConfig->theme.c_str());
-    // ImGuiStyle *style = &ImGui::GetStyle();
-    // style->Colors[ImGuiCol_TitleBg] = style->Colors[ImGuiCol_TitleBgActive];
 
     _buttons = {
         {
@@ -183,8 +182,17 @@ App::App()
     sceKernelCreateLwMutex(&_video_mutex, "video_mutex", 0, 0, NULL);
 
     _SetVisableButtons();
+    _SetMaxRow();
     _RestoreLastCore();
     _UpdateIntro();
+}
+
+void App::_SetMaxRow()
+{
+    for (const auto &buttons : *_current_buttons)
+    {
+        _max_row = std::max(_max_row, (float)buttons.size());
+    }
 }
 
 App::~App()
@@ -242,24 +250,53 @@ void App::_Show()
             ImGui::GetWindowDrawList()->AddText({(VITA_WIDTH - size.x) / 2.f, 70.f}, IM_COL32_WHITE, manage_icons);
         }
 
-        pos.y = (ImGui::GetContentRegionMax().y - BUTTON_SIZE) / 2;
-
-        ImGui::SetCursorPos(pos);
-
         _VideoLock();
-        size_t count = 0;
-        for (auto button : (*_current_buttons)[_index_y])
+
+        CoreButtons *buttons;
+
+        if (_index_y > 0)
         {
-            bool selected = (count == _index_x);
-            button->Show(selected, _in_choice);
+            pos.y = (ImGui::GetContentRegionAvail().y - BUTTON_SIZE) / 2 + MAIN_WINDOW_PADDING * 2 - BUTTON_SIZE - ImGui::GetStyle().FramePadding.y;
+            ImGui::SetCursorPos(pos);
+            buttons = &(*_current_buttons)[_index_y - 1];
+            for (int i = 0; i < buttons->size(); i++)
+            {
+                (*buttons)[i]->ShowDisabled();
+                if (i + 1 < buttons->size())
+                    ImGui::SameLine();
+            }
+        }
+        else
+        {
+            pos.y = (ImGui::GetContentRegionAvail().y - BUTTON_SIZE) / 2 + MAIN_WINDOW_PADDING * 2;
+            ImGui::SetCursorPos(pos);
+        }
+
+        buttons = &(*_current_buttons)[_index_y];
+        for (int i = 0; i < buttons->size(); i++)
+        {
+            bool selected = (i == _index_x);
+            (*buttons)[i]->Show(selected, _in_choice);
             if (selected)
             {
-                ImGui::SetScrollHereX(float(count) / float((*_current_buttons)[_index_y].size()));
+                ImGui::SetScrollHereX(float(i) / _max_row);
             }
 
-            count++;
-            ImGui::SameLine();
+            if (i + 1 < buttons->size())
+                ImGui::SameLine();
         }
+
+        if (_index_y + 1 < _current_buttons->size())
+        {
+            buttons = &(*_current_buttons)[_index_y + 1];
+            for (int i = 0; i < buttons->size(); i++)
+            {
+                (*buttons)[i]->ShowDisabled();
+                if (i + 1 < buttons->size())
+                    ImGui::SameLine();
+            }
+        }
+
         _VideoUnlock();
 
         if (*_intro)
@@ -345,7 +382,7 @@ void App::_OnKeyLeft(Input *input)
 
 void App::_OnKeyRight(Input *input)
 {
-    if (_index_x + 1 < (_current_buttons + _index_y)->size())
+    if (_index_x + 1 < (*_current_buttons)[_index_y].size())
         _index_x++;
 
     _UpdateIntro();
@@ -354,14 +391,23 @@ void App::_OnKeyRight(Input *input)
 void App::_OnKeyUp(Input *input)
 {
     if (_index_y > 0)
+    {
         _index_y--;
+        if (_index_x >= (*_current_buttons)[_index_y].size())
+            _index_x = (*_current_buttons)[_index_y].size() - 1;
+    }
+
     _UpdateIntro();
 }
 
 void App::_OnKeyDown(Input *input)
 {
-    if (_index_y + 1 < _current_buttons->size())
+    if (_index_y + 1 < (*_current_buttons)[_index_y].size())
+    {
         _index_y++;
+        if (_index_x >= (*_current_buttons)[_index_y].size())
+            _index_x = (*_current_buttons)[_index_y].size() - 1;
+    }
     _UpdateIntro();
 }
 
@@ -405,7 +451,15 @@ void App::_OnKeyStart(Input *input)
         _current_buttons = &_visable_buttons;
         _UpdateIntro();
         gConfig->Save();
+
+        if (_index_y >= _current_buttons->size())
+            _index_y = _current_buttons->size() - 1;
+
+        if (_index_x >= (*_current_buttons)[_index_y].size())
+            _index_x = (*_current_buttons)[_index_y].size() - 1;
     }
+
+    _SetMaxRow();
 }
 
 void App::_UpdateIntro()
@@ -446,8 +500,8 @@ void App::_SetVisableButtons()
             LogDebug("%s %d", CONSOLE_NAMES[console], gConfig->consoles[console]);
             if (gConfig->consoles[console])
             {
+                core_buttons.push_back(button);
             }
-            core_buttons.push_back(button);
         }
         _visable_buttons.push_back(core_buttons);
     }
