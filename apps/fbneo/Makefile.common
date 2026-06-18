@@ -345,20 +345,20 @@ ifneq ($(GIT_VERSION),unknown)
 endif
 
 # devices
-BURN_BLACKLIST += $(FBNEO_BURN_DEVICES_DIR)/epic12.cpp \
-	$(FBNEO_BURN_DEVICES_DIR)/serflash.cpp \
-	$(FBNEO_BURN_DEVICES_DIR)/bsmt2000.cpp \
-	$(FBNEO_BURN_DEVICES_DIR)/mb87078.cpp \
-	$(FBNEO_BURN_DEVICES_DIR)/poly.cpp \
-	$(FBNEO_BURN_DEVICES_DIR)/sknsspr.cpp \
-	$(FBNEO_BURN_DEVICES_DIR)/qs1000.cpp \
-	$(FBNEO_BURN_DEVICES_DIR)/v3021.cpp \
-	$(FBNEO_BURN_DEVICES_DIR)/decobsmt.cpp \
-	$(FBNEO_BURN_DEVICES_DIR)/intelfsh.cpp \
-	$(FBNEO_BURN_DEVICES_DIR)/st0020.cpp \
-	$(FBNEO_BURN_DEVICES_DIR)/vdc.cpp \
-	$(FBNEO_BURN_DEVICES_DIR)/ds2404.cpp \
-	$(FBNEO_BURN_DEVICES_DIR)/rtc9701.cpp
+BURN_BLACKLIST += 	$(FBNEO_BURN_DEVICES_DIR)/vdc.cpp 
+#    $(FBNEO_BURN_DEVICES_DIR)/epic12.cpp \
+#	$(FBNEO_BURN_DEVICES_DIR)/serflash.cpp \
+#	$(FBNEO_BURN_DEVICES_DIR)/bsmt2000.cpp \
+#	$(FBNEO_BURN_DEVICES_DIR)/mb87078.cpp \
+#	$(FBNEO_BURN_DEVICES_DIR)/poly.cpp \
+#	$(FBNEO_BURN_DEVICES_DIR)/sknsspr.cpp \
+#	$(FBNEO_BURN_DEVICES_DIR)/qs1000.cpp \
+#	$(FBNEO_BURN_DEVICES_DIR)/v3021.cpp \
+#	$(FBNEO_BURN_DEVICES_DIR)/decobsmt.cpp \
+#	$(FBNEO_BURN_DEVICES_DIR)/intelfsh.cpp \
+#	$(FBNEO_BURN_DEVICES_DIR)/st0020.cpp \
+#	$(FBNEO_BURN_DEVICES_DIR)/ds2404.cpp \
+#	$(FBNEO_BURN_DEVICES_DIR)/rtc9701.cpp
 	
 # snd
 # BURN_BLACKLIST += $(FBNEO_BURN_SND_DIR)/burn_ymf271.cpp \
@@ -374,138 +374,28 @@ BURN_BLACKLIST += $(FBNEO_BURN_DEVICES_DIR)/epic12.cpp \
 #	$(FBNEO_BURN_SND_DIR)/ymz770.cpp
 
 # cpu
-BURN_BLACKLIST += $(FBNEO_CPU_DIR)/adsp2100_intf.cpp \
-	$(FBNEO_CPU_DIR)/arm_intf.cpp \
-	$(FBNEO_CPU_DIR)/arm7_intf.cpp \
-	$(FBNEO_CPU_DIR)/h6280_intf.cpp \
-	$(FBNEO_CPU_DIR)/mips3_intf.cpp \
-	$(FBNEO_CPU_DIR)/pic16c5x_intf.cpp \
-	$(FBNEO_CPU_DIR)/tms34_intf.cpp \
-	$(FBNEO_CPU_DIR)/arm.cpp \
-	$(FBNEO_CPU_DIR)/e132xs.cpp \
-	$(FBNEO_CPU_DIR)/h6280.cpp \
-	$(FBNEO_CPU_DIR)/m37710.cpp \
-	$(FBNEO_CPU_DIR)/cop0.cpp \
-	$(FBNEO_CPU_DIR)/cop1.cpp \
-	$(FBNEO_CPU_DIR)/mips3.cpp \
-	$(FBNEO_CPU_DIR)/pic16c5x.cpp \
-	$(FBNEO_CPU_DIR)/sh4.cpp \
-	$(FBNEO_CPU_DIR)/tms34010.cpp \
-	$(FBNEO_CPU_DIR)/upd7725.cpp \
-	$(FBNEO_CPU_DIR)/v60.cpp \
-	$(FBNEO_CPU_DIR)/arm7.cpp \
-	$(FBNEO_CPU_DIR)/adsp2100.cpp \
-	$(FBNEO_CPU_DIR)/i386.cpp \
-	$(FBNEO_CPU_DIR)/mips3_dasm.cpp \
-	$(FBNEO_CPU_DIR)/tms34010_optable.cpp
+#BURN_BLACKLIST += $(FBNEO_CPU_DIR)/adsp2100_intf.cpp \
+#	$(FBNEO_CPU_DIR)/arm_intf.cpp \
+#	$(FBNEO_CPU_DIR)/arm7_intf.cpp \
+#	$(FBNEO_CPU_DIR)/h6280_intf.cpp \
+#	$(FBNEO_CPU_DIR)/mips3_intf.cpp \
+#	$(FBNEO_CPU_DIR)/pic16c5x_intf.cpp \
+#	$(FBNEO_CPU_DIR)/tms34_intf.cpp \
+#	$(FBNEO_CPU_DIR)/arm.cpp \
+#	$(FBNEO_CPU_DIR)/e132xs.cpp \
+#	$(FBNEO_CPU_DIR)/h6280.cpp \
+#	$(FBNEO_CPU_DIR)/m37710.cpp \
+#	$(FBNEO_CPU_DIR)/cop0.cpp \
+#	$(FBNEO_CPU_DIR)/cop1.cpp \
+#	$(FBNEO_CPU_DIR)/mips3.cpp \
+#	$(FBNEO_CPU_DIR)/pic16c5x.cpp \
+#	$(FBNEO_CPU_DIR)/sh4.cpp \
+#	$(FBNEO_CPU_DIR)/tms34010.cpp \
+#	$(FBNEO_CPU_DIR)/upd7725.cpp \
+#	$(FBNEO_CPU_DIR)/v60.cpp \
+#	$(FBNEO_CPU_DIR)/arm7.cpp \
+#	$(FBNEO_CPU_DIR)/adsp2100.cpp \
+#	$(FBNEO_CPU_DIR)/i386.cpp \
+#	$(FBNEO_CPU_DIR)/mips3_dasm.cpp \
+#	$(FBNEO_CPU_DIR)/tms34010_optable.cpp
 
-# drivers
-DRV_BLACKLIST := d_cv1k.cpp \
-	d_decomlc.cpp \
-	d_deco156.cpp \
-	d_simpl156.cpp \
-	d_deco32.cpp \
-	d_backfire.cpp \
-	d_vaportra.cpp \
-	d_tumblep.cpp \
-	d_supbtime.cpp \
-	d_funkyjet.cpp \
-	deco16ic.cpp \
-	d_dietgogo.cpp \
-	d_dec0.cpp \
-	d_dassault.cpp \
-	d_darkseal.cpp \
-	d_cninja.cpp \
-	d_boogwing.cpp \
-	d_cbuster.cpp \
-	d_actfancr.cpp \
-	d_boogwing.cpp \
-	d_dblewing.cpp \
-	d_dreambal.cpp \
-	d_rohga.cpp \
-	d_sshangha.cpp \
-	d_pktgaldx.cpp \
-	d_m92.cpp \
-	d_m107.cpp \
-	d_gijoe.cpp \
-	d_moo.cpp \
-	d_mystwarr.cpp \
-	d_xexex.cpp \
-	d_xmen.cpp \
-	dcs2k.cpp \
-	d_kinst.cpp \
-	d_tunit.cpp \
-	d_wunit.cpp \
-	d_xunit.cpp \
-	d_yunit.cpp \
-	ide.cpp \
-	midtunit.cpp \
-	midwayic.cpp \
-	midwunit.cpp \
-	narc_sound.cpp \
-	williams_adpcm.cpp \
-	williams_cvsd.cpp \
-	yawdim_sound.cpp \
-	d_msx.cpp \
-	d_nes.cpp \
-	d_pce.cpp \
-	pce.cpp \
-	d_pgm.cpp \
-	pgm_asic25.cpp \
-	pgm_asic27a_type1.cpp \
-	pgm_asic27a_type2.cpp \
-	pgm_asic27a_type3.cpp \
-	pgm_asic3.cpp \
-	pgm_crypt.cpp \
-	pgm_draw.cpp \
-	pgm_run.cpp \
-	d_exterm.cpp \
-	d_madmotor.cpp \
-	d_mcr68.cpp \
-	d_psikyo4.cpp \
-	d_psikyosh.cpp \
-	psikyosh_render.cpp \
-	d_ms32.cpp \
-	d_ssv.cpp \
-	d_namcona1.cpp \
-	d_namconb1.cpp \
-	d_btoads.cpp \
-	d_artmagic.cpp \
-	d_eolith16.cpp \
-	d_gstream.cpp \
-	d_vegaeo.cpp \
-	d_limenko.cpp \
-	d_pasha2.cpp \
-	d_eolith.cpp \
-	d_x2222.cpp \
-	d_f-32.cpp \
-	d_vamphalf.cpp \
-	d_suprnova.cpp \
-	d_drgnmst.cpp \
-	d_blackt96.cpp \
-	d_seibuspi.cpp \
-	d_kickgoal.cpp \
-	d_playmark.cpp \
-	d_fuukifg3.cpp \
-	d_rabbit.cpp \
-	d_itech32.cpp \
-	d_dreamwld.cpp \
-	d_macrossp.cpp \
-	d_jchan.cpp \
-	d_galpani3.cpp \
-	d_mirage.cpp \
-	d_seta2.cpp \
-	d_segas32.cpp \
-	d_sys24.cpp \
-	d_spectrum.cpp \
-	d_slapshot.cpp \
-	d_superchs.cpp \
-	d_taitof3.cpp \
-	d_taitof2.cpp \
-	d_taitoz.cpp \
-	taitof3_snd.cpp \
-	taitof3_video.cpp \
-	d_groundfx.cpp \
-	d_gunbuster.cpp \
-	d_undrfire.cpp \
-	d_galastrm.cpp
