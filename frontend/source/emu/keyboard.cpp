@@ -270,6 +270,7 @@ void Keyboard::SetVisable(bool visable)
     {
         ImGui::GetIO().MousePos = {-FLT_MAX, -FLT_MAX};
         mx = my = 0;
+        _status.reset();
     }
 };
 

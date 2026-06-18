@@ -295,6 +295,7 @@ endif
 CORE_DIR := .
 
 # include Makefile.common
+mkfile_path := $(shell dirname $(realpath $(firstword $(MAKEFILE_LIST))))
 SOURCES_C := $(CORE_DIR)/libretro.c \
     $(wildcard $(CORE_DIR)/crocods-core/*.c) \
     $(wildcard $(CORE_DIR)/crocods-core/iniparser/*.c)
@@ -334,6 +335,7 @@ else
 endif
 
 %.o: %.c
+	cp $(mkfile_path)/libretro.c $(CORE_DIR)/libretro.c
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 clean:
