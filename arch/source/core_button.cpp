@@ -8,7 +8,7 @@
 #include "language_arch.h"
 #include "icons.h"
 
-#define DISABLE_COLOR 0.7f
+#define DISABLE_COLOR 0.5f
 
 CoreButton::CoreButton(CONSOLE console, std::vector<CoreName> cores)
     : _console(console),
@@ -65,7 +65,13 @@ void CoreButton::Show(bool selected, bool choice)
 
 void CoreButton::ShowDisabled()
 {
-    ImGui::Image(_texture, {BUTTON_SIZE, BUTTON_SIZE}, {0, 0}, {1, 1}, {DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR});
+    ImGui::ImageButton(_texture,
+                       {BUTTON_SIZE, BUTTON_SIZE},
+                       {0.f, 0.f},
+                       {1.f, 1.f},
+                       0,
+                       {0, 0, 0, 0},
+                       {DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR});
 }
 
 void CoreButton::_ShowPopup()

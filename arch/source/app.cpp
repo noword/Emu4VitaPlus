@@ -402,7 +402,7 @@ void App::_OnKeyUp(Input *input)
 
 void App::_OnKeyDown(Input *input)
 {
-    if (_index_y + 1 < (*_current_buttons)[_index_y].size())
+    if (_index_y + 1 < _current_buttons->size())
     {
         _index_y++;
         if (_index_x >= (*_current_buttons)[_index_y].size())
@@ -443,6 +443,31 @@ void App::_OnKeyStart(Input *input)
     _in_choice = !_in_choice;
     if (_in_choice)
     {
+        CONSOLE console = (*_current_buttons)[_index_y][_index_x]->GetConsole();
+        bool found = false;
+        _index_y = _index_x = 0;
+        for (const auto buttons : _buttons)
+        {
+            for (const auto button : buttons)
+            {
+                if (console == button->GetConsole())
+                {
+                    found = true;
+                    break;
+                }
+                _index_x++;
+            }
+
+            if (found)
+            {
+                break;
+            }
+            else
+            {
+                _index_x = 0;
+                _index_y++;
+            }
+        }
         _current_buttons = &_buttons;
     }
     else
@@ -503,7 +528,8 @@ void App::_SetVisableButtons()
                 core_buttons.push_back(button);
             }
         }
-        _visable_buttons.push_back(core_buttons);
+        if (core_buttons.size() > 0)
+            _visable_buttons.push_back(core_buttons);
     }
 
     _VideoUnlock();
