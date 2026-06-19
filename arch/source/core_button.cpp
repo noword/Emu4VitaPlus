@@ -30,9 +30,13 @@ CoreButton::~CoreButton()
 
 void CoreButton::Show(bool selected, bool choice)
 {
-    ImVec4 color = selected ? ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered) : ImVec4{0, 0, 0, 0};
-
-    ImGui::ImageButton(_texture, {BUTTON_SIZE, BUTTON_SIZE}, {0.f, 0.f}, {1.f, 1.f}, 0, color);
+    ImGui::ImageButton(_texture,
+                       {BUTTON_SIZE, BUTTON_SIZE},
+                       {0.f, 0.f},
+                       {1.f, 1.f},
+                       0,
+                       selected ? ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered) : ImVec4{0, 0, 0, 0},
+                       selected ? ImVec4{1, 1, 1, 1} : ImVec4{DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR});
 
     ImVec2 pos = ImGui::GetItemRectMin();
     ImVec2 size = ImGui::CalcTextSize(CONSOLE_NAMES[_console]);
@@ -40,9 +44,17 @@ void CoreButton::Show(bool selected, bool choice)
     pos.x += (BUTTON_SIZE - size.x) / 2;
     pos.y += BUTTON_SIZE - size.y - 5;
     ImDrawList *draw_list = ImGui::GetWindowDrawList();
-    draw_list->AddText(pos,
-                       (choice && !gConfig->consoles[_console]) ? ImGui::GetColorU32(ImGuiCol_TextDisabled) : ImGui::GetColorU32(ImGuiCol_Text),
-                       CONSOLE_NAMES[_console]);
+    ImU32 color;
+    if (choice)
+    {
+        color = gConfig->consoles[_console] ? ImGui::GetColorU32(ImGuiCol_Text) : ImGui::GetColorU32(ImGuiCol_TextDisabled);
+    }
+    else
+    {
+        color = selected ? ImGui::GetColorU32(ImGuiCol_Text) : ImGui::GetColorU32(ImGuiCol_TextDisabled);
+    }
+
+    draw_list->AddText(pos, color, CONSOLE_NAMES[_console]);
 
     if (selected)
     {
@@ -61,17 +73,6 @@ void CoreButton::Show(bool selected, bool choice)
             draw_list->AddText(pos, ImGui::GetColorU32(ImGuiCol_TextDisabled), ICON_OFF);
         }
     }
-}
-
-void CoreButton::ShowDisabled()
-{
-    ImGui::ImageButton(_texture,
-                       {BUTTON_SIZE, BUTTON_SIZE},
-                       {0.f, 0.f},
-                       {1.f, 1.f},
-                       0,
-                       {0, 0, 0, 0},
-                       {DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR});
 }
 
 void CoreButton::_ShowPopup()

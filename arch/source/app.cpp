@@ -240,7 +240,7 @@ void App::_Show()
     {
         My_ImGui_ShowTimePower();
 
-        ImVec2 pos = ImGui::GetWindowPos();
+        ImVec2 pos = ImGui::GetCursorPos();
 
         if (_start_count > 0)
         {
@@ -261,7 +261,7 @@ void App::_Show()
             buttons = &(*_current_buttons)[_index_y - 1];
             for (int i = 0; i < buttons->size(); i++)
             {
-                (*buttons)[i]->ShowDisabled();
+                (*buttons)[i]->Show(false, _in_choice);
                 if (i + 1 < buttons->size())
                     ImGui::SameLine();
             }
@@ -291,7 +291,7 @@ void App::_Show()
             buttons = &(*_current_buttons)[_index_y + 1];
             for (int i = 0; i < buttons->size(); i++)
             {
-                (*buttons)[i]->ShowDisabled();
+                (*buttons)[i]->Show(false, _in_choice);
                 if (i + 1 < buttons->size())
                     ImGui::SameLine();
             }
@@ -440,35 +440,13 @@ void App::_OnClick(Input *input)
 void App::_OnKeyStart(Input *input)
 {
     LogFunctionName;
+
+    CONSOLE console = (*_current_buttons)[_index_y][_index_x]->GetConsole();
     _in_choice = !_in_choice;
     if (_in_choice)
     {
-        CONSOLE console = (*_current_buttons)[_index_y][_index_x]->GetConsole();
-        bool found = false;
-        _index_y = _index_x = 0;
-        for (const auto buttons : _buttons)
-        {
-            for (const auto button : buttons)
-            {
-                if (console == button->GetConsole())
-                {
-                    found = true;
-                    break;
-                }
-                _index_x++;
-            }
-
-            if (found)
-            {
-                break;
-            }
-            else
-            {
-                _index_x = 0;
-                _index_y++;
-            }
-        }
         _current_buttons = &_buttons;
+        _SetIndex(console);
     }
     else
     {
@@ -477,14 +455,55 @@ void App::_OnKeyStart(Input *input)
         _UpdateIntro();
         gConfig->Save();
 
-        if (_index_y >= _current_buttons->size())
-            _index_y = _current_buttons->size() - 1;
+        if (!_SetIndex(console))
+        {
+            if (_index_y >= _current_buttons->size())
+                _index_y = _current_buttons->size() - 1;
 
-        if (_index_x >= (*_current_buttons)[_index_y].size())
-            _index_x = (*_current_buttons)[_index_y].size() - 1;
+            if (_index_x >= (*_current_buttons)[_index_y].size())
+                _index_x = (*_current_buttons)[_index_y].size() - 1;
+        }
     }
 
     _SetMaxRow();
+}
+
+bool App::_SetIndex(CONSOLE console)
+{
+    size_t x = 0;
+    size_t y = 0;
+    bool found = false;
+
+    for (const auto buttons : *_current_buttons)
+    {
+        for (const auto button : buttons)
+        {
+            if (console == button->GetConsole())
+            {
+                found = true;
+                break;
+            }
+            x++;
+        }
+
+        if (found)
+        {
+            break;
+        }
+        else
+        {
+            x = 0;
+            y++;
+        }
+    }
+
+    if (found)
+    {
+        _index_x = x;
+        _index_y = y;
+    }
+
+    return found;
 }
 
 void App::_UpdateIntro()
@@ -551,7 +570,7 @@ void App::_RestoreLastCore()
     _index_x = _index_y = 0;
     for (auto buttons : _visable_buttons)
     {
-
+        _index_x = 0;
         for (auto button : buttons)
         {
             for (size_t j = 0; j < button->_cores.size(); j++)
@@ -563,6 +582,11 @@ void App::_RestoreLastCore()
                     break;
                 }
             }
+
+            if (found)
+                break;
+
+            _index_x++;
         }
 
         if (found)

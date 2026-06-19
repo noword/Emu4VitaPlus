@@ -32,6 +32,7 @@ private:
     void _SetVisableButtons();
     void _RestoreLastCore();
     void _SetMaxRow();
+    bool _SetIndex(CONSOLE console);
 
     void _OnClick(Input *input);
     void _OnKeyLeft(Input *input);
