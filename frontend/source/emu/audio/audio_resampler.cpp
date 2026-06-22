@@ -50,11 +50,12 @@ void AudioResampler::SetRate(uint32_t in_rate, uint32_t out_rate)
 void AudioResampler::Process(const int16_t *in, uint32_t in_size)
 {
     size_t size = in_size * 2;
-    int16_t *write_ptr = _in_buf.WriteBegin(size);
+    bool continuous;
+    int16_t *write_ptr = _in_buf.WriteBegin(size, continuous);
     if (write_ptr)
     {
         memcpy(write_ptr, in, size * sizeof(int16_t));
-        _in_buf.WriteEnd(size);
+        _in_buf.WriteEnd(size, continuous);
         Signal();
     }
 }
@@ -84,14 +85,15 @@ int AudioResampler::_ResampleThread(SceSize args, void *argp)
         BeginProfile("AudioResampler");
 
         size_t out_size = swr_get_out_samples(resampler->_swr_ctx, in_size / 2);
-        int16_t *out = resampler->_out_buf->WriteBegin(out_size * 2);
+        bool continuous;
+        int16_t *out = resampler->_out_buf->WriteBegin(out_size * 2, continuous);
         if (out != nullptr)
         {
             out_size = swr_convert(resampler->_swr_ctx, (uint8_t **)&out, out_size, (const uint8_t **)&in, in_size / 2);
             out_size *= 2;
 
             resampler->_in_buf.ReadEnd(in_size & 0xfffffffe);
-            resampler->_out_buf->WriteEnd(out_size);
+            resampler->_out_buf->WriteEnd(out_size, continuous);
             resampler->_output->Signal();
         }
 // #define SAVE_RESAMPLE

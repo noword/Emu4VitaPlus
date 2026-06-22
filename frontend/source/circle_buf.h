@@ -13,8 +13,7 @@ public:
           _read_pos(0),
           _write_pos(0),
           _tmp(nullptr),
-          _tmp_size(0),
-          _continue_write(true)
+          _tmp_size(0)
     {
         _buf = new T[_total_size];
     };
@@ -40,7 +39,7 @@ public:
         }
     };
 
-    T *WriteBegin(size_t size)
+    T *WriteBegin(size_t size, bool &continuous)
     {
         if (unlikely(size > FreeSize()))
         {
@@ -48,14 +47,14 @@ public:
         }
 
         const size_t write_pos = _write_pos.load(std::memory_order_relaxed);
-        _continue_write = (write_pos + size) < _total_size;
-        return _continue_write ? _buf + write_pos : _GetTmpBuf(size);
+        continuous = (write_pos + size) < _total_size;
+        return continuous ? _buf + write_pos : _GetTmpBuf(size);
     };
 
-    void WriteEnd(size_t size)
+    void WriteEnd(size_t size, bool continuous)
     {
         size_t write_pos = _write_pos.load(std::memory_order_relaxed);
-        if (likely(_continue_write))
+        if (likely(continuous))
         {
             write_pos += size;
             _write_pos.store(write_pos, std::memory_order_release);
@@ -199,11 +198,9 @@ protected:
 
     T *_buf;
     size_t _total_size;
-    std::atomic_size_t _read_pos;
-    std::atomic_size_t _write_pos;
+    alignas(32) std::atomic_size_t _read_pos;
+    alignas(32) std::atomic_size_t _write_pos;
 
     T *_tmp;
     size_t _tmp_size;
-
-    bool _continue_write;
 };
