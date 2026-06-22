@@ -144,12 +144,9 @@ void RewindManager::_SaveState()
     {
         _SaveFullState(_blocks.Next(), false);
     }
-    else if (_Serialize(_tmp_buf, _state_size))
+    else if (!_SaveDiffState(_blocks.Next()))
     {
-        if (!_SaveDiffState(_blocks.Next()))
-        {
-            _SaveFullState(_blocks.Current(), true);
-        }
+        _SaveFullState(_blocks.Current(), true);
     }
 }
 
