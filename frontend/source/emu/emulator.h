@@ -71,7 +71,7 @@ public:
     uint64_t GetMsPerFrame() { return _delay.GetInterval(); };
     void StartInput() { _input.Start(); };
     void StopInput() { _input.Stop(); }
-    int16_t GetInputInfo(AnalogAxis &left, AnalogAxis &right, TouchAxis &touch, bool &touched);
+    int16_t GetInputInfo(AnalogAxis &left, AnalogAxis &right, const TouchState **front, const TouchState **rear);
     bool NeedShowKeyboard() { return _keyboard && _keyboard->Visable(); };
 
     void ChangeGraphicsConfig() { _graphics_config_changed = true; };
@@ -137,6 +137,7 @@ private:
     inline int16_t _GetLightGunState(unsigned index, unsigned id);
     inline int16_t _GetPointerState(unsigned index, unsigned id);
     inline int16_t _GetKeybaordState(unsigned index, unsigned id);
+    inline void _MapTouchToButton(const Touch *touch, uint32_t *key_states) const;
 
     void _OnPsButton(Input *input);
     void _OnHotkeySave(Input *input);

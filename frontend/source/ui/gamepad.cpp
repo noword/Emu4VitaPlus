@@ -73,6 +73,50 @@ Gamepad::~Gamepad()
 {
 }
 
+void Gamepad::_UpdatePoints(std::vector<Point> *points, const TouchState *states)
+{
+    for (auto i = 0; i < states->count; i++)
+    {
+        const auto point = states->points + i;
+        bool found = false;
+        for (auto &pt : *points)
+        {
+            if (pt.id == point->id)
+            {
+                pt.x = point->x;
+                pt.y = point->y;
+                pt.radius = TOUCH_RADIUS;
+                found = true;
+                break;
+            }
+        }
+
+        if (!found)
+        {
+            Point pt;
+            pt.id = point->id;
+            pt.x = point->x;
+            pt.y = point->y;
+            pt.radius = TOUCH_RADIUS;
+            points->push_back(pt);
+        }
+    }
+
+    for (auto i = 0; i < points->size();)
+    {
+        Point &pt = (*points)[i];
+        pt.radius--;
+        if (pt.radius <= 0.f)
+        {
+            (*points)[i] = points->back();
+            points->pop_back();
+            continue;
+        }
+
+        i++;
+    }
+}
+
 void Gamepad::Show()
 {
     bool is_popup = ImGui::IsPopupOpen("Gamepad");
@@ -82,9 +126,11 @@ void Gamepad::Show()
     }
 
     AnalogAxis left, right;
-    TouchAxis touch;
+    const TouchState *front, *rear;
     bool touched;
-    const int16_t keys = gEmulator->GetInputInfo(left, right, touch, touched);
+    const int16_t keys = gEmulator->GetInputInfo(left, right, &front, &rear);
+    _UpdatePoints(&_front, front);
+    _UpdatePoints(&_rear, rear);
 
     if (keys & (1 << RETRO_DEVICE_ID_JOYPAD_START))
     {
@@ -175,10 +221,19 @@ void Gamepad::Show()
         ImGui::SetCursorScreenPos({(VITA_WIDTH - text_size.x) / 2, VITA_HEIGHT - text_size.y * 2});
         ImGui::TextUnformatted(s);
 
-        if (touch != TouchAxis{0, 0})
-            draw_list->AddCircleFilled({(float)touch.x, (float)touch.y},
-                                       touched ? TOUCH_RADIUS : TOUCH_RADIUS_SMALL,
-                                       ImGui::GetColorU32(ImGuiCol_Button));
+        for (const auto point : _front)
+        {
+            draw_list->AddCircleFilled({(float)point.x, (float)point.y},
+                                       point.radius,
+                                       ImGui::GetColorU32(ImGuiCol_Button, 0.8));
+        }
+
+        for (const auto point : _rear)
+        {
+            draw_list->AddCircleFilled({(float)point.x, (float)point.y},
+                                       point.radius,
+                                       ImGui::GetColorU32(ImGuiCol_Button, 0.5));
+        }
 
         ImGui::EndPopup();
     }

@@ -101,28 +101,33 @@ float SensorGetInputCallback(unsigned port, unsigned id)
     return 0.f;
 }
 
-int16_t Emulator::_GetJoypadState(unsigned index, unsigned id)
+void Emulator::_MapTouchToButton(const Touch *touch, uint32_t *key_states) const
 {
     static const uint32_t button_map[] = {SCE_CTRL_L2, SCE_CTRL_R2, SCE_CTRL_L3, SCE_CTRL_R3};
+
+    const auto state = touch->Get();
+    const auto center = touch->GetCenter();
+    for (auto i = 0; i < state->count; i++)
+    {
+        int flag = (state->points[i].y < center.y ? 0 : 2) | (state->points[i].x < center.x ? 0 : 1);
+        *key_states |= button_map[flag];
+    }
+}
+
+int16_t Emulator::_GetJoypadState(unsigned index, unsigned id)
+{
     uint32_t key_states = _input.GetKeyStates();
 
     Touch *touch = _input.GetRearTouch();
     if (unlikely(gConfig->sim_button_rear && touch->IsTouched()))
     {
-        const auto axis = touch->GetAxis();
-        const auto center = touch->GetCenter();
-        int flag = (axis.y < center.y ? 0 : 2) | (axis.x < center.x ? 0 : 1);
-        key_states |= button_map[flag];
+        _MapTouchToButton(touch, &key_states);
     }
 
     touch = _input.GetFrontTouch();
     if (unlikely(gConfig->sim_button_front && touch->IsTouched()))
     {
-        const auto axis = touch->GetAxis();
-        const auto center = touch->GetCenter();
-        int flag = (axis.y < center.y ? 0 : 2) | (axis.x < center.x ? 0 : 1);
-        // LogDebug("%d %d | %d %d | %d", center.x, center.y, axis.x, axis.y, flag);
-        key_states |= button_map[flag];
+        _MapTouchToButton(touch, &key_states);
     }
 
     if (id == RETRO_DEVICE_ID_JOYPAD_MASK)
@@ -227,9 +232,10 @@ int16_t Emulator::_GetLightGunState(unsigned index, unsigned id)
     case RETRO_DEVICE_ID_LIGHTGUN_TRIGGER:
     {
         static uint8_t last_id = 0xff;
-        if (last_id != front->GetId() && front->IsTouched())
+        auto state = front->Get();
+        if (front->IsTouched() && state->count == 1 && last_id != state->points[0].id)
         {
-            last_id = front->GetId();
+            last_id = state->points[0].id;
             return 1;
         }
         else
@@ -254,15 +260,10 @@ int16_t Emulator::_GetLightGunState(unsigned index, unsigned id)
         return front->GetMapedY(_video_rect);
 
     case RETRO_DEVICE_ID_LIGHTGUN_IS_OFFSCREEN:
-    {
-        const TouchAxis &axis = front->GetAxis();
-        return !_video_rect.Contains(axis.x, axis.y);
-    }
-
     case RETRO_DEVICE_ID_LIGHTGUN_RELOAD:
     {
-        const TouchAxis &axis = front->GetAxis();
-        return (!_video_rect.Contains(axis.x, axis.y));
+        auto state = front->Get();
+        return !_video_rect.Contains(state->points[0].x, state->points[0].y);
     }
 
     default:
@@ -292,7 +293,7 @@ int16_t Emulator::_GetPointerState(unsigned index, unsigned id)
         return front->IsTouched();
 
     case RETRO_DEVICE_ID_POINTER_COUNT:
-        return front->GetId();
+        return front->Get()->points[0].id;
 
     default:
         break;
@@ -590,32 +591,13 @@ void Emulator::_SetControllerInfo(retro_controller_info *info)
     gUi->UpdateControllerOptions();
 }
 
-int16_t Emulator::GetInputInfo(AnalogAxis &left, AnalogAxis &right, TouchAxis &touch, bool &touched)
+int16_t Emulator::GetInputInfo(AnalogAxis &left, AnalogAxis &right, const TouchState **front, const TouchState **rear)
 {
     left = _input.GetLeftAnalogAxis();
     right = _input.GetRightAnalogAxis();
 
-    const Touch *t = _input.GetFrontTouch();
-
-    if (t->IsEnabled())
-    {
-        touched = t->IsTouched();
-        touch = t->GetAxis();
-    }
-    else
-    {
-        t = _input.GetRearTouch();
-        if (t->IsEnabled())
-        {
-            touched = t->IsTouched();
-            touch = t->GetAxis();
-        }
-        else
-        {
-            touched = false;
-            touch = TouchAxis{0, 0};
-        }
-    }
+    *front = _input.GetFrontTouch()->Get();
+    *rear = _input.GetRearTouch()->Get();
 
     return _GetJoypadState(0, RETRO_DEVICE_ID_JOYPAD_MASK);
 };

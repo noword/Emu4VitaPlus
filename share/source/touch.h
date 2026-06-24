@@ -1,4 +1,5 @@
 #pragma once
+#include <atomic>
 #include <stdint.h>
 #include <vector>
 #include <psp2/touch.h>
@@ -11,14 +12,46 @@ namespace Emu4VitaPlus
     {
         int16_t x;
         int16_t y;
-        inline bool operator==(const TouchAxis &axis) const { return x == axis.x && y == axis.y; };
-        inline bool operator!=(const TouchAxis &axis) const { return !(*this == axis); };
-        inline TouchAxis &operator=(const TouchAxis &axis)
+
+        bool operator==(const TouchAxis &axis) const { return x == axis.x && y == axis.y; };
+        bool operator!=(const TouchAxis &axis) const { return !(*this == axis); };
+        TouchAxis &operator=(const TouchAxis &axis)
         {
             x = axis.x;
             y = axis.y;
             return *this;
         };
+    };
+
+    struct TouchPoint : public TouchAxis
+    {
+        uint8_t id;
+    };
+
+    struct TouchState
+    {
+        uint8_t count;
+        TouchPoint points[6];
+
+        void Set(const SceTouchReport *report)
+        {
+            for (auto i = 0; i < count; i++)
+            {
+                if (points[i].id == report->id)
+                {
+                    points[i].x = report->x >> 1;
+                    points[i].y = report->y >> 1;
+                    return;
+                }
+            }
+
+            points[count].id = report->id;
+            points[count].x = report->x >> 1;
+            points[count].y = report->y >> 1;
+            count++;
+        };
+
+        void Reset() { count = 0; };
     };
 
     class Touch
@@ -31,23 +64,22 @@ namespace Emu4VitaPlus
         bool IsEnabled() const { return _enabled; };
         void Poll();
         bool IsTouched() const { return _touched; };
-        uint8_t GetId() const { return _current_id; };
-        const TouchAxis &GetAxis() const { return _axis; };
+        const TouchState *Get() const { return _states + _current.load(std::memory_order_acquire); };
         const TouchAxis &GetCenter() const { return _center; };
         const SceTouchPanelInfo &GetInfo() const { return _info[_port]; };
         void InitMovingScale(float xscale, float yscale);
         const int16_t GetRelativeMovingX()
         {
-            int16_t v = _GetRelativeMoving(&_scale_map_table_x, _axis.x - _last_axis.x);
-            _last_axis.x = _axis.x;
-            return v;
+            int current = _current.load(std::memory_order_acquire);
+            int last = current ^ 1;
+            return _GetRelativeMoving(&_scale_map_table_x, _states[last].points[0].x - _states[current].points[0].x);
         };
 
         const int16_t GetRelativeMovingY()
         {
-            int16_t v = _GetRelativeMoving(&_scale_map_table_y, _axis.y - _last_axis.y);
-            _last_axis.y = _axis.y;
-            return v;
+            int current = _current.load(std::memory_order_acquire);
+            int last = current ^ 1;
+            return _GetRelativeMoving(&_scale_map_table_x, _states[last].points[0].y - _states[current].points[0].y);
         };
 
         template <typename T>
@@ -76,16 +108,18 @@ namespace Emu4VitaPlus
         template <typename T>
         int16_t GetMapedX(const Rect<T> &rect)
         {
-            size_t x = _axis.x - rect.left;
-            int16_t mapx = rect.Contains(_axis.x, _axis.y) && x < _map_table_x.size() ? _map_table_x[x] : -0x8000;
+            auto point = &Get()->points[0];
+            size_t x = point->x - rect.left;
+            int16_t mapx = rect.Contains(point->x, point->y) && x < _map_table_x.size() ? _map_table_x[x] : -0x8000;
             return mapx;
         }
 
         template <typename T>
         int16_t GetMapedY(const Rect<T> &rect)
         {
-            size_t y = _axis.y - rect.top;
-            int16_t mapy = rect.Contains(_axis.x, _axis.y) && y < _map_table_y.size() ? _map_table_y[y] : -0x8000;
+            auto point = &Get()->points[0];
+            size_t y = point->y - rect.top;
+            int16_t mapy = rect.Contains(point->x, point->y) && y < _map_table_y.size() ? _map_table_y[y] : -0x8000;
             return mapy;
         }
 
@@ -113,13 +147,13 @@ namespace Emu4VitaPlus
 
         bool _enabled;
         static SceTouchPanelInfo _info[2];
-        TouchAxis _last_axis;
-        TouchAxis _axis;
+        TouchState _states[2];
         TouchAxis _center;
-        uint8_t _current_id;
         SceTouchPortType _port;
         float _x_scale;
         float _y_scale;
+
+        std::atomic<int> _current{0};
 
         // map to retro's coordinate system
         // -0x7fff to 0x7fff

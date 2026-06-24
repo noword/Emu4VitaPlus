@@ -1,5 +1,6 @@
 #pragma once
 #include <imgui_vita2d/imgui_vita.h>
+#include <vector>
 #include "input.h"
 
 namespace Emu4VitaPlus
@@ -8,6 +9,11 @@ namespace Emu4VitaPlus
     {
         const char *text;
         ImVec2 pos;
+    };
+
+    struct Point : public TouchPoint
+    {
+        float radius = 0.f;
     };
 
     class Gamepad
@@ -22,10 +28,14 @@ namespace Emu4VitaPlus
         void SetInput(Input *input) { _input = input; };
 
     private:
+        void _UpdatePoints(std::vector<Point> *points, const TouchState *states);
+
         bool _actived;
         static Button _buttons[14];
         bool _start_pressed;
         uint64_t _close_time;
         Input *_input;
+        std::vector<Point> _front;
+        std::vector<Point> _rear;
     };
 };
