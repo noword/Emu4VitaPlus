@@ -134,9 +134,6 @@ App::App()
                            {{"Genesis Plus GX " ICON_STAR, "genesis_plus_gx"},
                             {"Genesis Plus GX Wide", "genesis_plus_gx_wide"},
                             {"PicoDrive", "picodrive"}}),
-            new CoreButton(LYNX, // 1989
-                           {{"Beetle Lynx", "mednafen_lynx"},
-                            {"Handy", "handy"}}),
             new CoreButton(SNES, // 1990
                            {     //{"Snes9x 2002", "snes9x2002"},
                             {"Snes9x 2005" ICON_STAR, "snes9x2005_plus"},
@@ -145,12 +142,15 @@ App::App()
                             {"Chimera SNES", "chimerasnes"}}),
             new CoreButton(NEOCD, // 1994
                            {{"neocd", "neocd"}}),
+            new CoreButton(VB, // 1995
+                           {{"Beetle VB", "mednafen_vb"}}),
             new CoreButton(PS1, // 1994.12
                            {{"PCSX ReARMed", "pcsx_rearmed"}}),
         },
         {
-            new CoreButton(VB, // 1995
-                           {{"Beetle VB", "mednafen_vb"}}),
+            new CoreButton(LYNX, // 1989
+                           {{"Beetle Lynx", "mednafen_lynx"},
+                            {"Handy", "handy"}}),
             new CoreButton(GBC, // 1989,1998
                            {{"Gambatte", "gambatte"},
                             {"TGB Dual", "tgbdual"}}),
