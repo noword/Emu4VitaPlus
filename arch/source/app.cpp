@@ -566,6 +566,8 @@ void App::_VideoUnlock()
 
 void App::_RestoreLastCore()
 {
+    LogFunctionName;
+
     bool found = false;
     _index_x = _index_y = 0;
     for (auto buttons : _visable_buttons)
@@ -594,4 +596,11 @@ void App::_RestoreLastCore()
 
         _index_y++;
     }
+
+    if (!found)
+    {
+        _index_x = _index_y = 0;
+    }
+
+    LogDebug("%d %d %s", _index_x, _index_y, gConfig->last_core.c_str());
 }
