@@ -1,3 +1,4 @@
+#include <string.h>
 #include "touch.h"
 #include "log.h"
 
@@ -35,6 +36,8 @@ namespace Emu4VitaPlus
 
         _center.x = (_info[_port].maxAaX - _info[_port].minAaX) / 4;
         _center.y = (_info[_port].maxAaY - _info[_port].minAaY) / 4;
+
+        memset(_states, 0, sizeof(_states));
     }
 
     Touch::~Touch()
@@ -57,14 +60,19 @@ namespace Emu4VitaPlus
             return;
         }
 
+        int current = _current.load(std::memory_order_relaxed) ^ 1;
+        TouchState *state = _states + current;
+        state->Reset();
+
         SceTouchData touch_data{0};
-        _touched = (sceTouchPeek(_port, &touch_data, 1) == 1 && touch_data.reportNum == 1);
+        _touched = (sceTouchPeek(_port, &touch_data, 1) >= SCE_OK && touch_data.reportNum > 0);
         if (_touched)
         {
-            _current_id = touch_data.report->id;
-            _axis.x = touch_data.report->x >> 1;
-            _axis.y = touch_data.report->y >> 1;
+            for (auto i = 0; i < touch_data.reportNum; i++)
+                state->Set(&touch_data.report[i]);
         }
+
+        _current.store(current, std::memory_order_release);
     }
 
     void Touch::InitMovingScale(float xscale, float yscale)
