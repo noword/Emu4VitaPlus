@@ -69,9 +69,7 @@ namespace Emu4VitaPlus
         if (_touched)
         {
             for (auto i = 0; i < touch_data.reportNum; i++)
-            {
-                state->Set(touch_data.report);
-            }
+                state->Set(&touch_data.report[i]);
         }
 
         _current.store(current, std::memory_order_release);
