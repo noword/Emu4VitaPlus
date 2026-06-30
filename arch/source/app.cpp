@@ -240,73 +240,76 @@ void App::_Show()
     {
         My_ImGui_ShowTimePower();
 
-        ImVec2 pos = ImGui::GetCursorPos();
-
         if (_start_count > 0)
         {
             _start_count--;
             const char *manage_icons = gArchs[gConfig->language][LANG_MANAGE_ICONS];
-            ImVec2 size = ImGui::CalcTextSize(manage_icons);
-            ImGui::GetWindowDrawList()->AddText({(VITA_WIDTH - size.x) / 2.f, 70.f}, IM_COL32_WHITE, manage_icons);
+            ImGui::GetWindowDrawList()->AddText({(VITA_WIDTH - ImGui::CalcTextSize(manage_icons).x) / 2.f, 70.f},
+                                                IM_COL32_WHITE,
+                                                manage_icons);
         }
+
+        ImVec2 avail_size = ImGui::GetContentRegionAvail();
+        ImVec2 main_size{avail_size.x - COVER_WIDTH - 8, avail_size.y};
+        ImVec2 intro_size;
+        if (*_intro)
+        {
+            ImVec2 intro_size = ImGui::CalcTextSize(_intro);
+            main_size.y -= intro_size.y;
+        }
+        vita2d_texture *cover = nullptr;
 
         _VideoLock();
-
-        CoreButtons *buttons;
-
-        if (_index_y > 0)
+        if (ImGui::BeginChild("arch", main_size, false, ImGuiWindowFlags_NoScrollbar))
         {
-            pos.y = (ImGui::GetContentRegionAvail().y - BUTTON_SIZE) / 2 + MAIN_WINDOW_PADDING * 2 - BUTTON_SIZE - ImGui::GetStyle().FramePadding.y;
-            ImGui::SetCursorPos(pos);
-            buttons = &(*_current_buttons)[_index_y - 1];
-            for (int i = 0; i < buttons->size(); i++)
+            ImVec2 pos = ImGui::GetCursorPos();
+
+            for (size_t y = 0; y < _current_buttons->size(); y++)
             {
-                (*buttons)[i]->Show(false, _in_choice);
-                if (i + 1 < buttons->size())
+                const CoreButtons &buttons = (*_current_buttons)[y];
+                for (size_t x = 0; x < buttons.size(); x++)
+                {
+                    bool selected = _index_y == y && _index_x == x;
+                    buttons[x]->Show(selected, _in_choice);
+                    if (selected)
+                    {
+                        ImGui::SetScrollHereX((float)x / (float)buttons.size());
+                        ImGui::SetScrollHereY((float)y / (float)_current_buttons->size());
+                        cover = buttons[x]->GetCover();
+                    }
+
                     ImGui::SameLine();
+                }
+
+                pos.y += BUTTON_SIZE + 8;
+                ImGui::SetCursorPos(pos);
             }
         }
-        else
-        {
-            pos.y = (ImGui::GetContentRegionAvail().y - BUTTON_SIZE) / 2 + MAIN_WINDOW_PADDING * 2;
-            ImGui::SetCursorPos(pos);
-        }
+        ImGui::EndChild();
 
-        buttons = &(*_current_buttons)[_index_y];
-        for (int i = 0; i < buttons->size(); i++)
+        ImGui::SameLine();
+        if (cover)
         {
-            bool selected = (i == _index_x);
-            (*buttons)[i]->Show(selected, _in_choice);
-            if (selected)
+            if (ImGui::BeginChild("cover"))
             {
-                ImGui::SetScrollHereX(float(i) / _max_row);
+                ImVec2 pos = ImGui::GetCursorScreenPos();
+                ImGui::GetWindowDrawList()->AddRectFilled(pos,
+                                                          ImVec2(pos.x + COVER_WIDTH, pos.y + COVER_HEIGHT),
+                                                          IM_COL32(255, 255, 255, 160));
+                ImGui::Image(cover, {COVER_WIDTH, COVER_HEIGHT});
             }
-
-            if (i + 1 < buttons->size())
-                ImGui::SameLine();
-        }
-
-        if (_index_y + 1 < _current_buttons->size())
-        {
-            buttons = &(*_current_buttons)[_index_y + 1];
-            for (int i = 0; i < buttons->size(); i++)
-            {
-                (*buttons)[i]->Show(false, _in_choice);
-                if (i + 1 < buttons->size())
-                    ImGui::SameLine();
-            }
+            ImGui::EndChild();
         }
 
         _VideoUnlock();
 
         if (*_intro)
         {
-            ImVec2 size = ImGui::CalcTextSize(_intro);
-            ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2 - size.y});
-            ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, size.y});
-            if (ImGui::Begin("info", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
+            ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2.5 - intro_size.y});
+            ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, intro_size.y});
+            if (ImGui::Begin("intro", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
             {
-                ImGui::SetCursorPos({(float)_moving_status.pos, 0.f});
+                ImGui::SetCursorPos({(float)_moving_status.pos, 0});
                 ImGui::TextUnformatted(_intro);
                 _moving_status.Update(_intro);
 

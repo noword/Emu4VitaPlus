@@ -16,21 +16,22 @@ CoreButton::CoreButton(CONSOLE console, std::vector<CoreName> cores)
       _actived(false),
       _index(0)
 {
-    std::string icon = std::string(CORE_DATA_DIR) + "/" + CONSOLE_NAMES[_console] + "/icon0.png";
-    _texture = vita2d_load_PNG_file(icon.c_str());
+    std::string path = std::string(CORE_DATA_DIR) + "/" + CONSOLE_NAMES[_console];
+    _button_texture = vita2d_load_PNG_file((path + "/icon0.png").c_str());
+    _cover_texture = vita2d_load_PNG_file((path + "/console.png").c_str());
 }
 
 CoreButton::~CoreButton()
 {
-    if (_texture)
+    if (_button_texture)
     {
-        vita2d_free_texture(_texture);
+        vita2d_free_texture(_button_texture);
     }
 }
 
 void CoreButton::Show(bool selected, bool choice)
 {
-    ImGui::ImageButton(_texture,
+    ImGui::ImageButton(_button_texture,
                        {BUTTON_SIZE, BUTTON_SIZE},
                        {0.f, 0.f},
                        {1.f, 1.f},
