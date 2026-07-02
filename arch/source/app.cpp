@@ -260,6 +260,7 @@ void App::_Show()
         vita2d_texture *cover = nullptr;
 
         _VideoLock();
+
         if (ImGui::BeginChild("arch", main_size, false, ImGuiWindowFlags_NoScrollbar))
         {
             ImVec2 pos = ImGui::GetCursorPos();
@@ -287,6 +288,8 @@ void App::_Show()
         }
         ImGui::EndChild();
 
+        _VideoUnlock();
+
         ImGui::SameLine();
         if (cover)
         {
@@ -295,13 +298,11 @@ void App::_Show()
                 ImVec2 pos = ImGui::GetCursorScreenPos();
                 ImGui::GetWindowDrawList()->AddRectFilled(pos,
                                                           ImVec2(pos.x + COVER_WIDTH, pos.y + COVER_HEIGHT),
-                                                          IM_COL32(255, 255, 255, 160));
+                                                          IM_COL32(255, 255, 255, 230));
                 ImGui::Image(cover, {COVER_WIDTH, COVER_HEIGHT});
             }
             ImGui::EndChild();
         }
-
-        _VideoUnlock();
 
         if (*_intro)
         {
