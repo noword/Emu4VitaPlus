@@ -51,6 +51,7 @@ set(CORE_ROWS
     "mgba;mgba;mGBA;GBA;MGBA4VITA"
     "quasi88-libretro;quasi88;quasi88;PC88;QUASI884V"
     "beetle-vb-libretro;mednafen_vb;mednafen_vb;VB;VB4PSVITA"
+	"gw-libretro;gw;gw;GW;GW4PSVITA"
 )
 
 set(ROW_SIZE 5)

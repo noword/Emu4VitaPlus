@@ -35,6 +35,7 @@ CORES = {
     'CPC': ('cap32', 'crocods'),
     'PC88': ('quasi88',),
     'VB': ('mednafen_vb',),
+    'GW': ('gw',),
 }
 
 NAMES = {
@@ -88,4 +89,5 @@ NAMES = {
     'crocods': 'CrocoDS',
     'quasi88': 'QUASI88',
     'mednafen_vb': 'Beetle VB',
+    'gw': 'Handheld Electronic (GW)',
 }

@@ -219,3 +219,6 @@
 	path = cores/beetle-vb-libretro
 	url = https://github.com/libretro/beetle-vb-libretro.git
 	branch = master
+[submodule "cores/gw-libretro"]
+	path = cores/gw-libretro
+	url = https://github.com/libretro/gw-libretro.git
