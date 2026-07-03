@@ -313,6 +313,18 @@
     },
     {
         "No.": "27",
+        "Tag": "INTRO_GW",
+        "English": "Game & Watch is a series of handheld electronic games developed by Nintendo. Designed by Gunpei Yokoi, the first game, Ball was released in 1980 and the original production run of the devices continued until 1991. The name Game & Watch reflects their dual functionality: a single game paired with a digital clock on a segmented liquid-crystal display (LCD) screen. The Game & Watch series proved a monumental success, selling a total of 43.4 million units globally, marking Nintendo's first major worldwide success with electronic games.",
+        "Chinese": "Game & Watch（日语：ゲーム&ウオッチ）是日本著名游戏公司任天堂在1980年至1991年发售的一款便携式游戏机，由横井军平负责设计，其主要特色为一部主机备有一支特定的游戏，在液晶显示器上显示；并且主机还备有时钟和闹钟功能。大部分的机种分别有一个“GAME A”与“GAME B”的按钮，Game B通常是Game A的更难更快版本。这种液晶显示器便携游戏机的成功刺激了另外几十间游戏与玩具公司制造它们自己的便携游戏机，当中很多原封不动照抄 Game & Watch 的游戏。",
+        "Japanese": "ゲーム&ウオッチ（ゲームアンドウオッチ、GAME&WATCH）は、任天堂発売の携帯型液晶ゲーム機（電子ゲーム、LSIゲーム）。CMなど一般での呼称は「ゲームウオッチ」。",
+        "Italian": "I Game & Watch (Gēmu & Uotchi) sono una serie di giochi elettronici portatili, ideati da Gunpei Yokoi (noto anche per l'invenzione della croce direzionale e del Game Boy) e prodotti da Nintendo tra il 1980 e il 1991. Possono essere considerati console dedicate, nel qual caso appartengono alla seconda generazione.",
+        "French": "Les Game & Watch sont des jeux électroniques de poche, ancêtre de la console de jeux portables, produits par la société Nintendo de 1980 à 1991, ils font également office de montres et de réveils.",
+        "Spanish": "La serie Game & Watch (Gēmu ando Uotchi; conocidas en Alemania como tricOtronic y popularmente en España como <maquinitas>) es una línea de 59 consolas portátiles de videojuegos fabricadas por Nintendo de 1980 a 1991 y creadas por Gunpei Yokoi. Todas ellas poseían un único juego de pantalla LCD y tenían además reloj y alarma.",
+        "Russian": "Game & Watch (сокращённо G & W; с англ. — «игра и часы», произносится как гейм энд уотч;  гэ:му & уотти; в Западной Германии и Австрии называется Tricotronic) — серия портативных электронных игр с ЖК-экраном. Серия была создана разработчиком игр Гумпэем Ёкои в компании Nintendo, игры выпускались с 1980 по 1991 год. Большинство устройств позволяло играть только в одну игру — это ограничение было вызвано использованием сегментированного ЖК-экрана. На многих играх находились кнопки «Игра A» и «Игра B», причём игра B обычно была просто более быстрой и сложной версией игры A. Скорость игры и скорость отклика тоже были ограничены скоростью изменения состояния индикатора. Также устройство включало в себя часы и будильник.",
+        "Comments": ""
+    },
+    {
+        "No.": "28",
         "Tag": "LANG_MANAGE_ICONS",
         "English": "⇸ Manage icons",
         "Chinese": "⇸ 管理图标",

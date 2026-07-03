@@ -148,6 +148,8 @@ App::App()
                            {{"PCSX ReARMed", "pcsx_rearmed"}}),
         },
         {
+            new CoreButton(GW, // 1980
+                           {{"Handheld Electronic (GW)", "gw"}}),
             new CoreButton(LYNX, // 1989
                            {{"Beetle Lynx", "mednafen_lynx"},
                             {"Handy", "handy"}}),

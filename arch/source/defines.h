@@ -40,6 +40,7 @@ enum CONSOLE
     WSC,
     GBA,
     ARC,
+    GW,
     CONSOLE_COUNT
 };
 

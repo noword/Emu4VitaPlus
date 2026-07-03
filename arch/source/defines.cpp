@@ -27,4 +27,5 @@ const char *CONSOLE_NAMES[] = {
     "WSC",
     "GBA",
     "ARC",
+    "GW",
 };
