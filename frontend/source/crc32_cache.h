@@ -4,10 +4,9 @@
 #include "file.h"
 #include "defines.h"
 #include "log.h"
+#include "utils.h"
 
 #define DEFAULT_CRC32_CACHE_SIZE 0x2000
-
-#define IS_POWER_OF_TWO(x) ((x) > 0 && (((x) & ((x) - 1)) == 0))
 
 struct CRC32_CACHE
 {
@@ -19,7 +18,7 @@ template <size_t SIZE = DEFAULT_CRC32_CACHE_SIZE>
 class Crc32Cache
 {
 public:
-    _Static_assert(IS_POWER_OF_TWO(SIZE), "cache size must be power of two");
+    static_assert(IS_POWER_OF_TWO(SIZE), "cache size must be power of two");
 
     Crc32Cache() : _save_count(0)
     {

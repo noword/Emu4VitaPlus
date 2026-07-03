@@ -5,20 +5,88 @@
 #include "utils.h"
 #include "delay.h"
 
-#define BLOCK_SIZE 0x400
+#define DEFAULT_BLOCK_SIZE 0x400
 //"REWD"
 #define REWIND_BLOCK_MAGIC 0x44574552
 
-enum BlockType
+class StateBuf
 {
-    BLOCK_FULL,
-    BLOCK_DIFF
+public:
+    StateBuf(size_t size) : _index(0)
+    {
+        size = ALIGN_UP_10H(size);
+        _bufs[0] = new uint8_t[size * 2];
+        _bufs[1] = _bufs[0] + size;
+    };
+
+    virtual ~StateBuf()
+    {
+        delete[] _bufs[0];
+    };
+
+    uint8_t *Current() { return _bufs[_index]; };
+    uint8_t *Next() { return _bufs[_index ^ 1]; };
+    void Toggle() { _index ^= 1; };
+
+private:
+    uint8_t *_bufs[2];
+    int _index;
 };
 
 struct DiffArea
 {
     uint32_t offset;
     uint32_t size;
+};
+
+struct DiffContent
+{
+    uint32_t magic;
+    uint32_t index;
+    DiffArea areas[];
+};
+
+struct DiffBlock
+{
+    uint32_t index;
+    uint32_t num;
+    DiffContent *content;
+
+    bool IsValid()
+    {
+        return content && content->magic == REWIND_BLOCK_MAGIC && content->index == index;
+    }
+};
+
+template <size_t BLOCK_SIZE>
+class DiffBlocks
+{
+    static_assert(BLOCK_SIZE > 0 && (BLOCK_SIZE & (BLOCK_SIZE - 1)) == 0, "total must be a power of 2!");
+
+public:
+    DiffBlocks() :
+    {
+        _blocks = new DiffBlock[BLOCK_SIZE];
+    };
+
+    virtual ~DiffBlocks()
+    {
+        delete[] _blocks;
+    };
+
+    DiffBlock *Current() { return &_blocks[_current]; };
+
+private:
+    DiffBlock *_blocks;
+    size_t _current;
+    size_t _total;
+};
+
+//-------------------------------
+enum BlockType
+{
+    BLOCK_FULL,
+    BLOCK_DIFF
 };
 
 struct RewindContent
