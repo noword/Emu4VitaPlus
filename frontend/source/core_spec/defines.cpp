@@ -47,6 +47,8 @@ const char *THUMBNAILS_NAME[] = {
     "FBNeo%20-%20Arcade%20Games",
 #elif defined(MAME_BUILD)
     "MAME",
+#elif defined(GW_BUILD)
+    "Handheld%20Electronic%20Game",
 #endif
     nullptr};
 
@@ -61,7 +63,8 @@ const char THUMBNAILS_PATH[] =
     defined(NGP_BUILD) ||       \
     defined(ATARI2600_BUILD) || \
     defined(ATARI5200_BUILD) || \
-    defined(ATARI7800_BUILD)
+    defined(ATARI7800_BUILD) || \
+    defined(GW_BUILD)
     THUMBNAILS_CACHE_DIR "/" CONSOLE;
 #elif defined(FBA_BUILD)
     THUMBNAILS_CACHE_DIR "/FBA";

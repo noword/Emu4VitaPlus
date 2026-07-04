@@ -1,0 +1,356 @@
+[
+    {
+        "CRC32": "5067E3A2",
+        "ROM": "Wild Man Jump (VTech, Electronic Tini-Arcade)",
+        "English": "Wild Man Jump (Electronic Tini-Arcade)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EAC5198C",
+        "ROM": "Turtle Bridge (Nintendo, Wide Screen)",
+        "English": "Turtle Bridge (Wide Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A2ADC716",
+        "ROM": "Tron (Tomytronic)",
+        "English": "Tron",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "6B31A90E",
+        "ROM": "Towering Rescue (Gakken, LCD Card Game)",
+        "English": "Towering Rescue (LCD Card Game)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B517B793",
+        "ROM": "Tom _ Jerry Popper (Gakken, LCD Card Game)",
+        "English": "Tom & Jerry Popper (LCD Card Game)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "12934E0F",
+        "ROM": "Tennis Menace (VTech, Sporty Time _ Fun)",
+        "English": "Tennis Menace (Sporty Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "48345A6F",
+        "ROM": "Sub Chase (Mattel Electronics)",
+        "English": "Sub Chase",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "9F54EEC6",
+        "ROM": "Snoopy Tennis (Nintendo, Wide Screen)",
+        "English": "Snoopy Tennis (Wide Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "615469D7",
+        "ROM": "Snoopy (Nintendo, Table Top)",
+        "English": "Snoopy (Table Top)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "392BD3E3",
+        "ROM": "Snoopy (Nintendo, Panorama Screen)",
+        "English": "Snoopy (Panorama Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4E9BB04A",
+        "ROM": "Sleep Walker (VTech, Time _ Fun)",
+        "English": "Sleep Walker (Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3D4F6814",
+        "ROM": "Safari (VTech, Time _ Fun)",
+        "English": "Safari (Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3F34D553",
+        "ROM": "Roller Coaster (VTech, Explorer Time _ Fun)",
+        "English": "Roller Coaster (Explorer Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "6EC03008",
+        "ROM": "Pirate (VTech, Time _ Fun)",
+        "English": "Pirate (Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A811DE8F",
+        "ROM": "Penguin Land (Bandai, LSI Game Double Play)",
+        "English": "Penguin Land (LSI Game Double Play)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C532881E",
+        "ROM": "Parachute (Nintendo, Wide Screen)",
+        "English": "Parachute (Wide Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5124D905",
+        "ROM": "Pancake (VTech, Time _ Fun)",
+        "English": "Pancake (Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "EEB61F6B",
+        "ROM": "Pac Man (Tomytronic)",
+        "English": "Pac Man",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C61BE23F",
+        "ROM": "Motor Cross (Queentex)",
+        "English": "Motor Cross",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B2DBA337",
+        "ROM": "Monkey Jump (VTech, Arcade Time _ Fun)",
+        "English": "Monkey Jump (Arcade Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DE15832F",
+        "ROM": "Monkey (VTech, Time _ Fun)",
+        "English": "Monkey (Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "C3E11663",
+        "ROM": "Mickey Mouse (Nintendo, Wide Screen)",
+        "English": "Mickey Mouse (Wide Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1E57AEAA",
+        "ROM": "Mickey Mouse (Nintendo, Panorama Screen)",
+        "English": "Mickey Mouse (Panorama Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1EC74B87",
+        "ROM": "Mario's Bombs Away (Nintendo, Panorama Screen)",
+        "English": "Mario's Bombs Away (Panorama Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CC5763DA",
+        "ROM": "Mario Bros. (Nintendo, Multi Screen)",
+        "English": "Mario Bros. (Multi Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B98DB7D4",
+        "ROM": "Lifeboat (Nintendo, Multi Screen)",
+        "English": "Lifeboat (Multi Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1EA21B1F",
+        "ROM": "Las Vegas (Bandai, LCD Game Digital)",
+        "English": "Las Vegas (LCD Game Digital)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B569B71D",
+        "ROM": "Hot Line (VTech, Sporty Time _ Fun)",
+        "English": "Hot Line (Sporty Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A0C4B96E",
+        "ROM": "Hot Line (VTech, Mini Time _ Fun)",
+        "English": "Hot Line (Mini Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "79563176",
+        "ROM": "Hippo Teeth (VTech, Sporty Time _ Fun)",
+        "English": "Hippo Teeth (Sporty Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "D5296D68",
+        "ROM": "Hippo Teeth (VTech, Mini Time _ Fun)",
+        "English": "Hippo Teeth (Mini Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "3685301F",
+        "ROM": "Grab Man (unknown manufacturer, Game _ Time)",
+        "English": "Grab Man (Game & Time)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "78062E43",
+        "ROM": "Galaxy II (Epoch)",
+        "English": "Galaxy II",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "70286E6B",
+        "ROM": "Frog Boaster (Elektronika)",
+        "English": "Frog Boaster",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A2BB0A21",
+        "ROM": "Fowling (Elektronika)",
+        "English": "Fowling",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "77297A50",
+        "ROM": "Explorers of Space (Elektronika)",
+        "English": "Explorers of Space",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "668EACD3",
+        "ROM": "Escape (VTech, Time _ Fun)",
+        "English": "Escape (Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "71C37639",
+        "ROM": "Engine Room (VTech, Explorer Time _ Fun)",
+        "English": "Engine Room (Explorer Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "6F066CA5",
+        "ROM": "Egg (Nintendo, Wide Screen)",
+        "English": "Egg (Wide Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "8D2A15B3",
+        "ROM": "Dungeons _ Dragons Computer Fantasy Game (Mattel Electronics, Arcade Action Series)",
+        "English": "Dungeons & Dragons Computer Fantasy Game (Arcade Action Series)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "866B0D8C",
+        "ROM": "Donkey Kong Jr. (Nintendo, Table Top)",
+        "English": "Donkey Kong Jr. (Table Top)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "2C1A469C",
+        "ROM": "Donkey Kong Jr. (Nintendo, Panorama Screen)",
+        "English": "Donkey Kong Jr. (Panorama Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "5510B65B",
+        "ROM": "Donkey Kong Jr. (Coleco)",
+        "English": "Donkey Kong Jr.",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "FCF3E1C3",
+        "ROM": "Donkey Kong II (Nintendo, Multi Screen)",
+        "English": "Donkey Kong II (Multi Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "B716EF4C",
+        "ROM": "Donkey Kong Circus (Nintendo, Panorama Screen)",
+        "English": "Donkey Kong Circus (Panorama Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "1861CCB5",
+        "ROM": "Donkey Kong (Nintendo, Multi Screen)",
+        "English": "Donkey Kong (Multi Screen)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "CE26F005",
+        "ROM": "Donkey Kong (Coleco)",
+        "English": "Donkey Kong",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A877376A",
+        "ROM": "Donkey Angler (Gakken, LCD Card Game)",
+        "English": "Donkey Angler (LCD Card Game)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "BA5656C0",
+        "ROM": "Defendo (VTech, Explorer Time _ Fun)",
+        "English": "Defendo (Explorer Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "4BC643A8",
+        "ROM": "Crazy Chewy (VTech, Electronic Tini-Arcade)",
+        "English": "Crazy Chewy (Electronic Tini-Arcade)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "29162BC1",
+        "ROM": "Condor (VTech, Time _ Fun)",
+        "English": "Condor (Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "58051357",
+        "ROM": "Chicky Woggy (VTech, Electronic Tini-Arcade)",
+        "English": "Chicky Woggy (Electronic Tini-Arcade)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "49B1E4DC",
+        "ROM": "Chicky Woggy (VTech, Arcade Time _ Fun)",
+        "English": "Chicky Woggy (Arcade Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "DCD0CACE",
+        "ROM": "Cessate il Fuoco (VTech, Mini Time _ Fun)",
+        "English": "Cessate il Fuoco (Mini Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "22D7B6AD",
+        "ROM": "Caccia al Ladro (VTech, Mini Time _ Fun)",
+        "English": "Caccia al Ladro (Mini Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "A80E9699",
+        "ROM": "Bomb Fight (VTech, Mini Time _ Fun)",
+        "English": "Bomb Fight (Mini Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "20BA6D87",
+        "ROM": "Baseball (VTech, Explorer Time _ Fun)",
+        "English": "Baseball (Explorer Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "ACC73BB4",
+        "ROM": "Banana (VTech, Time _ Fun)",
+        "English": "Banana (Time & Fun)",
+        "Chinese": ""
+    },
+    {
+        "CRC32": "98D0C8D1",
+        "ROM": "Armor Battle (Mattel Electronics)",
+        "English": "Armor Battle",
+        "Chinese": ""
+    }
+]
