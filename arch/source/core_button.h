@@ -10,6 +10,7 @@ using namespace Emu4VitaPlus;
 
 #define COVER_WIDTH 285
 #define COVER_HEIGHT 461
+#define MIN_ALPHA 0.4f
 
 struct CoreName
 {
@@ -33,6 +34,7 @@ public:
     const char *GetIntro() const;
     CONSOLE GetConsole() const { return _console; };
     vita2d_texture *GetCover() const { return _cover_texture; };
+    void ResetAlpha() { _alpha = MIN_ALPHA; };
 
 private:
     void _ShowPopup();
@@ -47,6 +49,7 @@ private:
     vita2d_texture *_cover_texture;
     bool _actived;
     size_t _index;
+    float _alpha;
 
     CONSOLE _console;
 };
