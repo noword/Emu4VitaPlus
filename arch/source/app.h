@@ -50,6 +50,7 @@ private:
     CoreButtonsVector _buttons;
     CoreButtonsVector _visable_buttons;
     CoreButtonsVector *_current_buttons;
+    uint32_t _cover_alpha;
 
     float _max_row;
     size_t _index_x;

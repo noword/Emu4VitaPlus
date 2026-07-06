@@ -14,6 +14,9 @@
 #include "language_arch.h"
 #include "theme.h"
 
+#define MIN_COVER_ALPHA 60
+#define MAX_COVER_ALPHA 230
+
 bool gRunning = true;
 std::string gCoreName;
 
@@ -295,12 +298,15 @@ void App::_Show()
         ImGui::SameLine();
         if (cover)
         {
+            if (_cover_alpha < MAX_COVER_ALPHA)
+                _cover_alpha++;
+
             if (ImGui::BeginChild("cover"))
             {
                 ImVec2 pos = ImGui::GetCursorScreenPos();
                 ImGui::GetWindowDrawList()->AddRectFilled(pos,
                                                           ImVec2(pos.x + COVER_WIDTH, pos.y + COVER_HEIGHT),
-                                                          IM_COL32(255, 255, 255, 230));
+                                                          IM_COL32(255, 255, 255, _cover_alpha));
                 ImGui::Image(cover, {COVER_WIDTH, COVER_HEIGHT});
             }
             ImGui::EndChild();
@@ -515,8 +521,10 @@ bool App::_SetIndex(CONSOLE console)
 void App::_UpdateIntro()
 {
     LogFunctionName;
+    _cover_alpha = MIN_COVER_ALPHA;
     _moving_status.Reset();
     _intro = (*_current_buttons)[_index_y][_index_x]->GetIntro();
+    (*_current_buttons)[_index_y][_index_x]->ResetAlpha();
 }
 
 void App::_OnStartRollingIntro(Input *input)

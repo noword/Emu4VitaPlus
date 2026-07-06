@@ -6,7 +6,6 @@ from cores import CORES
 import shutil
 import os
 
-
 KEYS = ('Rom', 'English', "Chinese", "Japanese", "Italian", "French", "Spanish", "Russian")
 
 
@@ -69,6 +68,7 @@ for json_name, core_name in (
     ('atari2600', 'ATARI2600'),
     ('atari5200', 'ATARI5200'),
     ('atari7800', 'ATARI7800'),
+    ('gw', 'GW'),
 ):
     print(json_name)
     names = json.load(open(f'rom_db/{json_name}.names.json', encoding='utf-8'))

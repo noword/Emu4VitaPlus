@@ -99,12 +99,12 @@ void DeviceOptions::Load(retro_controller_info *info)
     unsigned count = 0;
     while (info->types)
     {
-        ControllerTypes *types;
         if (count >= this->size())
         {
             this->push_back(ControllerTypes{});
         }
-        types = &(*this)[count];
+
+        ControllerTypes *types = &(*this)[count];
         types->clear();
 
         bool found = false;
@@ -133,14 +133,16 @@ bool DeviceOptions::Load(CSimpleIniA &ini)
     if (num_types == 0)
         return false;
 
-    this->clear();
-    this->reserve(num_types);
     for (int i = 0; i < num_types; i++)
     {
+        if (i >= this->size())
+        {
+            this->push_back(ControllerTypes{});
+        }
+
+        ControllerTypes *types = &(*this)[i];
         snprintf(tmp, 32, "device_%02d", i);
-        ControllerTypes types;
-        types.value = ini.GetValue(DEVCIE_SECTION, tmp, LanguageString(LANG_UNSET).GetOriginal());
-        this->emplace_back(types);
+        types->value = ini.GetValue(DEVCIE_SECTION, tmp, LanguageString(LANG_UNSET).GetOriginal());
     }
 
     return true;
