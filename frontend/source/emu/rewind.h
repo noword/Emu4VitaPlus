@@ -5,18 +5,22 @@
 #include "utils.h"
 #include "delay.h"
 
-#define DEFAULT_BLOCK_SIZE 0x400
-//"REWD"
 #define REWIND_BLOCK_MAGIC 0x44574552
+
+//   State[2]
+//     |
+//    xor
+//     |
+//  DiffBlock
 
 class StateBuf
 {
 public:
     StateBuf(size_t size) : _index(0)
     {
-        size = ALIGN_UP_10H(size);
-        _bufs[0] = new uint8_t[size * 2];
-        _bufs[1] = _bufs[0] + size;
+        _size = ALIGN_UP_10H(size);
+        _bufs[0] = new uint8_t[_size * 2];
+        _bufs[1] = _bufs[0] + _size;
     };
 
     virtual ~StateBuf()
@@ -24,217 +28,90 @@ public:
         delete[] _bufs[0];
     };
 
-    uint8_t *Current() { return _bufs[_index]; };
-    uint8_t *Next() { return _bufs[_index ^ 1]; };
+    uint8_t *Current() const { return _bufs[_index]; };
+    uint8_t *Next() const { return _bufs[_index ^ 1]; };
+    const uint8_t *First() { return _bufs[0]; };
+    const uint8_t *Second() { return _bufs[1]; };
+    int Index() const { return _index; };
     void Toggle() { _index ^= 1; };
+    size_t Size() const { return _size; };
 
 private:
     uint8_t *_bufs[2];
     int _index;
+    size_t _size;
 };
 
 struct DiffArea
 {
     uint32_t offset;
     uint32_t size;
-};
-
-struct DiffContent
-{
-    uint32_t magic;
-    uint32_t index;
-    DiffArea areas[];
+    uint8_t diffs[]; // xor bytes
 };
 
 struct DiffBlock
 {
-    uint32_t index;
-    uint32_t num;
-    DiffContent *content;
-
-    bool IsValid()
-    {
-        return content && content->magic == REWIND_BLOCK_MAGIC && content->index == index;
-    }
-};
-
-template <size_t BLOCK_SIZE>
-class DiffBlocks
-{
-    static_assert(BLOCK_SIZE > 0 && (BLOCK_SIZE & (BLOCK_SIZE - 1)) == 0, "total must be a power of 2!");
-
-public:
-    DiffBlocks() :
-    {
-        _blocks = new DiffBlock[BLOCK_SIZE];
-    };
-
-    virtual ~DiffBlocks()
-    {
-        delete[] _blocks;
-    };
-
-    DiffBlock *Current() { return &_blocks[_current]; };
-
-private:
-    DiffBlock *_blocks;
-    size_t _current;
-    size_t _total;
-};
-
-//-------------------------------
-enum BlockType
-{
-    BLOCK_FULL,
-    BLOCK_DIFF
-};
-
-struct RewindContent
-{
-    uint32_t magic;
-    uint32_t index;
-};
-
-struct RewindBlock
-{
-    BlockType type;
-    uint32_t index;
-    RewindContent *content;
-    uint32_t size;
-
-    bool IsValid()
-    {
-        return content && content->magic == REWIND_BLOCK_MAGIC && content->index == index;
-    }
-};
-
-struct RewindFullContent : RewindContent
-{
-    uint8_t buf[];
-};
-
-struct RewindDiffContent : RewindContent
-{
-    RewindBlock *full_block;
-    uint32_t num;
+    uint32_t magic; // REWIND_BLOCK_MAGIC
+    DiffBlock *prev;
+    uint32_t count;
+    uint32_t num; // num of areas
     DiffArea areas[];
 
-    uint8_t *GetBuf() const { return (uint8_t *)(this->areas) + this->num * sizeof(DiffArea); };
+    bool IsValid(uint32_t excepted) { return magic == REWIND_BLOCK_MAGIC && count == excepted; }
+    bool IsValid() { return magic == REWIND_BLOCK_MAGIC; };
+    void Invalidate() { magic = 0; };
 };
 
-class RewindContens
+class DiffBuf // it's a ring buffer, store DiffBlock
 {
 public:
-    RewindContens(size_t total_bytes)
-        : _total_bytes(total_bytes),
-          _current(0)
+    DiffBuf(size_t size, size_t tail_size) : _size(size)
     {
-        _data = new uint8_t[total_bytes];
+        _buf = new uint8_t[size + tail_size];
+        Reset();
     };
 
-    virtual ~RewindContens()
-    {
-        delete[] _data;
-    }
-
-    uint8_t *GetData() { return _data; };
-
-    uint8_t *WriteBegin(size_t max_size)
-    {
-        if (_current + max_size >= _total_bytes)
-        {
-            _current = 0;
-        }
-        return _data + _current;
-    }
-
-    void WriteEnd(size_t size)
-    {
-        _current += size;
-    }
-
-    size_t GetDistance(uint8_t *b)
-    {
-        size_t pos = b - _data;
-        if (_current >= pos)
-        {
-            return _current - pos;
-        }
-        else
-        {
-            return _total_bytes + pos - _current;
-        }
-    }
-
-    size_t GetSize()
-    {
-        return _total_bytes;
-    }
-
-private:
-    uint8_t *_data;
-    size_t _total_bytes;
-    size_t _current;
-};
-
-class RewindBlocks
-{
-public:
-    RewindBlocks(size_t total)
-        : _total(total)
-    {
-        _blocks = new RewindBlock[total];
-    };
-
-    virtual ~RewindBlocks()
-    {
-        delete[] _blocks;
-    };
+    virtual ~DiffBuf() { delete[] _buf; };
 
     void Reset()
     {
-        _current = _total;
-        memset(_blocks, 0, _total * sizeof(RewindBlock));
-    }
+        memset(_buf, 0, sizeof(DiffBlock)); // only clean the first block
+        _current = 0;
+    };
 
-    RewindBlock *Current()
-    {
-        return _current == _total ? nullptr : (_blocks + _current);
-    }
+    DiffBlock *Current() { return (DiffBlock *)(_buf + _current); };
 
-    RewindBlock *Next(bool move = true)
+    void Increase(size_t size)
     {
-        if (move)
+        DiffBlock *prev = Current();
+
+        _current += size;
+        if (_current > _size)
+            _current = 0;
+
+        Current()->prev = prev;
+    };
+
+    void Rewind()
+    {
+        DiffBlock *block = Current();
+        if (block->prev)
         {
-            LOOP_PLUS_ONE(_current, _total);
-            return _blocks + _current;
+            _current = (uint8_t *)(block->prev) - _buf;
+            if (!Current()->IsValid(block->count - 1))
+            {
+                Current()->Invalidate();
+            }
         }
         else
         {
-            size_t current = _current;
-            LOOP_PLUS_ONE(current, _total);
-            return _blocks + current;
+            block->Invalidate();
         }
-    };
-
-    RewindBlock *Prev(bool move = true)
-    {
-        if (move)
-        {
-            LOOP_MINUS_ONE(_current, _total);
-            return _blocks + _current;
-        }
-        else
-        {
-            size_t current = _current;
-            LOOP_MINUS_ONE(current, _total);
-            return _blocks + current;
-        }
-    };
+    }
 
 private:
-    RewindBlock *_blocks;
-    size_t _total;
+    size_t _size;
+    uint8_t *_buf;
     size_t _current;
 };
 
@@ -253,20 +130,12 @@ private:
     void *_GetState();
     void _Rewind();
 
-    bool _SaveFullState(RewindBlock *block, bool from_tmp = false);
-    bool _SaveDiffState(RewindBlock *block);
-
     bool _Serialize(void *data, size_t size);
     bool _UnSerialize(void *data, size_t size);
 
-    size_t _state_size;
-    size_t _full_content_size;
-    size_t _threshold_size;
-    uint32_t _block_count;
-    uint8_t *_tmp_buf;
-    RewindBlock *_last_full_block;
+    StateBuf *_state;
+    DiffBuf *_diff;
     Delay<double> _delay;
-
-    RewindBlocks _blocks{BLOCK_SIZE};
-    RewindContens *_contens;
+    uint32_t _count;
+    size_t _state_size;
 };

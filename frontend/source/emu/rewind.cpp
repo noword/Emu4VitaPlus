@@ -8,44 +8,71 @@
 #include "global.h"
 #include "file.h"
 #include "profiler.h"
-
-#define NEON
-#ifdef NEON
 #include "arm_neon.h"
-#endif
 
 #define MIN_STATE_RATE 5
 #define NEXT_STATE_PERIOD 50000
 #define THRESHOLD_RATE 0.1
 
 #define DIFF_STEP 0x10
-#define MEMCMP2(SIZE) memcmp_##SIZE
-#define MEMCMP(SIZE) MEMCMP2(SIZE)
-#define MEMCMP_DIFF_STEP MEMCMP(DIFF_STEP)
 
-static inline int memcmp_0x10(const void *src, const void *dst)
-#ifdef NEON
+static inline bool MemCmpXor0x10(const void *__restrict src, const void *__restrict dst, void *__restrict xor_dst)
 {
-    // return 0 if same, 1 if different
     uint8x16_t s = vld1q_u8((const uint8_t *)src);
     uint8x16_t d = vld1q_u8((const uint8_t *)dst);
-    uint8x16_t cmp = veorq_u8(s, d);
-    return vgetq_lane_u64(vreinterpretq_u64_u8(cmp), 0) != 0LL || vgetq_lane_u64(vreinterpretq_u64_u8(cmp), 1) != 0LL;
+
+    uint8x16_t x = veorq_u8(s, d);
+
+    uint64x2_t x64 = vreinterpretq_u64_u8(x);
+    uint64_t r = vgetq_lane_u64(x64, 0) | vgetq_lane_u64(x64, 1);
+
+    if (r)
+    {
+        vst1q_u8((uint8_t *)xor_dst, x);
+        return true;
+    }
+
+    return false;
 }
-#else
+
+static inline void MemXor(void *__restrict dst, const void *__restrict xor_data, size_t size)
 {
-    const uint32_t *s = (const uint32_t *)src;
-    const uint32_t *d = (const uint32_t *)dst;
-    return s[0] != d[0] || s[1] != d[1] || s[2] != d[2] || s[3] != d[3];
+    uint8_t *d = (uint8_t *)dst;
+    const uint8_t *x = (const uint8_t *)xor_data;
+
+    while (size >= 32)
+    {
+        uint8x16_t d0 = vld1q_u8(d);
+        uint8x16_t d1 = vld1q_u8(d + 16);
+
+        uint8x16_t x0 = vld1q_u8(x);
+        uint8x16_t x1 = vld1q_u8(x + 16);
+
+        vst1q_u8(d, veorq_u8(d0, x0));
+        vst1q_u8(d + 16, veorq_u8(d1, x1));
+
+        d += 32;
+        x += 32;
+        size -= 32;
+    }
+
+    while (size)
+    {
+        uint8x16_t vd = vld1q_u8(d);
+        uint8x16_t vx = vld1q_u8(x);
+
+        vst1q_u8(d, veorq_u8(vd, vx));
+
+        d += 16;
+        x += 16;
+        size -= 16;
+    }
 }
-#endif
 
 RewindManager::RewindManager()
     : ThreadBase(_RewindThread, "rewind"),
-      _contens(nullptr),
-      _block_count(0),
-      _tmp_buf(nullptr),
-      _last_full_block(nullptr)
+      _state(nullptr),
+      _diff(nullptr)
 {
     LogFunctionName;
 }
@@ -64,24 +91,17 @@ bool RewindManager::Init()
     Deinit();
 
     _state_size = retro_serialize_size();
-    _full_content_size = ALIGN_UP_10H(sizeof(RewindFullContent) + _state_size);
+    _state = new StateBuf(_state_size);
 
     size_t buf_size = gConfig->rewind_buf_size << 20;
-    if (buf_size < _full_content_size * MIN_STATE_RATE)
-    {
-        size_t min_size = (_full_content_size * MIN_STATE_RATE) >> 20;
-        LogError("the buffer size is too small, minimum required is %dMB", min_size);
-        return false;
-    }
+    _diff = new DiffBuf(buf_size, _state_size);
 
-    _threshold_size = _state_size * THRESHOLD_RATE;
-    _tmp_buf = new uint8_t[_state_size];
-    _contens = new RewindContens(buf_size);
     _delay.SetInterval(gEmulator->GetMsPerFrame());
 
+    _count = 1;
+
     Start();
-    LogDebug("  _contens.size: %08x _state_size: %08x _full_content_size:%08x _threshold_size:%08x",
-             buf_size, _state_size, _full_content_size, _threshold_size);
+    LogDebug("  _state_size: %08x diff buff size:%08x", _state_size, buf_size);
     return true;
 }
 
@@ -90,17 +110,16 @@ void RewindManager::Deinit()
     LogFunctionName;
     Stop(true);
 
-    _blocks.Reset();
-    if (_contens != nullptr)
+    if (_state != nullptr)
     {
-        delete _contens;
-        _contens = nullptr;
+        delete _state;
+        _state = nullptr;
     }
 
-    if (_tmp_buf != nullptr)
+    if (_diff != nullptr)
     {
-        delete[] _tmp_buf;
-        _tmp_buf = nullptr;
+        delete[] _diff;
+        _diff = nullptr;
     }
 }
 
@@ -112,6 +131,8 @@ int RewindManager::_RewindThread(SceSize args, void *argp)
     {
         sceKernelDelayThread(20000);
     }
+
+    rewind->_Serialize(rewind->_state->Current(), rewind->_state->Size());
 
     while (rewind->IsRunning())
     {
@@ -140,204 +161,83 @@ int RewindManager::_RewindThread(SceSize args, void *argp)
 
 void RewindManager::_SaveState()
 {
-    if (_last_full_block == nullptr || _contens->GetDistance((uint8_t *)_last_full_block->content) * 2 > _contens->GetSize())
+    _state->Toggle();
+    _Serialize(_state->Current(), _state->Size());
+
+    DiffBlock *diff_block = _diff->Current();
+    diff_block->magic = REWIND_BLOCK_MAGIC;
+    diff_block->count = _count++;
+    diff_block->num = 0;
+
+    const uint8_t *state0 = _state->First();
+    const uint8_t *state1 = _state->Second();
+    DiffArea *area = diff_block->areas;
+    uint8_t *diffs = area->diffs;
+    bool last_diff = false;
+    for (int offset = 0; offset < _state->Size(); offset += DIFF_STEP)
     {
-        _SaveFullState(_blocks.Next(), false);
+        if (MemCmpXor0x10(state0, state1, diffs))
+        {
+            diffs += DIFF_STEP;
+            if (last_diff)
+            {
+                area->size += DIFF_STEP;
+            }
+            else
+            {
+                area->offset = offset;
+                area->size = DIFF_STEP;
+                diff_block->num++;
+                last_diff = true;
+            }
+        }
+        else
+        {
+            if (last_diff)
+            {
+                area = (DiffArea *)diffs;
+            }
+            last_diff = false;
+        }
+
+        state0 += DIFF_STEP;
+        state1 += DIFF_STEP;
     }
-    else if (!_SaveDiffState(_blocks.Next()))
+
+    if (diff_block->num > 0)
     {
-        _SaveFullState(_blocks.Current(), true);
+        _diff->Increase(diffs - (uint8_t *)area);
     }
 }
 
 void *RewindManager::_GetState()
 {
-    RewindBlock *block = _blocks.Prev(false);
-    if (!block->IsValid())
-    {
+    DiffBlock *diff_block = _diff->Current();
+    if (!diff_block->IsValid())
         return nullptr;
+
+    uint8_t *buf = _state->Current();
+    DiffArea *area = diff_block->areas;
+    for (uint32_t i = 0; i < diff_block->num; i++)
+    {
+        MemXor(buf + area->offset, area->diffs, area->size);
+        area = (DiffArea *)((uint8_t *)area + sizeof(DiffArea) + area->size);
     }
 
-    if (block->type == BLOCK_FULL)
-    {
-        // LogDebug("BLOCK_FULL %x %x", block, block->content);
-        _blocks.Prev();
-        return ((RewindFullContent *)block->content)->buf;
-    }
+    _diff->Rewind();
 
-    const RewindDiffContent *diff = (RewindDiffContent *)block->content;
-    if (!diff->full_block->IsValid())
-    {
-        return nullptr;
-    }
-    // LogDebug("BLOCK_DIFF %x %x", block, diff);
-    _blocks.Prev();
-    const uint8_t *buf = diff->GetBuf();
-    const DiffArea *area = diff->areas;
-    _last_full_block = diff->full_block;
-    memcpy(_tmp_buf, ((RewindFullContent *)_last_full_block->content)->buf, _state_size);
-    for (size_t i = 0; i < diff->num; i++)
-    {
-        memcpy(_tmp_buf + area->offset, buf, area->size);
-        buf += area->size;
-        area++;
-    }
-    return _tmp_buf;
+    return buf;
 }
 
 void RewindManager::_Rewind()
 {
-    if (_last_full_block != nullptr)
+    void *data = _GetState();
+    if (data != nullptr)
     {
-        void *data = _GetState();
-
-        if (data == nullptr)
-        {
-            _last_full_block = nullptr;
-        }
-        else
-        {
-            _UnSerialize(data, _state_size);
-        }
+        _UnSerialize(data, _state_size);
     }
 
     Signal();
-}
-
-bool RewindManager::_SaveDiffState(RewindBlock *block)
-{
-    // LogFunctionName;
-    if (!_Serialize(_tmp_buf, _state_size))
-    {
-        return false;
-    }
-
-    uint8_t *old_state = ((RewindFullContent *)(_last_full_block->content))->buf;
-    uint8_t *new_state = _tmp_buf;
-    bool last_diff = false;
-    size_t offset = 0;
-    size_t diff_size = sizeof(RewindDiffContent);
-    uint32_t tail_size = _state_size % DIFF_STEP;
-    size_t chunk_size = _state_size - tail_size;
-
-    RewindDiffContent *content = (RewindDiffContent *)_contens->WriteBegin(_threshold_size);
-    DiffArea *areas = content->areas;
-    content->num = 0;
-
-    for (; offset < chunk_size; offset += DIFF_STEP)
-    {
-        if (MEMCMP_DIFF_STEP(old_state + offset, new_state + offset) == 0)
-        {
-            if (last_diff)
-            {
-                last_diff = false;
-                areas[content->num].size = offset - areas[content->num].offset;
-                diff_size += sizeof(DiffArea) + areas[content->num].size;
-                content->num++;
-                if (diff_size > _threshold_size)
-                {
-                    return false;
-                }
-            }
-        }
-        else
-        {
-            if (!last_diff)
-            {
-                last_diff = true;
-                areas[content->num].offset = offset;
-            }
-        }
-    }
-
-    if (tail_size > 0 && memcmp(old_state + offset, new_state + offset, tail_size) != 0)
-    {
-        if (last_diff)
-        {
-            areas[content->num].size = _state_size - areas[content->num].offset;
-        }
-        else
-        {
-            areas[content->num].offset = offset;
-            areas[content->num].size = tail_size;
-        }
-
-        diff_size += sizeof(DiffArea) + areas[content->num].size;
-        content->num++;
-    }
-    else if (last_diff)
-    {
-        areas[content->num].size = offset - areas[content->num].offset;
-        diff_size += sizeof(DiffArea) + areas[content->num].size;
-        content->num++;
-    }
-
-    if (diff_size > _threshold_size)
-    {
-        return false;
-    }
-
-    block->type = BLOCK_DIFF;
-    block->index = _block_count;
-    block->content = content;
-    block->size = ALIGN_UP_10H(diff_size);
-
-    content->magic = REWIND_BLOCK_MAGIC;
-    content->index = _block_count++;
-    content->full_block = _last_full_block;
-
-    _contens->WriteEnd(block->size);
-
-    uint8_t *buf = content->GetBuf();
-    for (size_t i = 0; i < content->num; i++)
-    {
-        memcpy(buf, _tmp_buf + areas[i].offset, areas[i].size);
-        buf += areas[i].size;
-    }
-
-    // LogDebug("  _SaveDiffState %08x %08x %08x", block->content, block->size, content->full_block->content);
-
-    return true;
-}
-
-bool RewindManager::_SaveFullState(RewindBlock *block, bool from_tmp)
-{
-    // LogFunctionName;
-
-    RewindFullContent *content = (RewindFullContent *)_contens->WriteBegin(_full_content_size);
-
-    bool result = true;
-    if (from_tmp)
-    {
-        memcpy(content->buf, _tmp_buf, _state_size);
-    }
-    else
-    {
-        result = _Serialize(content->buf, _state_size);
-    }
-
-    if (result)
-    {
-        content->magic = REWIND_BLOCK_MAGIC;
-        content->index = _block_count;
-
-        _last_full_block = block;
-
-        block->type = BLOCK_FULL;
-        block->index = _block_count++;
-        block->size = _full_content_size;
-        block->content = content;
-
-        _contens->WriteEnd(_full_content_size);
-
-        // LogDebug("  _SaveFullState %08x", block->content);
-    }
-    else
-    {
-        LogDebug("  _SaveFullState failed");
-    }
-
-    return result;
 }
 
 bool RewindManager::_Serialize(void *data, size_t size)
