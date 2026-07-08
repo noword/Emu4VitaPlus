@@ -31,13 +31,16 @@ CoreButton::~CoreButton()
 
 void CoreButton::Show(bool selected, bool choice)
 {
+    if (selected && _alpha < 1.f)
+        _alpha += 1.f / 255.f;
+
     ImGui::ImageButton(_button_texture,
                        {BUTTON_SIZE, BUTTON_SIZE},
                        {0.f, 0.f},
                        {1.f, 1.f},
                        0,
                        selected ? ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered) : ImVec4{0, 0, 0, 0},
-                       selected ? ImVec4{1, 1, 1, 1} : ImVec4{DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR});
+                       selected ? ImVec4{1, 1, 1, _alpha} : ImVec4{DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR});
 
     ImVec2 pos = ImGui::GetItemRectMin();
     ImVec2 size = ImGui::CalcTextSize(CONSOLE_NAMES[_console]);
