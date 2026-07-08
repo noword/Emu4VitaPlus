@@ -43,13 +43,12 @@ void State::Init(const char *game_name)
         return;
     }
 
-    _valid = File::Exist(_state_path.c_str());
+    _valid = File::Exist(_state_path.c_str()) && File::Exist(_image_path.c_str());
     if (_valid)
     {
         File::GetModifyTime(_state_path.c_str(), &_create_time);
+        _texture = vita2d_load_JPEG_file(_image_path.c_str());
     }
-
-    _texture = vita2d_load_JPEG_file(_image_path.c_str());
 }
 
 bool State::Save()

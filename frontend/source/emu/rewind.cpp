@@ -101,7 +101,7 @@ bool RewindManager::Init()
     _count = 1;
 
     Start();
-    LogDebug("  _state_size: %08x diff buff size:%08x", _state_size, buf_size);
+    LogDebug("  _state: %08x(%08x) _diff: %08x(%08x)", _state, _state_size, _diff, buf_size);
     return true;
 }
 
@@ -164,9 +164,11 @@ void RewindManager::_SaveState()
     _state->Toggle();
     _Serialize(_state->Current(), _state->Size());
 
+    // char tmp[255];
+    // sprintf(tmp, ROOT_DIR "/save_%d.bin", _count);
+    // File::WriteFile(tmp, _state->Current(), _state->Size());
+
     DiffBlock *diff_block = _diff->Current();
-    diff_block->magic = REWIND_BLOCK_MAGIC;
-    diff_block->count = _count++;
     diff_block->num = 0;
 
     const uint8_t *state0 = _state->First();
@@ -189,6 +191,7 @@ void RewindManager::_SaveState()
                 area->size = DIFF_STEP;
                 diff_block->num++;
                 last_diff = true;
+                // LogDebug("save %d %08x %08x", diff_block->num, area, area->offset);
             }
         }
         else
@@ -196,8 +199,9 @@ void RewindManager::_SaveState()
             if (last_diff)
             {
                 area = (DiffArea *)diffs;
+                diffs = area->diffs;
+                last_diff = false;
             }
-            last_diff = false;
         }
 
         state0 += DIFF_STEP;
@@ -206,31 +210,41 @@ void RewindManager::_SaveState()
 
     if (diff_block->num > 0)
     {
-        _diff->Increase(diffs - (uint8_t *)area);
+        // LogDebug(" %08x + %08x, %d", diff_block, (uint8_t *)area - (uint8_t *)diffs, diff_block->num);
+        diff_block->magic = REWIND_BLOCK_MAGIC;
+        _count++;
+        _diff->Increase((uint8_t *)diffs - (uint8_t *)diff_block, _count);
     }
 }
 
 void *RewindManager::_GetState()
 {
+    // LogFunctionName;
+
     DiffBlock *diff_block = _diff->Current();
     if (!diff_block->IsValid())
         return nullptr;
 
     uint8_t *buf = _state->Current();
     DiffArea *area = diff_block->areas;
+    // LogDebug("buf %08x diff_block %08x area %08x", buf, diff_block, area);
     for (uint32_t i = 0; i < diff_block->num; i++)
     {
+        // LogDebug("%d %08x %08x %08x", i, area, area->offset, area->size);
         MemXor(buf + area->offset, area->diffs, area->size);
         area = (DiffArea *)((uint8_t *)area + sizeof(DiffArea) + area->size);
     }
 
-    _diff->Rewind();
+    // char tmp[255];
+    // sprintf(tmp, ROOT_DIR "/load_%d.bin", diff_block->count);
+    // File::WriteFile(tmp, buf, _state->Size());
 
     return buf;
 }
 
 void RewindManager::_Rewind()
 {
+    _diff->Rewind();
     void *data = _GetState();
     if (data != nullptr)
     {

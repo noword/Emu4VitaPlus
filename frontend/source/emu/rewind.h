@@ -21,6 +21,7 @@ public:
         _size = ALIGN_UP_10H(size);
         _bufs[0] = new uint8_t[_size * 2];
         _bufs[1] = _bufs[0] + _size;
+        memset(_bufs[0], 0, _size);
     };
 
     virtual ~StateBuf()
@@ -67,7 +68,7 @@ class DiffBuf // it's a ring buffer, store DiffBlock
 public:
     DiffBuf(size_t size, size_t tail_size) : _size(size)
     {
-        _buf = new uint8_t[size + tail_size];
+        _buf = new uint8_t[size + ALIGN_UP_10H(tail_size)];
         Reset();
     };
 
@@ -81,7 +82,7 @@ public:
 
     DiffBlock *Current() { return (DiffBlock *)(_buf + _current); };
 
-    void Increase(size_t size)
+    void Increase(size_t size, uint32_t count)
     {
         DiffBlock *prev = Current();
 
@@ -89,7 +90,10 @@ public:
         if (_current > _size)
             _current = 0;
 
-        Current()->prev = prev;
+        DiffBlock *block = Current();
+        block->magic = 0;
+        block->prev = prev;
+        block->count = count;
     };
 
     void Rewind()
