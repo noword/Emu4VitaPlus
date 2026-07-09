@@ -162,7 +162,11 @@ int RewindManager::_RewindThread(SceSize args, void *argp)
 void RewindManager::_SaveState()
 {
     _state->Toggle();
-    _Serialize(_state->Current(), _state->Size());
+    if (unlikely(!_Serialize(_state->Current(), _state->Size())))
+    {
+        _state->Toggle();
+        return;
+    }
 
     // char tmp[255];
     // sprintf(tmp, ROOT_DIR "/save_%d.bin", _count);
@@ -178,7 +182,7 @@ void RewindManager::_SaveState()
     bool last_diff = false;
     for (int offset = 0; offset < _state->Size(); offset += DIFF_STEP)
     {
-        if (MemCmpXor0x10(state0, state1, diffs))
+        if (unlikely(MemCmpXor0x10(state0, state1, diffs)))
         {
             diffs += DIFF_STEP;
             if (last_diff)

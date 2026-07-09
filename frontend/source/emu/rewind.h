@@ -21,7 +21,7 @@ public:
         _size = ALIGN_UP_10H(size);
         _bufs[0] = new uint8_t[_size * 2];
         _bufs[1] = _bufs[0] + _size;
-        memset(_bufs[0], 0, _size);
+        memset(_bufs[0], 0, _size * 2);
     };
 
     virtual ~StateBuf()

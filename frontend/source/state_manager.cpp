@@ -72,6 +72,7 @@ bool State::Save()
         goto END;
     }
 
+    memset(buf, 0, size);
     if (!retro_serialize(buf, size))
     {
         LogError("run retro_serialize failed");
