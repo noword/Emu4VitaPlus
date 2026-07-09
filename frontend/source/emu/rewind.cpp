@@ -118,7 +118,7 @@ void RewindManager::Deinit()
 
     if (_diff != nullptr)
     {
-        delete[] _diff;
+        delete _diff;
         _diff = nullptr;
     }
 }
@@ -156,7 +156,7 @@ int RewindManager::_RewindThread(SceSize args, void *argp)
     }
 
     LogDebug("_RewindThread exit");
-    return 0;
+    return sceKernelExitThread(0);
 }
 
 void RewindManager::_SaveState()
@@ -214,7 +214,7 @@ void RewindManager::_SaveState()
 
     if (diff_block->num > 0)
     {
-        // LogDebug(" %08x + %08x, %d", diff_block, (uint8_t *)area - (uint8_t *)diffs, diff_block->num);
+        // LogDebug(" %08x + %08x, %d", diff_block, (uint8_t *)diffs - (uint8_t *)diff_block, diff_block->num);
         diff_block->magic = REWIND_BLOCK_MAGIC;
         _count++;
         _diff->Increase((uint8_t *)diffs - (uint8_t *)diff_block, _count);

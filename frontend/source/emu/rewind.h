@@ -99,10 +99,19 @@ public:
     bool Rewind()
     {
         DiffBlock *block = Current();
-        if (block->IsValid() && block->prev)
+        if (block->prev && (uint8_t *)block->prev > _buf && (uint8_t *)block->prev < _buf + _size)
         {
             _current = (uint8_t *)(block->prev) - _buf;
-            return Current()->IsValid(block->count - 1);
+
+            if (Current()->IsValid(block->count - 1))
+            {
+                return true;
+            }
+            else
+            {
+                Current()->prev = 0;
+                return false;
+            }
         }
         return false;
     }
