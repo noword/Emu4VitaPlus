@@ -132,7 +132,7 @@ int RewindManager::_RewindThread(SceSize args, void *argp)
         sceKernelDelayThread(20000);
     }
 
-    rewind->_Serialize(rewind->_state->Current(), rewind->_state->Size());
+    rewind->_Serialize(rewind->_state->Current(), rewind->_state_size);
 
     while (rewind->IsRunning())
     {
