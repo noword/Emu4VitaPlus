@@ -94,7 +94,7 @@ bool RewindManager::Init()
     _state = new StateBuf(_state_size);
 
     size_t buf_size = gConfig->rewind_buf_size << 20;
-    _diff = new DiffBuf(buf_size, _state_size);
+    _diff = new DiffBuf(buf_size, _state_size * 1.2);
 
     _delay.SetInterval(gEmulator->GetMsPerFrame());
 
