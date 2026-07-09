@@ -18,6 +18,8 @@
         VALUE &= TOTAL - 1;                \
     }
 
+#define IS_POWER_OF_TWO(x) ((x) > 0 && (((x) & ((x) - 1)) == 0))
+
 namespace Utils
 {
     class JsonAllocator : public sce::Json::MemAllocator
