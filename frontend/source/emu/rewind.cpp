@@ -248,13 +248,14 @@ void *RewindManager::_GetState()
 
 void RewindManager::_Rewind()
 {
-    _diff->Rewind();
-    void *data = _GetState();
-    if (data != nullptr)
+    if (_diff->Rewind())
     {
-        _UnSerialize(data, _state_size);
+        void *data = _GetState();
+        if (data != nullptr)
+        {
+            _UnSerialize(data, _state_size);
+        }
     }
-
     Signal();
 }
 

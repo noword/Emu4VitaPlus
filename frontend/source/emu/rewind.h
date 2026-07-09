@@ -96,21 +96,15 @@ public:
         block->count = count;
     };
 
-    void Rewind()
+    bool Rewind()
     {
         DiffBlock *block = Current();
-        if (block->prev)
+        if (block->IsValid() && block->prev)
         {
             _current = (uint8_t *)(block->prev) - _buf;
-            if (!Current()->IsValid(block->count - 1))
-            {
-                Current()->Invalidate();
-            }
+            return Current()->IsValid(block->count - 1);
         }
-        else
-        {
-            block->Invalidate();
-        }
+        return false;
     }
 
 private:
