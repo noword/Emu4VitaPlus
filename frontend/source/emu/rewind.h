@@ -78,11 +78,12 @@ public:
     {
         memset(_buf, 0, sizeof(DiffBlock)); // only clean the first block
         _current = 0;
+        _count = 1;
     };
 
     DiffBlock *Current() { return (DiffBlock *)(_buf + _current); };
 
-    void Increase(size_t size, uint32_t count)
+    void Increase(size_t size)
     {
         DiffBlock *prev = Current();
 
@@ -93,7 +94,8 @@ public:
         DiffBlock *block = Current();
         block->magic = 0;
         block->prev = prev;
-        block->count = count;
+        block->count = _count;
+        _count++;
     };
 
     bool Rewind()
@@ -105,6 +107,7 @@ public:
 
             if (Current()->IsValid(block->count - 1))
             {
+                _count = block->count;
                 return true;
             }
             else
@@ -120,6 +123,7 @@ private:
     size_t _size;
     uint8_t *_buf;
     size_t _current;
+    uint32_t _count;
 };
 
 class RewindManager : public ThreadBase
@@ -143,6 +147,5 @@ private:
     StateBuf *_state;
     DiffBuf *_diff;
     Delay<double> _delay;
-    uint32_t _count;
     size_t _state_size;
 };

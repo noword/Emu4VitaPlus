@@ -98,8 +98,6 @@ bool RewindManager::Init()
 
     _delay.SetInterval(gEmulator->GetMsPerFrame());
 
-    _count = 1;
-
     Start();
     LogDebug("  _state: %08x(%08x) _diff: %08x(%08x)", _state, _state_size, _diff, buf_size);
     return true;
@@ -169,7 +167,7 @@ void RewindManager::_SaveState()
     }
 
     // char tmp[255];
-    // sprintf(tmp, ROOT_DIR "/save_%d.bin", _count);
+    // sprintf(tmp, ROOT_DIR "/save_%d.bin", diff_block->count);
     // File::WriteFile(tmp, _state->Current(), _state->Size());
 
     DiffBlock *diff_block = _diff->Current();
@@ -216,8 +214,7 @@ void RewindManager::_SaveState()
     {
         // LogDebug(" %08x + %08x, %d", diff_block, (uint8_t *)diffs - (uint8_t *)diff_block, diff_block->num);
         diff_block->magic = REWIND_BLOCK_MAGIC;
-        _count++;
-        _diff->Increase((uint8_t *)diffs - (uint8_t *)diff_block, _count);
+        _diff->Increase((uint8_t *)diffs - (uint8_t *)diff_block);
     }
 }
 
