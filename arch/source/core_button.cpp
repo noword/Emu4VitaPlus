@@ -32,7 +32,10 @@ CoreButton::~CoreButton()
 void CoreButton::Show(bool selected, bool choice)
 {
     if (selected && _alpha < 1.f)
-        _alpha += 1.f / 255.f;
+    {
+        _alpha += 2.5f / 255.f;
+        _alpha = std::min(_alpha, 1.f);
+    }
 
     ImGui::ImageButton(_button_texture,
                        {BUTTON_SIZE, BUTTON_SIZE},
