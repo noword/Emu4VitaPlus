@@ -1974,7 +1974,7 @@
         "Chinese": "前触控屏模拟 ↲↳⇋⇌",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Simuler ↲↳⇋⇌ avec l'écran tactile avant",
         "Spanish": "",
         "Russian": "Имитация ↲↳⇋⇌ на сенсорном экране",
         "Comments": ""
@@ -1986,7 +1986,7 @@
         "Chinese": "测试",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Teste",
         "Spanish": "",
         "Russian": "Проверка",
         "Comments": ""
@@ -1998,7 +1998,7 @@
         "Chinese": "长按 %s 以关闭",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Appuyez longuement sur %s pour quitter.",
         "Spanish": "",
         "Russian": "Нажмите и удерживайте %s для выхода.",
         "Comments": ""
@@ -2010,7 +2010,7 @@
         "Chinese": "",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Administrateur du RetroAchievements",
         "Spanish": "",
         "Russian": "Администрация RetroAchievements",
         "Comments": ""
@@ -2022,7 +2022,7 @@
         "Chinese": "主题",
         "Japanese": "",
         "Italian": "",
-        "French": "",
+        "French": "Thème",
         "Spanish": "",
         "Russian": "Тема оформления",
         "Comments": ""
