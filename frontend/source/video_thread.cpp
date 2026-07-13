@@ -62,7 +62,11 @@ namespace Emu4VitaPlus
             vita2d_clear_screen();
 
             bool show_dialog = true;
-            bool show_imgui = (status & (APP_STATUS_BOOT | APP_STATUS_SHOW_UI | APP_STATUS_SHOW_UI_IN_GAME)) | gHint->NeedShow() | gNotifications->NeedShow() | gConfig->fps | gEmulator->NeedShowKeyboard();
+            bool show_imgui = (status & (APP_STATUS_BOOT | APP_STATUS_SHOW_UI | APP_STATUS_SHOW_UI_IN_GAME)) ||
+                              gHint->NeedShow() ||
+                              gNotifications->NeedShow() ||
+                              gConfig->fps ||
+                              gEmulator->NeedShowKeyboard();
 
             if (show_imgui)
             {
@@ -74,22 +78,18 @@ namespace Emu4VitaPlus
             {
             case APP_STATUS_BOOT:
             case APP_STATUS_SHOW_UI:
-                if (show_imgui)
-                    gUi->Show();
+                gUi->Show();
                 break;
 
             case APP_STATUS_RUN_GAME:
             case APP_STATUS_REWIND_GAME:
-                // BeginProfile("Video");
                 show_dialog = false;
                 gEmulator->Show();
-                // EndProfile("Video");
                 break;
 
             case APP_STATUS_SHOW_UI_IN_GAME:
                 gEmulator->Show();
-                if (show_imgui)
-                    gUi->Show();
+                gUi->Show();
                 break;
 
             default:
@@ -117,7 +117,6 @@ namespace Emu4VitaPlus
         }
 
         LogDebug("_DrawThread exit");
-        sceKernelExitThread(0);
-        return 0;
+        return sceKernelExitThread(0);
     }
 }
