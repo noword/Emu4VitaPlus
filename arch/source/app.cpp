@@ -437,9 +437,9 @@ void App::_OnClick(Input *input)
             }
         }
 
-        if (count > 1)
+        CONSOLE console = _buttons[_index_y][_index_x]->GetConsole();
+        if (count > 1 || !gConfig->consoles[console]) // at least, keep one icon
         {
-            CONSOLE console = _buttons[_index_y][_index_x]->GetConsole();
             gConfig->consoles[console] = !gConfig->consoles[console];
         }
     }
@@ -464,9 +464,7 @@ void App::_OnKeyStart(Input *input)
     {
         _SetVisableButtons();
         _current_buttons = &_visable_buttons;
-        _UpdateIntro();
         gConfig->Save();
-
         if (!_SetIndex(console))
         {
             if (_index_y >= _current_buttons->size())
@@ -475,6 +473,7 @@ void App::_OnKeyStart(Input *input)
             if (_index_x >= (*_current_buttons)[_index_y].size())
                 _index_x = (*_current_buttons)[_index_y].size() - 1;
         }
+        _UpdateIntro();
     }
 
     _SetMaxRow();
