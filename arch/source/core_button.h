@@ -34,7 +34,6 @@ public:
     const char *GetIntro() const;
     CONSOLE GetConsole() const { return _console; };
     vita2d_texture *GetCover() const { return _cover_texture; };
-    void ResetAlpha() { _alpha = MIN_ALPHA; };
 
 private:
     void _ShowPopup();
@@ -49,7 +48,9 @@ private:
     vita2d_texture *_cover_texture;
     bool _actived;
     size_t _index;
-    float _alpha;
+    ImVec4 _tint_color;
+    ImVec4 _bg_color;
+    ImVec4 _delta_color;
 
     CONSOLE _console;
 };

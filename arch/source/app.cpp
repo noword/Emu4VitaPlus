@@ -388,16 +388,19 @@ void App::UnsetInputHooks(Input *input)
 void App::_OnKeyLeft(Input *input)
 {
     if (_index_x > 0)
+    {
         _index_x--;
-    _UpdateIntro();
+        _UpdateIntro();
+    }
 }
 
 void App::_OnKeyRight(Input *input)
 {
     if (_index_x + 1 < (*_current_buttons)[_index_y].size())
+    {
         _index_x++;
-
-    _UpdateIntro();
+        _UpdateIntro();
+    }
 }
 
 void App::_OnKeyUp(Input *input)
@@ -407,9 +410,8 @@ void App::_OnKeyUp(Input *input)
         _index_y--;
         if (_index_x >= (*_current_buttons)[_index_y].size())
             _index_x = (*_current_buttons)[_index_y].size() - 1;
+        _UpdateIntro();
     }
-
-    _UpdateIntro();
 }
 
 void App::_OnKeyDown(Input *input)
@@ -419,8 +421,8 @@ void App::_OnKeyDown(Input *input)
         _index_y++;
         if (_index_x >= (*_current_buttons)[_index_y].size())
             _index_x = (*_current_buttons)[_index_y].size() - 1;
+        _UpdateIntro();
     }
-    _UpdateIntro();
 }
 
 void App::_OnClick(Input *input)
@@ -523,7 +525,6 @@ void App::_UpdateIntro()
     _cover_alpha = MIN_COVER_ALPHA;
     _moving_status.Reset();
     _intro = (*_current_buttons)[_index_y][_index_x]->GetIntro();
-    (*_current_buttons)[_index_y][_index_x]->ResetAlpha();
 }
 
 void App::_OnStartRollingIntro(Input *input)

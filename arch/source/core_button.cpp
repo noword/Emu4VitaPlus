@@ -9,16 +9,27 @@
 #include "icons.h"
 
 #define DISABLE_COLOR 0.5f
+#define GRADIENT_FRAMES 30
+#define DELTA_COLOR ((1.f - DISABLE_COLOR) / GRADIENT_FRAMES)
 
 CoreButton::CoreButton(CONSOLE console, std::vector<CoreName> cores)
     : _console(console),
       _cores(std::move(cores)),
       _actived(false),
-      _index(0)
+      _index(0),
+      _tint_color{DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR},
+      _bg_color{0, 0, 0, 0}
 {
     std::string path = std::string(CORE_DATA_DIR) + "/" + CONSOLE_NAMES[_console];
     _button_texture = vita2d_load_PNG_file((path + "/icon0.png").c_str());
     _cover_texture = vita2d_load_PNG_file((path + "/console.png").c_str());
+    ImVec4 color = ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered);
+    _delta_color = {
+        (color.x - _bg_color.x) / GRADIENT_FRAMES,
+        (color.y - _bg_color.y) / GRADIENT_FRAMES,
+        (color.z - _bg_color.z) / GRADIENT_FRAMES,
+        (color.w - _bg_color.w) / GRADIENT_FRAMES,
+    };
 }
 
 CoreButton::~CoreButton()
@@ -31,10 +42,24 @@ CoreButton::~CoreButton()
 
 void CoreButton::Show(bool selected, bool choice)
 {
-    if (selected && _alpha < 1.f)
+    if (selected)
     {
-        _alpha += 2.5f / 255.f;
-        _alpha = std::min(_alpha, 1.f);
+        if (_tint_color.x < 1.f)
+        {
+            _tint_color.x += DELTA_COLOR;
+            _tint_color.y += DELTA_COLOR;
+            _tint_color.z += DELTA_COLOR;
+            _tint_color.w += DELTA_COLOR;
+            _bg_color.x += _delta_color.x;
+            _bg_color.y += _delta_color.y;
+            _bg_color.z += _delta_color.z;
+            _bg_color.w += _delta_color.w;
+        }
+    }
+    else
+    {
+        _tint_color = {DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR};
+        _bg_color = {0, 0, 0, 0};
     }
 
     ImGui::ImageButton(_button_texture,
@@ -42,8 +67,8 @@ void CoreButton::Show(bool selected, bool choice)
                        {0.f, 0.f},
                        {1.f, 1.f},
                        0,
-                       selected ? ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered) : ImVec4{0, 0, 0, 0},
-                       selected ? ImVec4{1, 1, 1, _alpha} : ImVec4{DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR, DISABLE_COLOR});
+                       _bg_color,
+                       _tint_color);
 
     ImVec2 pos = ImGui::GetItemRectMin();
     ImVec2 size = ImGui::CalcTextSize(CONSOLE_NAMES[_console]);
