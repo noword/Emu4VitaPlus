@@ -3,6 +3,7 @@
 #include "my_imgui.h"
 #include "input.h"
 #include "core_button.h"
+#include "time_scale.h"
 #include "file.h"
 
 extern bool gRunning;
@@ -51,6 +52,8 @@ private:
     CoreButtonsVector _visable_buttons;
     CoreButtonsVector *_current_buttons;
     uint32_t _cover_alpha;
+
+    TimeScale *_time_scale;
 
     float _max_row;
     size_t _index_x;

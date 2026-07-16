@@ -34,10 +34,8 @@ CoreButton::CoreButton(CONSOLE console, std::vector<CoreName> cores)
 
 CoreButton::~CoreButton()
 {
-    if (_button_texture)
-    {
-        vita2d_free_texture(_button_texture);
-    }
+    vita2d_free_texture(_button_texture);
+    vita2d_free_texture(_cover_texture);
 }
 
 void CoreButton::Show(bool selected, bool choice)

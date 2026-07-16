@@ -90,12 +90,10 @@ App::App()
     Themes themes(DEFAULT_THEMES_JSON);
     themes.Apply(gConfig->theme.c_str());
 
+    _time_scale = new TimeScale();
+
     _buttons = {
         {
-            new CoreButton(C64, // 1982.1
-                           {{"the Versatile Commodore Emulator", "vice"}}),
-            new CoreButton(ZXS, // 1982.11
-                           {{"fuse", "fuse"}}),
             new CoreButton(DOS, // 1981
                            {{"DOS BOX Pure", "dosbox_pure"}}),
             new CoreButton(PC88, // 1981
@@ -103,6 +101,10 @@ App::App()
             new CoreButton(PC98, // 1982
                            {{"Neko Project II", "nekop2"},
                             {"Neko Project II kai", "np2kai"}}),
+            new CoreButton(C64, // 1982.1
+                           {{"the Versatile Commodore Emulator", "vice"}}),
+            new CoreButton(ZXS, // 1982.11
+                           {{"fuse", "fuse"}}),
             new CoreButton(MSX, // 1983
                            {{"blueMSX", "bluemsx"},
                             {"Marat Fayzullin's fMSX", "fmsx"}}),
@@ -194,6 +196,7 @@ App::App()
 
 void App::_SetMaxRow()
 {
+    _max_row = 0;
     for (const auto &buttons : *_current_buttons)
     {
         _max_row = std::max(_max_row, (float)buttons.size());
@@ -212,6 +215,8 @@ App::~App()
         for (auto button : buttons)
             delete button;
     }
+
+    delete _time_scale;
 
     My_ImGui_ImplVita2D_Shutdown();
     ImGui::DestroyContext();
@@ -249,7 +254,7 @@ void App::_Show()
         {
             _start_count--;
             const char *manage_icons = gArchs[gConfig->language][LANG_MANAGE_ICONS];
-            ImGui::GetWindowDrawList()->AddText({(VITA_WIDTH - ImGui::CalcTextSize(manage_icons).x) / 2.f, 70.f},
+            ImGui::GetWindowDrawList()->AddText({(VITA_WIDTH - ImGui::CalcTextSize(manage_icons).x) / 2.f, VITA_HEIGHT - MAIN_WINDOW_PADDING},
                                                 IM_COL32_WHITE,
                                                 manage_icons);
         }
@@ -260,36 +265,42 @@ void App::_Show()
         if (*_intro)
         {
             ImVec2 intro_size = ImGui::CalcTextSize(_intro);
-            main_size.y -= intro_size.y;
+            // main_size.y -= intro_size.y;
         }
         vita2d_texture *cover = nullptr;
 
-        _VideoLock();
-
-        if (ImGui::BeginChild("arch", main_size, false, ImGuiWindowFlags_NoScrollbar))
+        if (ImGui::BeginChild("left", main_size, false, ImGuiWindowFlags_NoScrollbar))
         {
-            ImVec2 pos = ImGui::GetCursorPos();
+            _time_scale->Show();
+            main_size.y -= TIME_SCALE_HEIGHT;
+            _VideoLock();
 
-            for (size_t y = 0; y < _current_buttons->size(); y++)
+            if (ImGui::BeginChild("buttons", main_size, false, ImGuiWindowFlags_NoScrollbar))
             {
-                const CoreButtons &buttons = (*_current_buttons)[y];
-                for (size_t x = 0; x < buttons.size(); x++)
+                ImVec2 pos = ImGui::GetCursorPos();
+
+                for (size_t y = 0; y < _current_buttons->size(); y++)
                 {
-                    bool selected = _index_y == y && _index_x == x;
-                    buttons[x]->Show(selected, _in_choice);
-                    if (selected)
+                    const CoreButtons &buttons = (*_current_buttons)[y];
+                    for (size_t x = 0; x < buttons.size(); x++)
                     {
-                        ImGui::SetScrollHereX((float)x / (float)buttons.size());
-                        ImGui::SetScrollHereY((float)y / (float)_current_buttons->size());
-                        cover = buttons[x]->GetCover();
+                        bool selected = _index_y == y && _index_x == x;
+                        buttons[x]->Show(selected, _in_choice);
+                        if (selected)
+                        {
+                            ImGui::SetScrollHereX((float)x / _max_row);
+                            ImGui::SetScrollHereY((float)y / (float)_current_buttons->size());
+                            cover = buttons[x]->GetCover();
+                        }
+
+                        ImGui::SameLine();
                     }
 
-                    ImGui::SameLine();
+                    pos.y += BUTTON_SIZE + 8;
+                    ImGui::SetCursorPos(pos);
                 }
-
-                pos.y += BUTTON_SIZE + 8;
-                ImGui::SetCursorPos(pos);
             }
+            ImGui::EndChild();
         }
         ImGui::EndChild();
 
@@ -524,7 +535,11 @@ void App::_UpdateIntro()
     LogFunctionName;
     _cover_alpha = MIN_COVER_ALPHA;
     _moving_status.Reset();
-    _intro = (*_current_buttons)[_index_y][_index_x]->GetIntro();
+    const CoreButton *button = (*_current_buttons)[_index_y][_index_x];
+    _intro = button->GetIntro();
+    const CONSOLE console = button->GetConsole();
+    float ratio = _index_x / _max_row;
+    _time_scale->SetTime(CONSOLE_YEARS[console], (TIME_SCALE_WIDTH + 8 * 2) * ratio + BUTTON_SIZE * (0.5 - ratio));
 }
 
 void App::_OnStartRollingIntro(Input *input)

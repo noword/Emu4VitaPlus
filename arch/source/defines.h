@@ -12,6 +12,12 @@
 #define MAIN_WINDOW_PADDING 10
 #define ROW_COUNT 2
 
+#define COVER_WIDTH 285
+#define COVER_HEIGHT 461
+
+#define TIME_SCALE_WIDTH (910 - COVER_WIDTH - 8)
+#define TIME_SCALE_HEIGHT 50
+
 enum CONSOLE
 {
     ATARI2600 = 0,
@@ -44,4 +50,5 @@ enum CONSOLE
     CONSOLE_COUNT
 };
 
-extern const char *CONSOLE_NAMES[];
+extern const char *CONSOLE_NAMES[CONSOLE_COUNT];
+extern const int CONSOLE_YEARS[CONSOLE_COUNT];

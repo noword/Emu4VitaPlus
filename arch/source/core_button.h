@@ -8,8 +8,6 @@
 
 using namespace Emu4VitaPlus;
 
-#define COVER_WIDTH 285
-#define COVER_HEIGHT 461
 #define MIN_ALPHA 0.4f
 
 struct CoreName
