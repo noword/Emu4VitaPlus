@@ -753,7 +753,10 @@ void TabBrowser::_OnItemUpdated(DirItem *item)
     if (texture)
     {
         if (_texture)
+        {
+            vita2d_wait_rendering_done();
             vita2d_free_texture(_texture);
+        }
         _texture = texture;
     }
 
