@@ -2,6 +2,8 @@
 #include <vita2d.h>
 #include <imgui_vita2d/imgui_vita.h>
 
+#define STEPS 30
+
 class TimeScale
 {
 public:
@@ -13,8 +15,9 @@ public:
 
 private:
     char _year[8];
-    float _year_offset;
-    float _x;
     vita2d_texture *_scale_texture;
     float _width;
+    float _x[STEPS];
+    float _year_x[STEPS];
+    int _count;
 };

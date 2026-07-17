@@ -6,11 +6,13 @@
 #define YEAR_PIXEL_STEP 30
 #define START_YEAR 1965
 
-TimeScale::TimeScale() : _x(0.f)
+TimeScale::TimeScale() : _count(0)
 {
     _scale_texture = vita2d_load_PNG_file(SCALE_TEXTURE_PATH);
     _width = vita2d_texture_get_width(_scale_texture);
     *_year = 0;
+    _x[0] = 0.f;
+    _year_x[0] = 0.f;
 }
 
 TimeScale::~TimeScale()
@@ -25,20 +27,40 @@ void TimeScale::Show()
     image_color.w /= 3.f;
     ImGui::Image(_scale_texture,
                  {TIME_SCALE_WIDTH, 50},
-                 {_x, 0.f},
-                 {_x + TIME_SCALE_WIDTH / _width, 1.f},
+                 {_x[_count], 0.f},
+                 {_x[_count] + TIME_SCALE_WIDTH / _width, 1.f},
                  image_color);
 
     ImVec2 size = ImGui::CalcTextSize(_year);
     if (size.x > 0)
     {
-        ImGui::SetCursorPos({_year_offset - size.x / 2.f, 25.f});
+        ImGui::SetCursorPos({_year_x[_count] - size.x / 2.f, 25.f});
         ImGui::TextUnformatted(_year);
+    }
+
+    if (_count > 0)
+        _count--;
+}
+
+static void _GetSteps(float start, float end, float *out)
+{
+    const float delta = end - start;
+
+    for (int i = 0; i < 30; ++i)
+    {
+        float t = (float)(29 - i) / 29.0f; // 1 -> 0
+        float inv = 1.0f - t;
+        float k = 1.0f - inv * inv; // EaseOutCubic
+
+        out[i] = start + delta * k;
+        // LogDebug("%d %f", i, out[i]);
     }
 }
 
 void TimeScale::SetTime(int year, int offset)
 {
+    LogFunctionName;
+    LogDebug("  %d %d", year, offset);
     if (year == 0)
     {
         *_year = 0;
@@ -46,7 +68,8 @@ void TimeScale::SetTime(int year, int offset)
     else
     {
         snprintf(_year, 8, "%d", year);
-        _year_offset = offset;
-        _x = ((year - START_YEAR) * YEAR_PIXEL_STEP - offset) / _width;
+        _GetSteps(_x[0], ((year - START_YEAR) * YEAR_PIXEL_STEP - offset) / _width, _x);
+        _GetSteps(_year_x[0], offset, _year_x);
+        _count = 29;
     }
 }

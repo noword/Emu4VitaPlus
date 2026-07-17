@@ -538,8 +538,9 @@ void App::_UpdateIntro()
     const CoreButton *button = (*_current_buttons)[_index_y][_index_x];
     _intro = button->GetIntro();
     const CONSOLE console = button->GetConsole();
-    float ratio = _index_x / _max_row;
-    _time_scale->SetTime(CONSOLE_YEARS[console], (TIME_SCALE_WIDTH + 8 * 2) * ratio + BUTTON_SIZE * (0.5 - ratio));
+    float ratio = _index_x / (_max_row - 1.f);
+    LogDebug("  ratio %f", ratio);
+    _time_scale->SetTime(CONSOLE_YEARS[console], TIME_SCALE_WIDTH * ratio + BUTTON_SIZE * (0.5 - ratio));
 }
 
 void App::_OnStartRollingIntro(Input *input)
