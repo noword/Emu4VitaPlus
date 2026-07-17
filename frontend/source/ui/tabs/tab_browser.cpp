@@ -23,7 +23,8 @@ TabBrowser::TabBrowser() : TabSeletable(LANG_BROWSER),
                            _texture_max_height(BROWSER_TEXTURE_MAX_HEIGHT),
                            _name(nullptr),
                            _dialog(nullptr),
-                           _updating_thumbnails(false)
+                           _updating_thumbnails(false),
+                           _updating_texture(false)
 {
     LogFunctionName;
 
@@ -178,7 +179,7 @@ void TabBrowser::_Show()
             {
                 My_ImGui_HighlightText(_name, text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
             }
-            else
+            else if (!_updating_texture)
             {
                 ImGui::SetCursorScreenPos(text_pos);
                 ImGui::TextUnformatted(_name);
@@ -195,7 +196,7 @@ void TabBrowser::_Show()
                 text_pos.y += avail_size.y - text_size.y - 10;
                 My_ImGui_HighlightText(_info.c_str(), text_pos, IM_COL32_GREEN, ImGui::GetColorU32(ImGui::GetStyleColorVec4(ImGuiCol_Border)));
             }
-            else
+            else if (!_updating_texture)
             {
                 text_pos.y += (avail_size.y - text_size.y) / 2;
                 if (_name)
@@ -723,7 +724,10 @@ void TabBrowser::_OnItemUpdated(DirItem *item)
 {
     LogFunctionName;
     if (item != &_directory->GetItem(_index))
+    {
+        _updating_texture = false;
         return;
+    }
 
     if (!item->display_name.empty())
     {
@@ -733,26 +737,24 @@ void TabBrowser::_OnItemUpdated(DirItem *item)
     }
 
     const std::string full_path = _GetCurrentFullPath();
+
+    vita2d_texture *texture = nullptr;
     if (gPlaylists->IsValid())
     {
-        _texture = gPlaylists->GetPreviewImage(full_path.c_str());
+        texture = gPlaylists->GetPreviewImage(full_path.c_str());
     }
 
-    if (_texture == nullptr)
+    if (texture == nullptr)
     {
-        vita2d_texture *texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item->path.c_str(), item->rom_name.c_str());
-        if (texture)
-        {
-            if (item == &_directory->GetItem(_index))
-            {
-                _texture = texture;
-            }
-            else
-            {
-                vita2d_wait_rendering_done();
-                vita2d_free_texture(texture);
-            }
-        }
+        texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item->path.c_str(), item->rom_name.c_str());
+    }
+
+    gVideo->Lock();
+    if (texture)
+    {
+        if (_texture)
+            vita2d_free_texture(_texture);
+        _texture = texture;
     }
 
     if (_texture)
@@ -764,10 +766,13 @@ void TabBrowser::_OnItemUpdated(DirItem *item)
                     &_texture_width,
                     &_texture_height);
     }
+    gVideo->Unlock();
+    _updating_texture = false;
 }
 
 void TabBrowser::_Update()
 {
+    _updating_texture = true;
     DirItem &item = _directory->GetItem(_index);
     if (!_directory->IsTested())
     {
@@ -801,8 +806,12 @@ void TabBrowser::_Update()
 
     if (!item.is_dir)
     {
-        _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item.path.c_str(), nullptr, false);
+        // _texture = GetRomPreviewImage(_directory->GetCurrentPath().c_str(), item.path.c_str(), nullptr, false);
         _directory->GetItem(_index).UpdateDetails(std::bind(&TabBrowser::_OnItemUpdated, this, &_directory->GetItem(_index)));
+    }
+    else
+    {
+        _updating_texture = false;
     }
 }
 

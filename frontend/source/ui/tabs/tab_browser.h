@@ -83,6 +83,7 @@ private:
     Dialog *_confirm_dialog;
     int _cmd;
     bool _updating_thumbnails;
+    bool _updating_texture;
 
     std::map<std::string, size_t> _dir_history;
 };
