@@ -136,7 +136,6 @@ namespace Emu4VitaPlus
           ra_hardcore(false)
     {
         LogFunctionName;
-        Default();
     }
 
     Config::~Config()

@@ -87,6 +87,7 @@ App::App()
         File::RemoveAllFiles(ARCHIVE_CACHE_DIR);
         File::RemoveAllFiles(PLAYLISTS_CACHE_DIR);
         File::RemoveAllFiles(CACHE_DIR);
+        gConfig->Default();
         gConfig->Save();
     }
 
