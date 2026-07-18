@@ -9,7 +9,6 @@
 #include "icons.h"
 
 #define DISABLE_COLOR 0.5f
-#define GRADIENT_FRAMES 30
 #define DELTA_COLOR ((1.f - DISABLE_COLOR) / GRADIENT_FRAMES)
 
 CoreButton::CoreButton(CONSOLE console, std::vector<CoreName> cores)

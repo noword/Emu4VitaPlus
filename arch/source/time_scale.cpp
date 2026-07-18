@@ -46,9 +46,9 @@ static void _GetSteps(float start, float end, float *out)
 {
     const float delta = end - start;
 
-    for (int i = 0; i < 30; ++i)
+    for (int i = 0; i < GRADIENT_FRAMES; ++i)
     {
-        float t = (float)(29 - i) / 29.0f; // 1 -> 0
+        float t = (float)(GRADIENT_FRAMES - 1 - i) / (float)(GRADIENT_FRAMES - 1); // 1 -> 0
         float inv = 1.0f - t;
         float k = 1.0f - inv * inv; // EaseOutCubic
 
@@ -70,6 +70,6 @@ void TimeScale::SetTime(int year, int offset)
         snprintf(_year, 8, "%d", year);
         _GetSteps(_x[0], ((year - START_YEAR) * YEAR_PIXEL_STEP - offset) / _width, _x);
         _GetSteps(_year_x[0], offset, _year_x);
-        _count = 29;
+        _count = GRADIENT_FRAMES - 1;
     }
 }
