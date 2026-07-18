@@ -101,6 +101,7 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
     if (gConfig->reboot_when_loading_again && _loaded)
     {
         gStatus.Set(APP_STATUS_REBOOT_WITH_LOADING);
+        gConfig->last_rom = path;
         return true;
     }
 
