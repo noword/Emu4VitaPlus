@@ -136,6 +136,7 @@ namespace Emu4VitaPlus
           ra_hardcore(false)
     {
         LogFunctionName;
+        Default();
     }
 
     Config::~Config()
@@ -424,11 +425,8 @@ namespace Emu4VitaPlus
                 retros.push_back(r);
             }
 
-            if (retros.size() > 0)
-            {
-                control.retros = retros;
-                control.turbo = ini.GetBoolValue(PsvKeyStr.at(control.psv), "turbo", control.turbo);
-            }
+            control.retros = retros;
+            control.turbo = ini.GetBoolValue(PsvKeyStr.at(control.psv), "turbo", control.turbo);
         }
 
         for (size_t i = 0; i < HOT_KEY_COUNT; i++)
