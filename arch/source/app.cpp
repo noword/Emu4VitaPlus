@@ -143,8 +143,8 @@ App::App()
                            {     //{"Snes9x 2002", "snes9x2002"},
                             {"Snes9x 2005" ICON_STAR, "snes9x2005_plus"},
                             {"Snes9x", "snes9x"},
-                            {"Mednafen Supafaust" ICON_STAR, "mednafen_supafaust"},
-                            {"Chimera SNES", "chimerasnes"}}),
+                            {"Mednafen Supafaust", "mednafen_supafaust"},
+                            {"Chimera SNES" ICON_STAR, "chimerasnes"}}),
             new CoreButton(NEOCD, // 1994
                            {{"neocd", "neocd"}}),
             new CoreButton(VB, // 1995
