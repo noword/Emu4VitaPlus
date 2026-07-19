@@ -285,6 +285,15 @@ void App::Run()
 
         case APP_STATUS_REBOOT_WITH_LOADING:
         {
+            gConfig->last_rom = gEmulator->GetCurrentName();
+            gConfig->Save();
+            if (gConfig->independent_config)
+            {
+                gConfig->Load(CORE_CONFIG_PATH);
+                gConfig->last_rom = path;
+                gConfig->Save(CORE_CONFIG_PATH);
+            }
+
             char boot[SCE_FIOS_PATH_MAX];
             const char *argv[] = {"", "--rom", gEmulator->GetCurrentName(), NULL};
             if (gBootFromArch)
