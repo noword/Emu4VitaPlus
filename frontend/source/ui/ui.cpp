@@ -23,9 +23,6 @@
 #include "global.h"
 #include "misc.h"
 
-// 4 seconds
-#define PS_HOLDING_TIME 4000000
-
 void Ui::_ResumeGame()
 {
     LogFunctionName;
@@ -107,8 +104,7 @@ void Ui::_DeinitImgui()
 
 Ui::Ui() : _tab_index(TAB_INDEX_BROWSER),
            _tabs{nullptr},
-           _ps_locked(false),
-           _ps_holding_time(0ULL)
+           _ps_locked(false)
 {
     LogFunctionName;
     _boot_ui = new Boot();
@@ -191,24 +187,6 @@ void Ui::Run()
 {
     _input.Poll(true);
     gInputTextDialog->Run();
-    if (_ps_locked)
-    {
-        if (_input.GetKeyStates() & SCE_CTRL_PSBUTTON)
-        {
-            if (_ps_holding_time == 0ull)
-            {
-                _ps_holding_time = sceKernelGetProcessTimeWide() + PS_HOLDING_TIME;
-            }
-            else if (_ps_holding_time >= sceKernelGetProcessTimeWide())
-            {
-                _UnlockPsButton();
-            }
-        }
-        else
-        {
-            _ps_holding_time = 0ull;
-        }
-    }
 }
 
 void Ui::OnStatusChanged(APP_STATUS status)

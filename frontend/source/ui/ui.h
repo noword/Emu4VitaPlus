@@ -75,5 +75,4 @@ private:
     Boot *_boot_ui;
     bool _ps_locked;
     Themes _themes;
-    uint64_t _ps_holding_time;
 };
