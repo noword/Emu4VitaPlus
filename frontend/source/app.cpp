@@ -290,7 +290,7 @@ void App::Run()
             if (gConfig->independent_config)
             {
                 gConfig->Load(CORE_CONFIG_PATH);
-                gConfig->last_rom = path;
+                gConfig->last_rom = gEmulator->GetCurrentName();
                 gConfig->Save(CORE_CONFIG_PATH);
             }
 
