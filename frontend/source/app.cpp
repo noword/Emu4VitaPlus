@@ -244,7 +244,10 @@ void App::Run()
     else
     {
         last_status = APP_STATUS_BOOT;
-        gEmulator->LoadRom(gBootRomPath.c_str(), NULL, 0);
+        if (gEmulator->LoadRom(gBootRomPath.c_str(), NULL, 0))
+        {
+            gUi->SetPath(gBootRomPath.c_str());
+        }
     }
 
     uint64_t next_idle_time = 0;
@@ -285,15 +288,6 @@ void App::Run()
 
         case APP_STATUS_REBOOT_WITH_LOADING:
         {
-            gConfig->last_rom = gEmulator->GetCurrentName();
-            gConfig->Save();
-            if (gConfig->independent_config)
-            {
-                gConfig->Load(CORE_CONFIG_PATH);
-                gConfig->last_rom = gEmulator->GetCurrentName();
-                gConfig->Save(CORE_CONFIG_PATH);
-            }
-
             char boot[SCE_FIOS_PATH_MAX];
             const char *argv[] = {"", "--rom", gEmulator->GetCurrentName(), NULL};
             if (gBootFromArch)

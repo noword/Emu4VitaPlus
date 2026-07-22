@@ -686,3 +686,8 @@ void Ui::OnRetrAchievementsLogInOut(bool login)
         ((TabSeletable *)_tabs[TAB_INDEX_OPTIONS])->GetItemByLanguageString(LANG_RETROARCHIEVEMENTS_LOCAL)->SetVisable(login);
     }
 }
+
+void Ui ::SetPath(const char *path)
+{
+    ((TabBrowser *)_tabs[TAB_INDEX_BROWSER])->SetPath(path);
+}

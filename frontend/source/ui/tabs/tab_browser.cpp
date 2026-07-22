@@ -28,17 +28,8 @@ TabBrowser::TabBrowser() : TabSeletable(LANG_BROWSER),
 {
     LogFunctionName;
 
-    const char *path = gConfig->last_rom.c_str();
-    _directory = new Directory(File::GetDir(path).c_str(), gEmulator->GetValidExtensions());
-    std::string name = File::GetName(path);
-    for (size_t i = 0; i < _directory->GetSize(); i++)
-    {
-        if (_directory->GetItemPath(i) == name)
-        {
-            _index = i;
-            break;
-        }
-    }
+    _directory = new Directory(nullptr, gEmulator->GetValidExtensions());
+    SetPath(gConfig->last_rom.c_str());
 
     _confirm_dialog = new Dialog{"",
                                  {LANG_OK, LANG_CANCEL},
@@ -57,6 +48,25 @@ TabBrowser::~TabBrowser()
     if (_dialog != nullptr)
     {
         delete _dialog;
+    }
+}
+
+void TabBrowser::SetPath(const char *path)
+{
+    LogFunctionName;
+    LogDebug("  path: %s", path);
+
+    _directory->SetCurrentPath(File::GetDir(path));
+
+    std::string name = File::GetName(path);
+    _index = 0;
+    for (size_t i = 0; i < _directory->GetSize(); i++)
+    {
+        if (_directory->GetItemPath(i) == name)
+        {
+            _index = i;
+            break;
+        }
     }
 }
 

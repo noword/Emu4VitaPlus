@@ -32,6 +32,7 @@ public:
     virtual void Show(bool selected) override;
     virtual void ChangeLanguage(uint32_t language) override;
     bool Visable() override { return _visable; };
+    void SetPath(const char *path);
 
 private:
     virtual void _Show() override;

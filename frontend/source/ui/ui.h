@@ -30,6 +30,7 @@ public:
     void UpdateAchievements();
     void OnStatusChanged(APP_STATUS status);
     void OnRetrAchievementsLogInOut(bool login);
+    void SetPath(const char *path);
 
 private:
     void _InitImgui();
