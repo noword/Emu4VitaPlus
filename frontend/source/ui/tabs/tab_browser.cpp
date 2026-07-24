@@ -34,8 +34,6 @@ TabBrowser::TabBrowser() : TabSeletable(LANG_BROWSER),
     _confirm_dialog = new Dialog{"",
                                  {LANG_OK, LANG_CANCEL},
                                  std::bind(&TabBrowser::_OnConfirmDialog, this, std::placeholders::_1, std::placeholders::_2)};
-
-    _Update();
 }
 
 TabBrowser::~TabBrowser()
@@ -68,6 +66,8 @@ void TabBrowser::SetPath(const char *path)
             break;
         }
     }
+
+    _Update();
 }
 
 void TabBrowser::SetInputHooks(Input *input)
