@@ -12,10 +12,11 @@ public:
 
     virtual ~Delay() {};
 
-    void SetInterval(T interval_ms, T start_ms = 0)
+    void SetInterval(const T interval_ms, const T start_ms = 0)
     {
         _interval_ms = interval_ms;
-        _outtime_ms = _interval_ms * 8;
+        _outtime_ms = interval_ms * 8;
+        _fluctuation = interval_ms * 0.1;
         _next_ms = sceKernelGetProcessTimeWide() + _interval_ms + start_ms;
     };
 
@@ -25,7 +26,7 @@ public:
     {
         T current = sceKernelGetProcessTimeWide();
 
-        bool result = current < _next_ms;
+        bool result = current < (_next_ms + _fluctuation);
         if (likely(result))
         {
             sceKernelDelayThread(_next_ms - current);
@@ -58,4 +59,5 @@ private:
     T _interval_ms;
     T _next_ms;
     T _outtime_ms;
+    T _fluctuation;
 };
