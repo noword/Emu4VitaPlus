@@ -14,6 +14,7 @@
 #include "file.h"
 
 #define APP_ASSETS_DIR "app0:assets"
+#define IMAGES_DIR APP_ASSETS_DIR "/images"
 #define TEXT_FONT_NAME "AlibabaPuHuiTi-2-65-Medium.ttf"
 #define GAMEPAD_FONT_NAME "promptfont.ttf"
 #define ICON_FONT_NAME "fontello.ttf"
@@ -31,6 +32,15 @@
 #define RA_W 30
 #define RA_H 17
 #define TOP_RIGHT_Y 13
+
+static const char *COUNTRIES[] = {"gbr", "chn", "jap", "ita", "fra", "esp", "rus"};
+static const int COUNTRY_COUNT = sizeof(COUNTRIES) / sizeof(COUNTRIES[0]);
+
+#define COUNTRY_ICON_WIDTH 38
+#define COUNTRY_ICON_HEIGHT 25
+#define COUNTRY_CODE_START 0xF800
+
+int COUNTRY_IDS[COUNTRY_COUNT];
 
 const char *BATTERY_ICONS[] = {ICON_BATTERY_25, ICON_BATTERY_50, ICON_BATTERY_75, ICON_BATTERY_100};
 
@@ -196,6 +206,12 @@ static void GenFontTexture(ImFontAtlas *fonts)
         }
     }
 
+    for (int i = 0; i < COUNTRY_COUNT; i++)
+    {
+        const ImFontAtlasCustomRect *rect = ImGui::GetIO().Fonts->GetCustomRectByIndex(COUNTRY_IDS[i]);
+        LogDebug("font %d %d %d", i, rect->X, rect->Y);
+    }
+
     fonts->TexID = texture;
 }
 
@@ -343,10 +359,10 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
 
     const ImWchar *glyph_ranges = GetGlyphRanges(language);
 
-    io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" TEXT_FONT_NAME,
-                                 27.0f,
-                                 &font_config,
-                                 glyph_ranges);
+    ImFont *font = io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" TEXT_FONT_NAME,
+                                                27.0f,
+                                                &font_config,
+                                                glyph_ranges);
     font_config.MergeMode = true;
     io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" TEXT_FONT_NAME,
                                  27.0f,
@@ -377,6 +393,12 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
                                               50.0f,
                                               NULL,
                                               GamePadCharset);
+
+    for (int i = 0; i < COUNTRY_COUNT; i++)
+    {
+        COUNTRY_IDS[i] = io.Fonts->AddCustomRectFontGlyph(font, COUNTRY_CODE_START + i, COUNTRY_ICON_WIDTH, COUNTRY_ICON_HEIGHT, COUNTRY_ICON_WIDTH + 1);
+    }
+
     GenFontTexture(io.Fonts);
 
     if (cache_path)
@@ -497,18 +519,25 @@ IMGUI_API void My_ImGui_ImplVita2D_Init(uint32_t language, const char *cache_pat
 
     ImGui_ImplVita2D_InitTouch();
 
-    gRaIconTexture = vita2d_load_PNG_file(APP_ASSETS_DIR "/" RA_ICON_NAME);
-    gRaIconGreenTexture = vita2d_load_PNG_file(APP_ASSETS_DIR "/" RA_ICON_GREEN_NAME);
+    gRaIconTexture = vita2d_load_PNG_file(IMAGES_DIR "/" RA_ICON_NAME);
+    gRaIconGreenTexture = vita2d_load_PNG_file(IMAGES_DIR "/" RA_ICON_GREEN_NAME);
 }
 
 IMGUI_API void My_ImGui_ImplVita2D_Shutdown()
 {
     LogFunctionName;
     My_Imgui_Destroy_Font(false);
-    vita2d_free_texture(gRaIconTexture);
-    gRaIconTexture = nullptr;
-    vita2d_free_texture(gRaIconGreenTexture);
-    gRaIconGreenTexture = nullptr;
+    if (gRaIconTexture)
+    {
+        vita2d_free_texture(gRaIconTexture);
+        gRaIconTexture = nullptr;
+    }
+
+    if (gRaIconGreenTexture)
+    {
+        vita2d_free_texture(gRaIconGreenTexture);
+        gRaIconGreenTexture = nullptr;
+    }
 }
 
 IMGUI_API void My_ImGui_ImplVita2D_RenderDrawData(ImDrawData *draw_data)

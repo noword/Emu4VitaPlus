@@ -17,7 +17,7 @@ TabAbout::TabAbout() : TabBase(LANG_ABOUT),
                        _input_count(0)
 {
     _InitTexts();
-    _title_texture = vita2d_load_PNG_file("app0:assets/emu4vita++.png");
+    _title_texture = vita2d_load_PNG_file("app0:assets/images/emu4vita++.png");
 
     time_t t;
     srand((unsigned)time(&t));
