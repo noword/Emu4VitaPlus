@@ -32,6 +32,6 @@ namespace Emu4VitaPlus
         AudioResampler *_resampler;
         AudioOutput *_output;
         retro_audio_buffer_status_callback_t _buf_status_callback;
-        AudioBuf _out_buf{AUDIO_OUTPUT_BUF_SIZE};
+        AudioBuf _out_buf;
     };
 }

@@ -1,7 +1,6 @@
 #pragma once
 #include <stdint.h>
 #include "thread_base.h"
-#include "circle_buf.h"
 #include "audio_define.h"
 #include "audio_output.h"
 #include "audio_buf.h"
@@ -32,7 +31,7 @@ private:
     static int _ResampleThread(SceSize args, void *argp);
 
     uint32_t _in_rate, _out_rate;
-    CircleBuf<int16_t> _in_buf{AUDIO_OUTPUT_BUF_SIZE};
+    AudioBuf _in_buf;
     AudioOutput *_output;
     AudioBuf *_out_buf;
 
