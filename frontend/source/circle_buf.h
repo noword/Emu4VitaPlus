@@ -118,10 +118,7 @@ public:
     void ReadEnd(size_t size)
     {
         size_t read_pos = _read_pos.load(std::memory_order_relaxed) + size;
-        if (unlikely(read_pos >= TOTAL_SIZE))
-        {
-            read_pos = 0;
-        }
+        read_pos &= MASK;
         _read_pos.store(read_pos, std::memory_order_release);
     };
 
