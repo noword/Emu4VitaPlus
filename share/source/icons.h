@@ -81,3 +81,11 @@
 #define ICON_EJECT_SPACE ICON_EJECT " "
 #define ICON_WIFI_SPACE ICON_WIFI " "
 #define ICON_AWARD_SPACE ICON_AWARD " "
+
+#define ICON_COUNTRY_GBR "\xef\xa0\x80"
+#define ICON_COUNTRY_CHN "\xef\xa0\x81"
+#define ICON_COUNTRY_JPN "\xef\xa0\x82"
+#define ICON_COUNTRY_ITA "\xef\xa0\x83"
+#define ICON_COUNTRY_FRA "\xef\xa0\x84"
+#define ICON_COUNTRY_ESP "\xef\xa0\x85"
+#define ICON_COUNTRY_RUS "\xef\xa0\x86"
