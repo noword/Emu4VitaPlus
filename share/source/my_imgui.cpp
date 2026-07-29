@@ -233,7 +233,6 @@ static void GenFontTexture(ImFontAtlas *fonts)
     }
 
     fonts->TexID = texture;
-    fonts->ClearTexData();
 }
 
 static bool LoadFontCache(const char *path)
@@ -313,6 +312,8 @@ static bool LoadFontCache(const char *path)
 
     GenFontTexture(fonts);
 
+    fonts->ClearTexData();
+
     gLargeFont = fonts->Fonts[1];
 
 END:
@@ -368,7 +369,7 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
     }
 
     // Build texture atlas
-    ImGuiIO &io = ImGui::GetIO();
+    ImFontAtlas *fonts = ImGui::GetIO().Fonts;
     // Build and load the texture atlas into a texture
     uint32_t *pixels = NULL;
     int width, height;
@@ -380,52 +381,55 @@ void My_Imgui_Create_Font(uint32_t language, const char *cache_path)
 
     const ImWchar *glyph_ranges = GetGlyphRanges(language);
 
-    ImFont *font = io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" TEXT_FONT_NAME,
-                                                27.0f,
-                                                &font_config,
-                                                glyph_ranges);
+    ImFont *font = fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" TEXT_FONT_NAME,
+                                             27.0f,
+                                             &font_config,
+                                             glyph_ranges);
     font_config.MergeMode = true;
-    io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" TEXT_FONT_NAME,
-                                 27.0f,
-                                 &font_config,
-                                 RomanNumCharset);
-    io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" TEXT_FONT_NAME,
-                                 27.0f,
-                                 &font_config,
-                                 BracketsCharset);
-    io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" GAMEPAD_FONT_NAME,
-                                 30.0f,
-                                 &font_config,
-                                 GamePadCharset);
-    io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" GAMEPAD_FONT_NAME,
-                                 45.0f,
-                                 &font_config,
-                                 KeyCharset);
-    io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" ICON_FONT_NAME,
-                                 24.0f,
-                                 &font_config,
-                                 IconCharset);
-    io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" ICON_FONT_NAME,
-                                 18.0f,
-                                 &font_config,
-                                 SmallIconCharset);
+    fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" TEXT_FONT_NAME,
+                              27.0f,
+                              &font_config,
+                              RomanNumCharset);
+    fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" TEXT_FONT_NAME,
+                              27.0f,
+                              &font_config,
+                              BracketsCharset);
+    fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" GAMEPAD_FONT_NAME,
+                              30.0f,
+                              &font_config,
+                              GamePadCharset);
+    fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" GAMEPAD_FONT_NAME,
+                              45.0f,
+                              &font_config,
+                              KeyCharset);
+    fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" ICON_FONT_NAME,
+                              24.0f,
+                              &font_config,
+                              IconCharset);
+    fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" ICON_FONT_NAME,
+                              18.0f,
+                              &font_config,
+                              SmallIconCharset);
 
-    gLargeFont = io.Fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" GAMEPAD_FONT_NAME,
-                                              50.0f,
-                                              NULL,
-                                              GamePadCharset);
+    gLargeFont = fonts->AddFontFromFileTTF(APP_ASSETS_DIR "/" GAMEPAD_FONT_NAME,
+                                           50.0f,
+                                           NULL,
+                                           GamePadCharset);
 
     for (int i = 0; i < COUNTRY_COUNT; i++)
     {
-        io.Fonts->AddCustomRectFontGlyph(font, COUNTRY_CODE_START + i, COUNTRY_ICON_WIDTH, COUNTRY_ICON_HEIGHT, COUNTRY_ICON_WIDTH + 1);
+        fonts->AddCustomRectFontGlyph(font, COUNTRY_CODE_START + i, COUNTRY_ICON_WIDTH, COUNTRY_ICON_HEIGHT, COUNTRY_ICON_WIDTH + 1);
     }
 
-    GenFontTexture(io.Fonts);
+    GenFontTexture(fonts);
 
     if (cache_path)
     {
         SaveFontCache(name);
     }
+
+    fonts->ClearTexData();
+
     return;
 }
 
