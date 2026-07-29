@@ -12,15 +12,60 @@ public:
 
     virtual ~Delay() {};
 
-    void SetInterval(const T interval_ms, const T start_ms = 0)
+    void SetInterval(T interval_ms, T start_ms = 0)
     {
         _interval_ms = interval_ms;
-        _outtime_ms = interval_ms * 8;
-        _fluctuation = interval_ms * 0.1;
+        _outtime_ms = _interval_ms * 8;
         _next_ms = sceKernelGetProcessTimeWide() + _interval_ms + start_ms;
     };
 
     T GetInterval() { return _interval_ms; };
+
+    void Wait()
+    {
+        T current = sceKernelGetProcessTimeWide();
+
+        if (likely(current < _next_ms))
+        {
+            sceKernelDelayThread(_next_ms - current);
+            _next_ms += _interval_ms;
+        }
+        else if (current > _next_ms + _outtime_ms)
+        {
+            _next_ms = current + _interval_ms;
+        }
+        else
+        {
+            _next_ms += _interval_ms;
+        }
+    }
+
+    bool TimeUp()
+    {
+        T current = sceKernelGetProcessTimeWide();
+        bool result = (current >= _next_ms);
+        if (result)
+        {
+            _next_ms = current + _interval_ms;
+        }
+        return result;
+    }
+
+protected:
+    T _interval_ms;
+    T _next_ms;
+    T _outtime_ms;
+};
+
+template <typename T>
+class LosseDelay : public Delay<T>
+{
+public:
+    void SetInterval(T interval_ms, T start_ms = 0)
+    {
+        Delay<T>::SetInterval(interval_ms, start_ms);
+        _fluctuation = interval_ms * 0.1;
+    }
 
     bool Wait()
     {
@@ -44,20 +89,10 @@ public:
         return result;
     }
 
-    bool TimeUp()
-    {
-        T current = sceKernelGetProcessTimeWide();
-        bool result = (current >= _next_ms);
-        if (result)
-        {
-            _next_ms = current + _interval_ms;
-        }
-        return result;
-    }
-
 private:
-    T _interval_ms;
-    T _next_ms;
-    T _outtime_ms;
+    using Delay<T>::_interval_ms;
+    using Delay<T>::_next_ms;
+    using Delay<T>::_outtime_ms;
+
     T _fluctuation;
 };

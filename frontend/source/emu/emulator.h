@@ -184,7 +184,7 @@ private:
     int32_t _keys[16];
 
     double _speed;
-    Delay<double> _delay;
+    LosseDelay<double> _delay;
     uint32_t _frame_count;
     bool _show_video;
 
