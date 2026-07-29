@@ -233,6 +233,7 @@ static void GenFontTexture(ImFontAtlas *fonts)
     }
 
     fonts->TexID = texture;
+    fonts->ClearTexData();
 }
 
 static bool LoadFontCache(const char *path)
