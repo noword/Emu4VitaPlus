@@ -216,7 +216,7 @@ namespace Emu4VitaPlus
         graphics[GRAPHICS_SHADER] = DEFAULT_GRAPHICS_SHADER;
         graphics[GRAPHICS_SMOOTH] = CONFIG_GRAPHICS_SMOOTHER_NO;
         graphics[GRAPHICS_OVERLAY_MODE] = CONFIG_GRAPHICS_OVERLAY_MODE_OVERLAY;
-        graphics[GRAPHICS_OVERLAY] = 0;
+        graphics[GRAPHICS_OVERLAY] = DEFAULT_GRAPHICS_OVERLAY;
     }
 
     void Config::DefaultCoreOptions()

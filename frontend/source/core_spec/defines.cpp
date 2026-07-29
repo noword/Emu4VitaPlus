@@ -33,38 +33,45 @@ const uint32_t DEFAULT_GRAPHICS_SHADER =
     0;
 #endif
 
+const uint32_t DEFAULT_GRAPHICS_OVERLAY =
+#if defined(GBC)
+    12; // 【GBC】Grid lines
+#else
+    0;
+#endif
+
 const char *THUMBNAILS_NAME[] = {
 #if defined(NES_BUILD)
     "Nintendo%20-%20Nintendo%20Entertainment%20System",
 #elif defined(SNES_BUILD)
     "Nintendo%20-%20Super%20Nintendo%20Entertainment%20System",
 #elif defined(GBC_BUILD)
-    "Nintendo%20-%20Game%20Boy%20Color",
-    "Nintendo%20-%20Game%20Boy",
+        "Nintendo%20-%20Game%20Boy%20Color",
+        "Nintendo%20-%20Game%20Boy",
 #elif defined(GBA_BUILD)
-        "Nintendo%20-%20Game%20Boy%20Advance",
+            "Nintendo%20-%20Game%20Boy%20Advance",
 #elif defined(MD_BUILD)
-        "Sega%20-%20Mega%20Drive%20-%20Genesis",
+            "Sega%20-%20Mega%20Drive%20-%20Genesis",
 #elif defined(PCE_BUILD)
-        "NEC%20-%20PC%20Engine%20-%20TurboGrafx%2016",
+            "NEC%20-%20PC%20Engine%20-%20TurboGrafx%2016",
 #elif defined(WSC_BUILD)
-        "Bandai%20-%20WonderSwan%20Color",
-        "Bandai%20-%20WonderSwan",
+            "Bandai%20-%20WonderSwan%20Color",
+            "Bandai%20-%20WonderSwan",
 #elif defined(NGP_BUILD)
-        "SNK%20-%20Neo%20Geo%20Pocket%20Color",
-        "SNK%20-%20Neo%20Geo%20Pocket",
+            "SNK%20-%20Neo%20Geo%20Pocket%20Color",
+            "SNK%20-%20Neo%20Geo%20Pocket",
 #elif defined(ATARI2600_BUILD)
-        "Atari%20-%202600",
+            "Atari%20-%202600",
 #elif defined(ATARI5200_BUILD)
-        "Atari%20-%205200",
+            "Atari%20-%205200",
 #elif defined(ATARI7800_BUILD)
-        "Atari%20-%207800",
+            "Atari%20-%207800",
 #elif defined(FBA_BUILD)
-        "FBNeo%20-%20Arcade%20Games",
+            "FBNeo%20-%20Arcade%20Games",
 #elif defined(MAME_BUILD)
-        "MAME",
+            "MAME",
 #elif defined(GW_BUILD)
-        "Handheld%20Electronic%20Game",
+            "Handheld%20Electronic%20Game",
 #endif
     nullptr};
 

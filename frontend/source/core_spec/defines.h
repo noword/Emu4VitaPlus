@@ -58,6 +58,7 @@ extern const bool ENABLE_MOTION_SENSOR;
 extern const bool CONTROL_SPEED_BY_VIDEO;
 
 extern const uint32_t DEFAULT_GRAPHICS_SHADER;
+extern const uint32_t DEFAULT_GRAPHICS_OVERLAY;
 
 enum RETRO_ACHIEVEMENTS_SUPPORT_ENUM
 {
