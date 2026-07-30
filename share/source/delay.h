@@ -61,32 +61,33 @@ template <typename T>
 class LosseDelay : public Delay<T>
 {
 public:
-    void SetInterval(T interval_ms, T start_ms = 0)
+    void SetInterval(T interval_ms, T start_ms = 0, float fluctuation_threshold = 0.1)
     {
         Delay<T>::SetInterval(interval_ms, start_ms);
-        _fluctuation = interval_ms * 0.1;
+        _fluctuation = interval_ms * fluctuation_threshold;
     }
 
     bool Wait()
     {
         T current = sceKernelGetProcessTimeWide();
 
-        bool result = current < (_next_ms + _fluctuation);
-        if (likely(result))
+        if (likely(current < _next_ms))
         {
             sceKernelDelayThread(_next_ms - current);
             _next_ms += _interval_ms;
+            return true;
         }
-        else if (current > _next_ms + _outtime_ms)
+        else if (unlikely(current > _next_ms + _outtime_ms))
         {
             _next_ms = current + _interval_ms;
+            return false;
         }
         else
         {
+            bool result = current < (_next_ms + _fluctuation);
             _next_ms += _interval_ms;
+            return result;
         }
-
-        return result;
     }
 
 private:
