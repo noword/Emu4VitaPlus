@@ -141,7 +141,7 @@ namespace Emu4VitaPlus
         _turbo_key &= ~key;
     }
 
-    void Input::Poll(bool waiting)
+    void Input::Poll(const bool waiting)
     {
         SceCtrlData ctrl_data{0};
         if ((waiting ? sceCtrlReadBufferPositiveExt2(0, &ctrl_data, 1) : sceCtrlPeekBufferPositiveExt2(0, &ctrl_data, 1)) > 0)

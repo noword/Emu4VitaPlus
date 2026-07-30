@@ -20,6 +20,7 @@
 #include "notification.h"
 #include "crc32_cache.h"
 #include "sound.h"
+#include "escape_thread.h"
 
 #define EMPTY_ROM_NAME "NULL"
 
@@ -44,3 +45,4 @@ extern InputTextDialog *gInputTextDialog;
 extern Notifications *gNotifications;
 extern Crc32Cache<> *gCrc32Cache;
 extern Emu4VitaPlus::Sound *gSound;
+extern EscapeThread *gEscape;

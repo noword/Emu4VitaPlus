@@ -94,6 +94,8 @@ App::App()
 
     LanguageString::Init();
 
+    gEscape = new EscapeThread();
+
     gNetwork = new Network();
     gEmulator = new Emulator();
     gEmulator->SetCpuFreq();
@@ -106,6 +108,8 @@ App::App()
     gInputTextDialog = new InputTextDialog;
     if (!gRetroAchievements)
         gRetroAchievements = new RetroAchievements;
+
+    gEscape->Start();
 
     gVideo->Start();
 
@@ -222,6 +226,7 @@ App::~App()
     delete gNetwork;
     delete gVideo;
     delete gConfig;
+    delete gEscape;
 
 #if LOG_LEVEL <= LOG_LEVEL_DEBUG
     delete gProfiler;
