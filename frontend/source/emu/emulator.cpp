@@ -87,6 +87,7 @@ void Emulator::Init()
     retro_init();
 
     _inited = true;
+    _control_frame_by_core = false;
 }
 
 bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
@@ -401,7 +402,6 @@ void Emulator::_ShowSpeedHint()
 
 void Emulator::Wait()
 {
-    // _show_video = _delay.Wait();
     bool in_time = _delay.Wait();
 
     if (_show_video)

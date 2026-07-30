@@ -207,4 +207,5 @@ private:
     int _downclock_fps_threshold;
     int _current_cpu_freq;
     int _adjust_cpu_count;
+    bool _control_frame_by_core;
 };

@@ -459,6 +459,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
     case RETRO_ENVIRONMENT_SET_AUDIO_BUFFER_STATUS_CALLBACK:
         LogDebug("  cmd: RETRO_ENVIRONMENT_SET_AUDIO_BUFFER_STATUS_CALLBACK");
         gEmulator->_audio.SetBufStatusCallback(data ? ((const retro_audio_buffer_status_callback *)data)->callback : nullptr);
+        gEmulator->_control_frame_by_core = true;
         break;
 
     case RETRO_ENVIRONMENT_SET_MINIMUM_AUDIO_LATENCY:
@@ -507,7 +508,7 @@ bool EnvironmentCallback(unsigned cmd, void *data)
         // LogDebug("  cmd: RETRO_ENVIRONMENT_GET_AUDIO_VIDEO_ENABLE");
         if (data)
         {
-            *(int *)data = gEmulator->_show_video ? RETRO_AV_ENABLE_VIDEO : 0;
+            *(int *)data = (gEmulator->_show_video || gEmulator->_control_frame_by_core) ? RETRO_AV_ENABLE_VIDEO : 0;
             if ((!gConfig->mute) && gStatus.Get() == APP_STATUS_RUN_GAME)
                 *(int *)data |= RETRO_AV_ENABLE_AUDIO;
         }
