@@ -157,12 +157,12 @@ static bool SaveFontCache(const char *path)
     }
 
     ImFontAtlasCache cache;
-    uint8_t *pixels;
-    fonts->GetTexDataAsAlpha8(&pixels, &cache.width, &cache.height);
     memcpy(cache.magic, FONT_CACHE_MAGIC, sizeof(cache.magic));
     cache.version = FONT_CACHE_VERSION;
-    cache.white_uv = fonts->TexUvWhitePixel;
     cache.size = fonts->Fonts.size();
+    cache.width = fonts->TexWidth;
+    cache.height = fonts->TexHeight;
+    cache.white_uv = fonts->TexUvWhitePixel;
 
     fwrite(&cache, sizeof(cache), 1, fp);
 
@@ -174,8 +174,12 @@ static bool SaveFontCache(const char *path)
         fwrite(font->Glyphs.Data, sizeof(ImFontGlyph), font_cache.glyphs_size, fp);
     }
 
-    fwrite(pixels, cache.width * cache.height, 1, fp);
     fwrite(fonts->TexUvLines, sizeof(fonts->TexUvLines), 1, fp);
+
+    vita2d_texture *texture = (vita2d_texture *)fonts->TexID;
+    uint8_t *pixels = (uint8_t *)vita2d_texture_get_datap(texture);
+    uint32_t stride = vita2d_texture_get_stride(texture);
+    fwrite(pixels, cache.width * stride, 1, fp);
 
     fclose(fp);
     return true;
@@ -303,16 +307,16 @@ static bool LoadFontCache(const char *path)
     fonts->TexHeight = cache->height;
     fonts->TexUvWhitePixel = cache->white_uv;
     size = cache->width * cache->height;
-    fonts->TexPixelsAlpha8 = (unsigned char *)IM_ALLOC(size);
-    memcpy(fonts->TexPixelsAlpha8, p, size);
-    p += size;
 
     memcpy(fonts->TexUvLines, p, sizeof(fonts->TexUvLines));
     p += sizeof(fonts->TexUvLines);
 
-    GenFontTexture(fonts);
-
-    fonts->ClearTexData();
+    {
+        vita2d_texture *texture = vita2d_create_empty_texture(cache->width, cache->height);
+        uint32_t stride = vita2d_texture_get_stride(texture);
+        memcpy(vita2d_texture_get_datap(texture), p, cache->height * stride);
+        fonts->TexID = texture;
+    }
 
     gLargeFont = fonts->Fonts[1];
 
