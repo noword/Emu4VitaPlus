@@ -306,7 +306,6 @@ static bool LoadFontCache(const char *path)
     fonts->TexWidth = cache->width;
     fonts->TexHeight = cache->height;
     fonts->TexUvWhitePixel = cache->white_uv;
-    size = cache->width * cache->height;
 
     memcpy(fonts->TexUvLines, p, sizeof(fonts->TexUvLines));
     p += sizeof(fonts->TexUvLines);
