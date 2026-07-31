@@ -35,7 +35,7 @@ Emulator::Emulator()
       _disk_contorl(nullptr),
       _speed(1.0),
       _keyboard(nullptr),
-      _current_cpu_freq(0),
+      _current_cpu_freq(333),
       _inited(false)
 {
     LogFunctionName;
@@ -87,7 +87,6 @@ void Emulator::Init()
     retro_init();
 
     _inited = true;
-    _control_frame_by_core = false;
 }
 
 bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
@@ -389,7 +388,7 @@ void Emulator::SetSpeed(double speed)
     _video_delay.SetInterval(interval);
     _audio.Init(_av_info.timing.sample_rate * speed);
     _overclock_fps_threshold = _av_info.timing.fps * 0.6;
-    _downclock_fps_threshold = _av_info.timing.fps * 0.8;
+    _downclock_fps_threshold = _av_info.timing.fps * 0.95;
     _adjust_cpu_count = 0;
 }
 
@@ -781,7 +780,7 @@ void Emulator::SetCpuFreq(int freq)
 
     if (_current_cpu_freq != freq)
     {
-        LogDebug("  set cpu freq to %d", freq);
+        LogInfo("set cpu frequency to %d", freq);
         scePowerSetArmClockFrequency(freq);
         _current_cpu_freq = freq;
     }

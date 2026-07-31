@@ -15,7 +15,7 @@ public:
     void SetInterval(T interval_ms, T start_ms = 0)
     {
         _interval_ms = interval_ms;
-        _outtime_ms = _interval_ms * 8;
+        _outtime_ms = interval_ms * 8;
         _next_ms = sceKernelGetProcessTimeWide() + _interval_ms + start_ms;
     };
 
@@ -61,7 +61,7 @@ template <typename T>
 class LosseDelay : public Delay<T>
 {
 public:
-    void SetInterval(T interval_ms, T start_ms = 0, float fluctuation_threshold = 0.1)
+    void SetInterval(T interval_ms, T start_ms = 0, float fluctuation_threshold = 0.05)
     {
         Delay<T>::SetInterval(interval_ms, start_ms);
         _fluctuation = interval_ms * fluctuation_threshold;
