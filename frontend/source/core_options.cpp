@@ -194,6 +194,7 @@ void CoreOptions::_Load(const T *define)
 
     const retro_core_option_value *v = define->values;
     bool checked = false;
+    int count = 0;
     while (v->value)
     {
         if (!checked && option->value == v->value)
@@ -201,6 +202,12 @@ void CoreOptions::_Load(const T *define)
             checked = true;
         }
         option->values.push_back({v->value, v->label ? v->label : ""});
+        if (v->label)
+        {
+            LogDebug("  label%d: %s", v->label);
+        }
+
+        count++;
         v++;
     }
 
