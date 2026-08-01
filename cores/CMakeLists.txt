@@ -13,7 +13,8 @@ set(C_FLAG_OPTIMIZATION -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard
     -funsafe-math-optimizations -mvectorize-with-neon-quad
     -fdata-sections -ffunction-sections)
 
-# set(CORE_CFLAGS -save-temps)
+set(CORE_CFLAGS -save-temps)
+
 if(CORE STREQUAL "gpsp")
 elseif(CORE STREQUAL "vba_next")
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/Makefile.libretro)
