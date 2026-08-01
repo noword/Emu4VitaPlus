@@ -19,6 +19,9 @@ extern "C"
 #include <libswscale/swscale.h>
 }
 
+#define OVERCLOCK_THRESHOLD 0.6
+#define DOWNCLOCK_THRESHOLD 0.98
+
 Emulator::Emulator()
     : _texture_buf(nullptr),
       _keys{0},
@@ -387,8 +390,8 @@ void Emulator::SetSpeed(double speed)
     _delay.SetInterval(interval);
     _video_delay.SetInterval(interval);
     _audio.Init(_av_info.timing.sample_rate * speed);
-    _overclock_fps_threshold = _av_info.timing.fps * 0.6;
-    _downclock_fps_threshold = _av_info.timing.fps * 0.95;
+    _overclock_fps_threshold = _av_info.timing.fps * OVERCLOCK_THRESHOLD;
+    _downclock_fps_threshold = _av_info.timing.fps * DOWNCLOCK_THRESHOLD;
     _adjust_cpu_count = 0;
 }
 
@@ -760,22 +763,7 @@ void Emulator::SetCpuFreq(int freq)
 
     if (freq < 0)
     {
-        switch (gConfig->cpu_freq)
-        {
-        case CPU_444:
-            freq = 444;
-            break;
-
-        case CPU_500:
-            freq = 500;
-            break;
-
-        case CPU_AUTO:
-        case CPU_333:
-        default:
-            freq = 333;
-            break;
-        }
+        freq = (gConfig->cpu_freq == 444 ? 444 : 333);
     }
 
     if (_current_cpu_freq != freq)

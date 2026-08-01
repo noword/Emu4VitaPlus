@@ -167,7 +167,7 @@ namespace Emu4VitaPlus
         language = Utils::GetDefaultLanguage();
         auto_download_thumbnail = (THUMBNAILS_NAME[0] != nullptr);
         ra_position = RA_POSITION_BOTTOM_RIGHT;
-        cpu_freq = CPU_500;
+        cpu_freq = CPU_AUTO;
         fps = FPS_POSITION_DISABLE;
         audio_latency = AUDIO_LATENCY_128MS;
         theme = "Dark";
@@ -383,7 +383,9 @@ namespace Emu4VitaPlus
         independent_config = ini.GetBoolValue(MAIN_SECTION, "independent_config", DEFAULT_INDEPENDENT_CONFIG);
         auto_rotating = ini.GetBoolValue(MAIN_SECTION, "auto_rotating", true);
         speed_step = ini.GetLongValue(MAIN_SECTION, "speed_step", 0);
-        cpu_freq = ini.GetLongValue(MAIN_SECTION, "cpu_freq", CPU_500);
+        cpu_freq = ini.GetLongValue(MAIN_SECTION, "cpu_freq", CPU_AUTO);
+        if (cpu_freq > CPU_444)
+            cpu_freq = CPU_AUTO;
         fps = ini.GetLongValue(MAIN_SECTION, "fps", FPS_POSITION_DISABLE);
         audio_latency = ini.GetLongValue(MAIN_SECTION, "audio_latency", AUDIO_LATENCY_128MS);
         theme = ini.GetValue(MAIN_SECTION, "theme", "Dark");
