@@ -5985,17 +5985,6 @@
     },
     {
         "No.": "545",
-        "English": "Mouse Sensitivity",
-        "Chinese": "鼠标灵敏度",
-        "Japanese": "",
-        "Italian": "",
-        "French": "",
-        "Spanish": "",
-        "Russian": "",
-        "Comments": ""
-    },
-    {
-        "No.": "546",
         "English": "Sets the overall mouse cursor movement speed.",
         "Chinese": "设置鼠标光标的整体移动速度。",
         "Japanese": "",
@@ -6006,7 +5995,7 @@
         "Comments": ""
     },
     {
-        "No.": "547",
+        "No.": "546",
         "English": "Advanced > Horizontal Mouse Sensitivity.",
         "Chinese": "高级 > 鼠标水平灵敏度",
         "Japanese": "",
@@ -6017,7 +6006,7 @@
         "Comments": ""
     },
     {
-        "No.": "548",
+        "No.": "547",
         "English": "Experiment with this value if the mouse is too fast/slow when moving left/right.",
         "Chinese": "如果鼠标在左右移动时过快或过慢，可尝试调整此数值。",
         "Japanese": "",
@@ -6028,7 +6017,7 @@
         "Comments": ""
     },
     {
-        "No.": "549",
+        "No.": "548",
         "English": "Advanced > Action Wheel Inputs",
         "Chinese": "高级 > 鼠标滚轮输入",
         "Japanese": "",
@@ -6039,7 +6028,7 @@
         "Comments": ""
     },
     {
-        "No.": "550",
+        "No.": "549",
         "English": "Sets which inputs control the action wheel.",
         "Chinese": "设置哪个输入控制鼠标滚轮",
         "Japanese": "",
@@ -6050,7 +6039,7 @@
         "Comments": ""
     },
     {
-        "No.": "551",
+        "No.": "550",
         "English": "Advanced > Automatic Game Pad Mappings",
         "Chinese": "高级 > 自动游戏手柄映射",
         "Japanese": "",
@@ -6061,7 +6050,7 @@
         "Comments": ""
     },
     {
-        "No.": "552",
+        "No.": "551",
         "English": "DOSBox Pure can automatically apply a gamepad control mapping scheme when it detects a game.\nThese button mappings are provided by the Keyb2Joypad Project (by Jemy Murphy and bigjim).",
         "Chinese": "DOSBox Pure 可以在检测到游戏时自动应用手柄控制映射方案。\n这些按键映射由 Keyb2Joypad 项目提供（作者：Jemy Murphy 和 bigjim）。",
         "Japanese": "",
@@ -6072,7 +6061,7 @@
         "Comments": ""
     },
     {
-        "No.": "553",
+        "No.": "552",
         "English": "Advanced > Keyboard Layout",
         "Chinese": "高级 > 键盘布局",
         "Japanese": "",
@@ -6083,7 +6072,7 @@
         "Comments": ""
     },
     {
-        "No.": "554",
+        "No.": "553",
         "English": "Select the keyboard layout (will not change the On Screen Keyboard).",
         "Chinese": "选择键盘布局（不会更改屏幕键盘）。",
         "Japanese": "",
@@ -6094,7 +6083,7 @@
         "Comments": ""
     },
     {
-        "No.": "555",
+        "No.": "554",
         "English": "Advanced > Joystick Analog Deadzone",
         "Chinese": "高级 > 摇杆死区",
         "Japanese": "",
@@ -6105,7 +6094,7 @@
         "Comments": ""
     },
     {
-        "No.": "556",
+        "No.": "555",
         "English": "Set the deadzone of the joystick analog sticks. May be used to eliminate drift caused by poorly calibrated joystick hardware.",
         "Chinese": "设置摇杆的死区。可用于消除由于摇杆硬件校准不良造成的漂移。",
         "Japanese": "",
@@ -6116,7 +6105,7 @@
         "Comments": ""
     },
     {
-        "No.": "557",
+        "No.": "556",
         "English": "Advanced > Enable Joystick Timed Intervals",
         "Chinese": "高级 > 启用摇杆定时间隔",
         "Japanese": "",
@@ -6127,7 +6116,7 @@
         "Comments": ""
     },
     {
-        "No.": "558",
+        "No.": "557",
         "English": "Enable timed intervals for joystick axes. Experiment with this option if your joystick drifts.",
         "Chinese": "为摇杆启用定时间隔。如果你的摇杆存在漂移问题，可以尝试调整此选项。",
         "Japanese": "",
@@ -6138,7 +6127,7 @@
         "Comments": ""
     },
     {
-        "No.": "559",
+        "No.": "558",
         "English": "Emulated Performance",
         "Chinese": "模拟性能",
         "Japanese": "",
@@ -6149,7 +6138,7 @@
         "Comments": ""
     },
     {
-        "No.": "560",
+        "No.": "559",
         "English": "The raw performance that DOSBox will try to emulate.",
         "Chinese": "DOSBox 尝试模拟的原始性能水平。",
         "Japanese": "",
@@ -6160,7 +6149,7 @@
         "Comments": ""
     },
     {
-        "No.": "561",
+        "No.": "560",
         "English": "Detailed > Maximum Emulated Performance",
         "Chinese": "详细 > 最大模拟性能",
         "Japanese": "",
@@ -6171,7 +6160,7 @@
         "Comments": ""
     },
     {
-        "No.": "562",
+        "No.": "561",
         "English": "With dynamic CPU speed (AUTO or MAX above), the maximum emulated performance level.",
         "Chinese": "在使用动态 CPU 速度（AUTO 或 MAX）时的最大模拟性能等级。",
         "Japanese": "",
@@ -6182,7 +6171,7 @@
         "Comments": ""
     },
     {
-        "No.": "563",
+        "No.": "562",
         "English": "Detailed > Performance Scale",
         "Chinese": "高级 > 性能调整",
         "Japanese": "",
@@ -6193,7 +6182,7 @@
         "Comments": ""
     },
     {
-        "No.": "564",
+        "No.": "563",
         "English": "Fine tune the emulated performance for specific needs.",
         "Chinese": "针对特定需求微调模拟性能。",
         "Japanese": "",
@@ -6204,7 +6193,7 @@
         "Comments": ""
     },
     {
-        "No.": "565",
+        "No.": "564",
         "English": "Detailed > Limit CPU Usage",
         "Chinese": "详细 > 限制 CPU 使用率",
         "Japanese": "",
@@ -6215,7 +6204,7 @@
         "Comments": ""
     },
     {
-        "No.": "566",
+        "No.": "565",
         "English": "When emulating DOS as fast as possible, how much time per frame should be used by the emulation.\nLower this if your device becomes hot while using this core.",
         "Chinese": "当 DOS 模拟全速运行时，用于每一帧处理的时间。\n如果你的设备在使用该核心时变得过热，请降低此数值。",
         "Japanese": "",
@@ -6226,7 +6215,7 @@
         "Comments": ""
     },
     {
-        "No.": "567",
+        "No.": "566",
         "English": "Advanced > Show Performance Statistics",
         "Chinese": "高级 > 显示性能统计数据",
         "Japanese": "",
@@ -6237,7 +6226,7 @@
         "Comments": ""
     },
     {
-        "No.": "568",
+        "No.": "567",
         "English": "Enable this to show statistics about performance and framerate and check if emulation runs at full speed.",
         "Chinese": "打开这个选项后，你可以看到性能和帧率的相关统计，用来确认模拟是不是在全速运行。",
         "Japanese": "",
@@ -6248,7 +6237,7 @@
         "Comments": ""
     },
     {
-        "No.": "569",
+        "No.": "568",
         "English": "Emulated Graphics Chip (restart required)",
         "Chinese": "模拟图形芯片（需要重启）",
         "Japanese": "",
@@ -6259,7 +6248,7 @@
         "Comments": ""
     },
     {
-        "No.": "570",
+        "No.": "569",
         "English": "The type of graphics chip that DOSBox will emulate.",
         "Chinese": "DOSBox 将模拟的图形芯片类型。",
         "Japanese": "",
@@ -6270,7 +6259,7 @@
         "Comments": ""
     },
     {
-        "No.": "571",
+        "No.": "570",
         "English": "CGA Mode",
         "Chinese": "CGA 模式",
         "Japanese": "",
@@ -6281,7 +6270,7 @@
         "Comments": ""
     },
     {
-        "No.": "572",
+        "No.": "571",
         "English": "The CGA variation that is being emulated.",
         "Chinese": "正在模拟的 CGA 变体类型。",
         "Japanese": "",
@@ -6292,7 +6281,7 @@
         "Comments": ""
     },
     {
-        "No.": "573",
+        "No.": "572",
         "English": "Hercules Color Mode",
         "Chinese": "Hercules 色彩模式",
         "Japanese": "",
@@ -6303,7 +6292,7 @@
         "Comments": ""
     },
     {
-        "No.": "574",
+        "No.": "573",
         "English": "The color scheme for Hercules emulation.",
         "Chinese": "模拟 Hercules 配色方案",
         "Japanese": "",
@@ -6314,7 +6303,7 @@
         "Comments": ""
     },
     {
-        "No.": "575",
+        "No.": "574",
         "English": "SVGA Mode (restart required)",
         "Chinese": "SVGA 模式（需要重启）",
         "Japanese": "",
@@ -6325,7 +6314,7 @@
         "Comments": ""
     },
     {
-        "No.": "576",
+        "No.": "575",
         "English": "The SVGA variation that is being emulated. Try changing this if you encounter graphical glitches.",
         "Chinese": "正在模拟的 SVGA 变体类型。如果你遇到图形异常，可以尝试更改这个设置。",
         "Japanese": "",
@@ -6336,7 +6325,7 @@
         "Comments": ""
     },
     {
-        "No.": "577",
+        "No.": "576",
         "English": "SVGA Memory (restart required)",
         "Chinese": "SVGA 内存（需要重启）",
         "Japanese": "",
@@ -6347,7 +6336,7 @@
         "Comments": ""
     },
     {
-        "No.": "578",
+        "No.": "577",
         "English": "The amount of memory available to the emulated SVGA card.",
         "Chinese": "分配给模拟 SVGA 显卡的可用内存大小。",
         "Japanese": "",
@@ -6358,7 +6347,7 @@
         "Comments": ""
     },
     {
-        "No.": "579",
+        "No.": "578",
         "English": "3dfx Voodoo Emulation",
         "Chinese": "3dfx Voodoo 模拟器",
         "Japanese": "",
@@ -6369,7 +6358,7 @@
         "Comments": ""
     },
     {
-        "No.": "580",
+        "No.": "579",
         "English": "Enables certain games with support for the Voodoo 3D accelerator.\n3dfx Voodoo Graphics SST-1/2 emulator by Aaron Giles and the MAME team (license: BSD-3-Clause)",
         "Chinese": "启用后，可让部分支持 Voodoo 3D 加速器的游戏正常运行。\n使用的是由 Aaron Giles 和 MAME 团队制作的 3dfx Voodoo Graphics SST-1/2 模拟器（许可证：BSD-3-Clause）。",
         "Japanese": "",
@@ -6380,7 +6369,7 @@
         "Comments": ""
     },
     {
-        "No.": "581",
+        "No.": "580",
         "English": "3dfx Voodoo Performance",
         "Chinese": "3dfx Voodoo 性能",
         "Japanese": "",
@@ -6391,7 +6380,7 @@
         "Comments": ""
     },
     {
-        "No.": "582",
+        "No.": "581",
         "English": "Options to tweak the behavior of the 3dfx Voodoo emulation.\nSwitching to OpenGL requires a restart.\nIf OpenGL is available, host-side 3D acceleration is used which can make 3D rendering much faster.\nAuto will use OpenGL if it is the active video driver in the frontend.",
         "Chinese": "用于调整 3dfx Voodoo 模拟行为的选项。\n切换到 OpenGL 需要重新启动。\n如果 OpenGL 可用，将会使用宿主设备的 3D 加速，使 3D 渲染速度更快。\n“自动” 会在前端的当前视频驱动为 OpenGL 时启用它。",
         "Japanese": "",
@@ -6402,7 +6391,7 @@
         "Comments": ""
     },
     {
-        "No.": "583",
+        "No.": "582",
         "English": "3dfx Voodoo OpenGL Scaling",
         "Chinese": "3dfx Voodoo OpenGL 缩放",
         "Japanese": "",
@@ -6413,7 +6402,7 @@
         "Comments": ""
     },
     {
-        "No.": "584",
+        "No.": "583",
         "English": "Increase the native resolution of the rendered image.",
         "Chinese": "提升渲染画面的原生分辨率。",
         "Japanese": "",
@@ -6424,7 +6413,7 @@
         "Comments": ""
     },
     {
-        "No.": "585",
+        "No.": "584",
         "English": "3dfx Voodoo Gamma Correction",
         "Chinese": "3dfx Voodoo Gamma 校正",
         "Japanese": "",
@@ -6435,7 +6424,7 @@
         "Comments": ""
     },
     {
-        "No.": "586",
+        "No.": "585",
         "English": "Change brightness of rendered 3dfx output.",
         "Chinese": "调整 3dfx 渲染输出的亮度。",
         "Japanese": "",
@@ -6446,7 +6435,7 @@
         "Comments": ""
     },
     {
-        "No.": "587",
+        "No.": "586",
         "English": "Aspect Ratio Correction",
         "Chinese": "宽高比校正",
         "Japanese": "",
@@ -6457,7 +6446,7 @@
         "Comments": ""
     },
     {
-        "No.": "588",
+        "No.": "587",
         "English": "Adjust the core's aspect ratio to approximate what a CRT monitor would display.",
         "Chinese": "调整核心的宽高比，使其接近 CRT 显示器的显示效果。",
         "Japanese": "",
@@ -6468,7 +6457,7 @@
         "Comments": ""
     },
     {
-        "No.": "589",
+        "No.": "588",
         "English": "Overscan Border Size",
         "Chinese": "过扫描边框大小",
         "Japanese": "",
@@ -6479,7 +6468,7 @@
         "Comments": ""
     },
     {
-        "No.": "590",
+        "No.": "589",
         "English": "When enabled, show a border around the display. Some games use the color of the border to convey information.",
         "Chinese": "启用后，会在画面周围显示一个边框。有些游戏会利用边框的颜色来传递信息",
         "Japanese": "",
@@ -6490,7 +6479,7 @@
         "Comments": ""
     },
     {
-        "No.": "591",
+        "No.": "590",
         "English": "Memory Size (restart required)",
         "Chinese": "内存大小（需要重启）",
         "Japanese": "",
@@ -6501,7 +6490,7 @@
         "Comments": ""
     },
     {
-        "No.": "592",
+        "No.": "591",
         "English": "The amount of (high) memory that the emulated machine has. You can also disable extended memory (EMS/XMS).\nUsing more than the default is not recommended, due to incompatibility with certain games and applications.",
         "Chinese": "模拟机器可用的（高）内存容量。你也可以禁用扩展内存（EMS/XMS）。\n不建议使用超过默认值的内存，因为某些游戏和应用程序可能会因此产生兼容性问题。",
         "Japanese": "",
@@ -6512,7 +6501,7 @@
         "Comments": ""
     },
     {
-        "No.": "593",
+        "No.": "592",
         "English": "Modem Type",
         "Chinese": "调制解调器类型",
         "Japanese": "",
@@ -6523,7 +6512,7 @@
         "Comments": ""
     },
     {
-        "No.": "594",
+        "No.": "593",
         "English": "Type of emulated modem on COM1 for netplay. With the dial-up modem, one side needs to dial any number to connect.",
         "Chinese": "用于联机游玩的 COM1 上模拟的调制解调器类型。\n如果使用拨号调制解调器，一方需要拨打任意号码来建立连接",
         "Japanese": "",
@@ -6534,7 +6523,7 @@
         "Comments": ""
     },
     {
-        "No.": "595",
+        "No.": "594",
         "English": "CPU Type (restart required)",
         "Chinese": "CPU 类型（需要重启）",
         "Japanese": "",
@@ -6545,7 +6534,7 @@
         "Comments": ""
     },
     {
-        "No.": "596",
+        "No.": "595",
         "English": "Emulated CPU type. Auto is the fastest choice.\nGames that require specific CPU type selection:\n386 (prefetch): X-Men: Madness in The Murderworld, Terminator 1, Contra, Fifa International Soccer 1994\n486 (slow): Betrayal in Antara\nPentium (slow): Fifa International Soccer 1994, Windows 95/Windows 3.x games",
         "Chinese": "模拟的 CPU 类型。Auto 是速度最快的选项。\n以下游戏需要选择特定的 CPU 类型：\n386（预取）：X-Men: Madness in The Murderworld、Terminator 1、Contra、Fifa International Soccer 1994\n486（慢速）：Betrayal in Antara",
         "Japanese": "",
@@ -6556,7 +6545,7 @@
         "Comments": ""
     },
     {
-        "No.": "597",
+        "No.": "596",
         "English": "Advanced > CPU Core",
         "Chinese": "高级 > CPU核心",
         "Japanese": "",
@@ -6567,7 +6556,7 @@
         "Comments": ""
     },
     {
-        "No.": "598",
+        "No.": "597",
         "English": "Emulation method (DOSBox CPU core) used.",
         "Chinese": "DOSBox CPU 核心的模拟方式。",
         "Japanese": "",
@@ -6578,7 +6567,7 @@
         "Comments": ""
     },
     {
-        "No.": "599",
+        "No.": "598",
         "English": "Advanced > OS Disk Modifications (restart required)",
         "Chinese": "高级 > 操作系统磁盘修改（需要重启）",
         "Japanese": "",
@@ -6589,7 +6578,7 @@
         "Comments": ""
     },
     {
-        "No.": "600",
+        "No.": "599",
         "English": "When running an installed operating system, modifications to the C: drive will be made on the disk image by default.\nSetting it to 'Discard' allows the content to be closed any time without worry of file system or registry corruption.\nWhen using 'Save Difference Per Content' the disk image must never be modified again, otherwise existing differences become unusable.",
         "Chinese": "在运行已安装的操作系统时，对 C: 盘的修改默认会直接写入磁盘映像。\n将此项设为“丢弃（Discard）”后，内容可以随时关闭，而无需担心文件系统或注册表损坏。\n使用“按内容保存差异（Save Difference Per Content）”时，磁盘映像之后绝不能再被修改，否则现有的差异文件将无法使用。",
         "Japanese": "",
@@ -6600,7 +6589,7 @@
         "Comments": ""
     },
     {
-        "No.": "601",
+        "No.": "600",
         "English": "Advanced > Free Space on D: in OS (restart required)",
         "Chinese": "高级 > 操作系统中 D 盘的可用空间（需要重启）",
         "Japanese": "",
@@ -6611,7 +6600,7 @@
         "Comments": ""
     },
     {
-        "No.": "602",
+        "No.": "601",
         "English": "Controls the amount of free space available on the D: drive when running an installed operating system.\nIf the total size of the D: drive (data + free space) exceeds 2 GB, it can't be used in earlier versions of Windows 95.\nWARNING: Created save files are tied to this setting, so changing this will hide all existing D: drive changes.",
         "Chinese": "控制在运行已安装的操作系统时，D: 盘可用的剩余空间大小。\n如果 D: 盘的总大小（数据 + 可用空间）超过 2GB，则无法在早期版本的 Windows 95 中使用。\n注意：保存文件会绑定到此设置，因此更改该数值会导致所有现有的 D: 盘变更被隐藏。",
         "Japanese": "",
@@ -6622,7 +6611,7 @@
         "Comments": ""
     },
     {
-        "No.": "603",
+        "No.": "602",
         "English": "Advanced > Force Normal Core in OS",
         "Chinese": "高级 > 在操作系统中强制使用 Normal 核心",
         "Japanese": "",
@@ -6633,7 +6622,7 @@
         "Comments": ""
     },
     {
-        "No.": "604",
+        "No.": "603",
         "English": "The normal core can be more stable when running an installed operating system.\nThis can be toggled on and off to navigate around crashes.",
         "Chinese": "在运行已安装的操作系统时，Normal 核心可能会更稳定。\n你可以开关此选项来规避或解决崩溃问题。",
         "Japanese": "",
@@ -6644,7 +6633,7 @@
         "Comments": ""
     },
     {
-        "No.": "605",
+        "No.": "604",
         "English": "Audio Sample Rate (restart required)",
         "Chinese": "音频采样率（需要重启）",
         "Japanese": "",
@@ -6655,7 +6644,7 @@
         "Comments": ""
     },
     {
-        "No.": "606",
+        "No.": "605",
         "English": "This should match the frontend audio output rate (Hz) setting.",
         "Chinese": "此设置应与前端音频输出采样率（Hz）保持一致。",
         "Japanese": "",
@@ -6666,7 +6655,7 @@
         "Comments": ""
     },
     {
-        "No.": "607",
+        "No.": "606",
         "English": "SoundBlaster Settings",
         "Chinese": "SoundBlaster 设置",
         "Japanese": "",
@@ -6677,7 +6666,7 @@
         "Comments": ""
     },
     {
-        "No.": "608",
+        "No.": "607",
         "English": "Set the address, interrupt, low 8-bit and high 16-bit DMA.",
         "Chinese": "设置地址、中断、低 8 位和高 16 位 DMA。",
         "Japanese": "",
@@ -6688,7 +6677,7 @@
         "Comments": ""
     },
     {
-        "No.": "609",
+        "No.": "608",
         "English": "MIDI Output",
         "Chinese": "MIDI 输出",
         "Japanese": "",
@@ -6699,7 +6688,7 @@
         "Comments": ""
     },
     {
-        "No.": "610",
+        "No.": "609",
         "English": "Select the .SF2 SoundFont file, .ROM file or interface used for MIDI output.\nTo add SoundFonts or ROM files, copy them into the 'system' directory of the frontend.\nTo use the frontend MIDI driver, make sure it's set up correctly.",
         "Chinese": "选择用于 MIDI 输出的 .SF2 SoundFont 文件、.ROM 文件或接口。\n要添加 SoundFont 或 ROM 文件，请将它们复制到前端的 “system” 目录中。\n若要使用前端的 MIDI 驱动，请确保其已正确配置。",
         "Japanese": "",
@@ -6710,7 +6699,7 @@
         "Comments": ""
     },
     {
-        "No.": "611",
+        "No.": "610",
         "English": "Advanced > SoundBlaster Type",
         "Chinese": "高级 > SoundBlaster 类型",
         "Japanese": "",
@@ -6721,7 +6710,7 @@
         "Comments": ""
     },
     {
-        "No.": "612",
+        "No.": "611",
         "English": "Type of emulated SoundBlaster card.",
         "Chinese": "模拟 SoundBlaster 声卡的类型。",
         "Japanese": "",
@@ -6732,7 +6721,7 @@
         "Comments": ""
     },
     {
-        "No.": "613",
+        "No.": "612",
         "English": "Advanced > SoundBlaster Adlib/FM Mode",
         "Chinese": "高级 > SoundBlaster Adlib/FM 模式",
         "Japanese": "",
@@ -6743,7 +6732,7 @@
         "Comments": ""
     },
     {
-        "No.": "614",
+        "No.": "613",
         "English": "The SoundBlaster emulated FM synth mode. All modes are Adlib compatible except CMS.",
         "Chinese": "SoundBlaster 模拟 FM 合成器模式。除 CMS 模式外，所有模式均与 Adlib 兼容。",
         "Japanese": "",
@@ -6754,7 +6743,7 @@
         "Comments": ""
     },
     {
-        "No.": "615",
+        "No.": "614",
         "English": "Advanced > SoundBlaster Adlib Provider",
         "Chinese": "高级 > SoundBlaster Adlib 提供器",
         "Japanese": "",
@@ -6765,7 +6754,7 @@
         "Comments": ""
     },
     {
-        "No.": "616",
+        "No.": "615",
         "English": "Provider for the Adlib emulation. Default has good quality and low performance requirements.",
         "Chinese": "Adlib 模拟的提供器。默认设置具有良好的音质且性能消耗低。",
         "Japanese": "",
@@ -6776,7 +6765,7 @@
         "Comments": ""
     },
     {
-        "No.": "617",
+        "No.": "616",
         "English": "Advanced > Enable Gravis Ultrasound (restart required)",
         "Chinese": "高级 > 启用 Gravis Ultrasound（需要重启）",
         "Japanese": "",
@@ -6787,7 +6776,7 @@
         "Comments": ""
     },
     {
-        "No.": "618",
+        "No.": "617",
         "English": "Enable Gravis Ultrasound emulation. Settings are fixed at port 0x240, IRQ 5, DMA 3.\nIf the ULTRADIR variable needs to be different than the default 'C:\\ULTRASND' you need to issue 'SET ULTRADIR=...' in the command line or in a batch file.",
         "Chinese": "启用 Gravis Ultrasound 模拟。设置固定为端口 0x240、IRQ 5、DMA 3。\n如果 ULTRADIR 变量需要与默认的 C:\\ULTRASND 不同，你需要在命令行或批处理文件中使用 SET ULTRADIR=... 进行设置。",
         "Japanese": "",
@@ -6798,7 +6787,7 @@
         "Comments": ""
     },
     {
-        "No.": "619",
+        "No.": "618",
         "English": "Advanced > Enable Tandy Sound Device (restart required)",
         "Chinese": "高级 > 启用 Tandy 音效设备（需要重启）",
         "Japanese": "",
@@ -6809,7 +6798,7 @@
         "Comments": ""
     },
     {
-        "No.": "620",
+        "No.": "619",
         "English": "Enable Tandy Sound Device emulation even when running without Tandy Graphics Adapter emulation.",
         "Chinese": "即使在未模拟 Tandy 图形适配器的情况下，也启用 Tandy 音效设备模拟。",
         "Japanese": "",
@@ -6820,7 +6809,7 @@
         "Comments": ""
     },
     {
-        "No.": "621",
+        "No.": "620",
         "English": "Advanced > Swap Stereo Channels",
         "Chinese": "高级 > 交换立体声声道",
         "Japanese": "",
@@ -6831,7 +6820,7 @@
         "Comments": ""
     },
     {
-        "No.": "622",
+        "No.": "621",
         "English": "Swap the left and the right audio channel.",
         "Chinese": "交换左右声道。",
         "Japanese": "",
