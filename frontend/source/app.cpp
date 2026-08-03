@@ -100,6 +100,8 @@ App::App()
     gEmulator = new Emulator();
     gEmulator->SetCpuFreq();
 
+    LogInfo("core: %s", gEmulator->GetCoreName());
+
     gNetwork->SetUserAgent();
     gVideo = new VideoThread();
     gUi = new Ui();
