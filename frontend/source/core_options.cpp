@@ -204,7 +204,7 @@ void CoreOptions::_Load(const T *define)
         option->values.push_back({v->value, v->label ? v->label : ""});
         if (v->label)
         {
-            LogDebug("  label%d: %s", v->label);
+            LogDebug("  label%d: %s", count, v->label);
         }
 
         count++;
