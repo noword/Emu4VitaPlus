@@ -143,7 +143,7 @@ namespace Emu4VitaPlus
 
     void Input::Poll(const bool waiting)
     {
-        SceCtrlData ctrl_data{0};
+        SceCtrlData ctrl_data;
         if ((waiting ? sceCtrlReadBufferPositiveExt2(0, &ctrl_data, 1) : sceCtrlPeekBufferPositiveExt2(0, &ctrl_data, 1)) > 0)
         {
             uint32_t key = ctrl_data.buttons;
