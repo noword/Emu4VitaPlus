@@ -358,7 +358,7 @@ void _CheckVersionCallback(const Response *response, void *callback_data)
         {
             const char *tag_name = root.getValue("tag_name").getString().c_str();
             LogDebug("  version: %s", tag_name);
-            if (!(*tag_name == 'v' && strcmp(tag_name + 1, APP_VER_STR) == 0))
+            if (*tag_name == 'v' && strcmp(tag_name + 1, APP_VER_STR) != 0)
             {
                 gHint->SetHint(TEXT(LANG_NEW_VERSION_AVAILABLE), 3 * 60);
             }
