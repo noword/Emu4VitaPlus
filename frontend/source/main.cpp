@@ -29,7 +29,17 @@ static void ParseParams(int argc, char *const argv[])
         {
             i++;
             if (i < argc && (File::Exist(argv[i]) || strcmp(argv[i], EMPTY_ROM_NAME) == 0))
-                gBootRomPath = argv[i];
+                gBootRomInfo.path = argv[i];
+        }
+        else if (strcmp(argv[i], "--entry_name") == 0)
+        {
+            i++;
+            gBootRomInfo.entry_name = argv[i];
+        }
+        else if (strcmp(argv[i], "--crc32") == 0)
+        {
+            i++;
+            gBootRomInfo.crc32 = std::stoi(argv[i]);
         }
     }
 }
