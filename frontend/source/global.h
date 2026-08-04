@@ -24,8 +24,15 @@
 
 #define EMPTY_ROM_NAME "NULL"
 
+struct BootRomInfo
+{
+    std::string path;
+    std::string entry_name;
+    uint32_t crc32;
+};
+
 extern bool gBootFromArch;
-extern std::string gBootRomPath;
+extern BootRomInfo gBootRomInfo;
 
 extern AppStatus gStatus;
 extern Emu4VitaPlus::VideoThread *gVideo;

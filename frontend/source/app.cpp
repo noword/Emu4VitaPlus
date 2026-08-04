@@ -243,7 +243,7 @@ void App::Run()
     bool running = true;
     APP_STATUS last_status;
 
-    if (gBootRomPath.empty())
+    if (gBootRomInfo.path.empty())
     {
         last_status = APP_STATUS_SHOW_UI;
         gStatus.Set(last_status);
@@ -251,9 +251,10 @@ void App::Run()
     else
     {
         last_status = APP_STATUS_BOOT;
-        if (gEmulator->LoadRom(gBootRomPath.c_str(), NULL, 0))
+        const char *path = gBootRomInfo.path.c_str();
+        if (gEmulator->LoadRom(path, gBootRomInfo.entry_name.c_str(), gBootRomInfo.crc32))
         {
-            gUi->SetPath(gBootRomPath.c_str());
+            gUi->SetPath(path);
         }
     }
 
@@ -296,7 +297,13 @@ void App::Run()
         case APP_STATUS_REBOOT_WITH_LOADING:
         {
             char boot[SCE_FIOS_PATH_MAX];
-            const char *argv[] = {"", "--rom", gEmulator->GetCurrentName(), NULL};
+            char crc32[16];
+            snprintf(crc32, 16, "%d", gBootRomInfo.crc32);
+            const char *argv[] = {"",
+                                  "--rom", gBootRomInfo.path.c_str(),
+                                  "--entry_name", gBootRomInfo.entry_name.c_str(),
+                                  "--crc32", crc32,
+                                  NULL};
             if (gBootFromArch)
             {
                 snprintf(boot, SCE_FIOS_PATH_MAX, "app0:eboot_%s.self", CORE_NAME);
@@ -351,7 +358,7 @@ void _CheckVersionCallback(const Response *response, void *callback_data)
         {
             const char *tag_name = root.getValue("tag_name").getString().c_str();
             LogDebug("  version: %s", tag_name);
-            if (!(*tag_name == 'v' && strcmp(tag_name + 1, APP_VER_STR) == 0))
+            if (*tag_name == 'v' && strcmp(tag_name + 1, APP_VER_STR) != 0)
             {
                 gHint->SetHint(TEXT(LANG_NEW_VERSION_AVAILABLE), 3 * 60);
             }
