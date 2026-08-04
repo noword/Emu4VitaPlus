@@ -104,14 +104,15 @@ bool Emulator::LoadRom(const char *path, const char *entry_name, uint32_t crc32)
     if (gConfig->reboot_when_loading_again && _loaded)
     {
         gBootRomInfo.path = path;
+        gBootRomInfo.crc32 = crc32;
 
         if (entry_name && *entry_name)
             gBootRomInfo.entry_name = entry_name;
         else
             gBootRomInfo.entry_name.clear();
 
-        gBootRomInfo.crc32 = crc32;
         gStatus.Set(APP_STATUS_REBOOT_WITH_LOADING);
+
         return true;
     }
 

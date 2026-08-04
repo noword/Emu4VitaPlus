@@ -301,8 +301,8 @@ void App::Run()
             snprintf(crc32, 16, "%d", gBootRomInfo.crc32);
             const char *argv[] = {"",
                                   "--rom", gBootRomInfo.path.c_str(),
-                                  "--entry_name", gBootRomInfo.entry_name.c_str(),
                                   "--crc32", crc32,
+                                  gBootRomInfo.entry_name.size() > 0 ? "--entry_name" : NULL, gBootRomInfo.entry_name.c_str(),
                                   NULL};
             if (gBootFromArch)
             {
