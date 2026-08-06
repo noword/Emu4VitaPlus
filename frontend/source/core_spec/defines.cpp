@@ -166,7 +166,8 @@ const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = false;
     defined(MEDNAFEN_LYNX_BUILD) || \
     defined(CPC_BUILD) ||           \
     defined(ARC_BUILD) ||           \
-    defined(PC88_BUILD)
+    defined(PC88_BUILD) ||          \
+    defined(PS_BUILD)
 const bool DEFAULT_AUTO_LOAD = false;
 #else
 const bool DEFAULT_AUTO_LOAD = true;
