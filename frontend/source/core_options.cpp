@@ -25,17 +25,45 @@ size_t CoreOption::GetValueIndex()
     {
         if (value == v.value || value == v.label)
         {
-            return count;
+            break;
         }
         count++;
     }
 
-    return 0;
+    return count;
 }
 
 void CoreOption::SetValueIndex(size_t index)
 {
     value = values[index].value;
+}
+
+void CoreOption::ParseDesc()
+{
+    groups.clear();
+
+    const char *begin = desc.data();
+    const char *p = begin;
+    const char *end = begin + desc.size();
+
+    while (p < end)
+    {
+        if (p + 2 < end &&
+            p[0] == ' ' &&
+            p[1] == '>' &&
+            p[2] == ' ')
+        {
+            groups.emplace_back(begin, p - begin);
+            begin = p + 3;
+            p = begin;
+        }
+        else
+        {
+            ++p;
+        }
+    }
+
+    short_desc.assign(begin, end - begin);
 }
 
 void CoreOptions::Load(retro_variable *variables)
@@ -88,6 +116,8 @@ void CoreOptions::Load(retro_variable *variables)
             option->default_value = values;
             option->values.clear();
         }
+
+        option->ParseDesc();
 
         do
         {
@@ -189,6 +219,8 @@ void CoreOptions::_Load(const T *define)
         option->default_value = default_value;
         option->values.clear();
     }
+
+    option->ParseDesc();
 
     Utils::TrimString(&option->info);
 

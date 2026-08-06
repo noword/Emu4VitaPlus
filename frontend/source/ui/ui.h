@@ -23,7 +23,7 @@ public:
     void ClearLogs();
     void NotifyBootResult(bool result);
 
-    void UpdateCoreOptions();
+    void UpdateCoreOptions(int level = -1, const std::string &group = "");
     void UpdateCheatOptions();
     void UpdateControllerOptions();
     void UpdateDiskOptions();

@@ -8,19 +8,16 @@
 class ItemCore : public ItemSelectable
 {
 public:
-    ItemCore(CoreOption *option)
+    ItemCore(CoreOption *option, CallbackFunc back_callback)
         : _option(option),
-          ItemSelectable(option->desc,
-                         option->info,
-                         []()
+          ItemSelectable(option->short_desc, option->info, []()
                          {
                              gConfig->Save();
                              if (*gEmulator->GetCurrentName()) // game loaded
                              {
                                  gEmulator->CoreOptionUpdate();
                                  gHint->SetHint(TEXT(LANG_CORE_NOTICE));
-                             }
-                         })
+                             } }, back_callback)
     {
         _values = _option->GetValues();
         _index = _option->GetValueIndex();

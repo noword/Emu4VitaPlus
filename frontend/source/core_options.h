@@ -22,10 +22,22 @@ struct CoreOption
     std::vector<OptionValue> values;
     bool visible = true;
 
+    std::vector<std::string> groups;
+    std::string short_desc;
+
     const std::vector<LanguageString> GetValues() const;
     size_t GetValueIndex();
     void SetValueIndex(size_t index);
+    void ParseDesc();
     void Default() { value = default_value; };
+    const std::string &GetGroup(int index)
+    {
+        static const std::string empty_str = "";
+        if (index >= 0 && index < groups.size())
+            return groups[index];
+        else
+            return empty_str;
+    };
 };
 
 class CoreOptions : public std::map<std::string, CoreOption>

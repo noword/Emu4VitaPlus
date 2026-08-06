@@ -81,6 +81,7 @@ void Ui::_ResetCoreOptions()
     LogFunctionName;
     gConfig->core_options.Default();
     gConfig->Save();
+    UpdateCoreOptions();
 }
 
 void Ui::_InitImgui()
@@ -365,22 +366,50 @@ void Ui::NotifyBootResult(bool result)
     }
 }
 
-void Ui::UpdateCoreOptions()
+void Ui::UpdateCoreOptions(int level, const std::string &group)
 {
     LogFunctionName;
+    LogDebug("  level: %d group: %s", level, group.c_str());
+
+    if (!group.empty())
+        gHint->SetHint(group);
 
     std::vector<ItemBase *> options;
     options.reserve(gConfig->core_options.size() + 1);
+
+    CallbackFunc back_function = nullptr;
+    if (level >= 0)
+    {
+        back_function = std::bind(&Ui::UpdateCoreOptions, this, -1, "");
+    }
+
+    std::set<std::string> groups;
     for (auto &iter : gConfig->core_options)
     {
-        if (iter.second.values.size() > 0)
+        CoreOption *co = &iter.second;
+        const std::string &co_group = co->GetGroup(level);
+
+        if (co->values.size() <= 0 || (level + 1) > (int)co->groups.size() || group != co_group)
+            continue;
+
+        if ((level + 1) == co->groups.size())
         {
-            options.emplace_back(new ItemCore(&iter.second));
+            options.emplace_back(new ItemCore(co, back_function));
+        }
+        else
+        {
+            const std::string &group_name = co->GetGroup(level + 1);
+            if (groups.find(group_name) == groups.end())
+            {
+                groups.insert(group_name);
+                options.emplace_back(new ItemBase(group_name + " >", "", std::bind(&Ui::UpdateCoreOptions, this, level + 1, group_name), back_function));
+            }
         }
     }
     options.emplace_back(new ItemBase(LANG_RESET_CONFIGS,
                                       "",
-                                      std::bind(&Ui::_ResetCoreOptions, this)));
+                                      std::bind(&Ui::_ResetCoreOptions, this),
+                                      back_function));
 
     gVideo->Lock();
 
