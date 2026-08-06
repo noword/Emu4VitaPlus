@@ -8,7 +8,7 @@
         "French": "",
         "Spanish": "Elija la imagen del BIOS que desea utilizar. El BIOS oficial debe ser proporcionado por el usuario. El uso de un BIOS no oficial (o incorporado) puede causar problemas de incompatibilidad con algunos juegos. Los mejores resultados se logran con el BIOS oficial de Nintendo.",
         "Russian": "Образ BIOS, который следует использовать. Официальный BIOS должен быть предоставлен пользователем. Использование неофициального (или встроенного) BIOS может вызвать проблемы несовместимости с некоторыми играми. Наилучшие результаты достигаются при использовании официального BIOS Nintendo.",
-        "Comments": ""
+        "Comments": "gpSP"
     },
     {
         "No.": "2",
@@ -63,7 +63,7 @@
         "French": "",
         "Spanish": "Elija si desea iniciar el BIOS antes del juego o no. No hay mucha diferencia en ninguno de los dos modos.",
         "Russian": "Следует ли загружать BIOS перед игрой или нет. Между этими двумя режимами нет большой разницы.",
-        "Comments": ""
+        "Comments": "gpSP"
     },
     {
         "No.": "7",
@@ -107,7 +107,7 @@
         "French": "",
         "Spanish": "Omita fotogramas para evitar que el búfer de audio se desborde (crepite). Mejora el rendimiento a expensas de la suavidad visual. 'Auto' se salta fotogramas cuando lo aconseja la interfaz. 'Auto (Threshold)' utiliza el ajuste 'Frameskip Threshold (%)'. 'Intervalo fijo' utiliza la configuración 'Intervalo de salto de fotogramas'.",
         "Russian": "Пропускать кадры, чтобы избежать переполнения аудиобуфера (потрескиваний). Улучшает производительность за счёт визуальной плавности. [Автоматически] — пропускает кадры по указанию пользовательского интерфейса. [Автоматически (порог)] — использует значение параметра “Порог пропуска кадров (%)”. [Фиксированный интервал] — использует значение параметра “Интервал пропуска кадров”.",
-        "Comments": ""
+        "Comments": "PCSX-ReARMed"
     },
     {
         "No.": "11",
@@ -173,7 +173,7 @@
         "French": "",
         "Spanish": "Cuando 'Salto de fotogramas' se establece en 'Manual', especifica el umbral de ocupación del búfer de audio (porcentaje) por debajo del cual se omitirán los fotogramas. Los valores más altos reducen el riesgo de crujido al hacer que los fotogramas se caigan con más frecuencia.",
         "Russian": "Если для параметра “Пропуск кадров” установлено значение [Вручную], этот параметр определяет пороговое значение заполнения аудиобуфера (в процентах), ниже которого кадры будут пропускаться. Более высокие значения приведут к более частому пропуску кадров, что снизит риск появления потрескиваний.",
-        "Comments": ""
+        "Comments": "Snes9x 2005 Plus"
     },
     {
         "No.": "17",
@@ -195,7 +195,7 @@
         "French": "",
         "Spanish": "Cuando 'Salto de fotogramas' se establece en 'Intervalo fijo', el valor establecido aquí es el número de fotogramas omitidos después de que se procesa un fotograma, es decir, '0' = 60 fps, '1' = 30 fps, '2' = 15 fps, etc.",
         "Russian": "Если для параметра “Пропуск кадров” установлено значение [Фиксированный интервал], то заданное здесь значение — это количество кадров, которые будут пропущены после отрисовки кадра. [0] — 60 кадров в секунду, [1] — 30 кадров в секунду, [2] — 15 кадров в секунду и так далее.",
-        "Comments": ""
+        "Comments": "mGBA"
     },
     {
         "No.": "19",
@@ -217,7 +217,7 @@
         "French": "",
         "Spanish": "Ajusta los colores de salida para que coincidan con la visualización del hardware GBA real.",
         "Russian": "Настройка цвета в соответствии с отображением на ЖК-экране настоящего GBA.",
-        "Comments": ""
+        "Comments": "gpSP"
     },
     {
         "No.": "21",
@@ -250,7 +250,7 @@
         "French": "",
         "Spanish": "Simula los efectos de efecto fantasma de la pantalla LCD realizando una mezcla 50:50 de los fotogramas actuales y anteriores. Necesario para el correcto funcionamiento cuando se juega a juegos que explotan el efecto fantasma de la pantalla LCD para efectos de transparencia (F-Zero, la serie Boktai, etc.).",
         "Russian": "Имитация эффекта ореола ЖК-дисплея путём смешивания текущего и предыдущего кадров в равном соотношении (50:50). Необходимо для корректного отображения игр, использующих ореол ЖК-дисплея для создания эффекта прозрачности (F-Zero, серия Boktai и т.д.).",
-        "Comments": ""
+        "Comments": "gpSP"
     },
     {
         "No.": "24",
@@ -294,7 +294,7 @@
         "French": "",
         "Spanish": "Recompile dinámicamente las instrucciones de la CPU a instrucciones nativas. Mejora en gran medida el rendimiento, pero puede reducir la precisión.",
         "Russian": "Динамическая перекомпиляция инструкций процессора в собственные инструкции. Значительно повышает производительность, но может снизить точность.",
-        "Comments": ""
+        "Comments": "gpSP"
     },
     {
         "No.": "28",
@@ -316,7 +316,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "Интервал между повторами нажатий (в кадрах) при удержании кнопок Turbo A/B.",
-        "Comments": ""
+        "Comments": "gpSP"
     },
     {
         "No.": "30",
@@ -360,7 +360,7 @@
         "French": "",
         "Spanish": "Especifique la región de la que procede el sistema. 'PAL' es de 50hz, 'NTSC' es de 60hz. Los juegos se ejecutarán más rápido o más lento de lo normal si se selecciona la región incorrecta.",
         "Russian": "Задаёт регион консоли. [PAL] — это 50 Гц, а [NTSC] — это 60 Гц. Если выбран неправильный регион, то игра будет работать быстрее или медленнее, чем было задумано изначально.",
-        "Comments": ""
+        "Comments": "Snes9x 2005 Plus"
     },
     {
         "No.": "34",
@@ -404,7 +404,7 @@
         "French": "",
         "Spanish": "Especifique la frecuencia de corte del filtro de audio de paso bajo. Un valor más alto aumenta la \"fuerza\" percibida del filtro, ya que se atenúa un rango más amplio del espectro de alta frecuencia.",
         "Russian": "Задаёт частоту среза фильтра низких частот. Более высокое значение увеличит воспринимаемую «силу» фильтра, поскольку при этом «ослабится» более широкий диапазон спектра высоких частот.",
-        "Comments": ""
+        "Comments": "PicoDrive"
     },
     {
         "No.": "38",
@@ -426,7 +426,7 @@
         "French": "",
         "Spanish": "Muchos juegos para SNES sufrieron una ralentización debido a la debilidad de la CPU principal. Esta opción ayuda a aliviar eso a costa de posibles errores. COMPATIBLE: Reduce la ralentización pero mantén la mayor compatibilidad posible con el juego. MAX: Reduce la ralentización tanto como sea posible, pero romperá más juegos.",
         "Russian": "Многие игры для SNES страдают от замедлений из-за слабого основного процессора. Этот параметр помогает устранить эту проблему ценой возможных ошибок. [Compatible] — уменьшает замедление, по возможности сохраняя максимальную совместимость с играми. [Max] — максимально устраняет замедление, но может существенно нарушить игровой процесс. Необходим перезапуск.",
-        "Comments": ""
+        "Comments": "Snes9x 2005 Plus"
     },
     {
         "No.": "40",
@@ -514,7 +514,7 @@
         "French": "",
         "Spanish": "Selecciona la paleta utilizada para colorear los juegos de Game Boy cuando 'Coloración GB' está configurada en 'Interna', o cuando 'Coloración GB' está configurada en 'Automático' y el juego no tiene una paleta SGB/GBC predefinida. Las paletas 'GB' imitan la pantalla del hardware original de Game Boy. Las paletas 'GBC' son idénticas a los ajustes preestablecidos incorporados de Game Boy Color. Las paletas 'SGB' son idénticas a los ajustes preestablecidos incorporados de la Super Game Boy.",
         "Russian": "Палитра, используемая для колоризации игр Game Boy, если для параметра “Колоризация GB” установлено значение [Внутренняя], или если для параметра “Колоризация GB” установлено значение [Автоматически] и в игре нет предустановленной палитры SGB/GBC. Палитры 'GB' имитируют отображение настоящего Game Boy. Палитры 'GBC' идентичны встроенным предустановкам Game Boy Color. Палитры 'SGB' идентичны встроенным предустановкам Super Game Boy.",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "48",
@@ -844,7 +844,7 @@
         "French": "",
         "Spanish": "Forza a utilizar el temporizador de región NTSC, PAL o Dendy.",
         "Russian": "Принудительно использовать региональные тайминги NTSC, PAL или Dendy.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "78",
@@ -866,7 +866,7 @@
         "French": "",
         "Spanish": "Habilita la emulación del cartucho de expansión Game Genie para permitir ingresar códigos de trampa al iniciar el juego. El archivo ROM de Game Genie \"gamegenie.nes\" debe existir en el directorio del sistema del frontend. No se aplica a contenido de FDS o arcade.",
         "Russian": "Имитация устройства Game Genie, позволяющего вводить чит-коды при запуске игр. Файл ПЗУ Game Genie (gamegenie.nes) должен находиться в системном каталоге пользовательского интерфейса. Не применимо к FDS или аркадному контенту.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "80",
@@ -888,7 +888,7 @@
         "French": "",
         "Spanish": "Muestra opciones y ajustes avanzados del sistema.",
         "Russian": "Показывать дополнительные параметры системы и их тонкие настройки.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "82",
@@ -910,7 +910,7 @@
         "French": "",
         "Spanish": "Muestra opciones de sonido avanzadas y ajustes.",
         "Russian": "Показывать дополнительные параметры звука и их тонкие настройки.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "84",
@@ -932,7 +932,7 @@
         "French": "",
         "Spanish": "Elija la relación de aspecto preferida.",
         "Russian": "Предпочтительное соотношение сторон.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "86",
@@ -987,7 +987,7 @@
         "French": "",
         "Spanish": "Elimina los píxeles del lado izquierdo de la pantalla para simular el sobreescaneo que se ve en los televisores CRT estándar.",
         "Russian": "Удалить пиксели с левой стороны экрана для имитации обрезки вылетов развёртки, наблюдаемого на стандартных ЭЛТ-телевизорах.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "91",
@@ -1009,7 +1009,7 @@
         "French": "",
         "Spanish": "Elimina los píxeles del lado derecho de la pantalla para simular el sobreescaneo que se ve en los televisores CRT estándar.",
         "Russian": "Удалить пиксели с правой стороны экрана для имитации обрезки вылетов развёртки, наблюдаемого на стандартных ЭЛТ-телевизорах.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "93",
@@ -1031,7 +1031,7 @@
         "French": "",
         "Spanish": "Elimina los píxeles de la parte superior de la pantalla para simular el overscan que se ve en los televisores CRT estándar.",
         "Russian": "Удалить пиксели верхней части экрана для имитации обрезки вылетов развёртки, наблюдаемого на стандартных ЭЛТ-телевизорах.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "95",
@@ -1053,7 +1053,7 @@
         "French": "",
         "Spanish": "Elimina los píxeles de la parte inferior de la pantalla para simular el overscan que se ve en los televisores CRT estándar.",
         "Russian": "Удалить пиксели нижней части экрана для имитации обрезки вылетов развёртки, наблюдаемого на стандартных ЭЛТ-телевизорах.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "97",
@@ -1075,7 +1075,7 @@
         "French": "",
         "Spanish": "Elija entre paletas pregeneradas, una paleta personalizada de 64x3 de formato de archivo o sin procesar (necesita usar un sombreador nes-decoder).",
         "Russian": "Выбор из предварительно сгенерированных палитр, пользовательских палитр 64x3 из файла или из формата raw (необходим шейдер nes-decoder).",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "99",
@@ -1097,7 +1097,7 @@
         "French": "",
         "Spanish": "Los filtros NTSC de Blargg se utilizan para replicar señales de cable RF, Compuesto, S-Video y RGB.",
         "Russian": "Фильтры NTSC от Blargg используются для имитации радиочастотных (RF), композитных, S-Video и RGB кабельных сигналов.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "101",
@@ -1119,7 +1119,7 @@
         "French": "",
         "Spanish": "Permite un sonido de mayor calidad. Aumenta los requisitos de rendimiento.",
         "Russian": "Более качественный звук повышает требования к производительности устройства.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "103",
@@ -1141,7 +1141,7 @@
         "French": "",
         "Spanish": "Aplique un filtro de audio de paso bajo para simular el sonido \"silenciado\" de la NES cuando se conecta a un televisor a través del modulador de RF.",
         "Russian": "Низкочастотный аудиофильтр для имитации эффекта «приглушённого» звука NES, подключённой к телевизору через радиочастотный (RF) модулятор.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "105",
@@ -1163,7 +1163,7 @@
         "French": "",
         "Spanish": "Habilite un efecto de sonido estéreo falso retrasando el canal de audio derecho al mezclar la salida de señal mono de la NES.",
         "Russian": "Задействовать эффект поддельного стереозвука, задержав правый аудиоканал при повышающем микшировании монофонического сигнала, поступающего с NES.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "107",
@@ -1196,7 +1196,7 @@
         "French": "",
         "Spanish": "Simula el sonido de los famiclones que tienen los canales de onda de pulso bits de ciclo de trabajo invertidos.",
         "Russian": "Имитация звука фамиклонов, у которых перепутана скважность прямоугольных импульсных сигналов.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "110",
@@ -1218,7 +1218,7 @@
         "French": "",
         "Spanish": "Cambie el nivel de volumen maestro.",
         "Russian": "Изменить уровень общей громкости.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "112",
@@ -1240,7 +1240,7 @@
         "French": "",
         "Spanish": "Activa o desactiva la salida de audio 1 del generador de onda cuadrada.",
         "Russian": "Включить или выключить аудиовыход 1-го генератора импульсных волн.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "114",
@@ -1262,7 +1262,7 @@
         "French": "",
         "Spanish": "Habilite o deshabilite la salida de audio 2 del generador de onda cuadrada.",
         "Russian": "Включить или выключить аудиовыход 2-го генератора импульсных волн.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "116",
@@ -1284,7 +1284,7 @@
         "French": "",
         "Spanish": "Habilite o deshabilite la salida de audio del generador de ondas triangulares.",
         "Russian": "Включить или выключить аудиовыход генератора треугольной волны.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "118",
@@ -1306,7 +1306,7 @@
         "French": "",
         "Spanish": "Habilite o deshabilite la salida de audio del generador de ruido.",
         "Russian": "Включить или выключить аудиовыход генератора шума.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "120",
@@ -1328,7 +1328,7 @@
         "French": "",
         "Spanish": "Activa o desactiva la salida de audio del canal de modulación delta.",
         "Russian": "Включить или выключить аудиовыход канала дельта-модуляции.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "122",
@@ -1350,7 +1350,7 @@
         "French": "",
         "Spanish": "Activa o desactiva los botones turbo.",
         "Russian": "Включить или отключить кнопки Turbo.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "124",
@@ -1372,7 +1372,7 @@
         "French": "",
         "Spanish": "Frecuencia de repetición de los botones turbo en los fotogramas.",
         "Russian": "Частота повтора нажатий кнопок Turbo в кадрах.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "126",
@@ -1394,7 +1394,7 @@
         "French": "",
         "Spanish": "Seleccione el dispositivo que desea usar para los juegos de Zapper.",
         "Russian": "Устройство, которое будет использоваться для игр со световым пистолетом.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "128",
@@ -3110,7 +3110,7 @@
         "French": "",
         "Spanish": "La CPU principal de Mega Drive/Genesis (Motorola 68000) genera una excepción de error de dirección (bloqueo) al intentar realizar el acceso a memoria no alineada. Al habilitar esta opción, se simulará este comportamiento. Solo debe deshabilitarse cuando se juegan trucos de ROM, ya que estos generalmente se desarrollan usando emuladores menos precisos y pueden depender de un acceso RAM no válido para un funcionamiento correcto.",
         "Russian": "Главный процессор Mega Drive/Genesis (Motorola 68000) генерирует исключение Address Error (аварийный отказ) при попытке выполнить невыровненный доступ к памяти. Включение этого параметра имитирует такое поведение. Его следует отключать только при игре в ROM-хаки, поскольку они обычно разрабатываются с использованием менее точных эмуляторов и могут полагаться на некорректные обращения к памяти.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "284",
@@ -3132,7 +3132,7 @@
         "French": "",
         "Spanish": "Ajuste la banda de rango alto del ecualizador de audio interno.",
         "Russian": "Регулировка диапазона высоких частот внутреннего звукового эквалайзера.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "286",
@@ -3154,7 +3154,7 @@
         "French": "",
         "Spanish": "Ajuste la banda de rango medio del ecualizador de audio interno.",
         "Russian": "Регулировка диапазона средних частот внутреннего звукового эквалайзера.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "288",
@@ -3176,7 +3176,7 @@
         "French": "",
         "Spanish": "Ajuste la banda de rango bajo del ecualizador de audio interno.",
         "Russian": "Регулировка диапазона низких частот внутреннего звукового эквалайзера.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "290",
@@ -3187,7 +3187,7 @@
         "French": "",
         "Spanish": "Habilite un filtro de audio de paso bajo para simular mejor el sonido característico de un Model 1 Mega Drive/Genesis.",
         "Russian": "Задействовать фильтр нижних частот для лучшей имитации характерного звука Mega Drive/Genesis Model 1.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "291",
@@ -3209,7 +3209,7 @@
         "French": "",
         "Spanish": "Aplique un filtro de vídeo para imitar varias señales de TV NTSC.",
         "Russian": "Видеофильтр для имитации различных телевизионных сигналов NTSC.",
-        "Comments": ""
+        "Comments": "Snes9x"
     },
     {
         "No.": "293",
@@ -3264,7 +3264,7 @@
         "French": "",
         "Spanish": "Elija la relación de aspecto de contenido preferida. Esto solo se aplicará cuando la relación de aspecto de RetroArch esté configurada como 'Core provided' en la configuración de video.",
         "Russian": "Предпочтительное соотношение сторон экрана. Эта настройка будет применяться, если для параметра “Соотношение сторон” в настройках изображения установлено значение [Задаётся ядром].",
-        "Comments": ""
+        "Comments": "Snes9x"
     },
     {
         "No.": "298",
@@ -3286,7 +3286,7 @@
         "French": "",
         "Spanish": "Utilice el BIOS/gestor de arranque oficial para el hardware emulado, si está presente en el directorio del sistema de RetroArch. Muestra la secuencia de inicio/animación específica de la consola y, a continuación, ejecuta el contenido cargado.",
         "Russian": "Если в системном каталоге интерфейса присутствует официальный BIOS или загрузчик, то он будет использован при запуске. На экране появится загрузочная последовательность или анимация, характерная для конкретной консоли, а затем запустится контент.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "300",
@@ -3308,7 +3308,7 @@
         "French": "",
         "Spanish": "Al ejecutar contenido de Sega CD/Mega-CD, especifica si se debe compartir un único cartucho de memoria RAM de copia de seguridad para todos los juegos (por cartucho) o si se debe crear un cartucho de memoria RAM de copia de seguridad independiente para cada juego (por juego).",
         "Russian": "Следует ли использовать один картридж CD Backup RAM для всех игр — режим [Общий картридж], или для каждой игры будет создаваться отдельный картридж CD Backup RAM — режим [Каждая игра отдельно].",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "302",
@@ -3330,7 +3330,7 @@
         "French": "",
         "Spanish": "Al ejecutar contenido de Sega CD/Mega-CD, configure el tamaño del cartucho de RAM de respaldo. Es útil configurar el cartucho de RAM de respaldo por juego para evitar múltiples tamaños de cartuchos grandes.",
         "Russian": "Размер картриджа CD Backup RAM. Полезно при выборе отдельного картриджа CD Backup RAM для каждой игры — режим [Каждая игра отдельно], чтобы избежать появления множества картриджей большего размера.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "304",
@@ -3352,7 +3352,7 @@
         "French": "",
         "Spanish": "Cuando se inicia la carga o se busca en un lugar específico en el disco cargado, se simula la latencia del hardware original de CD. Esto es necesario en algunos juegos de CD que se bloquean cuando los datos del CD están disponibles de inmediato, y también corrige problemas de desincronización de audio de CD en algunos juegos. Deshabilitar esto hace que los bucles de las pistas de audio de CD sean más fluidos, lo que resulta útil en juegos de MSU-MD.",
         "Russian": "Имитация аппаратной задержки CD-привода при инициировании чтения или поиска определённого места на загруженном CD-диске. Необходима для некоторых игр, которые могут сбоить, если данные с диска становятся доступны слишком рано. Это также помогает устранить проблемы рассинхронизации звука в ряде игр. Отключение может быть полезно в играх MSU-MD, так как способствует более плавному зацикливанию звуковых дорожек CD.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "306",
@@ -3374,7 +3374,7 @@
         "French": "",
         "Spanish": "Al iniciar, carga la imagen del CD en la memoria. Solo se admite CHD. (Requiere Reiniciar)",
         "Russian": "Загружать образ CD-диска в память при запуске. Поддерживается только формат CHD. Необходим перезапуск.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "308",
@@ -3836,7 +3836,7 @@
         "French": "",
         "Spanish": "Ajusta el volumen de mezcla de la salida de reproducción de audio de CD emulado.",
         "Russian": "Регулировка громкости микширования эмулируемого выхода воспроизведения аудио CD.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "350",
@@ -3858,7 +3858,7 @@
         "French": "",
         "Spanish": "Ajusta el volumen de mezcla de la salida del generador de sonido PCM RF5C164 Sega CD/Mega-CD emulado.",
         "Russian": "Регулировка громкости микширования эмулируемого выхода звукового генератора PCM RF5C164 Sega CD/Mega-CD.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "352",
@@ -3880,7 +3880,7 @@
         "French": "",
         "Spanish": "Permite desplazar verticalmente cada celda en lugar de dos celdas de 16 píxeles promediando el valor de vscroll de las celdas adyacentes. Este truco solo se aplica a algunos juegos que utilizan el modo de desplazamiento vertical de dos celdas.",
         "Russian": "Позволяет прокручивать каждую ячейку по вертикали отдельно, усредняя значение vscroll соседней ячейки, а не ограничиваться 2 ячейками (16 пикселей). Этот способ применим только к нескольким играм, в которых используется режим вертикальной прокрутки по 2 ячейкам.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "354",
@@ -3902,7 +3902,7 @@
         "French": "",
         "Spanish": "Solo cuando está habilitado el desplazamiento vertical por mosaico mejorado. Ajusta el límite de la mejora del desplazamiento vertical. Cuando la diferencia de vscroll entre mosaicos vecinos es mayor que este límite, la mejora se desactiva.",
         "Russian": "Действует только в том случае, если включена улучшенная вертикальная прокрутка. Если разница значений vscroll соседних ячеек превышает этот предел, улучшение автоматически отключается.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "356",
@@ -3924,7 +3924,7 @@
         "French": "",
         "Spanish": "Overlockea la CPU emulada. Puede reducir la ralentización, pero puede causar fallos.",
         "Russian": "Разгон эмулируемого процессора способен уменьшить замедление, но может вызвать сбои.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "358",
@@ -3946,7 +3946,7 @@
         "French": "",
         "Spanish": "Emule los bloqueos del sistema que se producen en el hardware real al realizar un acceso ilegal a direcciones. Esto solo debe desactivarse cuando se juegan ciertas demos y homebrew que se basan en un comportamiento ilegal para su correcto funcionamiento.",
         "Russian": "Имитация блокировок системы, которые происходят на настоящем оборудовании при доступе к недопустимым адресам. Это должно быть отключено только для определённых homebrew, которые используют такое поведение для корректной работы.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "360",
@@ -4012,7 +4012,7 @@
         "French": "",
         "Spanish": "Ajuste el nivel del preamplificador de audio del sintetizador de sonido Mega Drive/Genesis FM emulado o de la unidad de sonido FM Sega Mark III/Master System.",
         "Russian": "Уровень предусиления эмулируемого FM синтезатора звука Mega Drive/Genesis или устройства FM Sound Unit системы Sega Mark III/Master System.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "366",
@@ -4034,7 +4034,7 @@
         "French": "",
         "Spanish": "Obliga a los títulos de Game Gear a ejecutarse en modo SMS, con una resolución aumentada de 256x192. Puede mostrar contenido adicional, pero normalmente muestra un borde de datos de imagen dañados o no deseados.",
         "Russian": "Заставляет игры Game Gear запускаться в режиме SMS с разрешением, увеличенным до 256x192. Может начать отображаться дополнительный контент, но обычно отображается рамка из искажённых или избыточных данных.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "368",
@@ -4056,7 +4056,7 @@
         "French": "",
         "Spanish": "Muestra el punto de mira de la pistola de luz cuando se utilizan los tipos de dispositivos de entrada MD Menacer, MD Justifiers y MS Light Phaser.",
         "Russian": "Отображать перекрестие прицела светового пистолета при использовании устройств ввода MD Menacer, MD Justifiers или MS Light Phaser.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "370",
@@ -4078,7 +4078,7 @@
         "French": "",
         "Spanish": "Utilice una entrada de 'Pistola de luz' o 'Pantalla táctil' controlada por el mouse.",
         "Russian": "Использовать мышь или сенсорный экран для управления световым пистолетом.",
-        "Comments": ""
+        "Comments": "Snes9x"
     },
     {
         "No.": "372",
@@ -4100,7 +4100,7 @@
         "French": "",
         "Spanish": "Invierte el eje Y del tipo de dispositivo de entrada MD Mouse.",
         "Russian": "Инвертирует ось Y устройства ввода мыши MD Mouse.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "374",
@@ -4122,7 +4122,7 @@
         "French": "",
         "Spanish": "Aplica un filtro de imagen \"fantasma\" para imitar las características de visualización de los paneles LCD de Game Gear y Genesis Nomad.",
         "Russian": "Фильтр ореола ЖК-дисплея для имитации эффектов ЖК-экранов Game Gear и Genesis Nomad.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "376",
@@ -4144,7 +4144,7 @@
         "French": "",
         "Spanish": "Corta 8 píxeles del lado izquierdo de la pantalla o de los lados izquierdo y derecho cuando se ejecutan juegos de Master System.",
         "Russian": "При запуске игр Master System обрезать 8 пикселей с левой стороны экрана или с обеих сторон.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "378",
@@ -4166,7 +4166,7 @@
         "French": "",
         "Spanish": "La tecnología Lock-On es una característica de Mega Drive/Genesis que permitía que un juego antiguo se conectara al puerto de paso de un cartucho especial para un juego extendido o alterado. Esta opción especifica qué tipo de cartucho especial de \"bloqueo\" se va a emular. Un archivo de BIOS correspondiente debe estar presente en el directorio del sistema de RetroArch.",
         "Russian": "«Lock-On» — технология Mega Drive/Genesis, которая позволяет играм подключаться к сквозному порту специального картриджа для расширения или изменения игрового процесса. Эта настройка определяет, какой тип «lock-on» картриджа следует имитировать. Соответствующий файл ПЗУ должен находиться в системном каталоге интерфейса.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "380",
@@ -4188,7 +4188,7 @@
         "French": "",
         "Spanish": "Especifique la frecuencia de corte del filtro de paso bajo de audio. Un valor más alto aumenta la \"fuerza\" percibida del filtro, ya que se atenúa un rango más amplio del espectro de alta frecuencia.",
         "Russian": "Задаёт частоту среза фильтра низких частот. Более высокое значение увеличит воспринимаемую «силу» фильтра, поскольку при этом «ослабится» более широкий диапазон спектра высоких частот.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "382",
@@ -4210,7 +4210,7 @@
         "French": "",
         "Spanish": "Elimina el límite de hardware original de sprite por línea de exploración. Esto reduce el parpadeo, pero puede causar fallos visuales, ya que algunos juegos explotan el límite del hardware para generar efectos especiales.",
         "Russian": "Снять исходное аппаратное ограничение на количество спрайтов, которые могут быть отображены на одной строке развёртки, тем самым уменьшая мерцание. Однако некоторые игры могут полагаться на это ограничение для корректного отображения спецэффектов.",
-        "Comments": ""
+        "Comments": "PicoDrive"
     },
     {
         "No.": "384",
@@ -4232,7 +4232,7 @@
         "French": "",
         "Spanish": "Habilite esta opción para mostrar las regiones de sobreescaneo en la parte superior/inferior y/o izquierda/derecha de la pantalla. Normalmente, estos estarían ocultos por el bisel alrededor del borde de un televisor de definición estándar.",
         "Russian": "Отображать области избыточного изображения в верхней/нижней и/или левой/правой частях экрана. На телевизорах стандартной чёткости эти области обычно скрыты рамкой.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "386",
@@ -4254,7 +4254,7 @@
         "French": "",
         "Spanish": "Establece el nivel de preamplificador de audio del generador de tonos de SN76496 programable de 4 canales emulado que se encuentra en SG-1000, Sega Mark III, Master System, Game Gear y Mega Drive/Genesis.",
         "Russian": "Уровень громкости предусилителя эмулируемого 4-канального программируемого звукового генератора (PSG) SN76496, используемого в SG-1000, Sega Mark III, Master System, Game Gear и Mega Drive/Genesis.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "388",
@@ -4276,7 +4276,7 @@
         "French": "",
         "Spanish": "Especifica la región de la que procede el sistema. Para consolas que no sean Game Gear, 'PAL' es de 50 Hz, mientras que 'NTSC' es de 60 Hz. Los juegos pueden ejecutarse más rápido o más lento de lo normal si se selecciona la región incorrecta.",
         "Russian": "Задаёт регион консоли. Для консолей, отличных от Game Gear, [PAL] — это 50 Гц, а [NTSC] — это 60 Гц. Игры могут работать быстрее или медленнее обычного, если выбран неправильный регион.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "390",
@@ -4298,7 +4298,7 @@
         "French": "",
         "Spanish": "El modo entrelazado 2 permite a Mega Drive/Genesis producir una imagen de doble altura (alta resolución) de 320x448 dibujando líneas de escaneo alternas en cada fotograma (utilizado en los modos multijugador Sonic the Hedgehog 2 y Combat Cars). 'Double Field' imita el hardware original, produciendo una imagen nítida con artefactos de parpadeo/entrelazado. 'Campo único' aplica un filtro de desentrelazado, que estabiliza la imagen pero provoca un ligero desenfoque.",
         "Russian": "Чересстрочный режим 2 (Interlaced Mode 2) позволяет Mega Drive/Genesis выводить изображение двойной высоты (320×448 для NTSC, 320x480 для PAL), отрисовывая чередующиеся линии развёртки в каждом кадре (эта возможность используется в многопользовательских режимах Sonic the Hedgehog 2 и Combat Cars). Режим [Double Field] точно имитирует оригинальное оборудование, демонстрируя чёткое изображение, но с мерцанием и артефактами чересстрочной развёртки. Режим [Single Field] применяет фильтр деинтерлейсинга, стабилизирующий изображение, но вызывающий лёгкое размытие.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "392",
@@ -4320,7 +4320,7 @@
         "French": "",
         "Spanish": "Seleccione la reproducción de audio en estéreo o mono.",
         "Russian": "Воспроизводить звук в стерео или моно режиме.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "394",
@@ -4342,7 +4342,7 @@
         "French": "",
         "Spanish": "Al ejecutar contenido de Sega CD/Mega-CD, especifique si desea compartir un único archivo de guardado entre todos los juegos de una región específica (por BIOS) o crear un archivo de guardado independiente para cada juego (por juego). Tenga en cuenta que el Sega CD / Mega-CD tiene una memoria interna limitada, que solo es suficiente para un pequeño número de títulos. Para evitar quedarse sin espacio, se recomienda la configuración 'Por juego'.",
         "Russian": "Следует ли использовать один файл сохранения для всех игр определённого региона — режим [Per-BIOS] или создавать отдельный файл сохранения для каждой игры — режим [Каждая игра отдельно]. Следует отметить, что внутреннее пространство памяти Sega CD/Mega-CD весьма ограничено и может хранить лишь небольшое количество сохранений. Чтобы избежать нехватки места для сохранения, рекомендуется использовать режим [Каждая игра отдельно].",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "396",
@@ -4364,7 +4364,7 @@
         "French": "",
         "Spanish": "Ejecuta contenido cargado con una consola emulada específica. 'Auto' seleccionará el sistema más apropiado para el juego actual.",
         "Russian": "Запускать контент на определённой эмулируемой консоли. Режим [Автоматически] выберет наиболее подходящую систему для текущей игры.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "398",
@@ -4386,7 +4386,7 @@
         "French": "",
         "Spanish": "Sobrescribe el modo VDP para forzar su ejecución a NTSC 60 Hz o PAL 50 Hz, independientemente de la región del sistema.",
         "Russian": "Переопределение режима VDP, принудительно задавая частоту NTSC 60 Гц или PAL 50 Гц, независимо от региона системы.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "400",
@@ -4408,7 +4408,7 @@
         "French": "",
         "Spanish": "Habilite la emulación de unidad de audio FM utilizada por algunos juegos de Sega Mark III / Master System para una mejor calidad de audio.",
         "Russian": "Имитация FM Sound Unit, используемого в некоторых играх Sega Mark III/Master System, для улучшения вывода звука.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "402",
@@ -4430,7 +4430,7 @@
         "French": "",
         "Spanish": "Seleccione el método utilizado para emular la unidad de audio FM de la Sega Mark III/Master System. La opción 'MAME' es rápida y funciona a toda velocidad en la mayoría de los sistemas. La opción 'Nuked' es precisa en ciclos, de muy alta calidad, pero requiere una CPU potente.",
         "Russian": "Метод, используемый для эмуляции FM Sound Unit системы Sega Mark III/Master. [MAME] является быстрым и подходит для работы на полной скорости на большинстве систем, а [Nuked] обеспечивает высококачественную эмуляцию звука с точностью до цикла, но более требователен к производительности ЦПУ.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "404",
@@ -4452,7 +4452,7 @@
         "French": "",
         "Spanish": "Seleccione el método utilizado para emular el sintetizador FM (generador de sonido principal) de la Mega Drive/Genesis. Las opciones 'MAME' son rápidas y funcionan a toda velocidad en la mayoría de los sistemas. Las opciones 'Nuked' son precisas en el ciclismo, de la más alta calidad, pero requieren una CPU potente. El chip YM2612 se utiliza en el modelo original Mega Drive/Genesis Model 1. El YM3438 se utiliza en revisiones posteriores de la Mega Drive/Genesis.",
         "Russian": "Метод, используемый для эмуляции FM-синтезатора (основного генератора звука) Mega Drive/Genesis. [MAME] является быстрым и подходит для работы на полной скорости на большинстве систем, в то время как [Nuked] обеспечивает высококачественную эмуляцию звука с точностью до цикла, но более требователен к производительности ЦПУ. В оригинальной Mega Drive/Genesis Model 1 использовался чип YM2612, а в последующих ревизиях — YM3438.",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "406",
@@ -4485,7 +4485,7 @@
         "French": "",
         "Spanish": "Establece la compatibilidad con RTC para el cartucho emulado. La detección automática utiliza una base de datos de ROM que funciona con la mayoría de los títulos comerciales. Es posible que debas forzar RTC cuando uses trucos caseros o de ROM.",
         "Russian": "Поддержка часов реального времени (RTC) для эмулируемого картриджа. Режим [Автоматически] использует базу данных, чтобы определить, нужен ли RTC для данного ROM, что подходит для большинства коммерческих игр. При использовании homebrew или ROM-хаков может потребоваться принудительно включать RTC.",
-        "Comments": ""
+        "Comments": "gpSP"
     },
     {
         "No.": "409",
@@ -4507,7 +4507,7 @@
         "French": "",
         "Spanish": "Configure la compatibilidad con Rumble para el cartucho emulado. La detección automática utiliza una base de datos de ROM que funciona con la mayoría de los títulos comerciales. Es posible que desee forzar el Rumble cuando use trucos caseros o de ROM que lo admitan. También puede deshabilitarlo a la fuerza si no le gusta.",
         "Russian": "Поддержка вибрации (Rumble) для эмулируемого картриджа. Режим [Автоматически] использует базу данных, чтобы определить, нужна ли вибрация для данного ROM, что подходит для большинства коммерческих игр. При использовании homebrew или ROM-хаков может потребоваться принудительно включать вибрацию.",
-        "Comments": ""
+        "Comments": "gpSP"
     },
     {
         "No.": "411",
@@ -4540,7 +4540,7 @@
         "French": "",
         "Spanish": "Configure la conexión serie (cable de enlace). La configuración automática seleccionará el soporte razonable para la mayoría de los juegos conocidos.",
         "Russian": "Настройка последовательного подключения (по кабелю Game Link). Программа автоматически подберёт подходящее подключение на основе известных требований игры, что подходит для большинства ситуаций.",
-        "Comments": ""
+        "Comments": "gpSP"
     },
     {
         "No.": "414",
@@ -4562,7 +4562,7 @@
         "French": "",
         "Spanish": "Elimina el límite de hardware original de sprites por línea de exploración. Algunos juegos pueden depender del límite de hardware para renderizarse correctamente (por ejemplo, ocultar algunos sprites).",
         "Russian": "Снять исходное аппаратное ограничение на количество спрайтов, которые могут быть отображены на одной строке развёртки, тем самым уменьшая мерцание и улучшая визуальные характеристики. Однако некоторые игры могут полагаться на это ограничение для корректного отображения изображения (например, чтобы скрыть определённые спрайты).",
-        "Comments": ""
+        "Comments": "gpSP"
     },
     {
         "No.": "416",
@@ -4793,7 +4793,7 @@
         "French": "",
         "Spanish": "Sensibilidad del mouse en porcentaje",
         "Russian": "Чувствительность мыши (в процентах).",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "437",
@@ -4815,7 +4815,7 @@
         "French": "",
         "Spanish": "Selecciona el dispositivo que quieres usar para los juegos de Arkanoid.",
         "Russian": "Устройство, которое будет использоваться для игры в арканоид.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "439",
@@ -4848,7 +4848,7 @@
         "French": "",
         "Spanish": "Habilita o deshabilita el overclocking, que puede reducir las ralentizaciones en algunos juegos. El método Postrender es más compatible con todos los juegos, Vblank es más efectivo para juegos como Contra Force.",
         "Russian": "Включает или отключает разгон, что может уменьшить замедление в некоторых играх. Режим [Postrender] подходит для всех игр, а [VBlank] лучше работает в таких играх, как Contra Force.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "442",
@@ -4870,7 +4870,7 @@
         "French": "",
         "Spanish": "Valores de RAM en el encendido. Algunos juegos se basan en los valores iniciales de RAM para la generación de números aleatorios, por ejemplo.",
         "Russian": "Значения ОЗУ при включении питания. Например, некоторые игры используют начальные значения оперативной памяти для генерации случайных чисел.",
-        "Comments": ""
+        "Comments": "Nestopia"
     },
     {
         "No.": "444",
@@ -4892,7 +4892,7 @@
         "French": "",
         "Spanish": "Muestra u oculta el punto de mira en la pantalla cuando se usa un Zapper.",
         "Russian": "Отображать перекрестие прицела светового пистолета при использовании устройства ввода Zapper.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "446",
@@ -4914,7 +4914,7 @@
         "French": "",
         "Spanish": "Invierte la lógica del activador cuando se usa un Zapper. Al deshabilitarlo, se restaura el comportamiento original del hardware.",
         "Russian": "Инвертирует логику срабатывания светового пистолета. Если эта настройка отключена, логика срабатывания будет соответствовать исходному поведению оборудования.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "448",
@@ -4936,7 +4936,7 @@
         "French": "",
         "Spanish": "Invierte la lógica del sensor cuando se usa un Zapper (solo en el modo de objetivos secuenciales de pistola ligera). Al desactivarlo, se restaura el comportamiento original del hardware NES/FC.",
         "Russian": "Инвертирует логику работы датчика светового пистолета (только в режиме Sequential Target Light Gun). Если эта настройка отключена, логика работы датчиков будет соответствовать исходному поведению оборудования NES/FC.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "450",
@@ -4958,7 +4958,7 @@
         "French": "",
         "Spanish": "Establezca cuántos píxeles del área de destino están en el destino.",
         "Russian": "Устанавливает, сколько пикселей из области прицела должно попасть на цель.",
-        "Comments": ""
+        "Comments": "FCEUmm"
     },
     {
         "No.": "452",
@@ -5057,7 +5057,7 @@
         "French": "",
         "Spanish": "Muchos juegos de BSX pueden ejecutarse sin el BIOS de BSX. Si lo deshabilitas, el emulador iniciará el juego directamente.",
         "Russian": "Многие игры BSX могут запускаться без BSX BIOS. При отключённом BSX BIOS эмулятор будет запускать игру напрямую.",
-        "Comments": ""
+        "Comments": "ChimeraSNES"
     },
     {
         "No.": "461",
@@ -5090,7 +5090,7 @@
         "French": "",
         "Spanish": "Omita fotogramas para evitar que el búfer de audio se desborde (crepite). Mejorar el rendimiento a expensas de la fluidez visual. 'Auto' salta fotogramas cuando lo recomienda la interfaz. 'Manual' utiliza el ajuste 'Umbral de salto de fotogramas (%)'.",
         "Russian": "Пропускать кадры, чтобы избежать переполнения аудиобуфера (потрескиваний). Улучшает производительность за счёт визуальной плавности. [Автоматически] — пропускает кадры по указанию пользовательского интерфейса. [Вручную] — использует значение параметра “Порог пропуска кадров (%)”.",
-        "Comments": ""
+        "Comments": "Snes9x 2005 Plus"
     },
     {
         "No.": "464",
@@ -5112,7 +5112,7 @@
         "French": "",
         "Spanish": "Overclocking de CPU SNES. ¡Puede hacer que los juegos se bloqueen! Use 'AutoFastROM' para tiempos de carga más cortos, 'Bajo' para la mayoría de los juegos que muestran ralentizaciones y 'Alto' solo si es absolutamente necesario.",
         "Russian": "Разгон процессора SNES. Небезопасно, может привести к сбоям в играх! Режим [AutoFastROM] подойдёт для сокращения времени запуска, [Низкий] будет эффективен для большинства игр, в которых наблюдается замедление, а [Высокий] следует применять только в особых случаях. Необходим перезапуск.",
-        "Comments": ""
+        "Comments": "ChimeraSNES"
     },
     {
         "No.": "466",
@@ -5167,7 +5167,7 @@
         "French": "",
         "Spanish": "Overclocking o underclocking del chip SuperFX. Esto puede mejorar la velocidad de fotogramas y la jugabilidad de los juegos que usan SuperFX.",
         "Russian": "Регулировка тактовой частоты сопроцессоров SuperFX. Может повысить частоту кадров и улучшить плавность воспроизведения игр, использующих SuperFX.",
-        "Comments": ""
+        "Comments": "ChimeraSNES"
     },
     {
         "No.": "471",
@@ -5343,7 +5343,7 @@
         "French": "",
         "Spanish": "Aumenta el número de sprites que se pueden dibujar simultáneamente en la pantalla. Reduce el parpadeo en los juegos.",
         "Russian": "Увеличивает количество спрайтов, которые могут быть отображены на экране одновременно, тем самым уменьшая мерцание в игре.",
-        "Comments": ""
+        "Comments": "Snes9x 2005 Plus"
     },
     {
         "No.": "487",
@@ -5354,7 +5354,7 @@
         "French": "",
         "Spanish": "Especifica qué algoritmo usar para remuestrear el audio generado (la frecuencia de audio de la Game Boy solo está limitada por la velocidad de escritura de la CPU, por lo que las frecuencias \"nativas\" no son prácticas en los dispositivos de audio modernos y deben reducirse). 'Sinc' produce la más alta calidad. 'Coseno' mejora el rendimiento en hardware de gama baja.",
         "Russian": "Алгоритм, который будет использоваться при передискретизации сгенерированного звука. Частота дискретизация звука Game Boy ограничена только скоростью записи его процессора, поэтому «родные» частоты непрактичны для современного звукового оборудования и должны быть понижены. [Sinc] — обеспечивает наивысшее качество. [Cosine] — повышает производительность на маломощном оборудовании.",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "488",
@@ -5365,7 +5365,7 @@
         "French": "",
         "Spanish": "Permite la reducción del brillo basada en el brillo. Se puede utilizar para evitar el deslumbramiento o la fatiga visual cuando se juega con fondos blancos, que están pensados para mostrarse en una Game Boy Color sin retroiluminación y, por lo tanto, pueden parecer demasiado brillantes en pantallas retroiluminadas modernas.",
         "Russian": "Позволяет уменьшить яркость в зависимости от светимости изображения. Может использоваться для предотвращения бликов и напряжения глаз от белых фонов в играх. Предназначенные для просмотра на экране Game Boy Color без подсветки, они могут оказаться слишком яркими на современных экранах с подсветкой.",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "489",
@@ -5376,7 +5376,7 @@
         "French": "",
         "Spanish": "Habilita la compatibilidad con los cargadores de arranque oficiales de Game Boy y Game Boy Color, con las animaciones correspondientes del logotipo de arranque.",
         "Russian": "Использовать официальные загрузчики Game Boy и Game Boy Color с соответствующими анимациями логотипа при запуске.",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "490",
@@ -5387,7 +5387,7 @@
         "French": "",
         "Spanish": "Habilite el colorear de juegos de Game Boy. 'Auto' selecciona la 'mejor' paleta (más colorida/apropiada). 'GBC' selecciona la paleta específica de Game Boy Color si está definida, de lo contrario, 'GBC - Verde oscuro'. 'SGB' selecciona la paleta específica para Super Game Boy si está definida, de lo contrario, 'SGB - 1A'. 'Interno' utiliza la opción 'Paleta interna' del núcleo. 'Personalizado' carga una paleta creada por el usuario desde el directorio del sistema.",
         "Russian": "Режим колоризации игр для Game Boy. [Автоматически] подбирает «лучшую» (наиболее красочную/подходящую) палитру. [GBC] выбирает палитру Game Boy Color для конкретной игры, если она определена, иначе 'GBC - Dark Green'. [SGB] выбирает палитру Super Game Boy для конкретной игры, если она определена, иначе 'SGB - 1A'. [Внутренняя] использует значение параметра “Внутренняя палитра”. [Настраиваемая] загружает созданную пользователем палитру из системного каталога.",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "491",
@@ -5398,7 +5398,7 @@
         "French": "",
         "Spanish": "Especifica el tipo de hardware que se va a emular. Se recomienda 'Auto'. Al seleccionar 'GBA' se desbloquean funciones adicionales en algunos juegos de Game Boy Color 'GBA Enhanced' (Shantae, Wendy - Every Witch Way, Legend of Zelda: Oracle of Seasons/Ages...).",
         "Russian": "Тип оборудования для эмуляции. Рекомендуется использовать режим [Автоматически]. При выборе [GBA] открываются дополнительные возможности в некоторых «GBA-улучшенных» играх Game Boy Color (Shantae, Wendy: Every Witch Way, Legend of Zelda: Oracle of Seasons/Ages и т.д.).",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "492",
@@ -5409,7 +5409,7 @@
         "French": "",
         "Spanish": "Seleccione la paleta de colores interna cuando la 'Paleta interna' esté configurada en 'TWB64 - Pack 1'.",
         "Russian": "Выбор внутренней палитры колоризации, если для параметра “Внутренняя палитра” установлено значение [TWB64 - Pack 1].",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "493",
@@ -5420,7 +5420,7 @@
         "French": "",
         "Spanish": "Seleccione la paleta de colores interna cuando la 'Paleta interna' esté configurada en 'TWB64 - Pack 2'.",
         "Russian": "Выбор внутренней палитры колоризации, если для параметра “Внутренняя палитра” установлено значение [TWB64 - Pack 2].",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "494",
@@ -5431,7 +5431,7 @@
         "French": "",
         "Spanish": "Ajusta los colores de salida para que coincidan con la pantalla de hardware real de Game Boy Color. 'Solo GBC' garantiza que la corrección solo se aplique cuando se juegue a juegos de Game Boy Color o cuando se use una paleta de colores de Game Boy para colorear un juego de Game Boy. 'Siempre' aplica la corrección de color a todo el contenido y producirá resultados inesperados/subóptimos cuando se utilicen paletas de colores internas 'GB' o 'SGB'.",
         "Russian": "Корректирует цвета вывода так, чтобы они соответствовали отображению на ЖК-экране настоящего Game Boy Color. [Только GBC] гарантирует, что коррекция будет применяться только при воспроизведении игр Game Boy Color или при использовании палитры Game Boy Color для колоризации игр Game Boy. [Всегда] применяет цветокоррекцию ко всем играм, но может привести к неожиданным или неоптимальным результатам при использовании внутренних палитр 'GB' или 'SGB'.",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "495",
@@ -5442,7 +5442,7 @@
         "French": "",
         "Spanish": "Especifica el método utilizado para realizar la corrección de color. 'Preciso' produce una salida que es casi indistinguible de un panel LCD a color real de Game Boy. 'Rápido' solo oscurece los colores y reduce la saturación y se puede usar en hardware de gama baja si el método 'Preciso' es demasiado lento.",
         "Russian": "Метод, с помощью которого выполняется цветокоррекция. [Точно] позволяет получить результат, практически неотличимый от ЖК-экрана настоящего Game Boy Color. [Быстро] просто уменьшает яркость и насыщенность цвета, и может использоваться если метод [Точно] работает слишком медленно.",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "496",
@@ -5453,7 +5453,7 @@
         "French": "",
         "Spanish": "Simula la respuesta física del panel LCD de Game Boy Color cuando se ilumina desde diferentes ángulos. 'Medio' representa la reproducción estándar del color. 'Por encima de la pantalla' aumenta el brillo. 'Under Screen' reduce el brillo. Esta configuración solo se aplica cuando 'Modo de corrección de color' está configurado en 'Preciso'.",
         "Russian": "Имитация физической реакции ЖК-экрана Game Boy Color при освещении под разными углами. [По центру] означает стандартную цветопередачу. [Выше экрана] увеличивает яркость. [Ниже экрана] уменьшает яркость. Эта настройка применяется только в том случае, если для параметра “Режим цветокоррекции” установлено значение [Точно].",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "497",
@@ -5464,7 +5464,7 @@
         "French": "",
         "Spanish": "Simula efectos de efecto fantasma de LCD. 'Simple' realiza una mezcla 50:50 de los fotogramas actuales y anteriores. 'LCD Ghosting' imita los tiempos de respuesta naturales de la pantalla LCD mediante la combinación de múltiples fotogramas con búfer. La mezcla \"simple\" es necesaria cuando se juega a juegos que dependen del efecto fantasma de la pantalla LCD para obtener efectos de transparencia (Wave Race, Ballistic, Chikyuu Kaihou Gun ZAS...).",
         "Russian": "Имитация эффекта ореола ЖК-дисплея. В режиме [Просто] происходит смешивание текущего и предыдущего кадров в равном соотношении (50:50). Режим [Ореол ЖК-дисплея] имитирует естественное время отклика ЖК-дисплея, комбинируя несколько буферизованных кадров. Режим [Просто] необходим для корректного отображения игр, использующих ореол ЖК-дисплея для создания эффекта прозрачности (Wave Race, Ballistic, Chikyuu Kaihou Gun ZAS и т.д.).",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "498",
@@ -5475,7 +5475,7 @@
         "French": "",
         "Spanish": "Habilita los efectos de retroalimentación háptica para los juegos compatibles (Pokemon Pinball, Perfect Dark...).",
         "Russian": "Задействовать эффекты тактильной обратной связи для поддерживаемых игр (Pokemon Pinball, Perfect Dark и т.д.).",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "499",
@@ -5486,7 +5486,7 @@
         "French": "",
         "Spanish": "Habilitar esta opción le permitirá presionar/alternar/mantener rápidamente las direcciones izquierda y derecha (o arriba y abajo) al mismo tiempo. Esto podría causar fallos basados en el movimiento.",
         "Russian": "Если этот параметр включён, можно одновременно нажимать/быстро чередовать/удерживать направления влево и вправо (или вверх и вниз). Может привести к сбоям при перемещении.",
-        "Comments": ""
+        "Comments": "Gambatte"
     },
     {
         "No.": "500",
@@ -5728,7 +5728,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "Genesis Plus GX Wide"
     },
     {
         "No.": "522",
@@ -5739,7 +5739,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "Beetle WonderSwan"
     },
     {
         "No.": "523",
@@ -5805,7 +5805,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "529",
@@ -5827,7 +5827,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "531",
@@ -5981,7 +5981,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "545",
@@ -5992,7 +5992,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "546",
@@ -6014,7 +6014,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "548",
@@ -6036,7 +6036,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "550",
@@ -6102,7 +6102,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "556",
@@ -6124,7 +6124,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "558",
@@ -6146,7 +6146,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "560",
@@ -6168,7 +6168,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "562",
@@ -6190,7 +6190,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "564",
@@ -6234,7 +6234,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "568",
@@ -6256,7 +6256,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "570",
@@ -6278,7 +6278,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "572",
@@ -6300,7 +6300,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "574",
@@ -6322,7 +6322,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "576",
@@ -6344,7 +6344,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "578",
@@ -6410,7 +6410,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "584",
@@ -6432,7 +6432,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "586",
@@ -6476,7 +6476,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "590",
@@ -6520,7 +6520,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "594",
@@ -6564,7 +6564,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "598",
@@ -6652,7 +6652,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "606",
@@ -6674,7 +6674,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "608",
@@ -6718,7 +6718,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "612",
@@ -6740,7 +6740,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "614",
@@ -6762,7 +6762,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "616",
@@ -6806,7 +6806,7 @@
         "French": "",
         "Spanish": "",
         "Russian": "",
-        "Comments": ""
+        "Comments": "DOSBox-pure"
     },
     {
         "No.": "620",
@@ -6823,6 +6823,3493 @@
         "No.": "621",
         "English": "Swap the left and the right audio channel.",
         "Chinese": "交换左右声道。",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "622",
+        "English": "Select whether emulated system is NTSC (60hz) or PAL (50hz)",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "623",
+        "English": "Set Hi-Res Artifacting mode used.  Typically dependant on the actual emulated system.  Pick the color combination that pleases you.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "624",
+        "English": "Set emulated systems internal resolution.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "625",
+        "English": "Set emulated color tint between -1.0 and 1.0",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "626",
+        "English": "Set emulated color saturation between -1.0 and 1.0.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "627",
+        "English": "Set emulated color contrast between -2.0 and 2.0.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "628",
+        "English": "Set emulated color brightness between -2.0 and 2.0.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "629",
+        "English": "Set emulated color gamma between 1.0 and 3.5.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "630",
+        "English": "Apply gamepad input hacks required for specific games. 'Dual Stick' maps Player 2's joystick to the right analog stick of Player 1's RetroPad, enabling dual stick control in 'Robotron 2084' and 'Space Dungeon'. 'Swap Ports' maps Player 1 to port 2 and Player 2 to port 1 of the emulated console, correcting the swapped inputs of 'Wizard of Wor', 'Apple Panic' and a few other games. 'Joy 2B+' enables multibutton joysticks support.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "631",
+        "English": "Use analog stick and digital pad to control paddle games.  Dual Stick and Swap Ports will be de-activated if this is enabled",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "632",
+        "English": "Determines how fast the paddle will move.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "633",
+        "English": "Set the effective range of the emulated analog joystick when using the gamepad's digital D-Pad for movement. Lower values equate to slower speeds.  Also can be used to make games like Centipede, Kaboom, Missile Command, Pengo, Realsports Tennis, Pole Position, Xari Arena and Super Breakout more playable.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "634",
+        "English": "Set the effective range of the emulated analog joystick when using the gamepad's left analog stick for movement. Lower values equate to slower speeds.  Also can be used to make games like Centipede, Kaboom, Missile Command, Pengo, Realsports Tennis, Pole Position, Xari Arena and Super Breakout more playable.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "635",
+        "English": "Set the deadzone of the gamepad's analog sticks. Use this to eliminate controller drift.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "636",
+        "English": "Set whether keyboard is polled or used callback.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "637",
+        "English": "Set whether the Atari XEGS keyboard is attached or detached. If 'Internal BASIC' is enabled and the keyboard is attached, it will boot to BASIC. If 'Internal BASIC' is enabled and the keyboard is detached it will boot to the in-built game (Missile Command). If 'Internal BASIC' is disabled, it will boot to the Self Test screen.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "638",
+        "English": "Set whether the Atari800 emulator's legacy menu is invoked by pressing F1 (default) or F10 (to avoid interference with RetroArch's own menu).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "639",
+        "English": "Joystick and Console Key mappings for",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "640",
+        "English": "Select system emulated.  Atari 5200 for Atari 5200 console games.  400/800 (OS B) for <48K games or ones that require OS/B.  800XL (64K) works for most content.  130XE (128K), Modern XL/XE(320K Compy Shop),  Modern XL/XE(576K), Modern XL/XE(1088K) for content that needs more than 64K.  Atari XE Game System for the Atari XE Game System or XEGS console games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "641",
+        "English": "Enable for content that needs Atari BASIC in order to run.  A proper ROM file (ATARIBAS.ROM) is needed.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "642",
+        "English": "This enables ALL SIO acceleration.  Enabled improves loading speed for Disk and Cassette images.  Disable only for protected disk (.ATX) and protected cassette images.  Reboot required if change made while loading a cassette image.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "643",
+        "English": "Forces emulated system to boot from autoboot cassette images by holding down the \"START\" key on boot.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "644",
+        "English": "If the Atari800 legacy configuration file, .atari800.cfg, is found, it will be loaded, and if not found, a new will be created.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Atari800"
+    },
+    {
+        "No.": "645",
+        "English": "Enable this to force output at a fixed rate. Try 60 FPS if you encounter screen tearing or vsync issues.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "646",
+        "English": "Make sure to test it in each game before using it. Complex late era DOS games might have problems.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "647",
+        "English": "Set the behavior of the start menu before and after launching a game.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "648",
+        "English": "Set the transparency level of the Menu and the On-Screen Keyboard.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "649",
+        "English": "Always bind the L3 controller button to show the menu to swap CDs/Disks and use the On-Screen Keyboard.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "650",
+        "English": "You can disable input handling from a mouse or a touchscreen (emulated mouse through joypad will still work).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "651",
+        "English": "DOSBox Pure can automatically apply a gamepad control mapping scheme when it detects a game.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "652",
+        "English": "Select the keyboard layout (will not change the On-Screen Keyboard).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "653",
+        "English": "When emulating DOS as fast as possible, how much time per frame should be used by the emulation.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "654",
+        "English": "Enables certain games with support for the Voodoo 3D accelerator.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "655",
+        "English": "Options to tweak the behavior of the 3dfx Voodoo emulation.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "656",
+        "English": "Adjust the aspect ratio to approximate what a CRT monitor would display (works best on high resolution displays and without integer scaling).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "657",
+        "English": "The amount of (high) memory that the emulated machine has. You can also disable extended memory (EMS/XMS).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "658",
+        "English": "Emulated CPU type. Auto is the fastest choice.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "659",
+        "English": "When running an installed operating system, modifications to the C: drive will be made on the disk image by default.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "660",
+        "English": "Controls the amount of free space available on the D: drive when running an installed operating system.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "661",
+        "English": "The normal core can be more stable when running an installed operating system.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "662",
+        "English": "Select the .SF2 SoundFont file, .ROM file or interface used for MIDI output.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "663",
+        "English": "Enable Gravis Ultrasound emulation. Settings are fixed at port 0x240, IRQ 5, DMA 3.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "DOSBox-pure"
+    },
+    {
+        "No.": "664",
+        "English": "Change pixel format, some games require this to render properly, it could impact performances on some platforms",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "665",
+        "English": "Change emulated cpu frequency for various systems, by increasing you can fix native slowdowns in some games, by decreasing you can help performance on low-end devices",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "666",
+        "English": "Configure samplerate, it could impact performances, closing & starting game again is required",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "667",
+        "English": "Configure sample interpolation, it could impact performances",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "668",
+        "English": "Configure FM interpolation, it could impact performances",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "669",
+        "English": "Configure button combination to enter cabinet service menu",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "670",
+        "English": "Rotate display for vertical screens",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "671",
+        "English": "Ignore game's original refresh rate and try to run it at 60hz instead. It will cause incorrect game speed and frame pacing. It will try to use your monitor's correct refresh rate instead of 60hz if this refresh rate is between 59hz and 61hz.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "672",
+        "English": "Allow romsets from your system/fbneo/patched/ folder to override your romsets, crcs will be ignored but sizes and names must still match, you need to close content for this setting to take effect",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "673",
+        "English": "Mitigate analog controls speed, some games might require low values to be playable",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "674",
+        "English": "Change emulated crosshair behavior",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "675",
+        "English": "Use at your own risk, it could improve performance on some emulated systems for low-end devices, but there are known side effects : savestates won't be compatible with normal interpreter, and some systems won't work",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "676",
+        "English": "Enable high scores support, you also need the file hiscore.dat in your system/fbneo/ folder",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "677",
+        "English": "Skip frames to avoid audio buffer under-run (crackling). Improves performance at the expense of visual smoothness. 'Auto' skips frames when advised by the frontend. 'Manual' uses the 'Frameskip Threshold (%)' setting. 'Fixed' uses the 'Fixed Frameskip' setting.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "678",
+        "English": "Xtreme TurboBoost helps flesh out a more optimal differential between performance/speed on Lower Spec Hardwares, such as the Mini Classics.  To further enhance things, desynch Audio in RetroArch, Settings, Audio.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "679",
+        "English": "Enable LowPass Filter",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "680",
+        "English": "Dipswitch setting, setting is specific to the running romset. Some dipswitches require a restart to work properly.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FinalBurn Neo"
+    },
+    {
+        "No.": "681",
+        "English": "Allows simultaneous UP+DOWN or LEFT+RIGHT button combinations, which can create different effects in some games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FCEUmm"
+    },
+    {
+        "No.": "682",
+        "English": "Removes the 8-per-scanline hardware limit. This reduces sprite flickering but can cause some games to glitch since some use this for effects.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "FCEUmm"
+    },
+    {
+        "No.": "683",
+        "English": "Selects internal colorization palette when 'Internal Palette' is set to 'TWB64 - Pack 3'.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Gambatte"
+    },
+    {
+        "No.": "684",
+        "English": "Selects internal colorization palette when 'Internal Palette' is set to 'PixelShift - Pack 1'.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Gambatte"
+    },
+    {
+        "No.": "685",
+        "English": "Set the amount of extra colums to draw for widescreen",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Genesis Plus GX Wide"
+    },
+    {
+        "No.": "686",
+        "English": "If extra columns are enabled, this option allows to specify their translucency.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Genesis Plus GX Wide"
+    },
+    {
+        "No.": "687",
+        "English": "Enable this to fix the VDP DMA boundary bug",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Genesis Plus GX Wide"
+    },
+    {
+        "No.": "688",
+        "English": "Optional, deliberately non-authentic post-processing applied only to the FM (YM2612/YM3438) bus: a stereo widener to spread the hard-panned FM image, a fixed-point reverb send, and a gentle analog-style low-pass with soft saturation. Adds width and depth to the FM voice at the cost of accuracy; PSG, PCM and CD-DA are left untouched. Fully integer/deterministic. 'Off' leaves the original sound bit-identical.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Genesis Plus GX Wide"
+    },
+    {
+        "No.": "689",
+        "English": "Experimental. When a sound effect commandeers an FM (YM2612) channel mid-song, the displaced musical note is snapshotted onto a hidden shadow voice that keeps sounding and is faded out smoothly with a synthetic decay so the stolen background note finishes instead of being cut dead. 'Conservative' uses fewer shadow voices and a shorter fade; 'Aggressive' recovers more. The trigger is gated by note age and audibility so it fires sparingly. Deterministic; 'Off' is bit-exact.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Genesis Plus GX Wide"
+    },
+    {
+        "No.": "690",
+        "English": "Select the audio output sample rate. The Mega Drive/Genesis has no sample-based audio hardware and no fixed output rate (sound is synthesised in real time), so this is a free choice. Higher rates raise the Nyquist limit, reducing aliasing and high-frequency low-pass 'smearing', and give better time-domain resolution, at the cost of more CPU for resampling. 'Auto' queries the frontend's target rate and selects the supported rate closest to it, which avoids extra frontend resampling.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Genesis Plus GX Wide"
+    },
+    {
+        "No.": "691",
+        "English": "Internal audio rendering rate. Both values keep audio timing exact. 65536 renders the full mixer bandwidth; 32768 matches the bandwidth of real hardware's default PWM output and halves audio mixing work.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "gpSP"
+    },
+    {
+        "No.": "692",
+        "English": "When 'Frameskip' is set to 'Auto (Threshold)', specifies the audio buffer occupancy threshold (percentage) below which frames will be skipped. Higher values reduce the risk of crackling by causing frames to be dropped more frequently.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "693",
+        "English": "Set video update frequency. Internally, the Lynx renders at a variable rate from 0 to 75Hz. Frames that occur between video update events will be dropped. Higher rates may increase video smoothness (depending on actual game frame rate) but can cause tearing on 60Hz displays.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Handy"
+    },
+    {
+        "No.": "694",
+        "English": "Rotate the virtual console screen to achieve the correct layout of 'portrait' oriented games on a conventional (landscape) display.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Handy"
+    },
+    {
+        "No.": "695",
+        "English": "Apply an image 'ghosting' effect by blending multiple successive video frames. Mimics the display characteristics of the Lynx's LCD panel and helps to smooth the appearance of low frame rate games. Higher frame counts improve the effect at the expense of increased performance overheads.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Handy"
+    },
+    {
+        "No.": "696",
+        "English": "Higher values can reduce slowdowns in games. WARNING: Can cause glitches and crashes.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "697",
+        "English": "Virtually rotate screen orientation and button mappings automatically for known games. When set to 'Manual', screen rotation is adjusted by pressing the SELECT button, otherwise a fixed rotation can be set to either 0, 90, 180 or 270 degrees counter-clockwise.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle Lynx"
+    },
+    {
+        "No.": "698",
+        "English": "Force 60Hz instead of original 75Hz refresh rate, for perfectly smooth movement on 60Hz displays",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle Lynx"
+    },
+    {
+        "No.": "699",
+        "English": "Bypasses a copyright warning from being displayed when loading content.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "700",
+        "English": "Bypasses a warning message from being displayed when loading content containing known issues.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "701",
+        "English": "Toggles the visibility of the internal MAME menu.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "702",
+        "English": "Restart core required. Enables MAME menu input remapping. (!NETPLAY).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003 (0.78)"
+    },
+    {
+        "No.": "703",
+        "English": "Recommended to use default which will save the hiscore when closing content. Recursively will save repeatedly the entire time during gameplay. Disabled will bypass the use of the hiscore.dat file entirely.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "704",
+        "English": "Selects a specific x-y coordinates input device to read.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "705",
+        "English": "Configures which input types are being read.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "706",
+        "English": "Used to display fake dip switches and input control options within the MAME menu when available.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "707",
+        "English": "Restart core required. Allow audio sample files to be loaded when provided in the samples directory.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "708",
+        "English": "Speedhack for Midway sound hardware. Improves performance.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003 (0.78)"
+    },
+    {
+        "No.": "709",
+        "English": "Number of audio samples taken per second. Higher rates provide better quality audio.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "710",
+        "English": "Restart core required.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "711",
+        "English": "Modifies the brightness level being used.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "712",
+        "English": "Modifies the gamma level being used.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "713",
+        "English": "When enabled, the display will be rotated to the orientation used by actual hardware.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "714",
+        "English": "Skips a number of frames from being displayed. Can be used to squeeze performance out of lower spec platforms.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "715",
+        "English": "Restart core required. Used to display custom artwork when available.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "716",
+        "English": "Restart core required. Increases the artwork resolution by the selected multiplier value.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "717",
+        "English": "Used to under or over clock the emulated CPU by a specified percentage.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "718",
+        "English": "Restart core required. Forces the selected cyclone mode to be used.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "719",
+        "English": "Restart core required. Enables MAME menu input remapping.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "720",
+        "English": "Disable to use actual hardware such as a fixed position high/low shifter.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "721",
+        "English": "Emulates the center position of an analog joystick when using digital controls. Automatically returns the center position when no direction is being applied.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "MAME 2003-Plus"
+    },
+    {
+        "No.": "722",
+        "English": "Composite tries to recreate the original console output and can show more details in some games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "723",
+        "English": "Choose the maximum image width to be displayed. Lower values will crop the right side of the image (for 352 px width games).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "724",
+        "English": "First rendered scanline. Higher values will crop the top of the image.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "725",
+        "English": "Last rendered scanline. Lower values will crop the bottom of the image.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "726",
+        "English": "Modify the volume of PSG Sound Channel 0.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle PCE Fast"
+    },
+    {
+        "No.": "727",
+        "English": "Modify the volume of PSG Sound Channel 1.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle PCE Fast"
+    },
+    {
+        "No.": "728",
+        "English": "Modify the volume of PSG Sound Channel 2.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle PCE Fast"
+    },
+    {
+        "No.": "729",
+        "English": "Modify the volume of PSG Sound Channel 3.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle PCE Fast"
+    },
+    {
+        "No.": "730",
+        "English": "Modify the volume of PSG Sound Channel 4.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle PCE Fast"
+    },
+    {
+        "No.": "731",
+        "English": "Modify the volume of PSG Sound Channel 5.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle PCE Fast"
+    },
+    {
+        "No.": "732",
+        "English": "Higher values will make the mouse cursor move faster.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "733",
+        "English": "When RUN and SELECT are pressed simultaneously, disable both buttons temporarily instead of resetting.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "734",
+        "English": "Choose if port 1 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "735",
+        "English": "Choose if port 2 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "736",
+        "English": "Choose if port 3 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "737",
+        "English": "Choose if port 4 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "738",
+        "English": "Choose if port 5 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "739",
+        "English": "Enable the turbo toggle hotkeys (buttons III and IV).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle PCE Fast"
+    },
+    {
+        "No.": "740",
+        "English": "Assign RetroPad's L3/R3 buttons as turbo toggle hotkeys instead of buttons III and IV. Works only as long as nothing is assigned to the L3/R3 buttons. You can avoid remapping buttons III and IV when switching to 6-button controller mode with this.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle PCE Fast"
+    },
+    {
+        "No.": "741",
+        "English": "Adjust the time between turbo fire (in frames).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "742",
+        "English": "Load the complete image into memory at startup. Can potentially decrease loading times at the cost of an increased startup time.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "743",
+        "English": "Most games can run on 'System Card 3'. 'Games Express' is needed for several unlicensed games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "744",
+        "English": "Higher values enable faster loading times but can cause issues with a couple of games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "745",
+        "English": "CD game only. Setting this volume control too high may cause sample clipping.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "746",
+        "English": "Remove 16-sprites-per-scanline hardware limit. WARNING: May cause graphics glitching on some games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "747",
+        "English": "Choose the preferred content aspect ratio. When using games that constantly switch between 256 and 352 modes and using auto aspect, it's best to set the horizontal width to 342 to minimize resizing and extra black lines since this width is in ratio of 256 width mode (or something like that, just test with Asuka 100% which is one of the games that switch between these modes).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "748",
+        "English": "Enabling this will allow pressing / quickly alternating / holding both left and right (or up and down) directions at the same time. This may cause movement-based glitches.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "749",
+        "English": "Enable up to 5-player multitap emulation. Disabling this is only needed in some cases (e.g. Cho Aniki).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "750",
+        "English": "Enable turbo buttons. Hotkeys (buttons III and IV) can behave as either toggle switches or dedicated (hold to use) turbo buttons.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "751",
+        "English": "Assign RetroPad's L3/R3 buttons as turbo hotkeys instead of buttons III and IV. Works only in 'Toggle' mode and only as long as nothing is assigned to the L3/R3 buttons. You can avoid remapping buttons III and IV when switching to 6-button controller mode with this.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "752",
+        "English": "Automatically load the Games Express BIOS regardless of CD BIOS setting when loading Games Express CD games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "753",
+        "English": "This is helpful to run homebrew games or to isolate games that will not run in SuperGrafx mode (like Space Harrier). Save states are not compatible with each mode. It's better to leave this option off unless needed. Known SuperGrafx games (like Dai-Makaimura, Aldyns) will automatically switch to SuperGrafx regardless of this option.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle SuperGrafx"
+    },
+    {
+        "No.": "754",
+        "English": "Choose the orientation of the console screen. 'Portrait' can be used to achieve the correct layout of portrait oriented games on a conventional (landscape) display. 'Manual' enables rotation via the controller (default button: SELECT).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle WonderSwan"
+    },
+    {
+        "No.": "755",
+        "English": "Choose the preferred button mapping. 'Auto' adjusts button mapping to match the current display rotation.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle WonderSwan"
+    },
+    {
+        "No.": "756",
+        "English": "Choose the colorization of WonderSwan (Mono) games. 'WS' palettes mimic the display of the original WonderSwan hardware.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle WonderSwan"
+    },
+    {
+        "No.": "757",
+        "English": "24-bit is slower and not available on all platforms.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle WonderSwan"
+    },
+    {
+        "No.": "758",
+        "English": "When 'Frameskip' is set to 'Manual', this specifies the audio buffer occupancy threshold (percentage) below which frames will be skipped. Higher values reduce the risk of crackling by causing frames to be dropped more frequently.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle WonderSwan"
+    },
+    {
+        "No.": "759",
+        "English": "Update the display at 60Hz instead of the native 75Hz WonderSwan refresh rate by dropping every fifth frame. Reduces video smoothness, but avoids screen tearing on displays that do not support native operation above 60Hz.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle WonderSwan"
+    },
+    {
+        "No.": "760",
+        "English": "Higher values improve sound quality slightly at the expense of performance.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle WonderSwan"
+    },
+    {
+        "No.": "761",
+        "English": "Apply a low pass audio filter to 'soften' the sometimes harsh chiptunes produced by the WonderSwan.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle WonderSwan"
+    },
+    {
+        "No.": "762",
+        "English": "Select the 3D mode. Anaglyph - used in conjunction with classic dual-lens-color glasses. Cyberscope - intended for use with the CyberScope 3D device. sidebyside - the left-eye image is displayed on the left, and the right-eye image is displayed on the right. vli - Vertical lines alternate between left and right view. hli - Horizontal lines alternate between left and right view.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle VB"
+    },
+    {
+        "No.": "763",
+        "English": "Anaglyph preset colors.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle VB"
+    },
+    {
+        "No.": "764",
+        "English": "Number of pixels to separate left and right views in side-by-side 3D mode.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle VB"
+    },
+    {
+        "No.": "765",
+        "English": "Choose between faster and accurate (slower) emulation.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Beetle VB"
+    },
+    {
+        "No.": "766",
+        "English": "Runs loaded content with a specific Game Boy model. 'Autodetect' will select the most appropriate model for the current game.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "mGBA"
+    },
+    {
+        "No.": "767",
+        "English": "Use official BIOS/bootloader for emulated hardware, if present in RetroArch's system directory.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "mGBA"
+    },
+    {
+        "No.": "768",
+        "English": "When using an official BIOS/bootloader, skip the start-up logo animation. This setting is ignored when 'Use BIOS File if Found' is disabled.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "mGBA"
+    },
+    {
+        "No.": "769",
+        "English": "Selects which palette is used for Game Boy games that are not Game Boy Color or Super Game Boy compatible, or if the model is forced to Game Boy.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "mGBA"
+    },
+    {
+        "No.": "770",
+        "English": "Use the palettes for Game Boy games that have presets on the Game Boy Color or Super Game Boy.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "mGBA"
+    },
+    {
+        "No.": "771",
+        "English": "Display Super Game Boy borders when running Super Game Boy enhanced games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "mGBA"
+    },
+    {
+        "No.": "772",
+        "English": "Adjusts output colors to match the display of real GBA/GBC hardware.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "mGBA"
+    },
+    {
+        "No.": "773",
+        "English": "Simulates LCD ghosting effects. 'Simple' performs a 50:50 mix of the current and previous frames. 'Smart' attempts to detect screen flickering, and only performs a 50:50 mix on affected pixels. 'LCD Ghosting' mimics natural LCD response times by combining multiple buffered frames. 'Simple' or 'Smart' blending is required when playing games that aggressively exploit LCD ghosting for transparency effects (Wave Race, Chikyuu Kaihou Gun ZAS, F-Zero, the Boktai series...).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "mGBA"
+    },
+    {
+        "No.": "774",
+        "English": "Enables a low pass audio filter to reduce the 'harshness' of generated audio.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "mGBA"
+    },
+    {
+        "No.": "775",
+        "English": "Specifies the cut-off frequency of the low pass audio filter. A higher value increases the perceived 'strength' of the filter, since a wider range of the high frequency spectrum is attenuated.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Stella 2014"
+    },
+    {
+        "No.": "776",
+        "English": "Sets ambient sunlight intensity. Can be used by games that included a solar sensor in their cartridges, e.g: the Boktai series.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "mGBA"
+    },
+    {
+        "No.": "777",
+        "English": "Enabling this will allow compatible games with the Game Boy Player boot logo to make the controller rumble. Due to how Nintendo decided this feature should work, it may cause glitches such as flickering or lag in some of these games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "mGBA"
+    },
+    {
+        "No.": "778",
+        "English": "Reduce system load by optimizing so-called 'idle-loops' - sections in the code where nothing happens, but the CPU runs at full speed (like a car revving in neutral). Improves performance, and should be enabled on low-end hardware.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "mGBA"
+    },
+    {
+        "No.": "779",
+        "English": "'Auto' will use the NstDatabase.xml database file for region autodetection. If there is no database present, it will default to NTSC.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "780",
+        "English": "Automatically insert first FDS disk on reset.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "781",
+        "English": "Define which format will be used by savefiles generated for FDS games. Based on the format chosen, FDS savefiles might be used interchangeably with other cores and standalone emulators. It is recommended to use with caution, as improper handling may cause undesired overwrites, or deletion of the existing saves.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "782",
+        "English": "Enable Blargg NTSC filters.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "783",
+        "English": "Color palette to be used. If 'Custom' is selected, the palette used will be taken from the 'custom.pal' file placed in the RetroArch System/BIOS directory.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "784",
+        "English": "Mask out (vertically) the potentially random glitchy video output that would have been hidden by the bezel around the edge of a standard-definition television screen.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "785",
+        "English": "Mask out (horizontally) the potentially random glitchy video output that would have been hidden by the bezel around the edge of a standard-definition television screen.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "786",
+        "English": "RetroArch's aspect ratio must be set to 'Core Provided' in the Video settings. 'Auto' will use the NstDatabase.xml database file for aspect ratio autodetection. If there is no database present, it will default to NTSC.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "787",
+        "English": "The Game Genie cheat device could inadvertently introduce sound distortion in games. By enabling this, you can simulate the distortion it would add to a game's sound.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "788",
+        "English": "Enable configuration of low-level audio channel parameters.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "789",
+        "English": "Modify Square 1 Channel Volume %.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "790",
+        "English": "Modify Square 2 Channel Volume %.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "791",
+        "English": "Modify Triangle Channel Volume %.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "792",
+        "English": "Modify Noise Channel Volume %.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "793",
+        "English": "Modify DPCM Channel Volume %.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "794",
+        "English": "Modify FDS Channel Volume %.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "795",
+        "English": "Modify MMC5 Channel Volume %.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "796",
+        "English": "Modify VRC6 Channel Volume %.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "797",
+        "English": "Modify VRC7 Channel Volume %.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "798",
+        "English": "Modify N163 Channel Volume %.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "799",
+        "English": "Modify S5B Channel Volume %.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "800",
+        "English": "Specify whether the audio output should be mono or stereo.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "801",
+        "English": "Manually select a 4 Player Adapter if needed. Some games will not recognize the adapter correctly through the NstDatabase.xml database, this option should help fix that.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "802",
+        "English": "Rotate the A/B/X/Y buttons clockwise.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "803",
+        "English": "Select the device you wish to use for the Arkanoid paddle.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "804",
+        "English": "Set the range for the Arkanoid paddle.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "805",
+        "English": "Select the device you wish to use for the Zapper.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "806",
+        "English": "Set whether to show the crosshair when the Zapper is used.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "807",
+        "English": "Set the turbo pulse speed for the Turbo B and Turbo A buttons.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "808",
+        "English": "Remove 8-sprites-per-scanline hardware limit.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "809",
+        "English": "Overclock the emulated CPU.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Nestopia"
+    },
+    {
+        "No.": "810",
+        "English": "Specify which region the system is from. 'NTSC' is 60 Hz while 'PAL' is 50 Hz. 'Auto' will detect the region of the currently loaded content. Games may run faster or slower than normal if the incorrect region is selected.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "811",
+        "English": "Specify which BIOS to use. 'Auto' will attempt to load a real bios file from the frontend 'system' directory, falling back to high level emulation if unavailable. 'HLE' forces high level BIOS emulation. It is recommended to use an official bios file for better compatibility.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "812",
+        "English": "When using an official BIOS file, specify whether to show the PlayStation logo upon starting or resetting content. Warning: Enabling the boot logo may reduce game compatibility.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "813",
+        "English": "Emulate a second memory card in slot 2. This will be shared by all games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "814",
+        "English": "Reads the specified amount of sectors ahead of time to try to avoid later stalls. ",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "815",
+        "English": "Dynamically recompile PSX CPU instructions to native instructions. Much faster than using an interpreter, but may be less accurate on some platforms.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "816",
+        "English": "Overclock or under-clock the PSX CPU. Should be much less than 100 (something like 57) due to some real hardware slowdowns not being emulated. Usually should be left at 'Auto', else glitches or hangs are likely.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "817",
+        "English": "Enable emulation of the dithering technique used by the PSX to smooth out color banding artifacts. \"Force\" enables it even if the game turns it off. Increases performance requirements.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "818",
+        "English": "Specify the maximum number of frames that can be skipped before a new frame is rendered.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "819",
+        "English": "Show the internal frame rate at which the emulated PlayStation system is rendering content. Note: Requires on-screen notifications to be enabled in the libretro frontend.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "820",
+        "English": "Instead of the exact 50 or 60 (maximum) fps for PAL/NTSC the real console runs closer to something like 49.75 and 59.81fps (varies slightly between hw versions). PCSX-ReARMed uses the former \"round\" framerates to better match modern displays, however that may cause audio/video desync in games like DDR and Spyro 2 (intro). With this option you can try to use fractional framerates.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "821",
+        "English": "Improves color depth for true color modes (most FMVs and occasional title screens). Causes higher CPU usage due to double memory bandwidth requirement, even in 15bpp modes. Takes effect on game reload only (libretro limitation).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "822",
+        "English": "Slower but more accurate GPU linked list processing. Needed by only a few games like Vampire Hunter D. Should be autodetected in most cases.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "823",
+        "English": "The PSX can display graphics way into the horizontal borders, even if most screens would crop it. This option tries to display all such graphics. Note that this may result in unusual resolutions that your device might not handle well. The 'Hack' option is intended for the widescreen hacks.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "824",
+        "English": "The PSX has a feature allowing it to shift the image position on screen. Some (mostly PAL) games used this feature in a strange way making the image miscentered and causing uneven borders to appear. With 'Auto' the emulator tries to correct this miscentering automatically. 'Game-controlled' uses the settings supplied by the game. 'Manual' allows to override those values with the settings below.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "825",
+        "English": "X offset of the frame buffer. Only effective when 'Screen centering' is set to 'Manual'.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "826",
+        "English": "Y offset of the frame buffer. Only effective when 'Screen centering' is set to 'Manual'.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "827",
+        "English": "Height adjustment. Only effective when 'Screen centering' is set to 'Manual'.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "828",
+        "English": "When enabled, games that run in high resolution video modes (480i, 512i) will produced interlaced video output. While this displays correctly on CRT televisions, it will produce artifacts on modern displays. When disabled, all video is output in progressive format. Note: there are games that will glitch is this is off.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "829",
+        "English": "Render games that do not already run in high resolution video modes (480i, 512i) at twice the native internal resolution. Improves the fidelity of 3D models at the expense of increased performance requirements. 2D elements are generally unaffected by this setting.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "830",
+        "English": "('Enhanced Resolution' Hack) Improves performance but reduces compatibility and may cause rendering errors.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "831",
+        "English": "('Enhanced Resolution' Hack) Solves some texturing issues in some games in Enhanced Resolution mode. May cause a small performance hit.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "832",
+        "English": "Enable emulation of the reverb feature provided by the PSX SPU. Can be disabled to improve performance at the expense of reduced audio quality/authenticity.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "833",
+        "English": "Enable emulation of the in-built audio interpolation provided by the PSX SPU. 'Gaussian' sounds closest to original hardware. 'Simple' improves performance but reduces quality. 'Cubic' has the highest performance requirements but produces increased clarity. Can be disabled entirely for maximum performance, at the expense of greatly reduced audio quality.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "834",
+        "English": "Enable playback of CD (CD-DA) audio tracks. Can be disabled to improve performance in games that include CD audio, at the expense of missing music.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "835",
+        "English": "Enable playback of XA (eXtended Architecture ADPCM) audio tracks. Can be disabled to improve performance in games that include XA audio, at the expense of missing music.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "836",
+        "English": "Emulates the PSX SPU on another CPU thread. May cause audio glitches in some games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "837",
+        "English": "Show configuration options for all input devices: analog response, Multitaps, light guns, etc. Quick Menu may need to be toggled for this setting to take effect.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "838",
+        "English": "Specify range limits for the left and right analog sticks when input device is set to 'analog' or 'dualshock'. 'Square' bounds improve input response when using controllers with highly circular ranges that are unable to fully saturate the X and Y axes at 45 degree deflections.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "839",
+        "English": "Enable haptic feedback when using a rumble-equipped gamepad with input device set to 'dualshock'.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "840",
+        "English": "When the input device type is DualShock, this option allows the emulated DualShock to be toggled between DIGITAL and ANALOG mode like original hardware. You can select the button combination for this.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "841",
+        "English": "Connect a virtual PSX Multitap peripheral to either controller 'Port 1' or controller 'Port 2' for 5 player simultaneous input, or to both 'Ports 1 and 2' for 8 player input. Mutlitap usage requires compatible games.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "842",
+        "English": "Set the deadzone of the RetroPad left analog stick when simulating the 'twist' action of emulated neGcon Controllers. Used to eliminate drift/unwanted input.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "843",
+        "English": "Specify the analog response when using a RetroPad left analog stick to simulate the 'twist' action of emulated neGcon Controllers.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "844",
+        "English": "Adjust responsiveness of emulated 'mouse' input devices.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "845",
+        "English": "Toggle player 1's crosshair for the Guncon or Konami Gun. Only works if RGB32 output is off (video options).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "846",
+        "English": "Toggle player 2's crosshair for the Guncon or Konami Gun. Only works if RGB32 output is off (video options).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "847",
+        "English": "Apply an X axis offset to light gun input when emulating a Konami Gun (Hyper Blaster / Justifier) device. Can be used to correct aiming misalignments.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "848",
+        "English": "Apply a Y axis offset to light gun input when emulating a Konami Gun (Hyper Blaster / Justifier) device. Can be used to correct aiming misalignments.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "849",
+        "English": "Apply an X axis offset to light gun input when emulating a Guncon device. Can be used to correct aiming misalignments.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "850",
+        "English": "Apply a Y axis offset to light gun input when emulating a Guncon device. Can be used to correct aiming misalignments.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "851",
+        "English": "Adjust relative magnitude of horizontal light gun motion when emulating a Guncon device. Can be used to correct aiming misalignments.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "852",
+        "English": "Adjust relative magnitude of vertical light gun motion when emulating a Guncon device. Can be used to correct aiming misalignments.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "853",
+        "English": "Enable emulation of the PSX CPU instruction cache. Improves accuracy at the expense of increased performance overheads. Required for Formula One 2001, Formula One Arcade and Formula One 99. [Interpreter only; partial on lightrec and ARM dynarecs]",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "854",
+        "English": "Enable emulation of some almost never used PSX's debug features. This causes a performance hit, is not useful for games and is intended for PSX homebrew and romhack developers only. Only enable if you know what you are doing. [Interpreter only]",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "855",
+        "English": "This makes the emulated CD-ROM extremely fast and can reduce loading times in some cases. Warning: many games were not programmed to handle such a speed. The game (or even the emulator) MAY CRASH at ANY TIME if this is enabled.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "856",
+        "English": "By default, PCSX-ReARMed will apply auxiliary compatibility hacks automatically, based on the currently loaded content. This behaviour is required for correct operation, but may be disabled if desired.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "857",
+        "English": "Will cause crashes when loading, and lead to memory card failure.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "858",
+        "English": "May cause rendering errors.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "859",
+        "English": "Will cause rendering errors.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "860",
+        "English": "Will cause some games to run too quickly. Should be disabled in almost all cases.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PCSX-ReARMed"
+    },
+    {
+        "No.": "861",
+        "English": "Specify which region the system is from. 'PAL'/'Europe' is 50hz while 'NTSC'/'US' is 60hz. Games may run faster or slower than normal (or produce errors) if the incorrect region is selected.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "862",
+        "English": "Choose which type of hardware (SMS or Game Gear) the core should emulate when running Master System content.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "863",
+        "English": "Choose which ROM mapper the core should apply. 'Auto' will work for a wide range of content, but in some cases automatic detection fails.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "864",
+        "English": "Choose which colour palette should be used when an SMS game runs in one of the SG-1000 graphics modes.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "865",
+        "English": "Emulate a Sega CD RAM cart, used for save game data. WARNING: When enabled, internal save data (BRAM) will be discarded.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "866",
+        "English": "Choose the preferred content aspect ratio. This will only apply when RetroArch's aspect ratio is set to 'Core Provided' in the Video settings.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "867",
+        "English": "Apply an image 'ghosting' filter to mimic the display characteristics of the Game Gear and 'Genesis Nomad' LCD panels.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "868",
+        "English": "Specify video rendering method. 'Accurate' is slowest, but most exact. 'Good' is faster, but fails if colors change mid-frame too often. 'Fast' renders the complete frame in one pass, and is incompatible with games that rely on mid-frame palette/sprite table updates.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "869",
+        "English": "Higher values increase sound quality. Lower values may increase performance. Native is the Mega Drive sound chip rate (~53000). Select this if you want the most accurate audio.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "870",
+        "English": "Enable filtering for Mega Drive FM sound at non-native bitrates. Sound output will improve, at the price of being noticeably slower",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "871",
+        "English": "Enable emulation of the SMS FM Sound Unit. This produces higher quality audio in some games, but non-Japanese titles may fail to run.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "872",
+        "English": "Select the Mega Drive/Genesis FM chip type. Model 1 Mega Drive/Genesis mostly used YM2612, which produced a distinct distortion. YM3438 was used in model 2 consoles.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "873",
+        "English": "Enable a low pass audio filter to better simulate the characteristic sound of a Model 1 Mega Drive/Genesis. Note that only Model 1 and its add-ons (Sega CD, 32X) employed a physical low pass filter.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "874",
+        "English": "Choose which type of controller is plugged into slot 1. Note that a multiplayer adaptor uses both slots.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "875",
+        "English": "Choose which type of controller is plugged into slot 2. This setting is ignored when a multiplayer adaptor is plugged into slot 1.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "876",
+        "English": "Enable dynamic recompilers which help to improve performance. Less accurate than interpreter CPU cores, but significantly faster.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "877",
+        "English": "Overclock the emulated 68K chip. Can reduce slowdown, but may cause glitches.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PicoDrive"
+    },
+    {
+        "No.": "878",
+        "English": "Specifies number of colors to display on-screen. 24-bit may increase performance overheads on some platforms.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Stella 2014"
+    },
+    {
+        "No.": "879",
+        "English": "Enables a low pass audio filter to soften the 'harsh' sound produced by the Atari 7800's TIA chip.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "ProSystem"
+    },
+    {
+        "No.": "880",
+        "English": "Maps Player 2's joystick to the right analog stick of Player 1's RetroPad. Enables dual stick control in supported games (e.g. Robotron: 2084, T:ME Salvo).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "ProSystem"
+    },
+    {
+        "No.": "881",
+        "English": "Sets the built-in menu font size",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "882",
+        "English": "Configure the CPU speed. Can be used to slow down games that run too fast or to speed up floppy loading times.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "883",
+        "English": "Sets the amount of RAM to be used by the system.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "884",
+        "English": "Set the joypad type for player 1.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "885",
+        "English": "Set the joypad type for player 2.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "886",
+        "English": "Assigns a keyboard key to joypad's SELECT button since some games use these keys as the Start or Insert Coin buttons.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "887",
+        "English": "Enable software MIDI.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "888",
+        "English": "Sets MIDI output type.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "889",
+        "English": "Sets the volume of the ADPCM sound channel.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "890",
+        "English": "Sets the volume of the OPM sound channel.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "891",
+        "English": "By default using the native Disk Swap interface within RetroArch's menu will swap the disk in drive FDD1. Change this option to swap disks in drive FDD0.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "892",
+        "English": "When enabled, last loaded fdd path will be saved for each drive and then auto-loaded on startup. When disabled, FDDx starts empty.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "893",
+        "English": "When enabled, last loaded hdd path will be saved for each drive and then auto-loaded on startup. When disabled, HDDx starts empty.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "894",
+        "English": "Produces rumble effect on supported devices when reading from floppy disks.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "895",
+        "English": "Select [Mouse] or [Joypad] to control in-game mouse pointer.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "896",
+        "English": "Swaps TRIG1 and TRIG2 buttons when a 2-button gamepad is selected.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "897",
+        "English": "When set to [enabled], core runs as fast as possible. Can cause audio desync. Setting this [disabled] is recommended.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "898",
+        "English": "Choose how many frames will be skipped to improve performance at the expense of visual smoothness.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "899",
+        "English": "Prioritize reducing video latency over audio latency and/or stuttering.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "900",
+        "English": "For compatibility with modern displays, slightly adjust frame rates reported to frontend in order to reduce the chances of audio stuttering.  Disable to use actual frame rates.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "901",
+        "English": "Prevents audio from desynchronizing by simply discarding any audio samples generated past the requested amount per frame slice.  Forces 'No Wait Mode' to [enabled], use appropriate frontend settings to properly throttle content.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "902",
+        "English": "TODO:",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "PX68K"
+    },
+    {
+        "No.": "903",
+        "English": "Recommended: N88-BASIC V2/V1H for PC-8800 software, N-BASIC for PC-8000 software.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "QUASI88"
+    },
+    {
+        "No.": "904",
+        "English": "Recommended: Run Sub-CPU only during disk access.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "QUASI88"
+    },
+    {
+        "No.": "905",
+        "English": "Recommended: 4MHz or 8MHz. Some software may run too fast with an 8MHz CPU.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "QUASI88"
+    },
+    {
+        "No.": "906",
+        "English": "Recommended: OPNA. Some software will sound different when using OPN hardware.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "QUASI88"
+    },
+    {
+        "No.": "907",
+        "English": "Recommended: ON. Enables more accurate IO timing for the floppy disk controller.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "QUASI88"
+    },
+    {
+        "No.": "908",
+        "English": "Recommended: OFF. May be required for some PC-8000 software.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "QUASI88"
+    },
+    {
+        "No.": "909",
+        "English": "Recommended: OFF. Changes the core's preferred save behavior.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "QUASI88"
+    },
+    {
+        "No.": "910",
+        "English": "Recommended: N/A. Imitates the read sounds on the floppy disk controller using the controller's rumble.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "QUASI88"
+    },
+    {
+        "No.": "911",
+        "English": "Recommended: Full. Allows the core to scale the image down. Only recommended for display heights below 400.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "QUASI88"
+    },
+    {
+        "No.": "912",
+        "English": "Remove the borders at the top and bottom of the screen, typically unused by games and hidden by the bezel of a standard-definition television. 'Auto' will attempt to detect and crop the ~8 pixel overscan based on the current content.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "913",
+        "English": "Blend adjacent pixels when game switches to hi-res mode (512x448). Required for certain games that use hi-res mode to produce transparency effects (Kirby's Dream Land, Jurassic Park...).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "914",
+        "English": "Apply an audio filter. 'Gaussian' reproduces the bass-heavy sound of the original hardware. 'Cubic' and 'Sinc' are less accurate, and preserve more of the high range.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "915",
+        "English": "SuperFX coprocessor frequency multiplier. Can improve frame rate or cause timing errors. Values under 100% can improve game performance on slow devices.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "916",
+        "English": "Overclock SNES CPU. May cause games to crash! Use 'Light' for shorter loading times, 'Compatible' for most games exhibiting slowdown and 'Max' only if absolutely required (Gradius 3, Super R-type...).",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "917",
+        "English": "Increases number of sprites that can be drawn simultaneously on screen.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "918",
+        "English": "Randomizes system RAM upon start-up. Some games such as 'Super Off Road' use system RAM as a random number generator for item placement and AI behavior, to make gameplay more unpredictable.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "919",
+        "English": "Some homebrew/ROM hacks require this option to be disabled for correct operation.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "920",
+        "English": "Some homebrew/ROM hacks require this option to be enabled for correct operation.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "921",
+        "English": "Enable configuration of Super Scope / Justifier / M.A.C.S. rifle input. NOTE: Quick Menu must be toggled for this setting to take effect.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "922",
+        "English": "Swap the positions of the Super Scope 'Fire' and 'Cursor' buttons.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "923",
+        "English": "Change the crosshair size on screen.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "924",
+        "English": "Change the crosshair color on screen.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "925",
+        "English": "Enable configuration of low-level video layer / GFX effect / audio channel parameters. NOTE: Quick Menu must be toggled for this setting to take effect.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Snes9x"
+    },
+    {
+        "No.": "926",
+        "English": "Simulates CRT phosphor ghosting effects. 'Simple' performs a 50:50 mix of the current and previous frames. 'Ghosting' accumulates pixels from multiple successive frames. May be used to alleviate screen flicker when games display large numbers of simultaneous objects by toggling sprites on alternate frames.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Stella 2014"
+    },
+    {
+        "No.": "927",
+        "English": "Enables a low pass audio filter to soften the 'harsh' sound produced by the Atari 2600's TIA chip.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Stella 2014"
+    },
+    {
+        "No.": "928",
+        "English": "Sets the sensitivity for digital emulation of paddle movement. Higher values increase paddle speed. Applies when input device type is set to 'Gamepad'.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Stella 2014"
+    },
+    {
+        "No.": "929",
+        "English": "Sets the sensitivity for analog emulation of paddle movement. Higher values increase paddle speed. Applies when input device type is set to 'Gamepad'.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Stella 2014"
+    },
+    {
+        "No.": "930",
+        "English": "Determines how the speed of the paddle varies when tilting the RetroPad analog stick. 'Linear': Speed is directly proportional to analog stick displacement. 'Quadratic': Speed increases quadratically with analog stick displacement; this allows for greater precision when making small movements without sacrificing maximum speed at full analog range. Applies when input device type is set to 'Gamepad'.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Stella 2014"
+    },
+    {
+        "No.": "931",
+        "English": "Sets the deadzone of the RetroPad analog sticks. Used to eliminate drift/unwanted input when emulating analog paddle movement. Applies when input device type is set to 'Gamepad'.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Stella 2014"
+    },
+    {
+        "No.": "932",
+        "English": "Sets the sensitivity of direct paddle movement. Higher values increase effective paddle speed. Applies when input device type is set to 'Paddles (Stelladaptor)'.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Stella 2014"
+    },
+    {
+        "No.": "933",
+        "English": "Sets the on-screen paddle offset (in ~5 pixel steps) when paddle controller is centred. Applies when input device type is set to 'Paddles (Stelladaptor)'.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "Stella 2014"
+    },
+    {
+        "No.": "934",
+        "English": "Uses BIOS present in RetroArch's system directory.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "VBA Next"
+    },
+    {
+        "No.": "935",
+        "English": "Forces RTC to be enabled even for unknown roms. This is helpful for romhacks that needs RTC (like pokemon romhacks) without a matching override entry.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "VBA Next"
+    },
+    {
+        "No.": "936",
+        "English": "Enable or disable gamepad turbo buttons.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "VBA Next"
+    },
+    {
+        "No.": "937",
+        "English": "Repeat rate of turbo triggers in frames. Higher value triggers more.",
+        "Chinese": "",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": "VBA Next"
+    },
+    {
+        "No.": "",
+        "English": "",
+        "Chinese": "",
         "Japanese": "",
         "Italian": "",
         "French": "",

@@ -7,9 +7,9 @@ LOG_NAME = 'Emu4Vita++.log'
 REG_PREFIX = r'\[[DI]\] \d\d:\d\d:\d\d.\d\d\d\s+?'
 
 OPTION_REGS = (
-    REG_PREFIX + r'desc: (.+)',
+    # REG_PREFIX + r'desc: (.+)',
     REG_PREFIX + r'info: (.+)',
-    REG_PREFIX + r'label\d*: (.+)',
+    # REG_PREFIX + r'label\d*: (.+)',
 )
 
 VALUE_REG = REG_PREFIX + r'value: (.+?);\s*(.*)'
@@ -28,16 +28,18 @@ for name in Path('.').rglob(LOG_NAME):
     for reg in OPTION_REGS:
         for m in re.findall(reg, buf):
             print(m)
+            if m == '(null)':
+                continue
             if reg.startswith(REG_PREFIX + 'desc:'):
                 for s in m.split(' > '):
                     data[core].append(s)
             else:
                 data[core].append(m)
-    for v in re.findall(VALUE_REG, buf):
-        print(v)
-        data[core].append(v[0])
-        for v1 in v[1].split('|'):
-            data[core].append(v1)
+    # for v in re.findall(VALUE_REG, buf):
+    #     print(v)
+    #     data[core].append(v[0])
+    #     for v1 in v[1].split('|'):
+    #         data[core].append(v1)
 
 for k, v in data.items():
     data[k] = list(v)
