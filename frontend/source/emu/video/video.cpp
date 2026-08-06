@@ -116,7 +116,10 @@ void Emulator::Show()
         vita2d_texture *tex = (*gOverlays)[gConfig->graphics[GRAPHICS_OVERLAY] - 1].Get();
         if (tex)
         {
-            vita2d_draw_texture(tex, 0.f, 0.f);
+            if (_overlay_tint_color)
+                vita2d_draw_texture_tint(tex, 0.f, 0.f, _overlay_tint_color);
+            else
+                vita2d_draw_texture(tex, 0.f, 0.f);
         }
     }
 
@@ -171,7 +174,10 @@ void Emulator::Show()
         vita2d_texture *tex = (*gOverlays)[gConfig->graphics[GRAPHICS_OVERLAY] - 1].Get();
         if (tex)
         {
-            vita2d_draw_texture(tex, 0.f, 0.f);
+            if (_overlay_tint_color)
+                vita2d_draw_texture_tint(tex, 0.f, 0.f, _overlay_tint_color);
+            else
+                vita2d_draw_texture(tex, 0.f, 0.f);
         }
     }
 
@@ -464,6 +470,11 @@ void Emulator::_SetupVideoOutput(unsigned width, unsigned height)
 
     _graphics_config_changed = false;
     _last_texture = nullptr;
+
+    if (gConfig->graphics[GRAPHICS_OVERLAY_TRANSPARENCY])
+        _overlay_tint_color = 0xffffff | (((0xff * (10 - gConfig->graphics[GRAPHICS_OVERLAY_TRANSPARENCY]) / 10) & 0xff) << 24);
+    else
+        _overlay_tint_color = 0;
 
     gVideo->Unlock();
 

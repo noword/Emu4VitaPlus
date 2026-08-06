@@ -79,6 +79,7 @@ namespace Emu4VitaPlus
         KEY_PAIR(GRAPHICS_SMOOTH),
         KEY_PAIR(GRAPHICS_OVERLAY),
         KEY_PAIR(GRAPHICS_OVERLAY_MODE),
+        KEY_PAIR(GRAPHICS_OVERLAY_TRANSPARENCY),
     };
 
     const std::unordered_map<uint32_t, LanguageString> Config::ControlTextMap = {
@@ -217,6 +218,7 @@ namespace Emu4VitaPlus
         graphics[GRAPHICS_SMOOTH] = CONFIG_GRAPHICS_SMOOTHER_NO;
         graphics[GRAPHICS_OVERLAY_MODE] = CONFIG_GRAPHICS_OVERLAY_MODE_OVERLAY;
         graphics[GRAPHICS_OVERLAY] = DEFAULT_GRAPHICS_OVERLAY;
+        graphics[GRAPHICS_OVERLAY_TRANSPARENCY] = CONFIG_GRAPHICS_OVERLAY_TRANSPARENCY_0;
     }
 
     void Config::DefaultCoreOptions()

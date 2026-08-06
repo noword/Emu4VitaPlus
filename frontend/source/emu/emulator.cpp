@@ -39,7 +39,8 @@ Emulator::Emulator()
       _speed(1.0),
       _keyboard(nullptr),
       _current_cpu_freq(333),
-      _inited(false)
+      _inited(false),
+      _overlay_tint_color(0)
 {
     LogFunctionName;
     memset(&_info, 0, sizeof(_info));

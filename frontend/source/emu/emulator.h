@@ -177,6 +177,7 @@ private:
     VIDEO_ROTATION _video_rotation;
     Delay<double> _video_delay;
     vita2d_texture *_last_texture;
+    uint32_t _overlay_tint_color;
 
     Audio _audio;
     InputThread _input;

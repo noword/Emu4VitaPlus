@@ -108,6 +108,11 @@ void Ui::CreateTables()
                                                                  &gConfig->graphics[GRAPHICS_OVERLAY],
                                                                  gOverlays->GetConfigs(),
                                                                  std::bind(&Emulator::ChangeGraphicsConfig, gEmulator)),
+                                                  new ItemConfig(LANG_OVERLAY_TRANSPARENCY,
+                                                                 "",
+                                                                 &gConfig->graphics[GRAPHICS_OVERLAY_TRANSPARENCY],
+                                                                 {"0%", "10%", "20%", "30%", "40%", "50%", "60%", "70%", "80%", "90%"},
+                                                                 std::bind(&Emulator::ChangeGraphicsConfig, gEmulator)),
                                                   new ItemBase(LANG_RESET_CONFIGS,
                                                                "",
                                                                std::bind(&Ui::_ResetGraphics, this))});

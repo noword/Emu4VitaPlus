@@ -2026,5 +2026,17 @@
         "Spanish": "",
         "Russian": "Тема оформления",
         "Comments": ""
+    },
+    {
+        "No.": "170",
+        "Tag": "LANG_OVERLAY_TRANSPARENCY",
+        "English": "Overlay transparency",
+        "Chinese": "遮罩透明度",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
 ]
