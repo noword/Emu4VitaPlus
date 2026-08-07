@@ -914,8 +914,8 @@
     {
         "No.": "77",
         "Tag": "LANG_AUTO_SAVE",
-        "English": "Auto Save",
-        "Chinese": "自动存档",
+        "English": "Auto save state",
+        "Chinese": "自动即时存档",
         "Japanese": "オートセーブ",
         "Italian": "Salvataggio automatico",
         "French": "Sauvegarde automatique",
@@ -1670,8 +1670,8 @@
     {
         "No.": "140",
         "Tag": "LANG_AUTO_LOAD",
-        "English": "Auto Load",
-        "Chinese": "自动载入存档",
+        "English": "Auto load the lastest state",
+        "Chinese": "自动载入最新的即时存档",
         "Japanese": "",
         "Italian": "",
         "French": "Chargement automatique",
