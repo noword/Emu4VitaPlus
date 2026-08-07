@@ -40,7 +40,7 @@ void Hint::Show()
                          ImGuiWindowFlags_NoFocusOnAppearing))
     {
         ImGui::SetCursorPos({10, 10});
-        ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32_GREEN);
+        ImGui::PushStyleColor(ImGuiCol_Text, hint.color);
         ImGui::TextWrapped(s);
         ImGui::PopStyleColor();
     }
@@ -54,7 +54,7 @@ void Hint::Show()
     _locker.Unlock();
 }
 
-void Hint::SetHint(LanguageString s, int frame_count, bool clear_exists)
+void Hint::SetHint(LanguageString s, int frame_count, bool clear_exists, ImU32 color)
 {
     _locker.Lock();
     if (clear_exists)
@@ -62,6 +62,10 @@ void Hint::SetHint(LanguageString s, int frame_count, bool clear_exists)
         while (!_hints.empty())
             _hints.pop();
     }
-    _hints.push({s, frame_count});
+
+    _hints.push({s,
+                 frame_count,
+                 color == 0 ? IM_COL32_GREEN : color});
+
     _locker.Unlock();
 }

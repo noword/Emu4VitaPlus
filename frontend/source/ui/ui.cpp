@@ -372,7 +372,7 @@ void Ui::UpdateCoreOptions(int level, const std::string &group)
     LogDebug("  level: %d group: %s", level, group.c_str());
 
     if (!group.empty())
-        gHint->SetHint(group);
+        gHint->SetHint(group, 120, false, IM_COL32_YELLOW);
 
     std::vector<ItemBase *> options;
     options.reserve(gConfig->core_options.size() + 1);
@@ -402,7 +402,10 @@ void Ui::UpdateCoreOptions(int level, const std::string &group)
             if (groups.find(group_name) == groups.end())
             {
                 groups.insert(group_name);
-                options.emplace_back(new ItemBase(group_name + " >", "", std::bind(&Ui::UpdateCoreOptions, this, level + 1, group_name), back_function));
+                options.emplace_back(new ItemBase(std::string(LanguageString(group_name).Get()) + " >",
+                                                  "",
+                                                  std::bind(&Ui::UpdateCoreOptions, this, level + 1, group_name),
+                                                  back_function));
             }
         }
     }
