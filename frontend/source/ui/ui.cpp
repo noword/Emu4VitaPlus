@@ -418,10 +418,14 @@ void Ui::UpdateCoreOptions(int level, const std::string &group)
 
     if (_tabs[TAB_INDEX_CORE] != nullptr)
     {
+
         delete _tabs[TAB_INDEX_CORE];
     }
 
     _tabs[TAB_INDEX_CORE] = new TabSeletable(LANG_CORE, options);
+
+    if (_tab_index == TAB_INDEX_CORE)
+        _tabs[TAB_INDEX_CORE]->SetInputHooks(&_input);
 
     gVideo->Unlock();
 }
