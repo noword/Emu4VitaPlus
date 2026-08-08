@@ -211,6 +211,11 @@ void RetroAchievements::_LoginCallback(int result, const char *error_message, rc
         }
 
         ra->SetHardcoreEnabled(gConfig->ra_hardcore);
+
+        if (RETRO_ACHIEVEMENTS_SUPPORT != RETRO_ACHIEVEMENTS_ENABLE)
+        {
+            gHint->SetHint(LANG_RA_WARNING);
+        }
     }
     else
     {

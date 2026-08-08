@@ -206,20 +206,32 @@ const bool DEFAULT_INDEPENDENT_CONFIG = true;
 const bool DEFAULT_INDEPENDENT_CONFIG = false;
 #endif
 
-#if defined(BLUEMSX_BUILD) ||         \
-    defined(STELLA2014) ||            \
-    defined(PROSYSTEM_BUILD) ||       \
-    defined(VECX_BUILD) ||            \
-    defined(PICODRIVE_BUILD) ||       \
-    defined(MEDNAFEN_LYNX_BUILD) ||   \
-    defined(HANDY_BUILD) ||           \
-    defined(NEOCD_BUILD) ||           \
-    defined(MEDNAFEN_NGP_BUILD) ||    \
-    defined(MEDNAFEN_WSWAN_BUILD) ||  \
-    defined(VBA_NEXT_BUILD) ||        \
-    defined(GENESIS_PLUS_GX_BUILD) || \
-    defined(GAMBATTE_BUILD) ||        \
-    defined(MGBA_BUILD)
+// https://docs.retroachievements.org/general/emulator-support-and-issues.html
+#if defined(VBA_NEXT_BUILD) ||              \
+    defined(GAMBATTE_BUILD) ||              \
+    defined(FBA_LITE_BUILD) ||              \
+    defined(FBNEO_BUILD) ||                 \
+    defined(FBALPHA2012_BUILD) ||           \
+    defined(FCEUMM_BUILD) ||                \
+    defined(GENESIS_PLUS_GX_BUILD) ||       \
+    defined(PICODRIVE_BUILD) ||             \
+    defined(MEDNAFEN_PCE_FAST_BUILD) ||     \
+    defined(MEDNAFEN_SUPERGRAFX_BUILD) ||   \
+    defined(MEDNAFEN_NGP_BUILD) ||          \
+    defined(MEDNAFEN_WSWAN_BUILD) ||        \
+    defined(STELLA2014_BUILD) ||            \
+    defined(PROSYSTEM_BUILD) ||             \
+    defined(VECX_BUILD) ||                  \
+    defined(NEOCD_BUILD) ||                 \
+    defined(KM_FBNEO_XTREME_AMPED_BUILD) || \
+    defined(BLUEMSX_BUILD) ||               \
+    defined(MEDNAFEN_LYNX_BUILD) ||         \
+    defined(HANDY_BUILD) ||                 \
+    defined(CAP32_BUILD) ||                 \
+    defined(SNES9X_BUILD) ||                \
+    defined(MGBA_BUILD) ||                  \
+    defined(QUASI88_BUILD) ||               \
+    defined(MEDNAFEN_VB_BUILD)
 RETRO_ACHIEVEMENTS_SUPPORT_ENUM RETRO_ACHIEVEMENTS_SUPPORT = RETRO_ACHIEVEMENTS_ENABLE;
 #else
 RETRO_ACHIEVEMENTS_SUPPORT_ENUM RETRO_ACHIEVEMENTS_SUPPORT = RETRO_ACHIEVEMENTS_AUTO;

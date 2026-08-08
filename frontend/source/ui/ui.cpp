@@ -452,6 +452,10 @@ void Ui::UpdateCheatOptions()
     }
 
     _tabs[TAB_INDEX_CHEAT] = new TabSeletable(LANG_CHEAT, options, 2, 0.8);
+
+    if (_tab_index == TAB_INDEX_CHEAT)
+        _tabs[TAB_INDEX_CHEAT]->SetInputHooks(&_input);
+
     gVideo->Unlock();
 }
 
@@ -508,7 +512,12 @@ void Ui::UpdateControllerOptions()
     {
         delete _tabs[TAB_INDEX_CONTROL];
     }
+
     _tabs[TAB_INDEX_CONTROL] = new TabControl(controls);
+
+    if (_tab_index == TAB_INDEX_CONTROL)
+        _tabs[TAB_INDEX_CONTROL]->SetInputHooks(&_input);
+
     gVideo->Unlock();
 }
 
@@ -527,6 +536,8 @@ void Ui::UpdateDiskOptions()
     if (disk_control && disk_control->GetNumImages() > 1)
     {
         _tabs[TAB_INDEX_DISK] = new TabDisk(disk_control);
+        if (_tab_index == TAB_INDEX_DISK)
+            _tabs[TAB_INDEX_DISK]->SetInputHooks(&_input);
     }
 
     gVideo->Unlock();
@@ -708,6 +719,8 @@ void Ui::UpdateAchievements()
         delete _tabs[TAB_INDEX_ACHIEVEMENTS];
     }
     _tabs[TAB_INDEX_ACHIEVEMENTS] = new TabSeletable(LANG_ACHIEVEMENTS, achievements, 1);
+    if (_tab_index == TAB_INDEX_ACHIEVEMENTS)
+        _tabs[TAB_INDEX_ACHIEVEMENTS]->SetInputHooks(&_input);
 
     gVideo->Unlock();
 }

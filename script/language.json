@@ -2038,5 +2038,17 @@
         "Spanish": "",
         "Russian": "Прозрачность лицевой панели",
         "Comments": ""
+    },
+    {
+        "No.": "171",
+        "Tag": "LANG_RA_WARNING",
+        "English": "This core not officially supported by RetroAchievements",
+        "Chinese": "该核心未获 RetroAchievements 官方支持",
+        "Japanese": "",
+        "Italian": "",
+        "French": "",
+        "Spanish": "",
+        "Russian": "",
+        "Comments": ""
     }
 ]
