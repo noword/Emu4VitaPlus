@@ -52,15 +52,15 @@ void ItemState::Show(bool selected)
     ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered));
   }
 
-  char text[64];
+  char text[128];
   if (_state->Valid())
   {
     const SceDateTime &time = _state->CreateTime();
-    snprintf(text, 64, "%s (%04hd/%02hd/%02hd %02hd:%02hd:%02hd)", _text.Get(), time.year, time.month, time.day, time.hour, time.minute, time.second);
+    snprintf(text, sizeof(text), "%s (%04hd/%02hd/%02hd %02hd:%02hd:%02hd)", _text.Get(), time.year, time.month, time.day, time.hour, time.minute, time.second);
   }
   else
   {
-    snprintf(text, 64, "%s (%s)", _text.Get(), TEXT(LANG_EMPTY));
+    snprintf(text, sizeof(text), "%s (%s)", _text.Get(), TEXT(LANG_EMPTY));
   }
 
   ImGui::Button(text, {size.x - w, h});
