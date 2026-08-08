@@ -5150,7 +5150,7 @@
     {
         "No.": "469",
         "English": "SuperFX Overclock",
-        "Chinese": "",
+        "Chinese": "SuperFX超频功能",
         "Japanese": "SuperFX オーバークロック",
         "Italian": "Overclock SuperFX",
         "French": "",
@@ -6833,7 +6833,7 @@
     {
         "No.": "622",
         "English": "Select whether emulated system is NTSC (60hz) or PAL (50hz)",
-        "Chinese": "",
+        "Chinese": "选择模拟系统为NTSC（60赫兹）还是PAL（50赫兹）",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6844,7 +6844,7 @@
     {
         "No.": "623",
         "English": "Set Hi-Res Artifacting mode used.  Typically dependant on the actual emulated system.  Pick the color combination that pleases you.",
-        "Chinese": "",
+        "Chinese": "设置所使用的高分辨率伪影模式。该模式通常取决于所模拟的系统类型，您可以选择自己喜欢的颜色组合。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6855,7 +6855,7 @@
     {
         "No.": "624",
         "English": "Set emulated systems internal resolution.",
-        "Chinese": "",
+        "Chinese": "设置模拟系统的内部分辨率。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6866,7 +6866,7 @@
     {
         "No.": "625",
         "English": "Set emulated color tint between -1.0 and 1.0",
-        "Chinese": "",
+        "Chinese": "将模拟颜色色调设置在-1.0到1.0之间",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6877,7 +6877,7 @@
     {
         "No.": "626",
         "English": "Set emulated color saturation between -1.0 and 1.0.",
-        "Chinese": "",
+        "Chinese": "将模拟颜色饱和度设置为-1.0到1.0之间。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6888,7 +6888,7 @@
     {
         "No.": "627",
         "English": "Set emulated color contrast between -2.0 and 2.0.",
-        "Chinese": "",
+        "Chinese": "将模拟颜色对比度设置为-2.0到2.0之间。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6899,7 +6899,7 @@
     {
         "No.": "628",
         "English": "Set emulated color brightness between -2.0 and 2.0.",
-        "Chinese": "",
+        "Chinese": "将模拟颜色亮度设置为-2.0到2.0之间。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6910,7 +6910,7 @@
     {
         "No.": "629",
         "English": "Set emulated color gamma between 1.0 and 3.5.",
-        "Chinese": "",
+        "Chinese": "将模拟颜色伽马值设置在1.0到3.5之间。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6921,7 +6921,7 @@
     {
         "No.": "630",
         "English": "Apply gamepad input hacks required for specific games. 'Dual Stick' maps Player 2's joystick to the right analog stick of Player 1's RetroPad, enabling dual stick control in 'Robotron 2084' and 'Space Dungeon'. 'Swap Ports' maps Player 1 to port 2 and Player 2 to port 1 of the emulated console, correcting the swapped inputs of 'Wizard of Wor', 'Apple Panic' and a few other games. 'Joy 2B+' enables multibutton joysticks support.",
-        "Chinese": "",
+        "Chinese": "应用特定游戏所需的游戏手柄输入修改功能。“双摇杆”功能会将玩家2的操纵杆映射到玩家1的RetroPad右侧模拟摇杆上，从而让《Robotron 2084》和《Space Dungeon》等游戏支持双摇杆控制。“端口交换”功能则将模拟主机中的玩家1端口与玩家2端口互换，以此解决《Wizard of Wor》、《Apple Panic》等游戏出现的输入信号反接问题。“Joy 2B+”功能则支持多按钮操纵杆的使用。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6932,7 +6932,7 @@
     {
         "No.": "631",
         "English": "Use analog stick and digital pad to control paddle games.  Dual Stick and Swap Ports will be de-activated if this is enabled",
-        "Chinese": "",
+        "Chinese": "使用摇杆和数字键盘来操控挡板游戏。启用此选项后，双摇杆和接口切换功能将失效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6943,7 +6943,7 @@
     {
         "No.": "632",
         "English": "Determines how fast the paddle will move.",
-        "Chinese": "",
+        "Chinese": "决定球拍移动的速度。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6954,7 +6954,7 @@
     {
         "No.": "633",
         "English": "Set the effective range of the emulated analog joystick when using the gamepad's digital D-Pad for movement. Lower values equate to slower speeds.  Also can be used to make games like Centipede, Kaboom, Missile Command, Pengo, Realsports Tennis, Pole Position, Xari Arena and Super Breakout more playable.",
-        "Chinese": "",
+        "Chinese": "设置在使用游戏手柄的数字方向键进行移动时，模拟模拟摇杆的有效作用范围。数值越低，移动速度越慢。此设置还能提升《蜈蚣》、《爆炸》、《导弹指挥》、《彭戈》、《真实网球》、《杆位争夺战》、《扎里竞技场》以及《超级打砖块》等游戏的可玩性。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6965,7 +6965,7 @@
     {
         "No.": "634",
         "English": "Set the effective range of the emulated analog joystick when using the gamepad's left analog stick for movement. Lower values equate to slower speeds.  Also can be used to make games like Centipede, Kaboom, Missile Command, Pengo, Realsports Tennis, Pole Position, Xari Arena and Super Breakout more playable.",
-        "Chinese": "",
+        "Chinese": "设置使用游戏手柄的左侧模拟摇杆进行移动时，模拟模拟摇杆的有效作用范围。数值越低，移动速度越慢。此设置还能提升《蜈蚣》、《爆炸》、《导弹指挥》、《彭戈》、《真实网球》、《杆位争夺战》、《扎里竞技场》以及《超级打砖块》等游戏的可玩性。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6976,7 +6976,7 @@
     {
         "No.": "635",
         "English": "Set the deadzone of the gamepad's analog sticks. Use this to eliminate controller drift.",
-        "Chinese": "",
+        "Chinese": "设置游戏手柄摇杆的死区。此功能可用于消除控制器漂移问题。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6987,7 +6987,7 @@
     {
         "No.": "636",
         "English": "Set whether keyboard is polled or used callback.",
-        "Chinese": "",
+        "Chinese": "设置是使用键盘轮询方式还是回调方式。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -6998,7 +6998,7 @@
     {
         "No.": "637",
         "English": "Set whether the Atari XEGS keyboard is attached or detached. If 'Internal BASIC' is enabled and the keyboard is attached, it will boot to BASIC. If 'Internal BASIC' is enabled and the keyboard is detached it will boot to the in-built game (Missile Command). If 'Internal BASIC' is disabled, it will boot to the Self Test screen.",
-        "Chinese": "",
+        "Chinese": "设置Atari XEGS键盘是连接状态还是断开状态。如果启用了“内置BASIC”且键盘处于连接状态，系统将启动BASIC界面；如果启用了“内置BASIC”但键盘处于断开状态，系统将启动内置游戏（《导弹指挥》）。如果未启用“内置BASIC”，系统将直接进入自检界面。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7009,7 +7009,7 @@
     {
         "No.": "638",
         "English": "Set whether the Atari800 emulator's legacy menu is invoked by pressing F1 (default) or F10 (to avoid interference with RetroArch's own menu).",
-        "Chinese": "",
+        "Chinese": "设置是否通过按 F1 键（默认值）来调用 Atari800 模拟器的传统菜单，或是按 F10 键（以避免与 RetroArch 自带菜单产生冲突）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7020,7 +7020,7 @@
     {
         "No.": "639",
         "English": "Joystick and Console Key mappings for",
-        "Chinese": "",
+        "Chinese": "摇杆与主机按键映射设置",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7031,7 +7031,7 @@
     {
         "No.": "640",
         "English": "Select system emulated.  Atari 5200 for Atari 5200 console games.  400/800 (OS B) for <48K games or ones that require OS/B.  800XL (64K) works for most content.  130XE (128K), Modern XL/XE(320K Compy Shop),  Modern XL/XE(576K), Modern XL/XE(1088K) for content that needs more than 64K.  Atari XE Game System for the Atari XE Game System or XEGS console games.",
-        "Chinese": "",
+        "Chinese": "选择系统仿真版本。对于Atari 5200游戏机，选择Atari 5200版本；对于容量小于48K的游戏或需要OS/B支持的游戏，选择400/800（OS B）版本；大多数游戏内容适用800XL（64K）版本；对于需要超过64K内存容量的游戏，可选择130XE（128K）、Modern XL/XE（320K Compy Shop）、Modern XL/XE（576K）及Modern XL/XE（1088K）版本；对于Atari XE游戏机或XEGS游戏机上的游戏，则选择Atari XE游戏系统版本。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7042,7 +7042,7 @@
     {
         "No.": "641",
         "English": "Enable for content that needs Atari BASIC in order to run.  A proper ROM file (ATARIBAS.ROM) is needed.",
-        "Chinese": "",
+        "Chinese": "为那些需要Atari BASIC才能运行的内容启用此选项。需要一个正确的ROM文件（ATARIBAS.ROM）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7053,7 +7053,7 @@
     {
         "No.": "642",
         "English": "This enables ALL SIO acceleration.  Enabled improves loading speed for Disk and Cassette images.  Disable only for protected disk (.ATX) and protected cassette images.  Reboot required if change made while loading a cassette image.",
-        "Chinese": "",
+        "Chinese": "此选项可启用所有SIO加速功能。开启后能提升磁盘和卡带图像的加载速度。仅建议对受保护的磁盘（.ATX格式）及受保护的卡带图像关闭该功能。如果在加载卡带图像时进行此设置更改，需要重启设备。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7064,7 +7064,7 @@
     {
         "No.": "643",
         "English": "Forces emulated system to boot from autoboot cassette images by holding down the \"START\" key on boot.",
-        "Chinese": "",
+        "Chinese": "在启动时按住“START”键，强制模拟系统从自动启动的磁带图像中加载。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7075,7 +7075,7 @@
     {
         "No.": "644",
         "English": "If the Atari800 legacy configuration file, .atari800.cfg, is found, it will be loaded, and if not found, a new will be created.",
-        "Chinese": "",
+        "Chinese": "如果找到Atari800的旧配置文件.atari800.cfg，将会加载该文件；如果未找到，则会创建一个新的配置文件。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7086,7 +7086,7 @@
     {
         "No.": "645",
         "English": "Enable this to force output at a fixed rate. Try 60 FPS if you encounter screen tearing or vsync issues.",
-        "Chinese": "",
+        "Chinese": "启用此选项可强制以固定帧率输出。如果遇到画面撕裂或同步问题，可尝试设置为60 FPS。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7097,7 +7097,7 @@
     {
         "No.": "646",
         "English": "Make sure to test it in each game before using it. Complex late era DOS games might have problems.",
-        "Chinese": "",
+        "Chinese": "在使用该功能之前，请务必在每款游戏中进行测试。一些结构复杂的晚期DOS游戏可能会出现问题。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7108,7 +7108,7 @@
     {
         "No.": "647",
         "English": "Set the behavior of the start menu before and after launching a game.",
-        "Chinese": "",
+        "Chinese": "设置游戏启动前后开始菜单的行为。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7119,7 +7119,7 @@
     {
         "No.": "648",
         "English": "Set the transparency level of the Menu and the On-Screen Keyboard.",
-        "Chinese": "",
+        "Chinese": "设置菜单和屏幕键盘的透明度等级。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7130,7 +7130,7 @@
     {
         "No.": "649",
         "English": "Always bind the L3 controller button to show the menu to swap CDs/Disks and use the On-Screen Keyboard.",
-        "Chinese": "",
+        "Chinese": "始终将L3控制器按钮绑定为显示菜单，以便切换光盘并使用屏幕键盘。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7141,7 +7141,7 @@
     {
         "No.": "650",
         "English": "You can disable input handling from a mouse or a touchscreen (emulated mouse through joypad will still work).",
-        "Chinese": "",
+        "Chinese": "您可以禁用鼠标或触摸屏的输入功能（通过游戏手柄模拟的鼠标仍可正常使用）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7152,7 +7152,7 @@
     {
         "No.": "651",
         "English": "DOSBox Pure can automatically apply a gamepad control mapping scheme when it detects a game.",
-        "Chinese": "",
+        "Chinese": "当DOSBox Pure检测到游戏时，它可以自动应用游戏手柄控制映射方案。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7163,7 +7163,7 @@
     {
         "No.": "652",
         "English": "Select the keyboard layout (will not change the On-Screen Keyboard).",
-        "Chinese": "",
+        "Chinese": "选择键盘布局（不会更改屏幕键盘）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7174,7 +7174,7 @@
     {
         "No.": "653",
         "English": "When emulating DOS as fast as possible, how much time per frame should be used by the emulation.",
-        "Chinese": "",
+        "Chinese": "在以尽可能快的速度模拟DOS时，模拟器每帧应使用多少时间？",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7185,7 +7185,7 @@
     {
         "No.": "654",
         "English": "Enables certain games with support for the Voodoo 3D accelerator.",
-        "Chinese": "",
+        "Chinese": "启用对Voodoo 3D加速器具有支持的某些游戏。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7196,7 +7196,7 @@
     {
         "No.": "655",
         "English": "Options to tweak the behavior of the 3dfx Voodoo emulation.",
-        "Chinese": "",
+        "Chinese": "用于调整3dfx Voodoo模拟器运行行为的选项。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7207,7 +7207,7 @@
     {
         "No.": "656",
         "English": "Adjust the aspect ratio to approximate what a CRT monitor would display (works best on high resolution displays and without integer scaling).",
-        "Chinese": "",
+        "Chinese": "调整宽高比，使其更接近CRT显示器的显示效果（在高分辨率显示器上效果最佳，且无需进行整数比例缩放）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7218,7 +7218,7 @@
     {
         "No.": "657",
         "English": "The amount of (high) memory that the emulated machine has. You can also disable extended memory (EMS/XMS).",
-        "Chinese": "",
+        "Chinese": "被模拟机器所拥有的（高）内存容量。您也可以关闭扩展内存（EMS/XMS）功能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7229,7 +7229,7 @@
     {
         "No.": "658",
         "English": "Emulated CPU type. Auto is the fastest choice.",
-        "Chinese": "",
+        "Chinese": "模拟的CPU类型。选择“自动”可获得最佳性能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7240,7 +7240,7 @@
     {
         "No.": "659",
         "English": "When running an installed operating system, modifications to the C: drive will be made on the disk image by default.",
-        "Chinese": "",
+        "Chinese": "在运行已安装的操作系统时，系统会默认在磁盘镜像中对C:驱动器进行修改。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7251,7 +7251,7 @@
     {
         "No.": "660",
         "English": "Controls the amount of free space available on the D: drive when running an installed operating system.",
-        "Chinese": "",
+        "Chinese": "控制运行已安装操作系统时D:驱动器上可用空闲空间的大小。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7262,7 +7262,7 @@
     {
         "No.": "661",
         "English": "The normal core can be more stable when running an installed operating system.",
-        "Chinese": "",
+        "Chinese": "在运行已安装的操作系统时，普通内核通常更加稳定。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7273,7 +7273,7 @@
     {
         "No.": "662",
         "English": "Select the .SF2 SoundFont file, .ROM file or interface used for MIDI output.",
-        "Chinese": "",
+        "Chinese": "请选择用于MIDI输出的.SF2音效文件、.ROM文件或接口。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7284,7 +7284,7 @@
     {
         "No.": "663",
         "English": "Enable Gravis Ultrasound emulation. Settings are fixed at port 0x240, IRQ 5, DMA 3.",
-        "Chinese": "",
+        "Chinese": "启用Gravis超声波模拟功能。相关设置固定为端口0x240、IRQ 5、DMA 3。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7295,7 +7295,7 @@
     {
         "No.": "664",
         "English": "Change pixel format, some games require this to render properly, it could impact performances on some platforms",
-        "Chinese": "",
+        "Chinese": "更改像素格式。某些游戏需要该设置才能正常显示，但这可能会影响某些平台上的游戏性能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7306,7 +7306,7 @@
     {
         "No.": "665",
         "English": "Change emulated cpu frequency for various systems, by increasing you can fix native slowdowns in some games, by decreasing you can help performance on low-end devices",
-        "Chinese": "",
+        "Chinese": "调整针对不同系统的模拟CPU频率：提高该数值可解决某些游戏中的性能下降问题，而降低数值则有助于提升低端设备的运行性能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7317,7 +7317,7 @@
     {
         "No.": "666",
         "English": "Configure samplerate, it could impact performances, closing & starting game again is required",
-        "Chinese": "",
+        "Chinese": "请配置采样率，这可能会影响游戏性能，因此需要关闭游戏后再重新启动。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7328,7 +7328,7 @@
     {
         "No.": "667",
         "English": "Configure sample interpolation, it could impact performances",
-        "Chinese": "",
+        "Chinese": "配置采样插值参数，这可能会影响性能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7339,7 +7339,7 @@
     {
         "No.": "668",
         "English": "Configure FM interpolation, it could impact performances",
-        "Chinese": "",
+        "Chinese": "配置FM插值功能，这可能会影响游戏性能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7350,7 +7350,7 @@
     {
         "No.": "669",
         "English": "Configure button combination to enter cabinet service menu",
-        "Chinese": "",
+        "Chinese": "配置用于进入机柜服务菜单的按键组合",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7361,7 +7361,7 @@
     {
         "No.": "670",
         "English": "Rotate display for vertical screens",
-        "Chinese": "",
+        "Chinese": "为竖屏设备旋转显示",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7372,7 +7372,7 @@
     {
         "No.": "671",
         "English": "Ignore game's original refresh rate and try to run it at 60hz instead. It will cause incorrect game speed and frame pacing. It will try to use your monitor's correct refresh rate instead of 60hz if this refresh rate is between 59hz and 61hz.",
-        "Chinese": "",
+        "Chinese": "忽略游戏的原始刷新率，尝试以60赫兹的频率运行游戏。这会导致游戏速度和帧率出现异常。如果显示器的实际刷新率在59赫兹到61赫兹之间，系统会自动使用该正确刷新率而非60赫兹。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7383,7 +7383,7 @@
     {
         "No.": "672",
         "English": "Allow romsets from your system/fbneo/patched/ folder to override your romsets, crcs will be ignored but sizes and names must still match, you need to close content for this setting to take effect",
-        "Chinese": "",
+        "Chinese": "允许来自系统/fbneo/patched/文件夹的ROM文件覆盖原有的ROM文件。此时CRC校验值将被忽略，但文件大小和名称必须保持一致。此设置需关闭当前内容后才能生效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7394,7 +7394,7 @@
     {
         "No.": "673",
         "English": "Mitigate analog controls speed, some games might require low values to be playable",
-        "Chinese": "",
+        "Chinese": "降低模拟控制器的速度，某些游戏可能需要较低的数值才能正常运行",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7405,7 +7405,7 @@
     {
         "No.": "674",
         "English": "Change emulated crosshair behavior",
-        "Chinese": "",
+        "Chinese": "更改模拟准星行为",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7416,7 +7416,7 @@
     {
         "No.": "675",
         "English": "Use at your own risk, it could improve performance on some emulated systems for low-end devices, but there are known side effects : savestates won't be compatible with normal interpreter, and some systems won't work",
-        "Chinese": "",
+        "Chinese": "风险自担。该选项或许能提升某些低端设备上的游戏模拟器性能，但存在已知的副作用：存档状态将无法与普通解释器兼容，且部分系统将无法正常运行。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7427,7 +7427,7 @@
     {
         "No.": "676",
         "English": "Enable high scores support, you also need the file hiscore.dat in your system/fbneo/ folder",
-        "Chinese": "",
+        "Chinese": "启用最高分记录功能，您的系统/fbneo/文件夹中还需要存在hiscore.dat文件。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7438,7 +7438,7 @@
     {
         "No.": "677",
         "English": "Skip frames to avoid audio buffer under-run (crackling). Improves performance at the expense of visual smoothness. 'Auto' skips frames when advised by the frontend. 'Manual' uses the 'Frameskip Threshold (%)' setting. 'Fixed' uses the 'Fixed Frameskip' setting.",
-        "Chinese": "",
+        "Chinese": "跳过帧数以避免音频缓冲区不足而产生的杂音。此选项可在提升性能的同时牺牲画面流畅度。“自动”模式会根据前端提示自动跳过帧数；“手动”模式则使用“帧跳过阈值（%）”设置；“固定”模式则使用“固定帧跳过数”设置。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7449,7 +7449,7 @@
     {
         "No.": "678",
         "English": "Xtreme TurboBoost helps flesh out a more optimal differential between performance/speed on Lower Spec Hardwares, such as the Mini Classics.  To further enhance things, desynch Audio in RetroArch, Settings, Audio.",
-        "Chinese": "",
+        "Chinese": "Xtreme TurboBoost功能旨在让配置较低的硬件设备（如Mini Classics系列）在性能与速度方面实现更优的平衡。此外，您还可以在RetroArch的“设置”→“音频”选项中进一步调整音频同步设置，以获得更好的体验。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7460,7 +7460,7 @@
     {
         "No.": "679",
         "English": "Enable LowPass Filter",
-        "Chinese": "",
+        "Chinese": "启用低通滤波器",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7471,7 +7471,7 @@
     {
         "No.": "680",
         "English": "Dipswitch setting, setting is specific to the running romset. Some dipswitches require a restart to work properly.",
-        "Chinese": "",
+        "Chinese": "拨码开关设置，该设置针对正在运行的ROM组而定。某些拨码开关需要重启后才能正常生效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7482,7 +7482,7 @@
     {
         "No.": "681",
         "English": "Allows simultaneous UP+DOWN or LEFT+RIGHT button combinations, which can create different effects in some games.",
-        "Chinese": "",
+        "Chinese": "允许同时按下上下键或左右键的组合，这在某些游戏中可产生不同的效果。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7493,7 +7493,7 @@
     {
         "No.": "682",
         "English": "Removes the 8-per-scanline hardware limit. This reduces sprite flickering but can cause some games to glitch since some use this for effects.",
-        "Chinese": "",
+        "Chinese": "移除每扫描线8次的硬件限制。这可以减少精灵图像的闪烁，但由于某些游戏会利用这一限制来实现特殊效果，因此可能会导致这些游戏出现故障。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7504,7 +7504,7 @@
     {
         "No.": "683",
         "English": "Selects internal colorization palette when 'Internal Palette' is set to 'TWB64 - Pack 3'.",
-        "Chinese": "",
+        "Chinese": "当“内部调色板”设置为“TWB64 - 第3组”时，用于选择对应的内部颜色方案。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7515,7 +7515,7 @@
     {
         "No.": "684",
         "English": "Selects internal colorization palette when 'Internal Palette' is set to 'PixelShift - Pack 1'.",
-        "Chinese": "",
+        "Chinese": "当“内部调色板”设置为“PixelShift - Pack 1”时，用于选择对应的内部颜色方案。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7526,7 +7526,7 @@
     {
         "No.": "685",
         "English": "Set the amount of extra colums to draw for widescreen",
-        "Chinese": "",
+        "Chinese": "设置宽屏模式下需绘制的额外列数",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7537,7 +7537,7 @@
     {
         "No.": "686",
         "English": "If extra columns are enabled, this option allows to specify their translucency.",
-        "Chinese": "",
+        "Chinese": "如果启用了额外列，此选项可用于指定这些列的半透明程度。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7548,7 +7548,7 @@
     {
         "No.": "687",
         "English": "Enable this to fix the VDP DMA boundary bug",
-        "Chinese": "",
+        "Chinese": "启用此选项可修复VDP DMA边界错误",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7559,7 +7559,7 @@
     {
         "No.": "688",
         "English": "Optional, deliberately non-authentic post-processing applied only to the FM (YM2612/YM3438) bus: a stereo widener to spread the hard-panned FM image, a fixed-point reverb send, and a gentle analog-style low-pass with soft saturation. Adds width and depth to the FM voice at the cost of accuracy; PSG, PCM and CD-DA are left untouched. Fully integer/deterministic. 'Off' leaves the original sound bit-identical.",
-        "Chinese": "",
+        "Chinese": "可选的、刻意设计的非真实效果后期处理，仅适用于FM（YM2612/YM3438）音源：包括用于扩展硬式声像范围的立体声扩展器、固定点混响输出，以及带有柔和饱和效果的模拟风格低通滤波器。这类处理会在牺牲音准准确性的前提下，为FM音效增添层次感与深度；PSG、PCM和CD-DA音源则不会受到影响。整个处理过程完全基于整数运算且结果可预测。选择“关闭”则可使声音保持与原始版本完全一致。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7570,7 +7570,7 @@
     {
         "No.": "689",
         "English": "Experimental. When a sound effect commandeers an FM (YM2612) channel mid-song, the displaced musical note is snapshotted onto a hidden shadow voice that keeps sounding and is faded out smoothly with a synthetic decay so the stolen background note finishes instead of being cut dead. 'Conservative' uses fewer shadow voices and a shorter fade; 'Aggressive' recovers more. The trigger is gated by note age and audibility so it fires sparingly. Deterministic; 'Off' is bit-exact.",
-        "Chinese": "",
+        "Chinese": "实验模式。当某个音效在歌曲播放过程中占用FM（YM2612）声道时，被挤出的音符会被同步到一条隐藏的“影子音轨”上，该音轨会持续播放，并通过模拟衰减效果逐渐淡出，从而使被占用的背景音符能够完整播放完毕，而不会突然中断。“保守”模式使用的影子音轨更少，衰减时间也更短；“激进”模式则会恢复更多被挤出的音符。该功能会根据音符的时长和可听度来触发，因此不会频繁启动。该模式为确定性运行，“关闭”状态则完全按照原始数据执行。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7581,7 +7581,7 @@
     {
         "No.": "690",
         "English": "Select the audio output sample rate. The Mega Drive/Genesis has no sample-based audio hardware and no fixed output rate (sound is synthesised in real time), so this is a free choice. Higher rates raise the Nyquist limit, reducing aliasing and high-frequency low-pass 'smearing', and give better time-domain resolution, at the cost of more CPU for resampling. 'Auto' queries the frontend's target rate and selects the supported rate closest to it, which avoids extra frontend resampling.",
-        "Chinese": "",
+        "Chinese": "选择音频输出采样率。Mega Drive/Genesis没有基于采样的音频硬件，也没有固定的输出速率（声音是实时合成的），因此这一选项可以自由选择。较高的采样率能提升奈奎斯特极限，减少混叠现象和高频低通“模糊”效应，并提高时域分辨率，但代价是需要更多的CPU资源来进行重采样。“自动”模式会查询前端系统设定的目标速率，然后选择最接近该速率的受支持采样率，从而避免前端系统进行额外的重采样操作。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7592,7 +7592,7 @@
     {
         "No.": "691",
         "English": "Internal audio rendering rate. Both values keep audio timing exact. 65536 renders the full mixer bandwidth; 32768 matches the bandwidth of real hardware's default PWM output and halves audio mixing work.",
-        "Chinese": "",
+        "Chinese": "内部音频渲染频率。这两个数值都能确保音频时序的精确性。65536可实现完整的混音器带宽处理；32768则与真实硬件默认的PWM输出带宽一致，同时能将音频混音处理的工作量减少一半。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7603,7 +7603,7 @@
     {
         "No.": "692",
         "English": "When 'Frameskip' is set to 'Auto (Threshold)', specifies the audio buffer occupancy threshold (percentage) below which frames will be skipped. Higher values reduce the risk of crackling by causing frames to be dropped more frequently.",
-        "Chinese": "",
+        "Chinese": "当“帧跳过”设置为“自动（阈值）”时，该选项用于指定音频缓冲区占用阈值（百分比），低于此阈值时就会跳过相应帧。较高的数值会更频繁地丢弃帧，从而降低出现杂音的风险。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7614,7 +7614,7 @@
     {
         "No.": "693",
         "English": "Set video update frequency. Internally, the Lynx renders at a variable rate from 0 to 75Hz. Frames that occur between video update events will be dropped. Higher rates may increase video smoothness (depending on actual game frame rate) but can cause tearing on 60Hz displays.",
-        "Chinese": "",
+        "Chinese": "设置视频更新频率。在内部，Lynx引擎的渲染频率可在0到75Hz之间动态变化。在两次视频更新之间产生的帧会被丢弃。更高的频率可能会提升视频的流畅度（具体取决于游戏的实际帧率），但在60Hz的显示器上则可能导致画面撕裂现象。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7625,7 +7625,7 @@
     {
         "No.": "694",
         "English": "Rotate the virtual console screen to achieve the correct layout of 'portrait' oriented games on a conventional (landscape) display.",
-        "Chinese": "",
+        "Chinese": "旋转虚拟控制台屏幕，以便在常规的横向显示设备上正确显示纵向设计的游戏界面。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7636,7 +7636,7 @@
     {
         "No.": "695",
         "English": "Apply an image 'ghosting' effect by blending multiple successive video frames. Mimics the display characteristics of the Lynx's LCD panel and helps to smooth the appearance of low frame rate games. Higher frame counts improve the effect at the expense of increased performance overheads.",
-        "Chinese": "",
+        "Chinese": "通过混合多帧连续视频来应用图像“重影”效果。该效果可模拟Lynx机型LCD面板的显示特性，有助于改善低帧率游戏的视觉效果。提高帧率虽能增强此效果，但也会增加性能开销。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7647,7 +7647,7 @@
     {
         "No.": "696",
         "English": "Higher values can reduce slowdowns in games. WARNING: Can cause glitches and crashes.",
-        "Chinese": "",
+        "Chinese": "较高的数值可以减少游戏中的卡顿现象。警告：可能会导致游戏故障和崩溃。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7658,7 +7658,7 @@
     {
         "No.": "697",
         "English": "Virtually rotate screen orientation and button mappings automatically for known games. When set to 'Manual', screen rotation is adjusted by pressing the SELECT button, otherwise a fixed rotation can be set to either 0, 90, 180 or 270 degrees counter-clockwise.",
-        "Chinese": "",
+        "Chinese": "对于已知的游戏，会自动实现屏幕方向和按键映射的虚拟旋转。设置为“手动”模式时，可通过按下SELECT按钮来调整屏幕旋转角度；否则可设定为固定角度，即顺时针方向为0度、90度、180度或270度。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7669,7 +7669,7 @@
     {
         "No.": "698",
         "English": "Force 60Hz instead of original 75Hz refresh rate, for perfectly smooth movement on 60Hz displays",
-        "Chinese": "",
+        "Chinese": "强制使用60Hz刷新率，而非原有的75Hz，从而在60Hz显示屏上实现极致流畅的画面体验",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7680,7 +7680,7 @@
     {
         "No.": "699",
         "English": "Bypasses a copyright warning from being displayed when loading content.",
-        "Chinese": "",
+        "Chinese": "在加载内容时，跳过版权警告的显示。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7691,7 +7691,7 @@
     {
         "No.": "700",
         "English": "Bypasses a warning message from being displayed when loading content containing known issues.",
-        "Chinese": "",
+        "Chinese": "在加载存在已知问题的内容时，跳过警告信息的显示。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7702,7 +7702,7 @@
     {
         "No.": "701",
         "English": "Toggles the visibility of the internal MAME menu.",
-        "Chinese": "",
+        "Chinese": "切换内置MAME菜单的显示状态。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7713,7 +7713,7 @@
     {
         "No.": "702",
         "English": "Restart core required. Enables MAME menu input remapping. (!NETPLAY).",
-        "Chinese": "",
+        "Chinese": "需要重启内核。此功能可启用MAME菜单输入重映射。（不支持NETPLAY）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7724,7 +7724,7 @@
     {
         "No.": "703",
         "English": "Recommended to use default which will save the hiscore when closing content. Recursively will save repeatedly the entire time during gameplay. Disabled will bypass the use of the hiscore.dat file entirely.",
-        "Chinese": "",
+        "Chinese": "建议使用默认设置，这样在关闭游戏内容时就会保存得分记录。开启递归保存后，游戏进行期间会持续不断保存得分。若关闭此功能，则完全不会使用hiscore.dat文件。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7735,7 +7735,7 @@
     {
         "No.": "704",
         "English": "Selects a specific x-y coordinates input device to read.",
-        "Chinese": "",
+        "Chinese": "选择用于读取数据的特定x-y坐标输入设备。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7746,7 +7746,7 @@
     {
         "No.": "705",
         "English": "Configures which input types are being read.",
-        "Chinese": "",
+        "Chinese": "配置要读取的输入类型。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7757,7 +7757,7 @@
     {
         "No.": "706",
         "English": "Used to display fake dip switches and input control options within the MAME menu when available.",
-        "Chinese": "",
+        "Chinese": "用于在条件允许时，在MAME菜单中显示虚拟拨动开关及输入控制选项。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7768,7 +7768,7 @@
     {
         "No.": "707",
         "English": "Restart core required. Allow audio sample files to be loaded when provided in the samples directory.",
-        "Chinese": "",
+        "Chinese": "需要重启内核。如果样本目录中存在音频样本文件，则允许加载这些文件。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7779,7 +7779,7 @@
     {
         "No.": "708",
         "English": "Speedhack for Midway sound hardware. Improves performance.",
-        "Chinese": "",
+        "Chinese": "针对Midway声卡的速度优化功能，可提升运行性能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7790,7 +7790,7 @@
     {
         "No.": "709",
         "English": "Number of audio samples taken per second. Higher rates provide better quality audio.",
-        "Chinese": "",
+        "Chinese": "每秒采集的音频样本数量。数值越高，音频质量越好。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7801,7 +7801,7 @@
     {
         "No.": "710",
         "English": "Restart core required.",
-        "Chinese": "",
+        "Chinese": "需要重启内核。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7812,7 +7812,7 @@
     {
         "No.": "711",
         "English": "Modifies the brightness level being used.",
-        "Chinese": "",
+        "Chinese": "修改所使用的亮度级别。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7823,7 +7823,7 @@
     {
         "No.": "712",
         "English": "Modifies the gamma level being used.",
-        "Chinese": "",
+        "Chinese": "修改所使用的伽马值。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7834,7 +7834,7 @@
     {
         "No.": "713",
         "English": "When enabled, the display will be rotated to the orientation used by actual hardware.",
-        "Chinese": "",
+        "Chinese": "启用后，屏幕显示方向将调整为与实际硬件相同的姿态。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7845,7 +7845,7 @@
     {
         "No.": "714",
         "English": "Skips a number of frames from being displayed. Can be used to squeeze performance out of lower spec platforms.",
-        "Chinese": "",
+        "Chinese": "跳过显示若干帧。可用于提升配置较低的平台的性能表现。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7856,7 +7856,7 @@
     {
         "No.": "715",
         "English": "Restart core required. Used to display custom artwork when available.",
-        "Chinese": "",
+        "Chinese": "需要重启内核。用于在可用时显示自定义背景图片。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7867,7 +7867,7 @@
     {
         "No.": "716",
         "English": "Restart core required. Increases the artwork resolution by the selected multiplier value.",
-        "Chinese": "",
+        "Chinese": "需要重启内核。此选项可通过选定的倍率提升游戏画面分辨率。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7878,7 +7878,7 @@
     {
         "No.": "717",
         "English": "Used to under or over clock the emulated CPU by a specified percentage.",
-        "Chinese": "",
+        "Chinese": "用于以指定百分比降低或提高模拟 CPU 的运行频率。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7889,7 +7889,7 @@
     {
         "No.": "718",
         "English": "Restart core required. Forces the selected cyclone mode to be used.",
-        "Chinese": "",
+        "Chinese": "需要重启内核。这将强制使用所选的旋风模式。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7900,7 +7900,7 @@
     {
         "No.": "719",
         "English": "Restart core required. Enables MAME menu input remapping.",
-        "Chinese": "",
+        "Chinese": "需要重启内核。此功能可启用MAME菜单输入重映射。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7911,7 +7911,7 @@
     {
         "No.": "720",
         "English": "Disable to use actual hardware such as a fixed position high/low shifter.",
-        "Chinese": "",
+        "Chinese": "如需使用固定位置的高低档位转换器等真实硬件，可关闭此选项。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7922,7 +7922,7 @@
     {
         "No.": "721",
         "English": "Emulates the center position of an analog joystick when using digital controls. Automatically returns the center position when no direction is being applied.",
-        "Chinese": "",
+        "Chinese": "在使用数字控制时，模拟模拟摇杆的中心位置。当没有施加任何方向控制时，会自动返回中心位置。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7933,7 +7933,7 @@
     {
         "No.": "722",
         "English": "Composite tries to recreate the original console output and can show more details in some games.",
-        "Chinese": "",
+        "Chinese": "复合模式试图重现原始游戏主机的输出效果，在某些游戏中能够展示更多细节。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7944,7 +7944,7 @@
     {
         "No.": "723",
         "English": "Choose the maximum image width to be displayed. Lower values will crop the right side of the image (for 352 px width games).",
-        "Chinese": "",
+        "Chinese": "选择要显示的最大图像宽度。数值越小，图像的右侧会被裁剪（适用于宽度为352像素的游戏）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7955,7 +7955,7 @@
     {
         "No.": "724",
         "English": "First rendered scanline. Higher values will crop the top of the image.",
-        "Chinese": "",
+        "Chinese": "第一条渲染扫描线。数值越高，裁剪掉的图像顶部区域就越多。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7966,7 +7966,7 @@
     {
         "No.": "725",
         "English": "Last rendered scanline. Lower values will crop the bottom of the image.",
-        "Chinese": "",
+        "Chinese": "最后渲染的扫描线。数值越低，裁剪掉的图像底部区域就越大。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7977,7 +7977,7 @@
     {
         "No.": "726",
         "English": "Modify the volume of PSG Sound Channel 0.",
-        "Chinese": "",
+        "Chinese": "修改PSG声音通道0的音量。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7988,7 +7988,7 @@
     {
         "No.": "727",
         "English": "Modify the volume of PSG Sound Channel 1.",
-        "Chinese": "",
+        "Chinese": "修改PSG声音通道1的音量。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -7999,7 +7999,7 @@
     {
         "No.": "728",
         "English": "Modify the volume of PSG Sound Channel 2.",
-        "Chinese": "",
+        "Chinese": "修改PSG声音通道2的音量。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8010,7 +8010,7 @@
     {
         "No.": "729",
         "English": "Modify the volume of PSG Sound Channel 3.",
-        "Chinese": "",
+        "Chinese": "修改PSG声音通道3的音量。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8021,7 +8021,7 @@
     {
         "No.": "730",
         "English": "Modify the volume of PSG Sound Channel 4.",
-        "Chinese": "",
+        "Chinese": "修改PSG音效通道4的音量。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8032,7 +8032,7 @@
     {
         "No.": "731",
         "English": "Modify the volume of PSG Sound Channel 5.",
-        "Chinese": "",
+        "Chinese": "修改PSG第5音频通道的音量。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8043,7 +8043,7 @@
     {
         "No.": "732",
         "English": "Higher values will make the mouse cursor move faster.",
-        "Chinese": "",
+        "Chinese": "数值越高，鼠标光标移动的速度就越快。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8054,7 +8054,7 @@
     {
         "No.": "733",
         "English": "When RUN and SELECT are pressed simultaneously, disable both buttons temporarily instead of resetting.",
-        "Chinese": "",
+        "Chinese": "当同时按下“RUN”和“SELECT”键时，暂时禁用这两个按钮，而非将其重置。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8065,7 +8065,7 @@
     {
         "No.": "734",
         "English": "Choose if port 1 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
-        "Chinese": "",
+        "Chinese": "选择端口1的摇杆默认应具有2个按键还是6个按键。此选项仅在核心程序启动时生效，若想在游戏运行过程中进行切换，请使用“模式切换”按钮。注意：在非兼容游戏中，6键摇杆可能会出现异常行为。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8076,7 +8076,7 @@
     {
         "No.": "735",
         "English": "Choose if port 2 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
-        "Chinese": "",
+        "Chinese": "选择默认情况下，2键手柄应具有2个还是6个按钮。此选项仅在核心程序启动时生效，若希望在游戏运行过程中进行切换，请使用“模式切换”按钮。注意：在不兼容的游戏里，6键手柄可能会出现异常行为。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8087,7 +8087,7 @@
     {
         "No.": "736",
         "English": "Choose if port 3 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
-        "Chinese": "",
+        "Chinese": "选择端口3的摇杆默认应具有2个按钮还是6个按钮。此选项仅在核心程序启动时生效，若想在游戏运行过程中进行切换，请使用“模式切换”按钮。注意：在不兼容的游戏里，6按钮摇杆可能会出现异常行为。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8098,7 +8098,7 @@
     {
         "No.": "737",
         "English": "Choose if port 4 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
-        "Chinese": "",
+        "Chinese": "选择默认情况下4键游戏手柄应具有2个还是6个按钮。此选项仅在核心程序启动时生效，若希望在游戏运行过程中进行切换，请使用“模式切换”按钮。注意：在不兼容的游戏里，6键游戏手柄可能会出现异常行为。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8109,7 +8109,7 @@
     {
         "No.": "738",
         "English": "Choose if port 5 joypad should be 2 or 6 buttons by default. This option is only applied when the core starts, if you want to switch while content is running, use the 'Mode Switch' button. NOTE: 6 buttons joypad can have weird behaviors in non compatible games.",
-        "Chinese": "",
+        "Chinese": "选择端口5的摇杆默认应具有2个按键还是6个按键。此选项仅在核心程序启动时生效，若希望在游戏运行过程中进行切换，请使用“模式切换”按钮。注意：在不兼容的游戏里，6键摇杆可能会出现异常行为。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8120,7 +8120,7 @@
     {
         "No.": "739",
         "English": "Enable the turbo toggle hotkeys (buttons III and IV).",
-        "Chinese": "",
+        "Chinese": "启用涡轮模式切换热键（按钮III和IV）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8131,7 +8131,7 @@
     {
         "No.": "740",
         "English": "Assign RetroPad's L3/R3 buttons as turbo toggle hotkeys instead of buttons III and IV. Works only as long as nothing is assigned to the L3/R3 buttons. You can avoid remapping buttons III and IV when switching to 6-button controller mode with this.",
-        "Chinese": "",
+        "Chinese": "将RetroPad的L3/R3按钮设置为涡轮模式切换的热键，而非按钮III和IV。此功能仅在L3/R3按钮未被其他功能占用时有效。通过此设置，可在切换到六键控制器模式时避免重新映射按钮III和IV。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8142,7 +8142,7 @@
     {
         "No.": "741",
         "English": "Adjust the time between turbo fire (in frames).",
-        "Chinese": "",
+        "Chinese": "调整连发之间的时间间隔（以帧为单位）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8153,7 +8153,7 @@
     {
         "No.": "742",
         "English": "Load the complete image into memory at startup. Can potentially decrease loading times at the cost of an increased startup time.",
-        "Chinese": "",
+        "Chinese": "在启动时将完整图像加载到内存中。这可能会缩短加载时间，但代价是增加启动时间。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8164,7 +8164,7 @@
     {
         "No.": "743",
         "English": "Most games can run on 'System Card 3'. 'Games Express' is needed for several unlicensed games.",
-        "Chinese": "",
+        "Chinese": "大多数游戏都可以在“系统卡3”上运行。而一些未经授权的游戏则需要“游戏加速器”才能运行。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8175,7 +8175,7 @@
     {
         "No.": "744",
         "English": "Higher values enable faster loading times but can cause issues with a couple of games.",
-        "Chinese": "",
+        "Chinese": "数值越高，加载速度越快，但可能会导致部分游戏出现故障。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8186,7 +8186,7 @@
     {
         "No.": "745",
         "English": "CD game only. Setting this volume control too high may cause sample clipping.",
-        "Chinese": "",
+        "Chinese": "仅支持CD游戏。将此音量控制设置得过高可能会导致采样值溢出。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8197,7 +8197,7 @@
     {
         "No.": "746",
         "English": "Remove 16-sprites-per-scanline hardware limit. WARNING: May cause graphics glitching on some games.",
-        "Chinese": "",
+        "Chinese": "移除每扫描线16个精灵的硬件限制。警告：这可能会导致某些游戏的画面出现故障。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8208,7 +8208,7 @@
     {
         "No.": "747",
         "English": "Choose the preferred content aspect ratio. When using games that constantly switch between 256 and 352 modes and using auto aspect, it's best to set the horizontal width to 342 to minimize resizing and extra black lines since this width is in ratio of 256 width mode (or something like that, just test with Asuka 100% which is one of the games that switch between these modes).",
-        "Chinese": "",
+        "Chinese": "选择首选的内容宽高比。对于那些会在256模式和352模式之间频繁切换的游戏，若使用自动宽高比设置，建议将水平宽度设为342，这样可以最大程度减少尺寸调整及额外的黑边出现，因为这个宽度与256模式下的宽度是成比例的（具体数值可能略有差异，建议使用会在这两种模式间切换的游戏“Asuka 100%”进行测试）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8219,7 +8219,7 @@
     {
         "No.": "748",
         "English": "Enabling this will allow pressing / quickly alternating / holding both left and right (or up and down) directions at the same time. This may cause movement-based glitches.",
-        "Chinese": "",
+        "Chinese": "启用此选项后，即可同时按下/快速切换/持续按住左右（或上下）方向键。这可能会导致与移动相关的故障。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8230,7 +8230,7 @@
     {
         "No.": "749",
         "English": "Enable up to 5-player multitap emulation. Disabling this is only needed in some cases (e.g. Cho Aniki).",
-        "Chinese": "",
+        "Chinese": "启用最多5人同时触控模拟功能。仅在某些情况下（例如《Cho Aniki》）才需要关闭此功能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8241,7 +8241,7 @@
     {
         "No.": "750",
         "English": "Enable turbo buttons. Hotkeys (buttons III and IV) can behave as either toggle switches or dedicated (hold to use) turbo buttons.",
-        "Chinese": "",
+        "Chinese": "启用涡轮按钮功能。快捷键（第三和第四键）既可以作为切换开关使用，也可以作为专用（需按住才能使用）的涡轮按钮。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8252,7 +8252,7 @@
     {
         "No.": "751",
         "English": "Assign RetroPad's L3/R3 buttons as turbo hotkeys instead of buttons III and IV. Works only in 'Toggle' mode and only as long as nothing is assigned to the L3/R3 buttons. You can avoid remapping buttons III and IV when switching to 6-button controller mode with this.",
-        "Chinese": "",
+        "Chinese": "将RetroPad的L3/R3按钮设置为涡轮加速热键，而非按钮III和IV。此功能仅在“切换”模式下有效，且前提是L3/R3按钮尚未被分配其他功能。通过此设置，可在切换到6键控制器模式时避免重新映射按钮III和IV。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8263,7 +8263,7 @@
     {
         "No.": "752",
         "English": "Automatically load the Games Express BIOS regardless of CD BIOS setting when loading Games Express CD games.",
-        "Chinese": "",
+        "Chinese": "在加载Games Express光盘游戏时，无论CD BIOS的设置如何，均自动加载Games Express BIOS。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8274,7 +8274,7 @@
     {
         "No.": "753",
         "English": "This is helpful to run homebrew games or to isolate games that will not run in SuperGrafx mode (like Space Harrier). Save states are not compatible with each mode. It's better to leave this option off unless needed. Known SuperGrafx games (like Dai-Makaimura, Aldyns) will automatically switch to SuperGrafx regardless of this option.",
-        "Chinese": "",
+        "Chinese": "此选项有助于运行自制游戏，或隔离那些无法在SuperGrafx模式下运行的游戏（如《太空掠夺者》）。不同模式下的存档数据并不兼容。除非有必要，否则建议关闭此选项。已知的SuperGrafx游戏（如《大魔界》、《阿尔丁斯》）无论是否启用此选项，都会自动切换到SuperGrafx模式运行。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8285,7 +8285,7 @@
     {
         "No.": "754",
         "English": "Choose the orientation of the console screen. 'Portrait' can be used to achieve the correct layout of portrait oriented games on a conventional (landscape) display. 'Manual' enables rotation via the controller (default button: SELECT).",
-        "Chinese": "",
+        "Chinese": "选择游戏机屏幕的方向。“纵向”模式可用于在常规的横向显示屏上正确显示纵向设计的游戏。“手动”模式则允许通过控制器进行旋转操作（默认按键为SELECT）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8296,7 +8296,7 @@
     {
         "No.": "755",
         "English": "Choose the preferred button mapping. 'Auto' adjusts button mapping to match the current display rotation.",
-        "Chinese": "",
+        "Chinese": "选择首选的按键映射方式。“自动”模式会根据当前的屏幕旋转方向自动调整按键映射。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8307,7 +8307,7 @@
     {
         "No.": "756",
         "English": "Choose the colorization of WonderSwan (Mono) games. 'WS' palettes mimic the display of the original WonderSwan hardware.",
-        "Chinese": "",
+        "Chinese": "选择WonderSwan（单色）游戏的色彩模式。“WS”色调设置旨在还原原始WonderSwan硬件的显示效果。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8318,7 +8318,7 @@
     {
         "No.": "757",
         "English": "24-bit is slower and not available on all platforms.",
-        "Chinese": "",
+        "Chinese": "24位模式运行速度较慢，且并非所有平台都支持。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8329,7 +8329,7 @@
     {
         "No.": "758",
         "English": "When 'Frameskip' is set to 'Manual', this specifies the audio buffer occupancy threshold (percentage) below which frames will be skipped. Higher values reduce the risk of crackling by causing frames to be dropped more frequently.",
-        "Chinese": "",
+        "Chinese": "当“帧跳过”设置为“手动”时，此选项用于指定音频缓冲区占用阈值（百分比）。只有当占用率低于该阈值时，系统才会跳过部分帧。较高的阈值会更频繁地丢弃帧，从而降低音频出现杂音的风险。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8340,7 +8340,7 @@
     {
         "No.": "759",
         "English": "Update the display at 60Hz instead of the native 75Hz WonderSwan refresh rate by dropping every fifth frame. Reduces video smoothness, but avoids screen tearing on displays that do not support native operation above 60Hz.",
-        "Chinese": "",
+        "Chinese": "以60Hz的频率更新显示内容，而非WonderSwan原本的75Hz刷新率——通过每隔五帧跳过一帧来实现。虽然这会降低视频的流畅度，但能避免在那些无法支持60Hz以上原生刷新率的显示器上出现画面撕裂现象。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8351,7 +8351,7 @@
     {
         "No.": "760",
         "English": "Higher values improve sound quality slightly at the expense of performance.",
-        "Chinese": "",
+        "Chinese": "较高的数值会在略微影响性能的前提下，提升音质。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8362,7 +8362,7 @@
     {
         "No.": "761",
         "English": "Apply a low pass audio filter to 'soften' the sometimes harsh chiptunes produced by the WonderSwan.",
-        "Chinese": "",
+        "Chinese": "为声音应用低通滤波器，以“柔化”WonderSwan游戏机有时会产生的尖锐芯片音效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8373,7 +8373,7 @@
     {
         "No.": "762",
         "English": "Select the 3D mode. Anaglyph - used in conjunction with classic dual-lens-color glasses. Cyberscope - intended for use with the CyberScope 3D device. sidebyside - the left-eye image is displayed on the left, and the right-eye image is displayed on the right. vli - Vertical lines alternate between left and right view. hli - Horizontal lines alternate between left and right view.",
-        "Chinese": "",
+        "Chinese": "选择3D模式。分色式——需配合传统双色镜片眼镜使用。Cyberscope模式——专为Cyberscope 3D设备设计。并排显示——左眼图像显示在左侧，右眼图像显示在右侧。VLI模式——垂直线条在左右视图之间交替出现。HLI模式——水平线条在左右视图之间交替出现。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8384,7 +8384,7 @@
     {
         "No.": "763",
         "English": "Anaglyph preset colors.",
-        "Chinese": "",
+        "Chinese": "红蓝分色预设颜色。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8395,7 +8395,7 @@
     {
         "No.": "764",
         "English": "Number of pixels to separate left and right views in side-by-side 3D mode.",
-        "Chinese": "",
+        "Chinese": "在并排3D模式下，用于分隔左右视图的像素数量。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8406,7 +8406,7 @@
     {
         "No.": "765",
         "English": "Choose between faster and accurate (slower) emulation.",
-        "Chinese": "",
+        "Chinese": "在更快的仿真速度与更精确的仿真效果（较慢的速度）之间进行选择。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8417,7 +8417,7 @@
     {
         "No.": "766",
         "English": "Runs loaded content with a specific Game Boy model. 'Autodetect' will select the most appropriate model for the current game.",
-        "Chinese": "",
+        "Chinese": "以特定的Game Boy型号运行加载的内容。“自动检测”功能会为当前游戏选择最合适的型号。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8428,7 +8428,7 @@
     {
         "No.": "767",
         "English": "Use official BIOS/bootloader for emulated hardware, if present in RetroArch's system directory.",
-        "Chinese": "",
+        "Chinese": "如果 RetroArch 的系统目录中存在对应的官方 BIOS/引导加载程序，请为模拟的硬件使用它。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8439,7 +8439,7 @@
     {
         "No.": "768",
         "English": "When using an official BIOS/bootloader, skip the start-up logo animation. This setting is ignored when 'Use BIOS File if Found' is disabled.",
-        "Chinese": "",
+        "Chinese": "当使用官方BIOS/引导加载程序时，跳过启动标志动画。如果禁用了“找到BIOS文件则使用”，则此设置将被忽略。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8450,7 +8450,7 @@
     {
         "No.": "769",
         "English": "Selects which palette is used for Game Boy games that are not Game Boy Color or Super Game Boy compatible, or if the model is forced to Game Boy.",
-        "Chinese": "",
+        "Chinese": "用于选择针对非Game Boy Color或Super Game Boy兼容的Game Boy游戏，或是当游戏机被强制设置为Game Boy模式时所使用的调色板。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8461,7 +8461,7 @@
     {
         "No.": "770",
         "English": "Use the palettes for Game Boy games that have presets on the Game Boy Color or Super Game Boy.",
-        "Chinese": "",
+        "Chinese": "对于在Game Boy Color或Super Game Boy上已有预设的Game Boy游戏，使用相应的调色板。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8472,7 +8472,7 @@
     {
         "No.": "771",
         "English": "Display Super Game Boy borders when running Super Game Boy enhanced games.",
-        "Chinese": "",
+        "Chinese": "在运行超级游戏男孩增强版游戏时显示该主机的边框。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8483,7 +8483,7 @@
     {
         "No.": "772",
         "English": "Adjusts output colors to match the display of real GBA/GBC hardware.",
-        "Chinese": "",
+        "Chinese": "调整输出颜色，使其与真实GBA/GBC硬件的显示效果保持一致。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8494,7 +8494,7 @@
     {
         "No.": "773",
         "English": "Simulates LCD ghosting effects. 'Simple' performs a 50:50 mix of the current and previous frames. 'Smart' attempts to detect screen flickering, and only performs a 50:50 mix on affected pixels. 'LCD Ghosting' mimics natural LCD response times by combining multiple buffered frames. 'Simple' or 'Smart' blending is required when playing games that aggressively exploit LCD ghosting for transparency effects (Wave Race, Chikyuu Kaihou Gun ZAS, F-Zero, the Boktai series...).",
-        "Chinese": "",
+        "Chinese": "模拟LCD残影效果。“简单”模式会将当前帧与上一帧以50:50的比例混合。“智能”模式会尝试检测屏幕闪烁，仅对出现闪烁的像素进行50:50混合。“LCD残影”模式则通过结合多帧缓冲图像来模拟LCD的自然响应时间。在运行那些刻意利用LCD残影效果来实现透明视觉效果的游戏时（如《波浪竞速》、《地球防卫军ZAS》、《F-Zero》以及《爆裂战士》系列等），需要使用“简单”或“智能”混合模式。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8505,7 +8505,7 @@
     {
         "No.": "774",
         "English": "Enables a low pass audio filter to reduce the 'harshness' of generated audio.",
-        "Chinese": "",
+        "Chinese": "启用低通音频滤波器，以降低生成音频的“刺耳感”。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8516,7 +8516,7 @@
     {
         "No.": "775",
         "English": "Specifies the cut-off frequency of the low pass audio filter. A higher value increases the perceived 'strength' of the filter, since a wider range of the high frequency spectrum is attenuated.",
-        "Chinese": "",
+        "Chinese": "指定低通音频滤波器的截止频率。数值越高，滤波器的“强度”感知就越强，因为更高频率范围的信号会被更多衰减。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8527,7 +8527,7 @@
     {
         "No.": "776",
         "English": "Sets ambient sunlight intensity. Can be used by games that included a solar sensor in their cartridges, e.g: the Boktai series.",
-        "Chinese": "",
+        "Chinese": "设置环境阳光强度。适用于那些游戏卡带中内置了太阳传感器的游戏，例如：Boktai系列游戏。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8538,7 +8538,7 @@
     {
         "No.": "777",
         "English": "Enabling this will allow compatible games with the Game Boy Player boot logo to make the controller rumble. Due to how Nintendo decided this feature should work, it may cause glitches such as flickering or lag in some of these games.",
-        "Chinese": "",
+        "Chinese": "启用此选项后，带有Game Boy Player启动标志的兼容游戏即可实现控制器震动功能。但由于任天堂对这一功能的实现方式有特定设计，它可能会导致部分游戏出现画面闪烁或延迟等故障。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8549,7 +8549,7 @@
     {
         "No.": "778",
         "English": "Reduce system load by optimizing so-called 'idle-loops' - sections in the code where nothing happens, but the CPU runs at full speed (like a car revving in neutral). Improves performance, and should be enabled on low-end hardware.",
-        "Chinese": "",
+        "Chinese": "通过优化所谓的“空转循环”来降低系统负载——这类代码片段中虽然没有实际运算，但CPU仍会全速运转（就像汽车处于空挡状态时引擎仍在转动）。此举有助于提升性能，建议在性能较低的硬件上启用该功能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8560,7 +8560,7 @@
     {
         "No.": "779",
         "English": "'Auto' will use the NstDatabase.xml database file for region autodetection. If there is no database present, it will default to NTSC.",
-        "Chinese": "",
+        "Chinese": "“自动”模式会使用NstDatabase.xml数据库文件来自动检测地区设置。如果该数据库不存在，则默认采用NTSC标准。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8571,7 +8571,7 @@
     {
         "No.": "780",
         "English": "Automatically insert first FDS disk on reset.",
-        "Chinese": "",
+        "Chinese": "在重启时自动插入第一张FDS磁盘。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8582,7 +8582,7 @@
     {
         "No.": "781",
         "English": "Define which format will be used by savefiles generated for FDS games. Based on the format chosen, FDS savefiles might be used interchangeably with other cores and standalone emulators. It is recommended to use with caution, as improper handling may cause undesired overwrites, or deletion of the existing saves.",
-        "Chinese": "",
+        "Chinese": "指定为FDS游戏生成的存档文件所使用的格式。根据所选的格式，FDS存档文件或许可以与其他游戏引擎及独立模拟器互相兼容使用。但建议谨慎操作，因为不当处理可能会导致不必要的数据覆盖或现有存档被删除。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8593,7 +8593,7 @@
     {
         "No.": "782",
         "English": "Enable Blargg NTSC filters.",
-        "Chinese": "",
+        "Chinese": "启用 Blargg NTSC 滤镜。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8604,7 +8604,7 @@
     {
         "No.": "783",
         "English": "Color palette to be used. If 'Custom' is selected, the palette used will be taken from the 'custom.pal' file placed in the RetroArch System/BIOS directory.",
-        "Chinese": "",
+        "Chinese": "要使用的颜色调色板。如果选择“自定义”，则将从RetroArch的System/BIOS目录中的“custom.pal”文件中读取调色板。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8615,7 +8615,7 @@
     {
         "No.": "784",
         "English": "Mask out (vertically) the potentially random glitchy video output that would have been hidden by the bezel around the edge of a standard-definition television screen.",
-        "Chinese": "",
+        "Chinese": "遮盖可能出现的随机故障性视频输出——在标准清晰度电视屏幕的边框遮挡下，这类问题通常不会被察觉。（垂直方向遮盖）",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8626,7 +8626,7 @@
     {
         "No.": "785",
         "English": "Mask out (horizontally) the potentially random glitchy video output that would have been hidden by the bezel around the edge of a standard-definition television screen.",
-        "Chinese": "",
+        "Chinese": "遮盖（水平方向）那些可能出现的随机故障视频信号，这类信号在标准清晰度电视屏幕的边框遮挡下原本是看不见的。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8637,7 +8637,7 @@
     {
         "No.": "786",
         "English": "RetroArch's aspect ratio must be set to 'Core Provided' in the Video settings. 'Auto' will use the NstDatabase.xml database file for aspect ratio autodetection. If there is no database present, it will default to NTSC.",
-        "Chinese": "",
+        "Chinese": "在视频设置中，RetroArch的宽高比必须设置为“核心提供”。若选择“自动”，系统将使用NstDatabase.xml数据库文件来自动检测宽高比。如果该数据库不存在，则默认采用NTSC标准。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8648,7 +8648,7 @@
     {
         "No.": "787",
         "English": "The Game Genie cheat device could inadvertently introduce sound distortion in games. By enabling this, you can simulate the distortion it would add to a game's sound.",
-        "Chinese": "",
+        "Chinese": "Game Genie作弊设备可能会无意中导致游戏中的声音失真。开启此选项后，即可模拟该设备对游戏声音造成的失真效果。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8659,7 +8659,7 @@
     {
         "No.": "788",
         "English": "Enable configuration of low-level audio channel parameters.",
-        "Chinese": "",
+        "Chinese": "启用低级音频通道参数的配置功能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8670,7 +8670,7 @@
     {
         "No.": "789",
         "English": "Modify Square 1 Channel Volume %.",
-        "Chinese": "",
+        "Chinese": "修改方块1通道音量百分比。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8681,7 +8681,7 @@
     {
         "No.": "790",
         "English": "Modify Square 2 Channel Volume %.",
-        "Chinese": "",
+        "Chinese": "修改方形2通道音量百分比。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8692,7 +8692,7 @@
     {
         "No.": "791",
         "English": "Modify Triangle Channel Volume %.",
-        "Chinese": "",
+        "Chinese": "修改三角形通道音量百分比。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8703,7 +8703,7 @@
     {
         "No.": "792",
         "English": "Modify Noise Channel Volume %.",
-        "Chinese": "",
+        "Chinese": "修改噪声通道音量百分比。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8714,7 +8714,7 @@
     {
         "No.": "793",
         "English": "Modify DPCM Channel Volume %.",
-        "Chinese": "",
+        "Chinese": "修改DPCM声道音量百分比。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8725,7 +8725,7 @@
     {
         "No.": "794",
         "English": "Modify FDS Channel Volume %.",
-        "Chinese": "",
+        "Chinese": "修改FDS频道音量百分比。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8736,7 +8736,7 @@
     {
         "No.": "795",
         "English": "Modify MMC5 Channel Volume %.",
-        "Chinese": "",
+        "Chinese": "修改MMC5通道音量百分比。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8747,7 +8747,7 @@
     {
         "No.": "796",
         "English": "Modify VRC6 Channel Volume %.",
-        "Chinese": "",
+        "Chinese": "修改VRC6通道音量百分比。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8758,7 +8758,7 @@
     {
         "No.": "797",
         "English": "Modify VRC7 Channel Volume %.",
-        "Chinese": "",
+        "Chinese": "修改VRC7频道音量百分比。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8769,7 +8769,7 @@
     {
         "No.": "798",
         "English": "Modify N163 Channel Volume %.",
-        "Chinese": "",
+        "Chinese": "修改N163频道音量百分比。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8780,7 +8780,7 @@
     {
         "No.": "799",
         "English": "Modify S5B Channel Volume %.",
-        "Chinese": "",
+        "Chinese": "修改S5B频道音量百分比。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8791,7 +8791,7 @@
     {
         "No.": "800",
         "English": "Specify whether the audio output should be mono or stereo.",
-        "Chinese": "",
+        "Chinese": "指定音频输出应为单声道还是立体声。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8802,7 +8802,7 @@
     {
         "No.": "801",
         "English": "Manually select a 4 Player Adapter if needed. Some games will not recognize the adapter correctly through the NstDatabase.xml database, this option should help fix that.",
-        "Chinese": "",
+        "Chinese": "如有需要，可手动选择4人适配器。某些游戏无法通过NstDatabase.xml数据库正确识别该适配器，此选项有助于解决该问题。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8813,7 +8813,7 @@
     {
         "No.": "802",
         "English": "Rotate the A/B/X/Y buttons clockwise.",
-        "Chinese": "",
+        "Chinese": "将A/B/X/Y按钮顺时针旋转。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8824,7 +8824,7 @@
     {
         "No.": "803",
         "English": "Select the device you wish to use for the Arkanoid paddle.",
-        "Chinese": "",
+        "Chinese": "请选择用于《阿卡诺伊德》球拍控制的设备。|<im_end|>",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8835,7 +8835,7 @@
     {
         "No.": "804",
         "English": "Set the range for the Arkanoid paddle.",
-        "Chinese": "",
+        "Chinese": "设置阿卡诺伊德球拍的活动范围。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8846,7 +8846,7 @@
     {
         "No.": "805",
         "English": "Select the device you wish to use for the Zapper.",
-        "Chinese": "",
+        "Chinese": "请选择用于Zapper的设备。|<im_end|>",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8857,7 +8857,7 @@
     {
         "No.": "806",
         "English": "Set whether to show the crosshair when the Zapper is used.",
-        "Chinese": "",
+        "Chinese": "设置使用Zapper时是否显示准星。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8868,7 +8868,7 @@
     {
         "No.": "807",
         "English": "Set the turbo pulse speed for the Turbo B and Turbo A buttons.",
-        "Chinese": "",
+        "Chinese": "设置Turbo B和Turbo A按钮的涡轮脉冲速度。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8879,7 +8879,7 @@
     {
         "No.": "808",
         "English": "Remove 8-sprites-per-scanline hardware limit.",
-        "Chinese": "",
+        "Chinese": "取消每扫描线8个精灵的硬件限制。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8890,7 +8890,7 @@
     {
         "No.": "809",
         "English": "Overclock the emulated CPU.",
-        "Chinese": "",
+        "Chinese": "对模拟的CPU进行超频。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8901,7 +8901,7 @@
     {
         "No.": "810",
         "English": "Specify which region the system is from. 'NTSC' is 60 Hz while 'PAL' is 50 Hz. 'Auto' will detect the region of the currently loaded content. Games may run faster or slower than normal if the incorrect region is selected.",
-        "Chinese": "",
+        "Chinese": "指定系统所在的地区。‘NTSC’制式的频率为60赫兹，而‘PAL’制式的频率为50赫兹。选择‘自动’模式时，系统会自动检测当前加载内容的地区设置。如果选择了错误的地区，游戏的运行速度可能会快于或慢于正常水平。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8912,7 +8912,7 @@
     {
         "No.": "811",
         "English": "Specify which BIOS to use. 'Auto' will attempt to load a real bios file from the frontend 'system' directory, falling back to high level emulation if unavailable. 'HLE' forces high level BIOS emulation. It is recommended to use an official bios file for better compatibility.",
-        "Chinese": "",
+        "Chinese": "指定要使用的BIOS版本。“自动”模式会尝试从前端“system”目录加载真实的BIOS文件，若无法找到则转而使用高级仿真技术。“HLE”模式则强制使用高级BIOS仿真。为获得更好的兼容性，建议使用官方提供的BIOS文件。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8923,7 +8923,7 @@
     {
         "No.": "812",
         "English": "When using an official BIOS file, specify whether to show the PlayStation logo upon starting or resetting content. Warning: Enabling the boot logo may reduce game compatibility.",
-        "Chinese": "",
+        "Chinese": "在使用官方BIOS文件时，需指定在启动或重置内容时是否显示PlayStation标志。警告：启用启动标志可能会降低游戏的兼容性。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8934,7 +8934,7 @@
     {
         "No.": "813",
         "English": "Emulate a second memory card in slot 2. This will be shared by all games.",
-        "Chinese": "",
+        "Chinese": "在插槽2中模拟第二张存储卡。所有游戏都将共享该存储卡。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8945,7 +8945,7 @@
     {
         "No.": "814",
         "English": "Reads the specified amount of sectors ahead of time to try to avoid later stalls. ",
-        "Chinese": "",
+        "Chinese": "会提前读取指定数量的扇区数据，以避免后续出现卡顿现象。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8956,7 +8956,7 @@
     {
         "No.": "815",
         "English": "Dynamically recompile PSX CPU instructions to native instructions. Much faster than using an interpreter, but may be less accurate on some platforms.",
-        "Chinese": "",
+        "Chinese": "动态将PSX CPU指令重新编译为原生指令。相比使用解释器，其速度更快，但在某些平台上精度可能会稍低。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8967,7 +8967,7 @@
     {
         "No.": "816",
         "English": "Overclock or under-clock the PSX CPU. Should be much less than 100 (something like 57) due to some real hardware slowdowns not being emulated. Usually should be left at 'Auto', else glitches or hangs are likely.",
-        "Chinese": "",
+        "Chinese": "对PSX CPU进行超频或降频设置。由于某些真实的硬件减速现象无法被模拟，该数值应远低于100（大约为57左右）。通常建议保持“自动”状态，否则很可能会出现故障或程序卡死的情况。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8978,7 +8978,7 @@
     {
         "No.": "817",
         "English": "Enable emulation of the dithering technique used by the PSX to smooth out color banding artifacts. \"Force\" enables it even if the game turns it off. Increases performance requirements.",
-        "Chinese": "",
+        "Chinese": "启用PSX所使用的抖动技术模拟功能，以消除色彩带状伪影。选择“强制”选项后，即便游戏本身关闭了该功能，也会继续启用。此功能会提升性能需求。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -8989,7 +8989,7 @@
     {
         "No.": "818",
         "English": "Specify the maximum number of frames that can be skipped before a new frame is rendered.",
-        "Chinese": "",
+        "Chinese": "指定在渲染新帧之前可跳过的最大帧数。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9000,7 +9000,7 @@
     {
         "No.": "819",
         "English": "Show the internal frame rate at which the emulated PlayStation system is rendering content. Note: Requires on-screen notifications to be enabled in the libretro frontend.",
-        "Chinese": "",
+        "Chinese": "显示模拟的PlayStation系统渲染内容的内部帧率。注意：需在libretro前端中启用屏幕通知功能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9011,7 +9011,7 @@
     {
         "No.": "820",
         "English": "Instead of the exact 50 or 60 (maximum) fps for PAL/NTSC the real console runs closer to something like 49.75 and 59.81fps (varies slightly between hw versions). PCSX-ReARMed uses the former \"round\" framerates to better match modern displays, however that may cause audio/video desync in games like DDR and Spyro 2 (intro). With this option you can try to use fractional framerates.",
-        "Chinese": "",
+        "Chinese": "与PAL/NTSC制式下游戏主机实际可达的50或60帧/秒（最高值）不同，真实主机上的帧率更接近49.75帧/秒和59.81帧/秒左右（不同硬件版本间会有轻微差异）。PCSX-ReARMed采用上述“整数”帧率，以便更好地适配现代显示器，但这可能会导致《DDR》和《斯派罗2：首章》等游戏中的音画不同步。通过此选项，您可以尝试使用小数帧率。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9022,7 +9022,7 @@
     {
         "No.": "821",
         "English": "Improves color depth for true color modes (most FMVs and occasional title screens). Causes higher CPU usage due to double memory bandwidth requirement, even in 15bpp modes. Takes effect on game reload only (libretro limitation).",
-        "Chinese": "",
+        "Chinese": "提升真彩色模式下的色彩深度（适用于大多数动态视频以及偶尔出现的标题画面）。由于需要双倍的内存带宽，即便在15bpp模式下也会增加CPU负载。该效果仅在重新加载游戏时生效（受libretro限制）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9033,7 +9033,7 @@
     {
         "No.": "822",
         "English": "Slower but more accurate GPU linked list processing. Needed by only a few games like Vampire Hunter D. Should be autodetected in most cases.",
-        "Chinese": "",
+        "Chinese": "处理速度较慢，但精度更高的GPU链表处理方式。只有《吸血鬼猎人D》等少数游戏需要此功能。在大多数情况下应能自动检测到。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9044,7 +9044,7 @@
     {
         "No.": "823",
         "English": "The PSX can display graphics way into the horizontal borders, even if most screens would crop it. This option tries to display all such graphics. Note that this may result in unusual resolutions that your device might not handle well. The 'Hack' option is intended for the widescreen hacks.",
-        "Chinese": "",
+        "Chinese": "PSX版本能够将图形显示在水平边界之外的区域，即便大多数屏幕会裁剪掉这些内容。此选项旨在完整显示所有此类图形。请注意，这可能会导致不常见的分辨率，而您的设备可能无法良好处理。‘Hack’选项则是为宽屏模式下的修改而设计的。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9055,7 +9055,7 @@
     {
         "No.": "824",
         "English": "The PSX has a feature allowing it to shift the image position on screen. Some (mostly PAL) games used this feature in a strange way making the image miscentered and causing uneven borders to appear. With 'Auto' the emulator tries to correct this miscentering automatically. 'Game-controlled' uses the settings supplied by the game. 'Manual' allows to override those values with the settings below.",
-        "Chinese": "",
+        "Chinese": "PSX拥有一个可调整屏幕上图像位置的功能。某些（主要是PAL制式的）游戏会以奇怪的方式使用这一功能，导致图像偏移并出现不均匀的边框。选择“自动”模式时，模拟器会尝试自动纠正这种偏移现象；“游戏控制”模式则采用游戏本身设定的参数；“手动”模式则允许使用下方的设置来覆盖游戏原有的参数。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9066,7 +9066,7 @@
     {
         "No.": "825",
         "English": "X offset of the frame buffer. Only effective when 'Screen centering' is set to 'Manual'.",
-        "Chinese": "",
+        "Chinese": "帧缓冲区的X偏移量。仅当“屏幕居中”选项设置为“手动”时有效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9077,7 +9077,7 @@
     {
         "No.": "826",
         "English": "Y offset of the frame buffer. Only effective when 'Screen centering' is set to 'Manual'.",
-        "Chinese": "",
+        "Chinese": "帧缓冲区的Y轴偏移量。仅当“屏幕居中”选项设置为“手动”时有效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9088,7 +9088,7 @@
     {
         "No.": "827",
         "English": "Height adjustment. Only effective when 'Screen centering' is set to 'Manual'.",
-        "Chinese": "",
+        "Chinese": "高度调整。仅当“屏幕居中”设置为“手动”时有效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9099,7 +9099,7 @@
     {
         "No.": "828",
         "English": "When enabled, games that run in high resolution video modes (480i, 512i) will produced interlaced video output. While this displays correctly on CRT televisions, it will produce artifacts on modern displays. When disabled, all video is output in progressive format. Note: there are games that will glitch is this is off.",
-        "Chinese": "",
+        "Chinese": "启用此选项后，以高分辨率视频模式（480i、512i）运行的游戏将输出隔行扫描视频。虽然这在CRT电视上能正常显示，但会在现代显示器上产生视觉瑕疵。禁用此选项后，所有视频将以逐行扫描格式输出。注意：若关闭此选项，某些游戏可能会出现故障。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9110,7 +9110,7 @@
     {
         "No.": "829",
         "English": "Render games that do not already run in high resolution video modes (480i, 512i) at twice the native internal resolution. Improves the fidelity of 3D models at the expense of increased performance requirements. 2D elements are generally unaffected by this setting.",
-        "Chinese": "",
+        "Chinese": "以两倍于原生内部分辨率的标准，渲染那些并非以高分辨率视频模式（480i、512i）运行的游戏。虽然会提升性能要求，但能提高3D模型的逼真度。2D元素通常不会受到此设置的影响。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9121,7 +9121,7 @@
     {
         "No.": "830",
         "English": "('Enhanced Resolution' Hack) Improves performance but reduces compatibility and may cause rendering errors.",
-        "Chinese": "",
+        "Chinese": "(“增强分辨率”作弊方法) 能提升性能，但会降低兼容性，并可能导致渲染错误。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9132,7 +9132,7 @@
     {
         "No.": "831",
         "English": "('Enhanced Resolution' Hack) Solves some texturing issues in some games in Enhanced Resolution mode. May cause a small performance hit.",
-        "Chinese": "",
+        "Chinese": "（“增强分辨率”作弊功能）可在增强分辨率模式下解决部分游戏中的纹理显示问题。但可能会对性能造成轻微影响。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9143,7 +9143,7 @@
     {
         "No.": "832",
         "English": "Enable emulation of the reverb feature provided by the PSX SPU. Can be disabled to improve performance at the expense of reduced audio quality/authenticity.",
-        "Chinese": "",
+        "Chinese": "启用对PSX SPU所提供的混响功能的模拟。如需提升性能，可关闭此功能，但音质和真实度将会下降。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9154,7 +9154,7 @@
     {
         "No.": "833",
         "English": "Enable emulation of the in-built audio interpolation provided by the PSX SPU. 'Gaussian' sounds closest to original hardware. 'Simple' improves performance but reduces quality. 'Cubic' has the highest performance requirements but produces increased clarity. Can be disabled entirely for maximum performance, at the expense of greatly reduced audio quality.",
-        "Chinese": "",
+        "Chinese": "启用对PSX SPU内置音频插值功能的模拟。选择“高斯”模式音质最接近原始硬件效果。“简单”模式能提升性能，但会降低音质。“立方”模式对性能要求最高，却能带来更清晰的音效。如需获得最佳性能，可完全关闭此功能，但音质会大幅下降。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9165,7 +9165,7 @@
     {
         "No.": "834",
         "English": "Enable playback of CD (CD-DA) audio tracks. Can be disabled to improve performance in games that include CD audio, at the expense of missing music.",
-        "Chinese": "",
+        "Chinese": "启用CD（CD-DA）音频轨道的播放功能。如需在包含CD音频的游戏里提升性能，可关闭此功能，但这样就会无法听到音乐。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9176,7 +9176,7 @@
     {
         "No.": "835",
         "English": "Enable playback of XA (eXtended Architecture ADPCM) audio tracks. Can be disabled to improve performance in games that include XA audio, at the expense of missing music.",
-        "Chinese": "",
+        "Chinese": "启用XA（扩展架构ADPCM）音频轨道的播放功能。如需在包含XA音频的游戏里提升性能，可关闭此功能，但这样会导致音乐无法播放。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9187,7 +9187,7 @@
     {
         "No.": "836",
         "English": "Emulates the PSX SPU on another CPU thread. May cause audio glitches in some games.",
-        "Chinese": "",
+        "Chinese": "在另一条CPU线程上模拟PSX SPU。在某些游戏中可能会导致音频故障。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9198,7 +9198,7 @@
     {
         "No.": "837",
         "English": "Show configuration options for all input devices: analog response, Multitaps, light guns, etc. Quick Menu may need to be toggled for this setting to take effect.",
-        "Chinese": "",
+        "Chinese": "显示所有输入设备的配置选项：模拟摇杆响应、多点触控、光枪等。此设置需切换快速菜单才能生效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9209,7 +9209,7 @@
     {
         "No.": "838",
         "English": "Specify range limits for the left and right analog sticks when input device is set to 'analog' or 'dualshock'. 'Square' bounds improve input response when using controllers with highly circular ranges that are unable to fully saturate the X and Y axes at 45 degree deflections.",
-        "Chinese": "",
+        "Chinese": "当输入设备设置为“模拟器”或“DualShock”时，用于指定左右摇杆的范围限制。对于那些摇杆活动范围呈圆形、在45度偏转时无法完全使X轴和Y轴达到饱和值的控制器，启用“正方形”边界设置可提升输入响应速度。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9220,7 +9220,7 @@
     {
         "No.": "839",
         "English": "Enable haptic feedback when using a rumble-equipped gamepad with input device set to 'dualshock'.",
-        "Chinese": "",
+        "Chinese": "当输入设备设置为“DualShock”且使用带有震动功能的游戏手柄时，启用触觉反馈功能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9231,7 +9231,7 @@
     {
         "No.": "840",
         "English": "When the input device type is DualShock, this option allows the emulated DualShock to be toggled between DIGITAL and ANALOG mode like original hardware. You can select the button combination for this.",
-        "Chinese": "",
+        "Chinese": "当输入设备类型为DualShock时，此选项允许将模拟的DualShock在数字模式与模拟模式之间切换，其操作方式与原版硬件相同。您还可以为此选择相应的按键组合。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9242,7 +9242,7 @@
     {
         "No.": "841",
         "English": "Connect a virtual PSX Multitap peripheral to either controller 'Port 1' or controller 'Port 2' for 5 player simultaneous input, or to both 'Ports 1 and 2' for 8 player input. Mutlitap usage requires compatible games.",
-        "Chinese": "",
+        "Chinese": "将虚拟PSX Multitap外设连接到任意一个控制器上的“端口1”或“端口2”，即可实现5人同时输入；若连接到两个“端口1和端口2”，则可支持8人输入。使用Multitap功能需要兼容的游戏支持。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9253,7 +9253,7 @@
     {
         "No.": "842",
         "English": "Set the deadzone of the RetroPad left analog stick when simulating the 'twist' action of emulated neGcon Controllers. Used to eliminate drift/unwanted input.",
-        "Chinese": "",
+        "Chinese": "在模拟仿制版neGcon手柄的“扭转”动作时，用于设置RetroPad左侧摇杆的死区。此功能可消除摇杆漂移及不必要的输入信号。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9264,7 +9264,7 @@
     {
         "No.": "843",
         "English": "Specify the analog response when using a RetroPad left analog stick to simulate the 'twist' action of emulated neGcon Controllers.",
-        "Chinese": "",
+        "Chinese": "指定使用RetroPad左侧模拟摇杆来模拟仿制版neGcon控制器“扭转”动作时的模拟响应方式。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9275,7 +9275,7 @@
     {
         "No.": "844",
         "English": "Adjust responsiveness of emulated 'mouse' input devices.",
-        "Chinese": "",
+        "Chinese": "调整模拟“鼠标”输入设备的响应速度。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9286,7 +9286,7 @@
     {
         "No.": "845",
         "English": "Toggle player 1's crosshair for the Guncon or Konami Gun. Only works if RGB32 output is off (video options).",
-        "Chinese": "",
+        "Chinese": "切换Guncon或Konami Gun游戏手柄中玩家1的准星显示。仅当视频选项中的RGB32输出功能关闭时有效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9297,7 +9297,7 @@
     {
         "No.": "846",
         "English": "Toggle player 2's crosshair for the Guncon or Konami Gun. Only works if RGB32 output is off (video options).",
-        "Chinese": "",
+        "Chinese": "切换Guncon或Konami Gun游戏手柄中玩家2的准星显示。此功能仅在视频选项中的RGB32输出关闭时有效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9308,7 +9308,7 @@
     {
         "No.": "847",
         "English": "Apply an X axis offset to light gun input when emulating a Konami Gun (Hyper Blaster / Justifier) device. Can be used to correct aiming misalignments.",
-        "Chinese": "",
+        "Chinese": "在模拟科乐美光枪（Hyper Blaster/Justifier）设备时，为光枪输入应用X轴偏移量。此功能可用于纠正瞄准偏差。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9319,7 +9319,7 @@
     {
         "No.": "848",
         "English": "Apply a Y axis offset to light gun input when emulating a Konami Gun (Hyper Blaster / Justifier) device. Can be used to correct aiming misalignments.",
-        "Chinese": "",
+        "Chinese": "在模拟科乐美光枪（Hyper Blaster/Justifier）设备时，为光枪输入应用Y轴偏移量。此功能可用于修正瞄准偏差。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9330,7 +9330,7 @@
     {
         "No.": "849",
         "English": "Apply an X axis offset to light gun input when emulating a Guncon device. Can be used to correct aiming misalignments.",
-        "Chinese": "",
+        "Chinese": "在模拟Guncon设备时，为光枪输入应用X轴偏移量。此功能可用于修正瞄准偏差。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9341,7 +9341,7 @@
     {
         "No.": "850",
         "English": "Apply a Y axis offset to light gun input when emulating a Guncon device. Can be used to correct aiming misalignments.",
-        "Chinese": "",
+        "Chinese": "在模拟Guncon设备时，为光枪输入应用Y轴偏移量。此功能可用于修正瞄准偏差。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9352,7 +9352,7 @@
     {
         "No.": "851",
         "English": "Adjust relative magnitude of horizontal light gun motion when emulating a Guncon device. Can be used to correct aiming misalignments.",
-        "Chinese": "",
+        "Chinese": "在模拟Guncon设备时，调整横向光枪移动的相对幅度。可用于修正瞄准偏差。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9363,7 +9363,7 @@
     {
         "No.": "852",
         "English": "Adjust relative magnitude of vertical light gun motion when emulating a Guncon device. Can be used to correct aiming misalignments.",
-        "Chinese": "",
+        "Chinese": "在模拟Guncon设备时，调整垂直光枪运动的相对幅度。可用于修正瞄准偏差。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9374,7 +9374,7 @@
     {
         "No.": "853",
         "English": "Enable emulation of the PSX CPU instruction cache. Improves accuracy at the expense of increased performance overheads. Required for Formula One 2001, Formula One Arcade and Formula One 99. [Interpreter only; partial on lightrec and ARM dynarecs]",
-        "Chinese": "",
+        "Chinese": "启用PSX CPU指令缓存模拟功能。此功能虽能提升精度，但会增加性能开销。《2001年一级方程式》、《一级方程式街机版》和《1999年一级方程式》游戏需要该功能。[仅适用于解释器；在lightrec和ARM dynarecs平台上功能受限]",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9385,7 +9385,7 @@
     {
         "No.": "854",
         "English": "Enable emulation of some almost never used PSX's debug features. This causes a performance hit, is not useful for games and is intended for PSX homebrew and romhack developers only. Only enable if you know what you are doing. [Interpreter only]",
-        "Chinese": "",
+        "Chinese": "启用对那些几乎从未被使用过的PSX调试功能的模拟。这会降低性能，对游戏并无帮助，仅适用于PSX自制游戏和ROM修改的开发者。只有在清楚自己在做什么的情况下才建议启用。[仅限解释器使用]",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9396,7 +9396,7 @@
     {
         "No.": "855",
         "English": "This makes the emulated CD-ROM extremely fast and can reduce loading times in some cases. Warning: many games were not programmed to handle such a speed. The game (or even the emulator) MAY CRASH at ANY TIME if this is enabled.",
-        "Chinese": "",
+        "Chinese": "这样能让模拟的CD-ROM运行速度极快，在某些情况下还能缩短加载时间。警告：许多游戏并未针对如此高的速度进行优化。如果启用此功能，游戏（甚至模拟器）随时都可能崩溃。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9407,7 +9407,7 @@
     {
         "No.": "856",
         "English": "By default, PCSX-ReARMed will apply auxiliary compatibility hacks automatically, based on the currently loaded content. This behaviour is required for correct operation, but may be disabled if desired.",
-        "Chinese": "",
+        "Chinese": "默认情况下，PCSX-ReARMed会根据当前加载的内容自动应用辅助兼容性补丁。这种设置是确保程序正常运行的必要条件，但如有需要也可选择关闭该功能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9418,7 +9418,7 @@
     {
         "No.": "857",
         "English": "Will cause crashes when loading, and lead to memory card failure.",
-        "Chinese": "",
+        "Chinese": "加载时会导致程序崩溃，进而引发存储卡故障。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9429,7 +9429,7 @@
     {
         "No.": "858",
         "English": "May cause rendering errors.",
-        "Chinese": "",
+        "Chinese": "可能导致渲染错误。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9440,7 +9440,7 @@
     {
         "No.": "859",
         "English": "Will cause rendering errors.",
-        "Chinese": "",
+        "Chinese": "会导致渲染错误。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9451,7 +9451,7 @@
     {
         "No.": "860",
         "English": "Will cause some games to run too quickly. Should be disabled in almost all cases.",
-        "Chinese": "",
+        "Chinese": "会导致某些游戏运行速度过快。在几乎所有情况下都应将其禁用。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9462,7 +9462,7 @@
     {
         "No.": "861",
         "English": "Specify which region the system is from. 'PAL'/'Europe' is 50hz while 'NTSC'/'US' is 60hz. Games may run faster or slower than normal (or produce errors) if the incorrect region is selected.",
-        "Chinese": "",
+        "Chinese": "指定系统所在的区域。‘PAL’/‘欧洲’区域为50赫兹，而‘NTSC’/‘美国’区域为60赫兹。如果选择了错误的区域，游戏运行速度可能会快于或慢于正常水平（或出现错误）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9473,7 +9473,7 @@
     {
         "No.": "862",
         "English": "Choose which type of hardware (SMS or Game Gear) the core should emulate when running Master System content.",
-        "Chinese": "",
+        "Chinese": "选择在运行Master System游戏内容时，内核应模拟哪种类型的硬件（SMS或Game Gear）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9484,7 +9484,7 @@
     {
         "No.": "863",
         "English": "Choose which ROM mapper the core should apply. 'Auto' will work for a wide range of content, but in some cases automatic detection fails.",
-        "Chinese": "",
+        "Chinese": "选择内核应使用的ROM映射器。选择“自动”模式可适用于大多数内容，但在某些情况下自动检测可能会失败。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9495,7 +9495,7 @@
     {
         "No.": "864",
         "English": "Choose which colour palette should be used when an SMS game runs in one of the SG-1000 graphics modes.",
-        "Chinese": "",
+        "Chinese": "选择在 SMS 游戏以 SG-1000 的某种图形模式运行时所使用的颜色方案。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9506,7 +9506,7 @@
     {
         "No.": "865",
         "English": "Emulate a Sega CD RAM cart, used for save game data. WARNING: When enabled, internal save data (BRAM) will be discarded.",
-        "Chinese": "",
+        "Chinese": "模拟用于存储游戏数据的世嘉CD RAM卡带。警告：启用此选项后，内部存储数据（BRAM）将被清除。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9517,7 +9517,7 @@
     {
         "No.": "866",
         "English": "Choose the preferred content aspect ratio. This will only apply when RetroArch's aspect ratio is set to 'Core Provided' in the Video settings.",
-        "Chinese": "",
+        "Chinese": "选择您偏好的内容宽高比。此选项仅在“视频设置”中将RetroArch的宽高比设置为“内核提供”时生效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9528,7 +9528,7 @@
     {
         "No.": "867",
         "English": "Apply an image 'ghosting' filter to mimic the display characteristics of the Game Gear and 'Genesis Nomad' LCD panels.",
-        "Chinese": "",
+        "Chinese": "应用图像“重影”滤镜，以模拟Game Gear及“Genesis Nomad”型号LCD面板的显示特性。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9539,7 +9539,7 @@
     {
         "No.": "868",
         "English": "Specify video rendering method. 'Accurate' is slowest, but most exact. 'Good' is faster, but fails if colors change mid-frame too often. 'Fast' renders the complete frame in one pass, and is incompatible with games that rely on mid-frame palette/sprite table updates.",
-        "Chinese": "",
+        "Chinese": "指定视频渲染方式。“精确”模式速度最慢，但效果最准确。“良好”模式速度更快，但如果画面中的颜色在帧间频繁变化，则会导致渲染失败。“快速”模式可一次性渲染完整帧，但不适用于那些依赖帧间调色板/精灵表更新的游戏。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9550,7 +9550,7 @@
     {
         "No.": "869",
         "English": "Higher values increase sound quality. Lower values may increase performance. Native is the Mega Drive sound chip rate (~53000). Select this if you want the most accurate audio.",
-        "Chinese": "",
+        "Chinese": "数值越高，音质越好。数值越低，性能可能提升越高。原生值对应的是Mega Drive音效芯片的频率（约53000）。若您希望获得最真实的音效，请选择此选项。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9561,7 +9561,7 @@
     {
         "No.": "870",
         "English": "Enable filtering for Mega Drive FM sound at non-native bitrates. Sound output will improve, at the price of being noticeably slower",
-        "Chinese": "",
+        "Chinese": "启用对非原生比特率下Mega Drive FM音效的过滤功能。这样虽然能提升音质，但游戏运行速度会明显变慢。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9572,7 +9572,7 @@
     {
         "No.": "871",
         "English": "Enable emulation of the SMS FM Sound Unit. This produces higher quality audio in some games, but non-Japanese titles may fail to run.",
-        "Chinese": "",
+        "Chinese": "启用SMS FM音效单元的模拟功能。这能在部分游戏中提升音频质量，但非日文游戏可能无法运行。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9583,7 +9583,7 @@
     {
         "No.": "872",
         "English": "Select the Mega Drive/Genesis FM chip type. Model 1 Mega Drive/Genesis mostly used YM2612, which produced a distinct distortion. YM3438 was used in model 2 consoles.",
-        "Chinese": "",
+        "Chinese": "选择Mega Drive/Genesis FM芯片类型。第一代Mega Drive/Genesis大多使用YM2612芯片，该芯片会产生明显的失真效果；而第二代游戏机则采用了YM3438芯片。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9594,7 +9594,7 @@
     {
         "No.": "873",
         "English": "Enable a low pass audio filter to better simulate the characteristic sound of a Model 1 Mega Drive/Genesis. Note that only Model 1 and its add-ons (Sega CD, 32X) employed a physical low pass filter.",
-        "Chinese": "",
+        "Chinese": "启用低通音频滤波器，以更精准地模拟Model 1版Mega Drive/Genesis的游戏特色音效。需注意，仅有Model 1版本及其扩展设备（Sega CD、32X）配备了实体低通滤波器。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9605,7 +9605,7 @@
     {
         "No.": "874",
         "English": "Choose which type of controller is plugged into slot 1. Note that a multiplayer adaptor uses both slots.",
-        "Chinese": "",
+        "Chinese": "请选择插入插槽1的控制器类型。请注意，多玩家适配器会同时使用两个插槽。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9616,7 +9616,7 @@
     {
         "No.": "875",
         "English": "Choose which type of controller is plugged into slot 2. This setting is ignored when a multiplayer adaptor is plugged into slot 1.",
-        "Chinese": "",
+        "Chinese": "选择插入插槽2的控制器类型。当插槽1中插入了多玩家适配器时，此设置将被忽略。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9627,7 +9627,7 @@
     {
         "No.": "876",
         "English": "Enable dynamic recompilers which help to improve performance. Less accurate than interpreter CPU cores, but significantly faster.",
-        "Chinese": "",
+        "Chinese": "启用动态重新编译器，有助于提升性能。虽然其精度低于解释器型的CPU核心，但速度要快得多。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9638,7 +9638,7 @@
     {
         "No.": "877",
         "English": "Overclock the emulated 68K chip. Can reduce slowdown, but may cause glitches.",
-        "Chinese": "",
+        "Chinese": "对模拟的68K芯片进行超频处理。这可以减少运行速度下降的问题，但也可能导致程序故障。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9649,7 +9649,7 @@
     {
         "No.": "878",
         "English": "Specifies number of colors to display on-screen. 24-bit may increase performance overheads on some platforms.",
-        "Chinese": "",
+        "Chinese": "指定屏幕上显示的颜色数量。在某些平台上，24位颜色模式可能会增加性能开销。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9660,7 +9660,7 @@
     {
         "No.": "879",
         "English": "Enables a low pass audio filter to soften the 'harsh' sound produced by the Atari 7800's TIA chip.",
-        "Chinese": "",
+        "Chinese": "启用低通音频滤波器，以减弱Atari 7800的TIA芯片所产生的“刺耳”声音。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9671,7 +9671,7 @@
     {
         "No.": "880",
         "English": "Maps Player 2's joystick to the right analog stick of Player 1's RetroPad. Enables dual stick control in supported games (e.g. Robotron: 2084, T:ME Salvo).",
-        "Chinese": "",
+        "Chinese": "将玩家2的摇杆映射到玩家1的RetroPad右侧模拟摇杆上。在支持该功能的游戏中可实现双摇杆控制（例如《Robotron: 2084》、《T:ME Salvo》）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9682,7 +9682,7 @@
     {
         "No.": "881",
         "English": "Sets the built-in menu font size",
-        "Chinese": "",
+        "Chinese": "设置内置菜单的字体大小",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9693,7 +9693,7 @@
     {
         "No.": "882",
         "English": "Configure the CPU speed. Can be used to slow down games that run too fast or to speed up floppy loading times.",
-        "Chinese": "",
+        "Chinese": "配置CPU速度。可用于降低运行过快的游戏速度，或加快软盘加载时间。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9704,7 +9704,7 @@
     {
         "No.": "883",
         "English": "Sets the amount of RAM to be used by the system.",
-        "Chinese": "",
+        "Chinese": "设置系统使用的RAM容量。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9715,7 +9715,7 @@
     {
         "No.": "884",
         "English": "Set the joypad type for player 1.",
-        "Chinese": "",
+        "Chinese": "为玩家1设置游戏手柄类型。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9726,7 +9726,7 @@
     {
         "No.": "885",
         "English": "Set the joypad type for player 2.",
-        "Chinese": "",
+        "Chinese": "为第二名玩家设置手柄类型。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9737,7 +9737,7 @@
     {
         "No.": "886",
         "English": "Assigns a keyboard key to joypad's SELECT button since some games use these keys as the Start or Insert Coin buttons.",
-        "Chinese": "",
+        "Chinese": "由于某些游戏会将这些按键用作开始键或投币键，因此为游戏手柄的SELECT按钮分配了键盘按键。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9748,7 +9748,7 @@
     {
         "No.": "887",
         "English": "Enable software MIDI.",
-        "Chinese": "",
+        "Chinese": "启用软件 MIDI。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9759,7 +9759,7 @@
     {
         "No.": "888",
         "English": "Sets MIDI output type.",
-        "Chinese": "",
+        "Chinese": "设置MIDI输出类型。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9770,7 +9770,7 @@
     {
         "No.": "889",
         "English": "Sets the volume of the ADPCM sound channel.",
-        "Chinese": "",
+        "Chinese": "设置ADPCM音频通道的音量。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9781,7 +9781,7 @@
     {
         "No.": "890",
         "English": "Sets the volume of the OPM sound channel.",
-        "Chinese": "",
+        "Chinese": "设置OPM音频通道的音量。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9792,7 +9792,7 @@
     {
         "No.": "891",
         "English": "By default using the native Disk Swap interface within RetroArch's menu will swap the disk in drive FDD1. Change this option to swap disks in drive FDD0.",
-        "Chinese": "",
+        "Chinese": "默认情况下，RetroArch菜单中的原生磁盘交换功能会使用FDD1驱动器进行磁盘交换。将此选项更改后，即可让FDD0驱动器负责磁盘交换。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9803,7 +9803,7 @@
     {
         "No.": "892",
         "English": "When enabled, last loaded fdd path will be saved for each drive and then auto-loaded on startup. When disabled, FDDx starts empty.",
-        "Chinese": "",
+        "Chinese": "启用此选项后，系统会为每个驱动器保存上次加载的FDD路径，并在启动时自动加载。若禁用该选项，FDDx将处于空状态启动。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9814,7 +9814,7 @@
     {
         "No.": "893",
         "English": "When enabled, last loaded hdd path will be saved for each drive and then auto-loaded on startup. When disabled, HDDx starts empty.",
-        "Chinese": "",
+        "Chinese": "启用该选项后，系统会为每个硬盘保存上次加载的路径，并在启动时自动加载。若禁用该选项，HDDx将处于空状态启动。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9825,7 +9825,7 @@
     {
         "No.": "894",
         "English": "Produces rumble effect on supported devices when reading from floppy disks.",
-        "Chinese": "",
+        "Chinese": "在支持的设备上，从软盘读取时会生成低频震动效果。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9836,7 +9836,7 @@
     {
         "No.": "895",
         "English": "Select [Mouse] or [Joypad] to control in-game mouse pointer.",
-        "Chinese": "",
+        "Chinese": "选择[鼠标]或[游戏手柄]来控制游戏内的鼠标指针。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9847,7 +9847,7 @@
     {
         "No.": "896",
         "English": "Swaps TRIG1 and TRIG2 buttons when a 2-button gamepad is selected.",
-        "Chinese": "",
+        "Chinese": "当选择双按钮游戏手柄时，交换TRIG1和TRIG2按钮的功能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9858,7 +9858,7 @@
     {
         "No.": "897",
         "English": "When set to [enabled], core runs as fast as possible. Can cause audio desync. Setting this [disabled] is recommended.",
-        "Chinese": "",
+        "Chinese": "当设置为[启用]时，内核将以最快速度运行。但这可能会导致音频不同步。建议将此选项设置为[禁用]。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9869,7 +9869,7 @@
     {
         "No.": "898",
         "English": "Choose how many frames will be skipped to improve performance at the expense of visual smoothness.",
-        "Chinese": "",
+        "Chinese": "选择为提升性能而跳过多少帧，以此牺牲视觉流畅度为代价。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9880,7 +9880,7 @@
     {
         "No.": "899",
         "English": "Prioritize reducing video latency over audio latency and/or stuttering.",
-        "Chinese": "",
+        "Chinese": "优先降低视频延迟，而非音频延迟和/或卡顿现象。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9891,7 +9891,7 @@
     {
         "No.": "900",
         "English": "For compatibility with modern displays, slightly adjust frame rates reported to frontend in order to reduce the chances of audio stuttering.  Disable to use actual frame rates.",
-        "Chinese": "",
+        "Chinese": "为确保与现代显示设备兼容，会略微调整反馈给前端的应用帧率，从而降低音频卡顿的概率。如需显示实际帧率，请关闭此选项。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9902,7 +9902,7 @@
     {
         "No.": "901",
         "English": "Prevents audio from desynchronizing by simply discarding any audio samples generated past the requested amount per frame slice.  Forces 'No Wait Mode' to [enabled], use appropriate frontend settings to properly throttle content.",
-        "Chinese": "",
+        "Chinese": "通过直接丢弃每帧切片中超过规定数量的音频样本，防止音频不同步。强制将“无等待模式”设置为[启用]状态，需通过适当的前端设置来合理控制内容加载速度。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9913,7 +9913,7 @@
     {
         "No.": "902",
         "English": "TODO:",
-        "Chinese": "",
+        "Chinese": "待处理：",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9924,7 +9924,7 @@
     {
         "No.": "903",
         "English": "Recommended: N88-BASIC V2/V1H for PC-8800 software, N-BASIC for PC-8000 software.",
-        "Chinese": "",
+        "Chinese": "推荐配置：用于PC-8800软件的N88-BASIC V2/V1H，用于PC-8000软件的N-BASIC。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9935,7 +9935,7 @@
     {
         "No.": "904",
         "English": "Recommended: Run Sub-CPU only during disk access.",
-        "Chinese": "",
+        "Chinese": "推荐设置：仅在访问磁盘时运行子CPU。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9946,7 +9946,7 @@
     {
         "No.": "905",
         "English": "Recommended: 4MHz or 8MHz. Some software may run too fast with an 8MHz CPU.",
-        "Chinese": "",
+        "Chinese": "推荐频率：4MHz或8MHz。使用8MHz CPU时，某些软件的运行速度可能会过快。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9957,7 +9957,7 @@
     {
         "No.": "906",
         "English": "Recommended: OPNA. Some software will sound different when using OPN hardware.",
-        "Chinese": "",
+        "Chinese": "推荐选择：OPNA。使用OPN硬件时，某些软件的音效会有所不同。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9968,7 +9968,7 @@
     {
         "No.": "907",
         "English": "Recommended: ON. Enables more accurate IO timing for the floppy disk controller.",
-        "Chinese": "",
+        "Chinese": "推荐：开启。可为软盘控制器提供更精确的I/O时序控制。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9979,7 +9979,7 @@
     {
         "No.": "908",
         "English": "Recommended: OFF. May be required for some PC-8000 software.",
-        "Chinese": "",
+        "Chinese": "推荐设置：关闭。某些PC-8000软件可能需要此功能。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -9990,7 +9990,7 @@
     {
         "No.": "909",
         "English": "Recommended: OFF. Changes the core's preferred save behavior.",
-        "Chinese": "",
+        "Chinese": "推荐设置：关闭。此选项可更改模拟器内核的默认存档行为。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10001,7 +10001,7 @@
     {
         "No.": "910",
         "English": "Recommended: N/A. Imitates the read sounds on the floppy disk controller using the controller's rumble.",
-        "Chinese": "",
+        "Chinese": "推荐设置：无。通过控制器震动功能模拟软盘控制器发出的读取音效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10012,7 +10012,7 @@
     {
         "No.": "911",
         "English": "Recommended: Full. Allows the core to scale the image down. Only recommended for display heights below 400.",
-        "Chinese": "",
+        "Chinese": "推荐设置：完整。允许内核缩小图像尺寸。仅建议在显示高度低于400时使用。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10023,7 +10023,7 @@
     {
         "No.": "912",
         "English": "Remove the borders at the top and bottom of the screen, typically unused by games and hidden by the bezel of a standard-definition television. 'Auto' will attempt to detect and crop the ~8 pixel overscan based on the current content.",
-        "Chinese": "",
+        "Chinese": "移除屏幕顶部和底部的边框，这些边框通常不会被游戏使用，且会被标准分辨率电视的边框遮挡。‘自动’模式会根据当前内容尝试检测并裁剪约8像素的过扫描区域。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10034,7 +10034,7 @@
     {
         "No.": "913",
         "English": "Blend adjacent pixels when game switches to hi-res mode (512x448). Required for certain games that use hi-res mode to produce transparency effects (Kirby's Dream Land, Jurassic Park...).",
-        "Chinese": "",
+        "Chinese": "当游戏切换到高分辨率模式（512x448）时，会对相邻像素进行混合处理。对于那些需要利用高分辨率模式来实现透明效果的游戏而言，此选项是必需的（如《卡比梦工场》、《侏罗纪公园》等）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10045,7 +10045,7 @@
     {
         "No.": "914",
         "English": "Apply an audio filter. 'Gaussian' reproduces the bass-heavy sound of the original hardware. 'Cubic' and 'Sinc' are less accurate, and preserve more of the high range.",
-        "Chinese": "",
+        "Chinese": "应用音频滤波器。“高斯”滤波器能还原原始硬件带来的低音浓郁的音效。“立方”和“正弦”滤波器的还原度较低，但会更保留高频音段。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10056,7 +10056,7 @@
     {
         "No.": "915",
         "English": "SuperFX coprocessor frequency multiplier. Can improve frame rate or cause timing errors. Values under 100% can improve game performance on slow devices.",
-        "Chinese": "",
+        "Chinese": "SuperFX协处理器频率倍频器。该功能可提升帧率，但也可能引发时序错误。在100%以下的数值设置有助于在性能较弱的设备上提升游戏运行效率。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10067,7 +10067,7 @@
     {
         "No.": "916",
         "English": "Overclock SNES CPU. May cause games to crash! Use 'Light' for shorter loading times, 'Compatible' for most games exhibiting slowdown and 'Max' only if absolutely required (Gradius 3, Super R-type...).",
-        "Chinese": "",
+        "Chinese": "超频SNES CPU。可能会导致游戏崩溃！如需缩短加载时间，请选择“轻量级”模式；对于大多数会出现运行变慢问题的游戏，建议选择“兼容模式”；仅在确实必要时才使用“最大级”模式（如《Gradius 3》、《Super R-type》等游戏）。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10078,7 +10078,7 @@
     {
         "No.": "917",
         "English": "Increases number of sprites that can be drawn simultaneously on screen.",
-        "Chinese": "",
+        "Chinese": "增加屏幕上可同时绘制的精灵数量。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10089,7 +10089,7 @@
     {
         "No.": "918",
         "English": "Randomizes system RAM upon start-up. Some games such as 'Super Off Road' use system RAM as a random number generator for item placement and AI behavior, to make gameplay more unpredictable.",
-        "Chinese": "",
+        "Chinese": "在系统启动时随机分配系统RAM内存。某些游戏，如《超级越野》，会利用系统RAM作为随机数生成器，用于决定物品摆放位置和AI行为，从而提升游戏的不可预测性。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10100,7 +10100,7 @@
     {
         "No.": "919",
         "English": "Some homebrew/ROM hacks require this option to be disabled for correct operation.",
-        "Chinese": "",
+        "Chinese": "某些自制游戏模组或ROM修改版需要关闭此选项才能正常运行。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10111,7 +10111,7 @@
     {
         "No.": "920",
         "English": "Some homebrew/ROM hacks require this option to be enabled for correct operation.",
-        "Chinese": "",
+        "Chinese": "某些自制模组或ROM修改需要启用此选项才能正常运行。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10122,7 +10122,7 @@
     {
         "No.": "921",
         "English": "Enable configuration of Super Scope / Justifier / M.A.C.S. rifle input. NOTE: Quick Menu must be toggled for this setting to take effect.",
-        "Chinese": "",
+        "Chinese": "启用超级瞄准镜/校正器/M.A.C.S.步枪输入的配置功能。注意：需先切换快速菜单，此设置才能生效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10133,7 +10133,7 @@
     {
         "No.": "922",
         "English": "Swap the positions of the Super Scope 'Fire' and 'Cursor' buttons.",
-        "Chinese": "",
+        "Chinese": "交换超级瞄准镜的“射击”按钮与“光标”按钮的位置。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10144,7 +10144,7 @@
     {
         "No.": "923",
         "English": "Change the crosshair size on screen.",
-        "Chinese": "",
+        "Chinese": "更改屏幕上准星的大小。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10155,7 +10155,7 @@
     {
         "No.": "924",
         "English": "Change the crosshair color on screen.",
-        "Chinese": "",
+        "Chinese": "更改屏幕上准星的颜色。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10166,7 +10166,7 @@
     {
         "No.": "925",
         "English": "Enable configuration of low-level video layer / GFX effect / audio channel parameters. NOTE: Quick Menu must be toggled for this setting to take effect.",
-        "Chinese": "",
+        "Chinese": "启用对底层视频层、GFX效果及音频通道参数的配置功能。注意：需先切换快速菜单，此设置才能生效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10177,7 +10177,7 @@
     {
         "No.": "926",
         "English": "Simulates CRT phosphor ghosting effects. 'Simple' performs a 50:50 mix of the current and previous frames. 'Ghosting' accumulates pixels from multiple successive frames. May be used to alleviate screen flicker when games display large numbers of simultaneous objects by toggling sprites on alternate frames.",
-        "Chinese": "",
+        "Chinese": "模拟CRT显像管荧光粉残影效果。“简单”模式会以50:50的比例混合当前帧与上一帧的图像。“残影”模式则会累计多帧连续图像中的像素数据。通过在不同帧次切换精灵图像，该功能可用于减轻游戏在显示大量同时存在的物体时的屏幕闪烁现象。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10188,7 +10188,7 @@
     {
         "No.": "927",
         "English": "Enables a low pass audio filter to soften the 'harsh' sound produced by the Atari 2600's TIA chip.",
-        "Chinese": "",
+        "Chinese": "启用低通音频滤波器，以减弱Atari 2600的TIA芯片所产生的“刺耳”声音。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10199,7 +10199,7 @@
     {
         "No.": "928",
         "English": "Sets the sensitivity for digital emulation of paddle movement. Higher values increase paddle speed. Applies when input device type is set to 'Gamepad'.",
-        "Chinese": "",
+        "Chinese": "用于设置球拍移动的数字模拟灵敏度。数值越高，球拍速度越快。此设置仅在输入设备类型为“游戏手柄”时生效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10210,7 +10210,7 @@
     {
         "No.": "929",
         "English": "Sets the sensitivity for analog emulation of paddle movement. Higher values increase paddle speed. Applies when input device type is set to 'Gamepad'.",
-        "Chinese": "",
+        "Chinese": "用于设置摇杆移动的模拟灵敏度。数值越高，摇杆速度越快。此设置仅在输入设备类型为“游戏手柄”时生效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10221,7 +10221,7 @@
     {
         "No.": "930",
         "English": "Determines how the speed of the paddle varies when tilting the RetroPad analog stick. 'Linear': Speed is directly proportional to analog stick displacement. 'Quadratic': Speed increases quadratically with analog stick displacement; this allows for greater precision when making small movements without sacrificing maximum speed at full analog range. Applies when input device type is set to 'Gamepad'.",
-        "Chinese": "",
+        "Chinese": "决定在倾斜RetroPad模拟摇杆时，控制杆速度的变化方式。“线性”：速度与模拟摇杆的位移成正比。“二次方”：速度随模拟摇杆位移呈二次方增长；这样在进行微小操作时能实现更高精度，同时不会在模拟摇杆满幅度移动时影响最大速度。此设置仅适用于输入设备类型为“游戏手柄”的情况。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10232,7 +10232,7 @@
     {
         "No.": "931",
         "English": "Sets the deadzone of the RetroPad analog sticks. Used to eliminate drift/unwanted input when emulating analog paddle movement. Applies when input device type is set to 'Gamepad'.",
-        "Chinese": "",
+        "Chinese": "设置RetroPad模拟摇杆的死区。用于在模拟模拟摇杆操作时消除漂移现象或不必要的输入信号。该设置仅在输入设备类型被设定为“游戏手柄”时生效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10243,7 +10243,7 @@
     {
         "No.": "932",
         "English": "Sets the sensitivity of direct paddle movement. Higher values increase effective paddle speed. Applies when input device type is set to 'Paddles (Stelladaptor)'.",
-        "Chinese": "",
+        "Chinese": "设置直接使用摇杆操作的灵敏度。数值越高，摇杆的实际操作速度就越快。此设置仅在输入设备类型被设定为“摇杆（Stelladaptor）”时生效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10254,7 +10254,7 @@
     {
         "No.": "933",
         "English": "Sets the on-screen paddle offset (in ~5 pixel steps) when paddle controller is centred. Applies when input device type is set to 'Paddles (Stelladaptor)'.",
-        "Chinese": "",
+        "Chinese": "设置挡板控制器处于居中位置时的屏幕上挡板偏移量（以约5像素为步长）。该设置仅在输入设备类型被设定为“挡板控制器（Stelladaptor）”时生效。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10265,7 +10265,7 @@
     {
         "No.": "934",
         "English": "Uses BIOS present in RetroArch's system directory.",
-        "Chinese": "",
+        "Chinese": "使用RetroArch系统目录中的BIOS。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10276,7 +10276,7 @@
     {
         "No.": "935",
         "English": "Forces RTC to be enabled even for unknown roms. This is helpful for romhacks that needs RTC (like pokemon romhacks) without a matching override entry.",
-        "Chinese": "",
+        "Chinese": "即使对于未知的ROM文件，也强制启用RTC功能。这对于那些需要RTC功能但缺乏相应覆盖设置的ROM修改版（如宝可梦ROM修改版）非常有用。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10287,7 +10287,7 @@
     {
         "No.": "936",
         "English": "Enable or disable gamepad turbo buttons.",
-        "Chinese": "",
+        "Chinese": "启用或禁用游戏手柄的加速按钮。",
         "Japanese": "",
         "Italian": "",
         "French": "",
@@ -10298,7 +10298,7 @@
     {
         "No.": "937",
         "English": "Repeat rate of turbo triggers in frames. Higher value triggers more.",
-        "Chinese": "",
+        "Chinese": "每帧涡轮加速触发的频率。数值越高，触发次数越多。",
         "Japanese": "",
         "Italian": "",
         "French": "",
