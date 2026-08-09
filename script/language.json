@@ -728,7 +728,7 @@
         "Italian": "Salva stato",
         "French": "Sauvegarde d'état",
         "Spanish": "Guardar estado",
-        "Russian": "Сохранить состояние",
+        "Russian": "Быстрое сохранение",
         "Comments": ""
     },
     {
@@ -740,7 +740,7 @@
         "Italian": "Carica stato",
         "French": "Chargement d'état",
         "Spanish": "Cargar estado",
-        "Russian": "Загрузить состояние",
+        "Russian": "Загрузить быстрое сохранение",
         "Comments": ""
     },
     {
@@ -1724,7 +1724,7 @@
         "Italian": "",
         "French": "Désactive le chargement/la sauvegarde d'état, les codes de triche, le rembobinage et le ralenti.",
         "Spanish": "",
-        "Russian": "Отключает мгновенные сохранения, чит-коды, перемотку и замедление.",
+        "Russian": "Отключает быстрые сохранения, чит-коды, перемотку и замедление.",
         "Comments": ""
     },
     {
@@ -2048,7 +2048,7 @@
         "Italian": "",
         "French": "",
         "Spanish": "",
-        "Russian": "",
+        "Russian": "Это ядро официально не поддерживается RetroAchievements",
         "Comments": ""
     }
 ]
