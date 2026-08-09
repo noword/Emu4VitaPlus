@@ -196,7 +196,7 @@ void Ui::CreateTables()
                                                                new ItemConfig(LANG_CPU_FREQ,
                                                                               "",
                                                                               &gConfig->cpu_freq,
-                                                                              {LANG_AUTO, "333 MHz", "444 MHz", "500 MHz"},
+                                                                              {LANG_AUTO, "333 MHz", "444 MHz"},
                                                                               std::bind(&Emulator::SetCpuFreq, gEmulator, -1)),
                                                                new ItemConfig(LANG_SHOW_FPS,
                                                                               "",

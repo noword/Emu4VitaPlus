@@ -75,7 +75,7 @@ void LanguageString::_InitTexts()
     _GetPoints((uint32_t *)buf, gConfig->language, &strings, &offsets, &count);
     if (count != TEXT_COUNT)
     {
-        LogError("count != TEXT_COUNT: %x %d", count, TEXT_COUNT);
+        LogError("count != TEXT_COUNT: %d %d", count, TEXT_COUNT);
     }
 
     for (int i = 0; i < TEXT_COUNT; i++)
