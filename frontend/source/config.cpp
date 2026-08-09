@@ -394,8 +394,8 @@ namespace Emu4VitaPlus
 
         ra_user = ini.GetValue(RA_SECTION, "user", "");
         ra_token = ini.GetValue(RA_SECTION, "token", "");
-        ra_login = ini.GetBoolValue(RA_SECTION, "login", false);
-        ra_hardcore = ini.GetBoolValue(RA_SECTION, "hardcore", false);
+        ra_login = ini.GetBoolValue(RA_SECTION, "login", false) && RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE;
+        ra_hardcore = ini.GetBoolValue(RA_SECTION, "hardcore", false) && RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE;
         ra_position = ini.GetLongValue(RA_SECTION, "position", RA_POSITION_BOTTOM_RIGHT);
 
         if (THUMBNAILS_NAME[0] != nullptr)
@@ -452,8 +452,8 @@ namespace Emu4VitaPlus
         {
             ra_user = ini.GetValue(RA_SECTION, "user", "");
             ra_token = ini.GetValue(RA_SECTION, "token", "");
-            ra_login = ini.GetBoolValue(RA_SECTION, "login", false);
-            ra_hardcore = ini.GetBoolValue(RA_SECTION, "hardcore", false);
+            ra_login = ini.GetBoolValue(RA_SECTION, "login", false) && RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE;
+            ra_hardcore = ini.GetBoolValue(RA_SECTION, "hardcore", false) && RETRO_ACHIEVEMENTS_SUPPORT == RETRO_ACHIEVEMENTS_ENABLE;
             ra_position = ini.GetLongValue(RA_SECTION, "position", RA_POSITION_BOTTOM_RIGHT);
         }
 
