@@ -352,14 +352,20 @@ namespace Emu4VitaPlus
 
         const char *tmp = ini.GetValue(MAIN_SECTION, "version");
 
-        if (!(tmp && strcmp(tmp, APP_VER_STR) == 0))
+        float version;
+        if (tmp)
         {
-            float version = strtof(tmp, NULL);
-            if (version < 0.31)
-            {
-                LogDebug("ignore config of old version");
-                return false;
-            }
+            version = strtof(tmp, NULL);
+        }
+        else
+        {
+            return false;
+        }
+
+        if (version < 0.31)
+        {
+            LogDebug("ignore config of old version");
+            return false;
         }
 
         tmp = ini.GetValue(MAIN_SECTION, "language", "ENGLISH");
@@ -444,7 +450,9 @@ namespace Emu4VitaPlus
             graphics[i] = ini.GetLongValue(GRAPHICS_SECTION, GraphicsStr.at(i), graphics[i]);
         }
 
-        core_options.Load(ini);
+        if (version >= 0.78) // for pscx options
+            core_options.Load(ini);
+
         input_descriptors.Load(ini);
         device_options.Load(ini);
 
