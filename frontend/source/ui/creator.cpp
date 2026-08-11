@@ -123,7 +123,7 @@ void Ui::CreateTables()
     hotkeys.reserve(HOT_KEY_COUNT + 1);
     for (size_t i = 0; i < HOT_KEY_COUNT; i++)
     {
-        hotkeys.emplace_back(new ItemHotkey((HotKeyConfig)i, &gConfig->hotkeys[i]));
+        hotkeys.emplace_back(new ItemHotkey((HotKeyConfig)i, &gConfig->hotkeys[i], std::bind(&Emulator::SetHotKeys, gEmulator)));
     }
     hotkeys.emplace_back(new ItemBase(LANG_RESET_CONFIGS, "", std::bind(&Ui::_ResetHotkey, this)));
     hotkeys[SWITCH_KEYBOARD]->SetVisable(ENABLE_KEYBOARD);

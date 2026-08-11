@@ -301,10 +301,15 @@ namespace Emu4VitaPlus
     void Input::Reset()
     {
         _turbo_key = 0;
-        _key_down_callbacks.clear();
-        _key_up_callbacks.clear();
         _turbo_start_ms = DEFAULT_TURBO_START_TIME;
         _turbo_interval_ms = DEFAULT_TURBO_INTERVAL;
+        ClearCallbacks();
+    }
+
+    void Input::ClearCallbacks()
+    {
+        _key_down_callbacks.clear();
+        _key_up_callbacks.clear();
     }
 
     void Input::PushCallbacks()

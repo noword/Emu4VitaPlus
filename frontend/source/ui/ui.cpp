@@ -247,13 +247,16 @@ void Ui::OnStatusChanged(APP_STATUS status)
         SetInputHooks();
     }
 
-    if (status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME | APP_STATUS_SHOW_UI_IN_GAME))
+    if ((gConfig->hotkeys[MENU_TOGGLE] & SCE_CTRL_PSBUTTON) == SCE_CTRL_PSBUTTON)
     {
-        _LockPsButton();
-    }
-    else
-    {
-        _UnlockPsButton();
+        if (status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME | APP_STATUS_SHOW_UI_IN_GAME))
+        {
+            _LockPsButton();
+        }
+        else
+        {
+            _UnlockPsButton();
+        }
     }
 
     LogDebug("OnStatusChanged end");

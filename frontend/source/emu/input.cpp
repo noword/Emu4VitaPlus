@@ -367,6 +367,26 @@ void Emulator::SetupKeys()
         }
     }
 
+    _input.SetTurboInterval(DEFAULT_TURBO_START_TIME, 20000);
+
+    _input.GetFrontTouch()->Enable(gConfig->FrontEnabled());
+    _input.GetRearTouch()->Enable(gConfig->RearEnabled());
+
+    SetHotKeys();
+
+    if (_current_name.size() > 0) // loaded
+    {
+        int count = 0;
+        for (const auto &device : gConfig->device_options)
+        {
+            device.Apply(count++);
+        }
+    }
+}
+
+void Emulator::SetHotKeys()
+{
+    LogFunctionName;
 #define BIND_HOTKEY(KEY, FUNC)                                                                   \
     _input.SetKeyDownCallback(gConfig->hotkeys[KEY], std::bind(&Emulator::FUNC, this, &_input)); \
     LogDebug("SetKeyDownCallback " #FUNC " %08x", gConfig->hotkeys[KEY]);
@@ -374,6 +394,8 @@ void Emulator::SetupKeys()
 #define BIND_HOTKEY_UP(KEY, FUNC)                                                              \
     _input.SetKeyUpCallback(gConfig->hotkeys[KEY], std::bind(&Emulator::FUNC, this, &_input)); \
     LogDebug("SetKeyUpCallback " #FUNC " %08x", gConfig->hotkeys[KEY]);
+
+    _input.ClearCallbacks();
 
     BIND_HOTKEY(SAVE_STATE, _OnHotkeySave);
     BIND_HOTKEY(LOAD_STATE, _OnHotkeyLoad);
@@ -394,18 +416,14 @@ void Emulator::SetupKeys()
     BIND_HOTKEY_UP(GAME_REWIND, _OnHotkeyRewindUp);
     BIND_HOTKEY_UP(MENU_TOGGLE, _OnPsButton);
 
-    _input.SetTurboInterval(DEFAULT_TURBO_START_TIME, 20000);
-
-    _input.GetFrontTouch()->Enable(gConfig->FrontEnabled());
-    _input.GetRearTouch()->Enable(gConfig->RearEnabled());
-
-    if (_current_name.size() > 0) // loaded
+    if ((gConfig->hotkeys[MENU_TOGGLE] & SCE_CTRL_PSBUTTON) == SCE_CTRL_PSBUTTON)
     {
-        int count = 0;
-        for (const auto &device : gConfig->device_options)
-        {
-            device.Apply(count++);
-        }
+        if (!gEscape->IsRunning())
+            gEscape->Start();
+    }
+    else
+    {
+        gEscape->Stop();
     }
 }
 

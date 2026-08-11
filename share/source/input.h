@@ -113,6 +113,7 @@ namespace Emu4VitaPlus
         void Poll(const bool waiting = false);
 
         void Reset();
+        void ClearCallbacks();
 
         const uint32_t &GetKeyStates() const { return _last_key; };
 

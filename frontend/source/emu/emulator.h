@@ -85,6 +85,7 @@ public:
     Cheats *GetCheats() { return &_cheats; };
 
     void SetupKeys();
+    void SetHotKeys();
     void SetupKeysWithSaveConfig();
     bool NeedRender();
     const ArcadeManager *GetArcadeManager() const { return _arcade_manager; };

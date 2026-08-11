@@ -38,8 +38,8 @@ static uint32_t PsvKeys[] = {
 class ItemHotkey : public ItemSelectable
 {
 public:
-    ItemHotkey(HotKeyConfig index, uint32_t *hotkey)
-        : ItemSelectable(_langs[index]),
+    ItemHotkey(HotKeyConfig index, uint32_t *hotkey, CallbackFunc active_callback = nullptr)
+        : ItemSelectable(_langs[index], "", active_callback),
           _hotkey(hotkey) {};
 
     virtual ~ItemHotkey() {};
