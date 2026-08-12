@@ -262,7 +262,7 @@ void Ui::OnStatusChanged(APP_STATUS status)
     LogDebug("OnStatusChanged end");
 }
 
-void Ui::_LockPsButton()
+void Ui::LockPsButton()
 {
     if (!_ps_locked)
     {
@@ -271,10 +271,10 @@ void Ui::_LockPsButton()
                                                 SCE_SHELL_UTIL_LOCK_TYPE_QUICK_MENU |
                                                 SCE_SHELL_UTIL_LOCK_TYPE_USB_CONNECTION |
                                                 SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN_2));
+        _ps_locked = true;
     }
-    _ps_locked = true;
 }
-void Ui::_UnlockPsButton()
+void Ui::UnlockPsButton()
 {
     if (_ps_locked)
     {
@@ -283,8 +283,8 @@ void Ui::_UnlockPsButton()
                                                   SCE_SHELL_UTIL_LOCK_TYPE_QUICK_MENU |
                                                   SCE_SHELL_UTIL_LOCK_TYPE_USB_CONNECTION |
                                                   SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN_2));
+        _ps_locked = false;
     }
-    _ps_locked = false;
 }
 
 void Ui::_ShowNormal()

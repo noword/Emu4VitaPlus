@@ -31,6 +31,8 @@ public:
     void OnStatusChanged(APP_STATUS status);
     void OnRetrAchievementsLogInOut(bool login);
     void SetPath(const char *path);
+    void LockPsButton();
+    void UnlockPsButton();
 
 private:
     void _InitImgui();
@@ -52,8 +54,6 @@ private:
     void _ShowHint();
 
     void _ClearTabs();
-    void _LockPsButton();
-    void _UnlockPsButton();
 
     void _ResumeGame();
     void _ResetGame();

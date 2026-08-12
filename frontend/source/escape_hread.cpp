@@ -1,6 +1,7 @@
 #include <psp2/ctrl.h>
 #include <psp2/shellutil.h>
 #include "escape_thread.h"
+#include "global.h"
 #include "log.h"
 
 // 1 second
@@ -21,7 +22,7 @@ int EscapeThread::_EscapeThread(SceSize args, void *argp)
     {
         SceCtrlData ctrl_data{0};
         sceCtrlReadBufferPositiveExt2(0, &ctrl_data, 1);
-        if ((ctrl_data.buttons & SCE_CTRL_PSBUTTON) == SCE_CTRL_PSBUTTON)
+        if (ctrl_data.buttons == SCE_CTRL_PSBUTTON)
         {
             if (ps_holding_start == 0ll)
             {
@@ -30,11 +31,7 @@ int EscapeThread::_EscapeThread(SceSize args, void *argp)
             else if (sceKernelGetProcessTimeWide() - ps_holding_start >= PS_HOLDING_TIME)
             {
                 ps_holding_start = 0ll;
-                LogInfo("Unlock PS button");
-                sceShellUtilUnlock((SceShellUtilLockType)(SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN |
-                                                          SCE_SHELL_UTIL_LOCK_TYPE_QUICK_MENU |
-                                                          SCE_SHELL_UTIL_LOCK_TYPE_USB_CONNECTION |
-                                                          SCE_SHELL_UTIL_LOCK_TYPE_PS_BTN_2));
+                gUi->UnlockPsButton();
             }
         }
         else if (ps_holding_start != 0ll)
