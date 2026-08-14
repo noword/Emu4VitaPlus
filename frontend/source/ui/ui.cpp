@@ -251,11 +251,11 @@ void Ui::OnStatusChanged(APP_STATUS status)
     {
         if (status & (APP_STATUS_RUN_GAME | APP_STATUS_REWIND_GAME | APP_STATUS_SHOW_UI_IN_GAME))
         {
-            _LockPsButton();
+            LockPsButton();
         }
         else
         {
-            _UnlockPsButton();
+            UnlockPsButton();
         }
     }
 

@@ -1,3 +1,4 @@
+#pragma once
 #include "delay.h"
 #include "thread_base.h"
 
