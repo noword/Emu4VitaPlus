@@ -449,7 +449,9 @@ void Emulator::_OnPsButton(Input *input)
     }
 
     gStatus.Set(APP_STATUS_SHOW_UI_IN_GAME);
-    Save();
+
+    if (gConfig->auto_save)
+        Save();
 }
 
 void Emulator::_OnHotkeySave(Input *input)
