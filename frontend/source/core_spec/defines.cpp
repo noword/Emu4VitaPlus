@@ -147,7 +147,8 @@ const bool DEFAULT_MOUSE = CONFIG_MOUSE_DISABLE;
     defined(MEDNAFEN_LYNX_BUILD) || \
     defined(CPC_BUILD) ||           \
     defined(ATARI5200_BUILD) ||     \
-    defined(PC88_BUILD)
+    defined(PC88_BUILD) ||          \
+    defined(PS_BUILD)
 const bool DEFAULT_AUTO_SAVE = false;
 const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = true;
 #else
