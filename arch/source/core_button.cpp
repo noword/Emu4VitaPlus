@@ -93,7 +93,7 @@ void CoreButton::Show(bool selected, bool choice)
     if (choice)
     {
         pos = ImGui::GetItemRectMin();
-        if (gConfig->consoles[_console])
+        if (gConfig->consoles[(int)_console])
         {
             draw_list->AddText(pos, IM_COL32_WHITE, ICON_ON);
         }

@@ -269,11 +269,12 @@ void App::_Show()
         }
         vita2d_texture *cover = nullptr;
 
+        _VideoLock();
+
         if (ImGui::BeginChild("left", main_size, false, ImGuiWindowFlags_NoScrollbar))
         {
             _time_scale->Show();
             main_size.y -= TIME_SCALE_HEIGHT;
-            _VideoLock();
 
             if (ImGui::BeginChild("buttons", main_size, false, ImGuiWindowFlags_NoScrollbar))
             {
