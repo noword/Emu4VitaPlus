@@ -17,11 +17,14 @@ void Boot::Show()
         size_t count = 0;
         for (const auto &log : _logs)
         {
-            if (_show_spin && &log == &_logs.back())
-            {
+            bool green_color = (_show_spin && &log == &_logs.back());
+            if (green_color)
                 ImGui::PushStyleColor(ImGuiCol_Text, IM_COL32_GREEN);
-            }
+
             ImGui::TextUnformatted(log.c_str());
+
+            if (green_color)
+                ImGui::PopStyleColor();
 
             if (count == _index && ImGui::GetScrollMaxY() > 0.f)
             {
@@ -34,11 +37,6 @@ void Boot::Show()
             }
 
             count++;
-        }
-
-        if (_show_spin && _logs.size() > 0)
-        {
-            ImGui::PopStyleColor();
         }
 
         if (_show_spin)

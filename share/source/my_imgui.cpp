@@ -831,7 +831,7 @@ IMGUI_API void My_ImGui_ShowTimePower(bool show_wifi, bool show_ra, bool ra_hard
     }
 
     char percent_str[64];
-    snprintf(percent_str, 64, "%02d%%", scePowerGetBatteryLifePercent());
+    snprintf(percent_str, 64, "%02d%%", percent);
 
     SceDateTime time;
     sceRtcGetCurrentClock(&time, 0);
