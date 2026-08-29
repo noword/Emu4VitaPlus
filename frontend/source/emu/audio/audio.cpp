@@ -1,4 +1,3 @@
-#include <speex/speex_resampler.h>
 #include <psp2/audioout.h>
 #include "audio.h"
 #include "config.h"

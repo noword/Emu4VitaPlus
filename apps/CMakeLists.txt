@@ -87,7 +87,6 @@ target_link_libraries(
     SimpleIni
     png
     jpeg
-    lzma
     minizip
     7zip
     lz4
@@ -95,6 +94,7 @@ target_link_libraries(
     FLAC
     ogg
     zstd
+    zlib-ng
     SceLibJson_stub
     ScePvf_stub
     ScePgf_stub

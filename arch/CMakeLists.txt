@@ -87,7 +87,7 @@ target_link_libraries(
     SimpleIni
     png
     jpeg
-    z
+    zlib-ng
     pthread
     SceLibJson_stub
     ScePvf_stub

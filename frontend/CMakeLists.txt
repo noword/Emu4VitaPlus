@@ -62,3 +62,4 @@ add_library(frontend OBJECT ${SRC})
 
 add_custom_target(FILE_TOUCHER COMMAND ${CMAKE_COMMAND} -E touch_nocreate ${CMAKE_CURRENT_SOURCE_DIR}/source/ui/tabs/tab_about.cpp)
 add_dependencies(frontend FILE_TOUCHER LANG_FRONTEND)
+target_link_libraries(frontend PUBLIC share)

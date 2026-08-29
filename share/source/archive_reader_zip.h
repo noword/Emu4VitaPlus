@@ -1,8 +1,4 @@
 #pragma once
-#include <minizip/mz.h>
-#include <minizip/mz_zip.h>
-#include <minizip/mz_strm.h>
-#include <minizip/mz_zip_rw.h>
 #include "archive_reader.h"
 
 class ArchiveReaderZip : public ArchiveReader

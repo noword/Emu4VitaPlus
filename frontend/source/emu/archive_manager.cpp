@@ -1,10 +1,10 @@
 #include <psp2/io/dirent.h>
 #include <psp2/io/fcntl.h>
 #include <psp2/rtc.h>
-#include <minizip/mz.h>
-#include <minizip/mz_zip.h>
-#include <minizip/mz_strm.h>
-#include <minizip/mz_zip_rw.h>
+#include <mz.h>
+#include <mz_zip.h>
+#include <mz_strm.h>
+#include <mz_zip_rw.h>
 #include <7z.h>
 #include <7zFile.h>
 #include <7zAlloc.h>
