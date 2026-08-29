@@ -222,3 +222,7 @@
 [submodule "cores/gw-libretro"]
 	path = cores/gw-libretro
 	url = https://github.com/libretro/gw-libretro.git
+[submodule "deps/zlib-ng"]
+	path = deps/zlib-ng
+	url = https://github.com/zlib-ng/zlib-ng.git
+	branch = stable

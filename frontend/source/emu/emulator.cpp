@@ -229,15 +229,9 @@ LOADED:
             {
                 state->Load();
             }
-            else
-            {
-                Load();
-            }
         }
-        else
-        {
-            Load();
-        }
+
+        Load();
 
         if (!_input.IsRunning())
         {

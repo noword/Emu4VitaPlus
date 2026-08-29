@@ -139,9 +139,13 @@ App::App()
 
     gUi->AppendLog("Load overlays");
     gOverlays = new Overlays;
+    if (gConfig->graphics[GRAPHICS_OVERLAY] < 0 || gConfig->graphics[GRAPHICS_OVERLAY] >= gOverlays->size())
+        gConfig->graphics[GRAPHICS_OVERLAY] = 0;
 
     gUi->AppendLog("Load shaders");
     gShaders = new Shaders;
+    if (gConfig->graphics[GRAPHICS_SHADER] < 0 || gConfig->graphics[GRAPHICS_SHADER] >= gShaders->size())
+        gConfig->graphics[GRAPHICS_SHADER] = 0;
 
     gUi->AppendLog("Load favorites");
     gFavorites = new Favorites;
