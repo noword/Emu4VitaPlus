@@ -128,6 +128,8 @@ const char *ArcadeManager::GetRomName(const char *path) const
         }
     } while (reader->Next());
 
+    reader->Close();
+
     if (offsets.size() == 0)
     {
         return path;

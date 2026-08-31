@@ -51,11 +51,13 @@ const char *ArchiveManager::GetCachedPath(uint32_t crc32, const char *name, cons
     full_path = _GetCachedFullName(crc32, entry_name);
     if (!reader->ExtractByHash(crc32, full_path.c_str()))
     {
+        reader->Close();
         return nullptr;
     }
 
     Set(_GetCachedName(crc32, entry_name).c_str());
     LogDebug("  return: %s", full_path.c_str());
+    reader->Close();
     return full_path.c_str();
 }
 
