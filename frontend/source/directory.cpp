@@ -229,6 +229,8 @@ bool Directory::LegalTest(const char *path, DirItem *item)
         }
     } while (reader->Next());
 
+    reader->Close();
+
     return result;
 }
 
