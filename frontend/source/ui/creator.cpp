@@ -34,16 +34,13 @@ void Ui::CreateTables()
     _ClearTabs();
 
     std::vector<ItemBase *> items{
-        new ItemBase(LANG_START_CORE_NO_GAME, "", std::bind(&Ui::_OnStartCore, this, &_input)),
+        new ItemBase(LANG_START_CORE_NO_GAME, "", std::bind(&Ui::_OnStartCore, this, &_input), NULL, gConfig->support_no_game),
         new ItemBase(LANG_RESUME_GAME, "", std::bind(&Ui::_ResumeGame, this), NULL, false),
         new ItemBase(LANG_RESET_GAME, "", std::bind(&Ui::_ResetGame, this), NULL, false),
         new ItemBase(LANG_EXIT_GAME, "", std::bind(&Ui::_ExitGame, this), NULL, false),
-        new ItemBase(LANG_BACK_TO_ARCH, "", std::bind(&Ui::_ReturnToArch, this)),
+        new ItemBase(LANG_BACK_TO_ARCH, "", std::bind(&Ui::_ReturnToArch, this), NULL, gBootFromArch),
         new ItemBase(LANG_CLEAN_CACHE, "", std::bind(&Ui::_OnCleanCache, this, &_input)),
         new ItemBase(LANG_EXIT, "", std::bind(&Ui::_ExitApp, this))};
-
-    items[0]->SetVisable(gConfig->support_no_game);
-    items[4]->SetVisable(gBootFromArch);
 
     _tabs[TAB_INDEX_SYSTEM] = new TabSeletable(LANG_SYSTEM, items);
 

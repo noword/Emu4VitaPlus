@@ -322,11 +322,6 @@ void Emulator::SetupKeys()
     {
         for (const auto &retro : k.retros)
         {
-            if (retro == 0xff)
-            {
-                break;
-            }
-
             if (retro >= 16)
             {
                 LogError("  wrong key config: %d %08x", retro, k.psv);
@@ -358,12 +353,12 @@ void Emulator::SetupKeys()
                     break;
                 }
             }
+        }
 
-            if (k.turbo)
-            {
-                _input.SetTurbo(k.psv);
-                LogDebug("_input.SetTurbo: %08x", k.psv);
-            }
+        if (k.turbo)
+        {
+            _input.SetTurbo(k.psv);
+            LogDebug("_input.SetTurbo: %08x", k.psv);
         }
     }
 
