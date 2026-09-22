@@ -378,7 +378,7 @@ void Ui::UpdateCoreOptions(int level, const std::string &group)
         gHint->SetHint(group, 120, false, IM_COL32_YELLOW);
 
     std::vector<ItemBase *> options;
-    options.reserve(gConfig->core_options.size() + 1);
+    std::vector<ItemBase *> group_options;
 
     CallbackFunc back_function = nullptr;
     if (level >= 0)
@@ -397,7 +397,7 @@ void Ui::UpdateCoreOptions(int level, const std::string &group)
 
         if ((level + 1) == co->groups.size())
         {
-            options.emplace_back(new ItemCore(co, back_function));
+            options.push_back(new ItemCore(co, back_function));
         }
         else
         {
@@ -405,10 +405,10 @@ void Ui::UpdateCoreOptions(int level, const std::string &group)
             if (groups.find(group_name) == groups.end())
             {
                 groups.insert(group_name);
-                options.emplace_back(new ItemBase(std::string(LanguageString(group_name).Get()) + " >",
-                                                  "",
-                                                  std::bind(&Ui::UpdateCoreOptions, this, level + 1, group_name),
-                                                  back_function));
+                group_options.push_back(new ItemBase(std::string(LanguageString(group_name).Get()) + " >",
+                                                     "",
+                                                     std::bind(&Ui::UpdateCoreOptions, this, level + 1, group_name),
+                                                     back_function));
             }
         }
     }
@@ -416,6 +416,10 @@ void Ui::UpdateCoreOptions(int level, const std::string &group)
                                       "",
                                       std::bind(&Ui::_ResetCoreOptions, this),
                                       back_function));
+
+    group_options.insert(group_options.end(),
+                         std::make_move_iterator(options.begin()),
+                         std::make_move_iterator(options.end()));
 
     gVideo->Lock();
 
@@ -425,7 +429,7 @@ void Ui::UpdateCoreOptions(int level, const std::string &group)
         delete _tabs[TAB_INDEX_CORE];
     }
 
-    _tabs[TAB_INDEX_CORE] = new TabSeletable(LANG_CORE, options);
+    _tabs[TAB_INDEX_CORE] = new TabSeletable(LANG_CORE, group_options);
 
     if (_tab_index == TAB_INDEX_CORE)
         _tabs[TAB_INDEX_CORE]->SetInputHooks(&_input);
@@ -739,7 +743,7 @@ void Ui::OnRetrAchievementsLogInOut(bool login)
     }
 }
 
-void Ui ::SetPath(const char *path)
+void Ui::SetPath(const char *path)
 {
     ((TabBrowser *)_tabs[TAB_INDEX_BROWSER])->SetPath(path);
 }
