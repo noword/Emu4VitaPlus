@@ -19,7 +19,8 @@ include_directories(
     ../deps/7-Zip/C
     ../deps/rcheevos/include
     ../deps/rcheevos/src
-    ../deps/gprof)
+    ../deps/gprof
+    ${CMAKE_BINARY_DIR}/deps/minizip-ng)
 
 file(GLOB SRC
     source/*.c

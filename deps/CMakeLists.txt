@@ -155,6 +155,17 @@ target_include_directories(7zip PRIVATE ${SEVENZIP_PATH})
 # ----------------------
 add_subdirectory(simpleini)
 
+# zlib-ng options
+option(BUILD_TESTING "" OFF)
+option(WITH_GZFILEOP "" OFF)
+option(ZLIB_COMPAT "" ON)
+option(WITH_NATIVE_INSTRUCTIONS "" ON)
+
+# option(WITH_ARMV8 "" OFF)
+set(BUILD_SHARED_LIBS OFF)
+set(WITH_ACLE OFF)
+add_subdirectory(zlib-ng)
+
 # minizip-ng
 # ----------------------
 option(MZ_BZIP2 "" OFF)
@@ -164,20 +175,10 @@ option(MZ_ZSTD "" OFF)
 option(MZ_PKCRYPT "" OFF)
 option(MZ_WZAES "" OFF)
 option(MZ_DECOMPRESS_ONLY "" ON)
-option(MZ_FETCH_LIBS " " ON)
-option(MZ_FORCE_FETCH_LIBS " " ON)
 set(SKIP_INSTALL_ALL ON)
-
-# zlib-ng options
-option(BUILD_TESTING "" OFF)
-option(WITH_GZFILEOP "" OFF)
-option(ZLIB_COMPAT "" ON)
-option(WITH_NATIVE_INSTRUCTIONS "" ON)
-option(WITH_ARMV8 "" OFF)
-set(BUILD_SHARED_LIBS OFF)
-set(WITH_ACLE OFF)
-
 add_subdirectory(minizip-ng)
+set_property(TARGET minizip PROPERTY LINK_LIBRARIES "")
+set_property(TARGET minizip PROPERTY INTERFACE_LINK_LIBRARIES "")
 
 # lz4
 # ----------------------

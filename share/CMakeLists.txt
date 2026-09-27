@@ -45,8 +45,8 @@ include_directories(
     ../deps/libretro-common/include
     ../deps/7-Zip/C
     ../deps/lz4/lib
-    ../deps/minizip-ng)
+    ../deps/minizip-ng
+    ${CMAKE_BINARY_DIR}/deps/minizip-ng)
 
 add_library(share STATIC ${SRC})
 add_dependencies(share LANG_SHARE)
-target_link_libraries(share PUBLIC minizip)
