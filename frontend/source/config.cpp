@@ -362,7 +362,7 @@ namespace Emu4VitaPlus
             return false;
         }
 
-        if (version < 0.31)
+        if (version < 0.80)
         {
             LogDebug("ignore config of old version");
             return false;

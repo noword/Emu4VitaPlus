@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.12)
 
 # set_property(GLOBAL PROPERTY GLOBAL_DEPENDS_DEBUG_MODE 1)
 set(CMAKE_DEPENDS_USE_COMPILER FALSE)
+set(ENABLE_PRECOMPILED_HEADERS OFF)
+
 set(CMAKE_TOOLCHAIN_FILE "$ENV{VITASDK}/share/vita.toolchain.cmake" CACHE PATH "toolchain file")
 
 include("$ENV{VITASDK}/share/vita.cmake" REQUIRED)
@@ -61,8 +63,8 @@ set(CMAKE_EXE_LINKER_FLAGS "-Wl,-q,-no-enum-size-warning,--as-needed,--gc-sectio
 set(OUT_PATH "${CMAKE_BINARY_DIR}/out")
 file(MAKE_DIRECTORY ${OUT_PATH})
 
-set(APP_VER "0.79")
-set(SFO_APP_VER "00.79")
+set(APP_VER "0.80")
+set(SFO_APP_VER "00.80")
 
 if(LTO)
     set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -flto=auto -fno-fat-lto-objects ")
