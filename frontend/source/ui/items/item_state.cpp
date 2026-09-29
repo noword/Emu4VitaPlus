@@ -10,228 +10,228 @@ ItemState::ItemState(State *state)
     : ItemSelectable(""),
       _state(state)
 {
-  if (strcmp(state->SlotName(), "auto") == 0)
-  {
-    _text = LanguageString(LANG_AUTO_SAVE);
-    _menu_texts = AUTO_MENU_TEXT;
-    _menu_count = sizeof(AUTO_MENU_TEXT) / sizeof(TEXT_ENUM);
-  }
-  else
-  {
-    _text = LanguageString(state->SlotName());
-    _menu_texts = MENU_TEXT;
-    _menu_count = sizeof(MENU_TEXT) / sizeof(TEXT_ENUM);
-  }
+    if (strcmp(state->SlotName(), "auto") == 0)
+    {
+        _text = LanguageString(LANG_AUTO_SAVE);
+        _menu_texts = AUTO_MENU_TEXT;
+        _menu_count = sizeof(AUTO_MENU_TEXT) / sizeof(TEXT_ENUM);
+    }
+    else
+    {
+        _text = LanguageString(state->SlotName());
+        _menu_texts = MENU_TEXT;
+        _menu_count = sizeof(MENU_TEXT) / sizeof(TEXT_ENUM);
+    }
 
-  _confirm_dialog = new Dialog("", {LANG_OK, LANG_CANCEL}, std::bind(&ItemState::_OnRun, this, std::placeholders::_1, std::placeholders::_2));
+    _confirm_dialog = new Dialog("", {LANG_OK, LANG_CANCEL}, std::bind(&ItemState::_OnRun, this, std::placeholders::_1, std::placeholders::_2));
 }
 
 ItemState::~ItemState()
 {
-  delete _confirm_dialog;
+    delete _confirm_dialog;
 }
 
 void ItemState::Show(bool selected)
 {
-  ImVec2 size = ImGui::GetContentRegionAvail();
-  float w = 0;
-  float h = STATE_SCREENSHOT_HEIGHT;
-  if (_state->Valid())
-  {
-    vita2d_texture *texture = _state->Texture();
-    if (texture)
+    ImVec2 size = ImGui::GetContentRegionAvail();
+    float w = 0;
+    float h = STATE_SCREENSHOT_HEIGHT;
+    if (_state->Valid())
     {
-      w = vita2d_texture_get_width(texture) * h / vita2d_texture_get_height(texture);
-      ImGui::Image(texture, {w, h});
-      ImGui::SameLine();
+        vita2d_texture *texture = _state->Texture();
+        if (texture)
+        {
+            w = vita2d_texture_get_width(texture) * h / vita2d_texture_get_height(texture);
+            ImGui::Image(texture, {w, h});
+            ImGui::SameLine();
+        }
     }
-  }
 
-  if (selected)
-  {
-    ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered));
-  }
+    if (selected)
+    {
+        ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered));
+    }
 
-  char text[128];
-  if (_state->Valid())
-  {
-    const SceDateTime &time = _state->CreateTime();
-    snprintf(text, sizeof(text), "%s (%04hd/%02hd/%02hd %02hd:%02hd:%02hd)", _text.Get(), time.year, time.month, time.day, time.hour, time.minute, time.second);
-  }
-  else
-  {
-    snprintf(text, sizeof(text), "%s (%s)", _text.Get(), TEXT(LANG_EMPTY));
-  }
+    char text[128];
+    if (_state->Valid())
+    {
+        const SceDateTime &time = _state->CreateTime();
+        snprintf(text, sizeof(text), "%s (%04hd/%02hd/%02hd %02hd:%02hd:%02hd)", _text.Get(), time.year, time.month, time.day, time.hour, time.minute, time.second);
+    }
+    else
+    {
+        snprintf(text, sizeof(text), "%s (%s)", _text.Get(), TEXT(LANG_EMPTY));
+    }
 
-  ImGui::Button(text, {size.x - w, h});
+    ImGui::Button(text, {size.x - w, h});
 
-  if (selected)
-  {
-    ImGui::PopStyleColor();
-    _ShowPopup();
-  }
+    if (selected)
+    {
+        ImGui::PopStyleColor();
+        _ShowPopup();
+    }
 }
 
 void ItemState::_ShowPopup()
 {
-  bool is_popup = ImGui::IsPopupOpen("popup_menu");
+    bool is_popup = ImGui::IsPopupOpen("popup_menu");
 
-  if (_actived && !is_popup)
-  {
-    ImGui::OpenPopup("popup_menu");
-  }
-
-  ImVec2 pos = ImGui::GetCursorScreenPos();
-  ImGui::SetNextWindowPos({250.f, pos.y - 50.f});
-  if (ImGui::BeginPopupModal("popup_menu", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_AlwaysAutoResize))
-  {
-    if (!_actived && is_popup)
+    if (_actived && !is_popup)
     {
-      ImGui::CloseCurrentPopup();
+        ImGui::OpenPopup("popup_menu");
     }
 
-    for (size_t i = 0; i < _menu_count; i++)
+    ImVec2 pos = ImGui::GetCursorScreenPos();
+    ImGui::SetNextWindowPos({250.f, pos.y - 50.f});
+    if (ImGui::BeginPopupModal("popup_menu", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_AlwaysAutoResize))
     {
-      bool selected = (i == _index);
-      if (selected)
-      {
-        ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered));
-      }
-      ImGui::Button(TEXT(_menu_texts[i]));
-      if (selected)
-      {
-        ImGui::PopStyleColor();
-      }
-      ImGui::SameLine();
-    }
+        if (!_actived && is_popup)
+        {
+            ImGui::CloseCurrentPopup();
+        }
 
-    _confirm_dialog->Show();
-    ImGui::EndPopup();
-  }
+        for (size_t i = 0; i < _menu_count; i++)
+        {
+            bool selected = (i == _index);
+            if (selected)
+            {
+                ImGui::PushStyleColor(ImGuiCol_Button, ImGui::GetStyleColorVec4(ImGuiCol_ButtonHovered));
+            }
+            ImGui::Button(TEXT(_menu_texts[i]));
+            if (selected)
+            {
+                ImGui::PopStyleColor();
+            }
+            ImGui::SameLine();
+        }
+
+        _confirm_dialog->Show();
+        ImGui::EndPopup();
+    }
 }
 
 void ItemState::OnActive(Input *input)
 {
-  LogFunctionName;
-  if (_state->Valid())
-  {
-    ItemSelectable::OnActive(input);
-  }
-  else if (strcmp(_state->SlotName(), "auto") != 0)
-  {
-    _state->Save();
-  }
+    LogFunctionName;
+    if (_state->Valid())
+    {
+        ItemSelectable::OnActive(input);
+    }
+    else if (strcmp(_state->SlotName(), "auto") != 0)
+    {
+        _state->Save();
+    }
 }
 
 void ItemState::SetInputHooks(Input *input)
 {
-  input->SetKeyDownCallback(SCE_CTRL_LEFT, std::bind(&ItemState::_OnKeyLeft, this, input), true);
-  input->SetKeyDownCallback(SCE_CTRL_RIGHT, std::bind(&ItemState::_OnKeyRight, this, input), true);
-  input->SetKeyDownCallback(SCE_CTRL_LSTICK_LEFT, std::bind(&ItemState::_OnKeyLeft, this, input), true);
-  input->SetKeyDownCallback(SCE_CTRL_LSTICK_RIGHT, std::bind(&ItemState::_OnKeyRight, this, input), true);
-  input->SetKeyUpCallback(EnterButton, std::bind(&ItemState::_OnClick, this, input));
-  input->SetKeyUpCallback(CancelButton, std::bind(&ItemState::_OnCancel, this, input));
+    input->SetKeyDownCallback(SCE_CTRL_LEFT, std::bind(&ItemState::_OnKeyLeft, this, input), true);
+    input->SetKeyDownCallback(SCE_CTRL_RIGHT, std::bind(&ItemState::_OnKeyRight, this, input), true);
+    input->SetKeyDownCallback(SCE_CTRL_LSTICK_LEFT, std::bind(&ItemState::_OnKeyLeft, this, input), true);
+    input->SetKeyDownCallback(SCE_CTRL_LSTICK_RIGHT, std::bind(&ItemState::_OnKeyRight, this, input), true);
+    input->SetKeyUpCallback(EnterButton, std::bind(&ItemState::_OnClick, this, input));
+    input->SetKeyUpCallback(CancelButton, std::bind(&ItemState::_OnCancel, this, input));
 }
 
 void ItemState::UnsetInputHooks(Input *input)
 {
-  input->UnsetKeyDownCallback(SCE_CTRL_LEFT);
-  input->UnsetKeyDownCallback(SCE_CTRL_RIGHT);
-  input->UnsetKeyDownCallback(SCE_CTRL_LSTICK_LEFT);
-  input->UnsetKeyDownCallback(SCE_CTRL_LSTICK_RIGHT);
-  input->UnsetKeyUpCallback(SCE_CTRL_CIRCLE);
-  input->UnsetKeyUpCallback(SCE_CTRL_CROSS);
+    input->UnsetKeyDownCallback(SCE_CTRL_LEFT);
+    input->UnsetKeyDownCallback(SCE_CTRL_RIGHT);
+    input->UnsetKeyDownCallback(SCE_CTRL_LSTICK_LEFT);
+    input->UnsetKeyDownCallback(SCE_CTRL_LSTICK_RIGHT);
+    input->UnsetKeyUpCallback(SCE_CTRL_CIRCLE);
+    input->UnsetKeyUpCallback(SCE_CTRL_CROSS);
 }
 
 void ItemState::_OnKeyLeft(Input *input)
 {
-  _OnKeyUp(input);
+    _OnKeyUp(input);
 }
 
 void ItemState::_OnKeyRight(Input *input)
 {
-  _OnKeyDown(input);
+    _OnKeyDown(input);
 }
 
 void ItemState::_OnClick(Input *input)
 {
-  size_t index = _index;
-  if (_menu_count == sizeof(AUTO_MENU_TEXT) / sizeof(TEXT_ENUM))
-  {
-    index++;
-  }
-
-  if (index == POPUP_CANCEL)
-  {
-    _OnCancel(input);
-    return;
-  }
-
-  switch (index)
-  {
-  case POPUP_SAVE:
-    _confirm_dialog->SetText(LANG_SAVE_CONFIRM);
-    break;
-
-  case POPUP_LOAD:
-    _confirm_dialog->SetText(LANG_LOAD_CONFIRM);
-    break;
-
-  case POPUP_DELETE:
-    _confirm_dialog->SetText(LANG_DELETE_CONFIRM);
-    break;
-
-  default:
-    LogError("unknown _index: %d", index);
-    _OnCancel(input);
-    return;
-  }
-
-  _confirm_dialog->OnActive(input);
-}
-
-void ItemState::_OnCancel(Input *input)
-{
-  gVideo->Lock();
-  _actived = false;
-  input->PopCallbacks();
-  gVideo->Unlock();
-}
-
-void ItemState::_OnRun(Input *input, int index)
-{
-  LogFunctionName;
-
-  bool loaded = false;
-  if (index == 0) // press OK
-  {
-    index = _index;
+    size_t index = _index;
     if (_menu_count == sizeof(AUTO_MENU_TEXT) / sizeof(TEXT_ENUM))
     {
-      index++;
+        index++;
+    }
+
+    if (index == POPUP_CANCEL)
+    {
+        _OnCancel(input);
+        return;
     }
 
     switch (index)
     {
     case POPUP_SAVE:
-      _state->Save();
-      break;
+        _confirm_dialog->SetText(LANG_SAVE_CONFIRM);
+        break;
+
     case POPUP_LOAD:
-      loaded = _state->Load();
-      gStatus.Set(APP_STATUS_RUN_GAME);
-      break;
+        _confirm_dialog->SetText(LANG_LOAD_CONFIRM);
+        break;
+
     case POPUP_DELETE:
-      _state->Remove();
-      break;
+        _confirm_dialog->SetText(LANG_DELETE_CONFIRM);
+        break;
+
     default:
-      LogError("Unknown index: %d", index);
+        LogError("unknown _index: %d", index);
+        _OnCancel(input);
+        return;
     }
-  }
 
-  _OnCancel(input);
+    _confirm_dialog->OnActive(input);
+}
 
-  if (loaded)
-  {
-    UnsetInputHooks(input);
-  }
+void ItemState::_OnCancel(Input *input)
+{
+    gVideo->Lock();
+    _actived = false;
+    input->PopCallbacks();
+    gVideo->Unlock();
+}
+
+void ItemState::_OnRun(Input *input, int index)
+{
+    LogFunctionName;
+
+    bool loaded = false;
+    if (index == 0) // press OK
+    {
+        index = _index;
+        if (_menu_count == sizeof(AUTO_MENU_TEXT) / sizeof(TEXT_ENUM))
+        {
+            index++;
+        }
+
+        switch (index)
+        {
+        case POPUP_SAVE:
+            _state->Save();
+            break;
+        case POPUP_LOAD:
+            loaded = _state->Load();
+            gStatus.Set(APP_STATUS_RUN_GAME);
+            break;
+        case POPUP_DELETE:
+            _state->Remove();
+            break;
+        default:
+            LogError("Unknown index: %d", index);
+        }
+    }
+
+    _OnCancel(input);
+
+    if (loaded)
+    {
+        UnsetInputHooks(input);
+    }
 }
