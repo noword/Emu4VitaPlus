@@ -373,9 +373,19 @@ bool EnvironmentCallback(unsigned cmd, void *data)
                     retro_vfs_readdir_impl,
                     retro_vfs_dirent_get_name_impl,
                     retro_vfs_dirent_is_dir_impl,
-                    retro_vfs_closedir_impl};
+                    retro_vfs_closedir_impl,
+                    /* VFS API v4 */
+                    retro_vfs_stat_64_impl,
+                    /* VFS API v5 */
+                    retro_vfs_set_readonly_impl,
+                    retro_vfs_get_mtime_impl,
+                    retro_vfs_set_mtime_impl,
+                    retro_vfs_copy_begin_impl,
+                    retro_vfs_copy_step_impl,
+                    retro_vfs_copy_close_impl,
+                    retro_vfs_dirent_stat_impl};
 
-            vfs_iface_info->required_interface_version = 3;
+            vfs_iface_info->required_interface_version = 5;
             vfs_iface_info->iface = &vfs_iface;
         }
         break;
