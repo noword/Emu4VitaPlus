@@ -28,7 +28,7 @@ TabBrowser::TabBrowser() : TabSeletable(LANG_BROWSER),
 {
     LogFunctionName;
 
-    _directory = new Directory(nullptr, gEmulator->GetValidExtensions());
+    _directory = new Directory(nullptr, gEmulator->GetValidExtensions(), '|', !gEmulator->GetBlockExtract());
     SetPath(gConfig->last_rom.c_str());
 
     _confirm_dialog = new Dialog{"",

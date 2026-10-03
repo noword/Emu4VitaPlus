@@ -135,13 +135,13 @@ void DirItem::UpdateDetails(DirItemUpdateCallbackFunc callback)
     }
 }
 
-Directory::Directory(const char *path, const char *ext_filters, char split)
+Directory::Directory(const char *path, const char *ext_filters, char split, bool filter_zip)
 {
     LogFunctionName;
 
     if (ext_filters)
     {
-        SetExtensionFilter(ext_filters, split);
+        SetExtensionFilter(ext_filters, split, filter_zip);
     }
 
     if (path)
@@ -155,14 +155,30 @@ Directory::~Directory()
     LogFunctionName;
 }
 
-void Directory::SetExtensionFilter(const char *exts, char split)
+void Directory::SetExtensionFilter(const char *exts, char split, bool filter_zip)
 {
     LogFunctionName;
     LogDebug(exts);
 
+    _ext_filters.clear();
+
     char *exts_string = new char[strlen(exts) + 1];
     strcpy(exts_string, exts);
-    char *p = exts_string;
+    for (int i = 0; exts_string[i]; i++)
+        exts_string[i] = tolower(exts_string[i]);
+    _SetExtensionFilter(exts_string, split, filter_zip);
+
+    strcpy(exts_string, exts);
+    for (int i = 0; exts_string[i]; i++)
+        exts_string[i] = toupper(exts_string[i]);
+    _SetExtensionFilter(exts_string, split, filter_zip);
+
+    delete[] exts_string;
+}
+
+void Directory::_SetExtensionFilter(char *exts, char split, bool filter_zip)
+{
+    char *p = exts;
     char *end;
     do
     {
@@ -171,7 +187,9 @@ void Directory::SetExtensionFilter(const char *exts, char split)
         {
             *end = '\x00';
         }
-        _ext_filters.insert(p);
+
+        if (!(filter_zip && (strcmp(p, "zip") == 0 || strcmp(p, "ZIP") == 0 || strcmp(p, "7z") == 0 || strcmp(p, "7Z") == 0)))
+            _ext_filters.insert(p);
 
         if (end)
         {
@@ -183,8 +201,6 @@ void Directory::SetExtensionFilter(const char *exts, char split)
             break;
         }
     } while (true);
-
-    delete[] exts_string;
 }
 
 bool Directory::_SuffixTest(const char *name)

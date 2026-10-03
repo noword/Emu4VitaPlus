@@ -66,6 +66,7 @@ public:
     const char *GetValidExtensions() const { return _info.valid_extensions; };
     const char *GetCoreName() const { return _info.library_name; };
     const char *GetCoreVersion() const { return _info.library_version; };
+    bool GetBlockExtract() const { return _info.block_extract; };
     double GetSampleRate() const { return _av_info.timing.sample_rate; };
     float GetAspectRatio() { return _av_info.geometry.aspect_ratio; };
     uint64_t GetMsPerFrame() { return _delay.GetInterval(); };

@@ -52,6 +52,7 @@ set(CORE_ROWS
     "quasi88-libretro;quasi88;quasi88;PC88;QUASI884V"
     "beetle-vb-libretro;mednafen_vb;mednafen_vb;VB;VB4PSVITA"
 	"gw-libretro;gw;gw;GW;GW4PSVITA"
+    "hatari;hatari;Hatari;ATARIST;HATARI4VT"
 )
 
 set(ROW_SIZE 5)

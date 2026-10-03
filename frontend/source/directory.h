@@ -31,10 +31,11 @@ class Directory
 public:
     Directory(const char *path = nullptr,
               const char *ext_filters = NULL,
-              char split = '|');
+              char split = '|',
+              bool filter_zip = false);
     virtual ~Directory();
 
-    void SetExtensionFilter(const char *exts, char split);
+    void SetExtensionFilter(const char *exts, char split, bool filter_zip);
     bool SetCurrentPath(const std::string &path);
     bool Refresh() { return SetCurrentPath(_current_path.c_str()); };
     const std::string &GetCurrentPath() const { return _current_path; };
@@ -51,6 +52,8 @@ public:
     bool IsTested() { return _tested; };
 
 private:
+    void _SetExtensionFilter(char *exts, char split, bool filter_zip);
+
     std::vector<DirItem> _items;
     std::set<std::string> _ext_filters;
     std::set<size_t> _search_results;

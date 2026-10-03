@@ -148,7 +148,8 @@ const bool DEFAULT_MOUSE = CONFIG_MOUSE_DISABLE;
     defined(CPC_BUILD) ||           \
     defined(ATARI5200_BUILD) ||     \
     defined(PC88_BUILD) ||          \
-    defined(PS_BUILD)
+    defined(PS_BUILD) ||            \
+    defined(ATARIST_BUILD)
 const bool DEFAULT_AUTO_SAVE = false;
 const bool DEFAULT_REBOOT_WHEN_LOADING_AGAIN = true;
 #else
@@ -183,7 +184,8 @@ const bool DEFAULT_AUTO_LOAD = true;
     defined(X68000_BUILD) ||    \
     defined(ATARI5200_BUILD) || \
     defined(CPC_BUILD) ||       \
-    defined(PC88_BUILD)
+    defined(PC88_BUILD) ||      \
+    defined(ATARIST_BUILD)
 const bool ENABLE_KEYBOARD = true;
 #else
 const bool ENABLE_KEYBOARD = false;
@@ -327,10 +329,15 @@ const std::vector<uint8_t> RETRO_KEYS = {
         RETRO_DEVICE_ID_JOYPAD_R,
 #elif defined(ATARIST_BUILD)
         RETRO_DEVICE_ID_JOYPAD_A,
+        RETRO_DEVICE_ID_JOYPAD_B,
+        RETRO_DEVICE_ID_JOYPAD_X,
         RETRO_DEVICE_ID_JOYPAD_Y,
         RETRO_DEVICE_ID_JOYPAD_L,
         RETRO_DEVICE_ID_JOYPAD_R,
         RETRO_DEVICE_ID_JOYPAD_L2,
+        RETRO_DEVICE_ID_JOYPAD_R2,
+        RETRO_DEVICE_ID_JOYPAD_L3,
+        RETRO_DEVICE_ID_JOYPAD_R3,
 #elif defined(VECTREX_BUILD)
         RETRO_DEVICE_ID_JOYPAD_A,
         RETRO_DEVICE_ID_JOYPAD_B,
@@ -543,8 +550,8 @@ const std::vector<ControlMapConfig> CONTROL_MAPS = {
     {SCE_CTRL_L3},
     {SCE_CTRL_R3},
 #elif defined(ATARIST_BUILD)
-    {SCE_CTRL_CROSS, {RETRO_DEVICE_ID_JOYPAD_A}},
-    {SCE_CTRL_TRIANGLE, {RETRO_DEVICE_ID_JOYPAD_Y}},
+    {SCE_CTRL_CROSS, {RETRO_DEVICE_ID_JOYPAD_B}},
+    {SCE_CTRL_TRIANGLE, {RETRO_DEVICE_ID_JOYPAD_X}},
     {SCE_CTRL_CIRCLE, {RETRO_DEVICE_ID_JOYPAD_A}},
     {SCE_CTRL_SQUARE, {RETRO_DEVICE_ID_JOYPAD_Y}},
     {SCE_CTRL_SELECT, {RETRO_DEVICE_ID_JOYPAD_SELECT}},
@@ -552,9 +559,9 @@ const std::vector<ControlMapConfig> CONTROL_MAPS = {
     {SCE_CTRL_L1, {RETRO_DEVICE_ID_JOYPAD_L}},
     {SCE_CTRL_R1, {RETRO_DEVICE_ID_JOYPAD_R}},
     {SCE_CTRL_L2, {RETRO_DEVICE_ID_JOYPAD_L2}},
-    {SCE_CTRL_R2},
-    {SCE_CTRL_L3},
-    {SCE_CTRL_R3},
+    {SCE_CTRL_R2, {RETRO_DEVICE_ID_JOYPAD_R2}},
+    {SCE_CTRL_L3, {RETRO_DEVICE_ID_JOYPAD_L3}},
+    {SCE_CTRL_R3, {RETRO_DEVICE_ID_JOYPAD_R3}},
 #elif defined(VECTREX_BUILD)
     {SCE_CTRL_CROSS, {RETRO_DEVICE_ID_JOYPAD_X}},
     {SCE_CTRL_TRIANGLE, {RETRO_DEVICE_ID_JOYPAD_B}},
@@ -709,6 +716,8 @@ const std::vector<std::pair<const char *, const char *>> DEFAULT_CORE_SETTINGS =
     {"pcsx_rearmed_vibration", "disabled"},
 #elif defined(MEDNAFEN_VB_BUILD)
     {"vb_color_mode", "black & green"},
+#elif defined(HATARI_BUILD)
+    {"hatari_tosimage", "tos.img"},
 #endif
 };
 
@@ -831,6 +840,8 @@ const std::vector<BIOS> REQUIRED_BIOS = {
     {"quasi88/n88_3.rom", 0},
 #elif defined(VB_BUILD)
 #elif defined(GW_BUILD)
+#elif defined(ATARIST_BUILD)
+    {"tos.img", 0},
 #else
 #error "unknown build"
 #endif
