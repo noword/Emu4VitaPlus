@@ -460,8 +460,8 @@ bool EnvironmentCallback(unsigned cmd, void *data)
             retro_message_ext *message = (retro_message_ext *)data;
             if (message && message->msg && message->level >= RETRO_LOG_INFO)
             {
-                LogDebug(message->msg);
-                gHint->SetHint(message->msg, message->duration / 1000 * 60, true);
+                LogDebug("%s %d", message->msg, message->duration);
+                gHint->SetHint(message->msg, message->duration, true);
             }
         }
         break;
