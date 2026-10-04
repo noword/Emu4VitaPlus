@@ -15,6 +15,7 @@ const char *CONSOLE_NAMES[CONSOLE_COUNT] = {
     "CPC",
     "AMIGA",
     "X68000",
+    "ATARIFALCON",
     "PCE",
     "MD",
     "LYNX",
@@ -46,6 +47,7 @@ const int CONSOLE_YEARS[CONSOLE_COUNT] =
         1984, // CPC
         1985, // AMIGA
         1987, // X68000
+        1992, // ATARIFALCON
         1987, // PCE
         1988, // MD
         1989, // LYNX

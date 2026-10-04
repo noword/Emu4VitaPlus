@@ -52,8 +52,6 @@ public:
     bool IsTested() { return _tested; };
 
 private:
-    void _SetExtensionFilter(char *exts, char split, bool filter_zip);
-
     std::vector<DirItem> _items;
     std::set<std::string> _ext_filters;
     std::set<size_t> _search_results;

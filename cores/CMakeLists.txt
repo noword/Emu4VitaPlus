@@ -13,32 +13,34 @@ set(C_FLAG_OPTIMIZATION -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard
     -funsafe-math-optimizations -mvectorize-with-neon-quad
     -fdata-sections -ffunction-sections)
 
+set(DISABLE_VFS
+    -Dretro_vfs_file_get_path_impl=retro_vfs_file_get_path_impl_disable
+    -Dretro_vfs_file_open_impl=retro_vfs_file_open_impl_disable
+    -Dretro_vfs_file_close_impl=retro_vfs_file_close_impl_disable
+    -Dretro_vfs_file_size_impl=retro_vfs_file_size_impl_disable
+    -Dretro_vfs_file_tell_impl=retro_vfs_file_tell_impl_disable
+    -Dretro_vfs_file_seek_impl=retro_vfs_file_seek_impl_disable
+    -Dretro_vfs_file_read_impl=retro_vfs_file_read_impl_disable
+    -Dretro_vfs_file_write_impl=retro_vfs_file_write_impl_disable
+    -Dretro_vfs_file_flush_impl=retro_vfs_file_flush_impl_disable
+    -Dretro_vfs_file_remove_impl=retro_vfs_file_remove_impl_disable
+    -Dretro_vfs_file_rename_impl=retro_vfs_file_rename_impl_disable
+    -Dretro_vfs_file_truncate_impl=retro_vfs_file_truncate_impl_disable
+    -Dretro_vfs_stat_impl=retro_vfs_stat_impl_disable
+    -Dretro_vfs_mkdir_impl=retro_vfs_mkdir_impl_disable
+    -Dretro_vfs_opendir_impl=retro_vfs_opendir_impl_disable
+    -Dretro_vfs_readdir_impl=retro_vfs_readdir_impl_disable
+    -Dretro_vfs_dirent_get_name_impl=retro_vfs_dirent_get_name_impl_disable
+    -Dretro_vfs_dirent_is_dir_impl=retro_vfs_dirent_is_dir_impl_disable
+    -Dretro_vfs_closedir_impl=retro_vfs_closedir_impl_disable
+    -Dretro_vfs_file_seek_internal=retro_vfs_file_seek_internal_disable
+    -Dretro_vfs_file_error_impl=retro_vfs_file_error_impl_disable
+    -Dretro_vfs_stat_64_impl=retro_vfs_stat_64_impl_disable)
+
 set(CORE_CFLAGS -save-temps)
 
 if(CORE STREQUAL "gpsp")
-    set(CORE_CFLAGS ${CORE_CFLAGS}
-        -Dretro_vfs_file_get_path_impl=retro_vfs_file_get_path_impl_disable
-        -Dretro_vfs_file_open_impl=retro_vfs_file_open_impl_disable
-        -Dretro_vfs_file_close_impl=retro_vfs_file_close_impl_disable
-        -Dretro_vfs_file_size_impl=retro_vfs_file_size_impl_disable
-        -Dretro_vfs_file_tell_impl=retro_vfs_file_tell_impl_disable
-        -Dretro_vfs_file_seek_impl=retro_vfs_file_seek_impl_disable
-        -Dretro_vfs_file_read_impl=retro_vfs_file_read_impl_disable
-        -Dretro_vfs_file_write_impl=retro_vfs_file_write_impl_disable
-        -Dretro_vfs_file_flush_impl=retro_vfs_file_flush_impl_disable
-        -Dretro_vfs_file_remove_impl=retro_vfs_file_remove_impl_disable
-        -Dretro_vfs_file_rename_impl=retro_vfs_file_rename_impl_disable
-        -Dretro_vfs_file_truncate_impl=retro_vfs_file_truncate_impl_disable
-        -Dretro_vfs_stat_impl=retro_vfs_stat_impl_disable
-        -Dretro_vfs_mkdir_impl=retro_vfs_mkdir_impl_disable
-        -Dretro_vfs_opendir_impl=retro_vfs_opendir_impl_disable
-        -Dretro_vfs_readdir_impl=retro_vfs_readdir_impl_disable
-        -Dretro_vfs_dirent_get_name_impl=retro_vfs_dirent_get_name_impl_disable
-        -Dretro_vfs_dirent_is_dir_impl=retro_vfs_dirent_is_dir_impl_disable
-        -Dretro_vfs_closedir_impl=retro_vfs_closedir_impl_disable
-        -Dretro_vfs_file_seek_internal=retro_vfs_file_seek_internal_disable
-        -Dretro_vfs_file_error_impl=retro_vfs_file_error_impl_disable
-    )
+    set(CORE_CFLAGS ${CORE_CFLAGS} ${DISABLE_VFS})
 elseif(CORE STREQUAL "vba_next")
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/Makefile.libretro)
 elseif(CORE STREQUAL "gambatte")
@@ -72,6 +74,7 @@ elseif(CORE STREQUAL "genesis_plus_gx_wide")
 elseif(CORE STREQUAL "picodrive")
     set(CORE_MAKEFILE_NAME Makefile.libretro)
     set(CORE_ARGS ${CORE_ARGS} PLATFORM_ZLIB=0 use_libchdr=1)
+    set(CORE_CFLAGS ${CORE_CFLAGS} -Dstrcasestr_retro__=compat_strcasestr)
 elseif(CORE STREQUAL "mednafen_pce_fast")
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/Makefile)
     set(CORE_ARGS ${CORE_ARGS} SYSTEM_ZLIB=1)
@@ -84,7 +87,9 @@ elseif(CORE STREQUAL "pcsx_rearmed")
     set(CORE_MAKEFILE_NAME Makefile.libretro)
     set(CORE_LTO OFF)
 elseif(CORE STREQUAL "stella2014")
+    set(CORE_CFLAGS ${CORE_CFLAGS} ${DISABLE_VFS})
 elseif(CORE STREQUAL "prosystem")
+    set(CORE_CFLAGS ${CORE_CFLAGS} ${DISABLE_VFS})
 elseif(CORE STREQUAL "atari800")
     set(CORE_ARGS ${CORE_ARGS} SYSTEM_ZLIB=1)
 elseif(CORE STREQUAL "dosbox_pure")
@@ -99,7 +104,7 @@ elseif(CORE STREQUAL "vecx")
 elseif(CORE STREQUAL "uae4arm")
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/Makefile)
 elseif(CORE STREQUAL "fuse")
-    set(CORE_CFLAGS ${CORE_CFLAGS} -D__GNU_LIBRARY__ -Dmkstemp=mkstemp_)
+    set(CORE_CFLAGS ${CORE_CFLAGS} -D__GNU_LIBRARY__ -Dmkstemp=mkstemp_ ${DISABLE_VFS})
     set(CORE_LTO OFF)
 elseif(CORE STREQUAL "neocd")
 elseif(CORE STREQUAL "mednafen_supafaust")
@@ -134,8 +139,10 @@ elseif(CORE STREQUAL "np2kai")
     set(CORE_CFLAGS ${CORE_CFLAGS} -Dmx=mx_vita -Dmy=my_vita)
 elseif(CORE STREQUAL "vice")
     set(LIBRETRO_LIBRARY ${CORE_DIR}/vice_x64_libretro_vita.a CACHE INTERNAL "LIBRETRO_LIBRARY")
+    set(CORE_CFLAGS ${CORE_CFLAGS} -Dg_CrcTable=g_CrcTable_disable -DCrcUpdate=CrcUpdate_disable -DCrcCalc=CrcCalc_disable -DCrcGenerateTable=CrcGenerateTable_disable)
 elseif(CORE STREQUAL "px68k")
     set(CORE_MAKEFILE_NAME Makefile.libretro)
+    set(CORE_CFLAGS ${CORE_CFLAGS} ${DISABLE_VFS})
 elseif(CORE STREQUAL "mednafen_lynx")
     set(CORE_ARGS ${CORE_ARGS} NEED_CRC32=0)
 elseif(CORE STREQUAL "handy")

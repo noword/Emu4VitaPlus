@@ -166,19 +166,8 @@ void Directory::SetExtensionFilter(const char *exts, char split, bool filter_zip
     strcpy(exts_string, exts);
     for (int i = 0; exts_string[i]; i++)
         exts_string[i] = tolower(exts_string[i]);
-    _SetExtensionFilter(exts_string, split, filter_zip);
 
-    strcpy(exts_string, exts);
-    for (int i = 0; exts_string[i]; i++)
-        exts_string[i] = toupper(exts_string[i]);
-    _SetExtensionFilter(exts_string, split, filter_zip);
-
-    delete[] exts_string;
-}
-
-void Directory::_SetExtensionFilter(char *exts, char split, bool filter_zip)
-{
-    char *p = exts;
+    char *p = exts_string;
     char *end;
     do
     {
@@ -201,6 +190,8 @@ void Directory::_SetExtensionFilter(char *exts, char split, bool filter_zip)
             break;
         }
     } while (true);
+
+    delete[] exts_string;
 }
 
 bool Directory::_SuffixTest(const char *name)

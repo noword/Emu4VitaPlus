@@ -115,7 +115,8 @@ App::App()
                            {{"uae4arm", "uae4arm"}}),
             new CoreButton(X68000, // 1987
                            {{"Portable (x)keropi PRO-68K", "px68k"}}),
-
+            new CoreButton(ATARIFALCON, // 1992
+                           {{"Hatari", "hatari"}}),
         },
         {
             new CoreButton(ATARI2600, // 1977

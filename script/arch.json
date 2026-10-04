@@ -169,6 +169,18 @@
     },
     {
         "No.": "15",
+        "Tag": "INTRO_ATARIFALCON",
+        "English": "The Atari Falcon030 (usually shortened to Atari Falcon), released in 1992, is the final personal computer from Atari Corporation. A high-end model of the Atari ST line, the machine is based on a Motorola 68030 CPU and a Motorola 56001 digital signal processor, which distinguishes it from most other microcomputers of the era. It includes a new VIDEL programmable video controller which greatly improves graphics capabilities.",
+        "Chinese": "Atari Falcon030（通常简称为 Atari Falcon）于 1992 年发布，是雅达利公司（Atari Corporation）推出的最后一款个人电脑。作为 Atari ST 系列中的高端机型，该机搭载了摩托罗拉 68030 CPU 和摩托罗拉 56001 数字信号处理器，这一配置使其有别于当时大多数其他微型计算机。它还配备了全新的 VIDEL 可编程视频控制器，从而大幅提升了图形处理能力。",
+        "Japanese": "1992年に発売されたAtari Falcon030（通常はAtari Falconと略称される）は、Atari Corporationが最後にリリースしたパーソナルコンピュータです。Atari STシリーズのハイエンドモデルである本機は、Motorola 68030 CPUとMotorola 56001デジタルシグナルプロセッサ（DSP）を搭載している点が、同時代の他の多くのマイクロコンピュータとは一線を画しています。また、グラフィックス機能を大幅に強化する新しいプログラマブル・ビデオ・コントローラ「VIDEL」も採用されています。",
+        "Italian": "L'Atari Falcon030 (solitamente abbreviato in Atari Falcon), lanciato nel 1992, è l'ultimo personal computer prodotto da Atari Corporation. Modello di fascia alta della linea Atari ST, la macchina è basata su una CPU Motorola 68030 e su un processore di segnale digitale Motorola 56001, caratteristica che la distingue dalla maggior parte degli altri microcomputer dell'epoca. È dotata di un nuovo controller video programmabile VIDEL, che potenzia notevolmente le capacità grafiche.",
+        "French": "L'Atari Falcon030 (généralement abrégé en Atari Falcon), sorti en 1992, est le dernier ordinateur personnel d'Atari Corporation. Modèle haut de gamme de la gamme Atari ST, la machine repose sur un processeur Motorola 68030 et un processeur de signal numérique (DSP) Motorola 56001, ce qui la distingue de la plupart des autres micro-ordinateurs de l'époque. Elle intègre un nouveau contrôleur vidéo programmable, le VIDEL, qui améliore considérablement les capacités graphiques.",
+        "Spanish": "El Atari Falcon030 (generalmente abreviado como Atari Falcon), lanzado en 1992, es el último ordenador personal de Atari Corporation. Este equipo, un modelo de gama alta de la línea Atari ST, se basa en una CPU Motorola 68030 y un procesador de señal digital Motorola 56001, características que lo distinguen de la mayoría de los demás microordenadores de la época. Incorpora un nuevo controlador de vídeo programable VIDEL que mejora considerablemente las capacidades gráficas.",
+        "Russian": "Atari Falcon030 (обычно называемый просто Atari Falcon), выпущенный в 1992 году, стал последним персональным компьютером корпорации Atari. Эта модель высшего класса в линейке Atari ST построена на базе центрального процессора Motorola 68030 и цифрового сигнального процессора Motorola 56001, что отличает её от большинства других микрокомпьютеров той эпохи. Компьютер оснащён новым программируемым видеоконтроллером VIDEL, значительно расширяющим графические возможности системы.",
+        "Comments": ""
+    },
+    {
+        "No.": "16",
         "Tag": "INTRO_PCE",
         "English": "The TurboGrafx-16, known as the PC Engine outside North America, is a home video game console designed by Hudson Soft and sold by NEC Home Electronics. It was the first console marketed in the fourth generation, commonly known as the 16-bit era. It was released in Japan in 1987 and in North America in 1989. In Europe the Japanese model was unofficially imported and distributed in the United Kingdom and France from 1988. In Japan, the system was launched as a competitor to the Famicom, but the delayed United States release meant that it ended up competing with the Sega Genesis and later the Super NES.",
         "Chinese": "PC Engine（日版名：PCエンジン，美版名：TurboGrafx-16，简称PCE），是由Hudson Soft与日本电气（NEC）两家日本公司联手开发的家用游戏机，并在1987年10月30日由NEC的子公司“NEC Home Electronics”（简称NEC HE）推出。",
@@ -180,7 +192,7 @@
         "Comments": ""
     },
     {
-        "No.": "16",
+        "No.": "17",
         "Tag": "INTRO_MD",
         "English": "The Sega Genesis, known as the Mega Drive outside North America, is a 16-bit fourth generation home video game console developed and sold by Sega. It was Sega's third console and the successor to the Master System. Sega released it in 1988 in Japan as the Mega Drive, and in 1989 in North America as the Genesis. In 1990, it was distributed as the Mega Drive by Virgin Mastertronic in Europe, Ozisoft in Australasia, and Tectoy in Brazil. In South Korea, it was distributed by Samsung Electronics as the Super Gam*Boy and later the Super Aladdin Boy.",
         "Chinese": "Mega Drive（日版名：メガドライブ，美版名：Sega Genesis，简称MD，香港俗称世嘉五代）是世嘉在1988年推出的16-bit家用游戏机，1989年在美国推出，1990年在欧洲推出。Mega Drive在全球共售出3075万台。",
@@ -192,7 +204,7 @@
         "Comments": ""
     },
     {
-        "No.": "17",
+        "No.": "18",
         "Tag": "INTRO_LYNX",
         "English": "The Atari Lynx is a fourth-generation hand-held game console released by Atari Corporation in September 1989 in North America and 1990 in Europe and Japan. It was the first handheld game console with a color liquid-crystal display. ",
         "Chinese": "Atari Lynx是生产商雅达利公司（Atari Corporation）于1989年发布的手提式游戏机，是世上首款设有彩色液晶显示屏的手提电子游戏机，与任天堂的GameBoy游戏机同年推出。",
@@ -204,7 +216,7 @@
         "Comments": ""
     },
     {
-        "No.": "18",
+        "No.": "19",
         "Tag": "INTRO_VB",
         "English": "The Virtual Boy is a video game console developed and manufactured by Nintendo and released in Japan on July 21, 1995, and in North America on August 14, 1995. Promoted as the first system capable of rendering stereoscopic 3D graphics, it featured a red monochrome display viewed through a binocular eyepiece, with games employing a parallax effect to simulate depth. The console struggled commercially, and its limited market performance led Nintendo to discontinue production and game development in 1996, following the release of only 22 games.",
         "Chinese": "Virtual Boy 是由任天堂开发制造的桌面台式32位游戏机。于1995年发布，为第一个能够显示立体3D图形的游戏机。玩家可以像头戴式显示器一样使用游戏机，将头放在游戏机目镜上可以看到红色单色显示屏显示的游戏画面，游戏使用视差原理产生立体3D效果。1996年初，因为Virtual Boy未能达到销售量目标，任天堂停止了为Virtual Boy的游戏发行和生产。在Virtual Boy的整个发售生命期间，该游戏机总共仅发布了22款游戏。",
@@ -216,7 +228,7 @@
         "Comments": ""
     },
     {
-        "No.": "19",
+        "No.": "20",
         "Tag": "INTRO_GBC",
         "English": "The Game Boy Color (GBC or CGB) is an 8-bit handheld game console, manufactured by Nintendo, which was released in Japan on October 21, 1998, and to international markets that November. Compared to the original Game Boy, the Game Boy Color features a color TFT screen rather than monochrome, a processor that can operate twice as fast, and four times as much memory. It retains backward compatibility with games initially developed for its predecessor.",
         "Chinese": "Game Boy Color（日语：ゲームボーイカラー，简称GBC）是由任天堂开发的一款由电池驱动的彩色屏幕掌上游戏机，是Game Boy的加强版，于1998年10月21日在日本发行。其相对于原版Game Boy的最大特点是彩色屏幕的使用。",
@@ -228,7 +240,7 @@
         "Comments": ""
     },
     {
-        "No.": "20",
+        "No.": "21",
         "Tag": "INTRO_SNES",
         "English": "The Super Nintendo Entertainment System, commonly shortened to Super Nintendo, Super NES or SNES, is a 16-bit home video game console developed by Nintendo that was released in 1990 in Japan and South Korea, 1991 in North America, 1992 in Europe and Oceania and 1993 in South America. In Japan, it is called the Super Famicom (SFC). In South Korea, it is called the Super Comboy and was distributed by Hyundai Electronics. The system was released in Brazil on August 30, 1993, by Playtronic. In Russia and CIS, the system was distributed by Steepler from 1994 until 1996. Although each version is essentially the same, several forms of regional lockout prevent cartridges for one version from being used in other versions.",
         "Chinese": "超级任天堂（日版名：スーパーファミコン，Super Famicom，英文版名：Super Nintendo Entertainment System，简称超任；日版简称SFC；欧美版简称Super Nintendo、SNES）是由游戏公司任天堂继红白机后开发的16位家用游戏机。超级任天堂于1990年11月21日在日本开始发售，北美于1991年8月13日发售，欧洲于1992年4月11日发售。手柄改进之处在于第一次加入了肩部按键L/R，并形成了ABXY四个按键的手柄布局。超级任天堂全球累计销量为4910万台。超级任天堂的下一代产品为任天堂64。",
@@ -240,7 +252,7 @@
         "Comments": ""
     },
     {
-        "No.": "21",
+        "No.": "22",
         "Tag": "INTRO_NEOCD",
         "English": "The Neo Geo CD (Neo Jio Shī Dī) is a home video game console produced by SNK Corporation, released on September 9, 1994. The system is the same platform as the cartridge-based Neo Geo released four years earlier, but converted to the cheaper CD media format which retailed at $49 to 79 per title compared to over $200 for the equivalent cartridge.",
         "Chinese": "Neo Geo CD（日语：ネオジオCD）是SNK公司Neo Geo家族的第二款家用游戏机，发行于1994年9月9日。同四年前的卡带版主机相比，本主机使用廉价的CD作媒介：CD版游戏零售价为每张49美元至79美元，而盒装版游戏价格为300美元。日版主机首发价49,800日元，美版首发价为399美元，英国版首发价399英镑。",
@@ -252,7 +264,7 @@
         "Comments": ""
     },
     {
-        "No.": "22",
+        "No.": "23",
         "Tag": "INTRO_PS1",
         "English": "PlayStation is a video gaming brand owned and produced by Sony Interactive Entertainment (SIE), a division of Japanese conglomerate Sony. Its flagship products consists of a series of home video game consoles produced under the brand; it also consists of handhelds, online services, magazines, and other forms of media.",
         "Chinese": "PlayStation（プレイステーション，简称为PS）是由索尼旗下的索尼互动娱乐（原索尼电脑娱乐）创立并开发，从第五到第九世代的一系列电子游戏机品牌。品牌于1994年12月3日随着初代PlayStation游戏机在日本发售而首次推出。",
@@ -264,7 +276,7 @@
         "Comments": ""
     },
     {
-        "No.": "23",
+        "No.": "24",
         "Tag": "INTRO_NGP",
         "English": "The Neo Geo Pocket Color (NGPC) is a 16-bit handheld game console developed and manufactured by SNK, released on March 19, 1999 in Japan with international markets following in August that year. It is an upgrade of the original Neo Geo Pocket, which was released in 1998 and mainly sold in Japan; the Color features a color display instead of a monochrome one, and is fully backward compatible.",
         "Chinese": "Neo Geo Pocket Color（简称NGPC）是一款由SNK制造的16位彩色掌上游戏机。本游戏机为Neo Geo Pocket继任机种，于1999年3月19日在日本发行，于8月6日在北美地区发行，10月1日在欧洲发行。",
@@ -276,7 +288,7 @@
         "Comments": ""
     },
     {
-        "No.": "24",
+        "No.": "25",
         "Tag": "INTRO_WSC",
         "English": "The WonderSwan is a handheld game console released in Japan by Bandai. It was developed by Gunpei Yokoi's company Koto Laboratory and Bandai, and was the last piece of hardware Yokoi developed before his death in 1997. Released in 1999 in the sixth generation of video game consoles, the WonderSwan and its two later models, the WonderSwan Color and SwanCrystal, were officially supported until being discontinued by Bandai in 2003. During its lifespan, no variation of the WonderSwan was released outside of Japan.",
         "Chinese": "WonderSwan（日语：ワンダースワン，简称为WS）是日本玩具制造商万代（后与南梦宫合并为万代南梦宫）推出的16位掌上游戏机、第五世代游戏机，由Game Boy设计者横井军平成立的公司Koto Laboratory和万代共同设计，亦是横井军平在1997年因车祸逝世前主导设计的最后一款硬件。初代WonderSwan于1999年3月于日本推出；派生机型包括于2000年推出的WonderSwan Color（日语：ワンダースワンカラー，简称为WSC），以及2002年推出的SwanCrystal（日语：スワンクリスタル，简称为SC）。在生命周期内，没有任何一款WonderSwan系列主机于日本以外的地区正式推出。WonderSwan系列主机在其生命周期中销量共计约350万部，于日本掌上游戏机市场市占率最高达8%。尽管在市场龙头任天堂Game Boy系列的竞争下表现并不算突出，多数舆论仍给予WonderSwan正面评价。",
@@ -288,7 +300,7 @@
         "Comments": ""
     },
     {
-        "No.": "25",
+        "No.": "26",
         "Tag": "INTRO_GBA",
         "English": "The Game Boy Advance (GBA) is a 32-bit handheld game console, manufactured by Nintendo, which was released in Japan on March 21, 2001, and to international markets that June. It was later released in mainland China in 2004, under the name iQue Game Boy Advance. Compared to the Game Boy Color it succeeded, the console offered a significantly more powerful ARM7 processor and improved graphics, while retaining backward compatibility with games initially developed for its predecessor.",
         "Chinese": "Game Boy Advance（日语：ゲームボーイアドバンス，简称GBA）是日本任天堂公司于2001年3月21日发售的掌上游戏机，其后2001年6月11日在北美发行，2001年6月22日在德国地区发行，并于2004年6月8日以“小神游GBA”的名义在中国发行。售价9800日元，可向下兼容上一代的的Game Boy和Game Boy Color的游戏。拥有8x8像素的位图显示和16种颜色（4bpp）或256种颜色（8bpp），一颗在1994年制造的ARM7TDMI32位的CPU，比起Game Boy与Game Boy Color这回大幅度提升2D图形、伪3D图形、半透明效果及堆栈图形处理能力。频率为16.78 MHz，32kb的内部工作RAM，256kb的外部RAM和96kb的VRAM。在开发者的立场却不是强大的掌上游戏机，因为Game Boy Advance不支持3D图形功能及缺少浮点运算器，尽管仍有一些游戏开发商尝试设计3D的Game Boy Advance游戏，因无法呈现光源效果及动态光照（dynamic lighting）错觉，因此多数的游戏开发厂仍以2D图形游戏为首。",
@@ -300,7 +312,7 @@
         "Comments": ""
     },
     {
-        "No.": "26",
+        "No.": "27",
         "Tag": "INTRO_ARC",
         "English": "An arcade video game is an arcade game that takes player input from its controls, processes it through electrical or computerized components, and displays output to an electronic monitor or similar display. All arcade video games are coin-operated or accept other means of payment, housed in an arcade cabinet, and located in amusement arcades alongside other kinds of arcade games. Until the early 2000s, arcade video games were the largest and most technologically advanced segment of the video game industry.",
         "Chinese": "街机（英语：arcade cabinet或arcade machine，台湾作机台），即街边游戏机、步行街游戏机，又称大型电玩，是放置于公共娱乐场所或电子游乐场营业用的游戏机，最早的街机雏型于1971年诞生在美国，当时常放置于酒吧内。与街边游戏机相对则是的家用游戏机。",
@@ -312,7 +324,7 @@
         "Comments": ""
     },
     {
-        "No.": "27",
+        "No.": "28",
         "Tag": "INTRO_GW",
         "English": "Game & Watch is a series of handheld electronic games developed by Nintendo. Designed by Gunpei Yokoi, the first game, Ball was released in 1980 and the original production run of the devices continued until 1991. The name Game & Watch reflects their dual functionality: a single game paired with a digital clock on a segmented liquid-crystal display (LCD) screen. The Game & Watch series proved a monumental success, selling a total of 43.4 million units globally, marking Nintendo's first major worldwide success with electronic games.",
         "Chinese": "Game & Watch（日语：ゲーム&ウオッチ）是日本著名游戏公司任天堂在1980年至1991年发售的一款便携式游戏机，由横井军平负责设计，其主要特色为一部主机备有一支特定的游戏，在液晶显示器上显示；并且主机还备有时钟和闹钟功能。大部分的机种分别有一个“GAME A”与“GAME B”的按钮，Game B通常是Game A的更难更快版本。这种液晶显示器便携游戏机的成功刺激了另外几十间游戏与玩具公司制造它们自己的便携游戏机，当中很多原封不动照抄 Game & Watch 的游戏。",
@@ -324,7 +336,7 @@
         "Comments": ""
     },
     {
-        "No.": "28",
+        "No.": "29",
         "Tag": "LANG_MANAGE_ICONS",
         "English": "⇸ Manage icons",
         "Chinese": "⇸ 管理图标",

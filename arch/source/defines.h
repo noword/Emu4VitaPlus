@@ -36,6 +36,7 @@ enum CONSOLE
     CPC,
     AMIGA,
     X68000,
+    ATARIFALCON,
     PCE,
     MD,
     LYNX,
