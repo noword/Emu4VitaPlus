@@ -16,6 +16,29 @@ set(C_FLAG_OPTIMIZATION -marm -mcpu=cortex-a9 -mfpu=neon -mfloat-abi=hard
 set(CORE_CFLAGS -save-temps)
 
 if(CORE STREQUAL "gpsp")
+    set(CORE_CFLAGS ${CORE_CFLAGS}
+        -Dretro_vfs_file_get_path_impl=retro_vfs_file_get_path_impl_disable
+        -Dretro_vfs_file_open_impl=retro_vfs_file_open_impl_disable
+        -Dretro_vfs_file_close_impl=retro_vfs_file_close_impl_disable
+        -Dretro_vfs_file_size_impl=retro_vfs_file_size_impl_disable
+        -Dretro_vfs_file_tell_impl=retro_vfs_file_tell_impl_disable
+        -Dretro_vfs_file_seek_impl=retro_vfs_file_seek_impl_disable
+        -Dretro_vfs_file_read_impl=retro_vfs_file_read_impl_disable
+        -Dretro_vfs_file_write_impl=retro_vfs_file_write_impl_disable
+        -Dretro_vfs_file_flush_impl=retro_vfs_file_flush_impl_disable
+        -Dretro_vfs_file_remove_impl=retro_vfs_file_remove_impl_disable
+        -Dretro_vfs_file_rename_impl=retro_vfs_file_rename_impl_disable
+        -Dretro_vfs_file_truncate_impl=retro_vfs_file_truncate_impl_disable
+        -Dretro_vfs_stat_impl=retro_vfs_stat_impl_disable
+        -Dretro_vfs_mkdir_impl=retro_vfs_mkdir_impl_disable
+        -Dretro_vfs_opendir_impl=retro_vfs_opendir_impl_disable
+        -Dretro_vfs_readdir_impl=retro_vfs_readdir_impl_disable
+        -Dretro_vfs_dirent_get_name_impl=retro_vfs_dirent_get_name_impl_disable
+        -Dretro_vfs_dirent_is_dir_impl=retro_vfs_dirent_is_dir_impl_disable
+        -Dretro_vfs_closedir_impl=retro_vfs_closedir_impl_disable
+        -Dretro_vfs_file_seek_internal=retro_vfs_file_seek_internal_disable
+        -Dretro_vfs_file_error_impl=retro_vfs_file_error_impl_disable
+    )
 elseif(CORE STREQUAL "vba_next")
     set(CORE_MAKEFILE_NAME ${CMAKE_CURRENT_SOURCE_DIR}/../apps/${CORE}/Makefile.libretro)
 elseif(CORE STREQUAL "gambatte")
@@ -132,7 +155,7 @@ elseif(CORE STREQUAL "gw")
     set(CORE_CFLAGS ${CORE_CFLAGS} ${C_FLAG_OPTIMIZATION})
 elseif(CORE STREQUAL "hatari")
     set(CORE_MAKEFILE_NAME Makefile.libretro)
-     set(LIBRETRO_LIBRARY ${CORE_DIR}/hatari2014_libretro_vita.a CACHE INTERNAL "LIBRETRO_LIBRARY")
+    set(LIBRETRO_LIBRARY ${CORE_DIR}/hatari2014_libretro_vita.a CACHE INTERNAL "LIBRETRO_LIBRARY")
 else()
     message(FATAL_ERROR "unknown core: " ${CORE})
 endif()
