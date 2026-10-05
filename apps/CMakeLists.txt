@@ -66,7 +66,7 @@ file(GLOB SRC ../frontend/source/core_spec/*.cpp)
 
 add_executable(${ELF_NAME} ${SRC})
 add_dependencies(${ELF_NAME} ${CORE_TAG})
-
+target_link_options(${ELF_NAME} PRIVATE -Wl,--allow-multiple-definition)
 target_link_libraries(
     ${ELF_NAME}
     ${LIBRETRO_LIBRARY}
