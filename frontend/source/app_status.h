@@ -20,7 +20,7 @@ class AppStatus
 {
 public:
     AppStatus(APP_STATUS status = APP_STATUS_BOOT) : _status(status) {};
-    virtual ~AppStatus() {};
+    virtual ~AppStatus() = default;
 
     APP_STATUS Get() { return _status; };
     void Set(APP_STATUS status)

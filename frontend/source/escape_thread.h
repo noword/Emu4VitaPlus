@@ -6,7 +6,7 @@ class EscapeThread : public ThreadBase
 {
 public:
     EscapeThread() : ThreadBase(_EscapeThread, "emergency") {};
-    virtual ~EscapeThread() {};
+    virtual ~EscapeThread() = default;
 
 private:
     static int _EscapeThread(SceSize args, void *argp);

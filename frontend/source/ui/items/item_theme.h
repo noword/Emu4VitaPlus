@@ -33,7 +33,7 @@ public:
         }
     };
 
-    virtual ~ItemTheme() {};
+    virtual ~ItemTheme() = default;
 
 protected:
     virtual size_t _GetTotalCount() override { return _themes.Get().size(); };

@@ -12,7 +12,7 @@
 struct Notification
 {
     Notification() : texture(nullptr), _stop_time(0) {};
-    virtual ~Notification() {}; // texture is assigned and destroyed within TextureCache, so do nothing here
+    virtual ~Notification() = default; // texture is assigned and destroyed within TextureCache, so do nothing here
 
     bool TimeUp() const
     {

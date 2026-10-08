@@ -23,7 +23,7 @@ public:
         _index = _option->GetValueIndex();
     };
 
-    virtual ~ItemCore() {};
+    virtual ~ItemCore() = default;
 
 private:
     virtual size_t _GetTotalCount() override

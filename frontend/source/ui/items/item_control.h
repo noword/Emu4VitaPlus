@@ -16,7 +16,7 @@ public:
     ItemControl(ControlMapConfig *control_map)
         : ItemSelectable(Emu4VitaPlus::Config::ControlTextMap.at(control_map->psv), std::string(BUTTON_TRIANGLE) + TEXT(LANG_TURBO), std::bind(&Emulator::SetupKeysWithSaveConfig, gEmulator)),
           _control_map(control_map) {};
-    virtual ~ItemControl() {};
+    virtual ~ItemControl() = default;
 
     virtual void Show(bool selected) override
     {

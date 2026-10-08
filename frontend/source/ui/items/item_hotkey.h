@@ -42,7 +42,7 @@ public:
         : ItemSelectable(_langs[index], "", active_callback),
           _hotkey(hotkey) {};
 
-    virtual ~ItemHotkey() {};
+    virtual ~ItemHotkey() = default;
 
     virtual void Show(bool selected) override
     {

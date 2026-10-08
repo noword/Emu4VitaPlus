@@ -15,7 +15,7 @@ public:
         _values = _types->GetValues();
         _index = _types->GetValueIndex();
     };
-    virtual ~ItemDevice() {};
+    virtual ~ItemDevice() = default;
 
 private:
     virtual size_t _GetTotalCount() override

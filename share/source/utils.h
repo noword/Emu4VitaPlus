@@ -25,8 +25,8 @@ namespace Utils
     class JsonAllocator : public sce::Json::MemAllocator
     {
     public:
-        JsonAllocator() {};
-        virtual ~JsonAllocator() {};
+        JsonAllocator() = default;
+        virtual ~JsonAllocator() = default;
 
         virtual void *allocateMemory(size_t size, void *user_data) override
         {

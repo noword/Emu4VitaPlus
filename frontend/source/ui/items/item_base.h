@@ -17,7 +17,7 @@ public:
           _option_callback(option_callback),
           _visable(visable) {};
 
-    virtual ~ItemBase() {};
+    virtual ~ItemBase() = default;
 
     virtual void Show(bool selected)
     {

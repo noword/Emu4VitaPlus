@@ -17,7 +17,7 @@ public:
         _Update();
     };
 
-    virtual ~TabControl() {};
+    virtual ~TabControl() = default;
 
     virtual void SetInputHooks(Input *input) override
     {

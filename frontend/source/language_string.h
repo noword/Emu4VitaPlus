@@ -23,7 +23,7 @@ public:
     LanguageString(size_t id) : _text_id(TEXT_ENUM(id)) {};
     LanguageString(const LanguageString &ls) : _text_id(ls._text_id), _string(ls._string) {};
 
-    virtual ~LanguageString() {};
+    virtual ~LanguageString() = default;
 
     const char *const Get() const;
     const char *const GetOriginal() const;

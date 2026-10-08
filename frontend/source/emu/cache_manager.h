@@ -37,7 +37,7 @@ public:
         }
     };
 
-    virtual ~CacheManager() {};
+    virtual ~CacheManager() = default;
 
     bool IsInCache(const char *name) const { return _cache.find(name) != _cache.end(); };
 

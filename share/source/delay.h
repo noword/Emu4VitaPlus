@@ -7,10 +7,10 @@ template <typename T>
 class Delay
 {
 public:
-    Delay() {};
+    Delay() = default;
     Delay(T interval_ms, T start_ms = 0) { SetInterval(interval_ms, start_ms); };
 
-    virtual ~Delay() {};
+    virtual ~Delay() = default;
 
     void SetInterval(T interval_ms, T start_ms = 0)
     {

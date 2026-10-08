@@ -8,7 +8,7 @@ public:
     virtual ~Fps();
 
     void Update();
-    int Get() { return _fps; };
+    float Get() { return _fps; };
     void Show();
 
 private:

@@ -26,7 +26,7 @@ enum TaskType
 struct TaskBase
 {
     TaskBase(TaskType t) : type(t) {};
-    virtual ~TaskBase() {};
+    virtual ~TaskBase() = default;
     TaskType type;
     std::string url;
     std::string post_data;
@@ -35,7 +35,7 @@ struct TaskBase
 struct TaskDownload : public TaskBase
 {
     TaskDownload() : TaskBase(DOWNLOAD_TASK), file_handle(-1) {};
-    virtual ~TaskDownload() {};
+    virtual ~TaskDownload() = default;
 
     std::string file_name;
     SceUID file_handle;
@@ -44,7 +44,7 @@ struct TaskDownload : public TaskBase
 struct TaskCallback : public TaskBase
 {
     TaskCallback() : TaskBase(CALLBACK_TASK) { buf.reserve(0x200); };
-    virtual ~TaskCallback() {};
+    virtual ~TaskCallback() = default;
 
     ClientCallBackFunc callback;
     void *callback_data;

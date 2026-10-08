@@ -21,9 +21,9 @@ struct Theme
 class Themes
 {
 public:
-    Themes() {};
+    Themes() = default;
     Themes(const char *path) { Load(path); };
-    virtual ~Themes() {};
+    virtual ~Themes() = default;
 
     bool Load(const char *path);
     size_t GetIndexByName(const char *name) const;

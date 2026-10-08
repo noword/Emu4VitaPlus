@@ -11,7 +11,7 @@ class InputThread
 {
 public:
     InputThread() : ThreadBase(_InputThread) {};
-    virtual ~InputThread() {};
+    virtual ~InputThread() = default;
 
     bool Start()
     {

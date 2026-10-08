@@ -7,8 +7,8 @@
 class ArchiveReader
 {
 public:
-    ArchiveReader() {};
-    virtual ~ArchiveReader() {};
+    ArchiveReader() = default;
+    virtual ~ArchiveReader() = default;
 
     virtual bool Open(const char *path) = 0;
     virtual void Close() = 0;
