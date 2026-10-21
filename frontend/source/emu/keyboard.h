@@ -38,11 +38,9 @@ namespace Emu4VitaPlus
     {
     public:
         Keyboard();
-        virtual ~Keyboard();
+        virtual ~Keyboard() = default;
 
         void Show();
-        void SetInputHooks(Input *input);
-        void UnsetInputHooks(Input *input);
 
         bool Visable() { return _visable; };
         void SetVisable(bool visable);

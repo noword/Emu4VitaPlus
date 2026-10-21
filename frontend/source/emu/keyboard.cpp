@@ -208,9 +208,7 @@ Keyboard::Keyboard()
       _status{0}
 {
     SetKeyboardDown();
-};
-
-Keyboard::~Keyboard() {};
+}
 
 void Keyboard::Show()
 {
@@ -257,8 +255,6 @@ void Keyboard::Show()
     ImGui::End();
 }
 
-extern int mx, my;
-
 void Keyboard::SetVisable(bool visable)
 {
     LogFunctionName;
@@ -269,10 +265,9 @@ void Keyboard::SetVisable(bool visable)
     if (!visable)
     {
         ImGui::GetIO().MousePos = {-FLT_MAX, -FLT_MAX};
-        mx = my = 0;
         _status.reset();
     }
-};
+}
 
 void Keyboard::_OnKeyDown(const Key &key)
 {
