@@ -26,6 +26,7 @@ TabAbout::TabAbout() : TabBase(LANG_ABOUT),
 
 TabAbout::~TabAbout()
 {
+    vita2d_free_texture(_title_texture);
 }
 
 void TabAbout::_Show()
