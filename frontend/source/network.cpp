@@ -363,7 +363,7 @@ void Network::AddTask(const char *url, const char *post_data, size_t post_size, 
     Signal();
 }
 
-void Network::CleanTask()
+void Network::CleanTaskQueue()
 {
     LogFunctionName;
 
@@ -378,11 +378,11 @@ void Network::CleanTask()
     Unlock();
 }
 
-void Network::CleanAllTask()
+void Network::CleanAllTasks()
 {
     LogFunctionName;
 
-    CleanTask();
+    CleanTaskQueue();
 
     Lock();
     for (auto task : _active_tasks)

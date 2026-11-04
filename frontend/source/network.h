@@ -74,8 +74,8 @@ public:
     void AddTask(const char *url, ClientCallBackFunc callback, void *callback_data = nullptr);
     void AddTask(const char *url, const char *post_data, size_t post_size, ClientCallBackFunc callback, void *callback_data = nullptr);
 
-    void CleanTask();
-    void CleanAllTask(); // include actived
+    void CleanTaskQueue();
+    void CleanAllTasks(); // include actived
     bool AllCompleted() { return _task_queue.empty() && _active_tasks.empty(); };
 
 private:
