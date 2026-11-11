@@ -28,6 +28,9 @@ void IntroMovingStatus::Reset()
 
 bool IntroMovingStatus::Update(const char *text)
 {
+    if (text == nullptr)
+        return false;
+
     if (delay.TimeUp())
     {
         pos += delta;
@@ -35,7 +38,7 @@ bool IntroMovingStatus::Update(const char *text)
         {
             pos = VITA_WIDTH;
         }
-        else if (-pos >= ImGui::CalcTextSize(text).x)
+        else if (pos + ImGui::CalcTextSize(text).x < 0.0f)
         {
             pos = VITA_WIDTH;
         }
@@ -247,7 +250,7 @@ void App::_Show()
     ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, MAIN_WINDOW_PADDING});
     ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2});
 
-    if (ImGui::Begin("Emu4Vita++ v" APP_VER_STR, NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoInputs))
+    if (ImGui::Begin("Emu4Vita++ v" APP_VER_STR, NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoBringToFrontOnFocus))
     {
         My_ImGui_ShowTimePower();
 
@@ -262,10 +265,11 @@ void App::_Show()
 
         ImVec2 avail_size = ImGui::GetContentRegionAvail();
         ImVec2 main_size{avail_size.x - COVER_WIDTH - 8, avail_size.y};
-        ImVec2 intro_size;
-        if (*_intro)
+        ImVec2 intro_size{0.0f, 0.0f};
+        const bool has_intro = (_intro != nullptr && *_intro != '\0');
+        if (has_intro)
         {
-            ImVec2 intro_size = ImGui::CalcTextSize(_intro);
+            intro_size = ImGui::CalcTextSize(_intro);
             // main_size.y -= intro_size.y;
         }
         vita2d_texture *cover = nullptr;
@@ -325,11 +329,11 @@ void App::_Show()
             ImGui::EndChild();
         }
 
-        if (*_intro)
+        if (has_intro)
         {
-            ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2.5 - intro_size.y});
+            ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2.5f - intro_size.y});
             ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, intro_size.y});
-            if (ImGui::Begin("intro", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs))
+            if (ImGui::Begin("intro", NULL, ImGuiWindowFlags_NoTitleBar | ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoScrollbar | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_NoFocusOnAppearing))
             {
                 ImGui::SetCursorPos({(float)_moving_status.pos, 0});
                 ImGui::TextUnformatted(_intro);
@@ -337,7 +341,7 @@ void App::_Show()
 
                 if (_start_count > 0)
                 {
-                    ImGui::SetCursorPos({_moving_status.pos - ImGui::CalcTextSize(BUTTON_RIGHT_ANALOG_LEFT_RIGHT).x * 1.5, 0});
+                    ImGui::SetCursorPos({_moving_status.pos - ImGui::CalcTextSize(BUTTON_RIGHT_ANALOG_LEFT_RIGHT).x * 1.5f, 0});
 
                     if ((_start_count / 60) % 2 == 0)
                         ImGui::TextDisabled(BUTTON_RIGHT_ANALOG_LEFT_RIGHT);
@@ -400,6 +404,12 @@ void App::UnsetInputHooks(Input *input)
 
 void App::_OnKeyLeft(Input *input)
 {
+    if (_current_buttons == nullptr || _current_buttons->empty())
+        return;
+
+    if (_index_y >= _current_buttons->size())
+        _index_y = _current_buttons->size() - 1;
+
     if (_index_x > 0)
     {
         _index_x--;
@@ -409,6 +419,12 @@ void App::_OnKeyLeft(Input *input)
 
 void App::_OnKeyRight(Input *input)
 {
+    if (_current_buttons == nullptr || _current_buttons->empty())
+        return;
+
+    if (_index_y >= _current_buttons->size())
+        _index_y = _current_buttons->size() - 1;
+
     if (_index_x + 1 < (*_current_buttons)[_index_y].size())
     {
         _index_x++;
@@ -418,6 +434,9 @@ void App::_OnKeyRight(Input *input)
 
 void App::_OnKeyUp(Input *input)
 {
+    if (_current_buttons == nullptr || _current_buttons->empty())
+        return;
+
     if (_index_y > 0)
     {
         _index_y--;
@@ -429,6 +448,9 @@ void App::_OnKeyUp(Input *input)
 
 void App::_OnKeyDown(Input *input)
 {
+    if (_current_buttons == nullptr || _current_buttons->empty())
+        return;
+
     if (_index_y + 1 < _current_buttons->size())
     {
         _index_y++;
@@ -468,6 +490,9 @@ void App::_OnKeyStart(Input *input)
 {
     LogFunctionName;
 
+    if (_current_buttons == nullptr || _current_buttons->empty())
+        return;
+
     CONSOLE console = (*_current_buttons)[_index_y][_index_x]->GetConsole();
     _in_choice = !_in_choice;
     if (_in_choice)
@@ -499,6 +524,9 @@ bool App::_SetIndex(CONSOLE console)
     size_t x = 0;
     size_t y = 0;
     bool found = false;
+
+    if (_current_buttons == nullptr)
+        return false;
 
     for (const auto buttons : *_current_buttons)
     {
@@ -537,12 +565,32 @@ void App::_UpdateIntro()
     LogFunctionName;
     _cover_alpha = MIN_COVER_ALPHA;
     _moving_status.Reset();
-    const CoreButton *button = (*_current_buttons)[_index_y][_index_x];
+
+    if (_current_buttons == nullptr || _current_buttons->empty())
+    {
+        _intro = "";
+        return;
+    }
+
+    if (_index_y >= _current_buttons->size())
+        _index_y = _current_buttons->size() - 1;
+
+    const auto &row = (*_current_buttons)[_index_y];
+    if (row.empty() || _index_x >= row.size())
+    {
+        _intro = "";
+        return;
+    }
+
+    const CoreButton *button = row[_index_x];
     _intro = button->GetIntro();
+    if (_intro == nullptr)
+        _intro = "";
+
     const CONSOLE console = button->GetConsole();
-    float ratio = _index_x / (_max_row - 1.f);
+    float ratio = _max_row > 1.0f ? _index_x / (_max_row - 1.f) : 0.0f;
     LogDebug("  ratio %f", ratio);
-    _time_scale->SetTime(CONSOLE_YEARS[console], TIME_SCALE_WIDTH * ratio + BUTTON_SIZE * (0.5 - ratio));
+    _time_scale->SetTime(CONSOLE_YEARS[console], TIME_SCALE_WIDTH * ratio + BUTTON_SIZE * (0.5f - ratio));
 }
 
 void App::_OnStartRollingIntro(Input *input)
@@ -602,6 +650,9 @@ void App::_RestoreLastCore()
 
     bool found = false;
     _index_x = _index_y = 0;
+    if (_visable_buttons.empty())
+        return;
+
     for (auto buttons : _visable_buttons)
     {
         _index_x = 0;

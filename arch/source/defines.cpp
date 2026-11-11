@@ -1,5 +1,10 @@
 #include "defines.h"
 
+static_assert((sizeof(CONSOLE_NAMES) / sizeof(CONSOLE_NAMES[0])) == CONSOLE_COUNT,
+              "CONSOLE_NAMES is out of sync with CONSOLE enum");
+static_assert((sizeof(CONSOLE_YEARS) / sizeof(CONSOLE_YEARS[0])) == CONSOLE_COUNT,
+              "CONSOLE_YEARS is out of sync with CONSOLE enum");
+
 const char *CONSOLE_NAMES[CONSOLE_COUNT] = {
     "ATARI2600",
     "ATARI5200",
@@ -31,34 +36,33 @@ const char *CONSOLE_NAMES[CONSOLE_COUNT] = {
     "GW",
 };
 
-const int CONSOLE_YEARS[CONSOLE_COUNT] =
-    {
-        1977, // ATARI2600
-        1982, // ATARI5200
-        1986, // ATARI7800
-        1982, // C64
-        1982, // VECTREX
-        1982, // ZXS
-        1981, // DOS
-        1981, // PC88
-        1982, // PC98
-        1983, // MSX
-        1983, // NES
-        1984, // CPC
-        1985, // AMIGA
-        1987, // X68000
-        1992, // ATARIFALCON
-        1987, // PCE
-        1988, // MD
-        1989, // LYNX
-        1995, // VB
-        1989, // GBC
-        1990, // SNES
-        1994, // NEOCD
-        1994, // PS1
-        1998, // NGP
-        1999, // WSC
-        2001, // GBA
-        0,    // ARC
-        1980, // GW
+const int CONSOLE_YEARS[CONSOLE_COUNT] = {
+    1977, // ATARI2600
+    1982, // ATARI5200
+    1986, // ATARI7800
+    1982, // C64
+    1982, // VECTREX
+    1982, // ZXS
+    1981, // DOS
+    1981, // PC88
+    1982, // PC98
+    1983, // MSX
+    1983, // NES
+    1984, // CPC
+    1985, // AMIGA
+    1987, // X68000
+    1992, // ATARIFALCON
+    1987, // PCE
+    1988, // MD
+    1989, // LYNX
+    1995, // VB
+    1989, // GBC
+    1990, // SNES
+    1994, // NEOCD
+    1994, // PS1
+    1998, // NGP
+    1999, // WSC
+    2001, // GBA
+    0,    // ARC
+    1980, // GW
 };
