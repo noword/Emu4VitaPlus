@@ -1,91 +1,87 @@
-[For English](README.en.md)
-
 # Emu4Vita++
-这是一个在 PlayStation Vita 使用的, 基于 [Libretro API](https://github.com/libretro/libretro-common) 的模拟器前端。
 
-* [下载](#下载)
-* [功能说明](#功能说明)
-* [支持的内核](#支持的内核)
-* [编译](#编译前准备)
-* [相关脚本](#相关脚本)
-* [相关路径](#相关路径)
-* [问题反馈](#问题反馈)
-* [特别感谢](#特别感谢)
+A frontend for emulators running on the PlayStation Vita, based on the [Libretro API](https://github.com/libretro/libretro-common).
 
-## 下载
+* [Download](#download)
+* [Features](#features)
+* [Supported Cores](#supported-cores)
+* [Building](#prerequisites)
+* [Scripts](#scripts)
+* [Paths](#paths)
+* [Troubleshooting](#troubleshooting)
+* [Credits](#credits)
+
+## Download
 [Release](https://github.com/noword/Emu4VitaPlus/releases)
 
-[百度网盘](https://pan.baidu.com/s/1chcOOw9G1GBtlkM9K4MtRg?pwd=E4VP)
+[Baidu Netdisk](https://pan.baidu.com/s/1chcOOw9G1GBtlkM9K4MtRg?pwd=E4VP)
 
-带log的版本会在 `ux0:data/EMU4VITAPLUS/[core]/Emu4Vita++.log` 中输出更多日志，但是会影响执行效率。
+The version with logs outputs more logs to `ux0:data/EMU4VITAPLUS/[core]/Emu4Vita++.log`, but it affects performance.
 
-## 功能说明
-### 内核选择
+## Features
+### Core Selection
 <img src="screenshots/arch.jpg" width="720"/>
 
-|                                                                                                             |                        |
-|-------------------------------------------------------------------------------------------------------------|------------------------|
-| <img src="screenshots/start.svg" width="30">                                                                | 开启/关闭 console 图标 |
-| <img src="screenshots/analog-r-lr.svg" width="30">                                                          | 控制说明文本滚动       |
-| <img src="screenshots/button-circle.svg" width="30"> 或 <img src="screenshots/button-cross.svg" width="30"> | 启动内核               |
+|                                                                                                             |                                 |
+|-------------------------------------------------------------------------------------------------------------|---------------------------------|
+| <img src="screenshots/start.svg" width="30">                                                                | Toggle console icon             |
+| <img src="screenshots/analog-r-lr.svg" width="30">                                                          | Scroll control description text |
+| <img src="screenshots/button-circle.svg" width="30"> or <img src="screenshots/button-cross.svg" width="30"> | Launch core                     |
 
-### ROM 浏览
+### ROM Browser
 <img src="screenshots/browser.jpg" width="720"/>
 
-|                                                                                                             |                                |
-|-------------------------------------------------------------------------------------------------------------|--------------------------------|
-| <img src="screenshots/start.svg" width="30">                                                                | 添加/移出收藏夹                |
-| <img src="screenshots/select.svg" width="30">                                                               | 呼出文件管理菜单               |
-| <img src="screenshots/button-circle.svg" width="30"> 或 <img src="screenshots/button-cross.svg" width="30"> | 进入目录/返回上层目录/启动游戏 |
-| <img src="screenshots/button-triangle.svg" width="30">                                                      | 搜索                           |
-| <img src="screenshots/button-square.svg" width="30">                                                        | 下一个搜索匹配文件             |
+|                                                                                                             |                                    |
+|-------------------------------------------------------------------------------------------------------------|------------------------------------|
+| <img src="screenshots/start.svg" width="30">                                                                | Add/remove from favorites          |
+| <img src="screenshots/select.svg" width="30">                                                               | Open file management menu          |
+| <img src="screenshots/button-circle.svg" width="30"> or <img src="screenshots/button-cross.svg" width="30"> | Enter directory / Go back / Launch |
+| <img src="screenshots/button-triangle.svg" width="30">                                                      | Search                             |
+| <img src="screenshots/button-square.svg" width="30">                                                        | Next search match                  |
 
-### 手柄测试
+### Controller Test
 
 <img src="screenshots/control_test.jpg" width="720">
 
-### 主题
+### Themes
 <img src="screenshots/theme.jpg" width="720">
 
-### 游戏
+### Game
 <img src="screenshots/game.jpg" width="720"/>
 
-|                                                                                                        |            |
-|--------------------------------------------------------------------------------------------------------|------------|
-| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-l.svg" width="30"> | 回溯       |
-| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/R.svg" width="30">          | 加速       |
-| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/L.svg" width="30">          | 减速       |
-| <img src="screenshots/playstation.svg" width="30">                                                     | 切换回菜单 |
+|                                                                                                        |                   |
+|--------------------------------------------------------------------------------------------------------|-------------------|
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-l.svg" width="30"> | Rewind            |
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/R.svg" width="30">          | Fast forward      |
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/L.svg" width="30">          | Slow motion       |
+| <img src="screenshots/playstation.svg" width="30">                                                     | Return to menu    |
 
-### PC OS 模拟器中，例如 DOS, PC98 等，呼出键盘
+### Keyboard for PC OS emulators (DOS, PC98, etc.)
 
 <img src="screenshots/keyboard.jpg" width="720"/>
 
-|                                                                                                           |          |
-|-----------------------------------------------------------------------------------------------------------|----------|
-| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/button-circle.svg" width="30"> | 切换键盘 |
-| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-u.svg" width="30">    | 键盘上移 |
-| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-d.svg" width="30">    | 键盘下移 |
+|                                                                                                           |                     |
+|-----------------------------------------------------------------------------------------------------------|---------------------|
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/button-circle.svg" width="30"> | Toggle keyboard     |
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-u.svg" width="30">    | Move keyboard up    |
+| <img src="screenshots/playstation.svg" width="30"> + <img src="screenshots/analog-r-d.svg" width="30">    | Move keyboard down  |
 
-### 即时存档
+### Save States
 <img src="screenshots/state.jpg" width="720"/>
 
-### 金手指
+### Cheats
 <img src="screenshots/cheat.jpg" width="720"/>
 
 
-### 使用触控屏在 FCEumm 中打鸭子
+### Duck Hunt with Touchscreen in FCEUmm
 <img src="screenshots/duck_hunter.jpg" width="720"/>
 
-* 控制 ==> 设备端口2，设置为 Zapper
+* Controls ==> Port 2 Device, set to Zapper
 
+### [Overlays and Shaders](GRAPHICS.md)
 
-
-### [遮罩和着色器](GRAPHICS.md)
-
-
-## 支持的内核
-街机
+## Supported Cores
+Arcade
   - [FinalBurn Lite](https://gitee.com/yizhigai/libretro-fba-lite)
   - [FinalBurn Alpha 2012](https://github.com/libretro/fbalpha2012)
   - [FinalBurn Neo](https://github.com/libretro/FBNeo)
@@ -169,131 +165,116 @@ Commodore 64
 Sharp X68000
  - [PX68k](https://github.com/libretro/px68k-libretro)
 
-## 编译前准备
+## Prerequisites
 ### Windows
-* 安装 [msys2](https://www.msys2.org/) 或 [devkitPro](https://github.com/devkitPro/installer/releases)
-#### 进入 msys
-* 安装 [vitasdk](https://vitasdk.org/)
-* 安装 cmake, python, ccache
+* Install [msys2](https://www.msys2.org/) or [devkitPro](https://github.com/devkitPro/installer/releases)
+#### Enter msys
+* Install [vitasdk](https://vitasdk.org/)
+* Install cmake, python, ccache
   
   ```bash
   pacman -S cmake python python-pip ccache
-  ```
+Install openpyxl, pillow, lz4, toml
 
-* 安装 [openpyxl](https://pypi.org/project/openpyxl/), [pillow](https://pypi.org/project/pillow/), [lz4](https://pypi.org/project/lz4/), [toml](https://pypi.org/project/toml/)
-  
+bash
+pip3 install openpyxl pillow pz4 toml
+Or install suitable versions via pacman (recommended)
 
-  ```bash
-  pip3 install openpyxl pillow pz4 toml
-  ```
+bash
+pacman -S mingw-w64-???-???-python-openpyxl \
+          mingw-w64-???-???-python-pillow \
+          mingw-w64-???-???-python-lz4 \
+          mingw-w64-???-???-python-toml
+Linux
+Follow the Windows steps. If you're on Linux, you should be able to figure it out yourself.
 
-  或者通过 pacman 安装适合的版本（推荐）
-  ```bash
-  pacman -S mingw-w64-???-???-python-openpyxl \
-            mingw-w64-???-???-python-pillow \
-            mingw-w64-???-???-python-lz4 \
-            mingw-w64-???-???-python-toml
-  ```
-
-### Linux
-
-参考 Windows 的步骤，都用 Linux 了，应该有能力自己捣鼓了。
-
-## 编译
-```bash
+Building
+bash
 mkdir build
 cd build
 cmake ../
 make
-```
-编译带日志的版本:
-```bash
+Build with logs:
+
+bash
 mkdir build-debug
 cd build-debug
 cmake ../ -DWITH_LOG=ON
 make
-```
-编译独立内核的vpk:
-```bash
+Build standalone core vpk:
+
+bash
 mkdir build-gpsp
 cd build-gpsp
 cmake ../ -DBUILD=gpsp
 make
-```
+Scripts
+Translation
 
-## 相关脚本
-### 翻译
 
-```mermaid
-graph TD
-A[./to_exce.py] --> B{{编辑 language.xlsx 和 translation.xlsx}}
-B --> C[./to_json.py]
-```
 
-### 生成 shaders
-```bash
-./compile_shaders.py  #请自行在网上寻找 psp2cgc.exe
-```
+Generate shaders
+bash
+./compile_shaders.py  # Find psp2cgc.exe online yourself
+Paths
+Previews
+The program automatically looks for a jpg or png image with the same name in the .previews directory under the rom directory. If not found, it searches for a screenshot from the save state.
 
-## 相关路径
-### 预览图
-程序会在 rom 目录下的 `.previews` 目录中自动寻找同名的 `jpg` 或 `png` 图片，如果未找到，则会搜寻即时存档的截图
+Cheats
+The program searches for a .cht file with the same name in the rom directory, the .cheats directory under the rom directory, and the ux0:/data/EMU4VITAPLUS/[core]/cheats directory, using the first one found.
 
-### 金手指
-程序会依次在 rom 目录下，rom目录下的.cheats 目录，ux0:/data/EMU4VITAPLUS/[内核]/cheats 目录下的同名.cht文件，以先找到的为准。
+Overlays
+The program reads overlays.ini from ux0:/data/EMU4VITAPLUS/[core]/overlays.
 
-### 遮罩
-程序会读取 ux0:/data/EMU4VITAPLUS/[内核]/overlays 下的 overlays.ini
+Save Files
+ux0:/data/EMU4VITAPLUS/[core]/savefiles/[rom]
 
-### 存档
-ux0:/data/EMU4VITAPLUS/[内核]/savefiles/[rom]
-
-### BIOS
+BIOS
 ux0:/data/EMU4VITAPLUS/system
 
-请自行将对应的 BIOS 文件复制到此目录中【重要】
+Please copy the corresponding BIOS files to this directory [IMPORTANT].
 
-### 兼容 [RetroArch romset](https://docs.libretro.com/guides/roms-playlists-thumbnails/)
+RetroArch romset Compatibility
+Emu4Vita++ attempts to read .lpl files from the following directories:
 
-Emu4Vita++ 会尝试读取以下目录中的 .lpl 文件:
-* ux0:data/EMU4VITAPLUS/playlists
-* ux0:data/retroarch/retroarch.cfg 中的 playlist_directory 项
-* ux0:data/retroarch/playlists
-  
-利用 lpl 中的 label 和 path 信息，显示 rom 名称和缩略图。
+ux0:data/EMU4VITAPLUS/playlists
 
-## 问题反馈
+playlist_directory in ux0:data/retroarch/retroarch.cfg
 
-[https://github.com/noword/Emu4VitaPlus/issues](https://github.com/noword/Emu4VitaPlus/issues)
+ux0:data/retroarch/playlists
 
-QQ群：550802386
+It uses the label and path information from the lpl to display ROM names and thumbnails.
 
-如果希望回报问题，请注明版本和使用的内核，问题出现前的操作；
+Troubleshooting
+https://github.com/noword/Emu4VitaPlus/issues
 
-如果在游戏过程中出现问题，请上传rom；
+QQ Group: 550802386
 
-如果程序奔溃，请找到ux0:/data/下面的psp2dmp文件，并上传。
+If you want to report a problem, please specify the version and the core used, and the steps taken before the problem occurred;
 
+If a problem occurs during gameplay, please upload the ROM;
 
-## 特别感谢
-[一直改](https://gitee.com/yizhigai/Emu4Vita)
+If the program crashes, please find the psp2dmp file under ux0:/data/ and upload it.
 
-[KyleBing](https://github.com/KyleBing/retro-game-console-icons)
+Credits
+一直改
+
+KyleBing
 
 TearCrow
 
-[SnowPin](https://github.com/LiquifiedSnow) (RetroAchievements Admin)
+SnowPin (RetroAchievements Admin)
 
-[Scott](https://github.com/ScottFromDerby) (RetroAchievements 测试)
+Scott (RetroAchievements Testing)
 
-[yyoossk](https://github.com/yyoossk) (日语翻译)
+yyoossk (Japanese translation)
 
-[theheroGAC](https://github.com/theheroGAC) (意大利语翻译)
+theheroGAC (Italian translation)
 
-[chronoss09](https://github.com/chronoss09) (法语翻译)
+chronoss09 (French translation)
 
-[limonetas](https://github.com/limonetas) (西班牙语翻译)
+limonetas (Spanish translation)
 
-[MayanKoyote](https://github.com/MayanKoyote) (俄罗斯语翻译)
+MayanKoyote (Russian translation)
 
-以及在本项目中用到的所有开源项目的开发者们
+And all the developers of the open-source projects used in this project.
