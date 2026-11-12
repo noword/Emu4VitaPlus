@@ -28,6 +28,9 @@ void IntroMovingStatus::Reset()
 
 bool IntroMovingStatus::Update(const char *text)
 {
+    if (text == nullptr)
+        return false;
+
     if (delay.TimeUp())
     {
         pos += delta;
@@ -247,7 +250,7 @@ void App::_Show()
     ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, MAIN_WINDOW_PADDING});
     ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2});
 
-    if (ImGui::Begin("Emu4Vita++ v" APP_VER_STR, NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoInputs))
+    if (ImGui::Begin("Emu4Vita++ v" APP_VER_STR, NULL, ImGuiWindowFlags_NoSavedSettings | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_HorizontalScrollbar | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoInputs | ImGuiWindowFlags_NoBringToFrontOnFocus))
     {
         My_ImGui_ShowTimePower();
 
@@ -262,11 +265,11 @@ void App::_Show()
 
         ImVec2 avail_size = ImGui::GetContentRegionAvail();
         ImVec2 main_size{avail_size.x - COVER_WIDTH - 8, avail_size.y};
-        ImVec2 intro_size;
-        if (*_intro)
+        ImVec2 intro_size{0.f, 0.f};
+        const bool has_intro = (_intro != nullptr && *_intro != '\0');
+        if (has_intro)
         {
-            ImVec2 intro_size = ImGui::CalcTextSize(_intro);
-            // main_size.y -= intro_size.y;
+            intro_size = ImGui::CalcTextSize(_intro);
         }
         vita2d_texture *cover = nullptr;
 
@@ -325,7 +328,7 @@ void App::_Show()
             ImGui::EndChild();
         }
 
-        if (*_intro)
+        if (has_intro)
         {
             ImGui::SetNextWindowPos({MAIN_WINDOW_PADDING, VITA_HEIGHT - MAIN_WINDOW_PADDING * 2.5 - intro_size.y});
             ImGui::SetNextWindowSize({VITA_WIDTH - MAIN_WINDOW_PADDING * 2, intro_size.y});
