@@ -119,6 +119,9 @@ void Cheat::CleanMemory()
 
 bool Cheat::_SetupRetroCheatMeta(uint32_t *bytes_per_item, uint32_t *bits, uint32_t *mask)
 {
+    if (bytes_per_item == nullptr || bits == nullptr || mask == nullptr)
+        return false;
+
     switch (memory_search_size)
     {
     case 0:
@@ -172,11 +175,21 @@ uint32_t Cheat::_GetCurrentValue(uint32_t bytes_per_item)
     switch (bytes_per_item)
     {
     case 2:
-        val = big_endian ? (curr[0] << 8) | curr[1] : curr[0] | (curr[1] << 8);
-        break;
+    {
+        uint32_t b0 = curr[0];
+        uint32_t b1 = curr[1];
+        val = big_endian ? (b0 << 8) | b1 : b0 | (b1 << 8);
+    }
+    break;
     case 4:
-        val = big_endian ? (curr[0] << 24) | (curr[1] << 16) | (curr[2] << 8) | curr[3] : curr[0] | (curr[1] << 8) | (curr[2] << 16) | curr[3] << 24;
-        break;
+    {
+        uint32_t b0 = curr[0];
+        uint32_t b1 = curr[1];
+        uint32_t b2 = curr[2];
+        uint32_t b3 = curr[3];
+        val = big_endian ? (b0 << 24) | (b1 << 16) | (b2 << 8) | b3 : b0 | (b1 << 8) | (b2 << 16) | b3 << 24;
+    }
+    break;
     case 1:
     default:
         val = *curr;
@@ -223,15 +236,13 @@ void Cheat::_SetCurrentValue(uint32_t address, uint32_t bytes_per_item, uint32_t
     case 1:
         if (bits < 8)
         {
-            uint8_t mask;
             uint8_t v = curr[0];
             for (int i = 0; i < 8; i++)
             {
                 if ((address_bit_position >> i) & 1)
                 {
-                    mask = ~((1 << i) & 0xff);
-                    v &= mask;
-                    v |= ((val >> i) & 1) << i;
+                    const uint8_t bit_mask = (uint8_t)(1u << i);
+                    v = (uint8_t)((v & ~bit_mask) | (((val >> i) & 1u) << i));
                 }
             }
             curr[0] = v;
@@ -248,6 +259,9 @@ void Cheat::_SetCurrentValue(uint32_t address, uint32_t bytes_per_item, uint32_t
 
 void Cheat::_ApplyRetro(bool *run_cheat)
 {
+    if (run_cheat == nullptr)
+        return;
+
     if (!(*run_cheat))
     {
         *run_cheat = true;
@@ -274,6 +288,9 @@ void Cheat::_ApplyRetro(bool *run_cheat)
     {
         return;
     }
+
+    if (address > _memory_size || bytes_per_item > _memory_size - address)
+        return;
 
     uint32_t current_value = _GetCurrentValue(bytes_per_item);
     bool set_value = false;
@@ -319,22 +336,26 @@ void Cheat::_ApplyRetro(bool *run_cheat)
     if (set_value)
     {
         uint32_t addr = address;
+        current_value &= mask;
         for (int i = 0; i < repeat_count; i++)
         {
+            if (addr > _memory_size || bytes_per_item > _memory_size - addr)
+                break;
+
             _SetCurrentValue(addr, bytes_per_item, bits, current_value);
             current_value += repeat_add_to_value;
             current_value %= mask;
 
             if (bits < 8)
             {
-                int address_mask = address_bit_position;
-                for (int i = 0; i < repeat_add_to_address; i++)
+                uint32_t address_mask = address_bit_position;
+                for (uint32_t i = 0; i < repeat_add_to_address; i++)
                 {
                     address_mask = (address_mask << mask) & 0xff;
                     if (address_mask == 0)
                     {
                         address_mask = mask;
-                        address++;
+                        addr++;
                     }
                 }
             }
