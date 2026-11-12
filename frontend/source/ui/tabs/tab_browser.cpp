@@ -457,7 +457,7 @@ int TabBrowser::_DownloadThumbnailsThread(uint32_t args, void *argp)
 
     if (!tab->_updating_thumbnails)
     {
-        gNetwork->CleanTask();
+        gNetwork->CleanTaskQueue();
     }
 
     while (!gNetwork->AllCompleted())

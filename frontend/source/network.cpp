@@ -96,7 +96,7 @@ Network::~Network()
 {
     LogFunctionName;
 
-    CleanAllTask();
+    CleanAllTasks();
 
     Stop(true);
 
