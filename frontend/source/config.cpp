@@ -21,7 +21,7 @@
 #define GRAPHICS_SECTION "GRAPHICS"
 #define RA_SECTION "RETRO_ACHIEVEMENTS"
 
-static const float SPEED_STEP[] = {0.1, 0.2, 0.5, 1.0, -1};
+static const float SPEED_STEP[] = {0.1, 0.2, 0.5, 1.0, -1}; // -1 is max step
 
 namespace Emu4VitaPlus
 {
@@ -185,7 +185,7 @@ namespace Emu4VitaPlus
         control_maps = CONTROL_MAPS;
         mouse = DEFAULT_MOUSE;
         lightgun = DEFAULT_LIGHTGUN;
-        for (auto device : device_options)
+        for (auto &device : device_options)
         {
             device.Default();
         }
@@ -316,7 +316,7 @@ namespace Emu4VitaPlus
         ini.Reset();
         if (ini.LoadFile(ARCH_CONFIG_PATH) == SI_OK)
         {
-            ini.SetValue(MAIN_SECTION, "language", gLanguageNames[gConfig->language]);
+            ini.SetValue(MAIN_SECTION, "language", gLanguageNames[language]);
             ini.SetValue(MAIN_SECTION, "theme", theme.c_str());
 
             ini.SetValue(RA_SECTION, "user", ra_user.c_str());
@@ -351,17 +351,10 @@ namespace Emu4VitaPlus
         }
 
         const char *tmp = ini.GetValue(MAIN_SECTION, "version");
-
-        float version;
-        if (tmp)
-        {
-            version = strtof(tmp, NULL);
-        }
-        else
-        {
+        if (!tmp)
             return false;
-        }
 
+        float version = strtof(tmp, NULL);
         if (version < 0.80)
         {
             LogDebug("ignore config of old version");
@@ -503,13 +496,13 @@ namespace Emu4VitaPlus
 
     float Config::GetSpeedStep()
     {
-        if (speed_step >= 0 && speed_step <= 4)
+        if (speed_step < sizeof(SPEED_STEP) / sizeof(SPEED_STEP[0]))
         {
             return SPEED_STEP[speed_step];
         }
         else
         {
-            return 0.1;
+            return SPEED_STEP[DEFAULT_SPEED_STEP];
         }
     }
 
